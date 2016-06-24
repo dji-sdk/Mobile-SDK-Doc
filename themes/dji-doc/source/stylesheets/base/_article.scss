@@ -1,5 +1,5 @@
 .article {
-  p, ul, ol, img, dl, pre, blockquote, table {
+  p, ul, ol, img, dl, blockquote, table {
     margin-bottom: 20px;
   }
   p {
@@ -100,5 +100,14 @@
     border-left: 2px solid $light-line-color;
     font-size: 14px;
     color: $light-text-color;
+  }
+  .highlight {
+    table {
+      margin: 0;
+      td {
+        border: none;
+        padding: 0;
+      }
+    }
   }
 }
