@@ -1,0 +1,64 @@
+// variables
+//Page Font - Color
+$T1: #707473;   // Normal
+$T2: #484848;   // Topbar1
+$T3: #818491;   // Footfont
+$T4: #fff;      // Buttonfont
+$T5: #365890;   // Topbar2
+$T6: #4372bf;   // Linksfont
+//$T7: #ff;     // ErroralertFont
+
+//line color
+$L1: #cfcfcf;   // Pagedividingline
+$L2: #696a6d;   // ButtonFrame
+$L3: #008dea;   // Frame–Click
+$L4: #faa8af;   // Frame–fault
+
+//Background Color
+$B1: #ffffff;   // PageBackgroundColors
+$B2: #f7f8f9;
+$B3: #365890;
+$B4: #28292e;   // FootBackgroundColor
+$B5: #e3e6eb;   // SelectedBackgroundColor
+$B6: #f8fffe;   // User’sAppcardColor
+
+// font-weight
+$light: 300;
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+
+// z-index
+$z-index0: 0;
+$z-index1: 100;
+$z-index2: 200;
+$z-index3: 300;
+$z-index4: 400;
+$z-index5: 500;
+$z-index6: 600;
+$z-index7: 700;
+$z-index8: 800;
+$z-index9: 900;
+
+// layouts
+$footer-height: 210px;
+
+// V2
+$font-opensans: "Open Sans", "PingFangSC-Regular", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arials, sans-serif;
+$font-gotham: "Gotham", $font-opensans;
+
+/* color */
+$dji-blue: #44a8f2;
+$text-color: #707473;
+/* $light-text-color: #a6acaa; */
+$light-text-color: #979797;
+$lighter-text-color: #b4b4b4;
+/* b4b4b4 */
+$light-bg: #f7f8f9;
+$light-line-color: #E5E5E5;
+$lighter-line-color: #eaeaea;
+
+$error-line-color: #eca5a5;
+$error-text-color: #e08383;
+$error-bg-color: #fff8f8;

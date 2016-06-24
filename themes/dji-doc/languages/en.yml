@@ -1,0 +1,37 @@
+nav:
+  sdk: "SDK"
+  mobile_sdk: "Mobile SDK"
+  onboard_sdk: "Onboard SDK"
+  guidance_sdk: "Guidance SDK"
+  mobile-sdk: "Mobile SDK"
+  onboard-sdk: "Onboard SDK"
+  guidance-sdk: "Guidance SDK"
+  products: "Products"
+  info: "Info"
+  showcase: "Showcase"
+  support: "Support"
+  news: "News"
+  community: "Community"
+  forum: "Forum"
+  github: "GitHub"
+  stackoverflow: "Stack Overflow"
+  login: "Login"
+  register: "Register"
+  logout: "Logout"
+  user: "User Center"
+  dji: "DJI"
+  dji_store: "DJI Online Store"
+  contact_us: "Contact Us"
+  contact_us_bd: "Business Cooperation"
+  copyright: "Copyright © 2015 DJI All Rights Reserved"
+
+sub_nav:
+  overview: Overview
+  features: Features
+  documentation: Documentation
+  downloads: Downloads
+  support: Support
+
+doc:
+  search_holder: 'Search Documentation'
+  

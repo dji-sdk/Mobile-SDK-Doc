@@ -1,0 +1,14 @@
+.scrollable {
+  overflow-y: auto;
+}
+.scrollable::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background: $light-line-color;
+}
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(112, 115, 116, 0)
+}
+.scrollable:hover::-webkit-scrollbar-thumb {
+  background: rgba(112, 115, 116, 1)
+}

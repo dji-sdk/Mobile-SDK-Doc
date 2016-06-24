@@ -1,0 +1,96 @@
+.site-sidebar {
+  float: left;
+  width: 290px;
+  padding: 20px 30px 0px 0;
+  border-right: 1px solid $light-line-color;
+  &.fixed {
+    position: fixed;
+    top: 60px;
+    z-index: 100;
+  }
+  dl {
+    margin-bottom: 36px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    dt {
+      margin-bottom: 15px;
+      // color: #A6ACAA;
+      font-family: $font-gotham;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 12px;
+    }
+    dd {
+      .fa-link {
+        margin-left: 5px;
+      }
+      a, .sub-toggle {
+        cursor: pointer;
+        display: block;
+        margin-bottom: 8px;
+        color: $light-text-color;
+        font-size: 13px;
+        .fa {
+          margin-left: .5em;
+          position: relative;
+          top: 1px;
+        }
+        .fa-angle-up {
+          display: none;
+        }
+        .fa-angle-down {
+          display: inline-block;
+        }
+        &:hover {
+          color: $dji-blue;
+        }
+        &.active {
+          color: $dji-blue;
+          // font-weight: 600;
+          /* margin-left: -10px;
+          padding-left: 8px;
+          border-left: 2px solid $dji-blue; */
+          .fa-angle-up {
+            display: inline-block;
+          }
+          .fa-angle-down {
+            display: none;
+          }
+          & + .toc {
+            display: block;
+          }
+        }
+      }
+      .sub-toggle {
+        &.active + .sub-menu {
+          display: block;
+        }
+      }
+      .sub-menu {
+        display: none;
+        margin-left: 20px;
+        > li > a {
+          display: block;
+          margin-bottom: 8px;
+          font-size: 12px;
+          color: $light-text-color; 
+          &:hover {
+            color: $dji-blue;
+          }
+          &.active {
+            color: $dji-blue;
+            & + .toc {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.site-main {
+  margin-left: 290px;
+  padding: 20px 0 20px 50px;
+  overflow: hidden;
+}

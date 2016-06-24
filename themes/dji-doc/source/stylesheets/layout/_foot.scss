@@ -1,0 +1,78 @@
+// foot
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: $light-bg;
+  font-size: 12px;
+
+  .foot-nav {
+    overflow: hidden;
+    padding: 30px 0;
+
+    .link-list {
+      float: left;
+      a {
+        display: block;
+        font-weight: 400;
+        font-size: 11px;
+        color: #a6acaa;
+        line-height: 21px;
+        &:hover {
+          color: $dji-blue;
+        }
+      }
+      .title {
+        display: block;
+        font-weight: 400;
+        font-size: 12px;
+        color: #979797;
+        line-height: 17px;
+        margin-bottom: 18px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .foot-copyright {
+    padding-bottom: 30px;
+    .foot-logo {
+      img {
+        height: 22px;
+      }
+    }
+    .copyright {
+      span, a {
+        margin-right: .5em;
+        color: #a6acaa;
+      }
+      a {
+        text-decoration: underline;
+        &:hover {
+          color: $dji-blue;
+        }
+      }
+    }
+    .lang-selector {
+      position: relative;
+      float: right;
+      display: inline-block;
+      padding-right: 20px;
+      select {
+        float: right;
+        @include prefix(appearance, none);
+        border: none;
+        background: none;
+        color: $text-color;
+        cursor: pointer;
+        &:focus, &:active, &:visited {
+          outline: none;
+        }
+      }
+      .fa {
+        position: absolute;
+        right: 5px;
+        top: 3px;
+      }
+    }
+  }
+}

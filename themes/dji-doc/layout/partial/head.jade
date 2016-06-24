@@ -1,0 +1,63 @@
+nav#site-header.site-header.navbar
+  .container
+    .navbar-header
+      a.logo(href=url(''))
+        img(src="/images/dji-logo@2x.png")
+        | Developer
+    #header-navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.hovedown
+          a.hovedown-toggle(href="javascript:void(0);")
+            = __('nav.sdk')
+            span.caret
+          ul.hovedown-menu
+            li
+              a(href=url('mobile-sdk'))
+                = __('nav.mobile_sdk')
+            li
+              a(href=url('onboard-sdk'))
+                = __('nav.onboard_sdk')
+            li
+              a(href=url('guidance-sdk'))
+                = __('nav.guidance_sdk')
+        li
+          a(href=url('products'))
+            = __('nav.products')
+        li
+          a(href=url('showcase'))
+            = __('nav.showcase')
+        li
+          a(href=url('news'))
+            = __('nav.news')
+        li
+          a(href=dev_forum_url(), target='_blank')
+            = __('nav.forum')
+        li.hovedown
+          a.hovedown-toggle(href="javascript:void(0);")
+            | GitHub
+            span.caret
+          ul.hovedown-menu
+            li
+              a(href="https://github.com/dji-sdk/Mobile-SDK-iOS", target="_blank") iOS SDK
+            li
+              a(href="https://github.com/dji-sdk/Mobile-SDK-Android", target="_blank") Android SDK
+            li
+              a(href="https://github.com/dji-sdk/Onboard-SDK", target="_blank") Onboard SDK
+            li
+              a(href="https://github.com/dji-sdk/Guidance-SDK", target="_blank") Guidance SDK
+        li
+          a(href=url('challenge2016'), target="_blank") Challenge
+      ul.nav.navbar-nav.navbar-right.nav-user(v-cloak="", v-show="!loggedIn")
+        li
+          a(href=url('login'))= __('nav.login')
+        li
+          a.head-cta(href=url('register'))= __('nav.register')
+      ul.nav.navbar-nav.navbar-right.nav-user(v-cloak="", v-show="loggedIn")
+        li.hovedown
+          a.hovedown-toggle(href="javascript:void(0);")
+            i.fa.fa-user
+          ul.hovedown-menu.hovedown-menu-right
+            li
+              a(href=url('user'))= __('nav.user')
+            li
+              a(href="javascript:void(0);", v-on="click: logout")= __('nav.logout')

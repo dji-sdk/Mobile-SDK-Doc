@@ -1,0 +1,683 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table {
+  background-color: $table-bg;
+}
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+  color: $text-muted;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+
+
+// Baseline styles
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $line-height-computed;
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        line-height: $line-height-base;
+        vertical-align: top;
+        border-top: 1px solid $table-border-color;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $table-border-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  }
+}
+
+.table-flight-time {
+  font-size: 85%;
+  border: 0px solid $table-border-color;
+  border-bottom: 1px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+  border-left: 1px solid $table-border-color;
+  text-align: center;
+  //line-height: 1em;
+  > thead > tr > th {
+        font-size: 120%;
+  }
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 0px solid $table-border-color;
+      }
+    }
+  }
+  > tbody {
+    > tr:nth-child(3), tr:nth-child(7), tr:nth-child(18) {
+      border-bottom: 1px solid $table-border-color;
+    }
+    > tr:first-child {
+      border-top: 1px solid $table-border-color;
+    }
+  }
+  > thead {
+    background-color: rgb(237,237,237);
+    > tr >th {
+     // text-align: center;
+    }
+    > tr:nth-child(2) > td {
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      font-weight: bold;
+    }
+    > tr:nth-child(3) > td {
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+  }
+}
+
+.table-product-accessories {
+  font-size: 85%;
+  border: 0px solid $table-border-color;
+  border-bottom: 1px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+  border-left: 1px solid $table-border-color;
+  > thead > tr > th {
+        font-size: 120%;
+  }
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 0px solid $table-border-color;
+      }
+    }
+  }
+  > thead >tr > th{
+    background-color: rgb(237,237,237);
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 0px;
+    }
+  }
+  > tbody {
+    > tr:nth-child(9), tr:nth-child(10) {
+      border-bottom: 1px solid $table-border-color;
+    }
+  }
+}
+
+
+.table-product-comparison {
+  font-size: 85%;
+  border: 0px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+  border-bottom: 1px solid $table-border-color;
+  //border-left: 1px solid $table-border-color;
+  text-align: center;
+
+  > thead > tr > th {
+        font-size: 120%;
+  }
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        padding-top: 5px; 
+        margin-top: 1px;
+        padding-bottom: 5px; 
+        margin-bottom: 1px;
+        border: 0px solid $table-border-color;
+      }
+    }
+    > tr {
+      > th {
+        background-color: yellow;
+      }
+      > td {
+        text-align: center;
+      }
+      > td:first-child {
+        color: #BBBBBB;
+        text-align: center;
+        border-right: 1px solid $table-border-color;
+        border-left: 1px solid $table-border-color;
+      }
+    }
+    > tr > td:nth-child(2), td:nth-child(6), td:nth-child(8) {
+      border-right: 1px solid $table-border-color;
+    }
+    > tr:first-child {
+      > td {
+        font-size: 120%;
+        font-weight: bold;
+        padding-top: 5px; 
+        padding-bottom: 1px; 
+      }
+      > td:nth-child(1), td:nth-child(2), td:nth-child(3),td:nth-child(4) {
+        border-right: 1px solid $table-border-color;
+      }
+    }
+    > tr:nth-child(1) {
+      >td {
+        background-color: rgb(237,237,237);
+      }
+    }
+    > tr:nth-child(2) {
+      > td {
+        padding-top: 2px; 
+        font-weight: bold;
+        border-right: 0px solid $table-border-color;
+        background-color: rgb(237,237,237);
+        border-bottom: 1px solid $table-border-color;
+      }
+      > td:nth-child(1), td:nth-child(5), td:nth-child(7) {
+         border-right: 1px solid $table-border-color;
+      }
+    }
+    > tr:nth-child(3) {
+      > td {
+        border-top: 1px solid $table-border-color;
+      }
+      > td:first-child {
+       border-top: 0px solid $table-border-color; 
+      }
+    }
+}
+}
+
+.table-camera-comparison {
+ font-size: 85%;
+  border: 0px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+  border-bottom: 1px solid $table-border-color;
+  //border-left: 1px solid $table-border-color;
+  text-align: center;
+
+  > thead > tr > th {
+        font-size: 120%;
+  }
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        padding-top: 5px; 
+        margin-top: 1px;
+        padding-bottom: 5px; 
+        margin-bottom: 1px;
+        border: 0px solid $table-border-color;
+      }
+    }
+    > tr {
+      > th {
+        background-color: yellow;
+      }
+      > td {
+        text-align: center;
+      }
+      > td:first-child {
+        color: #BBBBBB;
+        text-align: center;
+        border-right: 1px solid $table-border-color;
+        border-left: 1px solid $table-border-color;
+      }
+    }
+    > tr > td:nth-child(2), td:nth-child(6) {
+      border-right: 1px solid $table-border-color;
+    }
+    > tr:first-child {
+      > td {
+        font-size: 120%;
+        font-weight: bold;
+        padding-top: 5px; 
+        padding-bottom: 1px; 
+      }
+      > td:nth-child(1), td:nth-child(2), td:nth-child(3),td:nth-child(4) {
+        border-right: 1px solid $table-border-color;
+      }
+    }
+    > tr:nth-child(1) {
+      >td {
+        background-color: rgb(237,237,237);
+      }
+    }
+    > tr:nth-child(2) {
+      > td {
+        padding-top: 2px; 
+        font-weight: bold;
+        border-right: 0px solid $table-border-color;
+        background-color: rgb(237,237,237);
+        border-bottom: 1px solid $table-border-color;
+      }
+      > td:nth-child(1), td:nth-child(5) {
+         border-right: 1px solid $table-border-color;
+      }
+    }
+    > tr:nth-child(3) {
+      > td {
+        border-top: 1px solid $table-border-color;
+      }
+      > td:first-child {
+       border-top: 0px solid $table-border-color; 
+      }
+    }
+    > tr:nth-child(6),tr:nth-child(11) {
+      td {
+        border-bottom: 1px solid $table-border-color;
+      }
+    }
+}
+}
+
+
+.table-remote-comparison {
+  font-size: 85%;
+  border: 0px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+  border-bottom: 1px solid $table-border-color;
+  //border-left: 1px solid $table-border-color;
+  text-align: center;
+
+  > thead > tr > th {
+        font-size: 120%;
+  }
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        padding-top: 5px; 
+        margin-top: 1px;
+        padding-bottom: 5px; 
+        margin-bottom: 1px;
+        border: 0px solid $table-border-color;
+      }
+    }
+    > tr {
+      > th {
+        background-color: yellow;
+      }
+      > td {
+        text-align: center;
+      }
+      > td:first-child {
+        color: #BBBBBB;
+        text-align: center;
+        border-right: 1px solid $table-border-color;
+        border-left: 1px solid $table-border-color;
+      }
+    }
+    > tr > td:nth-child(2), td:nth-child(6), td:nth-child(8) {
+      border-right: 1px solid $table-border-color;
+    }
+    > tr:first-child {
+      > td {
+        font-size: 120%;
+        font-weight: bold;
+        padding-top: 5px; 
+        padding-bottom: 1px; 
+      }
+      > td:nth-child(1), td:nth-child(2), td:nth-child(3),td:nth-child(4) {
+        border-right: 1px solid $table-border-color;
+      }
+    }
+    > tr:nth-child(1) {
+      >td {
+        background-color: rgb(237,237,237);
+      }
+    }
+    > tr:nth-child(2) {
+      > td {
+        padding-top: 2px; 
+        font-weight: bold;
+        border-right: 0px solid $table-border-color;
+        background-color: rgb(237,237,237);
+        border-bottom: 1px solid $table-border-color;
+      }
+      > td:nth-child(1), td:nth-child(5), td:nth-child(7) {
+         border-right: 1px solid $table-border-color;
+      }
+    }
+    > tr:nth-child(3) {
+      > td {
+        border-top: 1px solid $table-border-color;
+      }
+      > td:first-child {
+       border-top: 0px solid $table-border-color; 
+      }
+    }
+}
+}
+
+.table-pictures {
+  border: 0px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 0px solid $table-border-color;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 0px;
+    }
+  }
+}
+
+.table-exposure {
+  border: 0px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 0px solid $table-border-color;
+        border-bottom: 1px solid $table-border-color;
+        border-top: 1px solid $table-border-color;
+        padding: 0.5em;
+        margin: 0;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 0px;
+    }
+  }
+}
+
+// Condensed table w/ half padding
+
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+  border: 1px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.table-unbordered {
+  border: 0px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 0px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 0px;
+    }
+  }
+}
+
+.table-codesummary {
+  border: none;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: none;
+        padding: 0em;
+        //;
+      }
+    }
+  }
+  >tbody {
+    >tr {
+      >td:first-child {
+        color: #BBBBBB;
+        font-style: italic;
+        width: 20%;
+      }
+      >td:nth-child(2) {
+        width:30%;
+      }
+      >td:nth-child(3) {
+        font-family: $font-family-monospace;
+        widht: 50%;
+      }
+    }
+  }
+}
+.blank_row_codesummary
+{
+    height: 10px;
+    background-color: #FFFFFF;
+}
+
+.table-parameters {
+  border: none;
+  margin-left: 50px;
+  font-size: 90%;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: none;
+        padding: 0em;
+      }
+    }
+  }
+  >tbody {
+    >tr {
+      >td:first-child {
+        //font-weight: bold;
+        font-style: italic;
+        font-family: $font-family-monospace;
+      }
+    }
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+@include table-row-variant('active', $table-bg-active);
+@include table-row-variant('success', $state-success-bg);
+@include table-row-variant('info', $state-info-bg);
+@include table-row-variant('warning', $state-warning-bg);
+@include table-row-variant('danger', $state-danger-bg);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+  @media screen and (max-width: $screen-xs-max) {
+    width: 100%;
+    margin-bottom: ($line-height-computed * 0.75);
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid $table-border-color;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

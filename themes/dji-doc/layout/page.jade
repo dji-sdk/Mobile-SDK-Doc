@@ -1,0 +1,22 @@
+extends base
+
+block body
+  .site-main
+    .header
+      h1.title
+        = page.title
+      .meta
+        if(page.date)
+          span
+            i.fa.fa-clock-o
+            = date_format(page.date)
+        if (page.version)
+          span
+            i.fa.fa-tag
+            = page.version
+        if (page.github)
+          span
+            i.fa.fa-github
+            a(href=page.github, target="_blank") Github
+    .article
+      != page.content

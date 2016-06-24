@@ -1,0 +1,104 @@
+.article {
+  p, ul, ol, img, dl, pre, blockquote, table {
+    margin-bottom: 20px;
+  }
+  p {
+     margin-bottom:1.0em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.5em 0;
+    text-transform: none;
+    color: #555;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 18px;
+    margin-bottom: 0.5em;
+  }
+  h6 {
+    font-size: 18px;
+    margin-top:-0.5em;
+    margin-bottom: 0.5em;
+  }
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  a {
+    color: $dji-blue;
+  }
+  ul {
+    list-style: disc;
+    padding-left: 2em;
+  }
+  ol {
+    list-style: decimal;
+    padding-left: 2em;
+  }
+  .table-wrap {
+    overflow: auto;
+  }
+  table {
+    min-width: 100%;
+    //width: 100%;
+    td {
+      padding: .8em;
+      border-bottom: 1px solid $lighter-line-color;
+      p {
+        margin: 0;
+        font-size: 13px;
+        color: $light-text-color;
+      }
+    }
+    th {
+      padding: .8em;
+      background: $light-bg;
+      span {
+        display: block;
+        color: $light-text-color;
+      }
+      &[colspan] {
+        text-align: center;
+        background: $dji-blue;
+        color: #fff;
+      }
+    }
+    img {
+      max-width: none;
+    }
+  }
+  code {
+    background: $light-bg;
+    color: #333;
+    border-radius: 0;
+  }
+  pre {
+    padding: 30px;
+    border: 0;
+    background: $light-bg;
+    color: #333;
+    font-size: 12px;
+    border-radius: 0px;
+    code {
+      background: $light-bg;
+    }
+  }
+  blockquote {
+    padding: .4em 1.6em;
+    border-left: 2px solid $light-line-color;
+    font-size: 14px;
+    color: $light-text-color;
+  }
+}

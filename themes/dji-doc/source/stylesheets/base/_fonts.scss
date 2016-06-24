@@ -1,0 +1,104 @@
+@mixin fontdef($path, $filename, $version, $type:"Regular") {
+  src: url("/fonts/#{$path}/#{$type}/#{$filename}-#{$type}.eot?v=#{$version}");
+  src: url("/fonts/#{$path}/#{$type}/#{$filename}-#{$type}.eot?#iefix&v=#{$version}") format("embedded-opentype"),
+       url("/fonts/#{$path}/#{$type}/#{$filename}-#{$type}.woff?v=#{$version}") format("woff"),
+       url("/fonts/#{$path}/#{$type}/#{$filename}-#{$type}.ttf?v=#{$version}") format("truetype"),
+       url("/fonts/#{$path}/#{$type}/#{$filename}-#{$type}.svg?v=#{$version}##{$type}") format("svg");
+}
+
+// Opensans fonts
+$OpenSansFamily: 'OpenSans';
+$OpenSansPath: "OpenSans";
+$OpenSansVersion: "1.1.0" !default;
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "Bold");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "BoldItalic");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "ExtraBold");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "ExtraBoldItalic");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "Italic");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "Light");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "LightItalic");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "Regular");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "Semibold");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  @include fontdef($OpenSansPath, $OpenSansFamily, $OpenSansVersion, "SemiboldItalic");
+  font-weight: 600;
+  font-style: italic;
+}
+
+// Gotham fonts
+$GothamFamily: 'Gotham';
+$GothamVersion: '1.0';
+$GothamPath: "Gotham";
+@font-face {
+  font-family: $GothamFamily;
+  @include fontdef($GothamPath, $GothamFamily, $GothamVersion, "Light");
+  font-weight: 300;
+}
+@font-face {
+  font-family: $GothamFamily;
+  @include fontdef($GothamPath, $GothamFamily, $GothamVersion, "Book");
+  font-weight: 400;
+}
+@font-face {
+  font-family: $GothamFamily;
+  @include fontdef($GothamPath, $GothamFamily, $GothamVersion, "Medium");
+  font-weight: 500;
+}
+@font-face {
+  font-family: $GothamFamily;
+  @include fontdef($GothamPath, $GothamFamily, $GothamVersion, "Bold");
+  font-weight: 700;
+}
+@font-face {
+  font-family: $GothamFamily;
+  @include fontdef($GothamPath, $GothamFamily, $GothamVersion, "Ultra");
+  font-weight: 800;
+}
+
+@import "../lib/fontawesome";

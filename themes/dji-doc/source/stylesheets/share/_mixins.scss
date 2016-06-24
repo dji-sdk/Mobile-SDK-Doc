@@ -1,0 +1,19 @@
+/* mixin */
+@mixin prefix($attr, $args) {
+  -webkit-#{$attr}: $args;
+     -moz-#{$attr}: $args;
+      -ms-#{$attr}: $args;
+          #{$attr}: $args;
+}
+@mixin transition($args) {
+  @include prefix('transition', $args)
+}
+@mixin transform($args) {
+  @include prefix('transform', $args)
+}
+@mixin animation($args) {
+  @include prefix('animation', $args)
+}
+@mixin border-radius($args) {
+  @include prefix('border-radius', $args)
+}

@@ -1,0 +1,38 @@
+// video box
+.video-box {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -.7em;
+    margin-top: -.79em;
+    font-size: 28px;
+    color: rgba(255,255,255,.8);
+    @include transition(color .3s);
+  }
+  .mask {
+    position: absolute;
+    z-index: $z-index0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    @include transition(background .3s);
+  }
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  &:hover {
+    .icon {
+      color: rgba(247, 248, 249, .6);
+    }
+    .mask {
+      background: rgba(0, 0, 0, .2);
+    }
+  }
+}

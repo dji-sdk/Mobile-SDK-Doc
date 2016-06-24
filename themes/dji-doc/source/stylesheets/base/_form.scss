@@ -1,0 +1,180 @@
+form {
+  font-size: 13px;
+  a {
+    text-decoration: underline;
+  }
+}
+.input-airmap,
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+textarea {
+  padding: 9px 12px;
+  width: 100%;
+  display: block;
+  height: auto;
+  border: 1px solid $light-line-color;
+  border-radius: 0px;
+  box-shadow: none;
+  font-size: 13px;
+  line-height: 1.6;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $dji-blue;
+  }
+  &.error {
+    border-color: $error-line-color;
+  }
+}
+.input-airmap {
+  height: 40px;
+}
+input[type="checkbox"],
+input[type="checkbox"]:focus {
+  outline: none;
+}
+.input-tips {
+  font-size: 12px;
+  color: $light-text-color;
+  margin-top: 1em;
+}
+label {
+  margin: 0;
+  font-weight: 400;
+}
+.checkbox-container {
+  position: relative;
+  margin: 0 .6em 0 0;
+  font-weight: 400;
+  cursor: pointer;
+  input[type="checkbox"] {
+    opacity: 0;
+  }
+  .ico-check {
+    position: absolute;
+    left: -2px;
+    top: 2px;
+    margin: 0;
+    padding: 2px;
+    color: #fff;
+    border: 1px solid $light-line-color;
+    background: #fff;
+    font-size: 12px;
+    @include transition(all .3s);
+    @include transform(scale(.8));
+  }
+  .icon-check {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: #fff;
+    padding: 1px;
+    border: 1px solid $light-line-color;
+    background: #fff;
+    font-size: 12px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    @include transition(all .3s);
+  }
+  input[type="checkbox"]:checked + .icon-check,
+  input[type="checkbox"]:checked + .ico-check {
+    border: 1px solid $dji-blue;
+    background: $dji-blue;
+  }
+}
+.form-btns {
+  margin-top: 30px;
+  a, button {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+.input-error {
+  /* display: none; */
+  padding: 3px 0 0;
+  font-size: 12px;
+  color: $error-text-color;
+  p {
+    margin: 0;
+  }
+}
+.alert-error {
+  /* display: none; */
+  margin-top: 20px;
+  border-left: 2px solid $error-line-color;
+  padding: 10px 12px;
+  color: $error-text-color;
+  border-radius: 0;
+  background: $error-bg-color;
+  p {
+    margin: 0;
+  }
+}
+.alert-success {
+  /* display: none; */
+  margin-top: 20px;
+  border-left: 2px solid #84cbff;
+  padding: 10px 12px;
+  color: $dji-blue;
+  border-radius: 0;
+  background: #f1f9ff;
+  p {
+    margin: 0;
+  }
+}
+.select-container {
+  position: relative;
+  select {
+    @include prefix(appearance, none);
+    padding: 9px 12px;
+    width: 100%;
+    display: block;
+    height: auto;
+    border: 1px solid #e5e5e5;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 13px;
+    line-height: 1.6;
+    background: transparent;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: $dji-blue;
+    }
+    &.error {
+      border-color: $error-line-color;
+    }
+  }
+  .icon {
+    position: absolute;
+    right: .6em;
+    top: .7em;
+  }
+  .ico {
+    position: absolute;
+    right: .8em;
+    top: 1em;
+  }
+  .other-input,
+  .extra-input {
+    margin-top: 15px;
+  }
+}
+.input-name {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.popover {
+  padding: 8px;
+  border: 1px solid $light-line-color;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 300px;
+  a {
+    color: $dji-blue;
+  }
+}

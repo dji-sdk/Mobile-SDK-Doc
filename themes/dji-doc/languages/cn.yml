@@ -1,0 +1,35 @@
+nav:
+  sdk: "SDK"
+  mobile_sdk: "Mobile SDK"
+  onboard_sdk: "Onboard SDK"
+  guidance_sdk: "Guidance SDK"
+  mobile-sdk: "Mobile SDK"
+  onboard-sdk: "Onboard SDK"
+  guidance-sdk: "Guidance SDK"
+  products: "产品"
+  info: "资讯"
+  showcase: "案例展示"
+  support: "技术支持"
+  news: "新闻"
+  community: "社区"
+  forum: "论坛"
+  github: "Github"
+  stackoverflow: "Stack Overflow"
+  login: "登录"
+  register: "注册"
+  logout: "登出"
+  user: "个人中心"
+  dji: "大疆"
+  dji_store: "大疆官方商城"
+  contact_us: "联系我们"
+  contact_us_bd: "商务合作"
+  copyright: "Copyright © 2015 DJI 大疆创新 版权所有"
+
+sub_nav:
+  overview: 概览
+  features: 功能
+  documentation: 文档
+  downloads: 下载
+
+doc:
+  search_holder: 'Search Documentation'

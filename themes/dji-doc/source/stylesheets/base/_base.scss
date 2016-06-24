@@ -1,0 +1,123 @@
+/* base style */
+html, body {
+  min-width: 1230px;
+  min-height: 100%;
+  font-family: $font-opensans;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #fff;
+  color: $text-color;
+}
+html {
+  position: relative;
+  padding-bottom: $footer-height;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: $text-color;
+  &:hover {
+    outline: none;
+    text-decoration: none;
+    color: $dji-blue;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    text-decoration: none;
+    color: $text-color;
+  }
+}
+button, input, textarea {
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-gotham;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+[v-cloak] {
+  display: none;
+}
+.container {
+  min-width: 1230px;
+}
+.btn {
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+.table-container {
+  display: table;
+  width: 100%;
+  .table-cell-inner {
+    display: table-cell;
+  }
+}
+
+
+
+
+//  no response
+/* Demonstrate the grids */
+.container .navbar-header,
+.container .navbar-collapse {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Always float the navbar header */
+.navbar-header {
+  float: left;
+}
+
+/* Undo the collapsing navbar */
+.navbar-collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important;
+  visibility: visible !important;
+}
+
+.navbar-toggle {
+  display: none;
+}
+.navbar-collapse {
+  border-top: 0;
+}
+
+.navbar-brand {
+  margin-left: -15px;
+}
+
+/* Always apply the floated nav */
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+.navbar-nav > li {
+  float: left;
+}
+.navbar-nav > li > a {
+  padding: 15px;
+}
+
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right;
+}

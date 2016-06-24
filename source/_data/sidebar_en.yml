@@ -1,0 +1,145 @@
+-
+  title: "INTRODUCTION"
+  list:
+    -
+      title: "Documentation Introduction"
+      path: "/introduction/index.html"
+    -
+      title: "Hardware Introduction"
+      path: "/introduction/product_introduction.html"
+    -
+      title: "Mobile SDK Introduction"
+      path: "/introduction/mobile_sdk_introduction.html"
+    -
+      title: "SDK Architectural Overview"
+      path: "/introduction/sdk_architectural_overview.html"
+- 
+  title: "Get Started Immediately"
+  list:
+    -
+      title: "Run Sample Application"
+      path: "/quick-start/index.html"
+-
+  title: "CONCEPTS TO UNDERSTAND"
+  list:
+    -
+      title: "Flight Control"
+      path: "/introduction/flightController_concepts.html"
+    -
+      title: "Camera Exposure"
+      path: "/introduction/camera_concepts.html"
+-
+  title: "GUIDES"
+
+  list:
+    -
+      title: "Flight Controller"
+      path: "/introduction/component-guide-flightController.html"
+    -
+      title: "Camera"
+      path: "/introduction/component-guide-camera.html"
+    -
+      title: "Gimbal"
+      path: "/introduction/component-guide-gimbal.html"
+    -
+      title: "AirLink"
+      path: "/introduction/component-guide-airlink.html"
+    - 
+      title: "Remote Controller"
+      path: "/introduction/component-guide-remotecontroller.html"
+    - 
+      title: "Smart Battery"
+      path: "/introduction/component-guide-battery.html"
+    - 
+      title: "Missions"
+      path: "/introduction/component-guide-missions.html"
+    -
+      title: "SDK Manager"
+      path: "/introduction/sdk-guide-sdkmanager.html"
+-
+  title: "DEVELOPMENT WORKFLOW"
+  list:
+    -
+      title: "Prerequisites"
+      path: "/application-development-workflow/workflow-prerequisits.html"
+    -
+      title: "Register as DJI Developer & Download SDK"
+      path: "/application-development-workflow/workflow-register.html"
+    #-
+    #  title: "Download SDK"
+    #  path: "/application-development-workflow/workflow-download.html"
+    -
+      title: "Integrate SDK into Application"
+      path: "/application-development-workflow/workflow-integrate.html"
+    -
+      title: "Run Application"
+      path: "/application-development-workflow/workflow-run.html"
+    -
+      title: "Testing, Profiling & Debugging"
+      path: "/application-development-workflow/workflow-testing.html"
+    -   
+      title: "Deploy"
+      path: "/application-development-workflow/workflow-deploy.html"
+-
+  title: "IOS TUTORIALS"
+  list:
+    -
+      title: "Camera Application"
+      path: "/ios-tutorials/index.html"
+    -
+      title: "Photo and Video Playback  Application"
+      path: "/ios-tutorials/PlaybackDemo.html"
+    -
+      title: "MapView and Waypoint Application"
+      path: "/ios-tutorials/GSDemo.html"
+    -
+      title: "Panorama Application"
+      path: "/ios-tutorials/PanoDemo.html"
+    -
+      title: "TapFly and ActiveTrack Application"
+      path: "/ios-tutorials/P4MissionsDemo.html"
+    # -
+    #   title: "Simulator Application"
+    #   path: "/ios-tutorials/SimulatorDemo.html"
+    -
+      title: "Using the Bridge App"
+      path: "/ios-tutorials/BridgeAppDemo.html"
+    -
+      title: "Using the Remote Logger"
+      path: "/ios-tutorials/RemoteLoggerDemo.html"
+-
+  title: "ANDROID TUTORIALS"
+  list:
+    -
+      title: "Running DJI SDK Sample Code in Android Studio"
+      path: "/android-tutorials/index.html"
+    -
+      title: "Camera Application"
+      path: "/android-tutorials/FPVDemo.html"
+    -
+      title: "MapView and Waypoint Application (GaodeMap)"
+      path: "/android-tutorials/GSDemo-Gaode-Map.html"
+    -
+      title: "MapView and Waypoint Application (GoogleMap)"
+      path: "/android-tutorials/GSDemo-Google-Map.html"
+    -
+      title: "TapFly and ActiveTrack Application"
+      path: "/android-tutorials/P4MissionsDemo.html"
+-
+  title: "API REFERENCE"
+  list:
+    -
+      title: "iOS API Reference"
+      extra: "true"
+      path: " https://developer.dji.com/iframe/mobile-sdk-doc/ios/index.html"
+    -
+      title: "Android API Reference"
+      extra: "true"
+      path: " https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/packages.html"
+
+-
+  title: "Support"
+  list:
+     -
+       title: "FAQ"
+       path: "/faq/index.html"

@@ -1,0 +1,14 @@
+doctype html
+html(lang=page.lang)
+  head
+    include partial/meta
+    include partial/style
+  body
+    include partial/head
+    include partial/sub_nav
+    .documentation-page
+      .container
+        include partial/sidebar
+        block body
+    include partial/foot
+    include partial/script

@@ -1,0 +1,135 @@
+.documentation-page {
+  padding: 60px 0 40px;
+  .site-sidebar {
+    padding-right: 0;
+    border-right: none;
+    .doc-search {
+      position: relative;
+      padding-bottom: 26px;
+      input {
+        padding-left: 36px;
+      }
+      .fa {
+        position: absolute;
+        left: 13px;
+        top: 13px;
+        color: $lighter-text-color;
+      }
+    }
+    .nav {
+      padding-right: 20px;
+    }
+    .toc {
+      display: none;
+      padding: 0 0 0 20px;
+      font-size: 12px;
+      /* background: #f7f8f9; */
+      // margin: 0px 0 20px 1px;
+      border-left: 1px solid $light-line-color;
+      a {
+        display: block;
+        margin-bottom: .5em;
+        color: #B4B4B4;
+        font-size: 12px;
+        &:hover {
+          color: $dji-blue;
+        }
+        &.active {
+          /* border-left: 2px solid #44a8f2;
+          padding-left: 6px;
+          margin-left: -8px; */
+          border-left: 1px solid $dji-blue;
+          padding-left: 20px;
+          margin-left: -21px;
+          color: $dji-blue;
+        }
+      }
+    }
+  }
+  .site-main {
+    .header {
+      .title {
+        font-size: 32px;
+        margin-bottom: 30px;
+        text-transform: initial;
+        color: #555;
+      }
+      .meta {
+        margin-bottom: 20px;
+        font-size: 12px;
+        span {
+          margin-right: 50px;
+          .fa {
+            position: relative;
+            top: 2px;
+            margin-right: .4em;
+            font-size: 16px;
+            color: #a6acaa;
+          }
+        }
+      }
+    }
+  }
+
+  &.v2 {
+    .site-sidebar {
+      width: 250px;
+    }
+    .site-main {
+      margin-left: 250px;
+      padding: 20px 0 20px 30px;
+      .header {
+        margin-right: 230px;
+      }
+      .article {
+        margin-right: 230px;
+      }
+      .toc {
+        float: right;
+        width: 200px;
+        padding: 10px 20px;
+        font-size: 12px;
+        background: #f7f8f9;
+        &.fixed {
+          position: fixed;
+          top: 100px;
+          left: 50%;
+          margin-left: 400px;
+        }
+        a {
+          display: block;
+          margin-bottom: .5em;
+          color: #A6ACAA;
+          &:hover {
+            color: $dji-blue;
+          }
+          &.active {
+            border-left: 2px solid #44a8f2;
+            padding-left: 6px;
+            margin-left: -8px;
+            color: $dji-blue;
+          }
+        }
+      }
+    }
+  }
+  &.v3 {
+    .site-main {
+      .toc.fixed {
+        right: 15px;
+        left: auto;
+        margin: auto;
+      }
+    }
+  }
+}
+.guidance-sdk_documentation {
+  .site-header,
+  .sub-nav,
+  .documentation-page {
+    .container {
+      width: 100%;
+      max-width: 1430px;
+    }
+  }
+}
