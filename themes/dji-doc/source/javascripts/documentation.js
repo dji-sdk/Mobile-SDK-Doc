@@ -33,7 +33,7 @@
     // click #hash to scroll
     $('a[href^="#"]').click(function (e) {
       e.preventDefault()
-      var target = $(e.target)
+      var target = $(this)
       var hash = target.attr('href').toLowerCase()
       scrollTo($(hash), function() {
         window.history.pushState(null, null, hash)
