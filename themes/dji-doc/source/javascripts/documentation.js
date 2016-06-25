@@ -118,6 +118,7 @@
 
   sidebarNav.css({ height: 0 })
   initHashScroll()
+  initSubMenuClick()
   initSidebar()
   initSidebarScroll()
   initArticleTable()
