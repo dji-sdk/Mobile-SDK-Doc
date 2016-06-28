@@ -4,19 +4,9 @@
   var sidebar = $('.documentation-page .site-sidebar')
   var sidebarInner = $('.site-sidebar .scrollable')
   var currentTitle = sidebarInner.find('a.active:first-child')
-  var sidebarFooter = $('.site-footer')
-  var sidebarNav = sidebar.find('.nav')
-  // var sidebarSearch = sidebar.find('.doc-search')
-  // var sidebarSearchH = sidebarSearch.height() + parseInt(sidebarSearch.css('padding-bottom'))
-  var sidebarSearchH = 0
   var footer = $('.site-footer')
   var w = $(window)
-  var body = $('body')
-  var subnav = $('.sub-nav')
-  var subToggle = sidebar.find('.sub-toggle')
-  var fixToggleDistance = $('.sub-nav').data('offset-top')
   var titles = sidebar.find('dl > dd > a')
-  // var toc = $('.site-main .toc')
 
 
   var initHashScroll = function () {
@@ -42,7 +32,7 @@
   }
 
   var initSidebar = function () {
-    // fix & resize sidbear
+    // fix & resize sidebar
     window.addEventListener('scroll', function () {
       if (w.scrollTop() > 60) {
         sidebar.addClass('fixed')
@@ -87,27 +77,39 @@
 
   // helpers
   var resizeSidebar = function() {
+    // vertical height
     var marginB = 40
     var winScroll = w.scrollTop()
     var newH = 0
     var winHeight = w.height()
     var docHeight = $('.documentation-page .site-main').height()
-    var footerArise = winHeight - (sidebarFooter.position().top - winScroll)
+    var footerArise = winHeight - (footer.position().top - winScroll)
     if (document.documentElement.scrollHeight < document.documentElement.clientHeight) {
-      newH = $('body').height() - sidebarNav.position.top - marginB
+      newH = $('body').height() - sidebarInner.position.top - marginB
     } else {
       if (sidebar.hasClass('fixed')) {
-        newH = winHeight - sidebarNav.position().top - sidebar.position().top - marginB
+        newH = winHeight - sidebarInner.position().top - sidebar.position().top - marginB
       } else {
-        newH = winHeight - sidebarNav.position().top + winScroll - marginB
+        newH = winHeight - sidebarInner.position().top + winScroll - marginB
       }
       if (footerArise >= 0) {
         newH -= footerArise
       }
     }
-    sidebarNav.css({
+    sidebarInner.css({
       height: newH
     })
+
+    // horizontal position
+    if (sidebar.hasClass('fixed')) {
+      sidebar.css({
+        transform: 'translateX(-'+w.scrollLeft()+'px)'
+      })
+    } else {
+      sidebar.css({
+        transform: 'translateX(0px)'
+      })
+    }
   }
 
   var scrollTo = function (target, cb) {
@@ -116,7 +118,7 @@
   }
 
 
-  sidebarNav.css({ height: 0 })
+  sidebarInner.css({ height: 0 })
   initHashScroll()
   initSubMenuClick()
   initSidebar()
