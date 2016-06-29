@@ -9,3 +9,4 @@ npm-debug.log
 dist
 dist-bak
 /*.sh
+manifest.json
