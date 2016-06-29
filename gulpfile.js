@@ -61,7 +61,7 @@ gulp.task('build', () => {
 })
 
 // upload files to aliyun
-gulp.task('oss-before', () => {
+gulp.task('init-manifest', () => {
   var content = fs.readFileSync('./manifest.json', {flag: 'a+'}).toString()
   manifest = JSON.parse(content || '{}');
   return gulp
@@ -103,13 +103,16 @@ gulp.task('oss-font', () => {
     .pipe(gulp.dest('dist-bak/fonts/'))
 })
 
-gulp.task("oss-after", () => {
+gulp.task('update-manifest', () => {
   fs.writeFileSync('manifest.json', JSON.stringify(manifest))
+  return gulp
+})
 
+gulp.task('clean-assets', () => {
   return gulp.src([
-      'dist/images', 
-      'dist/fonts', 
-      'dist/javascripts', 
+      'dist/images',
+      'dist/fonts',
+      'dist/javascripts',
       'dist/stylesheets'])
     .pipe(clean())
 })
@@ -132,12 +135,26 @@ var checkManifest = (type) => {
 }
 
 gulp.task('default', (cb) => {
-  runSequence(
-    'clean',
-    'build',
-    'oss-before',
-    ['oss-js', 'oss-css', 'oss-font', 'oss-img'],
-    'oss-after',
-    cb
-  );
+  console.log(process.env.NODE_ENV)
+  
+  var tasks = []
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      tasks = [
+        'clean',
+        'build',
+        'init-manifest',
+        ['oss-js', 'oss-css', 'oss-font', 'oss-img'],
+        'update-manifest',
+        'clean-assets',
+        cb
+      ]
+      break
+    default:
+      tasks = [
+        'clean',
+        'build'
+      ]
+  }
+  runSequence.apply(this, tasks)
 });
