@@ -2,7 +2,7 @@
 
 var url = require('url')
 
-var host = hexo.config.host[process.env.NODE_ENV] || ''
+var host = process.env.HOST || ''
 
 hexo.extend.helper.register('url', function(path) {
   var newPath = path || ''

@@ -1,7 +1,7 @@
 script(type="text/javascript").
   window.Config = window.config = {
     locale: "#{page.lang}",
-    api_host: "#{config.api_host[process.env.NODE_ENV] || ''}"
+    api_host: "#{process.env.API_HOST || ''}"
   };
 
 // build:js /javascripts/doc-vendor.js

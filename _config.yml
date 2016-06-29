@@ -15,12 +15,6 @@ highlight:
   line_number: false
   tab_replace: true
 
-host:
-  production: '//developer.dji.com'
-  staging: '//developer.dji.com'
-api_host:
-  production: '//dev.dji.com'
-  staging: '//dev.dji.com'
 sdk: "mobile-sdk"
 
 theme: dji-doc
