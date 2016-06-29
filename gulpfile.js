@@ -14,7 +14,7 @@ var gulp = require('gulp'),
     manifest = {}
 
 // cdn options
-var cdn_host = process.env.CDN_HOST
+var cdn_host = process.env.NODE_ENV == 'production' ? process.env.CDN_HOST : ''
 // aliyun options
 var aliyunOptions = {
   'accessKeyId': process.env.ACCESS_KEY_ID,
@@ -135,8 +135,6 @@ var checkManifest = (type) => {
 }
 
 gulp.task('default', (cb) => {
-  console.log(process.env.NODE_ENV)
-  
   var tasks = []
   switch (process.env.NODE_ENV) {
     case 'production':
