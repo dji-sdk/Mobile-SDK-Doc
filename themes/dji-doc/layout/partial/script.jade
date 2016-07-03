@@ -1,6 +1,7 @@
 script(type="text/javascript").
   window.Config = window.config = {
     locale: "#{page.lang}",
+    environment: "#{process.env.NODE_ENV || 'development'}",
     api_host: "#{process.env.API_HOST || ''}"
   };
 

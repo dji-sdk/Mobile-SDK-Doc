@@ -6,9 +6,7 @@ language:
   - cn
 i18n_dir: :lang
 timezone: UTC
-url: "//developer.dji.com/"
 root: /
-permalink: :title/
 default_layout: page
 highlight:
   enable: true

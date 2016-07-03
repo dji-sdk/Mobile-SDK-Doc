@@ -6,7 +6,8 @@
     "version": "3.2.0"
   },
   "scripts": {
-    "build": "node ./node_modules/gulp/bin/gulp.js"
+    "hexo": "node ./node_modules/hexo/bin/hexo generate",
+    "gulp": "node ./node_modules/gulp/bin/gulp.js"
   },
   "dependencies": {
     "hexo": "^3.2.0",
@@ -16,6 +17,7 @@
     "jade": "^1.11.0"
   },
   "devDependencies": {
+    "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-filter": "^4.0.0",
