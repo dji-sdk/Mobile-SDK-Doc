@@ -62,28 +62,28 @@ gulp.task('build', function () {
 
 gulp.task('oss-css', function () {
   var cssOptions = cloneObj(aliyunOptions)
-  cssOptions.objectDir = 'stylesheets'
+  cssOptions.prefix = 'stylesheets'
   return gulp.src('dist/stylesheets/doc-*.css')
     .pipe(putalioss(cssOptions))
 })
 
 gulp.task('oss-js', function () {
   var jsOptions = cloneObj(aliyunOptions)
-  jsOptions.objectDir = 'javascripts'
+  jsOptions.prefix = 'javascripts'
   return gulp.src('dist/javascripts/doc-*.js')
     .pipe(putalioss(jsOptions))
 })
 
 gulp.task('oss-img', function () {
   var imgOptions = cloneObj(aliyunOptions)
-  imgOptions.objectDir = 'images'
+  imgOptions.prefix = 'images'
   return gulp.src('dist/images/**/*')
     .pipe(putalioss(imgOptions))
 })
 
 gulp.task('oss-font', function () {
   var fontOptions = cloneObj(aliyunOptions)
-  fontOptions.objectDir = 'fonts'
+  fontOptions.prefix = 'fonts'
   return gulp.src('dist/fonts/**/*')
     .pipe(putalioss(fontOptions))
 })
