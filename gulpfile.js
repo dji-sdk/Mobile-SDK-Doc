@@ -1,6 +1,4 @@
 var gulp          = require('gulp'),
-    ossup         = require('gulp-oss-up'),
-    newer         = require('gulp-newer'),
     useref        = require('gulp-useref'),
     del           = require('del'),
     runSequence   = require('run-sequence'),
