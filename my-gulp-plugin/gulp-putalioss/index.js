@@ -20,7 +20,7 @@ module.exports = function (options) {
     var manifest = JSON.parse(fs.readFileSync(manifestFile, {flag: 'a+'}).toString() || '[]')
 
     if (chunk.isBuffer()) {
-      var name = path.join(prefix, chunk.path.split('/').pop())
+      var name = path.join(prefix, chunk.path.replace(chunk.base, ''))
       if (manifest.indexOf(name) > -1) {
         cb(null, chunk)
       } else {
