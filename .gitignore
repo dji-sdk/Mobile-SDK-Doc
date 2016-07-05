@@ -1,11 +1,10 @@
-node_modules
-public
 db.json
 debug.log
 .DS_Store
-.tmp
-node_modules
 npm-debug.log
-dist
-dist-bak
-/*.sh
+
+.tmp/
+node_modules/
+dist/
+dist-bak/
+public/

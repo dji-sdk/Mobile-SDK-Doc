@@ -1,35 +1,31 @@
-var gulp = require('gulp')
-var ossup = require('gulp-oss-up')
-var newer = require('gulp-newer')
-var useref = require('gulp-useref')
-var clean = require('gulp-clean')
-var exec = require('child_process').exec
-var runSequence = require('run-sequence')
-var rev = require('gulp-rev')
-var revReplace = require('gulp-rev-replace')
-var replace = require('gulp-replace')
-var filter = require('gulp-filter')
-var through = require('through2')
-var fs = require('fs')
+var gulp          = require('gulp'),
+    useref        = require('gulp-useref'),
+    del           = require('del'),
+    runSequence   = require('run-sequence'),
+    rev           = require('gulp-rev'),
+    revReplace    = require('gulp-rev-replace'),
+    replace       = require('gulp-replace'),
+    filter        = require('gulp-filter')
 
+var putalioss     = require('./my-gulp-plugin/gulp-putalioss')
+    
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-// cdn options
-var cdn_host = process.env.CDN_HOST
-// aliyun options
-var aliyunOptions = {
-  'accessKeyId': process.env.ACCESS_KEY_ID,
-  'accessKeySecret': process.env.ACCESS_KEY_SECRET,
-  'bucket': process.env.BUCKET
-}
+var cdnHost = process.env.CDN_HOST || '',
+    aliyunOptions = {
+      'accessKeyId': process.env.ACCESS_KEY_ID || '',
+      'accessKeySecret': process.env.ACCESS_KEY_SECRET || '',
+      'bucket': process.env.BUCKET || '',
+      'region': process.env.REGION || ''
+    }
 
 // clean 
-gulp.task('clean', () => {
-  return gulp.src(['dist'])
-    .pipe(clean())
+gulp.task('clean', function () {
+  return del(['dist'])
 })
 
 // build
-gulp.task('build', () => {
+gulp.task('build', function () {
   var imgFilter = filter('public/images/**/*', {restore: true});
   var fontFilter = filter('public/fonts/**/*', {restore: true});
   var jsFilter = filter('public/javascripts/doc-*.js', {restore: true});
@@ -55,74 +51,70 @@ gulp.task('build', () => {
     .pipe(jsFilter.restore)
     .pipe(revReplace({
       canonicalUris: true,
-      prefix: cdn_host
+      prefix: cdnHost
     }))
     .pipe(gulp.dest('dist'))
 })
 
 // upload files to aliyun
-gulp.task('oss-css', () => {
+
+gulp.task('oss-css', function () {
   var cssOptions = cloneObj(aliyunOptions)
-  cssOptions.objectDir = 'stylesheets'
+  cssOptions.prefix = 'stylesheets'
   return gulp.src('dist/stylesheets/doc-*.css')
-    .pipe(newFile('dist/stylesheets', 'dist-bak/stylesheets'))
-    .pipe(ossup(cssOptions))
-    .pipe(gulp.dest('dist-bak/stylesheets/'))
+    .pipe(putalioss(cssOptions))
 })
 
-gulp.task('oss-js', () => {
+gulp.task('oss-js', function () {
   var jsOptions = cloneObj(aliyunOptions)
-  jsOptions.objectDir = 'javascripts'
+  jsOptions.prefix = 'javascripts'
   return gulp.src('dist/javascripts/doc-*.js')
-    .pipe(newFile('dist/javascripts', 'dist-bak/javascripts'))
-    .pipe(ossup(jsOptions))
-    .pipe(gulp.dest('dist-bak/javascripts/'))
+    .pipe(putalioss(jsOptions))
 })
 
-gulp.task('oss-img', () => {
+gulp.task('oss-img', function () {
   var imgOptions = cloneObj(aliyunOptions)
-  imgOptions.objectDir = 'images'
+  imgOptions.prefix = 'images'
   return gulp.src('dist/images/**/*')
-    .pipe(newFile('dist/images', 'dist-bak/images'))
-    .pipe(ossup(imgOptions))
-    .pipe(gulp.dest('dist-bak/images/'))
+    .pipe(putalioss(imgOptions))
 })
-gulp.task('oss-font', () => {
+
+gulp.task('oss-font', function () {
   var fontOptions = cloneObj(aliyunOptions)
-  fontOptions.objectDir = 'fonts'
+  fontOptions.prefix = 'fonts'
   return gulp.src('dist/fonts/**/*')
-    .pipe(newFile('dist/fonts', 'dist-bak/fonts'))
-    .pipe(ossup(fontOptions))
-    .pipe(gulp.dest('dist-bak/fonts/'))
+    .pipe(putalioss(fontOptions))
 })
 
-gulp.task("after", () => {
-  return gulp.src([
-      'dist/images', 
-      'dist/fonts', 
-      'dist/javascripts', 
-      'dist/stylesheets'])
-    .pipe(clean())
+gulp.task('clean-assets', function () {
+  return del([
+    'dist/images',
+    'dist/fonts',
+    'dist/javascripts',
+    'dist/stylesheets'])
 })
 
-gulp.on('stop', () => { process.exit(0) })
-
-// utils
-var cloneObj = (obj) => JSON.parse(JSON.stringify(obj))
-
-var newFile = (path, bakPath) => {
-  return through.obj((chunk, enc, cb) => {
-    var bakFile = chunk.path.replace(path, bakPath)
-    cb(null, fs.existsSync(bakFile) ? null : chunk)
-  })
+if (!development()) {
+  gulp.on('stop', function () { process.exit(0) })
 }
 
-gulp.task('default', (cb) => {
-  runSequence(
-    'clean',
-    'build',
-    ['oss-js', 'oss-css', 'oss-font', 'oss-img'],
-    'after',
-    cb
-  );
+// helpers
+function cloneObj (obj) {
+  return JSON.parse(JSON.stringify(obj))
+}
+
+function development () {
+  return process.env.NODE_ENV === 'development'
+}
+
+gulp.task('default', function (cb) {
+  if (!development()) {
+    runSequence(
+      'clean',
+      'build',
+      ['oss-js', 'oss-css', 'oss-font', 'oss-img'],
+      'clean-assets',
+      cb
+    )
+  }
 });

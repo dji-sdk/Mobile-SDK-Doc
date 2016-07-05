@@ -6,21 +6,13 @@ language:
   - cn
 i18n_dir: :lang
 timezone: UTC
-url: "//developer.dji.com/"
 root: /
-permalink: :title/
 default_layout: page
 highlight:
   enable: true
   line_number: false
   tab_replace: true
 
-host:
-  production: '//developer.dji.com'
-  staging: '//developer.dji.com'
-api_host:
-  production: '//dev.dji.com'
-  staging: '//dev.dji.com'
 sdk: "mobile-sdk"
 
 theme: dji-doc
