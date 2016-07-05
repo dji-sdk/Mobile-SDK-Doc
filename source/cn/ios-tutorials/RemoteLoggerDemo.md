@@ -9,7 +9,7 @@ github: https://github.com/DJI-Mobile-SDK/DJIRemoteLoggerDemo
 
 This tutorial is designed for you to obtain a better understanding of the DJI Remote Logger Tool. It will teach you how to use it for showing application log messages on a simple webpage.
 
-You can download the project source code from the Github Page, which you can access it by pressing the **Github Tag** on top of this tutorial.
+You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 
 ## Introduction
 

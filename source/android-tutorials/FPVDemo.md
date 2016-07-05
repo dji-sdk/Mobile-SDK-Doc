@@ -11,7 +11,7 @@ github: https://github.com/DJI-Mobile-SDK/Android-FPVDemo
 
 This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: **Take Photo** and **Record video**.
 
-You can download the project source code from the Github Page, which you can access it by pressing the **Github Tag** on top of this tutorial.
+You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 
 ## Preparation
 

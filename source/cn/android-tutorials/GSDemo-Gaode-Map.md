@@ -12,7 +12,7 @@ github: "https://github.com/DJI-Mobile-SDK/Android-GSDemo-Gaode-Map"
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
 Also you will know how to setup the DJI PC Simulator, upgrade your Inspire 1, Phantom 3 Professional and Phantom 3 Advanced's firmware to the lastest version, and how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
-You can download the project source code from the Github Page, which you can access it by pressing the **Github Tag** on top of this tutorial.
+You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 
 > Note: In this tutorial, we will use Inspire 1 for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="http://lbs.amap.com" target="_blank">Gaode Map API</a> for navigating.
 

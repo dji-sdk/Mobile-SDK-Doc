@@ -15,7 +15,7 @@ In this tutorial, you will learn how to build a cool panorama app. With the help
 
 ![several tasks](../../images/tutorials-and-samples/iOS/PanoramaDemo/workFlow.png)
 
-You can download the project source code from the Github Page, which you can access it by pressing the **Github Tag** on top of this tutorial.
+You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 
 ## Implementing the FPV
 

@@ -29,6 +29,7 @@ date: 2016-06-24
 * [Why can’t I use the existing simulator for the Phantom 4?](#why-can-t-i-use-the-existing-simulator-for-the-phantom-4)
 * [What path does the aircraft take in a curved waypoint mission?](#what-path-does-the-aircraft-take-in-a-curved-waypoint-mission)
 * [Why does yaw rotation cause the drone to drift when using Virtual Stick APIs?](#why-does-yaw-rotation-cause-the-drone-to-drift-when-using-virtual-stick-apis)
+* [Does DJIWaypointMission allow only one waypoint?](#Does-DJIWaypointMission-allow-only-one-waypoint)
 
 **Android**
 
@@ -239,6 +240,9 @@ flightController.setRollPitchControlMode(DJIFlightControllerDataType.DJIVirtualS
 
 When yaw is controlled by angular velocity, the aircraft's yaw position can be controlled precisely by using a [PID controller algorithm](https://en.wikipedia.org/wiki/PID_controller).  
 
+### Does DJIWaypointMission allow only one waypoint?
+
+No, the minimum number of waypoints allowed in a DJIWaypointMission is 2.
 
 ## Android
 
