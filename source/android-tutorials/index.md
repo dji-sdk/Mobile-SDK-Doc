@@ -2,14 +2,16 @@
 title: Running DJI SDK Sample Code in Android Studio
 version: v3.2.1
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/Android-RunSDKSampleInAndroidStudio
+github: https://github.com/dji-sdk/Mobile-SDK-Android
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
 
 ---
 
-In this tutorial, you will learn how to run the DJI Android SDK Sample Code using Android Studio. We use Android Studio 2.1 for demonstration here. You can get the DJI Android SDK Sample Code from this link: <a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">https://github.com/dji-sdk/Mobile-SDK-Android</a>.
+In this tutorial, you will learn how to run the DJI Android SDK Sample Code using Android Studio. We use Android Studio 2.1 for demonstration here. 
+
+You can download the DJI Android SDK Sample Code from Github Page by pressing the **Github Tag** on top of this tutorial. 
 
 ## Prerequisites
 
