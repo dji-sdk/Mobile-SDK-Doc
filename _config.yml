@@ -4,6 +4,7 @@ author:
 language:
   - en
   - cn
+  - jp
 i18n_dir: :lang
 timezone: UTC
 root: /
