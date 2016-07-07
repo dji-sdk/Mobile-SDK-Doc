@@ -35,27 +35,28 @@ Here is a <a href="https://dn-djidl2.qbox.me/cloud/4ebc02c536baf850f5a568d8c2774
 
 ## Implementing the UI of Application
 
-### Importing the Framework and Libraries
+### Importing the Framework
 
-Now that you know the details of the two new missions of Phantom 4, we can start working on the application. In our previous tutorial [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration), you have learned how to import the DJI Mobile SDK into your Xcode project and activate your application. If you haven't read that previously, please take a look at it. Once you've done that, let's create the project.
+Now that you know the details of the two new missions of Phantom 4, we can start working on the application.
 
-**1**. Create a new **Single View Application** project in Xcode and name it **P4Missions**, download the latest iOS SDK from <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">https://developer.dji.com/mobile-sdk/downloads</a> and copy the **DJISDK.framework** to your Xcode project's framework folder. 
+Let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "P4Missions" in the **Product Name** field and keep the other default settings.
 
-Moreover, download the **VideoPreviewer** folder from the Github <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code" target="_blank">iOS SDK Sample Code</a> and copy it to your project's ThirdParty folder too. Then select the project target and go to Build Phases -> Link Binary With Libraries. Click the "+" button at the bottom and add three libraries to your project: libstdc++.6.0.9.tbd, libz.tbd and libiconv.tbd. Please check the screenshot as shown below:
+Once the project is created, let's import the **DJISDK.framework** to it. If you are not familiar with the process of importing DJI SDK, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
 
-![importSDK](../../images/tutorials-and-samples/iOS/Phantom4Missions/importSDKs.png)
+### Importing the VideoPreviewer
 
- **2**. Go to **XCode -> Project -> Build Settings** and set the "Header Search Paths" to the path for the **~/include** folder in the **ffmpeg** and **DJIH264Decoder** folder. Similarly, set the "Library Search Paths" to the path for the **~/lib** folder in the **ffmpeg** and **DJIH264Decoder** folder. 
+ **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
+  
+ ![projectNavigator](../../images/tutorials-and-samples/iOS/Phantom4Missions/projectNavigator.png)
  
- **3**. Go to **XCode -> Project -> General** and add DJISDK.framework to **Embedded Binaries** as shown below:
+> Note: Please Make sure the **VideoPreviewer** folder and **DJISDK.framework** are in the same **Frameworks** folder like this:
+> 
+> ![frameworksFolderStruct](../../images/tutorials-and-samples/iOS/Phantom4Missions/frameworksFolderStruct.png)
  
- ![embeddedLibrary](../../images/tutorials-and-samples/iOS/Phantom4Missions/embeddedLibrary.png)
+ **2**. Next, let's select the "P4Missions" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
  
- **4**. Go to project's **info.plist** file in Supporting Files folder, add the three "external accessory protocols" and "App Transport Security Settings" items as shown below:
- 
- ![infoPlist](../../images/tutorials-and-samples/iOS/Phantom4Missions/infoPlist.png)
-
- **5**. Now, try to build and run your project, you should build the project successfully.
+  ![addFrameworks](../../images/tutorials-and-samples/iOS/Phantom4Missions/addFrameworks.png)
+  ![addFrameworksResult](../../images/tutorials-and-samples/iOS/Phantom4Missions/addFrameworksResult.png)
 
 ### Setup the Storyboard
 
@@ -286,7 +287,7 @@ For more details of the UI customization, please check the Github source code of
 ~~~objc
 #import <Foundation/Foundation.h>
 #import <DJISDK/DJISDK.h>
-#import "VideoPreviewer.h"
+#import <VideoPreviewer/VideoPreviewer.h>
 
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 #define weakReturn(__TARGET__) if(__TARGET__==nil)return;
