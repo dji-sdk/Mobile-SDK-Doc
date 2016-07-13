@@ -35,7 +35,7 @@ In the [Importing and Activating DJI SDK in Android Studio Project](../applicati
  
  **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
  
- ![importSDK](../images/tutorials-and-samples/Android/SimulatorDemo/importsSDK.png)
+ ![importSDK](../../images/tutorials-and-samples/Android/SimulatorDemo/importsSDK.png)
  
  **3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the followings:
  
@@ -72,13 +72,13 @@ dependencies {
  
   Here, we modify its dependencies by adding `compile project(':dJISDKLIB')` in the "dependencies" part at the bottom, and change the **compileSdkVersion**, **buildToolsVersion** number, etc. 
   
- ![configureAndroidSDK](../images/tutorials-and-samples/Android/SimulatorDemo/buildGradle.png)
+ ![configureAndroidSDK](../../images/tutorials-and-samples/Android/SimulatorDemo/buildGradle.png)
  
  Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
  
  **4**. Let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Struture window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
  
- ![dependencies](../images/tutorials-and-samples/Android/SimulatorDemo/dependencies.png)
+ ![dependencies](../../images/tutorials-and-samples/Android/SimulatorDemo/dependencies.png)
  
  **5**. Now, open the MainActivity.java file in `com.dji.simulatorDemo` package and add `import dji.sdk.SDKManager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
@@ -120,7 +120,7 @@ In order to input some simulated data, like `pitch`, `roll`, `yaw` and `vertical
 
 We implement the joystick control base on an open source Github project <a href="https://github.com/Ville-/OnScreenJoystick/tree/master/OnScreenJoystick/src/com/salamientertainment/view/onscreenjoystick" target="_blank"> OnScreenJoystick </a>. You can download the Github project to get the **OnScreenJoystick.java** and **OnScreenJoystickListener.java** files or get them from this tutorial's Github Sample project. Now, copy and paste these two java files to the folder of "com.dji.simulatorDemo" on the left navigator as shown below:
 
-![onScreenJoystick](../images/tutorials-and-samples/Android/SimulatorDemo/onScreenJoystick.png)
+![onScreenJoystick](../../images/tutorials-and-samples/Android/SimulatorDemo/onScreenJoystick.png)
 
 When you touch on the **OnScreenJoystick** view, the `onTouch` method in OnScreenJoystickListener will be called and you can get the "OnScreenJoystick" joystick object, and the x and y coordinate of the knob parameters from this method as shown below:
 
@@ -137,7 +137,7 @@ public void onTouch(final OnScreenJoystick joystick, final float pX, final float
 
 Next, copy and paste the **joystick.png** and **joystick_bg.png** files from this tutorial's Github sample project to the **mipmap** folder on the left navigator as shown below:
 
-![joystickImages](../images/tutorials-and-samples/Android/SimulatorDemo/joystickImages.png)
+![joystickImages](../../images/tutorials-and-samples/Android/SimulatorDemo/joystickImages.png)
 
 #### 3. Implementing UI Elements in MainActivity Class
 
@@ -420,7 +420,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
   
   Copy the following image and xml files from the tutorial Github Sample project's **drawable** folder to your project, they are used for the button's UI:
   
-  ![drawable](../images/tutorials-and-samples/Android/SimulatorDemo/drawable.png)
+  ![drawable](../../images/tutorials-and-samples/Android/SimulatorDemo/drawable.png)
   
   Next, open the "colors.xml" file and add the following code at the bottom to declare the black overlay color:
   
@@ -595,11 +595,11 @@ Here, we implement several features:
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
 
-![registerSuccess](../images/tutorials-and-samples/Android/SimulatorDemo/registerSuccess.png)
+![registerSuccess](../../images/tutorials-and-samples/Android/SimulatorDemo/registerSuccess.png)
 
 > **Important:** Please check if the "armeabi-v7a", "arm64-v8a" and "x86" lib folders has been added to your jnLibs folder in **dJISDKLib** successfully before testing resgistering the app. 
 > 
-> ![armeabi](../images/tutorials-and-samples/Android/SimulatorDemo/armeabi.png)
+> ![armeabi](../../images/tutorials-and-samples/Android/SimulatorDemo/armeabi.png)
 > 
 
 For more details of integrating and activating the SDK in Android Studio, please check: [Android Studio Project Integration](../application-development-workflow/workflow-integrate.html#android-studio-project-integration).
@@ -697,7 +697,7 @@ Lastly, if the product or remote controller are not connected, then update the `
 
 Now let's build and run the project and install it to your Android device. Then connect the demo application to your Phantom 4 (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details), if everything goes well, you should see the title textView content updates to "Phantom_4 Connected" as shown below:
 
-![registerSuccess](../images/tutorials-and-samples/Android/SimulatorDemo/updateTitleBar.png)
+![registerSuccess](../../images/tutorials-and-samples/Android/SimulatorDemo/updateTitleBar.png)
 
 ### Implementing Virtual Stick Control
 
@@ -1032,7 +1032,7 @@ We have gone through a long way in this tutorial, now let's build and run the pr
 
 If everything goes well, you should see something similiar to the following gif animations like this:
 
- <html><center><img src="../images/tutorials-and-samples/Android/SimulatorDemo/simulatorAnimation.gif"></center></html>
+ <html><center><img src="../../images/tutorials-and-samples/Android/SimulatorDemo/simulatorAnimation.gif"></center></html>
  
 - If the demo application is connected with Phantom 4 successfully, you should see the title textView content updates to "Phantom_4 Connected".
 

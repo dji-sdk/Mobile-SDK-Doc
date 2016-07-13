@@ -51,7 +51,7 @@ Lastly, place two UIImageView objects inside a UIView (Label it as "VirtualStick
 
 For more detail configurations of storyboard, please check the Github sample project. If everything goes well, you should see the following screenshot:
 
-![](../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorStoryboard.png)
+![](../../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorStoryboard.png)
 
 ## Working on RootViewController
 
@@ -305,7 +305,7 @@ In the code above, we implement the following features:
 
 **2.** The range of VirtualStickView's movement is [-1, 1], up and down, left and right. Please check the follow diagram for details:
 
-![](../images/tutorials-and-samples/iOS/SimulatorDemo/virtualStickControl.png)
+![](../../images/tutorials-and-samples/iOS/SimulatorDemo/virtualStickControl.png)
 
  So the range of **x** and **y** value of `dir` variable is [-1, 1]. In the `setThrottle:andYaw:` method, we multiply `y` by -2 to change the range to [-2, 2] from bottom to top. Then multiply `x` by 30 to change the range to [-30, 30]. These range are tested by us to achieve a better control experience, you can take them for example. Moreover, you can learn the max and min values of control velocity for throttle and yaw in virtual stick control from the following const variables in `DJIFlightController`:
  
@@ -581,7 +581,7 @@ We have gone through a long way so far, now, let's build and run the project, co
 
 If everything goes well, you should see something similiar to the following gif animation:
 
-![](../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorAnimation.gif)
+![](../../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorAnimation.gif)
 
 - If the demo application is connected with Phantom 4 successfully, you should see the `connectButton` button is available to press and the `connectStatusLabel` and `modelNameLabel` show the correct infos.
 - Press **Open** and enter the simulator demo page, press **EnterVirtualStickControl** button to enable virtual stick control, then press "Start Simulator" to start the simulator.
