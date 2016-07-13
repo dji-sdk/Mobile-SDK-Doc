@@ -1,5 +1,5 @@
 ---
-title: Run Sample Appliation
+title: Run Sample Application
 date: 2016-06-24
 ---
 
