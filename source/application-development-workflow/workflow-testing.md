@@ -172,8 +172,7 @@ The `DJISimulator` class in `DJIFlightController` is used to control the simulat
 * Seed the simulation with a GPS location
 * Retrieve state information about the aircraft relative to the world.
 
-<!-- Sample code is provided on using the simulator in a project [here](To be done). -->
-<!-- //TODO: Need to create a tutorial on how to use DJISimulator in your project.-->
+Sample code is provided on using the simulator in a project here: [iOS](../ios-tutorials/SimulatorDemo.html) | [Android](../android-tutorials/SimulatorDemo.html).
 
 ## Wireless Bridge App
 

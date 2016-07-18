@@ -98,9 +98,9 @@
     -
       title: "TapFly and ActiveTrack Application"
       path: "/ios-tutorials/P4MissionsDemo.html"
-    # -
-    #   title: "Simulator Application"
-    #   path: "/ios-tutorials/SimulatorDemo.html"
+    -
+      title: "Simulator Application"
+      path: "/ios-tutorials/SimulatorDemo.html"
     -
       title: "Using the Bridge App"
       path: "/ios-tutorials/BridgeAppDemo.html"
@@ -125,6 +125,9 @@
     -
       title: "TapFly and ActiveTrack Application"
       path: "/android-tutorials/P4MissionsDemo.html"
+    -
+      title: "Simulator Application"
+      path: "/android-tutorials/SimulatorDemo.html"
 -
   title: "API REFERENCE"
   list:
