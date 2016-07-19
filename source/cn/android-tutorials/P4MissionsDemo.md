@@ -3,6 +3,7 @@ title: Creating a TapFly and ActiveTrack Missions Application
 version: v3.2.1
 date: 2016-06-24
 github: https://github.com/DJI-Mobile-SDK/Android-Phantom4Missions
+keywords:[Android Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*

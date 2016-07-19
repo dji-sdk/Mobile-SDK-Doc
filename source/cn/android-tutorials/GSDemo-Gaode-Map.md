@@ -3,6 +3,7 @@ title: Creating a MapView and Waypoint Application
 version: v3.2.1
 date: 2016-06-24
 github: "https://github.com/DJI-Mobile-SDK/Android-GSDemo-Gaode-Map"
+keywords:[Android GSDemo, Gaode Map, waypoint mission demo]
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*

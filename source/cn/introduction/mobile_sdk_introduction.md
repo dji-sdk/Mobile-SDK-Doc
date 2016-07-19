@@ -1,6 +1,7 @@
 ---
 title: Mobile SDK Introduction
 date: 2016-06-24
+keywords:[sdk introduction, Kinetic Energy, Share Space, Highly Asynchronous]
 ---
 
 The DJI Mobile SDK is a software development kit designed to give developers access to the capability of DJI's aircraft and handheld camera products. The SDK simplifies the application development process by taking care of lower level functionality such as flight stabilization, battery management, signal transmission and communication. This way, the developer does not require a background in robotics or embedded systems and can instead focus on the application the DJI product is being integrated into.

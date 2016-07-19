@@ -1,6 +1,7 @@
 ---
 title: Camera
 date: 2016-06-24
+keywords:[Thermal camera]
 ---
 
 ## Introduction

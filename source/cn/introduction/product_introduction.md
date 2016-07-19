@@ -1,6 +1,7 @@
 ---
 title: Hardware Introduction
 date: 2016-06-24
+keywords:[component, propellor, sensor, product comparison]
 ---
 
 DJI produces small, highly capable, remotely controlled aircraft as well as hand held cameras and stabilizers perfect for both consumer and commercial applications. The products are very accessible being easy to use and affordable, and have a quality and feature set unmatched in the industry.
