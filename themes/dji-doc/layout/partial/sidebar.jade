@@ -1,9 +1,9 @@
 - var sidebar = page.lang == 'cn' ? site.data.sidebar_cn : site.data.sidebar_en
 
 .site-sidebar
-  //- .doc-search
-    input(placeholder=__('doc.search_holder') type="text")
-    .ico.ico-search
+  .doc-search
+    input(placeholder=__('doc.search_holder'), type="text", v-model="searchInput", @keydown.enter="search")
+    .fa.fa-search
   .nav.scrollable
     each group in sidebar
       dl

@@ -1,8 +1,25 @@
 ;new Vue({
-  el: '#toc',
+  el: '#documentation-page',
   data: {
     titles: [],
-    paddingTop: 50
+    paddingTop: 50,
+    searchInput: '',
+    searchResult: [{
+      title: 'CREATING A CAMERA APPLICATION',
+      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
+    }, {
+      title: 'CREATING A CAMERA APPLICATION',
+      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
+    }, {
+      title: 'CREATING A CAMERA APPLICATION',
+      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
+    }, {
+      title: 'CREATING A CAMERA APPLICATION',
+      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
+    }, {
+      title: 'CREATING A CAMERA APPLICATION',
+      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
+    }]
   },
   ready: function () {
     this.initToc()
@@ -61,6 +78,17 @@
           }
         }
       }
+    },
+    search: function () {
+      if (!this.searchInput) return false
+      $('#search-modal').modal({
+        show: true,
+        backdrop: 'static',
+        keyboard: false
+      })
+    },
+    closeSearch: function () {
+      $('#search-modal').modal('hide')
     }
   }
 })

@@ -1,0 +1,25 @@
+#search-modal.search-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        a.btn-close(href="javascript:;", @click="closeSearch")
+          | ×
+        h2.title 
+          - if (config.sdk == 'mobile-sdk')
+            = __('doc.search_title_mobile')
+          - if (config.sdk == 'onboard-sdk')
+            = __('doc.search_title_onboard')
+          - if (config.sdk == 'guidance-sdk')
+            = __('doc.search_title_guidance')
+        input(type="text", v-model="searchInput", @keydown.enter="")
+      .modal-body
+        p.search-count
+          span(v-cloak) {{searchResult.length}}
+          | &nbsp;
+          != __('doc.results')
+        ul.search-result
+          li(v-for="item in searchResult")
+            a(href="{{item.link}}", target="_blank")
+              h3.title {{item.title}}
+              p {{item.summary}}
+

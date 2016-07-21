@@ -6,10 +6,11 @@ html(lang=page.lang)
   body
     include partial/head
     include partial/sub_nav
-    .documentation-page
+    #documentation-page.documentation-page
       .container
         include partial/sidebar
         block body
+      include partial/search
     include partial/foot
     include partial/script
     include partial/ga

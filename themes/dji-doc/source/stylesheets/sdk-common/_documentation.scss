@@ -122,6 +122,53 @@
       }
     }
   }
+  .search-modal {
+    .modal-dialog {
+      width: 800px;
+    }
+    .modal-content {
+      box-shadow: none;
+      border-radius: 2px;
+      border: none;
+    }
+    .modal-header {
+      padding: 40px 30px;
+      .title {
+        margin-bottom: 1em;
+        font-size: 1.5em;
+        text-align: center;
+      }
+    }
+    .btn-close {
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      color: $text-color;
+      font-size: 18px;
+    }
+    .modal-body {
+      padding: 30px;
+    }
+    .search-count {
+      margin-bottom: 20px;
+      color: #979797;
+    }
+    .search-result {
+      li {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #E5E5E5;
+        a {
+          color: $text-color;
+        }
+        .title {
+          font-size: 20px;
+          margin-bottom: 8px;
+          color: $dji-blue;
+        }
+      }
+    }
+  }
 }
 .guidance-sdk_documentation {
   .site-header,
