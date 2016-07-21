@@ -1,6 +1,7 @@
 ---
 title: Deploy
 date: 2016-06-24
+keywords:[deploy, xcode configuration, MFI authorization]
 ---
 
 Deploying an Android application using the DJI Mobile SDK does not require any additional steps outside of the typical process.

@@ -1,6 +1,7 @@
 ---
 title: AirLink
 date: 2016-06-24
+keywords:[airlink, wifi, lightbridge, Picture in Picture, PIP, OSD, On Screen Display, Auxiliary]
 ---
 
 ## Introduction

@@ -1,6 +1,7 @@
 ---
 title: SDK Manager
 date: 2016-06-24
+keywords:[SDK Manager, registration]
 ---
 
 ## Introduction

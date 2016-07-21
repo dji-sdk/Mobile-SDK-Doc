@@ -1,6 +1,7 @@
 ---
 title: Testing, Profiling & Debugging
 date: 2016-06-24
+keywords:[aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
 Application development requires extensive testing, profiling and debugging. DJI provides tools including an aircraft simulator, a wireless bridge application and remote logging functionality to make development faster and more convenient.

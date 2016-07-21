@@ -1,6 +1,7 @@
 ---
 title: Register as a DJI Developer & Download SDK
 date: 2016-06-24
+keywords:[register, download sdk]
 ---
 
 Register for a DJI Developer account here: <a href="http://developer.dji.com/register/" target="_blank">http://developer.dji.com/register/</a>. 
