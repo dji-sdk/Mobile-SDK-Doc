@@ -154,6 +154,14 @@
       color: #979797;
     }
     .search-result {
+      em {
+        font-style: normal;
+        background: #e5f1fb;
+      }
+      .content {
+        font-size: 13px;
+        line-height: 1.8;
+      }
       li {
         padding-bottom: 20px;
         margin-bottom: 20px;

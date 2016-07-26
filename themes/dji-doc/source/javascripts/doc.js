@@ -3,23 +3,16 @@
   data: {
     titles: [],
     paddingTop: 50,
+    searchPage: 1,
     searchInput: '',
-    searchResult: [{
-      title: 'CREATING A CAMERA APPLICATION',
-      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
-    }, {
-      title: 'CREATING A CAMERA APPLICATION',
-      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
-    }, {
-      title: 'CREATING A CAMERA APPLICATION',
-      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
-    }, {
-      title: 'CREATING A CAMERA APPLICATION',
-      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
-    }, {
-      title: 'CREATING A CAMERA APPLICATION',
-      summary: 'This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: Take Photo and Record video...'
-    }]
+    searchCount: 0,
+    searchLoading: true,
+    searchResult: []
+  },
+  computed: {
+    showLoadMore: function () {
+      return (this.searchPage) * 10 < this.searchCount
+    }
   },
   ready: function () {
     this.initToc()
@@ -79,8 +72,39 @@
         }
       }
     },
+    resetSearch: function () {
+      this.searchResult = []
+      this.searchPage = 1
+      this.searchCount = 0
+      this.searchLoading = true
+    },
     search: function () {
       if (!this.searchInput) return false
+      var self = this
+      this.resetSearch()
+      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale}).done(function (data) {
+        self.searchResult = data.results
+        self.searchCount = data.total_count
+        self.searchLoading = false
+        self.showSearch()
+      }).fail(function () {
+        self.searchLoading = false
+        alert('Server Error')
+      })
+    },
+    loadMoreSearch: function () {
+      var self = this
+      this.searchPage += 1
+      self.searchLoading = true
+      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale}).done(function (data) {
+        self.searchResult = self.searchResult.concat(data.results)
+        self.searchLoading = false
+      }).fail(function () {
+        alert('Server Error')
+        self.searchLoading = false
+      })
+    },
+    showSearch: function () {
       $('#search-modal').modal({
         show: true,
         backdrop: 'static',

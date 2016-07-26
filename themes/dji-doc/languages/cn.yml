@@ -32,4 +32,13 @@ sub_nav:
   downloads: 下载
 
 doc:
-  search_holder: 'Search Documentation'
+  search_holder: '搜索文档'
+  search_title_mobile: '搜索 Mobile SDK 文档'
+  search_title_guidance: '搜索 Mobile SDK 文档'
+  search_title_onboard: '搜索 Mobile SDK 文档'
+  results: '搜索结果'
+  notfound: '未找到结果'
+  
+btn:
+  load_more: '加载更多'
+  loading: '加载中...'

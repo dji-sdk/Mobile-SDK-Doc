@@ -1,7 +1,7 @@
 ---
 title: Documentation Introduction
 date: 2016-06-24
-keywords:[introduction]
+keywords: [introduction]
 ---
 
 The goal of the Mobile SDK Documentation is to give any developer with iOS or Android experience the knowledge and understanding required to create world changing applications using DJI's technology.

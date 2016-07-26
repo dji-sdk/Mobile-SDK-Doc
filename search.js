@@ -6,9 +6,9 @@ const fs = require('fs')
 const path = require('path')
 const mm = require('marky-mark')
 const request = require('request')
-const crypto = require('crypto');
+const crypto = require('crypto')
 
-
+const options = yaml.safeLoad(fs.readFileSync( path.join(__dirname, '_config.yml'), 'utf8'))
 const posts = getAllPosts()
 uploadPosts(posts)
 
@@ -28,27 +28,39 @@ function getAllPosts () {
     })
     let post = mm.parseFileSync(file)
     post.locale = lang
+    post.url = path.join(options.sdk, 'documentation', path.relative(sourceDir, file).replace(/\.md$/, '.html'))
     delete post.yaml
     delete post.markdown
     delete post.filenameExtension
     delete post.filename
     posts.push(post)
-    // posts[lang] = posts[lang] || []
-    // posts[lang].push(post)
   })
   return posts
 }
 
-function uploadPosts(posts) {
-  // console.log(posts[0])
-  // let content = ''
-  // posts.map(function (post, conent) {
-  let key = 'AaUt0is3dIvfBuFczYCg2OH0A7kznMC'
-  let time = (new Date()).getTime()
-  let signature = crypto.createHash('md5').update(time + key).digest('hex')
+function uploadPosts (posts) {
   posts.map(function (post) {
-    
+    let time = new Date().getTime().toString()
+    let signature = genKey(time)
+    request({
+      url: 'http://api-developer.dbeta.me/api/documents',
+      method: 'POST',
+      json: {
+        time: time,
+        signature: signature,
+        document: post
+      }
+    }, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log('DONE', post.url)
+      } else {
+        console.log('ERROR', error, post.url)
+      }
+    })
   })
-  // fs.writeFileSync('./test.txt', content, 'utf8')
+}
 
+function genKey (time) {
+  let key = 'AaUt0is3dIvfBuFczYCg2OH0A7kznMC'
+  return crypto.createHash('md5').update(time + key).digest('hex')
 }

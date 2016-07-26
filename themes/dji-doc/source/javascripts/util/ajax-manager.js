@@ -172,6 +172,9 @@
     },
     applyMfi: function(id, data) {
       return this.post(UrlManger.get('applyMfi', {id: id}), {mfi: data});
+    },
+    searchDoc: function(data) {
+      return this.get(UrlManger.get('searchDoc'), data)
     }
   };
   exports.AjaxManager = AjaxManager;

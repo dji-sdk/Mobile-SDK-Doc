@@ -1,7 +1,7 @@
 ---
 title: Integrate SDK into Application
 date: 2016-06-24
-keywords:[Xcode project integration, import SDK, import framework,  android studio integration]
+keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
 The examples below import the DJI SDK into a new iOS and Android project. The same steps can be used for integration into an existing application.

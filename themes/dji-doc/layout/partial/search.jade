@@ -11,15 +11,22 @@
             = __('doc.search_title_onboard')
           - if (config.sdk == 'guidance-sdk')
             = __('doc.search_title_guidance')
-        input(type="text", v-model="searchInput", @keydown.enter="")
+        input(type="text", v-model="searchInput", @keydown.enter="search")
       .modal-body
-        p.search-count
-          span(v-cloak) {{searchResult.length}}
+        p.search-count(v-show="!!searchCount")
+          span(v-cloak) {{searchCount}}
           | &nbsp;
           != __('doc.results')
-        ul.search-result
+        ul.search-result(v-show="!!searchCount")
           li(v-for="item in searchResult")
             a(href="{{item.link}}", target="_blank")
-              h3.title {{item.title}}
-              p {{item.summary}}
+              h3.title {{{item.highlights.title || item.title}}}
+              p.content {{{item.highlights.content}}}
+        .text-center(v-show="showLoadMore")
+          a.btn-learn-more(href="javascript:;", @click="loadMoreSearch")
+              != __('btn.load_more')
+        .text-center(v-show="searchLoading")
+              != __('btn.loading')
+        .text-center(v-show="!searchCount && !searchLoading")
+          = __('doc.notfound')
 

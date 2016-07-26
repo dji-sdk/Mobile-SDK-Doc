@@ -1,7 +1,7 @@
 ---
 title: Smart Battery
 date: 2016-06-24
-keywords:[smart battery, lifetime, battery aggregation, multiple batteries]
+keywords: [smart battery, lifetime, battery aggregation, multiple batteries]
 ---
 
 ## Introduction

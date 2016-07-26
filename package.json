@@ -14,7 +14,9 @@
     "hexo-renderer-markdown-it": "^3.4.1",
     "hexo-renderer-sass": "^0.2.0",
     "hexo-server": "^0.2.0",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "js-yaml": "^3.6.1",
+    "requestify": "^0.1.17"
   },
   "devDependencies": {
     "del": "^2.2.1",
