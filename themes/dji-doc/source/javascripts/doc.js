@@ -20,7 +20,7 @@
         return url
       } else {
         console.log(url)
-        return config.sdk + '/documentation' + url
+        return '/' + config.sdk + '/documentation' + url
       }
     },
   },
