@@ -19,7 +19,7 @@
           != __('doc.results')
         ul.search-result(v-show="!!searchCount")
           li(v-for="item in searchResult")
-            a(href="{{item.link}}", target="_blank")
+            a(v-bind:href="item.url | docUrl")
               h3.title {{{item.highlights.title || item.title}}}
               p.content {{{item.highlights.content}}}
         .text-center(v-show="showLoadMore")

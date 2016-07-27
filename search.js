@@ -28,7 +28,7 @@ function getAllPosts () {
     })
     let post = mm.parseFileSync(file)
     post.locale = lang
-    post.url = path.join(options.sdk, 'documentation', path.relative(sourceDir, file).replace(/\.md$/, '.html'))
+    post.url = path.join('/', path.relative(sourceDir, file).replace(/\.md$/, '.html'))
     delete post.yaml
     delete post.markdown
     delete post.filenameExtension

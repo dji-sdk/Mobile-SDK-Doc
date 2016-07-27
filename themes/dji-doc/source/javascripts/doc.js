@@ -14,6 +14,16 @@
       return (this.searchPage) * 10 < this.searchCount
     }
   },
+  filters: {
+    docUrl: function (url) {
+      if (Config.environment == 'development') {
+        return url
+      } else {
+        console.log(url)
+        return config.sdk + '/documentation' + url
+      }
+    },
+  },
   ready: function () {
     this.initToc()
     this.initScrollFollow()
