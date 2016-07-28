@@ -2,7 +2,7 @@
 title: DJI Simulator Tutorial
 version: v3.2
 date: 2016-07-13
-github: https://github.com/DJI-Mobile-SDK/iOS-SimulatorDemo
+github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -39,7 +39,7 @@ Next, let's import the DJISDK.framework to the project and implement the registr
 
 #### Creating the UI of RootViewController 
 
-Let's open the "Main.storyboard" and make the **RootViewController** embed in a Navigation Controller and set it as the Storyboard Entry Point. Next, drag and drop two UILabel objects to the RootViewController and named them as "Product Connection Status" and "Model: Not Available". Moreover, drag and drop a UIButton object and place under the two UILabels, named it as "Open", then set its background image as "btn.png" file, which you can get it from the Github Sample Project. Lastly, setup the UI elements' auto layout to support multiple device screen size.
+Let's open the "Main.storyboard" and make the **RootViewController** embed in a Navigation Controller and set it as the Storyboard Entry Point. Next, drag and drop two UILabel objects to the RootViewController and named them as "Product Connection Status" and "Model: Not Available". Moreover, drag and drop a UIButton object and place under the two UILabels, named it as "Open", then set its background image as "btn.png" file, which you can get it from the tutorial's Github Sample Project. Lastly, setup the UI elements' auto layout to support multiple device screen size.
 
 #### Creating the UI of DJISimulatorViewController
 
@@ -47,9 +47,9 @@ Drag and drop another ViewController object from the Object Library to the right
 
 Furthermore, drag and drop 5 UIButton objects and place them on top, named them from the left to right as "EnterVirtualStickControl", "ExitVirtualStickControl", "Start Simulator", "Takeoff" and "Land". Make sure they are place inside a UIView object as subviews. Next, drag and drop a UILabel and place it under the 5 UIButton objects, named it as "Simulator State". 
 
-Lastly, place two UIImageView objects inside a UIView (Label it as "VirtualStick Left") as subviews, and set their images as "stick\_base.png" and "stick\_normal.png", which you can get them from the Github sample project. Now, the left joystick's UI has setuped. Similiarly, let's make the right joystick's UI in the same way. 
+Lastly, place two UIImageView objects inside a UIView (Label it as "VirtualStick Left") as subviews, and set their images as "stick\_base.png" and "stick\_normal.png", which you can get them from the tutorial's Github sample project. Now, the left joystick's UI has setuped. Similiarly, let's make the right joystick's UI in the same way. 
 
-For more detail configurations of storyboard, please check the Github sample project. If everything goes well, you should see the following screenshot:
+For more detail configurations of storyboard, please check the tutorial's Github sample project. If everything goes well, you should see the following screenshot:
 
 ![](../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorStoryboard.png)
 
@@ -93,13 +93,13 @@ Next, invoke the above method at the end of both the `viewDidAppear` method and 
 }
 ~~~
 
-For more details of the implementation of RootViewController, please check the Github sample project.
+For more details of the implementation of RootViewController, please check the tutorial's Github sample project.
 
 ## Implementing VirtualStickView
 
 In order to input some simulated data, like `pitch`, `roll`, `yaw` and `verticalThrottle`, you will need a virtual stick control. In our previous step, we have finished the UI of the virtual stick, let's work on the implementation.
 
-We implement the virtual stick control base on an open source Github project <a href="https://github.com/pyzhangxiang/joystick-ios" target="_blank">joystick_ios</a>, now create a new UIView class and named it as **VirtualStickView**. You can check the same class files in the Github Sample Project for implementation details, here we just explain the notification logic.
+We implement the virtual stick control base on an open source Github project <a href="https://github.com/pyzhangxiang/joystick-ios" target="_blank">joystick_ios</a>, now create a new UIView class and named it as **VirtualStickView**. You can check the same class files in the tutorial's Github Sample Project for implementation details, here we just explain the notification logic.
 
 The following method will be invoked in `touchEvent:`, `touchesEnded:withEvent:`, `touchesCancelled:withEvent:` and `onUpdateTimerTicked:` methods in VirtualStickView.m file:
 

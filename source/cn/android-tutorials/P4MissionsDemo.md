@@ -2,7 +2,7 @@
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v3.2.1
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/Android-Phantom4Missions
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -555,7 +555,7 @@ public class PointingTestActivity extends DemoBaseActivity implements TextureVie
 </resources>
 ~~~
   
-   Lastly, jump over to your associated layout in layout/activity_ pointing_test.xml and replace everything with the same xml file from the Github Sample Project, since the xml file's content is too much, we don't show them here. 
+   Lastly, jump over to your associated layout in layout/activity_ pointing_test.xml and replace everything with the same xml file from the tutorial of the tutorial's Github Sample Project, since the xml file's content is too much, we don't show them here. 
    
    For the UI, we declare a main title, a return button, a connect status text view, a pointing button, etc. Here is a screenshot of the preview of PointingTestActivity:
    
@@ -647,7 +647,7 @@ Next, open the strings.xml file and add the following code:
     <string name="demo_desc_pointing">TapFly Mission</string>
 ~~~
 
-Finally, jump over to your associated layout in layout/activity_ tracking_test.xml and replace everything with the same xml file from the Github Sample Project, since the xml file's content is a lot, we don't show them here. For more details, please check the related xml file from the Github Sample Project of the demo project.
+Finally, jump over to your associated layout in layout/activity_ tracking_test.xml and replace everything with the same xml file from the tutorial's Github Sample Project, since the xml file's content is a lot, we don't show them here. For more details, please check the related xml file from the Github Sample Project of the demo project.
 
 For the UI, we declare a main title, a return button, a connect status text view, a TextureView to show live video stream, an ImageView to show the tracking rectangle, etc. Here is a screenshot of the preview of TrackingTestActivity:
    

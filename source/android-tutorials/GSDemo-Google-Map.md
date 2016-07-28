@@ -2,7 +2,7 @@
 title: Creating a MapView and Waypoint Application
 version: v3.2.1
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/Android-GSDemo-GoogleMap
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -11,7 +11,7 @@ github: https://github.com/DJI-Mobile-SDK/Android-GSDemo-GoogleMap
 
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
 
-Also you will know how to setup the DJI PC Simulator, upgrade your Inspire 1, Phantom 3 Professional and Phantom 3 Advanced's firmware to the lastest version, and how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
+Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
 You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 
@@ -86,7 +86,7 @@ Now, let's go to <a href="https://console.developers.google.com/apis" target="_b
  
 #### 5. Adding Android API Key
 
-Open the AndroidManifest.xml file, add the following elements as childs of **<application>** element and substitute your Android API Key for "YOUR _ API_KEY" in the **value** attribute as shown below:
+Open the AndroidManifest.xml file, add the following element as child of **<application>** element and substitute your Android API Key for "YOUR _ API_KEY" in the **value** attribute as shown below:
 
 ~~~xml
     <meta-data
@@ -119,7 +119,7 @@ Moreover, specify the permissions of your application needs, by adding **\<uses-
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 ~~~
 
-Finally, we need to specify requirement for OpenGL ES version 2 by adding the following element inside the "manifest" element:
+Finally, we need to specify requirement for OpenGL ES version 2 by adding the following element inside the **\<manifest>** element:
 
 ~~~xml
    <uses-feature
@@ -536,7 +536,7 @@ In the code shown above, we implement the following features:
 
 **5.** Lastly, we override the `onMapReady()` method to initialize the `gMap` and invoke `setUpMap()` method to implement the `setOnMapClickListener()` method of `gMap` variable. Then add a marker of Shenzhen, China here for example. So when the Google map is loaded, you will see a red pin tag on Shenzhen, China.
 
-For more details, please check the Github Sample Project. If you are not familiar with adding a Google map to your application, please follow this <a href="https://developers.google.com/maps/documentation/android-api/utility/setup#library-dependency" target="_blank">guide</a>. 
+For more details, please check the tutorial's Github Sample Project. If you are not familiar with adding a Google map to your application, please follow this <a href="https://developers.google.com/maps/documentation/android-api/utility/setup#library-dependency" target="_blank">guide</a>. 
 
 We have gone through a long process to setup the UI of the application. Now, let's build and run the project and install it in your Android device to test it. Here we use Nexus 5 for testing. If everything goes well, you should see the following gif animation of the application:
 

@@ -2,7 +2,7 @@
 title: Creating a MapView and Waypoint Application
 version: v3.2.1
 date: 2016-06-24
-github: "https://github.com/DJI-Mobile-SDK/Android-GSDemo-Gaode-Map"
+github: "https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map"
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -10,7 +10,7 @@ github: "https://github.com/DJI-Mobile-SDK/Android-GSDemo-Gaode-Map"
 ---
 
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
-Also you will know how to setup the DJI PC Simulator, upgrade your Inspire 1, Phantom 3 Professional and Phantom 3 Advanced's firmware to the lastest version, and how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
+Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
 You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 

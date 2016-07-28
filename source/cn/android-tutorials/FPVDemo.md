@@ -2,7 +2,7 @@
 title: Creating a Camera Application
 version: v3.2.1
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/Android-FPVDemo
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue or a post on the DJI forum, or commenting in the Gitbook. Please feel free to send us Github pull request and help us fix any issues.*

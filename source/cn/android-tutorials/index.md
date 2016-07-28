@@ -83,6 +83,12 @@ Please make sure your DJI Remote Controller supports <a href="https://source.and
 
 > Note: To upgrade your DJI Remote Controller's firmware, you can download the **DJI Go** app from Google Play Store: <a href="https://play.google.com/store/apps/details?id=dji.pilot" target="_blank"> https://play.google.com/store/apps/details?id=dji.pilot </a> and open it. Connect the DJI Go app to your remote controller and upgrade its firmware.
 
+### Checking Default App Settings
+
+Sometimes, developers may meet the problem of connecting their DJI SDK-based application to the DJI remote controller (USB accessory). This may because there is more than one SDK-based app(Like DJI Go app) installed on their mobile devices and one of the app is set as default for the USB accessory. So everytime the app connects to the DJI remote controller, the android system will use the chosen app as default to connect.
+
+ To learn how to change the default app for USB accessory, please check these two FAQs: [Android Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Android-devices), [Samsung Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Samsung-devices).
+ 
 Once you finish it, build and run the project on your Android Device. Then connect the Android device to the Remote Controller, turn on the Remote Controller and the aircraft or handheld device. You can start to try different features in the sample project now! 
 
 Here are the screenshots when you run the Sample app on Phantom 3 Professional successfully:

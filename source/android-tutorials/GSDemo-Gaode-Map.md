@@ -2,7 +2,7 @@
 title: Creating a MapView and Waypoint Application
 version: v3.2.1
 date: 2016-06-24
-github: "https://github.com/DJI-Mobile-SDK/Android-GSDemo-Gaode-Map"
+github: "https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map"
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -10,7 +10,7 @@ github: "https://github.com/DJI-Mobile-SDK/Android-GSDemo-Gaode-Map"
 ---
 
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
-Also you will know how to setup the DJI PC Simulator, upgrade your Inspire 1, Phantom 3 Professional and Phantom 3 Advanced's firmware to the lastest version, and how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
+Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
 You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
 
@@ -295,7 +295,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
 
 3. Lastly, we create a map view fragment and place it at the bottom.
   
-Next, copy the "aircraft.png" and "ic_launcher.png" image files from this Github sample project to the **drawable** folders inside the **res** folder.
+Next, copy the "aircraft.png" and "ic_launcher.png" image files from this tutorial's [Github sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map) to the **drawable** folders inside the **res** folder.
     
 Furthermore, open the AndroidManifest.xml file and update the ".MainActivity" activity element with several attributes as shown below:
   
@@ -318,7 +318,7 @@ Furthermore, open the AndroidManifest.xml file and update the ".MainActivity" ac
    
 ![MainActivity](../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/mainActivity.png)
 
-  Lastly, let's create a new xml file named "dialog_waypointsetting.xml" in the layout folder by right-clicking on the "layout" folder and select **New->XML->Layout XML File**. Then replace the code with the same file in Github Sample Project, since the content is too much, we don't show them all here.
+  Lastly, let's create a new xml file named "dialog_waypointsetting.xml" in the layout folder by right-clicking on the "layout" folder and select **New->XML->Layout XML File**. Then replace the code with the same file in this project's [Github sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map), since the content is too much, we don't show them all here.
 
 This xml file will help to setup a textView to enter "Altitude" and create three RadioButton Groups for selecting **Speed**, **Action After Finished** and **Heading**.
 

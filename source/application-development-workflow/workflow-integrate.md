@@ -105,7 +105,7 @@ Screenshots in this section are generated using Xcode 7.3.
 
 ### Run Import SDK Demo
 
-The **ImportSDKDemo** project can now be run. You can download the sample code of this project from <a href="https://github.com/DJI-Mobile-SDK/iOS-ImportAndActivateSDKInXcode" target="_blank">Github</a>.
+The **ImportSDKDemo** project can now be run. You can download the sample code of this project from <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode" target="_blank">Github</a>.
 
 As this application is only checking for registration and not interacting directly with a product, no product needs to be connected to the application for this to run. Therefore, the application can either be run on a mobile device (with or without a DJI product connected) or in the iOS simulator. The application will need internet connectivity to perform registration successfully.
 
@@ -400,7 +400,7 @@ Insert the following after `android:theme="@style/AppTheme">` and before `<activ
 
 ### Run Import SDK Demo
 
-The **ImportSDKDemo** project can now be run. You can download the sample code of this project from <a href="https://github.com/DJI-Mobile-SDK/Android-ImportAndActivateSDKInAndroidStudio" target="_blank">Github</a>.
+The **ImportSDKDemo** project can now be run. You can download the sample code of this project from <a href="https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio" target="_blank">Github</a>.
 
 As this application is only checking for registration and not interacting directly with a product, no product needs to be connected to the application for this to run. Therefore, the application can either be run on a mobile device (with or without a DJI product connected) or in the Android simulator. The application will need internet connectivity to perform registration successfully.
 
