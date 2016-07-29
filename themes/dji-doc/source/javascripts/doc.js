@@ -119,7 +119,7 @@
     showSearch: function () {
       $('#search-modal').modal({
         show: true,
-        backdrop: 'static',
+        // backdrop: 'static',
         keyboard: false
       })
     },
