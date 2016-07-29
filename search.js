@@ -43,7 +43,8 @@ function uploadPosts (posts) {
     let time = new Date().getTime().toString()
     let signature = genKey(time)
     request({
-      url: 'http://api-developer.dbeta.me/api/documents',
+      // url: 'http://api-developer.dbeta.me/api/documents',
+      url: 'http://10.81.3.116:3000/api/documents',
       method: 'POST',
       json: {
         time: time,

@@ -4,6 +4,7 @@
     titles: [],
     paddingTop: 50,
     searchPage: 1,
+    searchPageSize: 10,
     searchInput: '',
     searchCount: 0,
     searchLoading: true,
@@ -11,7 +12,7 @@
   },
   computed: {
     showLoadMore: function () {
-      return (this.searchPage) * 10 < this.searchCount
+     return (this.searchPage) * this.searchPageSize < this.searchCount && !this.searchLoading
     }
   },
   filters: {
@@ -94,6 +95,7 @@
       this.resetSearch()
       AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale}).done(function (data) {
         self.searchResult = data.results
+        self.searchPageSize = data.page_size || 10
         self.searchCount = data.total_count
         self.searchLoading = false
         self.showSearch()

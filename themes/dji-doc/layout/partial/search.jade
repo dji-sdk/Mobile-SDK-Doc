@@ -20,8 +20,8 @@
         ul.search-result(v-show="!!searchCount")
           li(v-for="item in searchResult")
             a(v-bind:href="item.url | docUrl")
-              h3.title {{{item.highlights.title || item.title}}}
-              p.content {{{item.highlights.content}}}
+              h3.title {{{(item.highlights && item.highlights.title) || item.title}}}
+              p.content {{{(item.highlights && item.highlights.content[0]) || item.title}}}
         .text-center(v-show="showLoadMore")
           a.btn-learn-more(href="javascript:;", @click="loadMoreSearch")
               != __('btn.load_more')
@@ -29,4 +29,3 @@
               != __('btn.loading')
         .text-center(v-show="!searchCount && !searchLoading")
           = __('doc.notfound')
-
