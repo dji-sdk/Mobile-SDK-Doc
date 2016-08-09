@@ -1,7 +1,7 @@
 ---
 title: Run Sample Application
 date: 2016-06-24
-keywords: [quick start, generate app key, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
+keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
 ## Register as a DJI Developer
