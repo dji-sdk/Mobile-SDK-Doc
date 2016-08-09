@@ -32,6 +32,9 @@
     "markdown-it": "^7.0.0",
     "marky-mark": "^1.2.1",
     "request": "^2.73.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "ali-oss": "^4.4.4",
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.1"
   }
 }
