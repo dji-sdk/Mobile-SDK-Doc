@@ -6,8 +6,6 @@ var gulp          = require('gulp'),
     revReplace    = require('gulp-rev-replace'),
     replace       = require('gulp-replace'),
     filter        = require('gulp-filter'),
-    through2      = require('through2'),
-    AliOSS        = require('ali-oss').Wrapper,
     path          = require('path'),
     fs            = require('fs'),
     gutil         = require('gulp-util')
@@ -123,33 +121,48 @@ gulp.task('default', function (cb) {
 })
 
 
-// oss helper
-var putalioss = through2.obj(function (chunk, enc, cb) {
-  var currentDir = process.cwd(),
-      prefix = options.prefix || '',
-      manifestPath = path.join(currentDir, options.manifestPath || '.tmp'),
-      manifestFile = path.join(manifestPath, prefix + '-manifest.json'),
-      client = new AliOSS(options)
+// ali oss helpers
 
-  fs.existsSync(manifestPath) || fs.mkdirSync(manifestPath)
-  var manifest = JSON.parse(fs.readFileSync(manifestFile, {flag: 'a+'}).toString() || '[]')
+// putalioss
+var through2  = require('through2'),
+    AliOSS    = require('ali-oss').Wrapper,
+    mime      = require('mime')
 
-  if (chunk.isBuffer()) {
-    var name = path.join(prefix, chunk.path.replace(chunk.base, ''))
-    if (manifest.indexOf(name) > -1) {
-      cb(null, chunk)
+/**
+ * @param {prefix, [manifestPath = `.tmp/${prefix}-mainfest.json`], accessKeyId, accessKeySecret, [bucket], [endpoint], [region], [internal], [timeout]}
+ * https://github.com/ali-sdk/ali-oss#ossoptions
+ */
+var putalioss = function (options) {
+  return through2.obj(function (chunk, enc, cb) {
+    var currentDir = process.cwd(),
+        prefix = options.prefix || '',
+        manifestPath = path.join(currentDir, options.manifestPath || '.tmp'),
+        manifestFile = path.join(manifestPath, prefix + '-manifest.json'),
+        client = new AliOSS(options)
+
+    fs.existsSync(manifestPath) || fs.mkdirSync(manifestPath)
+    var manifest = JSON.parse(fs.readFileSync(manifestFile, {flag: 'a+'}).toString() || '[]')
+
+    if (chunk.isBuffer()) {
+      var name = path.join(prefix, chunk.path.replace(chunk.base, ''))
+      if (manifest.indexOf(name) > -1) {
+        cb(null, chunk)
+      } else {
+        var _opt = {
+          mime: mime.lookup(chunk.path)
+        }
+        client.put(name, chunk.path, _opt).then(function (val) {
+          gutil.log(gutil.colors.green('[OK]'), val.name)
+          manifest.push(val.name)
+          fs.writeFileSync(manifestFile, JSON.stringify(manifest))
+          cb(null, chunk)
+        }).catch (function (err) {
+          gutil.log(gutil.colors.red('[Err]'), err)
+          cb(null, chunk)
+        });
+      }
     } else {
-      client.put(name, chunk.path).then(function (val) {
-        gutil.log(gutil.colors.green('[OK]'), val.name)
-        manifest.push(val.name)
-        fs.writeFileSync(manifestFile, JSON.stringify(manifest))
-        cb(null, chunk)
-      }).catch (function (err) {
-        gutil.log(gutil.colors.red('[Err]'), err)
-        cb(null, chunk)
-      });
+      cb(null, chunk)
     }
-  } else {
-    cb(null, chunk)
-  }
-})
+  })
+}
