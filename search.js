@@ -9,11 +9,10 @@ const crypto = require('crypto')
 const co = require('co')
 const fetch = require('node-fetch')
 const config = yaml.safeLoad(fs.readFileSync('./_config.yml', 'utf8'))
-const host = 'http://10.81.15.72:3000/api/docsearch'
 
 let clean = function* () {
   let sdk = config.sdk.replace('-sdk', '')
-  let res = yield fetchJson(host + '/clean', {
+  let res = yield fetchJson(getUrl('clean'), {
     sdk: sdk
   })
   if (res.ok) {
@@ -26,7 +25,7 @@ let clean = function* () {
 let upload = function* () {
   let posts = getAllPosts()
   let resArr = yield posts.map(function (post) {
-    return fetchJson(host + '/documents', {
+    return fetchJson(getUrl('documents'), {
       document: post
     })
   })
@@ -34,7 +33,7 @@ let upload = function* () {
 }
 
 let rebuild = function* () {
-  let res = yield fetchJson(host + '/rebuild')
+  let res = yield fetchJson(getUrl('rebuild'))
   if (res.ok) {
     console.log(`REBUILD DONE`)
   } else {
@@ -43,6 +42,20 @@ let rebuild = function* () {
 }
 
 // helpers
+function getUrl (key) {
+  const host = 'http://api-developer.dbeta.me/api/docsearch'
+  switch (key) {
+    case 'clean':
+      return host + '/clean'
+    case 'rebuild':
+      return host + '/rebuild'
+    case 'documents':
+      return host + '/documents'
+    default
+      return host
+  }
+}
+
 function getAllPosts () {
   let sourceDir = path.join(__dirname, 'source')
   let langs = config['language']
