@@ -51,7 +51,7 @@ function getUrl (key) {
       return host + '/rebuild'
     case 'documents':
       return host + '/documents'
-    default
+    default:
       return host
   }
 }
