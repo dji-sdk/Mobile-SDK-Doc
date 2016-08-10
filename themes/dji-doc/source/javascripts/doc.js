@@ -93,7 +93,7 @@
       if (!this.searchInput) return false
       var self = this
       this.resetSearch()
-      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale}).done(function (data) {
+      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale, sdk: Config.sdk.replace('-sdk','')}).done(function (data) {
         self.searchResult = data.results
         self.searchPageSize = data.page_size || 10
         self.searchCount = data.total_count
@@ -108,7 +108,7 @@
       var self = this
       this.searchPage += 1
       self.searchLoading = true
-      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale}).done(function (data) {
+      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale, sdk: Config.sdk.replace('-sdk','')}).done(function (data) {
         self.searchResult = self.searchResult.concat(data.results)
         self.searchLoading = false
       }).fail(function () {
