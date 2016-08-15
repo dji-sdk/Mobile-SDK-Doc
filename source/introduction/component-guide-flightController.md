@@ -34,7 +34,7 @@ The flight controller provides detailed state information at up to 10 Hz includi
 
 ### Motor Control
 
-Motors can be turned on and off through APIs in the DJI Mobile SDK. Motors can only be turned off when the aircraft is not flying. Motors will not turn on if there are IMU or Compass calibration errors, or if the IMU is still pre-heating.
+Motors can be turned on and off through APIs in the DJI Mobile SDK. Motors can only be turned off when the aircraft is not flying. Motors will not turn on if there are [IMU](#IMU-Inertial-Measurement-Unit) or Compass calibration errors, or if the IMU is still pre-heating.
 
 ### Beginning and Ending Flights
 
