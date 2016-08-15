@@ -155,7 +155,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     <tr>
       <td>Handheld Camera</th>
       <td>Osmo</td>
-      <td>X3, X5, X5R</td>        
+      <td>X3, X5</td>        
       <td> — </td>
     </tr>
     <tr>
