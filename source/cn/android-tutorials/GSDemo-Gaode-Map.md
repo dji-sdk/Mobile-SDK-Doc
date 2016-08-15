@@ -502,7 +502,7 @@ In the code shown above, we implement the following features:
 
 **3.** Then invoke the `initUI()` method to initialize the UI. Then invoke the `initMapView()` method to create the MapView and add a marker of Shenzhen, China here. So when the Gaode map is loaded, you will see a blue pin tag on Shenzhen, China.
 
-**3.** Implement the `showSettingDialog` method to show the **Waypoint Configuration** alert dialog and override the `onClick()` method to show the configuration dialog when press the **Config** button.
+**4.** Implement the `showSettingDialog` method to show the **Waypoint Configuration** alert dialog and override the `onClick()` method to show the configuration dialog when press the **Config** button.
 
 We have gone through a long process to setup the UI of the application. Now, let's build and run the project and install it in your Android device to test it. Here we use Nexus 5 for testing. If everything goes well, you should see the following gif animation of the application:
 

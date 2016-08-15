@@ -549,7 +549,7 @@ We have gone through a long process to setup the UI of the application. Now, let
 
 After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
-**1.** Let's open the AndroidManifest.xml file and add the following elements to it:
+Let's open the AndroidManifest.xml file and add the following elements to it:
 
 ~~~xml
 <uses-feature
