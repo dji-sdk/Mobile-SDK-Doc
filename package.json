@@ -21,9 +21,7 @@
     "js-yaml": "^3.6.1",
     "node-fetch": "^1.6.0",
     "requestify": "^0.1.17",
-    "whatwg-fetch": "^1.0.0"
-  },
-  "devDependencies": {
+    "whatwg-fetch": "^1.0.0",
     "ali-oss": "^4.4.4",
     "del": "^2.2.1",
     "glob": "^7.0.5",
