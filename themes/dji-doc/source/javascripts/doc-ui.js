@@ -117,7 +117,6 @@
     $('html, body').stop().animate({scrollTop: Math.ceil($(target).position().top - 50)}, cb);
   }
 
-
   sidebarInner.css({ height: 0 })
   initHashScroll()
   initSubMenuClick()

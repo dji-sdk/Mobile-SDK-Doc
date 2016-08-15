@@ -1,8 +1,8 @@
 ---
 title: Prerequisites
 date: 2016-06-24
+keywords: [prerequisites]
 ---
-
 
 Several general and platform specific prerequisites are required to develop an application with the DJI Mobile SDK.
 

@@ -1,6 +1,7 @@
 ---
 title: Run Application
 date: 2016-06-24
+keywords: [activate product, upgrade firmware, flight mode switch, connection configuration]
 ---
 
 ## Prepare Product

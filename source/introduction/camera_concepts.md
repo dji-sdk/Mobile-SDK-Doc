@@ -1,6 +1,7 @@
 ---
 title: Camera Exposure
 date: 2016-06-24
+keywords: [exposure, aperture, shutter, shutter speed, ISO, focal length, depth of field, field of view]
 ---
 
 ## How to Capture a Picture

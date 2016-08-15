@@ -1,5 +1,5 @@
 ;(function(exports){
-  var namespace = Config.api_host + Config.namespace;
+  var namespace = Config.api_host + '/api/web/';
 
   var urls = {
     login: 'user/login',
@@ -40,7 +40,8 @@
     readNotice: 'notices/:id',
     readAllNotices: 'notices/mark_all_read',
     terms: 'terms/:id',
-    applyMfi: 'apps/:id/mfi'
+    applyMfi: 'apps/:id/mfi',
+    searchDoc: 'search'
   };
 
   exports.UrlManager = {

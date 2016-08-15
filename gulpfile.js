@@ -5,9 +5,10 @@ var gulp          = require('gulp'),
     rev           = require('gulp-rev'),
     revReplace    = require('gulp-rev-replace'),
     replace       = require('gulp-replace'),
-    filter        = require('gulp-filter')
-
-var putalioss     = require('./my-gulp-plugin/gulp-putalioss')
+    filter        = require('gulp-filter'),
+    path          = require('path'),
+    fs            = require('fs'),
+    gutil         = require('gulp-util')
     
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
@@ -117,4 +118,51 @@ gulp.task('default', function (cb) {
       cb
     )
   }
-});
+})
+
+
+// ali oss helpers
+
+// putalioss
+var through2  = require('through2'),
+    AliOSS    = require('ali-oss').Wrapper,
+    mime      = require('mime')
+
+/**
+ * @param {prefix, [manifestPath = `.tmp/${prefix}-mainfest.json`], accessKeyId, accessKeySecret, [bucket], [endpoint], [region], [internal], [timeout]}
+ * https://github.com/ali-sdk/ali-oss#ossoptions
+ */
+var putalioss = function (options) {
+  return through2.obj(function (chunk, enc, cb) {
+    var currentDir = process.cwd(),
+        prefix = options.prefix || '',
+        manifestPath = path.join(currentDir, options.manifestPath || '.tmp'),
+        manifestFile = path.join(manifestPath, prefix + '-manifest.json'),
+        client = new AliOSS(options)
+
+    fs.existsSync(manifestPath) || fs.mkdirSync(manifestPath)
+    var manifest = JSON.parse(fs.readFileSync(manifestFile, {flag: 'a+'}).toString() || '[]')
+
+    if (chunk.isBuffer()) {
+      var name = path.join(prefix, chunk.path.replace(chunk.base, ''))
+      if (manifest.indexOf(name) > -1) {
+        cb(null, chunk)
+      } else {
+        var _opt = {
+          mime: mime.lookup(chunk.path)
+        }
+        client.put(name, chunk.path, _opt).then(function (val) {
+          gutil.log(gutil.colors.green('[OK]'), val.name)
+          manifest.push(val.name)
+          fs.writeFileSync(manifestFile, JSON.stringify(manifest))
+          cb(null, chunk)
+        }).catch (function (err) {
+          gutil.log(gutil.colors.red('[Err]'), err)
+          cb(null, chunk)
+        });
+      }
+    } else {
+      cb(null, chunk)
+    }
+  })
+}

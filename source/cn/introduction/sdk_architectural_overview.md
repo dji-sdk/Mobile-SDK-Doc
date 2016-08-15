@@ -1,6 +1,7 @@
 ---
 title: SDK Architectural Overview
 date: 2016-06-24
+keywords: [sdk architecture, hierarchy]
 ---
 
 The architecture is designed to be highly extensible. Abstract product and component classes are used so applications can control different products with the same code. Features that are not consistent across all generations of supported products can be queried at runtime, and those that are consistent will simply work.

@@ -1,6 +1,7 @@
 ---
 title: Smart Battery
 date: 2016-06-24
+keywords: [smart battery, lifetime, battery aggregation, multiple batteries]
 ---
 
 ## Introduction
@@ -26,4 +27,3 @@ Lifetime parameters such as total number of cycles (or discharges), full charge 
 Products requiring multiple batteries such as the M600 provide both parameters for single batteries, as well as for the aggregation. This aggregation is useful as a summary for how the multi-battery system is performing.
 
 A multi-battery system is as strong as its weakest link. Therefore for most efficiency, it's important to make sure all batteries in the system are performing similarly. 
-
