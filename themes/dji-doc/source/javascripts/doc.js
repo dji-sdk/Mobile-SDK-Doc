@@ -92,8 +92,11 @@
     search: function () {
       if (!this.searchInput) return false
       var self = this
+      var sdk = Config.sdk.replace('-sdk', '')
       this.resetSearch()
-      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale, sdk: Config.sdk.replace('-sdk','')}).done(function (data) {
+      // send ga
+      ga('send', 'event', sdk, 'doc-search', this.searchInput)
+      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale, sdk: sdk}).done(function (data) {
         self.searchResult = data.results
         self.searchPageSize = data.page_size || 10
         self.searchCount = data.total_count
@@ -106,9 +109,10 @@
     },
     loadMoreSearch: function () {
       var self = this
+      var sdk = Config.sdk.replace('-sdk', '')
       this.searchPage += 1
       self.searchLoading = true
-      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale, sdk: Config.sdk.replace('-sdk','')}).done(function (data) {
+      AjaxManager.searchDoc({keyword: this.searchInput, page: this.searchPage, locale: Config.locale, sdk: sdk}).done(function (data) {
         self.searchResult = self.searchResult.concat(data.results)
         self.searchLoading = false
       }).fail(function () {
