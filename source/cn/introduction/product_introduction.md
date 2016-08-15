@@ -165,7 +165,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> — </td>
     </tr>
     <tr>
-      <td>Lightbridge 2 with A3</td>
+      <td> - </td>
       <td> X3, X5, X5R </td>        
       <td> — </td>
     </tr>
