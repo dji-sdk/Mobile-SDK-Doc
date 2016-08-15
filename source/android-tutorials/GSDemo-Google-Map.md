@@ -2,7 +2,7 @@
 title: Creating a MapView and Waypoint Application
 version: v3.2.1
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/Android-GSDemo-GoogleMap
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap
 keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission demo]
 ---
 

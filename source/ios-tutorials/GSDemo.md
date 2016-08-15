@@ -2,7 +2,7 @@
 title: Creating a MapView and Waypoint Application
 version: v3.2
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/iOS-GSDemo
+github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo
 keywords: [iOS GSDemo, waypoint mission demo]
 ---
 

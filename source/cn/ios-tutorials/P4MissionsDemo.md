@@ -2,7 +2,7 @@
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v3.2
 date: 2016-06-24
-github: https://github.com/DJI-Mobile-SDK/iOS-Phantom4Missions
+github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [iOS Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
 
