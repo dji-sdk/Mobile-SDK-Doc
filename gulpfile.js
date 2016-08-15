@@ -7,8 +7,7 @@ var gulp          = require('gulp'),
     replace       = require('gulp-replace'),
     filter        = require('gulp-filter'),
     path          = require('path'),
-    fs            = require('fs'),
-    gutil         = require('gulp-util')
+    fs            = require('fs')
     
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
@@ -152,12 +151,12 @@ var putalioss = function (options) {
           mime: mime.lookup(chunk.path)
         }
         client.put(name, chunk.path, _opt).then(function (val) {
-          gutil.log(gutil.colors.green('[OK]'), val.name)
+          console.log('[OK]', val.name)
           manifest.push(val.name)
           fs.writeFileSync(manifestFile, JSON.stringify(manifest))
           cb(null, chunk)
         }).catch (function (err) {
-          gutil.log(gutil.colors.red('[Err]'), err)
+          console.log('[Err]', err)
           cb(null, chunk)
         });
       }
