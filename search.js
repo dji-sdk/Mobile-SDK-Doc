@@ -43,7 +43,7 @@ let rebuild = function* () {
 
 // helpers
 function getUrl (key) {
-  const host = 'http://api-developer.dbeta.me/api/docsearch'
+  const host = 'http:' + process.env.API_HOST + '/api/docsearch'
   switch (key) {
     case 'clean':
       return host + '/clean'
@@ -84,7 +84,7 @@ function getAllPosts () {
 }
 
 function genKey (time) {
-  let key = 'AaUt0is3dIvfBuFczYCg2OH0A7kznMC'
+  let key = process.env.API_KEY
   return crypto.createHash('md5').update(time + key).digest('hex')
 }
 
