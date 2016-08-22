@@ -43,11 +43,11 @@ After receiving the application form, DJI will record the application inf
 
 ##### 3. Apple Approves/Rejects the MFi Application
 
-Typically it takes up to ten business days for Apple to finish the review process. Once approved, a MFi PPID (Product Plan Identification) will be provided by Apple. 
+It may take several business days for Apple to finish the review process if no challenges come up. Once approved, a MFi PPID (Product Plan Identification) will be provided by Apple. 
 
 ##### 4. DJI Provides PPID to Developer
 
-The PPID will appear in the status bar of the DJI developer User Center. 
+The PPID will appear in the **MFI PROGRAM** section as shown below: 
 
 ![mfiApprove](../images/application-development-workflow/mfiApprove.png)
 
