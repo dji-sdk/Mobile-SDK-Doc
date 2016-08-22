@@ -247,7 +247,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>6 </td>
 </tr>
 <tr>
-   <td> <p> Flight Time </br><font color="#BBBBBB" size=1>s </p></td> </td>
+   <td> <p> Max Flight Time (Approx.) </br><font color="#BBBBBB" size=1> min </p></td> </td>
    <td>28 </td>
    <td>23 </td>
    <td>25 </td>
@@ -451,7 +451,7 @@ To help understand the potential functionality and flight time of different airc
     <td width=10%>Camera Mass</td>
     <td width=10%>Payload</td>
     <td width=10%>Take-off Mass</td>
-    <td width=10%>Flight Time</td>
+    <td width=10%>Max Flight Time (Approx.)</td>
   </tr>
   <tr>
     <td></td>
