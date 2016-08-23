@@ -32,7 +32,7 @@ You can download the latest Android SDK from here: <a href="https://developer.dj
 
 We can use the map view to display waypoints and show the flight route of the aircraft when waypoint mission is being executed. Here, we take Google Map for an example.
 
-### Configurating Android API Key
+### Configurating Google Maps Android API
 
 #### 1. Create the project
 
@@ -65,9 +65,9 @@ Then double click the **signingReport** and check the Console area of Android St
 
 ![SHA1](../images/tutorials-and-samples/Android/GSDemo-Google-Map/SHA-1Key.png)
 
-#### 4. Applying for an Android API Key
+#### 4. Applying for an Google API Key
 
-Now, let's go to <a href="https://console.developers.google.com/apis" target="_blank">Google Developer Console</a> to apply for an Android API Key. Login with your Google account and select the **Credentials** tap on the left side of **API Manager**. You will see the following screenshot here:
+Now, let's go to <a href="https://console.developers.google.com/apis" target="_blank">Google Developer Console</a> to apply for an Google API Key. Login with your Google account and select the **Credentials** tap on the left side of **API Manager**. You will see the following screenshot here:
 
 ![CreateCredentials](../images/tutorials-and-samples/Android/GSDemo-Google-Map/createCredentials.png)
 
@@ -77,7 +77,7 @@ Now, let's go to <a href="https://console.developers.google.com/apis" target="_b
  
 > Note: The "Package name" should be the same to your Android project's Package name.
  
- Then press "create" and you can get your Android API Key like this:
+ Then press "create" and you can get your Google API Key like this:
  
  ![AndroidAPIKey](../images/tutorials-and-samples/Android/GSDemo-Google-Map/androidAPIKeys.png)
 
@@ -85,20 +85,22 @@ Now, let's go to <a href="https://console.developers.google.com/apis" target="_b
  
  ![EnableMapsAPI](../images/tutorials-and-samples/Android/GSDemo-Google-Map/enableMapsAPI.png)
  
-#### 5. Adding Android API Key
+#### 5. Adding Google API Key
 
-Open the AndroidManifest.xml file, add the following element as child of **<application>** element and substitute your Android API Key for "YOUR _ API_KEY" in the **value** attribute as shown below:
+Open the AndroidManifest.xml file, add the following element as child of **<application>** element and substitute your Google API Key in the **value** attribute as shown below:
 
 ~~~xml
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="YOUR_API_KEY" />
+        android:value="" /> //TODO: Enter your Google API Key here
     <meta-data
        android:name="com.google.android.gms.version"
        android:value="@integer/google_play_services_version" />
 ~~~
 
-The first element sets the key "com.google.android.geo.API_KEY" to the value of your API key. The second one set the google play services version number.
+The first element sets the key "com.google.android.geo.API_KEY" to the value of your Google API key. The second one set the google play services version number.
+
+For more details of getting Google API Key, please refer to <a href="https://developers.google.com/maps/documentation/android-api/signup" target="_blank">https://developers.google.com/maps/documentation/android-api/signup</a> 
  
 Moreover, specify the permissions of your application needs, by adding **\<uses-permission>** elements as children of the **\<manifest>** element in the "AndroidManifest.xml" file. 
 
