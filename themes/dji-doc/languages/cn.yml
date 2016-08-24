@@ -30,6 +30,11 @@ sub_nav:
   features: 功能
   documentation: 文档
   downloads: 下载
+  support: 技术支持
+
+policies:
+  privacy: 隐私政策
+  terms: 使用条款
 
 doc:
   search_holder: '搜索文档'
