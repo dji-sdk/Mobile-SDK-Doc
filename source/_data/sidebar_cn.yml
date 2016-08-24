@@ -125,6 +125,14 @@
     -
       title: "Simulator Application"
       path: "/cn/android-tutorials/SimulatorDemo.html"
+
+-
+  title: "Sample Code"
+  list:
+    -
+      title: "Android Video Stream Decoding Sample"
+      path: "/cn/sample-code/index.html"
+
 -
   title: "API REFERENCE"
   list:
