@@ -32,6 +32,10 @@ sub_nav:
   downloads: Downloads
   support: Support
 
+policies:
+  privacy: Privacy
+  terms: Terms
+
 doc:
   search_holder: 'Search Documentation'
   search_title_mobile: 'Search Mobile SDK Document'
