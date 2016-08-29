@@ -6,7 +6,7 @@ keywords: [deploy, xcode configuration, MFI authorization]
 
 Deploying an Android application using the DJI Mobile SDK does not require any additional steps outside of the typical process.
 
-iOS applications however require proper Xcode configuration as well as MFI accessory authorization.
+iOS applications however require proper Xcode configuration. If the supported DJI Products are MFi accessories, the MFI accessory authorization is also required.
 
 ## Xcode Configuration
 
