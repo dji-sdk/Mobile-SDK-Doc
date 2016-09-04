@@ -107,7 +107,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
   </thead>
   <tbody>
     <tr>
-      <td rowspan="9">Aircraft</th>
+      <td rowspan="8">Aircraft</th>
       <td>Phantom 4</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -134,28 +134,28 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Inspire 1</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> Focus </td>
-    </tr>
-    <tr>
-      <td>Inspire 1 Pro/Raw</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> Focus </td>
+      <td>X3, X5, X5R, XT, Z3</td>        
+      <td> Focus* </td>
     </tr>
     <tr>
       <td>Matrice 100</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> N1 Video Encoder, Focus </td>
+      <td>X3, X5, X5R, XT, Z3</td>        
+      <td> N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
       <td>Matrice 600</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> DRTK, Ronin MX, N1 Video Encoder, Focus </td>
+      <td>X3, X5, X5R, XT, Z3</td>        
+      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
-      <td>Handheld Camera</th>
+      <td rowspan="2">Handheld Device</th>
       <td>Osmo</td>
-      <td>X3, X5, X5R</td>        
+      <td>X3, X5, X5R, Z3</td>        
+      <td> — </td>
+    </tr>
+    <tr>
+       <td>Osmo Mobile</td>
+      <td> — </td>        
       <td> — </td>
     </tr>
     <tr>
@@ -164,13 +164,15 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> — </td>        
       <td> — </td>
     </tr>
-    <tr>
+      <tr>
       <td>Lightbridge 2 with A3</td>
-      <td> X3, X5, X5R </td>        
-      <td> — </td>
+      <td> X3, X5, X5R, XT, Z3 </td>        
+      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
     </tr>
   </tbody>
 </table></html>
+
+> Note: DJI Focus is only compatible with DJI camera.
 
 Detailed specifications are listed on each product's webpage **specs** section at <a href="http://www.dji.com" target="_blank">www.dji.com</a>.
 
@@ -252,7 +254,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>6 </td>
 </tr>
 <tr>
-   <td> <p> Flight Time </br><font color="#BBBBBB" size=1>s </p></td> </td>
+   <td> <p> Max Flight Time (Approx.) </br><font color="#BBBBBB" size=1> min </p></td> </td>
    <td>28 </td>
    <td>23 </td>
    <td>25 </td>
@@ -282,10 +284,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Fixed </td>
    <td>Fixed </td>
    <td>Fixed </td>
-   <td>X3, X5, X5R, XT </td>
-   <td>X3, X5, X5R, XT </td>
-   <td>X3, X5, X5R, XT </td>
-   <td>X3, X5, X5R, XT, Custom with Ronin MX </td>
+   <td>X3, XT, Z3 </td>
+   <td>X5, X5R </td>
+   <td>X3, X5, X5R, XT, Z3 </td>
+   <td>X3, X5, X5R, XT, Z3, Custom with Ronin MX </td>
 </tr>
 <tr>
    <td> <p> Wireless Range </br> US / EU </br><font color="#BBBBBB" size=1>km </p></td> </td>
@@ -456,7 +458,7 @@ To help understand the potential functionality and flight time of different airc
     <td width=10%>Camera Mass</td>
     <td width=10%>Payload</td>
     <td width=10%>Take-off Mass</td>
-    <td width=10%>Flight Time</td>
+    <td width=10%>Max Flight Time (Approx.)</td>
   </tr>
   <tr>
     <td></td>
