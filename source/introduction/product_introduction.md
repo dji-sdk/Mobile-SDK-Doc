@@ -714,14 +714,14 @@ To help understand the potential functionality and flight time of different airc
 
 ### Camera
 
-DJI provides several camera configurations. For the Phantom line of products, the cameras are fixed to the product. For the Inspire and Matrice line of products, cameras can be interchanged (Zenmuse X3, X5, X5R, XT).
+DJI provides several camera configurations. For the Phantom line of products, the cameras are fixed to the product. For the Inspire and Matrice line of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT).
 
 The Zenmuse XT is a thermal camera. It's specifications are difficult to compare directly to other cameras, however it is included in the comparison for it's mass for payload calculation. More details on the specifications of the Zenmuse XT can be found <a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank"> here </a>.
 
 <html><table class="table-camera-comparison">
  <thead>
   <tr>
-    <th colspan="10">Camera Comparison</th>
+    <th colspan="11">Camera Comparison</th>
   </tr>
  </thead>
  <tbody>
@@ -729,7 +729,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
     <td> </th>
    <td rowspan="2" width=12%> Phantom 4</th>
      <td colspan="4">Phantom 3</th>
-     <td colspan="4">Zenmuse</th>
+     <td colspan="5">Zenmuse</th>
  </tr>
  <tr>
    <td width=12%> </td>
@@ -738,6 +738,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td width=8%> Advanced </td>
    <td width=8%> Standard </td>
    <td width=8%> X3 </td>
+   <td width=8%> Z3 </td>
    <td width=8%>  X5 </td>
    <td width=8%> X5R </td>
    <td width=15%> XT </td>
@@ -750,12 +751,14 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>1/2.3" </td>
    <td>1/2.3" </td>
    <td>1/2.3" </td>
+   <td>1/2.3" </td>
    <td>4/3" </td>
    <td>4/3" </td>
    <td>NA </td>
 </tr>
 <tr>
    <td><p> Image Pixels </p></td>
+   <td>12 </td>
    <td>12 </td>
    <td>12 </td>
    <td>12 </td>
@@ -776,10 +779,12 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>4K </td>
    <td>4K </td>
    <td>4K </td>
+   <td>4K </td>
    <td>640x512 <p><font color="#BBBBBB" size=1>Depending on Model </p></td> </td>
 </tr>
 <tr>
    <td><p> ISO </p></td>
+   <td>100-1600 </td>
    <td>100-1600 </td>
    <td>100-1600 </td>
    <td>100-1600 </td>
@@ -798,6 +803,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>- </td>
    <td>- </td>
    <td>- </td>
+   <td>- </td>
    <td>Yes </td>
    <td>Yes </td>
    <td>- </td>
@@ -810,6 +816,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>94 </td>
    <td>94 </td>
    <td>94 </td>
+   <td>35-92 </td>
    <td>72 </td>
    <td>72 </td>
    <td>13-90 <p><font color="#BBBBBB" size=1>Fixed. Depending on lens </p></td> </td>
@@ -822,6 +829,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>20 </td>
    <td>20 </td>
    <td>20 </td>
+   <td> 22-77 </td>
    <td>30 </td>
    <td>30 </td>
    <td>NA </td>
@@ -834,6 +842,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>f/2.8 </td>
    <td>f/2.8 </td>
    <td>f/2.8 </td>
+   <td>f/2.8-f/5.2 </td>
    <td>f/1.7-f/16 </td>
    <td>f/1.7-f/16 </td>
    <td>f1.25-f/1.4 <p><font color="#BBBBBB" size=1>Fixed. Depending on lens </p></td> </td>
@@ -846,6 +855,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>&#8734 </td>
    <td>&#8734 </td>
    <td>&#8734 </td>
+   <td>Variable </td>
    <td>Variable </td>
    <td>Variable </td>
    <td>NA </td>
@@ -861,10 +871,12 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>+/- 180 </td>
    <td>+/- 180 </td>
    <td>+/- 180 </td>
+   <td>+/- 180 </td>
 </tr>
 <tr>
    <td><p> Controllable Gimbal Tilt </br><font color="#BBBBBB" size=1>degrees </p></td> </td>
    <td>-90 ~ 30</td>
+   <td>-90 ~ 30 </td>
    <td>-90 ~ 30 </td>
    <td>-90 ~ 30 </td>
    <td>-90 ~ 30 </td>
@@ -883,6 +895,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>Micro SD </td>
    <td>Micro SD </td>
    <td>Micro SD </td>
+   <td>Micro SD </td>
    <td>Micro SD, SSD </td>
    <td>Micro SD </td>
 </tr>
@@ -894,6 +907,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>- </td>
    <td>- </td>
    <td>247 </td>
+   <td>262 </td>
    <td>526 </td>
    <td>583 </td>
    <td>270 </td>
