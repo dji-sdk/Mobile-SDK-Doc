@@ -127,7 +127,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 
 -(void) componentWithKey:(NSString *)key changedFrom:(DJIBaseComponent *)oldComponent to:(DJIBaseComponent *)newComponent {
     
-    if ([key isEqualToString:DJICameraComponentKey] && newComponent != nil) {
+    if ([key isEqualToString:DJICameraComponent] && newComponent != nil) {
         __weak DJICamera* camera = [self fetchCamera];
         if (camera) {
             [camera setDelegate:self];
