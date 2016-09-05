@@ -219,15 +219,15 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <html><table class="table-product-comparison">
  <thead>
   <tr>
-    <th colspan="10">Product Comparison</th>
+    <th colspan="9">Product Comparison</th>
   </tr>
  </thead>
  <tbody>
  <tr>
     <td> </th>
-   <td rowspan="2" width=12%> Phantom 4</th>
-     <td colspan="4">Phantom 3</th>
-     <td colspan="2">Inspire 1</th>
+    <td rowspan="2" width=12%> Phantom 4</th>
+    <td colspan="4">Phantom 3</th>
+    <td rowspan="1" width=12%> Inspire 1</th>
      <td colspan="2">Matrice </th>
  </tr>
  <tr>
@@ -236,14 +236,12 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td width=10%> 4K </td>
    <td width=10%> Advanced </td>
    <td width=10%> Standard </td>
-   <td width=10%> Standard </td>
-   <td width=10%>  Pro/RAW </td>
+   <td width=10%> </td>
    <td width=10%> 100 </td>
    <td width=10%> 600 </td>
 </tr>
 <tr>
    <td> <p> Propellors </p></td>
-   <td>4 </td>
    <td>4 </td>
    <td>4 </td>
    <td>4 </td>
@@ -260,8 +258,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>25 </td>
    <td>23 </td>
    <td>25 </td>
-   <td>18* </td>
-   <td>15* </td>
+   <td>18*(Standard)/15*(Pro/RAW) </td>
    <td>16-40* </td>
    <td>18-40* </td>
 </tr>
@@ -272,8 +269,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>16 </td>
    <td>16 </td>
    <td>16 </td>
-   <td>22 </td>
-   <td>18 </td>
+   <td>22(Standard)/18(Pro/RAW) </td>
    <td>22 </td>
    <td>18 </td>
 </tr>
@@ -284,10 +280,9 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Fixed </td>
    <td>Fixed </td>
    <td>Fixed </td>
-   <td>X3, XT, Z3 </td>
-   <td>X5, X5R </td>
-   <td>X3, X5, X5R, XT, Z3 </td>
-   <td>X3, X5, X5R, XT, Z3, Custom with Ronin MX </td>
+   <td>X3, Z3, XT, X5, X5R </td>
+   <td>X3, Z3, X5, X5R, XT </td>
+   <td>X3, Z3, X5, X5R, XT, Custom with Ronin MX </td>
 </tr>
 <tr>
    <td> <p> Wireless Range </br> US / EU </br><font color="#BBBBBB" size=1>km </p></td> </td>
@@ -299,12 +294,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>5 / 3.1 </td>
    <td>5 / 3.1 </td>
    <td>5 / 3.1 </td>
-   <td>5 / 3.1 </td>
 </tr>
 <tr>
    <td> <p> Obstacle Avoidance </p> </td>
    <td>Front </td>
-   <td>- </td>
    <td>- </td>
    <td>- </td>
    <td>- </td>
@@ -321,7 +314,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Yes </td>
    <td>- </td>
    <td>Yes </td>
-   <td>Yes </td>
    <td>With Guidance </td>
    <td>With Guidance </td>
 </tr>
@@ -333,7 +325,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>1280 </td>
    <td>1216 </td>
    <td>3000 </td>
-   <td>3500 </td>
    <td>3600 </td>
    <td>15100 </td>
 </tr>
@@ -344,7 +335,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>350 </td>
    <td>350 </td>
    <td>350 </td>
-   <td>581 </td>
    <td>581 </td>
    <td>650 </td>
    <td>1133 </td>
@@ -358,7 +348,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>6000 </td>
    <td>4500 </td>
    <td>4500 </td>
-   <td>4500 </td>
    <td>2500 </td>
 </tr>
 <tr>
@@ -369,13 +358,11 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Fixed </td>
    <td>Fixed </td>
    <td>Moveable </td>
-   <td>Moveable </td>
    <td>Fixed </td>
    <td>Moveable </td>
 </tr>
 <tr>
    <td> <p> Max Batteries </p></td>
-   <td>1 </td>
    <td>1 </td>
    <td>1 </td>
    <td>1 </td>
@@ -393,13 +380,11 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>- </td>
    <td>- </td>
    <td>- </td>
-   <td>- </td>
    <td>1000 </td>
    <td>6000 </td>
 </tr>
 <tr>
    <td><p> Compatible Accessories </p></td>
-   <td>- </td>
    <td>- </td>
    <td>- </td>
    <td>- </td>
@@ -816,9 +801,9 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>94 </td>
    <td>94 </td>
    <td>94 </td>
-   <td>35-92 </td>
-   <td>72 </td>
-   <td>72 </td>
+   <td>92-35 </td>
+   <td>72 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
+   <td>72 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
    <td>13-90 <p><font color="#BBBBBB" size=1>Fixed. Depending on lens </p></td> </td>
 </tr>
 <tr>
@@ -830,8 +815,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>20 </td>
    <td>20 </td>
    <td> 22-77 </td>
-   <td>30 </td>
-   <td>30 </td>
+   <td>30 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
+   <td>30 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
    <td>NA </td>
 </tr>
 <tr>
@@ -843,8 +828,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>f/2.8 </td>
    <td>f/2.8 </td>
    <td>f/2.8-f/5.2 </td>
-   <td>f/1.7-f/16 </td>
-   <td>f/1.7-f/16 </td>
+   <td>f/1.7-f/16 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
+   <td>f/1.7-f/16 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
    <td>f1.25-f/1.4 <p><font color="#BBBBBB" size=1>Fixed. Depending on lens </p></td> </td>
 </tr>
 <tr>

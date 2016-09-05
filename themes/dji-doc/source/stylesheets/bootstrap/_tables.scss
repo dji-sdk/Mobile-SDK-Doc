@@ -182,7 +182,7 @@ th {
         border-left: 1px solid $table-border-color;
       }
     }
-    > tr > td:nth-child(2), td:nth-child(6), td:nth-child(8) {
+    > tr > td:nth-child(2), td:nth-child(6), td:nth-child(7) {
       border-right: 1px solid $table-border-color;
     }
     > tr:first-child {
@@ -209,7 +209,7 @@ th {
         background-color: rgb(237,237,237);
         border-bottom: 1px solid $table-border-color;
       }
-      > td:nth-child(1), td:nth-child(5), td:nth-child(7) {
+      > td:nth-child(1), td:nth-child(5), td:nth-child(6) {
          border-right: 1px solid $table-border-color;
       }
     }
