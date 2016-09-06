@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v3.2
-date: 2016-07-13
+version: v3.3
+date: 2016-09-05
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 ---
 
