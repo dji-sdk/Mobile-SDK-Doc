@@ -1319,7 +1319,7 @@ Here is the screenshot of using **Start Simulator** feature in the sample:
 
 ![startSimulator](../images/tutorials-and-samples/iOS/GEODemo/startSimulator.png)
 
-Once you locate the aircraft to the coordinate of (37.460484, -122.115312), you may see there are some color circles, which represent different types of fly zones. 
+Once you locate the aircraft to the coordinate of (37.4613697, -122.1237315), you may see there are some color circles, which represent different types of fly zones. 
 
 Also the textView on the right side will show the `DJIFlyZoneInformation` info, includes the fly zone number, fly zone id (required in the unlock process), fly zone category and name.
 
@@ -1345,7 +1345,7 @@ Press the **Stop Simulator** button to stop the simulator, and the aircraft imag
 
 #### 1. Unlock Fly Zone
 
-After you login with your DJI account and locate the aircraft to the coordinate of (37.460484, -122.115312), you can press the **Unlock** button and type in the fly zone ID to unlock it. 
+After you login with your DJI account and locate the aircraft to the coordinate of (37.4613697, -122.1237315), you can press the **Unlock** button and type in the fly zone ID to unlock it. 
 
 If you unlock the fly zone successfully, you may see the yellow circle disappear and the right fly zone info are updated as shown in the following gif animation:
 
