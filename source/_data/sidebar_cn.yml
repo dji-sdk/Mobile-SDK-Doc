@@ -128,6 +128,9 @@
     -
       title: "Simulator Application"
       path: "/cn/android-tutorials/SimulatorDemo.html"
+    - 
+      title: "GEO System Application"
+      path: "/cn/android-tutorials/GEODemo.html"
 
 -
   title: "Sample Code"
