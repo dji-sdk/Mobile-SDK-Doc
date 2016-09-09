@@ -88,11 +88,11 @@ dependencies {
  
  ![dependencies](../images/tutorials-and-samples/Android/GEODemo/dependencies.png)
  
- **5**. Now, open the MainActivity.java file in `com.dji.geodemo` package and add `import dji.sdk.SDKManager.DJISDKManager;` at the bottom of the import classes section as shown below:
+ **5**. Now, open the MainActivity.java file in `com.dji.geodemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.geodemo;
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 ~~~
 
   Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.

@@ -104,7 +104,7 @@ Now, let's double click to open the MainActivity.java file in the `com.dji.impor
 
 ![mainActivity](../../images/tutorials-and-samples/Android/ImportAndActivateSDKInAndroidStudio/mainActivity.png)
 
-Then add `import dji.sdk.SDKManager.DJISDKManager;` at the bottom of the import classes section as shown below:
+Then add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.importSDKDemo;
@@ -117,10 +117,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 ~~~
 
-  Wait for a few seconds and check if the `import dji.sdk.SDKManager.DJISDKManager;` line turn red, if it remains gray color, it means that you import DJI Android SDK to your Android Studio project successfully. Here is the status you should see if everything goes well:
+  Wait for a few seconds and check if the `import dji.sdk.sdkmanager.DJISDKManager;` line turn red, if it remains gray color, it means that you import DJI Android SDK to your Android Studio project successfully. Here is the status you should see if everything goes well:
   
 ![checkSDK](../../images/tutorials-and-samples/Android/ImportAndActivateSDKInAndroidStudio/checkSDK.png)
 
@@ -240,7 +240,7 @@ Finally, once you finish all the configurations for AndroidManifest.xml file, yo
             android:name="com.dji.sdk.API_KEY"
             android:value="Please enter your App Key here." />
         <activity
-            android:name="dji.sdk.SDKManager.DJIAoaControllerActivity"
+            android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
             android:theme="@android:style/Theme.Translucent" >
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
@@ -249,7 +249,7 @@ Finally, once you finish all the configurations for AndroidManifest.xml file, yo
                 android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
                 android:resource="@xml/accessory_filter" />
         </activity>
-        <service android:name="dji.sdk.SDKManager.DJIGlobalService" >
+        <service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
         </service>
         <!-- DJI SDK -->
         
@@ -289,7 +289,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 import dji.sdk.base.DJIBaseComponent;
 import dji.sdk.base.DJIBaseProduct;
 import dji.sdk.base.DJIError;

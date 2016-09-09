@@ -84,14 +84,14 @@ dependencies {
  
  ![dependencies](../images/tutorials-and-samples/Android/Phantom4Missions/dependencies.png)
  
- **5**. Now, open the MainActivity.java file in `com.dji.p4MissionsDemo` package and add `import dji.sdk.SDKManager.DJISDKManager;` at the bottom of the import classes section as shown below:
+ **5**. Now, open the MainActivity.java file in `com.dji.p4MissionsDemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.p4MissionsDemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 ~~~
 
   Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
