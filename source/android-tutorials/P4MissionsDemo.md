@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v3.2.1
-date: 2016-06-24
+version: v3.3
+date: 2016-09-09
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions
 keywords: [Android Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -706,7 +706,8 @@ After you finish the above steps, let's register our application with the **App 
 **1.** Let's open the AndroidManifest.xml file and add the following elements to it:
 
 ~~~xml
-
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -742,7 +743,7 @@ Then add the following elements above the **MainActivity** activity element:
             android:name="com.dji.sdk.API_KEY"
             android:value="Please enter your App Key here." />
         <activity
-            android:name="dji.sdk.SDKManager.DJIAoaControllerActivity"
+            android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
             android:theme="@android:style/Theme.Translucent" >
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
@@ -751,7 +752,7 @@ Then add the following elements above the **MainActivity** activity element:
                 android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
                 android:resource="@xml/accessory_filter" />
         </activity>
-        <service android:name="dji.sdk.SDKManager.DJIGlobalService" >
+        <service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
         </service>
 <!-- DJI SDK -->
 ~~~
