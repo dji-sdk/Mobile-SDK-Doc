@@ -107,7 +107,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
   </thead>
   <tbody>
     <tr>
-      <td rowspan="9">Aircraft</th>
+      <td rowspan="8">Aircraft</th>
       <td>Phantom 4</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -134,38 +134,45 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Inspire 1</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> Focus </td>
-    </tr>
-    <tr>
-      <td>Inspire 1 Pro/Raw</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> Focus </td>
+      <td>X3, X5, X5R, XT, Z3</td>        
+      <td> Focus* </td>
     </tr>
     <tr>
       <td>Matrice 100</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> N1 Video Encoder, Focus </td>
+      <td>X3, X5, X5R, XT, Z3</td>        
+      <td> N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
       <td>Matrice 600</td>
-      <td>X3, X5, X5R, XT</td>        
-      <td> DRTK, Ronin MX, N1 Video Encoder, Focus </td>
+      <td>X3, X5, X5R, XT, Z3</td>        
+      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
-      <td>Handheld Camera</th>
+      <td rowspan="2">Handheld Device</th>
       <td>Osmo</td>
-      <td>X3, X5</td>        
+      <td>X3, X5, X5R, Z3</td>        
       <td> — </td>
     </tr>
     <tr>
-      <td rowspan="1">Components</th>
+       <td>Osmo Mobile</td>
+      <td> — </td>        
+      <td> — </td>
+    </tr>
+    <tr>
+      <td rowspan="2">Components</th>
       <td>Lightbridge 2 with A2</td>
       <td> — </td>        
       <td> — </td>
     </tr>
+      <tr>
+      <td>Lightbridge 2 with A3</td>
+      <td> X3, X5, X5R, XT, Z3 </td>        
+      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
+    </tr>
   </tbody>
 </table></html>
+
+> Note: DJI Focus is only compatible with DJI camera.
 
 Detailed specifications are listed on each product's webpage **specs** section at <a href="http://www.dji.com" target="_blank">www.dji.com</a>.
 
@@ -212,15 +219,15 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <html><table class="table-product-comparison">
  <thead>
   <tr>
-    <th colspan="10">Product Comparison</th>
+    <th colspan="9">Product Comparison</th>
   </tr>
  </thead>
  <tbody>
  <tr>
     <td> </th>
-   <td rowspan="2" width=12%> Phantom 4</th>
-     <td colspan="4">Phantom 3</th>
-     <td colspan="2">Inspire 1</th>
+    <td rowspan="2" width=12%> Phantom 4</th>
+    <td colspan="4">Phantom 3</th>
+    <td rowspan="1" width=12%> Inspire 1</th>
      <td colspan="2">Matrice </th>
  </tr>
  <tr>
@@ -229,14 +236,12 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td width=10%> 4K </td>
    <td width=10%> Advanced </td>
    <td width=10%> Standard </td>
-   <td width=10%> Standard </td>
-   <td width=10%>  Pro/RAW </td>
+   <td width=10%> </td>
    <td width=10%> 100 </td>
    <td width=10%> 600 </td>
 </tr>
 <tr>
    <td> <p> Propellors </p></td>
-   <td>4 </td>
    <td>4 </td>
    <td>4 </td>
    <td>4 </td>
@@ -253,8 +258,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>25 </td>
    <td>23 </td>
    <td>25 </td>
-   <td>18* </td>
-   <td>15* </td>
+   <td>18*(Standard)/15*(Pro/RAW) </td>
    <td>16-40* </td>
    <td>18-40* </td>
 </tr>
@@ -265,8 +269,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>16 </td>
    <td>16 </td>
    <td>16 </td>
-   <td>22 </td>
-   <td>18 </td>
+   <td>22(Standard)/18(Pro/RAW) </td>
    <td>22 </td>
    <td>18 </td>
 </tr>
@@ -277,10 +280,9 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Fixed </td>
    <td>Fixed </td>
    <td>Fixed </td>
-   <td>X3, X5, X5R, XT </td>
-   <td>X3, X5, X5R, XT </td>
-   <td>X3, X5, X5R, XT </td>
-   <td>X3, X5, X5R, XT, Custom with Ronin MX </td>
+   <td>X3, Z3, XT, X5, X5R </td>
+   <td>X3, Z3, X5, X5R, XT </td>
+   <td>X3, Z3, X5, X5R, XT, Custom with Ronin MX </td>
 </tr>
 <tr>
    <td> <p> Wireless Range </br> US / EU </br><font color="#BBBBBB" size=1>km </p></td> </td>
@@ -292,12 +294,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>5 / 3.1 </td>
    <td>5 / 3.1 </td>
    <td>5 / 3.1 </td>
-   <td>5 / 3.1 </td>
 </tr>
 <tr>
    <td> <p> Obstacle Avoidance </p> </td>
    <td>Front </td>
-   <td>- </td>
    <td>- </td>
    <td>- </td>
    <td>- </td>
@@ -314,7 +314,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Yes </td>
    <td>- </td>
    <td>Yes </td>
-   <td>Yes </td>
    <td>With Guidance </td>
    <td>With Guidance </td>
 </tr>
@@ -326,7 +325,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>1280 </td>
    <td>1216 </td>
    <td>3000 </td>
-   <td>3500 </td>
    <td>3600 </td>
    <td>15100 </td>
 </tr>
@@ -337,7 +335,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>350 </td>
    <td>350 </td>
    <td>350 </td>
-   <td>581 </td>
    <td>581 </td>
    <td>650 </td>
    <td>1133 </td>
@@ -351,7 +348,6 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>6000 </td>
    <td>4500 </td>
    <td>4500 </td>
-   <td>4500 </td>
    <td>2500 </td>
 </tr>
 <tr>
@@ -362,13 +358,11 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>Fixed </td>
    <td>Fixed </td>
    <td>Moveable </td>
-   <td>Moveable </td>
    <td>Fixed </td>
    <td>Moveable </td>
 </tr>
 <tr>
    <td> <p> Max Batteries </p></td>
-   <td>1 </td>
    <td>1 </td>
    <td>1 </td>
    <td>1 </td>
@@ -386,13 +380,11 @@ Aircraft comparison can be difficult due to the large selection of products, fea
    <td>- </td>
    <td>- </td>
    <td>- </td>
-   <td>- </td>
    <td>1000 </td>
    <td>6000 </td>
 </tr>
 <tr>
    <td><p> Compatible Accessories </p></td>
-   <td>- </td>
    <td>- </td>
    <td>- </td>
    <td>- </td>
@@ -707,14 +699,14 @@ To help understand the potential functionality and flight time of different airc
 
 ### Camera
 
-DJI provides several camera configurations. For the Phantom line of products, the cameras are fixed to the product. For the Inspire and Matrice line of products, cameras can be interchanged (Zenmuse X3, X5, X5R, XT).
+DJI provides several camera configurations. For the Phantom line of products, the cameras are fixed to the product. For the Inspire and Matrice line of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT).
 
 The Zenmuse XT is a thermal camera. It's specifications are difficult to compare directly to other cameras, however it is included in the comparison for it's mass for payload calculation. More details on the specifications of the Zenmuse XT can be found <a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank"> here </a>.
 
 <html><table class="table-camera-comparison">
  <thead>
   <tr>
-    <th colspan="10">Camera Comparison</th>
+    <th colspan="11">Camera Comparison</th>
   </tr>
  </thead>
  <tbody>
@@ -722,7 +714,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
     <td> </th>
    <td rowspan="2" width=12%> Phantom 4</th>
      <td colspan="4">Phantom 3</th>
-     <td colspan="4">Zenmuse</th>
+     <td colspan="5">Zenmuse</th>
  </tr>
  <tr>
    <td width=12%> </td>
@@ -731,6 +723,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td width=8%> Advanced </td>
    <td width=8%> Standard </td>
    <td width=8%> X3 </td>
+   <td width=8%> Z3 </td>
    <td width=8%>  X5 </td>
    <td width=8%> X5R </td>
    <td width=15%> XT </td>
@@ -743,12 +736,14 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>1/2.3" </td>
    <td>1/2.3" </td>
    <td>1/2.3" </td>
+   <td>1/2.3" </td>
    <td>4/3" </td>
    <td>4/3" </td>
    <td>NA </td>
 </tr>
 <tr>
    <td><p> Image Pixels </p></td>
+   <td>12 </td>
    <td>12 </td>
    <td>12 </td>
    <td>12 </td>
@@ -769,10 +764,12 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>4K </td>
    <td>4K </td>
    <td>4K </td>
+   <td>4K </td>
    <td>640x512 <p><font color="#BBBBBB" size=1>Depending on Model </p></td> </td>
 </tr>
 <tr>
    <td><p> ISO </p></td>
+   <td>100-1600 </td>
    <td>100-1600 </td>
    <td>100-1600 </td>
    <td>100-1600 </td>
@@ -791,6 +788,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>- </td>
    <td>- </td>
    <td>- </td>
+   <td>- </td>
    <td>Yes </td>
    <td>Yes </td>
    <td>- </td>
@@ -803,8 +801,9 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>94 </td>
    <td>94 </td>
    <td>94 </td>
-   <td>72 </td>
-   <td>72 </td>
+   <td>92-35 </td>
+   <td>72 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
+   <td>72 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
    <td>13-90 <p><font color="#BBBBBB" size=1>Fixed. Depending on lens </p></td> </td>
 </tr>
 <tr>
@@ -815,8 +814,9 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>20 </td>
    <td>20 </td>
    <td>20 </td>
-   <td>30 </td>
-   <td>30 </td>
+   <td> 22-77 </td>
+   <td>30 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
+   <td>30 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
    <td>NA </td>
 </tr>
 <tr>
@@ -827,8 +827,9 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>f/2.8 </td>
    <td>f/2.8 </td>
    <td>f/2.8 </td>
-   <td>f/1.7-f/16 </td>
-   <td>f/1.7-f/16 </td>
+   <td>f/2.8-f/5.2 </td>
+   <td>f/1.7-f/16 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
+   <td>f/1.7-f/16 <p><font color="#BBBBBB" size=1> Standard Lens </p></td> </td>
    <td>f1.25-f/1.4 <p><font color="#BBBBBB" size=1>Fixed. Depending on lens </p></td> </td>
 </tr>
 <tr>
@@ -839,6 +840,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>&#8734 </td>
    <td>&#8734 </td>
    <td>&#8734 </td>
+   <td>Variable </td>
    <td>Variable </td>
    <td>Variable </td>
    <td>NA </td>
@@ -854,10 +856,12 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>+/- 180 </td>
    <td>+/- 180 </td>
    <td>+/- 180 </td>
+   <td>+/- 180 </td>
 </tr>
 <tr>
    <td><p> Controllable Gimbal Tilt </br><font color="#BBBBBB" size=1>degrees </p></td> </td>
    <td>-90 ~ 30</td>
+   <td>-90 ~ 30 </td>
    <td>-90 ~ 30 </td>
    <td>-90 ~ 30 </td>
    <td>-90 ~ 30 </td>
@@ -876,6 +880,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>Micro SD </td>
    <td>Micro SD </td>
    <td>Micro SD </td>
+   <td>Micro SD </td>
    <td>Micro SD, SSD </td>
    <td>Micro SD </td>
 </tr>
@@ -887,6 +892,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
    <td>- </td>
    <td>- </td>
    <td>247 </td>
+   <td>262 </td>
    <td>526 </td>
    <td>583 </td>
    <td>270 </td>
