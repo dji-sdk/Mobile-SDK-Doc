@@ -91,9 +91,9 @@ The mobile device connects to a DJI product either wirelessly with WiFi or throu
         <td><img src="../images/mobile-sdk-introduction/ConnectionOsmo.png"></td>
   </tr>
   <tr valign="top">
-    <td><font color="#52545A" align="center"><p>Phantom 4 </br> Phantom 3 Professional </br> Phantom 3 Advanced </br> Inspire 1 </br> Inspire 1 Pro/Raw </br> Matrice 100 </br> Matrice 600 </br> </p></td>
+    <td><font color="#52545A" align="center"><p>Phantom 4 </br> Phantom 3 Professional </br> Phantom 3 Advanced </br> Inspire 1 </br> Inspire 1 Pro/Raw </br> Matrice 100 </br> Matrice 600 </br> Mavic Pro</p></td>
     <td><font color="#52545A" align="center"><p>Phantom 3 4K </br> Phantom 3 Standard </p></td>
-    <td><font color="#52545A" align="center"><p>Osmo</p></td>
+    <td><font color="#52545A" align="center"><p>Osmo </br>Osmo Mobile</br>Osmo +</p></td>
   </tr>
 
 </table>

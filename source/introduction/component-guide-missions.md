@@ -55,7 +55,7 @@ The ActiveTrack Mission allows an aircraft to track a moving subject using the v
 
 During the mission, the main camera is used to track the object and so the gimbal cannot be controlled by the user or application. The aircraft can be flown manually with pitch, roll and throttle stick commands from the remote controller to move the aircraft around the subject being tracked.
 
-ActiveTrack is only supported on the Phantom 4.
+ActiveTrack is only supported on the Mavic Pro and Phantom 4.
 
 ![p4ActiveTrackAni](../images/component-guide/p4ActiveTrackAni.gif)
 
@@ -66,7 +66,7 @@ The TapFly mission flies the aircraft in the direction of a point on the live vi
 
 The Remote Controller yaw stick can be used to adjust the heading of the aircraft during mission execution, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
 
-TapFly is only supported on the Phantom 4.
+TapFly is only supported on the Mavic Pro and Phantom 4.
 
 ![p4TapFlyAni](../images/component-guide/p4TapFlyAni.gif)
 

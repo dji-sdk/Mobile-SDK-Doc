@@ -32,15 +32,15 @@ DJI aircraft have many flight modes that depend on the remote controller's **Fli
 
 The Flight Mode Switch can be used to determine whether the aircraft uses positioning aids to maintain position (like GPS), and whether automated flight control using [Missions](./component-guide-missions.html) and [Virtual Sticks](./component-guide-flightController.html#Virtual-Sticks) is enabled. Therefore the switch can be used to effectively override positioning sensors, and automated flight whenever the pilot needs to.
 
-Four modes are available (P, S, A, F) of which each product has three to select from. All products except the Phantom 4 use P, A and F. The Phantom 4 uses P, A and S.
+Four modes are available (P, S, A, F) of which each product has three to select from. All products except the Mavic Pro and Phantom 4 use P, A and F. The Mavic Pro and Phantom 4 use P, A and S.
 
 ### P-Mode (Positioning)
 
 In Positioning Mode, the aircraft uses all positioning aids that are available to fly. These include GPS, the vision positioning system, and the obstacle avoidance system. Positioning systems won't be available if they are not part of the product, if they've been disabled, or if the environment doesn't allow it (e.g. indoor environments won't have sufficiently strong GPS signals for the GPS positioning aid to be available).
 
-For the Phantom 4, advanced features such as Missions, Virtual Sticks and [Intelligent Orientation Control](./flightController_concepts.html#ioc-intelligent-orientation-control) are enabled. For all other products, these advanced features are disabled in this mode.
+For the Mavic Pro and Phantom 4, advanced features such as Missions, Virtual Sticks and [Intelligent Orientation Control](./flightController_concepts.html#ioc-intelligent-orientation-control) are enabled. For all other products, these advanced features are disabled in this mode.
 
-Therefore, if the pilot needs to override automated flight on a Phantom 4, they should move the flight mode switch out of P-Mode. Alternatively, if they need to override automated flight on other products, they can move the switch into P-Mode.
+Therefore, if the pilot needs to override automated flight on a Mavic Pro or Phantom 4, they should move the flight mode switch out of P-Mode. Alternatively, if they need to override automated flight on other products, they can move the switch into P-Mode.
 
 ### A-Mode (Attitude)
 
@@ -52,13 +52,13 @@ In A-Mode, GPS is still used to return home automatically assuming a sufficientl
 
 ### F-Mode (Function)
 
-In Function Mode, the aircraft uses all positioning aids available (similar to P-Mode) and also enables advanced features such as [Missions](./component-guide-missions.html) and [Intelligent Orientation Control](./flightController_concepts.html#ioc-intelligent-orientation-control). Function mode is available in all products except the Phantom 4.
+In Function Mode, the aircraft uses all positioning aids available (similar to P-Mode) and also enables advanced features such as [Missions](./component-guide-missions.html) and [Intelligent Orientation Control](./flightController_concepts.html#ioc-intelligent-orientation-control). Function mode is available in all products except the Phantom 4 and Mavic Pro.
 
 If manual control needs to be regained by the pilot while executing missions or Virtual Stick commands, the Flight Mode Switch should be moved out of F-Mode.
 
 ### S-Mode (Sport)
 
-Only available on the Phantom 4, Sport mode uses all positioning aids, adjusts the handling gain values of the aircraft in order to enhance the maneuverability, and increases the maximum flight speed to 20 m/s. The obstacle avoidance system is disabled in S-Mode.
+Only available on the Mavic Pro and Phantom 4, Sport mode uses all positioning aids, adjusts the handling gain values of the aircraft in order to enhance the maneuverability, and increases the maximum flight speed to 20 m/s. The obstacle avoidance system is disabled in S-Mode.
 
 S-Mode can be used to regain manual control from automated flight.
 
