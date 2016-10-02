@@ -1,7 +1,7 @@
 ---
 title: Run Sample Application
 date: 2016-06-24
-keywords: [quick start, generate app key, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
+keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
 ## Register as a DJI Developer
@@ -96,7 +96,7 @@ override func viewDidLoad() {
 
 ## Android Sample App
 
-The SDK doesn't need to be downloaded to run the Android sample application as it's already included in the project.
+The SDK doesn't need to be downloaded to run the Android sample application as it's already included in the project. 
 
 ### Android Sample Code Setup
 
@@ -125,7 +125,7 @@ For Aircraft or products that use WiFi as a wireless link, the Mobile Device is 
 
 #### USB Connection Procedure
 
-_Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600:_
+_Mavic Pro, Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600:_
 
 Turn on the Remote Controller.
 
@@ -138,7 +138,7 @@ Turn on the Remote Controller.
 > If you are using an Android Device, please make sure your DJI Remote Controller supports <a href="https://source.android.com/devices/accessories/protocol.html" target="_blank">AOA</a> before you test the Sample app. You can upgrade your DJI Remote Controller to the latest firmware and check if there is a dialog pops up when you connect the app to it like this:
 >
 > ![dialog](../../images/quick-start/android_dialog.png)
-> 
+>
 > To learn how to change the default app for USB accessory, please check these two FAQs: [Android Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Android-devices), [Samsung Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Samsung-devices).
 > 
 

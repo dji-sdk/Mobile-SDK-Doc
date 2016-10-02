@@ -19,7 +19,7 @@ This allows both manual and automated flights to be simulated without actually f
 DJI provides tools for Windows and Mac which can be used to initialize the simulator, and visualize the aircraft behavior based on the state information provided by the simulator:
 
 * **DJI PC Simulator** ( <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> Windows </a> only) is used for Phantom 3, Inspire and Matrice series of aircraft.
-* **DJI Assistant 2** (<a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant2_Installer_v1.0.2.zip" target="_blank"> Windows </a> or <a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant_Installer_mac_v1.0.2.dmg" target="_blank"> Mac </a>) is used for Phantom 4.
+* **DJI Assistant 2** (<a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant2_Installer_v1.0.2.zip" target="_blank"> Windows </a> or <a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant_Installer_mac_v1.0.2.dmg" target="_blank"> Mac </a>) is used for Phantom 4 and Mavic Pro.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
 
@@ -101,7 +101,7 @@ For more info about **DJI PC Simulator**, check the User Manual pdf file include
 
 The DJI Assistant 2 tool is built specifically for SDK developers and can initialize, terminate and provide visualization of the aircraft simulator running in the Flight Controller of the DJI aircraft. DJI Assistant 2 connects to the aircraft through USB.
 
-* Supported DJI Products: Phantom 4.
+* Supported DJI Products: Phantom 4, Mavic Pro.
 * Supported Operating Systems: Mac OS X 10, Windows 7, Windows 8, and Windows 8.1
 
 > **Note:** Windows 10 is not officially supported, but generally does work.

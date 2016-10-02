@@ -228,7 +228,7 @@ Some defining product features that distinguish aircraft series are:
     * <a href="http://www.dji.com/product/guidance" target="_blank"> Guidance </a> - 5 direction stereo camera and ultrasonic sensor module
     * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - Gimbal that can support custom payloads up to 4.5 kg
 
-Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft, features and .
+Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft, features, vision system and missions.
 
 <html><table class="table-aircraft-comparison">
 <thead><tr><th colspan="9">Aircraft Comparison: <b>Aircraft</th></tr></thead>
