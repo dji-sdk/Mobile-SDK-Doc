@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v3.2.1
-date: 2016-07-13
+version: v3.3
+date: 2016-09-09
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
@@ -80,12 +80,12 @@ dependencies {
  
  ![dependencies](../images/tutorials-and-samples/Android/SimulatorDemo/dependencies.png)
  
- **5**. Now, open the MainActivity.java file in `com.dji.simulatorDemo` package and add `import dji.sdk.SDKManager.DJISDKManager;` at the bottom of the import classes section as shown below:
+ **5**. Now, open the MainActivity.java file in `com.dji.simulatorDemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.simulatorDemo;
 
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 ~~~
 
   Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
@@ -459,6 +459,8 @@ Open the **activity_main.xml** layout file and replace the code with the followi
 
 ~~~xml
 <!-- SDK permission requirement -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -493,11 +495,11 @@ Moreover, let's add the following elements as childs of element on top of the "M
     android:name="com.dji.sdk.API_KEY"
     android:value="Please enter your APP Key here." />
     
-<service android:name="dji.sdk.SDKManager.DJIGlobalService" >
+<service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
 </service>
 
 <activity
-    android:name="dji.sdk.SDKManager.DJIAoaControllerActivity"
+    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
     android:theme="@android:style/Theme.Translucent" >
     <intent-filter>
         <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
@@ -746,9 +748,9 @@ class SendVirtualStickDataTask extends TimerTask {
 
         if (mFlightController != null) {
             mFlightController.sendVirtualStickFlightControlData(
-                    new DJIFlightControllerDataType.DJIVirtualStickFlightControlData(
+                    new DJIVirtualStickFlightControlData(
                             mPitch, mRoll, mYaw, mThrottle
-                    ), new DJIBaseComponent.DJICompletionCallback() {
+                    ), new DJICommonCallbacks.DJICompletionCallback() {
                         @Override
                         public void onResult(DJIError djiError) {
 
@@ -846,7 +848,7 @@ Lastly, override the `onClick()` method to implement the enable and disable virt
         case R.id.btn_enable_virtual_stick:
             if (mFlightController != null){
                 mFlightController.enableVirtualStickControlMode(
-                        new DJIBaseComponent.DJICompletionCallback() {
+                        new DJICommonCallbacks.DJICompletionCallback() {
                             @Override
                             public void onResult(DJIError djiError) {
                                 if (djiError != null){
@@ -864,7 +866,7 @@ Lastly, override the `onClick()` method to implement the enable and disable virt
         case R.id.btn_disable_virtual_stick:
             if (mFlightController != null){
                 mFlightController.disableVirtualStickControlMode(
-                        new DJIBaseComponent.DJICompletionCallback() {
+                        new DJICommonCallbacks.DJICompletionCallback() {
                             @Override
                             public void onResult(DJIError djiError) {
                                 if (djiError != null) {
@@ -899,7 +901,7 @@ Let's implement the DJISimulator feature now. In order to update the simulator s
             mFlightController = aircraft.getFlightController();
             mFlightController.getSimulator().setUpdatedSimulatorStateDataCallback(new DJISimulator.UpdatedSimulatorStateDataCallback() {
                 @Override
-                public void onSimulatorDataUpdated(final DJISimulator.DJISimulatorStateData djiSimulatorStateData) {
+                public void onSimulatorDataUpdated(final DJISimulatorStateData djiSimulatorStateData) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
@@ -936,10 +938,10 @@ Next, override the `onCheckedChanged()` method of `mBtnSimulator` toggleButton's
 
                 if (mFlightController != null) {
                     mFlightController.getSimulator()
-                            .startSimulator(new DJISimulator.DJISimulatorInitializationData(
+                            .startSimulator(new DJISimulatorInitializationData(
                                     23, 113, 10, 10
                             )
-                                    , new DJIBaseComponent.DJICompletionCallback() {
+                                    , new DJICommonCallbacks.DJICompletionCallback() {
                                 @Override
                                 public void onResult(DJIError djiError) {
                                     if (djiError != null) {
@@ -959,7 +961,7 @@ Next, override the `onCheckedChanged()` method of `mBtnSimulator` toggleButton's
                 if (mFlightController != null) {
                     mFlightController.getSimulator()
                             .stopSimulator(
-                                    new DJIBaseComponent.DJICompletionCallback() {
+                                    new DJICommonCallbacks.DJICompletionCallback() {
                                         @Override
                                         public void onResult(DJIError djiError) {
                                             if (djiError != null) {
@@ -979,7 +981,7 @@ Next, override the `onCheckedChanged()` method of `mBtnSimulator` toggleButton's
 
 In the code above, we implement the following features:
 
-**1.** If the `mBtnSimulator` toggle button is checked, then show the `mTextView`. Next, if the `mFlightController` is not null, we invoke the `startSimulator()` method of DJISimulator by passing  a DJISimulatorInitializationData with lattitude 23, longitude 113, simulationStateUpdateFrequency 10 and numOfSatellites 10 parameters to it. For more details of DJISimulator.DJISimulatorInitializationData, please check the [Android API Reference](https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/dji/sdk/FlightController/DJISimulator.DJISimulatorInitializationData.html).
+**1.** If the `mBtnSimulator` toggle button is checked, then show the `mTextView`. Next, if the `mFlightController` is not null, we invoke the `startSimulator()` method of DJISimulator by passing  a DJISimulatorInitializationData with lattitude 23, longitude 113, simulationStateUpdateFrequency 10 and numOfSatellites 10 parameters to it. For more details of DJISimulatorInitializationData, please check the [Android API Reference](https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/dji/sdk/FlightController/DJISimulatorInitializationData.html).
 
 **2.** Next, overide the `onResult()` method of `startSimulator()`, invoke `showToast()` method to show the start simulator result to the user.
 
@@ -993,7 +995,7 @@ Finally, let's add the following code at the bottom of `onClick()` method to imp
 case R.id.btn_take_off:
     if (mFlightController != null){
         mFlightController.takeOff(
-                new DJIBaseComponent.DJICompletionCallback() {
+                new DJICommonCallbacks.DJICompletionCallback() {
                     @Override
                     public void onResult(DJIError djiError) {
                         if (djiError != null) {
@@ -1010,7 +1012,7 @@ case R.id.btn_take_off:
 case R.id.btn_land:
     if (mFlightController != null){
         mFlightController.autoLanding(
-                new DJIBaseComponent.DJICompletionCallback() {
+                new DJICommonCallbacks.DJICompletionCallback() {
                     @Override
                     public void onResult(DJIError djiError) {
                         if (djiError != null) {

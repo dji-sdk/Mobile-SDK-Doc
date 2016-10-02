@@ -159,7 +159,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> — </td>
     </tr>
     <tr>
-      <td rowspan="1">Components</th>
+      <td rowspan="2">Components</th>
       <td>Lightbridge 2 with A2</td>
       <td> — </td>        
       <td> — </td>
@@ -168,7 +168,6 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td>Lightbridge 2 with A3</td>
       <td> X3, X5, X5R, XT, Z3 </td>        
       <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
-      <td> — </td>
     </tr>
   </tbody>
 </table></html>
