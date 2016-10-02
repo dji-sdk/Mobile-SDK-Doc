@@ -142,8 +142,28 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
   Next, we invoke the `sdkManagerProductDidChangeFrom:to:` delegate method to get the `newProduct` and set the DJIICamera object's delegate here. This delegate method will invoke when the product connection status changes.
   
   Moverover, let's invoke the `componentWithKey:changedFrom:to:` delegate method to fetch the camera object and set its delegate too. Since the camera component of the aircraft may change to another type, we should invoke this delegate method to check the component changes too.
+  
+**4**. Furthermore, invoke the `start` method of **VideoPreviewer** instance in the following DJISDKManagerDelegate method to start the video decoding when register app successfully:
+ 
+~~~objc 
+- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
+{
+    NSString* message = @"Register App Successed!";
+    if (error) {
+        message = @"Register App Failed! Please enter your App Key and check the network.";
+    }else
+    {
+        NSLog(@"registerAppSuccess");
+    
+        [DJISDKManager startConnectionToProduct];
+        [[VideoPreviewer instance] start];
+    }
+    
+    [self showAlertViewWithTitle:@"Register App" withMessage:message];
+}
+~~~
         
- **4**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
+**5**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
   
 ~~~objc
 
