@@ -43,6 +43,7 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 **iOS**
 
 * [Does DJI iOS SDK Support CocoaPods?](#does-dji-ios-sdk-support-cocoapods)
+* [Application Registration fail in iOS 10, how to fix it?](#application-registration-fail-in-ios-10-how-to-fix-it)
 * [Enabling Bitcode in Xcode 7 doesn't work for DJI iOS SDK Sample Code, How can I fix it?](#enabling-bitcode-in-xcode-7-doesn-t-work-for-dji-ios-sdk-sample-code-how-can-i-fix-it)
 * [Does DJI iOS SDK support Swift? Any Swift Sample Code?](#does-dji-ios-sdk-support-swift-any-swift-sample-code)
 * [What is the DJI Remote Logger?](#what-is-the-dji-remote-logger)
@@ -110,6 +111,7 @@ The first time the application is initialized after installation, it connects to
 * Application needs internet connectivity the first time it is run after installation (successful registration is locally cached, so internet connectivity is not required after the first initialization).
 * App key is incorrect. Check in the <a href="https://developer.dji.com/user/apps/#all" target="_blank"> User Center </a> to confirm the application key, or [create](../quick-start/index.html#generate-an-app-key) one if it hasn't been created yet.
 * Bundle Identifier (iOS) or Package Name (Android) isn't the same as the one associated with the App Key. See how to [create](../quick-start/index.html#generate-an-app-key) an application key and associate it with the correct application identifier.
+* If you are using iOS 10, please check [here](#application-registration-fail-in-ios-10-how-to-fix-it) to enable "Data Protection" in your Xcode project.
 
 ## Product Related
 
@@ -320,6 +322,19 @@ Click on the **CLEAR DEFAULTS** button. The next time the DJI product is connect
 ### Does DJI iOS SDK Support CocoaPods?
 
 Yes, DJI iOS SDK supports CocoaPods. You can check this link for details: <a href="https://cocoapods.org/pods/DJI-SDK-iOS" target="_blank">https://cocoapods.org/pods/DJI-SDK-iOS</a>.
+
+### Application Registration Fail in iOS 10, How to fix it?
+
+Please try to turn on the **Data Protection** in Capabilities of your Xcode project using Xcode 8 as shown below:
+
+![turnOnDataProtection](../../images/faq/turn_on_data_protection.png) 
+
+If you use the same project's Bundle Identifier in multiple Macs, please try to change it to a different one and try again. 
+
+Remember to do a clean test:
+
+1. Delete the app on your iOS device or Simulator
+2. **Clean** the project and rebuild it agian.
 
 ### Enabling Bitcode in Xcode 7 doesn't work for DJI iOS SDK Sample Code, How can I fix it?
 
