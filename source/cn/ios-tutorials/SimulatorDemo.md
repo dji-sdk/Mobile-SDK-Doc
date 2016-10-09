@@ -11,7 +11,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 
 In this tutorial, you will learn how to use the DJISimulator in your Xcode project using DJI Mobile SDK. With the help of Virtual Stick control, you can input Virtual Stick flight control data and check the changes of simulator state in real time.
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo).
 
 We use Phantom 4 as an example to make this demo.
 

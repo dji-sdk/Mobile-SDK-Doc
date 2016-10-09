@@ -14,7 +14,7 @@ In this tutorial, you will learn how to implement the DJIWaypoint Mission featur
 
 Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap).
 
 > Note: In this tutorial, we will use Inspire 1 for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="https://developers.google.com/maps/" target="_blank">Google Map API</a> for navigating.
 

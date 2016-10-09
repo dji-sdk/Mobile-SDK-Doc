@@ -2,7 +2,7 @@
 title: Creating a MapView and Waypoint Application
 version: v3.3
 date: 2016-09-08
-github: "https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map"
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map
 keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 ---
 
@@ -13,7 +13,7 @@ keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
 Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map).
 
 > Note: In this tutorial, we will use Inspire 1 for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="http://lbs.amap.com" target="_blank">Gaode Map API</a> for navigating.
 

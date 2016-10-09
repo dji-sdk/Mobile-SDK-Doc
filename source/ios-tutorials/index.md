@@ -12,7 +12,7 @@ keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tu
 
 This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: **Take Photo** and **Record video**.
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo).
    
 We use Phantom 3 Professional as an example to make this demo.
    
