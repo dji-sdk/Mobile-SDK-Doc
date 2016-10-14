@@ -1,7 +1,7 @@
 ---
 title: Remote Controller
-date: 2016-06-24
-keywords: [control sticks, mode 1, mode 2, mode 3, flight mode, P-Mode, Positioning Mode, A-Mode, Attitude Mode, F-Mode, Function Mode, S-Mode, Sport Mode, linking, master control, slave control, custom buttons, RC]
+date: 2016-10-14
+keywords: [control sticks, mode 1, mode 2, mode 3, flight mode, P-Mode, Positioning Mode, A-Mode, Attitude Mode, F-Mode, Function Mode, S-Mode, Sport Mode, linking, master control, slave control, custom buttons, RC, mobile remote controller, mobile RC]
 ---
 
 ## Introduction
@@ -88,3 +88,8 @@ Additionally each custom button can have a unique tag value set to it, which can
 > 
 > This behavior can be disabled using the DJI Mobile SDK, but developers should inform users of the behavior change so they don't have an unexpected experience.
 
+## Mobile Remote Controller
+
+A simulated remote controller on the mobile device to control the aircraft when the physical remote controller is absent. It can simulate the vertical and horizontal movement of the left and right stick, which changes the aircraft's attitudes (Pitch, Roll, Yaw and Throttle). The mobile remote controller only supports **Mode 2** control style and [P-Mode](#P-Mode-Positioning). 
+
+It is only supported by Mavic Pro using WiFi.

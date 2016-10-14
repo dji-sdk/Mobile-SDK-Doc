@@ -1,6 +1,6 @@
 ---
 title: Missions
-date: 2016-06-24
+date: 2016-10-14
 keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
 ---
 
@@ -55,10 +55,21 @@ The ActiveTrack Mission allows an aircraft to track a moving subject using the v
 
 During the mission, the main camera is used to track the object and so the gimbal cannot be controlled by the user or application. The aircraft can be flown manually with pitch, roll and throttle stick commands from the remote controller to move the aircraft around the subject being tracked.
 
-ActiveTrack is only supported on the Mavic Pro and Phantom 4.
+There are three modes of the Active Track Mission:
+
+- Trace Mode
+
+  Aircraft follows behind or in front of the subject, or circle it as it moves. It's supported by the Mavic Pro and Phantom 4. Additionally, Mavic Pro also support Gesture Mode and set Circular Speed when in Trace Mode. During the Gesture Mode, the Mavic’s Vision System can recognize your gestures. Raise your arms or wave to it and the Mavic will follow you or take selfies for you.
+  
+- Profile Mode
+
+  Aircraft moves in parallel with the subject in the frame instead of behind. It's only supported by the Mavic Pro.
+
+- Spotlight Mode
+
+  Aircraft's camera will automatically follow the subject, but the aircraft does not automatically keep a constant distance with the subject. You can use the remote controller to control the aircraft move around the subject being tracked. It's only supported by the Mavic Pro.
 
 ![p4ActiveTrackAni](../images/component-guide/p4ActiveTrackAni.gif)
-
 
 ### TapFly Mission
 

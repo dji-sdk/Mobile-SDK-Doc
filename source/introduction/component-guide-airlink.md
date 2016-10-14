@@ -1,16 +1,17 @@
 ---
 title: AirLink
-date: 2016-06-24
-keywords: [airlink, wifi, lightbridge, Picture in Picture, PIP, OSD, On Screen Display, Auxiliary]
+date: 2016-10-14
+keywords: [airlink, wifi, OcuSync, lightbridge, Picture in Picture, PIP, OSD, On Screen Display, Auxiliary]
 ---
 
 ## Introduction
 
 AirLink describes the wireless link between aircraft, remote controllers, handheld cameras and mobile devices.
 
-There are three types of wireless links used in DJI products:
+There are four types of wireless links used in DJI products:
 
 * WiFi
+* OcuSync
 * Lightbridge
 * Auxiliary
 
@@ -29,6 +30,16 @@ Aspects of the wireless link that can customized include:
 * SSID
 * Password
 * WiFi Frequency Band (Osmo Only)
+
+## OcuSync
+
+Part of the Lightbridge family, DJI’s newly developed OcuSync transmission system performs far better than Wi-Fi transmission at all transmission speeds. OcuSync also uses more effective digital compression and channel transmission technologies, allowing it to transmit HD video reliably even in environments with strong radio interference. Compared to traditional analog transmission, OcuSync can transmit video at 720p and 1080p – equivalent to a 4-10 times better quality, without a color cast, static interference, flickering or other problems associated with analog transmission. Even when using the same amount of radio transmission power, OcuSync transmits further than analog at 4.1mi (7km)
+
+Before taking off, OcuSync will automatically scan the environment and choose the frequency band with the lowest interference, ensuring more stable video transmission. During a flight, it sends key flight parameters back for viewing in the SDK and supports a maximum download speed of 40Mb/s for photos and videos.
+
+In use, this is the difference between smooth or interrupted transmission, short or long flight range, and short or long recovery times after interference or GPS signal loss. Additionally, since Wi-Fi uses a traditional protocol stack, it takes longer - from several seconds to tens of seconds – to get connected and to re-connect after signal loss But OcuSync uses Cross-Layer Protocol Design, it can establish or re-establish links within one second.
+
+As well as point-to-point video transmission, OcuSync also supports wireless connections to multiple devices. For example, you can connect the DJI Goggles, remote controller, and Mavic wirelessly to OcuSync all at the same time. You can also add an additional remote so that you can control the Mavic with two remotes or share First Person View (FPV) videos.
 
 ## Lightbridge
   

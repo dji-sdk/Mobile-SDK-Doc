@@ -27,10 +27,14 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 
 * [Does the DJI Mobile SDK give access to all the functionality in the DJI GO App?](#does-the-dji-mobile-sdk-give-access-to-all-the-functionality-in-the-dji-go-app)
 * [Is a flight simulator available to test applications?](#is-a-flight-simulator-available-to-test-applications)
+* [Where can I download the simulator for testing the Mobile SDK app?](#where-can-I-download-the-simulator-for-testing-the-Mobile-SDK-app)
 * [Why can’t I use the existing simulator for the Phantom 4?](#why-can-t-i-use-the-existing-simulator-for-the-phantom-4)
 * [What path does the aircraft take in a curved waypoint mission?](#what-path-does-the-aircraft-take-in-a-curved-waypoint-mission)
 * [Why does yaw rotation cause the drone to drift when using Virtual Stick APIs?](#why-does-yaw-rotation-cause-the-drone-to-drift-when-using-virtual-stick-apis)
 * [Does DJIWaypointMission allow only one waypoint?](#Does-DJIWaypointMission-allow-only-one-waypoint)
+* [There is a DJIWaypointTurnMode, if we set one waypoint's `turnMode`, when will it take effect?](#there-is-a-djiwaypointturnmode-if-we-set-one-waypoint-s-turnmode-when-will-it-take-effect)
+* [How to understand the Mission Error "Distance between two adjacent waypoint is too large." ?](How-to-understand-the-Mission-Error-Distance-between-two-adjacent-waypoint-is-too-large)
+* [How to understand the Mission Error "The total distance of waypoints is too large." ?](How-to-understand-the-Mission-Error-The-total-distance-of-waypoints-is-too-large)
 
 **Android**
 
@@ -186,6 +190,13 @@ Yes, a flight simulator is available for all products and can be used both as vi
 
 <!-- plus a tutorial ([iOS](TODO), [Android](TODO) are available to get you started. -->
 
+### Where can I download the simulator for testing the Mobile SDK app?
+
+- For Phantom 3 Series and Inspire 1 series, you can use the DJI PC Simulator for testing, here is the download link: [DJI PC Simulator Installer](https://developer.dji.com/mobile-sdk/downloads/).
+- For Phantom 4, M100, M600 and Mavic Pro, you can use the DJI Assistant 2 for testing, here is the download link: [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads).
+
+For more details of using the simulator, please refer to this tutorial: [Aircraft Simulator](https://developer.dji.com/mobile-sdk/documentation/application-development-workflow/workflow-testing.html).
+
 ### Why can’t I use the existing simulator for the Phantom 4?
 
 The Phantom 4 uses a different simulator application compared to Phantom 3, Inspire and Matrice series of aircraft. 
@@ -246,6 +257,58 @@ When yaw is controlled by angular velocity, the aircraft's yaw position can be c
 ### Does DJIWaypointMission allow only one waypoint?
 
 No, the minimum number of waypoints allowed in a DJIWaypointMission is 2.
+
+### There is a DJIWaypointTurnMode, if we set one waypoint's `turnMode`, when will it take effect?
+
+When the `headingMode` value of DJIWaypointMission is set to `DJIWaypointMissionHeadingUsingWaypointHeading` (iOS), `UsingWaypointHeading` (android), the `turnMode` of Waypoint N applies when flying between Waypoint N and Waypoint N+1. 
+
+### How to understand the Mission Error "Distance between two adjacent waypoint is too large." ?
+
+In the flight controller’s code logic, during a waypoint mission, we treated the first waypoint as the adjacent waypoint of the last waypoint. For example, there are four waypoints in the waypoint mission. Their indexes are 0, 1, 2, 3 in sequence. The next (adjacent) waypoint of the waypoint 3 is the waypoint 0. 
+	
+So in order to fix this issue, please set the distance between the first and last waypoint less than **2km**.
+
+### How to understand the Mission Error "The total distance of waypoints is too large." ?
+
+Firstly, let's explain when the homepoint will be updated:
+
+1. When you turn on the aircraft and it receives enough GPS signal, the aircraft will automatically record the currect location as its homepoint.
+2. When the propellers start to rotate, the aircraft will refresh the homepoint by using the current location.
+
+The above two methods are used by the flight controller internally, if you want to manually set the homepoint, you can invoke the following APIs in the SDK:
+
+- iOS:
+
+~~~objc
+- (void)setHomeLocation:(CLLocationCoordinate2D)homePoint
+         withCompletion:(DJICompletionBlock)completion;
+~~~
+
+~~~objc
+- (void)setHomeLocationUsingAircraftCurrentLocationWithCompletion:(DJICompletionBlock)completion;
+~~~
+
+- Android:
+
+~~~java
+public abstract void setHomeLocation (DJILocationCoordinate2D homePoint, DJICommonCallbacks.DJICompletionCallback callback)
+~~~
+
+~~~java
+public abstract void setHomeLocationUsingAircraftCurrentLocation (DJICommonCallbacks.DJICompletionCallback callback)
+~~~
+
+Here, we have a restriction for the total trace of the waypoint mission.
+
+If Distance1 = distance between current aircraft location and the first waypoint.
+
+Distance2 = distance between the first waypoint and the last waypiont.
+
+Distance3 = distance between the last waypoint and the homepoint.
+
+The Distance1 + Distance2 + Distance3 must be smaller or eqauls to **40km**. If it's larger than 40km, the SDK will return a mission error "The total distance of waypoints is too large."
+
+On the iOS side, the **DJISDKMissionError** will be `DJISDKMissionErrorMissionTotalDistanceTooLarge`, on the Android side, the **DJIMissionManagerError** will be `MISSION_RESULT_WAYPOINT_TOTAL_TRACE_TOO_LONG`.
 
 ## Android
 
