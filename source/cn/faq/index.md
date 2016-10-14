@@ -27,10 +27,12 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 
 * [Does the DJI Mobile SDK give access to all the functionality in the DJI GO App?](#does-the-dji-mobile-sdk-give-access-to-all-the-functionality-in-the-dji-go-app)
 * [Is a flight simulator available to test applications?](#is-a-flight-simulator-available-to-test-applications)
+* [Where can I download the simulator for testing the Mobile SDK app?](#where-can-I-download-the-simulator-for-testing-the-Mobile-SDK-app)
 * [Why can’t I use the existing simulator for the Phantom 4?](#why-can-t-i-use-the-existing-simulator-for-the-phantom-4)
 * [What path does the aircraft take in a curved waypoint mission?](#what-path-does-the-aircraft-take-in-a-curved-waypoint-mission)
 * [Why does yaw rotation cause the drone to drift when using Virtual Stick APIs?](#why-does-yaw-rotation-cause-the-drone-to-drift-when-using-virtual-stick-apis)
 * [Does DJIWaypointMission allow only one waypoint?](#Does-DJIWaypointMission-allow-only-one-waypoint)
+* [There is a DJIWaypointTurnMode, if we set one waypoint's `turnMode`, when will it take effect?](#there-is-a-djiwaypointturnmode-if-we-set-one-waypoint-s-turnmode-when-will-it-take-effect)
 
 **Android**
 
@@ -53,7 +55,7 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 
 ### How can I become a DJI Developer?
 
-Becoming a DJI developer is easy. Please see [here](./application-development-workflow/workflow-register.html) for details.
+Becoming a DJI developer is easy. Please see [here](../application-development-workflow/workflow-register.html) for details.
 
 ### Where are the DJI Mobile SDK Resources?
 
@@ -186,6 +188,13 @@ Yes, a flight simulator is available for all products and can be used both as vi
 
 <!-- plus a tutorial ([iOS](TODO), [Android](TODO) are available to get you started. -->
 
+### Where can I download the simulator for testing the Mobile SDK app?
+
+- For Phantom 3 Series and Inspire 1 series, you can use the DJI PC Simulator for testing, here is the download link: [DJI PC Simulator Installer](https://developer.dji.com/mobile-sdk/downloads/).
+- For Phantom 4, M100, M600 and Mavic Pro, you can use the DJI Assistant 2 for testing, here is the download link: [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads).
+
+For more details of using the simulator, please refer to this tutorial: [Aircraft Simulator](https://developer.dji.com/mobile-sdk/documentation/application-development-workflow/workflow-testing.html).
+
 ### Why can’t I use the existing simulator for the Phantom 4?
 
 The Phantom 4 uses a different simulator application compared to Phantom 3, Inspire and Matrice series of aircraft. 
@@ -247,6 +256,10 @@ When yaw is controlled by angular velocity, the aircraft's yaw position can be c
 
 No, the minimum number of waypoints allowed in a DJIWaypointMission is 2.
 
+### There is a DJIWaypointTurnMode, if we set one waypoint's `turnMode`, when will it take effect?
+
+When the `headingMode` value of DJIWaypointMission is set to `DJIWaypointMissionHeadingUsingWaypointHeading` (iOS), `UsingWaypointHeading` (android), the `turnMode` of Waypoint N applies when flying between Waypoint N and Waypoint N+1. 
+
 ## Android
 
 ### How can I run the Android SDK Sample Code?
@@ -261,7 +274,7 @@ If there is more than one application that supports the accessory, and no applic
 
 Once an application is tied as the default application to an accessory, no other applications will be able to use that accessory. For example, if DJI GO is the default application, then no other SDK based application will work the DJI products.
 
-To solve this, the default behavior needs to be removed for the accessory. For example, if the DJI GO is the default application, navigate in Android to **Settings->Apps->DJI GO->Open as default** and you should see a similar screen to this:
+To solve this, the default behavior needs to be removed for the accessory. For example, if the DJI GO is the default application, navigate in Android to **Settings->Apps->DJI GO->Open by default** and you should see a similar screen to this:
  
  ![](../../images/faq/defaultApp_nexus6_001.jpg)
 
@@ -277,9 +290,9 @@ If there is more than one application that supports the accessory, and no applic
 
 Once an application is tied as the default application to an accessory, no other applications will be able to use that accessory. For example, if DJI GO is the default application, then no other SDK based application will work the DJI products.
 
-To solve this, the default behavior needs to be removed for the accessory. For example, if the DJI GO is the default application, navigate in Android to **Settings->Apps->DJI GO->Open as default** and you should see a similar screen to this:
+To solve this, the default behavior needs to be removed for the accessory. For example, if the DJI GO is the default application, navigate in Android to **Settings->Apps->DJI GO->Set as default** and you should see a similar screen to this:
  
- ![](../../images/faq/defaultApp_nexus6_001.jpg)
+ ![](../../images/faq/samsung_clearDefaults.png)
 
 Click on the **CLEAR DEFAULTS** button. The next time the DJI product is connected to the mobile device, the user will be given the option to select the application to open with it.
 
@@ -288,12 +301,12 @@ Click on the **CLEAR DEFAULTS** button. The next time the DJI product is connect
   Please update your application‘s Android SDK to the latest 3.2.2 version. You can download it from <a href="https://developer.dji.com/mobile-sdk/downloads/"> here </a>. 
 
   For more details, please check the [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration) tutorial.
-  
+
 ### Why can't my Android application connect to a DJI Product when using the DJI Mobile SDK 3.2.1 and Android 6.0 Marshmallow with targetSdkVersion 23?
   
-<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html" target="_blank"> Runtime Permissions </a> are a new feature of Android 6.0.
+ <a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html" target="_blank"> Runtime Permissions </a> are a new feature of Android 6.0.
 
- You can add the following code to request permissions before you connect to the internet to register your application to use the DJI SDK:
+  You can add the following code to request permissions before you connect to the internet to register your application to use the DJI SDK:
   
 ~~~java
   // When the compile and target version is higher than 22, request the following permissions at runtime.
@@ -323,7 +336,7 @@ Click on the **CLEAR DEFAULTS** button. The next time the DJI product is connect
 
 Yes, DJI iOS SDK supports CocoaPods. You can check this link for details: <a href="https://cocoapods.org/pods/DJI-SDK-iOS" target="_blank">https://cocoapods.org/pods/DJI-SDK-iOS</a>.
 
-### Application Registration Fail in iOS 10, How to fix it?
+### Application Registration Fail in iOS 10, How to Fix it?
 
 Please try to turn on the **Data Protection** in Capabilities of your Xcode project using Xcode 8 as shown below:
 

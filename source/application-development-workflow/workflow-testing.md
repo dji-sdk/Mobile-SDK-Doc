@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2016-06-24
+date: 2016-10-14
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
@@ -19,7 +19,7 @@ This allows both manual and automated flights to be simulated without actually f
 DJI provides tools for Windows and Mac which can be used to initialize the simulator, and visualize the aircraft behavior based on the state information provided by the simulator:
 
 * **DJI PC Simulator** ( <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> Windows </a> only) is used for Phantom 3, Inspire and Matrice series of aircraft.
-* **DJI Assistant 2** (<a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant2_Installer_v1.0.2.zip" target="_blank"> Windows </a> or <a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant_Installer_mac_v1.0.2.dmg" target="_blank"> Mac </a>) is used for Phantom 4.
+* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used for Phantom 4.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
 
@@ -110,14 +110,14 @@ The DJI Assistant 2 tool is built specifically for SDK developers and can initia
 
 ##### Mac
 
-* Download <a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant_Installer_mac_v1.0.2.dmg" target="_blank"> DJI Assistant 2 </a> for Mac.
+* Download <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> DJI Assistant 2 </a> for Mac.
 * Install the driver by double clicking on it and following the instructions.
 * Open the downloaded **DMG** file.
 * Drag **Assistant.app** into the systems **Applications** folder.
 
 ##### Windows
 
-* Download <a href="https://dl.djicdn.com/downloads/phantom_4/DJI_Assistant2_Installer_v1.0.2.zip" target="_blank"> DJI Assistant 2 </a> for Windows.
+* Download <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> DJI Assistant 2 </a> for Windows.
 * Run the installer executable.
 * Follow the installation instructions.
 * During installation, confirm the request to install the driver.

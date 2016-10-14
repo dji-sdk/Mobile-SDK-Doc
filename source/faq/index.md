@@ -27,10 +27,12 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 
 * [Does the DJI Mobile SDK give access to all the functionality in the DJI GO App?](#does-the-dji-mobile-sdk-give-access-to-all-the-functionality-in-the-dji-go-app)
 * [Is a flight simulator available to test applications?](#is-a-flight-simulator-available-to-test-applications)
+* [Where can I download the simulator for testing the Mobile SDK app?](#where-can-I-download-the-simulator-for-testing-the-Mobile-SDK-app)
 * [Why can’t I use the existing simulator for the Phantom 4?](#why-can-t-i-use-the-existing-simulator-for-the-phantom-4)
 * [What path does the aircraft take in a curved waypoint mission?](#what-path-does-the-aircraft-take-in-a-curved-waypoint-mission)
 * [Why does yaw rotation cause the drone to drift when using Virtual Stick APIs?](#why-does-yaw-rotation-cause-the-drone-to-drift-when-using-virtual-stick-apis)
 * [Does DJIWaypointMission allow only one waypoint?](#Does-DJIWaypointMission-allow-only-one-waypoint)
+* [There is a DJIWaypointTurnMode, if we set one waypoint's `turnMode`, when will it take effect?](#there-is-a-djiwaypointturnmode-if-we-set-one-waypoint-s-turnmode-when-will-it-take-effect)
 
 **Android**
 
@@ -186,6 +188,13 @@ Yes, a flight simulator is available for all products and can be used both as vi
 
 <!-- plus a tutorial ([iOS](TODO), [Android](TODO) are available to get you started. -->
 
+### Where can I download the simulator for testing the Mobile SDK app?
+
+- For Phantom 3 Series and Inspire 1 series, you can use the DJI PC Simulator for testing, here is the download link: [DJI PC Simulator Installer](https://developer.dji.com/mobile-sdk/downloads/).
+- For Phantom 4, M100, M600 and Mavic Pro, you can use the DJI Assistant 2 for testing, here is the download link: [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads).
+
+For more details of using the simulator, please refer to this tutorial: [Aircraft Simulator](https://developer.dji.com/mobile-sdk/documentation/application-development-workflow/workflow-testing.html).
+
 ### Why can’t I use the existing simulator for the Phantom 4?
 
 The Phantom 4 uses a different simulator application compared to Phantom 3, Inspire and Matrice series of aircraft. 
@@ -246,6 +255,10 @@ When yaw is controlled by angular velocity, the aircraft's yaw position can be c
 ### Does DJIWaypointMission allow only one waypoint?
 
 No, the minimum number of waypoints allowed in a DJIWaypointMission is 2.
+
+### There is a DJIWaypointTurnMode, if we set one waypoint's `turnMode`, when will it take effect?
+
+When the `headingMode` value of DJIWaypointMission is set to `DJIWaypointMissionHeadingUsingWaypointHeading` (iOS), `UsingWaypointHeading` (android), the `turnMode` of Waypoint N applies when flying between Waypoint N and Waypoint N+1. 
 
 ## Android
 
