@@ -192,8 +192,8 @@ Yes, a flight simulator is available for all products and can be used both as vi
 
 ### Where can I download the simulator for testing the Mobile SDK app?
 
-- For Phantom 3 Series and Inspire 1 series, you can use the DJI PC Simulator for testing, here is the download link: [DJI PC Simulator Installer](https://developer.dji.com/mobile-sdk/downloads/).
-- For Phantom 4, M100, M600 and Mavic Pro, you can use the DJI Assistant 2 for testing, here is the download link: [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads).
+- For Phantom 3 Series and Inspire 1 series, you can use the [DJI PC Simulator](https://developer.dji.com/mobile-sdk/downloads/) for testing.
+- For Phantom 4, M100, M600 and Mavic Pro, you can use the [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads).
 
 For more details of using the simulator, please refer to this tutorial: [Aircraft Simulator](https://developer.dji.com/mobile-sdk/documentation/application-development-workflow/workflow-testing.html).
 
