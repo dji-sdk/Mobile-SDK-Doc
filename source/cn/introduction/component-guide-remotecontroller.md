@@ -32,7 +32,7 @@ DJI aircraft have many flight modes that depend on the remote controller's **Fli
 
 The Flight Mode Switch can be used to determine whether the aircraft uses positioning aids to maintain position (like GPS), and whether automated flight control using [Missions](./component-guide-missions.html) and [Virtual Sticks](./component-guide-flightController.html#Virtual-Sticks) is enabled. Therefore the switch can be used to effectively override positioning sensors, and automated flight whenever the pilot needs to.
 
-Four modes are available (P, S, A, F) of which each product has three to select from. All products except the Mavic Pro and Phantom 4 use P, A and F. The Mavic Pro and Phantom 4 use P, A and S.
+Four modes are available (P, S, A, F) of which all products have two or three to select from. All products except the Mavic Pro and Phantom 4 use P, A and F. The Phantom 4 use P, A and S, and the Mavic Pro uses P and S.
 
 ### P-Mode (Positioning)
 
