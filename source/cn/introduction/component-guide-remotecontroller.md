@@ -90,6 +90,6 @@ Additionally each custom button can have a unique tag value set to it, which can
 
 ## Mobile Remote Controller
 
-A simulated remote controller on the mobile device to control the aircraft when the physical remote controller is absent. It can simulate the vertical and horizontal movement of the left and right stick, which changes the aircraft's attitudes (Pitch, Roll, Yaw and Throttle). The mobile remote controller only supports **Mode 2** control style and [P-Mode](#P-Mode-Positioning). 
+A simulated remote controller on the mobile device to control the aircraft when the physical remote controller is absent. It can simulate the vertical and horizontal movement of the left and right stick, which changes the aircraft's pitch, roll, yaw and throttle. The mobile remote controller only supports **Mode 2** control style and [P-Mode](#P-Mode-Positioning).  
 
 It is only supported by Mavic Pro using WiFi.

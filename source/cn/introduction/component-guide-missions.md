@@ -59,11 +59,11 @@ There are three modes of the Active Track Mission:
 
 - Trace Mode
 
-  Aircraft follows behind or in front of the subject, or circle it as it moves. It's supported by the Mavic Pro and Phantom 4. Additionally, Mavic Pro also support Gesture Mode and set Circular Speed when in Trace Mode. During the Gesture Mode, the Mavic’s Vision System can recognize your gestures. Raise your arms or wave to it and the Mavic will follow you or take selfies for you.
+  Supported by the Phantom 4 and Mavic Pro, the aircraft follows behind or in front of the subject keeping a constant distance. Mavic Pro also supports Gesture Mode and the ability to circle the subject. Gesture mode allows the subject to confirm tracking as well as take pictures using gestures. 
   
 - Profile Mode
 
-  Aircraft moves in parallel with the subject in the frame instead of behind. It's only supported by the Mavic Pro.
+  Aircraft moves in parallel with the subject instead of behind. It's only supported by the Mavic Pro.
 
 - Spotlight Mode
 
