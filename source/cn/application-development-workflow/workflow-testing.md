@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2016-10-14
+date: 2016-10-28
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
@@ -18,8 +18,8 @@ This allows both manual and automated flights to be simulated without actually f
 
 DJI provides tools for Windows and Mac which can be used to initialize the simulator, and visualize the aircraft behavior based on the state information provided by the simulator:
 
-* **DJI PC Simulator** ( <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> Windows </a> only) is used for Phantom 3, Inspire and Matrice series of aircraft.
-* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used for Phantom 4.
+* **DJI PC Simulator** ( <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> Windows </a> only) is used for Phantom 3 series, Inspire 1 series of aircraft.
+* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used for Phantom 4, Mavic Pro and Matrice series of aircraft.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
 
@@ -27,7 +27,7 @@ Additionally, simulator initialization, monitoring and termination can be contro
 
 The DJI PC Simulator tool is built specifically for SDK developers and can initialize, terminate and provide visualization of the aircraft simulator running in the Flight Controller of the DJI aircraft. The DJI PC Simulator tool connects to the aircraft through USB.
 
-* Supported DJI Products: Matrice series, Phantom 3 series, Inspire series.
+* Supported DJI Products: Matrice series, Phantom 3 series, Inspire 1 series.
 * Supported Operating Systems: Windows 7, Windows 8, Windows 8.1
 
 > **Note:** Windows 10 is not officially supported, but generally does work.
@@ -101,7 +101,7 @@ For more info about **DJI PC Simulator**, check the User Manual pdf file include
 
 The DJI Assistant 2 tool is built specifically for SDK developers and can initialize, terminate and provide visualization of the aircraft simulator running in the Flight Controller of the DJI aircraft. DJI Assistant 2 connects to the aircraft through USB.
 
-* Supported DJI Products: Phantom 4.
+* Supported DJI Products: Phantom 4, Mavic Pro and Matrice series.
 * Supported Operating Systems: Mac OS X 10, Windows 7, Windows 8, and Windows 8.1
 
 > **Note:** Windows 10 is not officially supported, but generally does work.

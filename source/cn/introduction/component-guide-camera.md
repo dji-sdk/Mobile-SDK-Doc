@@ -107,7 +107,6 @@ The trade-off between capturing RAW and compressed images is:
   </tbody>
 </table>
 
-
 For still images, DIJ cameras typically support JPEG (compressed) and DNG (RAW) image formats. Cameras can also capture in JPEG + RAW, saving two images for each shot.
 
 For video, only the Zenmuse X5 RAW supports capturing raw video. RAW video files are so large, the camera has a solid state drive (SSD). All cameras support compressed formats MP4 (MPEG – 4 AVC) and MOV (H.264).
@@ -138,7 +137,7 @@ The camera aperture controls how large the **window** the sensor can see the wor
 
 Aperture is measured in f-numbers or f-stops, where the numbers relate to the aperture diameter. A doubling of aperture area, is equivalent to multiplying the diameter by 1.414 (square root of 2), and increases the exposure by one stop.
 
-Cameras on the Phantom series of products have fixed aperture lenses (e.g. f/2.8). The Zenmuse X5 has an aperture range of f/1.7 to f/16.
+Cameras on the Phantom and Mavic series of products have fixed aperture lenses (e.g. f/2.8). The Zenmuse X5 has an aperture range of f/1.7 to f/16.
 
 ##### Exposure Mode
 
