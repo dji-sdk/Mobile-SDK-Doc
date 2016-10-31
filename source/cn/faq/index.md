@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2016-10-28
+date: 2016-10-31
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
@@ -46,6 +46,7 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 
 **iOS**
 
+* [When I build the iOS Sample Code from Github, it fails with linker errors, How can I fix it?](#When-I-build-the-iOS-Sample-Code-from-Github-it-fails-with-linker-errors-How-can-I-fix-it)
 * [Does DJI iOS SDK Support CocoaPods?](#does-dji-ios-sdk-support-cocoapods)
 * [Application Registration fail in iOS 10, how to fix it?](#application-registration-fail-in-ios-10-how-to-fix-it)
 * [Enabling Bitcode in Xcode 7 doesn't work for DJI iOS SDK Sample Code, How can I fix it?](#enabling-bitcode-in-xcode-7-doesn-t-work-for-dji-ios-sdk-sample-code-how-can-i-fix-it)
@@ -378,6 +379,22 @@ Click on the **CLEAR DEFAULTS** button. The next time the DJI product is connect
  After restarting the application, it should now. This process only needs to be completed once.  
   
 ## iOS
+
+### When I build the iOS Sample Code from Github, it fails with linker errors, How can I fix it?
+
+Since the **DJISDK.framework** supports Bitcode now, the size of it becomes much bigger(146.1MB), which exceeds Github's file size limit of 100 MB for pushing. So we use [Git LFS](https://git-lfs.github.com) to upload the framework.
+
+If you haven't installed [Git LFS](https://git-lfs.github.com) on your Mac and then pull or download the iOS SDK Sample Code from Github directly, you may not be able to get the entire **DJISDK.framework** file, which will cause the linker errors when you build the project.
+
+Therefore, please run the following commands on the Terminal to install Git LFS firstly:
+
+Homebrew: `brew install git-lfs` or  MacPorts: `port install git-lfs`
+
+> Note: You can check Git LFS website for details: <https://git-lfs.github.com>.
+
+Then run `git clone https://github.com/dji-sdk/Mobile-SDK-iOS.git` to clone the entire Sample Code from Github.
+
+If you have already cloned the Sample Code project, you can run `git reset HEAD --hard` command in the project directory to redownload the SDK framework file after installing the Git LFS.
 
 ### Does DJI iOS SDK Support CocoaPods?
 
