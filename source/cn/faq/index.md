@@ -386,15 +386,17 @@ Since the **DJISDK.framework** supports Bitcode now, the size of it becomes much
 
 If you haven't installed [Git LFS](https://git-lfs.github.com) on your Mac and then pull or download the iOS SDK Sample Code from Github directly, you may not be able to get the entire **DJISDK.framework** file, which will cause the linker errors when you build the project.
 
-Therefore, please run the following commands on the Terminal to install Git LFS firstly:
+**1.** Therefore, please run the following commands on the Terminal to install Git LFS firstly:
 
 Homebrew: `brew install git-lfs` or  MacPorts: `port install git-lfs`
 
 > Note: You can check Git LFS website for details: <https://git-lfs.github.com>.
 
-Then run `git clone https://github.com/dji-sdk/Mobile-SDK-iOS.git` to clone the entire Sample Code from Github.
+**2.** Be sure to restart your Terminal after installing Git LFS.
 
-If you have already cloned the Sample Code project, you can run `git reset HEAD --hard` command in the project directory to redownload the SDK framework file after installing the Git LFS.
+**3.** Then run `git clone https://github.com/dji-sdk/Mobile-SDK-iOS.git` to clone the entire Sample Code from Github.
+
+**4.** If you have already cloned the Sample Code project, you can run `git reset HEAD --hard` command in the project directory to redownload the SDK framework file after installing the Git LFS.
 
 ### Does DJI iOS SDK Support CocoaPods?
 
