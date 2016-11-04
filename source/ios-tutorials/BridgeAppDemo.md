@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
-version: v3.3
-date: 2016-09-05
+version: v3.4
+date: 2016-11-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---
@@ -145,11 +145,9 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
 ~~~objc
 #pragma mark - DJICameraDelegate
 
--(void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
+- (void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
 {
-    uint8_t* pBuffer = (uint8_t*)malloc(size);
-    memcpy(pBuffer, videoBuffer, size);
-    [[VideoPreviewer instance].dataQueue push:pBuffer length:(int)size];
+    [[VideoPreviewer instance] push:videoBuffer length:(int)size];
 }
 ~~~
 

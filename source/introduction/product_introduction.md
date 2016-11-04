@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2016-10-28
+date: 2016-11-04
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -295,7 +295,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>X3, Z3, X5, X5R, XT</td><td>5 / 3.1</td><td>1-2</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
 <tr>
-<td>Matrice 600</td><td>X3, Z3, X5, X5R, XT, Custom with Ronin MX</td><td>5 / 3.1</td><td>6</td><td>Moveable</td><td>6000</td><td>Guidance, Manifold, DRTK, Ronin MX, Focus</td></tr>
+<td>Matrice 600</td><td>X3, Z3, X5, X5R, XT, Custom with Ronin MX</td><td>5 / 3.1</td><td>6</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX, Focus</td></tr>
 <tr>
 <td>Mavic Pro</td><td>Fixed</td><td>7 / 4</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>

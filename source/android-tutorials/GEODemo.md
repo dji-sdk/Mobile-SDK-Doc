@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
-version: v3.3
-date: 2016-09-06
+version: v3.4
+date: 2016-11-02
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo
 keywords: [Android GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
