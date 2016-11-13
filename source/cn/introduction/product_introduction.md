@@ -331,7 +331,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>With Guidance</td><td>With Guidance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Matrice 600</td><td>With Guidance</td><td>With Guidance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Matrice 600</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Mavic Pro</td><td>Front</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
@@ -598,7 +598,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="4">
     Matrice 600
-    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Guidance, Ronin MX, DRTK, Manifold</p>
+    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Ronin MX, DRTK, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>6x TB47S</td>        
