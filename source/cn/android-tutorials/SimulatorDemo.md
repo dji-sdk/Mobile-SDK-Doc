@@ -96,7 +96,7 @@ import dji.sdk.sdkmanager.DJISDKManager;
 
 Right-click on the package `com.dji.simulatorDemo` in the project navigator and choose **New -> Java Class**, Type in "DJISimulatorApplication" in the Name field and select "Class" as Kind field content.
    
-Next, Replace the code of the "FPVDemoApplication.java" file with the following:
+Next, Replace the code of the "DJISimulatorApplication.java" file with the following:
 
 ~~~java
 package com.dji.simulatorDemo;
