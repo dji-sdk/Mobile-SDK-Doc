@@ -14,7 +14,7 @@ Also, you can download the tutorial's final sample code project from this [Githu
    
 ## Introduction
 
-The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Phantom 3 Professional, Phantom 3 Advanced, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
+The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
 
 ### Workflow
 
@@ -24,7 +24,7 @@ As you see above, the Bridge App and the iOS Device or Xcode Simulator should wo
 
 ### Signal Light
 
-At the top of the screen, there are two signal lights, which represent the connection between the bridge app and the remote controller or your application. When the bridge app connect to the remote controller successfully, the **RC light** will turn green. Similarly, when the bridge app connect to your app successfully, the **App Light** will turn green too.
+At the top of the screen, there are two signal lights, which represent the connection between the bridge app and the remote controller or your application. When the bridge app connects to the remote controller successfully, the **RC light** will turn green. Similarly, when the bridge app connect to your app successfully, the **App Light** will turn green too.
 
 ![signalLight](../../images/tutorials-and-samples/iOS/BridgeAppDemo/toolScreenshot.png)
 
