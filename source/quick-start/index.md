@@ -125,7 +125,7 @@ For Aircraft or products that use WiFi as a wireless link, the Mobile Device is 
 
 #### USB Connection Procedure
 
-_Mavic Pro, Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600:_
+_Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600, M600 Pro:_
 
 Turn on the Remote Controller.
 

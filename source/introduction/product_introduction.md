@@ -8,7 +8,7 @@ DJI produces small, highly capable, remotely controlled aircraft as well as hand
 
 ### Aircraft
 
-DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the <a href="http://www.dji.com/mavic" target="_blank">Mavic Pro</a>, <a href="http://www.dji.com/products/phantom" target="_blank">Phantom series</a>, <a href="http://www.dji.com/products/inspire" target="_blank">Inspire series</a>, <a href="http://www.dji.com/product/matrice100" target="_blank">Matrice 100</a> and <a href="http://www.dji.com/product/matrice600" target="_blank">Matrice 600</a>.
+DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic Pro, Phantom series, Inspire series, Matrice 100 and Matrice 600.
 
 One of the key features of DJI aircraft is the camera's ability to stay horizontal no matter how the aircraft is flying. The camera is mounted on a gimbal, which actively compensates for any aircraft rotation, producing clear, beautiful images and videos.
 
@@ -27,7 +27,7 @@ There are many DJI aircraft to choose from that provide a range of features, per
 
 ### Handheld Camera
 
-DJI's handheld camera [Osmo series](http://www.dji.com/products/imagery#handheld-nav) allows users to take smooth, professional videos when the user is moving by integrating DJI's aircraft camera stabilization gimbal technology onto an easy to carry handle.
+DJI's handheld camera Osmo series allows users to take smooth, professional videos when the user is moving by integrating DJI's aircraft camera stabilization gimbal technology onto an easy to carry handle.
 
 ### Stand Alone Components
 
@@ -154,18 +154,18 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Matrice 100</td>
-      <td>X3, X5, X5R, XT, Z3</td>        
+      <td>X3, X5, X5R, XT, Z3, Z30</td>        
       <td> N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
       <td>Matrice 600</td>
-      <td>X3, X5, X5R, XT, Z3</td>        
-      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
+      <td>X3, X5, X5R, XT, Z3, Z30</td>        
+      <td> DRTK, Ronin MX, Focus* </td>
     </tr>
     <tr>
       <td>Matrice 600 Pro</td>
-      <td>X3, X5, X5R, XT, Z3</td>        
-      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
+      <td>X3, X5, X5R, XT, Z3, Z30</td>        
+      <td> DRTK, Ronin MX, Focus* </td>
     </tr>
     <tr>
       <td rowspan="3">Handheld Device</th>
@@ -184,20 +184,26 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> — </td>
     </tr>
     <tr>
-      <td rowspan="2">Components</th>
+      <td rowspan="3">Components</th>
       <td>Lightbridge 2 with A2</td>
       <td> — </td>        
       <td> — </td>
     </tr>
       <tr>
       <td>Lightbridge 2 with A3</td>
-      <td> X3, X5, X5R, XT, Z3 </td>        
-      <td> DRTK, Ronin MX, N1 Video Encoder, Focus* </td>
+      <td> X3, X5, X5R, XT, Z3, Z30 </td>        
+      <td> DRTK, Ronin MX, Focus* </td>
+    </tr>
+    </tr>
+      <tr>
+      <td>Lightbridge 2 with N3</td>
+      <td> X3, X5, X5R, XT, Z3, Z30 </td>        
+      <td> DRTK, Ronin MX, Focus* </td>
     </tr>
   </tbody>
 </table></html>
 
-> Note: DJI Focus is only compatible with DJI camera.
+> Note: DJI Focus is only compatible with DJI cameras.
 
 Detailed specifications are listed on each product's webpage **specs** section at <a href="http://www.dji.com" target="_blank">www.dji.com</a>.
 
@@ -229,6 +235,11 @@ Some defining product features that distinguish aircraft series are:
 * Landing gear can raise out of the camera's field of view
  ![InspireRaised](../images/product-introduction/inspire_landingGearRaised.gif)
 * Remote controller has embedded GPS
+* Inspire 2 also:
+    * Optional onboard SSD storage
+    * Upward facing obstacle avoidance
+    * Additional in first person view (FPV) camera
+
 
 ### Matrice
 
@@ -243,7 +254,7 @@ Some defining product features that distinguish aircraft series are:
     * <a href="http://www.dji.com/product/guidance" target="_blank"> Guidance </a> - 5 direction stereo camera and ultrasonic sensor module
     * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - Gimbal that can support custom payloads up to 4.5 kg
 
-Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft, features and .
+Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft and features.
 
 <html><table class="table-aircraft-comparison">
 <thead><tr><th colspan="9">Aircraft Comparison: <b>Aircraft</th></tr></thead>
@@ -292,9 +303,9 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 >
 > 1. See **Payload & Flight Time** table for more information
 > 2. Difference between Inspire vs Inspire Pro:
->  - Inspire Pro has more powerful propulsion making it able to lift heavier loads
->  - Inspire Pro comes with a gimbal mounting bracket able to support the X5 and X5R
->  - Inspire Pro comes with the X5 as default configuration
+>  - Inspire 1 Pro has more powerful propulsion making it able to lift heavier loads
+>  - Inspire 1 Pro comes with a gimbal mounting bracket able to support the X5 and X5R
+>  - Inspire 1 Pro comes with the X5 as default configuration
 >
 
 <html><table class="table-aircraft-comparison">
@@ -679,7 +690,7 @@ To help understand the potential functionality and flight time of different airc
 
 ### Camera
 
-DJI provides several camera configurations. For the Phantom and Mavic lines of products, the cameras are fixed to the product. For the Inspire and Matrice lines of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT).
+DJI provides several camera configurations. For the Phantom and Mavic lines of products, the cameras are fixed to the product. For the Inspire and Matrice lines of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT, Z30, X4S, X5S) however not all cameras are compatible with all Inspire and Matrice aircraft. The [Products and Accessories](#supported-products) table at the top of the page details the combinations of camera and aircraft compatibility.
 
 The Zenmuse XT is a thermal camera. It's specifications are difficult to compare directly to other cameras, however it is included in the comparison for it's mass for payload calculation. More details on the specifications of the Zenmuse XT can be found <a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank"> here </a>.
 
@@ -726,7 +737,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse Z3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
-<td>Zenmuse Z30</td><td>1/2.3"</td><td>2.13</td><td>1080p TODO</td><td>? TODO</td><td>-</td><td>1-1/6000</td></tr>
+<td>Zenmuse Z30</td><td>1/2.3"</td><td>2.13</td><td>1080p</td><td>1600</td><td>-</td><td>1-1/6000</td></tr>
 </tbody></table></html>
 
 
@@ -760,13 +771,13 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse X3</td><td>-</td><td>94</td><td>20</td><td>f/2.8</td><td>&#8734</td></tr>
 <tr>
-<td>Zenmuse X4S</td><td>-</td><td>84</td><td>24</td><td>f/2.8-f/11</td><td>1-&#8734 TODO</td></tr>
+<td>Zenmuse X4S</td><td>-</td><td>84</td><td>24</td><td>f/2.8-f/11</td><td>1-&#8734</td></tr>
 <tr>
 <td>Zenmuse X5</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
 <tr>
 <td>Zenmuse X5R</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
 <tr>
-<td>Zenmuse X5S</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734 TODO</td></tr>
+<td>Zenmuse X5S</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
 <tr>
 <td>Zenmuse XT</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Lens</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Fixed - Value Depends on Lens</p></td><td>NA</td></tr>
 <tr>
@@ -806,13 +817,13 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse X3</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>247</td></tr>
 <tr>
-<td>Zenmuse X4S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD On aircraft TODO</td><td>253</td></tr>
+<td>Zenmuse X4S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD and SD on aircraft</td><td>253</td></tr>
 <tr>
 <td>Zenmuse X5</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>526</td></tr>
 <tr>
 <td>Zenmuse X5R</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD, SSD</td><td>583</td></tr>
 <tr>
-<td>Zenmuse X5S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD On aircraft - TODO</td><td>461</td></tr>
+<td>Zenmuse X5S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD and SD on aircraft</td><td>461</td></tr>
 <tr>
 <td>Zenmuse XT</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>270</td></tr>
 <tr>
@@ -853,7 +864,7 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <tr>
 <td>Inspire 1 Pro/Raw</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI</td><td>F</td></tr>
 <tr>
-<td>Inspire 2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>No TODO</td><td>TODO</td><td>P</td></tr>
+<td>Inspire 2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
 <td>Matrice 100</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI</td><td>F</td></tr>
 <tr>
