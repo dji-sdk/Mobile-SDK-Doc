@@ -1,6 +1,6 @@
 ---
 title: Flight Control
-date: 2016-06-24
+date: 2016-12-13
 keywords: [coordinate system, body coordinate system, ground coordinate system, pitch, roll, yaw, throttle, IOC, course lock, home lock, Intelligent Orientation Control]
 ---
 
@@ -15,7 +15,6 @@ The body coordinate system is relative to the aircraft itself. Three orthogonal 
 ![](../../images/flightController-concepts/xyz_noRedArrows.png)
 
 Aircraft translation in positive X, Y and Z is therefore defined in the Body Coordinate System as forward, right and downward translation respectively.
-
 
 Aircraft rotation is also described with these same axes using the <a href="https://en.wikipedia.org/wiki/Right-hand_rule" target="_blank">coordinate right hand rule</a> to define the direction of positive rotation. When describing rotational movement, the X, Y and Z axes are renamed **Roll**, **Pitch** and **Yaw**.
 
@@ -34,7 +33,6 @@ Positive Z pointing downward can take some getting used to, but it is convenient
 The origin for a NED coordinate system is usually a point in the world frame (like take-off location).
 
 <html><img src="../../images/flightController-concepts/CoordinateSystemNED.png" width=200></html>
-
 
 ## Attitude and Flight
 
@@ -80,7 +78,7 @@ By default, the aircraft will fly relative to itself, so a left command causes t
 
 When the pilot can't determine the heading of the aircraft, then it is hard to predict how the aircraft will move relative to the pilot. If the aircraft is facing the pilot, then from the pilot's perspective, the aircraft will move right when a left command is issued.
 
-Therefore **Course Lock** and **Home Lock** orientation modes are provided, which make movement relative to the pilot instead of the aircraft. These orientation modes only work when the remote controller flight mode switch is in "P" for the Phantom 4, and "F" for all other aircraft.
+Therefore **Course Lock** and **Home Lock** orientation modes are provided, which make movement relative to the pilot instead of the aircraft. These orientation modes only work when the remote controller flight mode switch is in "F" for remote controllers with an "F" mode option, and in "P" for all other remote controllers.
 
 
 ### Course Lock

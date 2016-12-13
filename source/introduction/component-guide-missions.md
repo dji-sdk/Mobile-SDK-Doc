@@ -1,6 +1,6 @@
 ---
 title: Missions
-date: 2016-10-28
+date: 2016-12-13
 keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
 ---
 
@@ -59,15 +59,15 @@ There are three modes of the Active Track Mission:
 
 - Trace Mode
 
-  Supported by the Phantom 4 and Mavic Pro, the aircraft follows behind or in front of the subject keeping a constant distance. Mavic Pro also supports Gesture Mode and the ability to circle the subject. Gesture mode allows the subject to confirm tracking as well as take pictures using gestures. 
+  The aircraft follows behind or in front of the subject keeping a constant distance. Some products like Mavic Pro also support a Gesture Mode and the ability to circle the subject. Gesture mode allows the subject to confirm tracking as well as take pictures using gestures. 
   
 - Profile Mode
 
-  Aircraft moves in parallel with the subject instead of behind. It's only supported by the Mavic Pro.
+  Aircraft moves in parallel with the subject instead of behind. 
 
 - Spotlight Mode
 
-  Aircraft's camera will automatically follow the subject, but the aircraft does not automatically keep a constant distance with the subject. You can use the remote controller to control the aircraft move around the subject being tracked. It's only supported by the Mavic Pro.
+  Aircraft's camera will automatically follow the subject, but the aircraft does not automatically keep a constant distance with the subject. You can use the remote controller to control the aircraft move around the subject being tracked. 
 
 ![p4ActiveTrackAni](../images/component-guide/p4ActiveTrackAni.gif)
 
@@ -77,7 +77,7 @@ The TapFly mission flies the aircraft in the direction of a point on the live vi
 
 The Remote Controller yaw stick can be used to adjust the heading of the aircraft during mission execution, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
 
-TapFly is only supported on the Mavic Pro and Phantom 4.
+TapFly is only supported on newer aircraft with vision systems.
 
 ![p4TapFlyAni](../images/component-guide/p4TapFlyAni.gif)
 

@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2016-06-24
+date: 2016-12-13
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
@@ -125,7 +125,7 @@ For Aircraft or products that use WiFi as a wireless link, the Mobile Device is 
 
 #### USB Connection Procedure
 
-_Mavic Pro, Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600:_
+_Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600, M600 Pro:_
 
 Turn on the Remote Controller.
 

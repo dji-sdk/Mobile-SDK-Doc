@@ -1,6 +1,6 @@
 ---
 title: Flight Control
-date: 2016-06-24
+date: 2016-12-13
 keywords: [coordinate system, body coordinate system, ground coordinate system, pitch, roll, yaw, throttle, IOC, course lock, home lock, Intelligent Orientation Control]
 ---
 
@@ -78,7 +78,7 @@ By default, the aircraft will fly relative to itself, so a left command causes t
 
 When the pilot can't determine the heading of the aircraft, then it is hard to predict how the aircraft will move relative to the pilot. If the aircraft is facing the pilot, then from the pilot's perspective, the aircraft will move right when a left command is issued.
 
-Therefore **Course Lock** and **Home Lock** orientation modes are provided, which make movement relative to the pilot instead of the aircraft. These orientation modes only work when the remote controller flight mode switch is in "P" for the Mavic Pro and Phantom 4, and "F" for all other aircraft.
+Therefore **Course Lock** and **Home Lock** orientation modes are provided, which make movement relative to the pilot instead of the aircraft. These orientation modes only work when the remote controller flight mode switch is in "F" for remote controllers with an "F" mode option, and in "P" for all other remote controllers.
 
 
 ### Course Lock
