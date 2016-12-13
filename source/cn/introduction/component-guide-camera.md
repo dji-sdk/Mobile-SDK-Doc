@@ -1,6 +1,6 @@
 ---
 title: Camera
-date: 2016-06-24
+date: 2016-12-13
 keywords: [single, burst, HDR, AEB, Interval, Timelapse, video resolution, frame rate, aspect ratio, still image, compression, JPEG, DNG, RAW, H.264, MPEG, shutter speed, exposure mode, ISO, Aperture, Exposure Compensation, AE, Auto Exposure, AE Metering, AE Lock, White Balance, Color Temperature, Anti-Flicker, Sharpness, Contrast, Hue, Saturation, Digital Filter, lens, focus, live video feed,  playback manager, media manager, storage, file index, image format]
 ---
 
@@ -109,7 +109,7 @@ The trade-off between capturing RAW and compressed images is:
 
 For still images, DIJ cameras typically support JPEG (compressed) and DNG (RAW) image formats. Cameras can also capture in JPEG + RAW, saving two images for each shot.
 
-For video, only the Zenmuse X5 RAW supports capturing raw video. RAW video files are so large, the camera has a solid state drive (SSD). All cameras support compressed formats MP4 (MPEG – 4 AVC) and MOV (H.264).
+For video, only the Zenmuse X5 RAW and X5S supports capturing raw video. RAW video files have a high data rate and large file size and therefore can only be captured onto a solid state drive (SSD). All cameras support compressed formats MP4 (MPEG – 4 AVC) and MOV (H.264).
 
 ##### Photo Quality
 
@@ -270,7 +270,7 @@ DJI Cameras typically use SD cards to store photos and videos. Depending on whet
 
 The Zenmuse X5 RAW also has a 512 GB solid state drive (SSD) to record video. 4K RAW video data rates can peak at 2.4 Gbps compared to 60 Mbps for MP4 or MOV.
 
-SD Cards are either located on the camera itself, or the gimbal the camera is integrated into.
+The Inspire 2 (X5S and X4S) uses on aircraft SSD and SD storage instead of on camera storage, while all other cameras use SD cards located on the camera itself, or the gimbal the camera is integrated into.
 
 ##### File Index
 

@@ -1,6 +1,6 @@
 ---
 title: Remote Controller
-date: 2016-10-28
+date: 2016-12-13
 keywords: [control sticks, mode 1, mode 2, mode 3, flight mode, P-Mode, Positioning Mode, A-Mode, Attitude Mode, F-Mode, Function Mode, S-Mode, Sport Mode, linking, master control, slave control, custom buttons, RC, mobile remote controller, mobile RC]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Flight Control
-date: 2016-06-24
+date: 2016-12-13
 keywords: [coordinate system, body coordinate system, ground coordinate system, pitch, roll, yaw, throttle, IOC, course lock, home lock, Intelligent Orientation Control]
 ---
 

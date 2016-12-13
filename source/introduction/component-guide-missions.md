@@ -1,6 +1,6 @@
 ---
 title: Missions
-date: 2016-10-28
+date: 2016-12-13
 keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
 ---
 

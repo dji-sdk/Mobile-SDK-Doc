@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2016-06-24
+date: 2016-12-13
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2016-10-31
+date: 2016-12-13
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
@@ -35,6 +35,7 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 * [For DJIWaypointTurnMode, if I set one waypoint's `turnMode`, when will it take effect?](#for-djiwaypointturnmode-if-I-set-one-waypoint-s-turnmode-when-will-it-take-effect)
 * [How do I fix the Mission Error "Distance between two adjacent waypoints is too large." ?](#how-do-i-fix-the-mission-error-distance-between-two-adjacent-waypoints-is-too-large)
 * [How do I fix the Mission Error "The total distance of waypoints is too large." ?](#how-do-i-fix-the-mission-error-the-total-distance-of-waypoints-is-too-large)
+
 
 **Android**
 
@@ -194,7 +195,7 @@ Yes, a flight simulator is available for all products and can be used both as vi
 ### Where can I download the simulator for testing the Mobile SDK app?
 
 - For Phantom 3 Series and Inspire 1 series, you can use the [DJI PC Simulator](https://developer.dji.com/mobile-sdk/downloads/) for testing.
-- For Phantom 4, M100, M600 and Mavic Pro, you can use [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads) for testing.
+- For Phantom 4 series, Inspire 2, M100, M600 and Mavic Pro, you can use [DJI Assistant 2](http://www.dji.com/phantom-4/info#downloads) for testing.
 
 For more details of using the simulator, please refer to this tutorial: [Aircraft Simulator](https://developer.dji.com/mobile-sdk/documentation/application-development-workflow/workflow-testing.html).
 
