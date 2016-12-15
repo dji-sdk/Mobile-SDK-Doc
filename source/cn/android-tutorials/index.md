@@ -1,7 +1,7 @@
 ---
 title: Running DJI SDK Sample Code in Android Studio
-version: v3.5
-date: 2016-12-13
+version: v3.5.1
+date: 2016-12-15
 github: https://github.com/dji-sdk/Mobile-SDK-Android
 keywords: [Run SDK Sample Code, Android Studio]
 ---
