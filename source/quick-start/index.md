@@ -40,7 +40,39 @@ Download or clone the iOS Sample Github Project from: <a href="https://github.co
 
 The sample code includes both an Objective C sample project and a Swift Sample project.
 
-To run the sample code, an [App Key](#generate-an-app-key) needs to be generated and inserted into the source files.
+Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
+
+**1.** Install CocoaPods
+
+Open Terminal and change to the download project's directory, enter the following command to install it:
+
+~~~
+sudo gem install cocoapods
+~~~
+
+The process may take a long time, please wait. For further installation instructions, please check [this guides](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+
+**2.** Install SDK with CocoaPods in the Project
+
+Run the following command in the **ObjcSampleCode** and **SwiftSampleCode** folders' directory:
+
+~~~
+pod install
+~~~
+
+If you install it successfully, you may get the messages similar to the followings:
+
+~~~
+Analyzing dependencies
+Downloading dependencies
+Installing DJI-SDK-iOS (3.5)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `DJISdkDemo.xcworkspace` for this project from now on.
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod
+installed.
+~~~
 
 #### Objective C App Key Setup
 
