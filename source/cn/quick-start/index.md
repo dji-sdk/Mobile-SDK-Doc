@@ -76,10 +76,10 @@ installed.
 
 > **Note**: If you saw "Unable to satisfy the following requirements" issue during pod install, please run the following commands to update your pod repo and install the pod again:
 > 
-> ~~~
-> pod repo update
-> pod install
-> ~~~
+~~~
+ pod repo update
+ pod install
+~~~
 
 #### Objective C App Key Setup
 
