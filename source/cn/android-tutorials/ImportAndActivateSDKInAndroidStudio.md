@@ -1,7 +1,7 @@
 ---
 title: Importing and Activating DJI SDK in Android Studio Project
 version: v3.5.1
-date: 2016-12-15
+date: 2017-2-3
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio
 keywords: [import and activate SDK, Android Studio]
 ---
