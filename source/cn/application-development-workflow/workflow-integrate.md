@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2016-06-24
+date: 2017-2-3
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -217,8 +217,8 @@ import android.widget.Toast;
 import dji.sdk.sdkmanager.DJISDKManager;
 import dji.sdk.base.DJIBaseComponent;
 import dji.sdk.base.DJIBaseProduct;
-import dji.sdk.base.DJIError;
-import dji.sdk.base.DJISDKError;
+import dji.common.error.DJIError;
+import dji.common.error.DJISDKError;
 ~~~
 
 The MainActivity class needs to register the application to get authorization to use the DJI Mobile SDK. It also needs to implement callback methods expected by the SDK.
