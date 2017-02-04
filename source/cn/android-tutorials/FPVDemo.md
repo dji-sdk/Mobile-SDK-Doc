@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v3.2.1
-date: 2016-08-18
+version: v3.5.1
+date: 2016-12-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -12,7 +12,7 @@ keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basi
 
 This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: **Take Photo** and **Record video**.
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo).
 
 ## Preparation
 
@@ -78,14 +78,14 @@ dependencies {
  
  ![dependencies](../../images/tutorials-and-samples/Android/FPVDemo/dependencies.png)
  
- **5**. Now, open the MainActivity.java file in `com.dji.FPVDemo` package and add `import dji.sdk.SDKManager.DJISDKManager;` at the bottom of the import classes section as shown below:
+ **5**. Now, open the MainActivity.java file in `com.dji.FPVDemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.FPVDemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 ~~~
 
   Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
@@ -524,7 +524,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
     <string name="disconnected">Disconnected</string>
     <string name="product_information">Product Information</string>
     <string name="connection_loose">Status: No Product Connected</string>
-    <string name="sdk_version">DJI SDK Version: 3.2.1</string>
+    <string name="sdk_version">DJI SDK Version: 3.3</string>
 
 </resources>
 ~~~
@@ -564,6 +564,8 @@ After you finish the above steps, let's register our application with the **App 
 **1.** Let's open the AndroidManifest.xml file and add the following elements on top of the **application** element:
 
 ~~~xml
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 <uses-permission android:name="android.permission.VIBRATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -600,7 +602,7 @@ Moreover, let's add the following elements as childs of element on top of the "M
     android:value="Please enter your APP Key here." />
 
 <activity
-    android:name="dji.sdk.SDKManager.DJIAoaControllerActivity"
+    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
     android:theme="@android:style/Theme.Translucent" >
     <intent-filter>
         <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
@@ -610,7 +612,7 @@ Moreover, let's add the following elements as childs of element on top of the "M
         android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
         android:resource="@xml/accessory_filter" />
 </activity>
-<service android:name="dji.sdk.SDKManager.DJIGlobalService" >
+<service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
 </service>
 <!-- DJI SDK -->
 ~~~
@@ -1002,13 +1004,13 @@ Then implement the `captureAction()` method as shown below:
 // Method for taking photo
 private void captureAction(){
 
-    CameraMode cameraMode = CameraMode.ShootPhoto;
+    DJICameraSettingsDef.CameraMode cameraMode = DJICameraSettingsDef.CameraMode.ShootPhoto;
 
     final DJICamera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
 
-        CameraShootPhotoMode photoMode = CameraShootPhotoMode.Single; // Set the camera capture mode as Single mode
-        camera.startShootPhoto(photoMode, new DJICompletionCallback() {
+        DJICameraSettingsDef.CameraShootPhotoMode photoMode = DJICameraSettingsDef.CameraShootPhotoMode.Single; // Set the camera capture mode as Single mode
+        camera.startShootPhoto(photoMode, new DJICommonCallbacks.DJICompletionCallback() {
 
             @Override
             public void onResult(DJIError error) {
@@ -1046,11 +1048,11 @@ public void onClick(View v) {
             break;
         }
         case R.id.btn_shoot_photo_mode:{
-            switchCameraMode(CameraMode.ShootPhoto);
+            switchCameraMode(DJICameraSettingsDef.CameraMode.ShootPhoto);
             break;
         }
         case R.id.btn_record_video_mode:{
-            switchCameraMode(CameraMode.RecordVideo);
+            switchCameraMode(DJICameraSettingsDef.CameraMode.RecordVideo);
             break;
         }
         default:
@@ -1062,11 +1064,11 @@ public void onClick(View v) {
 Next, implement the `switchCameraMode()` method:
 
 ~~~java
-private void switchCameraMode(CameraMode cameraMode){
+private void switchCameraMode(DJICameraSettingsDef.CameraMode cameraMode){
 
     DJICamera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
-        camera.setCameraMode(cameraMode, new DJICompletionCallback() {
+        camera.setCameraMode(cameraMode, new DJICommonCallbacks.DJICompletionCallback() {
             @Override
             public void onResult(DJIError error) {
 
@@ -1112,10 +1114,10 @@ Next, implement the `startRecord()` and `stopRecord()` methods as shown below:
 // Method for starting recording
 private void startRecord(){
 
-    CameraMode cameraMode = CameraMode.RecordVideo;
+    DJICameraSettingsDef.CameraMode cameraMode = DJICameraSettingsDef.CameraMode.RecordVideo;
     final DJICamera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
-        camera.startRecordVideo(new DJICompletionCallback(){
+        camera.startRecordVideo(new DJICommonCallbacks.DJICompletionCallback(){
             @Override
             public void onResult(DJIError error)
             {
@@ -1134,7 +1136,7 @@ private void stopRecord(){
 
     DJICamera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
-        camera.stopRecordVideo(new DJICompletionCallback(){
+        camera.stopRecordVideo(new DJICommonCallbacks.DJICompletionCallback(){
 
             @Override
             public void onResult(DJIError error)
@@ -1161,7 +1163,7 @@ DJICamera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
         camera.setDJICameraUpdatedSystemStateCallback(new DJICamera.CameraUpdatedSystemStateCallback() {
             @Override
-            public void onResult(DJICamera.CameraSystemState cameraSystemState) {
+            public void onResult(CameraSystemState cameraSystemState) {
                 if (null != cameraSystemState) {
 
                     int recordTime = cameraSystemState.getCurrentVideoRecordingTimeInSeconds();

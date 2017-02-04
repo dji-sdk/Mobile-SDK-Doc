@@ -1,6 +1,6 @@
 ---
 title: Documentation Introduction
-date: 2016-06-24
+date: 2016-10-28
 keywords: [introduction]
 ---
 
@@ -66,10 +66,8 @@ Several iOS and Android tutorials are provided as examples on how to use the SDK
 * [TapFly and ActiveTrack Application](../ios-tutorials/P4MissionsDemo.html)
 * [Using the Bridge App](../ios-tutorials/BridgeAppDemo.html)
 * [Using the Remote Logger](../ios-tutorials/RemoteLoggerDemo.html)
-
-<!-- TODO: Need help to review it before publish
 * [Simulator Application](../ios-tutorials/SimulatorDemo.html)
--->
+* [GEO System Application](../ios-tutorials/GEODemo.html)
 
 **Android**
 
@@ -78,6 +76,13 @@ Several iOS and Android tutorials are provided as examples on how to use the SDK
 * [MapView and Waypoint Application (GaodeMap)](../android-tutorials/GSDemo-Gaode-Map.html)
 * [MapView and Waypoint Application (GoogleMap)](../android-tutorials/GSDemo-Google-Map.html)
 * [TapFly and ActiveTrack Application](../android-tutorials/P4MissionsDemo.html)
+* [Simulator Application](../android-tutorials/SimulatorDemo.html)
+* [GEO System Application](../android-tutorials/GEODemo.html)
+
+### Sample Code
+
+* [Android Video Stream Decoding Sample](../sample-code/index.html)
+
 
 ### API Reference
 

@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2016-06-24
+date: 2017-2-3
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -214,11 +214,11 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-import dji.sdk.SDKManager.DJISDKManager;
+import dji.sdk.sdkmanager.DJISDKManager;
 import dji.sdk.base.DJIBaseComponent;
 import dji.sdk.base.DJIBaseProduct;
-import dji.sdk.base.DJIError;
-import dji.sdk.base.DJISDKError;
+import dji.common.error.DJIError;
+import dji.common.error.DJISDKError;
 ~~~
 
 The MainActivity class needs to register the application to get authorization to use the DJI Mobile SDK. It also needs to implement callback methods expected by the SDK.
@@ -382,7 +382,7 @@ Insert the following after `android:theme="@style/AppTheme">` and before `<activ
         android:name="com.dji.sdk.API_KEY"
         android:value="Please enter your App Key here." />
     <activity
-        android:name="dji.sdk.SDKManager.DJIAoaControllerActivity"
+        android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
         android:theme="@android:style/Theme.Translucent" >
         <intent-filter>
             <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
@@ -391,7 +391,7 @@ Insert the following after `android:theme="@style/AppTheme">` and before `<activ
             android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
             android:resource="@xml/accessory_filter" />
     </activity>
-    <service android:name="dji.sdk.SDKManager.DJIGlobalService" >
+    <service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
     </service>
 <!-- DJI SDK -->
 ~~~

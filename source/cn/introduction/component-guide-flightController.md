@@ -1,6 +1,6 @@
 ---
 title: Flight Controller
-date: 2016-06-24
+date: 2016-12-13
 keywords: [flight controller, motor control, flight control, flight orientation, course lock, home lock, aircraft heading, flight limitation, GEO, compass, IMU, RTK, DRTK, Vision System, Obstacle Avoidance, Intelligent Flight Assistant, landing gear, transport mode, battery threshold, Smart RTH, Failsafe RTH, Low Battery RTH, virtual stick, roll pitch control mode, yaw control mode, vertical throttle control mode]
 ---
 
@@ -101,7 +101,7 @@ Cameras can be used to detect obstacles and accurately determine relative positi
 
 ##### Obstacle Avoidance
 
-The Phantom 4 has two forward facing cameras that use stereo vision to determine the depth of the environment. This vision system allows the aircraft to either stop in front of or go around obstacles in its flight path.
+Some products have pairs of cameras that use stereo vision to determine the depth of an environment. For instance, the Mavic Pro has a pair of cameras facing to the front of the aircraft, while the Phantom 4 Professional has two pair of cameras facing to the front and rear. This vision system allows the aircraft to either stop in front of or go around obstacles in its flight path. 
 
 The vision system enables users to fly with increased comfort as there is lower probability they will make a mistake and impact an object. However, limitations of the system still need to be understood to fly safely. Objects that are difficult to detect are those that are small, very narrow, too plain in appearance (visual features can't be extracted), not in the field of view of both cameras, or too close or too far from the product (see <a href="http://www.dji.com/product/phantom-4/info#specs" target="_blank"> product page </a>) for specifications). 
 

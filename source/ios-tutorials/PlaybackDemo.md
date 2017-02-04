@@ -1,7 +1,7 @@
 ---
 title: Creating a Photo and Video Playback Application
-version: v3.2
-date: 2016-06-24
+version: v3.5.1
+date: 2017-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS playback demo, playback application, preview photos and videos, download photos and videos, delete photos and videos]
 ---
@@ -14,7 +14,7 @@ In this tutorial, you will learn how to use DJI Mobile SDK to access the media r
 
 In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, in our previous tutorial [Creating a Camera Application](./index.html) we show you how to implement **Capture** and **Record** functions. Make sure you have read through that tutorial first before embarking on this one.
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial. 
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo).
 
 Let's get started!
 

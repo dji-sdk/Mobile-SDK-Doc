@@ -139,8 +139,61 @@ th {
     }
   }
   > tbody {
-    > tr:nth-child(8), tr:nth-child(10) {
+    > tr:nth-child(12), tr:nth-child(15) {
       border-bottom: 1px solid $table-border-color;
+    }
+  }
+}
+
+
+.table-aircraft-comparison {
+  font-size: 85%;
+  border: 0px solid $table-border-color;
+  border-right: 1px solid $table-border-color;
+  border-bottom: 1px solid $table-border-color;
+  //border-left: 1px solid $table-border-color;
+  text-align: center;
+
+  > thead > tr > th {
+        font-size: 120%;
+        font-weight: normal
+  }
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        padding-top: 5px; 
+        margin-top: 1px;
+        padding-bottom: 5px; 
+        margin-bottom: 1px;
+        border: 0px solid $table-border-color;
+      }
+    }
+    > tr {
+      > th {
+        background-color: rgb(237,237,237);
+        text-align: center;
+      }
+      > th:first-child {
+        border-left: 1px solid $table-border-color;
+        border-right: 1px solid $table-border-color;
+      }
+      > th:last-child {
+        border-right: 1px solid $table-border-color;
+      }
+
+      > td {
+        text-align: center;
+      }
+      > td:first-child {
+        color: #BBBBBB;
+        text-align: left;
+        border-right: 1px solid $table-border-color;
+        border-left: 1px solid $table-border-color;
+      }
+      > td:last-child {
+        border-right: 1px solid $table-border-color;
+      }
     }
   }
 }

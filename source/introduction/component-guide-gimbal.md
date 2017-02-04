@@ -1,6 +1,6 @@
 ---
 title: Gimbal
-date: 2016-06-24
+date: 2016-12-27
 keywords: [FPV Mode, Yaw Follow Mode, Free Mode, gimbal state, fine tune roll, balancing, smoothTrack, smoothTrack speed, smoothTrack acceleration, smoothTrack deadband, controller speed, controller smoothing, controller deadband, selfie, orientation lock, endpoint, range extension, motor control, upright mode]
 ---
 
@@ -139,7 +139,7 @@ Some gimbals have stops in place to prevent the camera from being impeded by the
 
 Therefore the DJI Mobile SDK provides APIs that enable some axes on some products to have range extensions. The gimbal capability dictionary can be used to determine when range extensions are available.
 
-### Upright Mode
+<!--### Upright Mode
 
 The M600 allows the Ronin MX to be mounted on top of the aircraft instead of underneath the aircraft. This is especially useful when doing inspections underneath structures like bridges. The DJI Mobile SDK provides APIs that can set the gimbal upright mode.
-
+-->

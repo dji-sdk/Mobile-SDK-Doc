@@ -1,8 +1,8 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v3.2.1
-date: 2016-06-24
-github: "https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map"
+version: v3.5.1
+date: 2016-12-15
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map
 keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 ---
 
@@ -13,7 +13,7 @@ keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
 Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map).
 
 > Note: In this tutorial, we will use Inspire 1 for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="http://lbs.amap.com" target="_blank">Gaode Map API</a> for navigating.
 
@@ -79,7 +79,9 @@ This will set the key "com.amap.api.v2.apikey" to the value of your AMAP key.
 Next, specify the permissions of your application needs, by adding **\<uses-permission>** elements as children of the **\<manifest>** element in the "AndroidManifest.xml" file. 
 
 ~~~xml
-   <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -543,7 +545,7 @@ Then add the following elements above the **MainActivity** activity element:
     android:value="YOUR_AMAP_KEY" />
             
     <activity
-        android:name="dji.sdk.SDKManager.DJIAoaControllerActivity"
+        android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
         android:theme="@android:style/Theme.Translucent" >
         <intent-filter>
             <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
@@ -553,7 +555,7 @@ Then add the following elements above the **MainActivity** activity element:
           android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
             android:resource="@xml/accessory_filter" />
     </activity>
-    <service android:name="dji.sdk.SDKManager.DJIGlobalService" >
+    <service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
     </service>
 
     <!-- DJI SDK -->
@@ -693,7 +695,7 @@ private void onProductConnectionChange()
             mFlightController.setUpdateSystemStateCallback(new DJIFlightControllerDelegate.FlightControllerUpdateSystemStateCallback() {
 
                 @Override
-                public void onResult(DJIFlightControllerDataType.DJIFlightControllerCurrentState state) {
+                public void onResult(DJIFlightControllerCurrentState state) {
                     droneLocationLat = state.getAircraftLocation().getLatitude();
                     droneLocationLng = state.getAircraftLocation().getLongitude();
                     updateDroneLocation();
@@ -1134,7 +1136,7 @@ private void prepareWayPointMission(){
             }
         };
 
-        mMissionManager.prepareMission(mWaypointMission, progressHandler, new DJIBaseComponent.DJICompletionCallback() {
+        mMissionManager.prepareMission(mWaypointMission, progressHandler, new DJICommonCallbacks.DJICompletionCallback() {
             @Override
             public void onResult(DJIError error) {
                 setResultToToast(error == null ? "Success" : error.getDescription());
@@ -1161,7 +1163,7 @@ Once the mission finish preparation, we can invoke the `startMissionExecution()`
 private void startWaypointMission(){
 
     if (mMissionManager != null) {
-        mMissionManager.startMissionExecution(new DJIBaseComponent.DJICompletionCallback() {
+        mMissionManager.startMissionExecution(new DJICommonCallbacks.DJICompletionCallback() {
             @Override
             public void onResult(DJIError error) {
                 setResultToToast("Start: " + (error == null ? "Success" : error.getDescription()));
@@ -1173,7 +1175,7 @@ private void startWaypointMission(){
 private void stopWaypointMission(){
 
     if (mMissionManager != null) {
-        mMissionManager.stopMissionExecution(new DJIBaseComponent.DJICompletionCallback() {
+        mMissionManager.stopMissionExecution(new DJICommonCallbacks.DJICompletionCallback() {
             @Override
             public void onResult(DJIError error) {
                 setResultToToast("Stop: " + (error == null ? "Success" : error.getDescription()));

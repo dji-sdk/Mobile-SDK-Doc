@@ -1,6 +1,6 @@
 ---
 title: Run Application
-date: 2016-06-24
+date: 2016-12-13
 keywords: [activate product, upgrade firmware, flight mode switch, connection configuration]
 ---
 
@@ -47,7 +47,7 @@ There are several ways to initialize all products and run an application. An exa
 
 ### USB Connection Procedure
 
-_Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, Matrice Series:_
+_Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, Matrice Series:_
 
  1. Turn on the Remote Controller. 
  * Turn on the Aircraft and wait until the Remote Controller has connected with the Aircraft.

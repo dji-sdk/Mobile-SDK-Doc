@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
-version: v3.2
-date: 2016-06-24
+version: v3.5.1
+date: 2017-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---
@@ -10,11 +10,11 @@ This tutorial is designed for you to gain a better understanding of the DJI Brid
 
 You can download the <a href="https://github.com/dji-sdk/DJI-Bridge-App" target="_blank">DJI Bridge App Source Code</a>, build and install it on your mobile device.
    
-Alos, you can download the sample project for this tutorial from the Github Page, which you can access it by pressing the **Github Tag** on top of this tutorial. 
+Also, you can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo).
    
 ## Introduction
 
-The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Phantom 3 Professional, Phantom 3 Advanced, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
+The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
 
 ### Workflow
 
@@ -24,7 +24,7 @@ As you see above, the Bridge App and the iOS Device or Xcode Simulator should wo
 
 ### Signal Light
 
-At the top of the screen, there are two signal lights, which represent the connection between the bridge app and the remote controller or your application. When the bridge app connect to the remote controller successfully, the **RC light** will turn green. Similarly, when the bridge app connect to your app successfully, the **App Light** will turn green too.
+At the top of the screen, there are two signal lights, which represent the connection between the bridge app and the remote controller or your application. When the bridge app connects to the remote controller successfully, the **RC light** will turn green. Similarly, when the bridge app connect to your app successfully, the **App Light** will turn green too.
 
 ![signalLight](../../images/tutorials-and-samples/iOS/BridgeAppDemo/toolScreenshot.png)
 
@@ -145,11 +145,9 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
 ~~~objc
 #pragma mark - DJICameraDelegate
 
--(void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
+- (void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
 {
-    uint8_t* pBuffer = (uint8_t*)malloc(size);
-    memcpy(pBuffer, videoBuffer, size);
-    [[VideoPreviewer instance].dataQueue push:pBuffer length:(int)size];
+    [[VideoPreviewer instance] push:videoBuffer length:(int)size];
 }
 ~~~
 

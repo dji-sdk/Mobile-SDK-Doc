@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
-version: v3.2
-date: 2016-06-24
+version: v3.5.1
+date: 2017-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -16,7 +16,7 @@ In this tutorial, you will learn how to build a cool panorama app. With the help
 
 ![several tasks](../../images/tutorials-and-samples/iOS/PanoramaDemo/workFlow.png)
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo).
 
 ## Implementing the FPV
 
@@ -133,9 +133,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
 #pragma mark - DJICameraDelegate Method
 -(void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
 {
-    uint8_t* pBuffer = (uint8_t*)malloc(size);
-    memcpy(pBuffer, videoBuffer, size);
-    [[VideoPreviewer instance].dataQueue push:pBuffer length:(int)size];
+    [[VideoPreviewer instance] push:videoBuffer length:(int)size];
 }
 
 - (void)camera:(DJICamera *)camera didUpdateSystemState:(DJICameraSystemState *)systemState

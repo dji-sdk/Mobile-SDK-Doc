@@ -1,8 +1,10 @@
 ---
 title: Run Sample Application
-date: 2016-06-24
+date: 2017-1-11
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
+
+To have a better experience of learning how to get started with the DJI iOS Mobile SDK, please check this <a href="http://www.djivideos.com/video_play/bc9b848d-f7de-4cad-aa58-40ccb6dbc751" class="fancybox fancybox.iframe">Getting Started Video</a>.
 
 ## Register as a DJI Developer
 
@@ -40,7 +42,46 @@ Download or clone the iOS Sample Github Project from: <a href="https://github.co
 
 The sample code includes both an Objective C sample project and a Swift Sample project.
 
-To run the sample code, an [App Key](#generate-an-app-key) needs to be generated and inserted into the source files.
+Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
+
+**1.** Install CocoaPods
+
+Open Terminal and change to the download project's directory, enter the following command to install it:
+
+~~~
+sudo gem install cocoapods
+~~~
+
+The process may take a long time, please wait. For further installation instructions, please check [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+
+**2.** Install SDK with CocoaPods in the Project
+
+Run the following command in the **ObjcSampleCode** and **SwiftSampleCode** paths:
+
+~~~
+pod install
+~~~
+
+If you install it successfully, you should get the messages similar to the following:
+
+~~~
+Analyzing dependencies
+Downloading dependencies
+Installing DJI-SDK-iOS (3.5)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `DJISdkDemo.xcworkspace` for this project from now on.
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod
+installed.
+~~~
+
+> **Note**: If you saw "Unable to satisfy the following requirements" issue during pod install, please run the following commands to update your pod repo and install the pod again:
+> 
+~~~
+ pod repo update
+ pod install
+~~~
 
 #### Objective C App Key Setup
 
@@ -125,7 +166,7 @@ For Aircraft or products that use WiFi as a wireless link, the Mobile Device is 
 
 #### USB Connection Procedure
 
-_Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600:_
+_Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600, M600 Pro:_
 
 Turn on the Remote Controller.
 

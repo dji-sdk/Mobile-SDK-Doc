@@ -1,7 +1,7 @@
 ---
 title: Android Video Stream Decoding Sample
-version: v3.2.1
-date: 2016-08-17
+version: v3.5.1
+date: 2017-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-VideoStreamDecodingSample
 keywords: [video stream decoding, MediaCodec, FFmpeg, video frame parsing, hardware decoding, YUV]
 ---
@@ -12,7 +12,7 @@ keywords: [video stream decoding, MediaCodec, FFmpeg, video frame parsing, hardw
 
 This sample code demonstrates how to use [FFmpeg](https://ffmpeg.org) for video frame parsing and to use the `MediaCodec` for hardware decoding. It will help to parse video frames and decode the raw video stream data from DJI Camera and output the [YUV](https://en.wikipedia.org/wiki/YUV) data. 
 
-You can download the sample code from Github Page by pressing the **Github Tag** on top of this documentation.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-VideoStreamDecodingSample).
 
 ## Java Files Explanation
 

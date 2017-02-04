@@ -19,7 +19,7 @@
         scrollTo($(hash))
       }, 1)
     }
-  
+
     // click #hash to scroll
     $('a[href^="#"]').click(function (e) {
       e.preventDefault()
@@ -117,10 +117,21 @@
     $('html, body').stop().animate({scrollTop: Math.ceil($(target).position().top - 50)}, cb);
   }
 
+  var initFancyBox = function(){
+    $('.fancybox').fancybox({
+      padding: 0,
+      maxHeight: 510,
+      iframe: {
+        preload: false
+      }
+    });
+  }
+
   sidebarInner.css({ height: 0 })
   initHashScroll()
   initSubMenuClick()
   initSidebar()
   initSidebarScroll()
   initArticleTable()
+  initFancyBox()
 })();

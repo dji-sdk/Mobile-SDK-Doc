@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v3.2
-date: 2016-06-24
+version: v3.5.1
+date: 2017-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo
 keywords: [iOS GSDemo, waypoint mission demo]
 ---
@@ -12,7 +12,7 @@ keywords: [iOS GSDemo, waypoint mission demo]
 
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo).
 
 ## Setup The Map View
 

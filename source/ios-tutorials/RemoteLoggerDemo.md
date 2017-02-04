@@ -1,7 +1,7 @@
 ---
 title: DJI Remote Logger Tutorial
-version: v3.2
-date: 2016-06-24
+version: v3.5.1
+date: 2017-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo
 keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 ---
@@ -10,7 +10,7 @@ keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 
 This tutorial is designed for you to obtain a better understanding of the DJI Remote Logger Tool. It will teach you how to use it for showing application log messages on a simple webpage.
 
-You can download the project source code from Github Page by pressing the **Github Tag** on top of this tutorial.
+You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo).
 
 ## Introduction
 
