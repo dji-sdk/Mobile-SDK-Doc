@@ -118,6 +118,7 @@
   }
 
   var initFancyBox = function(){
+    $('.fancybox').attr('target', '')
     $('.fancybox').fancybox({
       padding: 0,
       maxHeight: 510,
