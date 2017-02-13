@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v3.5.1
-date: 2017-01-16
+version: v4.0
+date: 2017-02-13
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -14,7 +14,7 @@ This tutorial is designed for you to gain a basic understanding of the DJI Mobil
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo).
    
-We use Phantom 3 Professional as an example to make this demo.
+We use Phantom 4 as an example to make this demo.
    
 ## Downloading the SDK
 
@@ -142,7 +142,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
   Next, we invoke the `sdkManagerProductDidChangeFrom:to:` delegate method to get the `newProduct` and set the DJIICamera object's delegate here. This delegate method will invoke when the product connection status changes.
   
   Moverover, let's invoke the `componentWithKey:changedFrom:to:` delegate method to fetch the camera object and set its delegate too. Since the camera component of the aircraft may change to another type, we should invoke this delegate method to check the component changes too.
-  
+
 **4**. Furthermore, invoke the `start` method of **VideoPreviewer** instance in the following DJISDKManagerDelegate method to start the video decoding when register app successfully:
  
 ~~~objc 
@@ -163,7 +163,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 }
 ~~~
         
-**5**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
+ **5**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
   
 ~~~objc
 
@@ -221,23 +221,34 @@ Let's implement the `captureAction` IBAction method as shown below:
 ~~~objc
 - (IBAction)captureAction:(id)sender {
     
-    __weak DJICameraViewController *weakSelf = self;
     __weak DJICamera* camera = [self fetchCamera];
     if (camera) {
-        [camera startShootPhoto:DJICameraShootPhotoModeSingle withCompletion:^(NSError * _Nullable error) {
-            if (error) {
-                [weakSelf showAlertViewWithTitle:@"Take Photo Error" withMessage:error.description];
-            }
+        WeakRef(target);
+        [camera setShootPhotoMode:DJICameraShootPhotoModeSingle withCompletion:^(NSError * _Nullable error) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [camera startShootPhotoWithCompletion:^(NSError * _Nullable error) {
+                    WeakReturn(target);
+                    if (error) {
+                        [target showAlertViewWithTitle:@"Take Photo Error" withMessage:error.description];
+                    }
+                }];
+            });
         }];
     }
 }
 ~~~
 
-In the code above, we invoke the following method of DJICamera to shoot photo.
-   
-`- (void)startShootPhoto:(DJICameraShootPhotoMode)shootMode withCompletion:(DJICompletionBlock)block;`
+In the code above, we firstly invoke the following method of DJICamera to set the shoot photo mode to `DJICameraShootPhotoModeSingle`:
 
-  Here we set the "shootMode" to **DJICameraShootPhotoModeSingle**. You can check the shoot photo result from the "DJICompletionBlock".
+~~~
+- (void)setShootPhotoMode:(DJICameraShootPhotoMode)mode withCompletion:(DJICompletionBlock)completion;
+~~~
+
+  Normally, once an operation is finished, the camera still needs some time to finish up all the work. It's safe to delay the next operation after an operation is finished. So let's enqueue the block which may invoke the following method with 1 second delay to control the camera to shoot a photo:
+   
+`- (void)startShootPhotoWithCompletion:(DJICompletionBlock)completion;`
+
+  You can check the shoot photo result from the `DJICompletionBlock`.
   
   Build and run your project and then try the shoot photo function. If the screen flash after your press the **Capture** button, your capture fuction should work now.
   
@@ -254,28 +265,40 @@ In the code above, we invoke the following method of DJICamera to shoot photo.
  *  Camera work modes.
  */
 typedef NS_ENUM (NSUInteger, DJICameraMode){
+ 
     /**
      *  Capture mode. In this mode, the user can capture pictures.
      */
     DJICameraModeShootPhoto = 0x00,
+    
     /**
      *  Record mode. In this mode, the user can record videos.
      */
     DJICameraModeRecordVideo = 0x01,
+
     /**
-     *  Playback mode. In this mode, the user can preview photos and videos, and
-     *  they can delete files.
-     *
-     *  Not supported by OSMO, Phantom 3 Standard.
+     *  Playback mode. In this mode, the user can preview photos and videos, and can
+     *  delete files. It is supported by  Phantom 3 Profressional camera, X3, X5 and X5R
+     *  cameras on aircraft and Phantom 4 camera. Playback mode is not  supported by
+     *  Z30, X5S, X4S, Phantom 4 Pro, Mavic Pro, Phantom 3 Standard, Phantom 3 Advanced,
+     *  Phantom 3 4K and  Osmo series.
      */
     DJICameraModePlayback = 0x02,
+ 
     /**
-     *  In this mode, user can download media to Mobile Device.
-     *
-     *  Supported by Phantom 3 Professional, Phantom 3 Advanced, Phantom 3 Standard, X3.
+     *  In this mode, the user can download media to the Mobile Device. Not supported by
+     *  X5 camera nor X5R camera while  mounted on aircraft.
      */
     DJICameraModeMediaDownload = 0x03,
     
+    /**
+     *  In this mode, live stream resolution and frame rate will be 1080i50 (PAL) or
+     *  720p60 (NTSC). In this mode videos can  be recorded. Still photos can also be
+     *  taken only when video is recording. The only way to exit broadcast mode is to
+     *  change modes to `DJICameraModeRecordVideo`. Only supported by Inspire 2.
+     */
+    DJICameraModeBroadcast = 0x04,
+ 
     /**
      *  The camera work mode is unknown.
      */
@@ -306,25 +329,27 @@ typedef NS_ENUM (NSUInteger, DJICameraMode){
 
 - (IBAction)changeWorkModeAction:(id)sender {
     
-    __weak DJICameraViewController *weakSelf = self;
     UISegmentedControl *segmentControl = (UISegmentedControl *)sender;
-    
     __weak DJICamera* camera = [self fetchCamera];
     
     if (camera) {
+        WeakRef(target);
         if (segmentControl.selectedSegmentIndex == 0) { //Take photo
-            [camera setCameraMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
+            
+            [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
                 if (error) {
-                    [weakSelf showAlertViewWithTitle:@"Set DJICameraModeShootPhoto Failed" withMessage:error.description];
+                    [target showAlertViewWithTitle:@"Set DJICameraModeShootPhoto Failed" withMessage:error.description];
                 }
             }];
             
         }else if (segmentControl.selectedSegmentIndex == 1){ //Record video
-            [camera setCameraMode:DJICameraModeRecordVideo withCompletion:^(NSError * _Nullable error) {
+            
+            [camera setMode:DJICameraModeRecordVideo withCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
                 if (error) {
-                    [weakSelf showAlertViewWithTitle:@"Set DJICameraModeRecordVideo Failed" withMessage:error.description];
+                    [target showAlertViewWithTitle:@"Set DJICameraModeRecordVideo Failed" withMessage:error.description];
                 }
-                
             }];
             
         }
@@ -335,7 +360,7 @@ typedef NS_ENUM (NSUInteger, DJICameraMode){
 ~~~
 
  In the code above, we invoke the 
- `- (void)setCameraMode:(DJICameraMode)mode withCompletion:(DJICompletionBlock)block;` method of DJICamera to change the camera mode.  Here we add two UIAlertViews to show warnings when the user set DJICameraMode failed.
+ `- (void)setMode:(DJICameraMode)mode withCompletion:(DJICompletionBlock)completion;` method of DJICamera to change the camera mode.  Here we add two UIAlertViews to show warnings when the user set `DJICameraMode` failed.
  
 ### 2. Working on the Record Action
 
@@ -398,22 +423,22 @@ We can update the bool value for `isRecording` and `currentRecordTimeLabel`'s te
 ~~~objc
 - (IBAction)recordAction:(id)sender {
     
-    __weak DJICameraViewController *weakSelf = self;
     __weak DJICamera* camera = [self fetchCamera];
     if (camera) {
-    
+        WeakRef(target);
         if (self.isRecording) {
             [camera stopRecordVideoWithCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
                 if (error) {
-                    [weakSelf showAlertViewWithTitle:@"Stop Record Video Error" withMessage:error.description];
+                    [target showAlertViewWithTitle:@"Stop Record Video Error" withMessage:error.description];
                 }
             }];
-            
         }else
         {
             [camera startRecordVideoWithCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
                 if (error) {
-                    [weakSelf showAlertViewWithTitle:@"Start Record Video Error" withMessage:error.description];
+                    [target showAlertViewWithTitle:@"Start Record Video Error" withMessage:error.description];
                 }
             }];
         }
@@ -427,7 +452,7 @@ We can update the bool value for `isRecording` and `currentRecordTimeLabel`'s te
    
   ![Screenshot](../../images/tutorials-and-samples/iOS/FPVDemo/record_screenshot.jpg)
    
-  Congratulations! Your Aerial FPV iOS app is complete, you can now use this app to control the camera of your Phantom 3 Professional. 
+  Congratulations! Your Aerial FPV iOS app is complete, you can now use this app to control the camera of your Phantom 4. 
 
 ### Summary
    
