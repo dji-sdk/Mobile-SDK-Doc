@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v3.5.1
-date: 2017-01-16
+version: v4.0
+date: 2017-02-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo
 keywords: [iOS GSDemo, waypoint mission demo]
 ---
@@ -684,7 +684,7 @@ Furthermore, let's implement the **DJIFlightControllerDelegate** method:
 ~~~objc
 #pragma mark DJIFlightControllerDelegate
 
-- (void)flightController:(DJIFlightController *)fc didUpdateSystemState:(DJIFlightControllerCurrentState *)state
+- (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerCurrentState *)state
 {
     self.droneLocation = state.aircraftLocation;
     
