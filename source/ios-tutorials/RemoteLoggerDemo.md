@@ -1,7 +1,7 @@
 ---
 title: DJI Remote Logger Tutorial
-version: v3.5.1
-date: 2017-01-16
+version: v4.0
+date: 2017-02-17
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo
 keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 ---
@@ -129,7 +129,7 @@ The delegate method above gets called when the app is registered. If the registr
    
 ~~~objc
 - (IBAction)logSDKVersionButtonAction:(id)sender {
-   DJILogDebug(@"SDK Version: %@", [DJISDKManager getSDKVersion]);
+   DJILogDebug(@"SDK Version: %@", [DJISDKManager SDKVersion]);
 }
 ~~~
 
