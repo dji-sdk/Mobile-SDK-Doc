@@ -183,7 +183,7 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
     }else
     {
         NSLog(@"registerAppSuccess");
-        [DJISDKManager enterDebugModeWithDebugId:@"Please type in Debug ID of the DJI Bridge app here"];
+        [DJISDKManager enableBridgeModeWithBridgeAppIP:@"Please type in Debug ID of the DJI Bridge app here"];
         [[VideoPreviewer instance] start];
     }
     
@@ -191,7 +191,7 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
 }
 ~~~
 
-The delegate method above gets called when the app is registered. If the registration is successful, we can call the `+(void) enterDebugModeWithDebugId:(NSString*)debugId;` class method of **DJISDKManager** to enter debug mode of the SDK by passing the **Debug Id** parameter, which you can get from **the Bridge App**. Then call the start method of the VideoPreviewer class to start video decoding.
+The delegate method above gets called when the app is registered. If the registration is successful, we can call the `+(void) enableBridgeModeWithBridgeAppIP:(NSString*)bridgeAppIP;` class method of **DJISDKManager** to enter debug mode of the SDK by passing the **Debug Id** parameter, which you can get from **the Bridge App**. Then call the start method of the VideoPreviewer class to start video decoding.
 
 **3**. Build and Run the project in Xcode. If everything is OK, you will see a "Register App Successed!" alert once the application loads. 
   
@@ -275,58 +275,70 @@ Once you finish it, let's implement the **captureAction**, **recordAction** and 
 ~~~objc
 - (IBAction)captureAction:(id)sender {
     
-    __weak DJICameraViewController *weakSelf = self;
-    [self.camera startShootPhoto:DJICameraPhotoShootModeSingle withCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            [weakSelf showAlertViewWithTitle:@"Take Photo Error" withMessage:error.description];
-        }
-    }];
+    __weak DJICamera* camera = [self fetchCamera];
+    if (camera) {
+        WeakRef(target);
+        [camera setShootPhotoMode:DJICameraShootPhotoModeSingle withCompletion:^(NSError * _Nullable error) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [camera startShootPhotoWithCompletion:^(NSError * _Nullable error) {
+                    WeakReturn(target);
+                    if (error) {
+                        [target showAlertViewWithTitle:@"Take Photo Error" withMessage:error.description];
+                    }
+                }];
+            });
+        }];
+    }
     
 }
 
 - (IBAction)recordAction:(id)sender {
     
-    __weak DJICameraViewController *weakSelf = self;
-    
-    if (self.isRecording) {
-        [self.camera stopRecordVideoWithCompletion:^(NSError * _Nullable error) {
-            if (error) {
-                [weakSelf showAlertViewWithTitle:@"Stop Record Video Error" withMessage:error.description];
-            }
-        }];
-    }else
-    {
-        [self.camera startRecordVideoWithCompletion:^(NSError * _Nullable error) {
-            if (error) {
-                [weakSelf showAlertViewWithTitle:@"Start Record Video Error" withMessage:error.description];
-            }
-        }];
+    __weak DJICamera* camera = [self fetchCamera];
+    if (camera) {
+        WeakRef(target);
+        if (self.isRecording) {
+            [camera stopRecordVideoWithCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
+                if (error) {
+                    [target showAlertViewWithTitle:@"Stop Record Video Error" withMessage:error.description];
+                }
+            }];
+        }else
+        {
+            [camera startRecordVideoWithCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
+                if (error) {
+                    [target showAlertViewWithTitle:@"Start Record Video Error" withMessage:error.description];
+                }
+            }];
+        }
     }
     
 }
 
 - (IBAction)changeWorkModeAction:(id)sender {
     
-    __weak DJICameraViewController *weakSelf = self;
+    WeakRef(target);
     UISegmentedControl *segmentControl = (UISegmentedControl *)sender;
     if (segmentControl.selectedSegmentIndex == 0) { //Take photo
         
-        [self.camera setCameraMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
+        [self.camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
+            WeakReturn(target);
             if (error) {
-                [weakSelf showAlertViewWithTitle:@"Set DJICameraModeShootPhoto Failed" withMessage:error.description];
+                [target showAlertViewWithTitle:@"Set DJICameraModeShootPhoto Failed" withMessage:error.description];
             }
             
         }];
         
     }else if (segmentControl.selectedSegmentIndex == 1){ //Record video
         
-        [self.camera setCameraMode:DJICameraModeRecordVideo withCompletion:^(NSError * _Nullable error) {
+        [self.camera setMode:DJICameraModeRecordVideo withCompletion:^(NSError * _Nullable error) {
+            WeakReturn(target);
             if (error) {
-                [weakSelf showAlertViewWithTitle:@"Set DJICameraModeRecordVideo Failed" withMessage:error.description];
+                [target showAlertViewWithTitle:@"Set DJICameraModeRecordVideo Failed" withMessage:error.description];
             }
-            
         }];
-        
     }
     
 }
@@ -372,7 +384,7 @@ Once you finish it, let's implement the **captureAction**, **recordAction** and 
         NSLog(@"registerAppSuccess");
         
 #if ENABLE_DEBUG_MODE
-        [DJISDKManager enterDebugModeWithDebugId:@"Please type in Debug ID of the DJI Bridge app here"];
+        [DJISDKManager enterDebugModeWithDebugIP:@"Please type in Debug ID of the DJI Bridge app here"];
 #else
         [DJISDKManager startConnectionToProduct];
 #endif
