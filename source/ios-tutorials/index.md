@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
 version: v4.0
-date: 2017-02-13
+date: 2017-02-28
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -14,7 +14,7 @@ This tutorial is designed for you to gain a basic understanding of the DJI Mobil
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo).
    
-We use Phantom 4 as an example to make this demo.
+We use Mavic Pro as an example to make this demo.
    
 ## Downloading the SDK
 
@@ -146,7 +146,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 **4**. Furthermore, invoke the `start` method of **VideoPreviewer** instance in the following DJISDKManagerDelegate method to start the video decoding when register app successfully:
  
 ~~~objc 
-- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
+- (void)appRegisterdWithError:(NSError *)error
 {
     NSString* message = @"Register App Successed!";
     if (error) {
@@ -163,7 +163,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 }
 ~~~
         
- **5**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
+**5**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
   
 ~~~objc
 
@@ -186,27 +186,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 
 ## Connecting to the Aircraft or Handheld Device
 
-After you finish the steps above, you can now connect your mobile device to your DJI Aircraft to use the application, like checking the FPV View. Here are the guidelines:
-
-* In order to connect to a DJI Phantom 4, Inspire 1, Phantom 3 Professional, etc:
-
-  **1**. First, turn on your remote controller.
-  
-  **2**. Then, turn on the power of the DJI aircraft.
-  
-  **3**. Connect your iOS device to the remote controller using the lightning cable.
-  
-  **4**. Run the application and wait for a few seconds, you will be able to view the live video stream from your aircraft's camera based on what we've finished of the application so far!
-  
-* In order to connect to Phantom 3 Standard, Phantom 3 4K, or OSMO:
-
-  **1**. First, turn on your remote controller or OSMO.
-   
-  **2**. Then, turn on the power of the DJI aircraft. (If you are using Phantom 3 Standard or Phantom 3 4K)
-  
-  **3**. Search for the WiFi of the aircraft's remote controller or OSMO and connect your iOS device to it.
-  
-  **4**. Run the application and wait for a few seconds, you will be able to view the live video stream from your aircraft or OSMO's camera based on what we've finished of the application so far!
+Please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and view the live video stream from your DJI product's camera based on what we've finished of the application so far!
   
 ## Enjoying the First Person View
 
@@ -452,7 +432,7 @@ We can update the bool value for `isRecording` and `currentRecordTimeLabel`'s te
    
   ![Screenshot](../images/tutorials-and-samples/iOS/FPVDemo/record_screenshot.jpg)
    
-  Congratulations! Your Aerial FPV iOS app is complete, you can now use this app to control the camera of your Phantom 4. 
+  Congratulations! Your Aerial FPV iOS app is complete, you can now use this app to control the camera of your Mavic Pro. 
 
 ### Summary
    

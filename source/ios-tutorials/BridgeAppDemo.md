@@ -14,7 +14,7 @@ You can download the tutorial's final sample code project from this [Github Page
    
 ## Introduction
 
-The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
+The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Mavic Pro, Phantom 4, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
 
 ### Workflow
 

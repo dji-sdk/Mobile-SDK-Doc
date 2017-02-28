@@ -13,7 +13,7 @@ In this tutorial, you will learn how to use the DJISimulator in your Xcode proje
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo).
 
-We use Phantom 4 as an example to make this demo.
+We use Mavic Pro as an example to make this demo.
 
 Let's get started!
 
@@ -596,13 +596,13 @@ In order to simulate the aircraft's flight behaviour in a simulated environment,
 
 In the `onTakeoffButtonClicked:` IBAction method, we invoke the `startTakeoffWithCompletion:` method of DJIFlightController to send the take off command to the aircraft. Similiarly, in the `onLandButtonClicked:` IBAction method, we invoke the `startLandingWithCompletion:` method to send the auto landing command. It's just that simple and easy.
 
-We have gone through a long way so far, now, let's build and run the project, connect the demo application to  your Phantom 4 (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way so far, now, let's build and run the project, connect the demo application to  your Mavic Pro (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
 If everything goes well, you should see something similiar to the following gif animation:
 
 ![](../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorAnimation.gif)
 
-- If the demo application is connected with Phantom 4 successfully, you should see the `connectButton` button is available to press and the `connectStatusLabel` and `modelNameLabel` show the correct infos.
+- If the demo application is connected with Mavic Pro successfully, you should see the `connectButton` button is available to press and the `connectStatusLabel` and `modelNameLabel` show the correct infos.
 - Press **Open** and enter the simulator demo page, press **EnterVirtualStickControl** button to enable virtual stick control, then press "Start Simulator" to start the simulator.
 - Moreover, press the **Takeoff** button to send take off command to the aircraft, if the command executes successfully, you should see the **PosZ** value start to change, means that the aircraft is rising.
 - Now you can drag the left and right virtual stick controls to simulate the flight behavious.

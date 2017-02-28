@@ -14,7 +14,7 @@ In this tutorial, you will learn how to use the `DJIFlyZoneManager` and `DJIGEOF
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo).
 
-We use Phantom 4 as an example to make this demo. Let's get started!
+We use Mavic Pro as an example to make this demo. Let's get started!
 
 ## Introduction
 
@@ -1274,7 +1274,7 @@ Lastly, add the three UIAlertAction objects to the `alertController` and present
 
 ## Running the Sample Code 
 
-We have gone through a long way so far, now, let's build and run the project, connect the demo application to your Phantom 4 (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way so far, now, let's build and run the project, connect the demo application to your Mavic Pro (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
 ### Unlock Authorization Fly Zone Workflow
 
