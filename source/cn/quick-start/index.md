@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2017-2-4
+date: 2017-3-2
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
@@ -33,8 +33,6 @@ Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="
 * The App Key will appear in the user center, and can be copied and pasted into the application.
 
 ## iOS Sample App
-
-The SDK doesn't need to be downloaded to run the iOS sample application as it's already included in the project.
 
 ### iOS Sample Code Setup
 
