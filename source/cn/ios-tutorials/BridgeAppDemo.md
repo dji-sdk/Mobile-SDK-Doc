@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
 version: v4.0
-date: 2017-02-17
+date: 2017-03-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---
@@ -14,7 +14,7 @@ You can download the tutorial's final sample code project from this [Github Page
    
 ## Introduction
 
-The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Phantom 4, Phantom 3 Professional, Phantom 3 Advanced, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
+The design of the DJI Bridge App is simple. It's a universal app supports both iPhone and iPad. You can use it to debug app for Mavic Pro, Phantom 4, Inspire 1, M100 and other products using USB/MFI connection between RC and your app.
 
 ### Workflow
 
@@ -45,28 +45,13 @@ Now try to open the bridge app, and connect your mobile device to the remote con
 
    If the bridge app cannot connect to your app successfully because of switching your mobile device's wifi network or other unknown situations, you can press the **Link Reset** button at the bottom to force restart the TCP service to refresh the Debug ID.
    
-## Download and Import the SDK
+## Import DJI SDK and DJIVideoPreviewer
 
-You can download the iOS SDK from here: <a href="http://developer.dji.com/en/mobile-sdk/downloads/" target="_blank"> http://developer.dji.com/en/mobile-sdk/downloads/ </a>
-
-If you are not familiar with importing the SDK to your Xcode project, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration).
+Now let's import the **DJISDK.framework** and **DJIVideoPreviewer** to the project. If you are not familiar with the process of importing DJI SDK and DJIVideoPreviewer using Cocoapods, please check these two tutorials: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) and [Creating a Camera Application](./index.html#Implementing-the-First-Person-View), for details.
 
 ## Implement the Live Video View
 
- **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
-  
- ![projectNavigator](../../images/tutorials-and-samples/iOS/BridgeAppDemo/projectNavigator.png)
- 
-> Note: Please Make sure the **VideoPreviewer** folder and **DJISDK.framework** are in the same **Frameworks** folder like this:
-> 
-> ![frameworksFolderStruct](../../images/tutorials-and-samples/iOS/BridgeAppDemo/frameworksFolderStruct.png)
- 
- **2**. Next, let's select the "FPVDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
- 
-  ![addFrameworks](../../images/tutorials-and-samples/iOS/BridgeAppDemo/addFrameworks.png)
-  ![addFrameworksResult](../../images/tutorials-and-samples/iOS/BridgeAppDemo/addFrameworksResult.png)
-  
-  **3**. In Main.storyboard, add a new View Controller and call it **DJICameraViewController**. Set **DJICameraViewController** as the root View Controller for the new View Controller you just added in Main.storyboard:
+ **1**. In the Main.storyboard, add a new View Controller and call it **DJICameraViewController**. Set **DJICameraViewController** as the root View Controller for the new View Controller you just added in Main.storyboard:
   
   ![rootController](../../images/tutorials-and-samples/iOS/BridgeAppDemo/cameraViewController.png)
   
@@ -78,7 +63,7 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
   
 ~~~objc
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIVideoPreviewer/VideoPreviewer.h>
 
 @interface DJICameraViewController ()<DJICameraDelegate>
 
@@ -93,7 +78,7 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
 - (IBAction)changeWorkModeAction:(id)sender;
 ~~~
 
-**4**. Implement the DJISDKManagerDelegate method as shown below:
+**2**. Implement the DJISDKManagerDelegate method as shown below:
   
 ~~~objc
 
@@ -160,8 +145,8 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
 ~~~objc
 - (void)registerApp
 {
-    NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+    //Please enter your App key in the "DJISDKAppKey" key in info.plist file.     
+    [DJISDKManager registerAppWithDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -175,7 +160,7 @@ Add a UIView inside the View Controller and set it as an IBOutlet called "**fpvP
 **2**. Next, let's implement the DJISDKManagerDelegate method as shown below:
 
 ~~~objc
-- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
+- (void)appRegisteredWithError:(NSError *)error
 {
     NSString* message = @"Register App Successed!";
     if (error) {
@@ -363,7 +348,7 @@ Once you finish it, let's implement the **captureAction**, **recordAction** and 
 ~~~objc
 #import "DJICameraViewController.h"
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIVideoPreviewer/VideoPreviewer.h>
 
 #define ENABLE_DEBUG_MODE 0
 

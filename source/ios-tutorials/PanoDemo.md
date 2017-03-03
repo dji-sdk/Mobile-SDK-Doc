@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
 version: v4.0
-date: 2017-02-14
+date: 2017-03-3
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -22,7 +22,7 @@ You can download the tutorial's final sample code project from this [Github Page
 
 **1.** Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "PanoDemo" in the **Product Name** field and keep the other default settings.
 
-Once the project is created, let's import the **DJISDK.framework** and **VideoPreviewer** to the project. If you are not familiar with the process of importing DJI SDK and VideoPreviewer, please check these two tutorials: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) and [Creating a Camera Application](./index.html#Implementing-the-First-Person-View), for details.
+Once the project is created, let's import the **DJISDK.framework** and **DJIVideoPreviewer** to the project. If you are not familiar with the process of importing DJI SDK and DJIVideoPreviewer using Cocoapods, please check these two tutorials: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) and [Creating a Camera Application](./index.html#Implementing-the-First-Person-View), for details.
 
 **2.** In the **Main.storyboard**, add a new View Controller called **CaptureViewController** and set it as the root View Controller for the new View Controller you just added in **Main.storyboard**:
 
@@ -43,7 +43,7 @@ Import the **DJISDK** and **VideoPreviewer** header files to **CaptureViewContro
 ~~~objc
 #import "CaptureViewController.h"
 #import <DJISDK/DJISDK.h>
-#import "VideoPreviewer.h"
+#import <DJIVideoPreviewer/VideoPreviewer.h>
 
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 #define weakReturn(__TARGET__) if(__TARGET__==nil)return;
@@ -70,8 +70,8 @@ Import the **DJISDK** and **VideoPreviewer** header files to **CaptureViewContro
 }
 
 - (void) registerApp {
-    NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+    //Please enter your App key in the "DJISDKAppKey" key in info.plist file.     
+    [DJISDKManager registerAppWithDelegate:self];
 }
 ~~~
 
@@ -100,7 +100,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
 
 #pragma mark DJISDKManagerDelegate Method
 
-- (void)sdkManagerDidRegisterAppWithError:(NSError *)error {
+- (void)appRegisteredWithError:(NSError *)error {
     
     NSString* message = @"Register App Successfully!";
     if (error) {

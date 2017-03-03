@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
 version: v4.0
-date: 2017-02-23
+date: 2017-03-3
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo
 keywords: [iOS GSDemo, waypoint mission demo]
 ---
@@ -25,7 +25,7 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 
 ### 2. Creating the Map View
 
-Now, let's delete the **ViewController.h** and **ViewController.m** files, which were created by Xcode when you created the project. Then, create a viewController named "**DJIRootViewController**" and set it as the **Root View Controller** in Main.storyboard. Moreover, drag a **MKMapView** from Object Library to **DJIRootViewController**, setup its AutoLayout constraints, and set its delegate to **DJIRootViewController**, as seen below:
+Now, let's open the **GSDemo.xcworkspace** and delete the **ViewController.h** and **ViewController.m** files, which were created by Xcode when you created the project. Then, create a viewController named "**DJIRootViewController**" and set it as the **Root View Controller** in Main.storyboard. Moreover, drag a **MKMapView** from Object Library to **DJIRootViewController**, setup its AutoLayout constraints, and set its delegate to **DJIRootViewController**, as seen below:
    
 ![mkMapView](../images/tutorials-and-samples/iOS/GSDemo/mkMapView.png)
 
@@ -314,7 +314,7 @@ First, we initialize **userLocation** data to kCLLocationCoordinate2DInvalid in 
 
 In iOS8, we must call **locationManager**'s **requestAlwaysAuthorization** first, which was done in **startUpdateLocation** method. 
 
-Next, add a NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription key to your project’s Info.plist containing the message to be displayed to the user when a UIAlert asking whether or not they want to allow the application to use their location. We set the messages empty here:
+Next, add a "Privacy - Location Always Usage Description" or "Privacy - Location When In Use Usage Description" key to your project’s Info.plist containing the message to be displayed to the user when a UIAlert asking whether or not they want to allow the application to use their location. We set the messages empty here:
 
 ![infoPlist](../images/tutorials-and-samples/iOS/GSDemo/infoPlist.png)
 
@@ -528,8 +528,8 @@ Now, let's initialize the UI elements' values in a new method called **initUI**.
 
 - (void)registerApp
 {
-    NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+    //Please enter your App key in the "DJISDKAppKey" key in info.plist file.     
+    [DJISDKManager registerAppWithDelegate:self];
 }
 ~~~
 
@@ -560,7 +560,7 @@ Next, implement the "DJISDKManagerDelegate" method as follows:
 
 #pragma mark DJISDKManagerDelegate Methods
 
-- (void)sdkManagerDidRegisterAppWithError:(NSError *_Nullable)error
+- (void)appRegisteredWithError:(NSError *)error
 {
     if (error){
         NSString *registerResult = [NSString stringWithFormat:@"Registration Error:%@", error.description];
@@ -586,7 +586,7 @@ Next, implement the "DJISDKManagerDelegate" method as follows:
 
 ~~~
 
-In the code above, we can implement DJISDKManager's **sdkManagerDidRegisterAppWithError:** delegate method to check the register status and invoke the DJISDKManager's "startConnectionToProduct" method to connect to the aircraft. Moreover, the **sdkManagerProductDidChangeFrom:to:** delegate method will be invoked when the product connectivity status changes, so we can set DJIFlightController's delegate as DJIRootViewController here when product is connected.
+In the code above, we can implement DJISDKManager's **appRegisteredWithError:** delegate method to check the register status and invoke the DJISDKManager's "startConnectionToProduct" method to connect to the aircraft. Moreover, the **sdkManagerProductDidChangeFrom:to:** delegate method will be invoked when the product connectivity status changes, so we can set DJIFlightController's delegate as DJIRootViewController here when product is connected.
 
 You may notice that there is a "DemoUtility" class here, it's a class which defines methods that will be used frequently in the project. Let's implement it now. Create a new NSObject class and named it as "DemoUtility", replace its .h file and .m file with the followings:
 

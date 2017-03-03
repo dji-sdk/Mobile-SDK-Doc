@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
 version: v4.0
-date: 2017-02-28
+date: 2017-03-3
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -15,12 +15,6 @@ This tutorial is designed for you to gain a basic understanding of the DJI Mobil
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo).
    
 We use Mavic Pro as an example to make this demo.
-   
-## Downloading the SDK
-
-You can download the latest iOS SDK from here: <a href="https://developer.dji.com/mobile-sdk/downloads/" target="_blank">https://developer.dji.com/mobile-sdk/downloads/</a>.
-
-Minimum Requirement: iOS 8.0 or above.
 
 ## Importing and Activating the SDK
 
@@ -28,28 +22,49 @@ Now, let's create a new project in Xcode, choose **Single View Application** tem
 
 Once the project is created, let's delete the "ViewController.h" and "ViewController.m" files created by Xcode by default. Create a new ViewController named "DJICameraViewController". 
 
-Now, let's import the **DJISDK.framework** to it and implement the SDK activation process in the "DJICameraViewController.m" file. If you are not familiar with the process of importing and activating DJI SDK, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
+Now, let's install the **DJISDK.framework** in the Xcode project using Cocoapods and implement the SDK activation process in the "DJICameraViewController.m" file. If you are not familiar with the process of installing and activating DJI SDK, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
 
 ## Implementing the First Person View
 
-### Importing the VideoPreviewer
+### Install DJIVideoPreviewer using CocoaPods
 
- **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
-  
- ![projectNavigator](../images/tutorials-and-samples/iOS/FPVDemo/projectNavigator.png)
+ **1**. **DJIVideoPreviewer** is an open source project to decode and render video data from DJI products. In the **DJIVideoPreviewer** project, we use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can learn more in the [**DJIVideoPreviewer**]() Github Repository.
  
-> Note: Please Make sure the **VideoPreviewer** folder and **DJISDK.framework** are in the same **Frameworks** folder like this:
-> 
-> ![frameworksFolderStruct](../images/tutorials-and-samples/iOS/FPVDemo/frameworksFolderStruct.png)
+ **2**. Let's replace the content of the **Podfile** with the followings:
+
+ ~~~
+  # platform :ios, '9.0'
+
+  target 'FPVDemo' do
+    pod 'DJI-SDK-iOS', '~> 4.0’
+    pod 'DJIVideoPreviewer', '~> 1.0'
+  end
+ ~~~
+
+ Then run the following command in the project's root folder path using **Terminal** to install the **DJIVideoPreviewer**:
+
+~~~
+pod install
+~~~
  
- **2**. Next, let's select the "FPVDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
- 
-  ![addFrameworks](../images/tutorials-and-samples/iOS/FPVDemo/addFrameworks.png)
-  ![addFrameworksResult](../images/tutorials-and-samples/iOS/FPVDemo/addFrameworksResult.png)
+ If you install it successfully, you should get the messages similar to the following:
+
+~~~
+Analyzing dependencies
+Downloading dependencies
+Installing DJI-SDK-iOS (4.0)
+Installing DJIVideoPreviewer
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `FPVDemo.xcworkspace` for this project from now on.
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod
+installed.
+~~~
   
 ### Working on the DJICameraViewController
    
- **1**. Open Main.storyboard, add a new View Controller and set **DJICameraViewController** as the **Class** for it:
+ **1**. Let's open the `FPVDemo.xcworkspace` file in Xcode and open the Main.storyboard, add a new View Controller and set **DJICameraViewController** as the **Class** for it:
   
   ![rootController](../images/tutorials-and-samples/iOS/FPVDemo/rootController.png)
   
@@ -61,7 +76,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
   
 ~~~objc
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIVideoPreviewer/VideoPreviewer.h>
 
 @interface DJICameraViewController ()<DJICameraDelegate, DJISDKManagerDelegate, DJIBaseProductDelegate>
 

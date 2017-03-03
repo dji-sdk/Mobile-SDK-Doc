@@ -1,7 +1,7 @@
 ---
 title: Creating a Photo and Video Playback Application
 version: v4.0
-date: 2017-02-13
+date: 2017-03-3
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS playback demo, playback application, preview photos and videos, download photos and videos, delete photos and videos]
 ---
@@ -20,30 +20,19 @@ Let's get started!
 
 ## Previewing Photos and Videos
 
-### 1. Importing the SDK
+### 1. Importing the DJI SDK
 
 Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "PlaybackDemo" in the **Product Name** field and keep the other default settings.
 
 Once the project is created, let's import the **DJISDK.framework** to it. If you are not familiar with the process of importing and activating DJI SDK, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
 
-### 2. Importing the VideoPreviewer
+### 2. Importing the DJIVideoPreviewer
 
- **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
-  
- ![projectNavigator](../../images/tutorials-and-samples/iOS/PlaybackDemo/projectNavigator.png)
- 
-> Note: Please Make sure the **VideoPreviewer** folder and **DJISDK.framework** are in the same **Frameworks** folder like this:
-> 
-> ![frameworksFolderStruct](../../images/tutorials-and-samples/iOS/PlaybackDemo/frameworksFolderStruct.png)
- 
- **2**. Next, let's select the "PlayBackDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
- 
-  ![addFrameworks](../../images/tutorials-and-samples/iOS/PlaybackDemo/addFrameworks.png)
-  ![addFrameworksResult](../../images/tutorials-and-samples/iOS/PlaybackDemo/addFrameworksResult.png)
+**DJIVideoPreviewer** is an open source project to decode and render video data from DJI products. You can check our previous tutorial [Creating a Camera Application](./index.html) to learn how to download and import the [**DJIVideoPreviewer**]() into your Xcode project using Cocoapods.
   
 ### 3. Switching Playback Modes
 
-  Now, let's delete the **ViewController.h** and **ViewController.m** files, which were created by Xcode when you created the project. Then, create a viewController named "DJIRootViewController" and set it as the **Root View Controller** in Main.storyboard. This demo and its code was written to be used with the iPad, so we'll have to adjust the User Interface of **Main.storyboard** accordingly. We'll change the **Root View Controller**'s frame. Let's set its size to **Freeform** under the **Size** dropdown in the **Simulated Metrics** section. In the view section, change the width to **1024** and height to **768**. Take a look at the changes made below:
+  Now, let's open the **PlaybackDemo.xcworkspace** and delete the **ViewController.h** and **ViewController.m** files, which were created by Xcode when you created the project. Then, create a viewController named "DJIRootViewController" and set it as the **Root View Controller** in Main.storyboard. This demo and its code was written to be used with the iPad, so we'll have to adjust the User Interface of **Main.storyboard** accordingly. We'll change the **Root View Controller**'s frame. Let's set its size to **Freeform** under the **Size** dropdown in the **Simulated Metrics** section. In the view section, change the width to **1024** and height to **768**. Take a look at the changes made below:
 
   ![freeform](../../images/tutorials-and-samples/iOS/PlaybackDemo/freeform.png)
   ![changeSize](../../images/tutorials-and-samples/iOS/PlaybackDemo/changeSize.png)
@@ -57,7 +46,7 @@ Then, add a UIView inside the **Root View Controller** and set it as an IBOutlet
 ~~~objc
 #import "DJIRootViewController.h"
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIVideoPreviewer/VideoPreviewer.h>
 
 @interface DJIRootViewController ()<DJICameraDelegate, DJISDKManagerDelegate, DJIPlaybackDelegate, DJIBaseProductDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
@@ -110,7 +99,8 @@ In the viewDidAppear method, let's set the **fpvPreviewView** instance as a View
 - (void)registerApp
 {
     NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+    [DJISDKManager registerAppWithDelegate:self];
+    
 }
 
 ~~~
@@ -132,7 +122,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
 
 #pragma mark DJISDKManagerDelegate Method
 
-- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
+- (void)appRegisteredWithError:(NSError *)error
 {
     NSString* message = @"Register App Successed!";
     if (error) {
@@ -144,6 +134,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
         [DJISDKManager startConnectionToProduct];
         [[VideoPreviewer instance] start];
     }
+    
     [self showAlertViewWithTitle:@"Register App" withMessage:message];
 }
 
