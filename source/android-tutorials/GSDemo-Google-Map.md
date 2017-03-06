@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
 version: v4.0
-date: 2017-2-21
+date: 2017-3-6
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap
 keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission demo]
 ---
@@ -12,11 +12,11 @@ keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission dem
 
 In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of MissionManager. 
 
-Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
+Also you will know how to test the Waypoint Mission API with DJI Assistant 2 Simulator too. So let's get started!
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap).
 
-> Note: In this tutorial, we will use Inspire 1 for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="https://developers.google.com/maps/" target="_blank">Google Map API</a> for navigating.
+> Note: In this tutorial, we will use Mavic Pro for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="https://developers.google.com/maps/" target="_blank">Google Map API</a> for navigating.
 
 ## Preparation
 
@@ -136,7 +136,7 @@ For more details of description on the permissions, refer to <a href="https://de
 
 #### 6. Adding Multidex Support with Gradle
 
-In order to use Google Play Service in our project, we need to add Multidex support to avoid the the 64K limit with Gradle.
+In order to use Google Play Service in our project, we need to add Multidex support to avoid the 64K limit with Gradle.
 
 Modify the module-level `build.gradle` file configuration to include the support library and enable multidex output in both **defaultConfig** and **dependencies** parts, as shown in the following code snippet:
 
@@ -812,13 +812,15 @@ private void cameraUpdate(){
 }
 ~~~
 
-Before going forward, you can check the [Using DJI PC Simulator](../application-development-workflow/workflow-testing.html#DJI-PC-Simulator) for DJI PC Simulator's basic usage.
+Before going forward, you can check the [Using DJI Assistant 2 Simulator](../application-development-workflow/workflow-testing.html#dji-assistant-2-simulator) for its basic usage.
 
-Now, let's connect the aircraft to your PC or Virtual Machine running Windows via a Micro USB cable, and then power on the aircraft and the remote controller. Click Display Simulator. You can type in your current location's latitude and longitude data in the Simulator Config, if you would like. 
+Now, let's connect the aircraft to your PC or Mac running DJI Assistant 2 via a Micro USB cable, and then power on the aircraft and the remote controller. Press the **Simulator** button in the DJI Assistant 2 and feel free to type in your current location's latitude and longitude data into the simulator.
 
 ![simulatorPreview](../images/tutorials-and-samples/Android/GSDemo-Google-Map/simulator_preview.png)
 
-Next, build and run the project and install it in your Android device and connect it to the remote controller using USB cable. Go to the DJI PC Simulator on your PC and press the Start Simulation button. If you check the application now, a tiny red aircraft will be shown on the map. If you cannot find the aircraft, press the "LOCATE" button to zoom in to the center of the aircraft on the Map. Here is a gif animation for you to check:
+Next, build and run the project and install it in your Android device and connect it to the remote controller using USB cable.
+
+Press the **Start Simulating** button. If you check the application now, a tiny red aircraft will be shown on the map. If you cannot find the aircraft, press the "LOCATE" button to zoom in to the center of the aircraft on the Map. Here is a gif animation for you to check:
 
 ![locateAircraft](../images/tutorials-and-samples/Android/GSDemo-Google-Map/locateAircraft.gif)
 
@@ -1285,13 +1287,13 @@ You've come a long way in this tutorial, and it's time to test the whole applica
 
 **Important**: Make sure the battery level of your aircraft is more than 10%, otherwise the waypoint mission may fail!
 
-Build and run the project to install the application into your android device. After that, please connect the aircraft to your PC or Virtual Machine running Windows via a Micro USB cable. Then, power on the remote controller and the aircraft, in that order.
+Build and run the project to install the application into your android device. After that, please connect the aircraft to your PC or Mac running DJI Assistant 2 Simulator via a Micro USB cable. Then, power on the remote controller and the aircraft, in that order.
 
-Next, press the **Display Simulator** button in the DJI PC Simulator and feel free to type in your current location's latitude and longitude data into the simulator.
+Next, press the **Simulator** button in the DJI Assistant 2 and feel free to type in your current location's latitude and longitude data into the simulator.
 
 ![simulatorPreview](../images/tutorials-and-samples/Android/GSDemo-Google-Map/simulator_preview.png)
 
-Then connect your android device to the remote controller using USB cable and run the application. Go back to the DJI PC Simulator on your PC and press the **Start Simulation** button. A tiny red aircraft will appear on the map in your application,  if you press the **LOCATE** button, the map view will zoom in to the region you are in and will center the aircraft:
+Then connect your android device to the remote controller using USB cable and run the application. Go back to the DJI Assistant 2 Simulator on your PC or Mac and press the **Start Simulating** button. A tiny red aircraft will appear on the map in your application,  if you press the **LOCATE** button, the map view will zoom in to the region you are in and will center the aircraft:
 
 ![locateAircraft](../images/tutorials-and-samples/Android/GSDemo-Google-Map/locateAircraft.gif)
 
@@ -1301,16 +1303,6 @@ Next, press the **Add** button and tap on the Map where you want to add waypoint
 
 Once you press the **CONFIG** button, the **Waypoint Configuration** dialog will appear. Modify the settings as you want and press **Finish** button. Then press the **PREPARE** button to prepare the mission.
 
-If prepare mission failed, you may see the following screenshot:
-
-![prepareMissionFail](../images/tutorials-and-samples/Android/GSDemo-Google-Map/prepareMissionFail.png)
-
-**Important**: To fix this problem, please switch the Remote Controller's mode selection to the **F** position and press **PREPARE** button to try again. If the mode selection bar is in the F position when the autopilot is powered on, the user must toggle back and forth between **F** and another position and then try again.
-
-You are required to be in the **F** position when using the DJIWaypoint Mission of DJI Mobile SDK.
-
-![switchFlightMode](../images/tutorials-and-samples/Android/GSDemo-Google-Map/switchFlightModes.png)
-
 If prepare mission success, press the **START** button to start the waypoint mission execution.
   
 ![prepareMission](../images/tutorials-and-samples/Android/GSDemo-Google-Map/prepareMission.gif)  
@@ -1319,22 +1311,22 @@ Now you will should see the aircraft move towards the waypoints you set previous
 
 ![startMission](../images/tutorials-and-samples/Android/GSDemo-Google-Map/startMission.gif)
 
-At the same time, you are able to see the Inspire 1 take off and start to fly in the DJI PC Simulator.
+At the same time, you are able to see the Mavic Pro take off and start to fly in the DJI Assistant 2 Simulator.
 
 ![flyingInSimulator](../images/tutorials-and-samples/Android/GSDemo-Google-Map/takeOff.gif)
 
-When the waypoint mission finishes, an "Execution finished: Success!" message will appear and the Inspire 1 will start to go home!
+When the waypoint mission finishes, an "Execution finished: Success!" message will appear and the Mavic Pro will start to go home!
 
-Also, the remote controller will start beeping, and the **Go Home** button on the remote controller will start to flash a white light. Let's take a look at the DJI PC Simulator now:
+Also, the remote controller will start beeping. Let's take a look at the DJI Assistant 2 Simulator now:
 
 ![landing](../images/tutorials-and-samples/Android/GSDemo-Google-Map/landing.gif)
 
-The inspire 1 will eventually go home, land, and the beeping from the remote controller will stop. The application will go back to its normal status. If you press the **CLEAR** button, all the waypoints you previously set will be cleared. During the mission, if you'd ever like to stop the DJIWaypoint mission, you can do so by pressing the **STOP** button.
+The Mavic Pro will eventually go home, land, and the beeping from the remote controller will stop. The application will go back to its normal status. If you press the **CLEAR** button, all the waypoints you previously set will be cleared. During the mission, if you'd ever like to stop the DJIWaypoint mission, you can do so by pressing the **STOP** button.
   
 ### Summary
 
- In this tutorial, you’ve learned how to setup and use the DJI PC Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI PC Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use MissionManager to **prepare**, **start** and **stop** missions. 
+ In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use MissionManager to **prepare**, **start** and **stop** missions. 
       
-   Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
+ Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
 
 

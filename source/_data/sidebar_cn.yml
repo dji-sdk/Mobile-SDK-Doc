@@ -111,11 +111,8 @@
   title: "ANDROID TUTORIALS"
   list:
     -
-      title: "Running DJI SDK Sample Code in Android Studio"
-      path: "/cn/android-tutorials/index.html"
-    -
       title: "Camera Application"
-      path: "/cn/android-tutorials/FPVDemo.html"
+      path: "/cn/android-tutorials/index.html"
     -
       title: "MapView and Waypoint Application (GaodeMap)"
       path: "/cn/android-tutorials/GSDemo-Gaode-Map.html"

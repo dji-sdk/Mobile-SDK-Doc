@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
 version: v4.0
-date: 2017-2-20
+date: 2017-3-6
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
@@ -13,7 +13,7 @@ In this tutorial, you will learn how to use the DJISimulator in your Android Stu
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo).
 
-We use Phantom 4 as an example to make this demo.
+We use Mavic Pro as an example to make this demo.
 
 Let's get started!
 
@@ -31,9 +31,9 @@ In the [Importing and Activating DJI SDK in Android Studio Project](../applicati
 
 ### Importing SDK Library
 
-**1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJISimulatorDemo'. Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the mimimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
+**1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJISimulatorDemo'. Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
  
- **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
+ **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLIB" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
  
  ![importSDK](../../images/tutorials-and-samples/Android/SimulatorDemo/importsSDK.png)
  
@@ -712,7 +712,7 @@ Lastly, if the product or remote controller are not connected, then update the `
 
 **4.** We override the `onResume()` method to invoke the `updateTitleBar()` method to update `mConnectStatusTextView` when the activity start interacting with the user. Then override the `onDestroy()` method to unregister the BroadcastReceiver object.
 
-Now let's build and run the project and install it to your Android device. Then connect the demo application to your Phantom 4 (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details), if everything goes well, you should see the title textView content updates to "Phantom_4 Connected" as shown below:
+Now let's build and run the project and install it to your Android device. Then connect the demo application to your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details), if everything goes well, you should see the title textView content updates to "MavicPro Connected" as shown below:
 
 ![registerSuccess](../../images/tutorials-and-samples/Android/SimulatorDemo/updateTitleBar.png)
 
@@ -786,59 +786,59 @@ In the code above, we implement the following features:
 Once you finish the above steps, let's implement the `setJoystickListener()` methods of `mScreenJoystickLeft` and `mScreenJoystickRight` variables at the bottom of `initUI()` method as shown below:
 
 ~~~java
-	mScreenJoystickLeft.setJoystickListener(new OnScreenJoystickListener(){
+    mScreenJoystickLeft.setJoystickListener(new OnScreenJoystickListener(){
 
-	    @Override
-	    public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
-	        if(Math.abs(pX) < 0.02 ){
-	            pX = 0;
-	        }
+        @Override
+        public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
+            if(Math.abs(pX) < 0.02 ){
+                pX = 0;
+            }
 
-	        if(Math.abs(pY) < 0.02 ){
-	            pY = 0;
-	        }
-	        float pitchJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
-	        float rollJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
+            if(Math.abs(pY) < 0.02 ){
+                pY = 0;
+            }
+            float pitchJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
+            float rollJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
 
-	        mPitch = (float)(pitchJoyControlMaxSpeed * pY);
+            mPitch = (float)(pitchJoyControlMaxSpeed * pY);
 
-	        mRoll = (float)(rollJoyControlMaxSpeed * pX);
+            mRoll = (float)(rollJoyControlMaxSpeed * pX);
 
-	        if (null == mSendVirtualStickDataTimer) {
-	            mSendVirtualStickDataTask = new SendVirtualStickDataTask();
-	            mSendVirtualStickDataTimer = new Timer();
-	            mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
-	        }
+            if (null == mSendVirtualStickDataTimer) {
+                mSendVirtualStickDataTask = new SendVirtualStickDataTask();
+                mSendVirtualStickDataTimer = new Timer();
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+            }
 
-	    }
+        }
 
-	});
+    });
 
-	mScreenJoystickRight.setJoystickListener(new OnScreenJoystickListener() {
+    mScreenJoystickRight.setJoystickListener(new OnScreenJoystickListener() {
 
-	    @Override
-	    public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
-	        if(Math.abs(pX) < 0.02 ){
-	            pX = 0;
-	        }
+        @Override
+        public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
+            if(Math.abs(pX) < 0.02 ){
+                pX = 0;
+            }
 
-	        if(Math.abs(pY) < 0.02 ){
-	            pY = 0;
-	        }
-	             float verticalJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickVerticalControlMaxVelocity;
+            if(Math.abs(pY) < 0.02 ){
+                pY = 0;
+            }
+                 float verticalJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickVerticalControlMaxVelocity;
                 float yawJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickYawControlMaxAngularVelocity;
 
                 mYaw = (float)(yawJoyStickControlMaxSpeed * pX);
                 mThrottle = (float)(yawJoyStickControlMaxSpeed * pY);
 
-	        if (null == mSendVirtualStickDataTimer) {
-	            mSendVirtualStickDataTask = new SendVirtualStickDataTask();
-	            mSendVirtualStickDataTimer = new Timer();
-	            mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
-	        }
+            if (null == mSendVirtualStickDataTimer) {
+                mSendVirtualStickDataTask = new SendVirtualStickDataTask();
+                mSendVirtualStickDataTimer = new Timer();
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+            }
 
-	    }
-	});
+        }
+    });
 ~~~
 
 Here, we implement the following features:
@@ -1047,13 +1047,13 @@ case R.id.btn_land:
 
 For the case of "R.id.btn\_take\_off", we invoke the `startTakeoff()` method of FlightController to send the take off command to the aircraft. Similiarly, for the case of "R.id.btn_land", we invoke the `startLanding()` method to send the auto landing command. It's just that simple and easy.
 
-We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Phantom 4 (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
 If everything goes well, you should see something similiar to the following gif animations like this:
 
  <html><center><img src="../../images/tutorials-and-samples/Android/SimulatorDemo/simulatorAnimation.gif"></center></html>
  
-- If the demo application is connected with Phantom 4 successfully, you should see the title textView content updates to "Phantom_4 Connected".
+- If the demo application is connected with Mavic Pro successfully, you should see the title textView content updates to "MavicPro Connected".
 
 - Press **Enable Virtual Stick** button to enable virtual stick control, then press **Start Simulator** to start the simulator.
 
@@ -1070,3 +1070,4 @@ In this tutorial, you've learned how to use the DJISimulator feature to simulate
 This demo is a simple demonstration of using DJISimulator, to have a better user experience, you can create a 3D simulated environment using 3D game engine like <a href="https://unity3d.com" target="_blank"> Unity3D </a> to show the simulated data and aircraft flight behavious inside your mobile application (Like the Flight Simulator in DJI Go app)!  
 
 Furthermore, the DJISimulator allows for automated testing in continous integration environment(Like <a href="https://jenkins.io" target="_blank">Jenkins</a>), it would help your DJI-SDK based application testing process. Good luck, and hope you enjoyed this tutorial!
+
