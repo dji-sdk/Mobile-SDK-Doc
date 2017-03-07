@@ -93,3 +93,10 @@ Additionally each custom button can have a unique tag value set to it, which can
 A simulated remote controller on the mobile device to control the aircraft when the physical remote controller is absent. It can simulate the vertical and horizontal movement of the left and right stick, which changes the aircraft's pitch, roll, yaw and throttle. The mobile remote controller only supports **Mode 2** control style and [P-Mode](#P-Mode-Positioning). 
 
 It is only supported by Mavic Pro using WiFi.
+
+## Remote Controller GPS Accessory
+
+A GPS Accessory for the Remote Controller improves the accuracy of the remote controller’s positioning. Used with the Inspire 2’s Dynamic Home point function which constantly updates the latest location of the remote controller as its Home point, it allows accurate Return to Home when moving around an environment.
+
+It is only supported by Inspire 2.
+

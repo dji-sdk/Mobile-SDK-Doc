@@ -237,6 +237,7 @@ Some defining product features that distinguish aircraft series are:
 * Remote controller has embedded GPS
 * Inspire 2 also:
     * Optional onboard SSD storage
+    * Optional Remote Controller GPS Accessory
     * Upward facing obstacle avoidance
     * Additional in first person view (FPV) camera
 
