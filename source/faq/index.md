@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2016-12-13
+date: 2017-03-07
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
