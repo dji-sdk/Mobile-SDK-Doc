@@ -112,7 +112,7 @@ This is especially the case for an image of a smooth, simple surface. Instead of
 
 Pixel amplification is called **ISO**. Increasing ISO will increase exposure, but will also make the noise in the image more noticeable resulting in grainy pictures. Typically ISO is set as low as possible to achieve the cleanest image and is used to increase exposure as a last resort. 
 
-In the two pictures above (demonstrating shutter speed difference), the ISO was used to compensate for the change in exposure from the shutter. If you zoom in on the images, the noise in the high ISO image is noticeable, especially on the blue background.
+In the two pictures below (demonstrating shutter speed difference), the ISO was used to compensate for the change in exposure from the shutter. If you zoom in on the images, the noise in the high ISO image is noticeable, especially on the blue background.
 
 <html>
 <table class="table-pictures">
