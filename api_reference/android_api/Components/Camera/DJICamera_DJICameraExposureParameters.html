@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -532,7 +536,7 @@
 <div class="article"><h6><font color="#AAA">interface </font>Callback</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Callback</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">EXPOSURE_SETTINGS</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_CameraUpdatedCurrentExposureValuesCallbackInterface</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_settings_inline">EXPOSURE_SETTINGS</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_CameraUpdatedCurrentExposureValuesCallbackInterface</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Called whenever the camera parameters change. In automatic exposure modes (Program, Shutter Priority and  Aperture Priority) the camera may be automatically changing aperture, shutter speed and ISO (depending on  the mode and camera) when lighting conditions change. In Manual mode, the exposure compensation is automatically  updated to let the user know how much compensation the exposure needs to get to an exposure the camera calculates as correct.</font></p>
 <h5 id="interface-methods">Interface Methods:</h5>

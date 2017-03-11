@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -456,7 +460,7 @@
 <div class="article"><h6><font color="#AAA">property </font>model</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>) <span class="built_in">NSString</span> *_Nullable model</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIBaseProduct.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJIProductParamModelName</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBaseProduct_model</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIBaseProduct.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../Components/KeyManager/DJIProductKey.html#djiproductkey_djiproductparammodelname_inline">DJIProductParamModelName</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBaseProduct_model</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Retrieves the model of the product. See <code><a href="../Products/Aircraft/DJIAircraft.html#djiaircraft">DJIAircraft</a></code> and  <code><a href="../Products/Handheld/DJIHandheld.html#djihandheld">DJIHandheld</a></code> for the possible strings that can be returned.</font></p>
 </div>
@@ -522,7 +526,7 @@
 <div class="api-row" id="djibaseproduct_updatediagnosticsinformation"><div class="api-col left">Diagnostics</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djibaseproduct_updatediagnosticsinformation_inline">product:didUpdateDiagnosticsInformation</a></div></div><div class="inline-doc" id="djibaseproduct_updatediagnosticsinformation_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>product:didUpdateDiagnosticsInformation</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)product:(DJIBaseProduct *_Nonnull)product didUpdateDiagnosticsInformation:(<span class="built_in">NSArray</span> *_Nonnull)info</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)product:(DJIBaseProduct *_Nonnull)product didUpdateDiagnosticsInformation:(<span class="built_in">NSArray</span> *_Nonnull)info</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIBaseProduct.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBaseProduct_UpdateDiagnosticsInformation</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Called when the product's diagnostic information is updated.</font></p>

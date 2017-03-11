@@ -23,7 +23,7 @@ Searchdoc.Navigation = new function() {
 
     this.onkeyup = function(e) {
         if (!this.navigationActive) return;
-        switch(e.keyCode) {
+        switch (e.keyCode) {
             case 37: //Event.KEY_LEFT:
             case 38: //Event.KEY_UP:
             case 39: //Event.KEY_RIGHT:
@@ -38,12 +38,12 @@ Searchdoc.Navigation = new function() {
             case 78: // n
                 this.clearMoveTimeout();
                 break;
-            }
+        }
     }
 
     this.onkeydown = function(e) {
         if (!this.navigationActive) return;
-        switch(e.keyCode) {
+        switch (e.keyCode) {
             case 37: //Event.KEY_LEFT:
             case 74: // j (qwerty)
             case 72: // h (dvorak)
@@ -103,14 +103,11 @@ Searchdoc.Navigation = new function() {
         this.moveTimeout = setTimeout(go, 200);
     }
 
-    this.moveRight = function() {
-    }
+    this.moveRight = function() {}
 
-    this.moveLeft = function() {
-    }
+    this.moveLeft = function() {}
 
-    this.move = function(isDown) {
-    }
+    this.move = function(isDown) {}
 
     this.moveUp = function() {
         return this.move(false);
@@ -125,7 +122,7 @@ Searchdoc.Navigation = new function() {
 // scrollIntoView.js --------------------------------------
 
 function scrollIntoView(element, view) {
-    if(!element || !view) return
+    if (!element || !view) return
     var offset, viewHeight, viewScroll, height;
     offset = element.offsetTop;
     height = element.offsetHeight;
@@ -173,7 +170,7 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
         })
 
         this.$result.click(function(e) {
-            if(_this.$current) _this.$current.removeClass('current');
+            if (_this.$current) _this.$current.removeClass('current');
             _this.$current = $(e.target).closest('li').addClass('current');
             _this.select();
             _this.$input.focus();
@@ -192,13 +189,13 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
             // $('.js-tree-menu').hide();
             $('#panel').css('height', '100%');
             $('.clean-search').show()
-            // this.$element.removeClass('panel_tree').addClass('panel_results');
-            // this.tree.setNavigationActive(false);
-            // this.setNavigationActive(true);
+                // this.$element.removeClass('panel_tree').addClass('panel_results');
+                // this.tree.setNavigationActive(false);
+                // this.setNavigationActive(true);
         } else {
             $('#panel').css('height', '0px');
             $('.clean-search').hide()
-            // $('.js-tree-menu').show();
+                // $('.js-tree-menu').show();
 
             // this.$element.addClass('panel_tree').removeClass('panel_results');
             // this.tree.setNavigationActive(true);
@@ -210,12 +207,12 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
             this.searcher.find(value);
         }
     }
-    this.getSubTitle = function(title){
+    this.getSubTitle = function(title) {
         var lastDotePos = title.lastIndexOf('::');
         // result.namespace = result.title.substr(0, lastDotePos);
-        if(lastDotePos > -1){
+        if (lastDotePos > -1) {
             return title.substr(lastDotePos + 2);
-        }else{
+        } else {
             return title;
         }
     }
@@ -228,46 +225,46 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
             this.resultData1 = [];
             this.resultData2 = [];
         }
-        if([0, 1, 2].indexOf(state.pass) > -1){
+        if ([0, 1, 2].indexOf(state.pass) > -1) {
             this.resultData1 = this.resultData1.concat(results)
-        }else{
-            for(var i = 0; i < results.length; i++){
-                if(results[i].apiType != 1){
+        } else {
+            for (var i = 0; i < results.length; i++) {
+                if (results[i].apiType != 1) {
                     this.resultData2.push(results[i]);
                 }
             }
         }
-        if (this.firstRun && results.length >  0) {
+        if (this.firstRun && results.length > 0) {
             this.firstRun = false;
         }
-        if(isLast){
+        if (isLast) {
 
-            for(var i = 0; i < this.resultData1.length; i++){
+            for (var i = 0; i < this.resultData1.length; i++) {
                 var ele = this.resultData1[i];
                 //TODO 删掉如果search_index.js取消了层级
                 ele.title = this.getSubTitle(ele.title)
-                if(ele.title.toLowerCase() == this.searchValue.toLowerCase()){
+                if (ele.title.toLowerCase() == this.searchValue.toLowerCase()) {
                     ele.apiType = 10;
                 }
                 ele.oldIndex = i;
             }
-            for(var i = 0; i < this.resultData2.length; i++){
+            for (var i = 0; i < this.resultData2.length; i++) {
                 var ele = this.resultData2[i];
                 //TODO 删掉如果search_index.js取消了层级
                 ele.title = this.getSubTitle(ele.title)
                 ele.oldIndex = i;
             }
-            var finalResult = this.resultData1.sort(function(a, b){
+            var finalResult = this.resultData1.sort(function(a, b) {
                 return b.apiType - a.apiType || a.oldIndex - b.oldIndex;
             })
-            finalResult = finalResult.concat(this.resultData2.sort(function(a, b){
+            finalResult = finalResult.concat(this.resultData2.sort(function(a, b) {
                 return b.apiType - a.apiType || a.oldIndex - b.oldIndex;
             }))
-            for (var i=0, l = finalResult.length; i < l; i++) {
+            for (var i = 0, l = finalResult.length; i < l; i++) {
                 target.appendChild(renderItem.call(this, finalResult[i], i));
             };
         }
-        if(isLast && this.defaultSelected > -1){
+        if (isLast && this.defaultSelected > -1) {
             this.$current = $(target.children[this.defaultSelected]);
             this.$current.addClass('current');
             if (this.selectFirstMatch) this.select();
@@ -283,7 +280,7 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
 
     this.select = function() {
         var href = this.$current.data('path') || ''
-        if(href && (href.indexOf('undefined') != href.length - 9)){
+        if (href && (href.indexOf('undefined') != href.length - 9)) {
             location.href = href;
         }
         // this.open(this.$current.data('path'));
@@ -303,7 +300,8 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
 
     function renderItem(result, index) {
         var li = document.createElement('li'),
-            html = '', badge = result.badge;
+            html = '',
+            badge = result.badge;
 
         var hitHtml = hlt(result.title)
         html += '<h1>' + getMainContent(hitHtml);
@@ -318,50 +316,51 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
         if (result.snippet) html += '<p class="snippet">' + escapeHTML(result.snippet) + '</p>';
         li.innerHTML = html;
         var prefix = window.pathPrefix; //
-        if(typeof prefix == 'undefined'){
+        if (typeof prefix == 'undefined') {
             var regx = new RegExp('/', 'g');
             var res = location.pathname.match(regx);
             var dirCount = res.length - 1;
             prefix = '';
-            for(var i = 0; i < dirCount; i++){
+            for (var i = 0; i < dirCount; i++) {
                 prefix += '../';
             }
         }
-        if(prefix == '') prefix = './';
+        if (prefix == '') prefix = './';
         jQuery.data(li, 'path', prefix + result.path.substr(1) + '?search=' + this.searchValue + '&i=' + index + '&' + result.params);
         return li;
     }
 
-    function getMainContent(content){
+    function getMainContent(content) {
         var beg = content.indexOf('<b>');
         var end = content.lastIndexOf('</b>');
-        if(end > -1) end += 4;
+        if (end > -1) end += 4;
         var curLength = content.substr(beg, end).replace(/<b>/g, '').replace(/<\/b>/g, '').length;
         var maxLength = 50;
         var restLength = (maxLength - curLength) / 2;
-        var prefix = '...', tail = '...';
+        var prefix = '...',
+            tail = '...';
         // console.log('-->', beg, end, content, content.substr(beg, end).replace(/<b>/g, '').replace(/<\/b>/g, ''), curLength, restLength)
-        if(restLength > 0){
+        if (restLength > 0) {
             beg -= restLength;
             end += restLength;
             var begRest = 0;
             var endRest = 0;
-            if(beg < 0) {
+            if (beg < 0) {
                 begRest = -beg;
                 beg = 0;
             }
-            if(end > content.length){
+            if (end > content.length) {
                 endRest = end - content.length;
                 end = content.length;
             }
-            if(begRest > 0) end += begRest;
-            if(endRest > 0) beg -= endRest;
+            if (begRest > 0) end += begRest;
+            if (endRest > 0) beg -= endRest;
         }
-        if(beg <= 0){
+        if (beg <= 0) {
             beg = 0;
             prefix = '';
         }
-        if(end >= content.length){
+        if (end >= content.length) {
             end = content.length;
             tail = '';
         }
@@ -382,4 +381,3 @@ Searchdoc.Panel.prototype = $.extend({}, Searchdoc.Navigation, new function() {
 });
 
 // tree.js ------------------------------------------------
-

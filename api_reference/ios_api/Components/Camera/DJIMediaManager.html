@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -510,7 +514,7 @@
 <div class="api-row" id="djimediamanager_updatevideoplaybackstate"><div class="api-col left">State</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimediamanager_updatevideoplaybackstate_inline">manager:didUpdateVideoPlaybackState</a></div></div><div class="inline-doc" id="djimediamanager_updatevideoplaybackstate_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>manager:didUpdateVideoPlaybackState</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackState:(DJIMediaVideoPlaybackState *)state</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">-(<span class="keyword">void</span>)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackState:(DJIMediaVideoPlaybackState *)state</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_updateVideoPlaybackState</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">Updates the video playback state of the media manager. This update method will only be called when the media manager is playing a video.</font></p>
@@ -519,7 +523,7 @@
 <div class="api-row" id="djimediamanager_updatevideoplaybackdata"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimediamanager_updatevideoplaybackdata_inline">manager:didUpdateVideoPlaybackData:length:forRendering</a></div></div><div class="inline-doc" id="djimediamanager_updatevideoplaybackdata_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>manager:didUpdateVideoPlaybackData:length:forRendering</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackData:(uint8_t *)data length:(size_t)length forRendering:(<span class="built_in">BOOL</span>)forRendering</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">-(<span class="keyword">void</span>)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackData:(uint8_t *)data length:(size_t)length forRendering:(<span class="built_in">BOOL</span>)forRendering</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_updateVideoPlaybackData</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Updates the video playback data of the media manager. This update method will only be called when the media manager is playing a video.</font></p>

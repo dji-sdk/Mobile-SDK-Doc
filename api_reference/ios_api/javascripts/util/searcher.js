@@ -227,7 +227,9 @@ Searcher.prototype = new function() {
           if (matchFunc(searchIndex[i], longTemp, queries, regexps)) {
             info[i].n = state.n;
             if(state.pass > 2 && info[i].apiType == 1) continue;
-            result.push(hltFunc(info[i], queries, regexps, highlighters));
+            var item = hltFunc(info[i], queries, regexps, highlighters)
+            item.pass = state.pass;
+            result.push(item);
             state.limit--;
           }
         }

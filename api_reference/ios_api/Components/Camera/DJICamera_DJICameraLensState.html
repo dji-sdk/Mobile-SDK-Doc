@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -419,7 +423,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isLensMounted</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isLensMounted</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamIsLensMounted</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isLensInstalled</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamislensmounted_inline">DJICameraParamIsLensMounted</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isLensInstalled</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666"><code>YES</code> if lens is installed on the camera.</font></p>
 </div>
@@ -427,7 +431,7 @@
 <div class="article"><h6><font color="#AAA">property </font>focusStatus</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJICameraFocusStatus focusStatus</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamLensFocusStatus</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_focusStatus</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamlensfocusstatus_inline">DJICameraParamLensFocusStatus</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_focusStatus</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">The current focus status of the lens.  If the lens is not installed, the value is undefined.</font></p>
 <h5 id="see-also">See Also:</h5>
@@ -437,7 +441,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isAFSwitchOn</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isAFSwitchOn</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamIsLensAFSwitchOn</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isAFSwitchOn</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamislensafswitchon_inline">DJICameraParamIsLensAFSwitchOn</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isAFSwitchOn</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666"><code>YES</code> if the lens Auto Focus (AF) switch is on. If the lens is not  installed, the value is undefined. If <code>YES</code>, <code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_setlensfocusmode">setFocusMode:withCompletion</a></code>  can be used to control the focal point.</font></p>
 </div>
@@ -445,7 +449,7 @@
 <div class="article"><h6><font color="#AAA">property </font>focusMode</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJICameraFocusMode focusMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamFocusMode</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_focusMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamfocusmode_inline">DJICameraParamFocusMode</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_focusMode</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">The current focus mode. If the lens is not installed, the value is undefined.</font></p>
 <h5 id="see-also-v2">See Also:</h5>
@@ -455,7 +459,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isFocusAssistantEnabledForMF</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isFocusAssistantEnabledForMF</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamFocusAssistantSettings</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isFocusAssistantEnabledForMF</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamfocusassistantsettings_inline">DJICameraParamFocusAssistantSettings</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isFocusAssistantEnabledForMF</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666"><code>YES</code> if the focus assistant is enabled for Manual focus mode. If the lens is not installed, the value is undefined.</font></p>
 </div>
@@ -463,7 +467,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isFocusAssistantEnabledForAF</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isFocusAssistantEnabledForAF</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamFocusAssistantSettings</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isFocusAssistantEnabledForAF</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamfocusassistantsettings_inline">DJICameraParamFocusAssistantSettings</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isFocusAssistantEnabledForAF</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666"><code>YES</code> if the focus assistant is enabled for Auto focus mode. If the lens is not installed, the value is undefined.</font></p>
 </div>
@@ -471,7 +475,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isFocusAssistantWorking</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isFocusAssistantWorking</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">DJICameraParamIsFocusAssistantWorking</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isFocusAssistantWorking</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraFocusState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey_djicameraparamisfocusassistantworking_inline">DJICameraParamIsFocusAssistantWorking</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensState_isFocusAssistantWorking</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666"><code>YES</code> if the focus target is zooming out.  If the lens is not installed, the value is undefined.</font></p>
 </div>

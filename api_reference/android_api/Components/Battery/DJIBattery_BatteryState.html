@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -532,7 +536,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getFullChargeCapacity</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getFullChargeCapacity</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">FULL_CHARGE_CAPACITY</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_fullChargeCapacity</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_full_charge_capacity_inline">FULL_CHARGE_CAPACITY</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_fullChargeCapacity</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Returns the total amount of energy, in mAh (milliamp hours), stored in the battery when the battery is fully charged. The energy of the battery at full charge changes over time as the battery continues to get used. Over time, as the battery continues to be recharged, the value of <code><a href="../../Components/Battery/DJIBattery_BatteryState.html#djibattery_batterystate_fullchargecapacity">getFullChargeCapacity</a></code> will decrease.</font></p>
 <h5 id="return">Return:</h5>
@@ -541,7 +545,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getChargeRemaining</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getChargeRemaining</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">CHARGE_REMAINING</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_chargeRemaining</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_charge_remaining_inline">CHARGE_REMAINING</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_chargeRemaining</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Returns the remaining energy stored in the battery in mAh (milliamp hours).</font></p>
 <h5 id="return-v2">Return:</h5>
@@ -550,7 +554,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getChargeRemainingInPercent</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getChargeRemainingInPercent</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">CHARGE_REMAINING_IN_PERCENT</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_chargeRemainingInPercent</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#gimbalkey_charge_remaining_in_percent_inline">CHARGE_REMAINING_IN_PERCENT</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_chargeRemainingInPercent</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Returns the percentage of battery energy left with range [0, 100].</font></p>
 <h5 id="return-v3">Return:</h5>
@@ -559,7 +563,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isBeingCharged</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isBeingCharged</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">IS_BEING_CHARGED</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_isBeingCharged</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_is_being_charged_inline">IS_BEING_CHARGED</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_isBeingCharged</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666"><code>true</code> if the battery is being charged.</font></p>
 <h5 id="return-v4">Return:</h5>
@@ -568,7 +572,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isInSingleBatteryMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isInSingleBatteryMode</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">IS_IN_SINGLE_BATTERY_MODE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_isInSingleBatteryMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_is_in_single_battery_mode_inline">IS_IN_SINGLE_BATTERY_MODE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_isInSingleBatteryMode</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666"><code>true</code> if only one battery is inserted on the the right or starboard side of the aircraft. The aircraft can still take off but the flight time will be shorter. It is only supported by Inspire 2. Inspire 2 must always have a battery in the right or starboard slot.</font></p>
 <h5 id="return-v5">Return:</h5>
@@ -577,7 +581,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getVoltage</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getVoltage</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">VOLTAGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_voltage</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_voltage_inline">VOLTAGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_voltage</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Returns the current battery voltage (mV).</font></p>
 <h5 id="return-v6">Return:</h5>
@@ -586,7 +590,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getCurrent</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getCurrent</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">CURRENT</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_current</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_current_inline">CURRENT</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_current</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Returns the real time current draw of the battery (mA). A negative value means the battery is being discharged, and a positive value means it is being charged.</font></p>
 <h5 id="return-v7">Return:</h5>
@@ -595,7 +599,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getCellVoltageLevel</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">BatteryCellVoltageLevel <span class="title">getCellVoltageLevel</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> cellVoltageLevel</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">CELL_VOLTAGE_LEVEL</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_cellVoltageLevel</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_cell_voltage_level_inline">CELL_VOLTAGE_LEVEL</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_cellVoltageLevel</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Current cell voltage level of the battery. It is only supported when the connected product is stand-alone A3 and N3.</font></p>
 <h5 id="return-v8">Return:</h5>
@@ -604,7 +608,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getLifetimeRemaining</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLifetimeRemaining</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">LIFETIME_REMAINING</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_lifetimeRemaining</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_lifetime_remaining_inline">LIFETIME_REMAINING</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_lifetimeRemaining</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Returns the percentage of remaining lifetime value of the battery with range [0, 100]. A new battery will be close to 100%. As a battery experiences charge/discharge cycles, the value will go down.</font></p>
 <h5 id="return-v9">Return:</h5>
@@ -613,7 +617,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getTemperature</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getTemperature</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">TEMPERATURE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_temperature</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_temperature_inline">TEMPERATURE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_temperature</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Returns the temperature of battery in Celsius, with range [-128, 127].</font></p>
 <h5 id="return-v10">Return:</h5>
@@ -622,7 +626,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getNumberOfDischarges</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getNumberOfDischarges</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">NUMBER_OF_DISCHARGES</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_numberOfDischarges</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_number_of_discharges_inline">NUMBER_OF_DISCHARGES</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_BatteryState_numberOfDischarges</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">Returns the total number of discharges the battery has gone through over its lifetime. The total number of discharges includes discharges that happen through normal use and discharges that are manually set.</font></p>
 <h5 id="return-v11">Return:</h5>
@@ -652,7 +656,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>BatteryCellVoltageLevel</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> BatteryCellVoltageLevel</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">CELL_VOLTAGE_LEVEL</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_DJIBatteryCellVoltageLevel</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_cell_voltage_level_inline">CELL_VOLTAGE_LEVEL</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery_DJIBatteryCellVoltageLevel</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Battery cell voltage level threshold. Different thresholds will initiate different aircraft behaviors or operations. Level 3 is the lowest level. It is only supported when the connected product is stand-alone A3 and N3.</font></p>
 <h5 id="enum-members">Enum Members:</h5>

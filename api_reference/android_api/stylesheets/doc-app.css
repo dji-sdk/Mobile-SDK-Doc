@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../";</script><script>var window.pathPrefix="../";</script>/* mixin */
+<script>window.pathPrefix="../";</script>/* mixin */
 /* color */
 /* $light-text-color: #a6acaa; */
 /* b4b4b4 */
@@ -734,19 +734,55 @@ label {
     margin: 0;
     padding: 0;
     float: left; }
-    .sub-nav nav a {
+    .sub-nav nav > a, .sub-nav nav .menu-item {
       float: left;
       display: block;
-      margin: 0 20px;
+      padding: 0 20px;
       border-bottom: 2px solid transparent;
       font-size: 12px;
       color: #979797;
       font-family: "Gotham", "Open Sans", "PingFangSC-Regular", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arials, sans-serif;
-      line-height: 48px; }
-      .sub-nav nav a:hover {
+      line-height: 48px;
+      cursor: pointer; }
+      .sub-nav nav > a:hover, .sub-nav nav .menu-item:hover {
         color: #44a8f2; }
-      .sub-nav nav a.active {
+      .sub-nav nav > a.active, .sub-nav nav .menu-item.active {
         border-bottom: 2px solid #44a8f2; }
+    .sub-nav nav .hovedown {
+      position: relative;
+      cursor: pointer; }
+      .sub-nav nav .hovedown .hovedown-toggle {
+        transition: all 0.3s ease-in-out; }
+      .sub-nav nav .hovedown .hovedown-menu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: 500;
+        left: 0;
+        top: 50px;
+        min-width: 140px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out; }
+        .sub-nav nav .hovedown .hovedown-menu > li {
+          cursor: pointer; }
+          .sub-nav nav .hovedown .hovedown-menu > li > a {
+            display: block;
+            padding: 0px 12px;
+            height: 46px;
+            font-family: "Gotham", "Open Sans", "PingFangSC-Regular", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arials, sans-serif;
+            color: #979797; }
+            .sub-nav nav .hovedown .hovedown-menu > li > a:hover {
+              color: #44a8f2; }
+          .sub-nav nav .hovedown .hovedown-menu > li:last-of-type a {
+            border-bottom: none; }
+      .sub-nav nav .hovedown .hovedown-menu-right {
+        left: auto;
+        right: 0;
+        text-align: right; }
+      .sub-nav nav .hovedown:hover .hovedown-menu {
+        opacity: 1;
+        visibility: visible; }
 
 .site-footer {
   position: absolute;

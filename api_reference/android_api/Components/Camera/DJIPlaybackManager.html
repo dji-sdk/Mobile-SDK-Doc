@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -604,7 +608,7 @@
 <p><font color="#666">Plays a video from the specified location. The selected file must be a video file.<br> <br> Precondition:<br>  The camera must enter Single File Preview Mode.<br> <br> Post condition:<br> The file will play from a specific location immediately. This command can only be called if the video is currently playing or is paused. If paused, the playback position will be updated and playing will resume.
 @return DJICameraError Shows the possible error during the execution. If there is no error, it returns <code>null</code>.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Byte <font color="#000">location</font></font></td><td><font color="#666"><i>Location from which to play the video must be in the range of [0, 100]. This value represents at what percent of the entire video it should start playing.</i></font></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Byte <font color="#000">location</font></font></td><td><font color="#666"><i>Location from which to play the video must be in the range of [0, 100]. This value  represents at what percent of the entire video it should start playing.</i></font></td></tr></table></html>
 <h5 id="return-v7">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i><code><a href="../../Components/SDKError/DJIError_DJICameraError.html#djierror_djicameraerror">DJICameraError</a></code> shows the possible error during the execution. If there is no error, it returns null.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiplaybackmanager_deletecurrentpreviewfile"><div class="api-col left">Delete File</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiplaybackmanager_deletecurrentpreviewfile_inline">deleteCurrentPreviewFile</a></div></div><div class="inline-doc" id="djiplaybackmanager_deletecurrentpreviewfile_inline" <blockquote="">

@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -575,7 +579,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isWorking</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isWorking</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">FOCUS_CONTROLLER_IS_WORKING</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCRemoteFocusState_isFocusControlWorks</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_focus_controller_is_working_inline">FOCUS_CONTROLLER_IS_WORKING</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCRemoteFocusState_isFocusControlWorks</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666"><code>true</code> if the focus control works. The control can be either changing the Aperture or  Focal Length. If it is <code>false</code>, follow  the <code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocuscontroldirection">Direction</a></code> to rotate the Remote Focus Device until it  turns to <code>true</code> again.</font></p>
 <h5 id="return">Return:</h5>
@@ -584,7 +588,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getControlType</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">ControlType <span class="title">getControlType</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">FOCUS_CONTROLLER_CONTROL_TYPE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCRemoteFocusState_controlType</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_focus_controller_control_type_inline">FOCUS_CONTROLLER_CONTROL_TYPE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCRemoteFocusState_controlType</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Remote Focus Control Type.</font></p>
 <h5 id="return-v2">Return:</h5>
@@ -593,7 +597,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getDirection</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Direction <span class="title">getDirection</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">FOCUS_CONTROLLER_DIRECTION</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCRemoteFocusState_direction</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_focus_controller_direction_inline">FOCUS_CONTROLLER_DIRECTION</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCRemoteFocusState_direction</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Remote Focus Control Direction. Use this with  the <code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate_isfocuscontrolworks">isWorking</a></code> value. It will give you the correct  rotation direction when <code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate_isfocuscontrolworks">isWorking</a></code> is  <code>false</code>.</font></p>
 <h5 id="return-v3">Return:</h5>

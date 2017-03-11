@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -473,7 +477,7 @@
 <div class="api-row" id="djihandheldcontroller_updatepowermode"><div class="api-col left">Power Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihandheldcontroller_updatepowermode_inline">handheldController:didUpdatePowerMode</a></div></div><div class="inline-doc" id="djihandheldcontroller_updatepowermode_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>handheldController:didUpdatePowerMode</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)handheldController:(DJIHandheldController *_Nonnull)controller didUpdatePowerMode:(DJIHandheldPowerMode)powerMode</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)handheldController:(DJIHandheldController *_Nonnull)controller didUpdatePowerMode:(DJIHandheldPowerMode)powerMode</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIHandheldController.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHandheldController_updatePowerMode</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Called when the handheld controller's power mode has been updated.</font></p>
@@ -482,7 +486,7 @@
 <div class="api-row" id="djihandheldcontroller_updatehardwarestate"><div class="api-col left">Hardware State</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihandheldcontroller_updatehardwarestate_inline">handheldController:didUpdateHardwareState</a></div></div><div class="inline-doc" id="djihandheldcontroller_updatehardwarestate_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>handheldController:didUpdateHardwareState</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)handheldController:(DJIHandheldController *_Nonnull)controller didUpdateHardwareState:(DJIHandheldControllerHardwareState *)state</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)handheldController:(DJIHandheldController *_Nonnull)controller didUpdateHardwareState:(DJIHandheldControllerHardwareState *)state</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIHandheldController.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHandheldController_updateHardwareState</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Called when the handheld controller's current hardware state (e.g. the state of the physical  buttons and joysticks) has been updated.</font></p>

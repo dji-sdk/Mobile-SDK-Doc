@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -602,7 +606,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isGestureModeEnabled</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">boolean</span> isGestureModeEnabled = <span class="keyword">false</span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_GESTURE_MODE_ENABLED</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_isGestureModeEnabled</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_gesture_mode_enabled_inline">ACTIVE_TRACK_GESTURE_MODE_ENABLED</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_isGestureModeEnabled</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666"><code>true</code> to enable gesture mode. In gesture mode: <br> - A human subject can be  automatically detected if they are moving a little (instead of requiring a defining rectangle)  <br> - The human subject can accept the confirmation to track them by waving their arms. <br> -  The tracked human can make the camera shoot a photo by showing a rectangle with their thumbs and  index fingers to the aircraft. Gesture mode can only be enabled when in trace mode  (DJIActiveTrackModeTrace). Default is <code>false</code>.</font></p>
 <h5 id="see-also-v4">See Also:</h5>
@@ -612,7 +616,7 @@
 <div class="article"><h6><font color="#AAA">method </font>setActiveTrackMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setActiveTrackMode</span><span class="params">(<span class="keyword">final</span> ActiveTrackMode activeTrackMode, <span class="keyword">final</span> CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_MODE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_setActiveTrackMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_mode_inline">ACTIVE_TRACK_MODE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_setActiveTrackMode</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Sets the active track mode on the currently executing mission. This method should be used when the  ActiveTrack mission is executing. The property <code><a href="../../Components/ActiveTrackMission/DJIActiveTrackMission.html#djiactivetrackmission_djiactivetrackmode">ActiveTrackMode</a></code> is used  before the mission starts. The active track mode can only be set when gesture mode is not enabled  for the currently executing mission.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
@@ -621,7 +625,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getActiveTrackMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getActiveTrackMode</span><span class="params">(<span class="keyword">final</span> CompletionCallbackWith&lt;ActiveTrackMode&gt; callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_MODE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_getActiveTrackMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_mode_inline">ACTIVE_TRACK_MODE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_getActiveTrackMode</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Gets the active track mode on currently executing mission. This method should be used when the  ActiveTrack mission is executing. The property <code><a href="../../Components/ActiveTrackMission/DJIActiveTrackMission.html#djiactivetrackmission_djiactivetrackmode">ActiveTrackMode</a></code> is  used before the mission starts. Will return <code><a href="../../Components/ActiveTrackMission/DJIActiveTrackMission.html#djiactivetrackmission_djiactivetrackmode_unknown">UNKNOWN</a></code>  if mission hasn't started.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
@@ -639,7 +643,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getCircularSpeed</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getCircularSpeed</span><span class="params">(<span class="keyword">final</span> CompletionCallbackWith&lt;Float&gt; callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_CIRCULAR_SPEED</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_getCircularSpeed</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_circular_speed_inline">ACTIVE_TRACK_CIRCULAR_SPEED</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_getCircularSpeed</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">In an ActiveTrack mission, the aircraft can be set to circle the target while following it. This  method returns the circular speed of the aircraft in m/s.</font></p>
 <h5 id="input-parameters-v9">Input Parameters:</h5>
@@ -648,7 +652,7 @@
 <div class="article"><h6><font color="#AAA">method </font>setGPSAssistantEnabled</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setGPSAssistantEnabled</span><span class="params">(Boolean isEnabled, <span class="keyword">final</span> CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_GPS_ASSISTANT_ENABLED</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_setGPSAssistantEnabled</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_gps_assistant_enabled_inline">ACTIVE_TRACK_GPS_ASSISTANT_ENABLED</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_setGPSAssistantEnabled</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
 <p><font color="#666">Enable GPS assistant while active track is on.</font></p>
 <h5 id="input-parameters-v10">Input Parameters:</h5>
@@ -657,7 +661,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getGPSAssistantEnabled</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getGPSAssistantEnabled</span><span class="params">(<span class="keyword">final</span> CompletionCallbackWith&lt;Boolean&gt; callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_GPS_ASSISTANT_ENABLED</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_getGPSAssistantEnabled</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.missionmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_gps_assistant_enabled_inline">ACTIVE_TRACK_GPS_ASSISTANT_ENABLED</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_getGPSAssistantEnabled</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Check if GPS assistant is enabled.</font></p>
 <h5 id="input-parameters-v11">Input Parameters:</h5>
@@ -678,7 +682,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ActiveTrackMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ActiveTrackMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ACTIVE_TRACK_MODE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_DJIActiveTrackMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_active_track_mode_inline">ACTIVE_TRACK_MODE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMission_DJIActiveTrackMode</font></td></tr></table></html>
 <h5 id="description-v17">Description:</h5>
 <p><font color="#666">Different modes of the ActiveTrack Mission. Defaults to Trace, set to others to enable the feature.</font></p>
 <h5 id="enum-members-v2">Enum Members:</h5>

@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -421,7 +425,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isConstellationSupported</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIRTK.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKReceiverInfo_isConstellationSupported</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666"><code>YES</code> if constellation is supported. The European and American version of RTK supports  GPS and GLONASS, while the Asia Pacific version supports GPS and BeiDou.</font></p>
+<p><font color="#666"><code>YES</code> if constellation is supported. The European and American versions of RTK support  GPS and GLONASS, while the Asia Pacific version supports GPS and BeiDou.</font></p>
 </div>
 <div class="api-row" id="djirtk_djirtkreceiverinfo_satellitecount"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkreceiverinfo_satellitecount_inline">satelliteCount</a></div></div><div class="inline-doc" id="djirtk_djirtkreceiverinfo_satellitecount_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>satelliteCount</h6></div>

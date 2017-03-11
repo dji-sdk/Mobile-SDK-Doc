@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -557,7 +561,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraModeRange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">CameraMode[] supportedCameraModeRange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">CAMERA_MODE_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraModeRange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_camera_mode_range_inline">CAMERA_MODE_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraModeRange</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Returns the current valid range for camera mode (<code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameramode">CameraMode</a></code>). Returns <code>null</code> if  current camera has no supported camera mode or the camera is disconnected. @return Array of CameraMode elements. Each element  represents one current supported camera mode.</font></p>
 <h5 id="return">Return:</h5>
@@ -566,7 +570,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraExposureModeRange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SettingsDefinitions.ExposureMode[] supportedCameraExposureModeRange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">EXPOSURE_MODE_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraExposureModeRange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_mode_range_inline">EXPOSURE_MODE_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraExposureModeRange</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Returns the current valid range for camera's exposure mode (<code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraexposuremode">ExposureMode</a></code>). Returns  <code>null</code> if current camera does not support any exposure mode or the camera is disconnected.  @return Array of NSNumber. Each element represent one current supported exposure mode.</font></p>
 <h5 id="return-v2">Return:</h5>
@@ -575,7 +579,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraISORange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ISO[] supportedCameraISORange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">ISO_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraISORange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_iso_range_inline">ISO_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraISORange</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Returns the current valid range for camera's ISO (see <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraiso">ISO</a></code>). Returns <code>null</code> if current camera does not support any ISO value or the camera is disconnected. @return Array  of CameraISO. Each element represent one current supported ISO value.</font></p>
 <h5 id="return-v3">Return:</h5>
@@ -584,7 +588,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraShutterSpeedRange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ShutterSpeed[] supportedCameraShutterSpeedRange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">SHUTTER_SPEED_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraShutterSpeedRange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_shutter_speed_range_inline">SHUTTER_SPEED_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraShutterSpeedRange</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Returns the current valid range for camera's shutter speed (see <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerashutterspeed">ShutterSpeed</a></code>). Returns  <code>null</code> if current camera does not support any shutter speed value or the camera is  disconnected. @return Array of CameraShutterSpeed. Each element represent one current  supported shutter speed value.</font></p>
 <h5 id="return-v4">Return:</h5>
@@ -593,7 +597,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraApertureRange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Aperture[] supportedCameraApertureRange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">APERTURE_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraApertureRange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_aperture_range_inline">APERTURE_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraApertureRange</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Returns the current valid range for camera's aperture (see <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraaperture">Aperture</a></code>). Returns  <code>null</code> if current camera does not support any aperture value or the camera is disconnected.  @return Array of CameraAperture. Each element represent one current supported aperture  value.</font></p>
 <h5 id="return-v5">Return:</h5>
@@ -602,7 +606,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraExposureCompensationRange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ExposureCompensation[] supportedCameraExposureCompensationRange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">EXPOSURE_COMPENSATION_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraExposureCompensationRange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_compensation_range_inline">EXPOSURE_COMPENSATION_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraExposureCompensationRange</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Returns the current valid range for camera's exposure compensation (see <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraexposurecompensation">ExposureCompensation</a></code>).  Returns <code>null</code> if current camera does not support any exposure compensation value or the camera  is disconnected. @return Array of CameraExposureCompensation. Each element represent one  current supported exposure compensation value.</font></p>
 <h5 id="return-v6">Return:</h5>
@@ -611,7 +615,7 @@
 <div class="article"><h6><font color="#AAA">method </font>supportedCameraVideoResolutionAndFrameRateRange</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ResolutionAndFrameRate[] supportedCameraVideoResolutionAndFrameRateRange()</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">VIDEO_RESOLUTION_FRAME_RATE_RANGE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraVideoResolutionAndFrameRateRange</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_resolution_frame_rate_range_inline">VIDEO_RESOLUTION_FRAME_RATE_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraParameters_supportedCameraVideoResolutionAndFrameRateRange</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Returns the current valid range for video resolution CameraVideoResolution  and frame rate <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameravideoframerate">VideoFrameRate</a></code>. Returns <code>null</code> if the current camera does  not support any video resolution or frame rate setting, or if the camera is disconnected.</font></p>
 <h5 id="return-v7">Return:</h5>

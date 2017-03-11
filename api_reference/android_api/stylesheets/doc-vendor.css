@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../";</script><script>var window.pathPrefix="../";</script>@charset "UTF-8";
+<script>window.pathPrefix="../";</script>@charset "UTF-8";
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2244,6 +2244,50 @@ th {
     border-top: 0px solid #ddd; }
   .table-camera-comparison > tbody > tr:nth-child(6) td, .table-camera-comparison > tbody tr:nth-child(11) td {
     border-bottom: 1px solid #ddd; }
+
+.key_table > thead > tr > th,
+.key_table > thead > tr > td,
+.key_table > tbody > tr > th,
+.key_table > tbody > tr > td,
+.key_table > tfoot > tr > th,
+.key_table > tfoot > tr > td {
+  border: 0px solid #ddd;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0; }
+
+.key_table > thead > tr:nth-child(1) > th, .key_table > thead > tr:nth-child(1) td,
+.key_table > tbody > tr:nth-child(1) > th,
+.key_table > tbody > tr:nth-child(1) td,
+.key_table > tfoot > tr:nth-child(1) > th,
+.key_table > tfoot > tr:nth-child(1) td {
+  padding-top: 0px;
+  margin-top: 0px; }
+
+.key_table_key_string {
+  font-weight: normal;
+  color: #70BF41 !important; }
+
+.key_table_title_string {
+  font-weight: normal;
+  font-style: italic;
+  color: #BBBBBB !important; }
+
+.key_table_type_string {
+  font-weight: normal;
+  color: #888888 !important; }
+
+.key_table_key_row {
+  padding-top: 30px; }
+
+.key_table_key_first_row {
+  padding-top: 0px; }
+
+.key_table_doc_row {
+  padding-top: 0;
+  margin-top: 0; }
 
 .table-remote-comparison {
   font-size: 85%;

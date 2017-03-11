@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -532,7 +536,7 @@
 <div class="article"><h6><font color="#AAA">interface </font>Callback</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Callback</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">THERMAL_AREA_TEMPERATURE_AGGREGATIONS</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_ThermalCameraAreaTemperatureAggregationsUpdatedCallbackInterface</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_area_temperature_aggregations_inline">THERMAL_AREA_TEMPERATURE_AGGREGATIONS</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_ThermalCameraAreaTemperatureAggregationsUpdatedCallbackInterface</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">This interface provides information about the aggregate temperature of metering area.</font></p>
 <h5 id="interface-methods">Interface Methods:</h5>
@@ -568,7 +572,7 @@
 <div class="api-row" id="djicamera_djicamerathermalareatemperatureaggregations_mintemperaturepoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalareatemperatureaggregations_mintemperaturepoint_inline">getMinTemperaturePoint</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalareatemperatureaggregations_mintemperaturepoint_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getMinTemperaturePoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@NonNull</span></div><div class="line"><span class="function"><span class="keyword">public</span> Point <span class="title">getMinTemperaturePoint</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@NonNull</span></div><div class="line"> <span class="function">Point <span class="title">getMinTemperaturePoint</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalAreaTemperatureAggregations_minTemperaturePoint</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">The minimum temperature coordinate of the selected metering area.</font></p>
@@ -586,7 +590,7 @@
 <div class="api-row" id="djicamera_djicamerathermalareatemperatureaggregations_maxtemperaturepoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalareatemperatureaggregations_maxtemperaturepoint_inline">getMaxTemperaturePoint</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalareatemperatureaggregations_maxtemperaturepoint_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getMaxTemperaturePoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@NonNull</span></div><div class="line"><span class="function"><span class="keyword">public</span> Point <span class="title">getMaxTemperaturePoint</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@NonNull</span></div><div class="line"> <span class="function">Point <span class="title">getMaxTemperaturePoint</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalAreaTemperatureAggregations_maxTemperaturePoint</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">The maximum temperature coordinate of the selected metering area.</font></p>

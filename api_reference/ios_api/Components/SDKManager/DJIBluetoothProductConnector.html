@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -464,7 +468,7 @@
 <div class="api-row" id="djibluetoothproductconnector_connectordidfindproducts"><div class="api-col left">State</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djibluetoothproductconnector_connectordidfindproducts_inline">connectorDidFindProducts</a></div></div><div class="inline-doc" id="djibluetoothproductconnector_connectordidfindproducts_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>connectorDidFindProducts</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)connectorDidFindProducts:(<span class="built_in">NSArray</span>&lt;CBPeripheral *&gt;* _Nullable)peripherals</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">required</div><div class="line">- (<span class="keyword">void</span>)connectorDidFindProducts:(<span class="built_in">NSArray</span>&lt;CBPeripheral *&gt;* _Nullable)peripherals</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIBluetoothProductConnector.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBluetoothProductConnector_ConnectorDidFindProducts</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Provides the list of DJI products that can be connected with the mobile device over Bluetooth. Delegate will  continue to receive an updated list after <code><a href="../../Components/SDKManager/DJIBluetoothProductConnector.html#djibluetoothproductconnector_searchbluetoothproducts">searchBluetoothProductsWithCompletion</a></code> is called  until the searching is finished (either product is connected or after 10s).</font></p>

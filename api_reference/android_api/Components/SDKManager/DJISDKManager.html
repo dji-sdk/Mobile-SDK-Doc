@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -642,7 +646,7 @@ SDK Registration using <code><a href="../../Components/SDKManager/DJISDKManager.
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">startConnectionToProduct</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJISDKManager_startConnectionToProduct</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
-<p><font color="#666">Starts a connection between the SDK and the DJI product. This method should be called  after successful registration of the app and once there is a data connection between the mobile device and DJI product. This data connection is either a USB cable connection, a WiFi connection (that needs to be established outside of the SDK) or a Bluetooth connection (that needs to be established with <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_bluetoothconnector">getBluetoothProductConnector</a></code>). If the connection succeeds, <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_productdidchangefromto">onProductChange</a></code>  will be called if the connection succeeded. Returns <code>true</code> if the connection is started successfully. For products which connect to the mobile device using Bluetooth, <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_bluetoothconnector">getBluetoothProductConnector</a></code> should be used to get a <code><a href="../../Components/SDKManager/DJIBluetoothProductConnector.html#djibluetoothproductconnector">BluetoothProductConnector</a></code> object which can handle Bluetooth device connection.</font></p>
+<p><font color="#666">Starts a connection between the SDK and the DJI product. This method should be called  after successful registration of the app and once there is a data connection between the mobile device and DJI product. This data connection is either a USB cable connection, a WiFi connection (that needs to be established outside of the SDK) or a Bluetooth connection (that needs to be established with <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_bluetoothconnector">getBluetoothProductConnector</a></code>). If the connection succeeds, <code>DJISDKManager_productConnectedUpdate</code>  will be called if the connection succeeded. Returns <code>true</code> if the connection is started successfully. For products which connect to the mobile device using Bluetooth, <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_bluetoothconnector">getBluetoothProductConnector</a></code> should be used to get a <code><a href="../../Components/SDKManager/DJIBluetoothProductConnector.html#djibluetoothproductconnector">BluetoothProductConnector</a></code> object which can handle Bluetooth device connection.</font></p>
 <h5 id="return-v6">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code> if the connection is started successfully.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djisdkmanager_stopconnectiontoproduct"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djisdkmanager_stopconnectiontoproduct_inline">stopConnectionToProduct</a></div></div><div class="inline-doc" id="djisdkmanager_stopconnectiontoproduct_inline" <blockquote="">
@@ -698,7 +702,7 @@ SDK Registration using <code><a href="../../Components/SDKManager/DJISDKManager.
 <div class="api-row" id="djisdkmanager_keymanager"><div class="api-col left">SDK Keys</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djisdkmanager_keymanager_inline">getKeyManager</a></div></div><div class="inline-doc" id="djisdkmanager_keymanager_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getKeyManager</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Nullable</span></div><div class="line"><span class="function"><span class="keyword">public</span> KeyManager <span class="title">getKeyManager</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Nullable</span></div><div class="line"> <span class="function">KeyManager <span class="title">getKeyManager</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJISDKManager_keyManager</font></td></tr></table></html>
 <h5 id="description-v20">Description:</h5>
 <p><font color="#666">Provide access to the SDK Key interface.</font></p>

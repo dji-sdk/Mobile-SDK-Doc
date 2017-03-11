@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -525,16 +529,16 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">RTKState</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class holds the state of the RTK system including position, positioning solution and receiver information.</font></p>
+<p><font color="#666">This class holds the state of the RTK system, including position, positioning solution, and receiver information.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="use-and-position">Use and Position</h4>
 <div class="api-row" id="djirtk_djirtkstate_isrtkenabled"><div class="api-col left">Use</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_isrtkenabled_inline">isRTKEnabled</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_isrtkenabled_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>isRTKEnabled</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isRTKEnabled</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_ENABLED</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_isRTKEnabled</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_enabled_inline">RTK_ENABLED</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_isRTKEnabled</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Whether the RTK is enabled or not.</font></p>
+<p><font color="#666">Returns state of RTK (enabled/disabled).</font></p>
 <h5 id="return">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_solution"><div class="api-col left">Positioning Solution</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_solution_inline">getPositioningSolution</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_solution_inline" <blockquote="">
@@ -543,41 +547,41 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">PositioningSolution <span class="title">getPositioningSolution</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_solution</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">The positioning solution informs the quality of the position. The most accurate position is obtained when a  fixed point solution is returned.</font></p>
+<p><font color="#666">The positioning solution describes the method used to determine positioning. The solutions vary in accuracy, from <code><a href="../../Components/RTK/DJIRTK_DJIRTKState.html#djirtk_djirtkpositioningsolution_none">NONE</a></code> (no positioning) to <code><a href="../../Components/RTK/DJIRTK_DJIRTKState.html#djirtk_djirtkpositioningsolution_fixedpoint">FIXED_POINT</a></code>.</font></p>
 <h5 id="return-v2">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/RTK/DJIRTK_DJIRTKState.html#djirtk_djirtkpositioningsolution">PositioningSolution</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/RTK/DJIRTK_DJIRTKState.html#djirtk_djirtkpositioningsolution">PositioningSolution</a></code></i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_error"><div class="api-col left">Error</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_error_inline">getError</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_error_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getError</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">DJIError <span class="title">getError</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_ERROR</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_error</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_error_inline">RTK_ERROR</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_error</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">RTK error if there is any. Returns 'null' when RTK is normal.</font></p>
+<p><font color="#666">Gets RTK errors, if any. Returns 'null' when RTK is normal.</font></p>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i>An instance of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_isheadingvalid"><div class="api-col left">Heading</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_isheadingvalid_inline">isHeadingValid</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_isheadingvalid_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>isHeadingValid</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isHeadingValid</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_IS_HEADING_VALID</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_isHeadingValid</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_is_heading_valid_inline">RTK_IS_HEADING_VALID</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_isHeadingValid</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666"><code>true</code> if heading value is valid. Heading is not valid when a satellite fix hasn't  been obtained.</font></p>
+<p><font color="#666"><code>true</code> if heading value is valid. Heading is invalid when a satellite fix hasn't  been obtained.</font></p>
 <h5 id="return-v4">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_heading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_heading_inline">getHeading</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_heading_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getHeading</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">getHeading</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_DIRECT_ANGLE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_heading</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_direct_angle_inline">RTK_DIRECT_ANGLE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_heading</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Heading relative to True Noth defined by the vector formed from Antenna 2 to Antenna 1 on the mobile station.  Unit is degrees.</font></p>
+<p><font color="#666">Heading relative to True Noth as defined by the vector formed from Antenna 2 to Antenna 1 on the mobile station.  Unit is degrees.</font></p>
 <h5 id="return-v5">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_mobilestationantenna1location"><div class="api-col left">Mobile Station Position</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_mobilestationantenna1location_inline">getMobileStationLocation</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_mobilestationantenna1location_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getMobileStationLocation</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">LocationCoordinate2D <span class="title">getMobileStationLocation</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_AIR_LATITUDE, RTK_AIR_LONGITUDE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_mobileStationAntenna1Location</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_air_latitude_inline">RTK_AIR_LATITUDE</a>, <a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_air_longitude_inline">RTK_AIR_LONGITUDE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_mobileStationAntenna1Location</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Location information of the mobile station's receiver 1 antenna. This location information is relative to the  base station location and is in degrees.</font></p>
 <h5 id="return-v6">Return:</h5>
@@ -586,31 +590,31 @@
 <div class="article"><h6><font color="#AAA">method </font>getMobileStationAltitude</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">getMobileStationAltitude</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_AIR_ALTITUDE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_mobileStationAntenna1Altitude</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_air_altitude_inline">RTK_AIR_ALTITUDE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_mobileStationAntenna1Altitude</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">Altitude of the mobile station's receiver 1 antenna relative to the base station location. Units are meters.</font></p>
+<p><font color="#666">Altitude of the mobile station's receiver 1 antenna relative, to the base station location. Units are meters.</font></p>
 <h5 id="return-v7">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_basestationlocation"><div class="api-col left">Base Station Position</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_basestationlocation_inline">getBaseStationLocation</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_basestationlocation_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getBaseStationLocation</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">LocationCoordinate2D <span class="title">getBaseStationLocation</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_GROUND_LATITUDE, RTK_GROUND_LONGITUDE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_baseStationLocation</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_ground_latitude_inline">RTK_GROUND_LATITUDE</a>, <a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_ground_longitude_inline">RTK_GROUND_LONGITUDE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_baseStationLocation</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
-<p><font color="#666">Location of the base station in coordinates in degrees.</font></p>
+<p><font color="#666">Base station's location coordinates, in degrees.</font></p>
 <h5 id="return-v8">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></font></td><td><font color="#666"><i>An instance of <code><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></code>.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_basestationaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_basestationaltitude_inline">getBaseStationAltitude</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_basestationaltitude_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getBaseStationAltitude</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">getBaseStationAltitude</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_GROUND_ALTITUDE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_baseStationAltitude</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_ground_altitude_inline">RTK_GROUND_ALTITUDE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_baseStationAltitude</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
-<p><font color="#666">Altitude of the base station above sea level in meters.</font></p>
+<p><font color="#666">Altitude of the base station above sea level, in meters.</font></p>
 <h5 id="return-v9">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value.</i></font></td></tr></table></html></div>
 <html><p><br></p></html>
-<h4 id="sattelite-information">Sattelite Information</h4>
+<h4 id="satellite-information">Satellite Information</h4>
 <div class="api-row" id="djirtk_djirtkstate_mobilestationreceiver1gpsinfo"><div class="api-col left">Mobile Station</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_mobilestationreceiver1gpsinfo_inline">getMobileStationReceiver1GPSInfo</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_mobilestationreceiver1gpsinfo_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getMobileStationReceiver1GPSInfo</h6></div>
 
@@ -635,7 +639,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">ReceiverInfo <span class="title">getMobileStationReceiver1GLONASSInfo</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKState_mobileStationReceiver1GLONASSInfo</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
-<p><font color="#666">Mobile station (aircraft) receiver 1 GLONSS info.</font></p>
+<p><font color="#666">Mobile station (aircraft) receiver 1 GLONASS info.</font></p>
 <h5 id="return-v12">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/RTK/DJIRTK_DJIRTKReceiverInfo.html#djirtk_djirtkreceiverinfo">ReceiverInfo</a></font></td><td><font color="#666"><i>An instance of <code><a href="../../Components/RTK/DJIRTK_DJIRTKReceiverInfo.html#djirtk_djirtkreceiverinfo">ReceiverInfo</a></code></i></font></td></tr></table></html></div>
 <div class="api-row" id="djirtk_djirtkstate_mobilestationreceiver2gpsinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtk_djirtkstate_mobilestationreceiver2gpsinfo_inline">getMobileStationReceiver2GPSInfo</a></div></div><div class="inline-doc" id="djirtk_djirtkstate_mobilestationreceiver2gpsinfo_inline" <blockquote="">
@@ -706,7 +710,7 @@
 <div class="article"><h6><font color="#AAA">method </font>onUpdate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onUpdate</span><span class="params">(@NonNull RTKState state)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">RTK_STATE</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_updateRTKState</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_rtk_state_inline">RTK_STATE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_updateRTKState</font></td></tr></table></html>
 <h5 id="description-v21">Description:</h5>
 <p><font color="#666">Callback function that updates the RTK state data.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
@@ -718,9 +722,9 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> PositioningSolution</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRTK_DJIRTKPositioningSolution</font></td></tr></table></html>
 <h5 id="description-v22">Description:</h5>
-<p><font color="#666">This enum defines the positioning solution the system is currently using.</font></p>
+<p><font color="#666">This enum defines the positioning solution currently being used.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_none_inline"></a>NONE</font></td><td><font color="#666">No positinging solution. This can be caused by an insufficient number of sattelites in view, an insufficient  amount of time to lock onto the satellites, or a loss in communication link between the mobile station and base station.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_singlepoint_inline"></a>SINGLE_POINT</font></td><td><font color="#666">RTK point positioning.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_float_inline"></a>FLOAT</font></td><td><font color="#666">Float solution positioning.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_fixedpoint_inline"></a>FIXED_POINT</font></td><td><font color="#666">Fixed-point solution positioning. The supplied location information will be the most accurate in this mode.</font></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_none_inline"></a>NONE</font></td><td><font color="#666">No positioning solution. This can be caused by an insufficient number of satellites in view, insufficient  time to lock onto the satellites, or a loss in communication link between the mobile station and base station.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_singlepoint_inline"></a>SINGLE_POINT</font></td><td><font color="#666">RTK point positioning.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_float_inline"></a>FLOAT</font></td><td><font color="#666">Float solution positioning.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtk_djirtkpositioningsolution_fixedpoint_inline"></a>FIXED_POINT</font></td><td><font color="#666">Fixed-point solution positioning (most accurate).</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 </div>
 <div class="api-row" id="djirtk_djirtkreceiverinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/RTK/DJIRTK_DJIRTKReceiverInfo.html">ReceiverInfo</a></div></div>

@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -423,7 +427,9 @@
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Initialized mission step with an angle relative to current heading. The velocity is the  yaw rotation angular velocity which has a range of [0, 100] degree/s and a default of  20 degree/s.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double <font color="#000">angle</font></font></td><td><font color="#666"><i></i></font></td></tr><tr valign="top"><td><font color="#70BF41">double <font color="#000">velocity</font></font></td><td><font color="#666"><i></i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double <font color="#000">angle</font></font></td><td><font color="#666"><i></i></font></td></tr><tr valign="top"><td><font color="#70BF41">double <font color="#000">velocity</font></font></td><td><font color="#666"><i></i></font></td></tr></table></html>
+<h5 id="return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">instancetype _Nullable</font></td><td><font color="#666"><i>An instance of <code><a href="../../Components/Missions/DJIAircraftYawAction.html#djiaircraftyawaction">DJIAircraftYawAction</a></code>.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
 <div class="api-row" id="djiaircraftyawaction_djiaircraftyawactionerrordomain"><div class="api-col left">AircraftYawAction</div><div class="api-col middle" style="color:#AAA">const</div><div class="api-col right"><a class="trigger" href="#djiaircraftyawaction_djiaircraftyawactionerrordomain_inline">DJIAircraftYawActionErrorDomain</a></div></div><div class="inline-doc" id="djiaircraftyawaction_djiaircraftyawactionerrordomain_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">const </font>DJIAircraftYawActionErrorDomain</h6></div>

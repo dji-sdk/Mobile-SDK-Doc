@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>var window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,11 @@
     <div data-offset-top="60" data-spy="affix" class="sub-nav">
       <div class="container">
         <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
+        <nav><a href="mobile-sdk">Overview</a><a href="mobile-sdk/documentation" class="active">Documentation</a><span class="hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="../../api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="../../api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="mobile-sdk/downloads">Downloads</a><a href="mobile-sdk/support">Support</a>
         </nav>
       </div>
     </div>
@@ -1147,10 +1151,10 @@
 <h5 id="description-v78">Description:</h5>
 <p><font color="#666">The command is wrong.</font></p>
 </div>
-<div class="api-row" id="djierror_djiflightcontrollererror_unable_to_take_off"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djiflightcontrollererror_unable_to_take_off_inline">UNABLE_TO_TAKE_OFF</a></div></div><div class="inline-doc" id="djierror_djiflightcontrollererror_unable_to_take_off_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">final </font>UNABLE_TO_TAKE_OFF</h6></div>
+<div class="api-row" id="djierror_djiflightcontrollererror_unable_to_take_off"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djiflightcontrollererror_unable_to_take_off_inline">ALREADY_IN_THE_AIR</a></div></div><div class="inline-doc" id="djierror_djiflightcontrollererror_unable_to_take_off_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">final </font>ALREADY_IN_THE_AIR</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> DJIFlightControllerError UNABLE_TO_TAKE_OFF = <span class="keyword">new</span> DJIFlightControllerError(<span class="string">"If the motors are already turned on or the aircraft is already flying, the takeoff() did not execute."</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> DJIFlightControllerError ALREADY_IN_THE_AIR = <span class="keyword">new</span> DJIFlightControllerError(<span class="string">"If the motors are already turned on or the aircraft is already flying, the takeoff() did not execute."</span>)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIError_DJIFlightControllerError_UNABLE_TO_TAKE_OFF</font></td></tr></table></html>
 <h5 id="description-v79">Description:</h5>
 <p><font color="#666">If the motors are already turned on or the aircraft is already flying, the takeoff did not execute.</font></p>
