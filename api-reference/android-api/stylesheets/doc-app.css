@@ -748,6 +748,8 @@ label {
         color: #44a8f2; }
       .sub-nav nav > a.active, .sub-nav nav .menu-item.active {
         border-bottom: 2px solid #44a8f2; }
+    .sub-nav nav .caret {
+      margin-left: 8px; }
     .sub-nav nav .hovedown {
       position: relative;
       cursor: pointer; }
