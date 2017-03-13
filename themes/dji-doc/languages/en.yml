@@ -31,6 +31,9 @@ sub_nav:
   documentation: Documentation
   downloads: Downloads
   support: Support
+  api_reference: API Reference
+  ios_reference: IOS SDK
+  android_reference: Android SDK
 
 policies:
   privacy: Privacy
@@ -43,7 +46,7 @@ doc:
   search_title_onboard: 'Search Onboard SDK Document'
   results: 'Results'
   notfound: 'Not Found'
-  
+
 btn:
   load_more: 'Load More'
   loading: 'Loading...'
