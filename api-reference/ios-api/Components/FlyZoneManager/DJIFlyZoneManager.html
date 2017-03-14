@@ -129,9 +129,9 @@
             <dl>
               <dt>Base Classes
               </dt>
-                      <dd><a data-href="../../Base Classes/DJIBaseProduct.html" class="sub-toggle">DJIBaseProduct<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                      <dd><a data-href="../../BaseClasses/DJIBaseProduct.html" class="sub-toggle">DJIBaseProduct<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                         <ul class="sub-menu">
-                                  <dd><a href="../../Base Classes/DJIVideoFeeder.html">DJIVideoFeeder</a>
+                                  <dd><a href="../../BaseClasses/DJIVideoFeeder.html">DJIVideoFeeder</a>
                                   </dd>
                         </ul>
                       </dd>
@@ -445,7 +445,7 @@
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Logs out the logged in DJI user.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>The execution block with the returned execution result.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>The execution block with the returned execution result.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflyzonemanager_setgeosystemenabled"><div class="api-col left">Enable GEO System</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_setgeosystemenabled_inline">setGEOSystemEnabled:withCompletion</a></div></div><div class="inline-doc" id="djiflyzonemanager_setgeosystemenabled_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>setGEOSystemEnabled:withCompletion</h6></div>
 
@@ -454,7 +454,7 @@
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666"><code>YES</code> to enable GEO system. By default, if the GEO system is available at the aircraft  location, GEO system will be enabled. The setting is <code>NO</code> settable when the aircraft is  in the air. The setting will take effect only when the aircraft lands. When GEO system is disabled, the aircraft  reverts back to the previous NFZ (No Fly Zone) system. This interface may be deprecated in the future.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">BOOL <font color="#000">enabled</font></font></td><td><font color="#666"><i>YES to enable GEO system.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>The execution block with the returned execution result.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">BOOL <font color="#000">enabled</font></font></td><td><font color="#666"><i>YES to enable GEO system.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>The execution block with the returned execution result.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflyzonemanager_getgeosystemenabled"><div class="api-col left">Check If GEO System Enabled</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_getgeosystemenabled_inline">getGEOSystemEnabled</a></div></div><div class="inline-doc" id="djiflyzonemanager_getgeosystemenabled_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getGEOSystemEnabled</h6></div>
 
@@ -490,7 +490,7 @@
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Unlocks the selected fly zones. This method can be used to unlock enhanced warning and authorization zones.  After unlocking the zones, flight will be unrestricted in those zones until the unlock expires. The unlocking  record will be linked to the user's account and will be accessible to DJI GO and other DJI Mobile SDK based applications.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSArray&lt;NSNumber *&gt; *_Nullable <font color="#000">flyZoneIDs</font></font></td><td><font color="#666"><i>The IDs of EnhancedWarningZones or AuthorizedWarningZones.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>The execution block with the returned execution result.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSArray&lt;NSNumber *&gt; *_Nullable <font color="#000">flyZoneIDs</font></font></td><td><font color="#666"><i>The IDs of EnhancedWarningZones or AuthorizedWarningZones.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>The execution block with the returned execution result.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflyzonemanager_delegate"><div class="api-col left">State Updates</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_delegate_inline">delegate</a></div></div><div class="inline-doc" id="djiflyzonemanager_delegate_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>delegate</h6></div>
 
