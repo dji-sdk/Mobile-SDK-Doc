@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
 version: v3.5.1
-date: 2016-12-15
+date: 2017-03-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap
 keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission demo]
 ---
@@ -55,39 +55,21 @@ After Google Play Services Package is installed. Open **AndroidManifest.xml** fi
 
 You can now start using the Google Maps Android APIs to develop your app.
 
-#### 3. Generating SHA-1 Key
+#### 3. Applying for an Google API Key
 
-We can use Android Studio to generate a SHA-1 Key easily. Click on the **Gradle** tap on the right side of Android Studio. Select the project and navigate to **Tasks -> android -> signingReport**. 
+Now, let's go to <a href="https://developers.google.com/maps/documentation/android-api/signup?authuser=2" target="_blank">Google's Quick guide to getting a key</a> to apply for a Google API Key. Login with your Google account and press the **GET A Key** button and create a project named "GSDemo"(You can use another name here). You will see the following screenshot like this:
 
-![signingReport](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/signingReport.png)
+![EnableGoogleMapsAPI](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/EnableGoogleMapsAPI.png)
 
-Then double click the **signingReport** and check the Console area of Android Studio, you can find the SHA-1 key easily:
+ Then press the **CREATE AND ENABLE API** button to create and enable the Google Maps Android API of this project, wait for a few seconds, you may see the following screenshot:
 
-![SHA1](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/SHA-1Key.png)
+![CreateAndEnableAPI](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/CreateAndEnableAPI.png) 
 
-#### 4. Applying for an Google API Key
-
-Now, let's go to <a href="https://console.developers.google.com/apis" target="_blank">Google Developer Console</a> to apply for an Google API Key. Login with your Google account and select the **Credentials** tap on the left side of **API Manager**. You will see the following screenshot here:
-
-![CreateCredentials](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/createCredentials.png)
-
- Press the **Create credentials** button and select **API Key -> Android Key** to create an Android Key. Follow the screenshot below to fill in the content with your generated "SHA-1 Key" in the above steps:
+ Now, you get your **API Key**, copy it and we will use it in the next section.
  
- ![AndroidKey](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/createAndroidAPIKeys.png)
- 
-> Note: The "Package name" should be the same to your Android project's Package name.
- 
- Then press "create" and you can get your Google API Key like this:
- 
- ![AndroidAPIKey](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/androidAPIKeys.png)
+#### 4. Adding Google API Key
 
- Finally, we should enable the **Google Maps Android API** as a service for your project too. Please tap on the **Overview** tab on the left side and select the "Google Maps Android API" item. Then press "Enable" button to enable the API as you seen below:
- 
- ![EnableMapsAPI](../../images/tutorials-and-samples/Android/GSDemo-Google-Map/enableMapsAPI.png)
- 
-#### 5. Adding Google API Key
-
-Open the AndroidManifest.xml file, add the following element as child of **<application>** element and substitute your Google API Key in the **value** attribute as shown below:
+Open the AndroidManifest.xml file, add the following element as child of **<application>** element and substitute your Google API Key you have just generated in the **value** attribute as shown below:
 
 ~~~xml
     <meta-data
@@ -134,7 +116,7 @@ Finally, we need to specify requirement for OpenGL ES version 2 by adding the fo
 
 For more details of description on the permissions, refer to <a href="https://developers.google.com/maps/documentation/android/config" target="_blank">https://developers.google.com/maps/documentation/android/config</a>.
 
-#### 6. Adding Multidex Support with Gradle
+#### 5. Adding Multidex Support with Gradle
 
 In order to use Google Play Service in our project, we need to add Multidex support to avoid the the 64K limit with Gradle.
 
@@ -541,7 +523,7 @@ In the code shown above, we implement the following features:
 
 **5.** Lastly, we override the `onMapReady()` method to initialize the `gMap` and invoke `setUpMap()` method to implement the `setOnMapClickListener()` method of `gMap` variable. Then add a marker of Shenzhen, China here for example. So when the Google map is loaded, you will see a red pin tag on Shenzhen, China.
 
-For more details, please check the Github Sample Project. If you are not familiar with adding a Google map to your application, please follow this <a href="https://developers.google.com/maps/documentation/android-api/utility/setup#library-dependency" target="_blank">guide</a>. 
+For more details, please check the tutorial's Github Sample Project. If you are not familiar with adding a Google map to your application, please follow this <a href="https://developers.google.com/maps/documentation/android-api/utility/setup#library-dependency" target="_blank">guide</a>. 
 
 We have gone through a long process to setup the UI of the application. Now, let's build and run the project and install it in your Android device to test it. Here we use Nexus 5 for testing. If everything goes well, you should see the following gif animation of the application:
 
@@ -1334,5 +1316,4 @@ The inspire 1 will eventually go home, land, and the beeping from the remote con
  In this tutorial, you’ve learned how to setup and use the DJI PC Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI PC Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use DJIMissionManager to **prepare**, **start** and **stop** missions. 
       
    Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
-
 
