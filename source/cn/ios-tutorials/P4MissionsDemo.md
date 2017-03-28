@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v3.5.1
-date: 2017-01-16
+date: 2017-03-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [iOS Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -36,28 +36,13 @@ Here is a <a href="https://dn-djidl2.qbox.me/cloud/4ebc02c536baf850f5a568d8c2774
 
 ## Implementing the UI of Application
 
-### Importing the Framework
+### Importing SDK and DJIVideoPreviewer
 
 Now that you know the details of the two new missions of Phantom 4, we can start working on the application.
 
 Let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "P4Missions" in the **Product Name** field and keep the other default settings.
 
-Once the project is created, let's import the **DJISDK.framework** to it. If you are not familiar with the process of importing DJI SDK, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
-
-### Importing the VideoPreviewer
-
- **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
-  
- ![projectNavigator](../../images/tutorials-and-samples/iOS/Phantom4Missions/projectNavigator.png)
- 
-> Note: Please Make sure the **VideoPreviewer** folder and **DJISDK.framework** are in the same **Frameworks** folder like this:
-> 
-> ![frameworksFolderStruct](../../images/tutorials-and-samples/iOS/Phantom4Missions/frameworksFolderStruct.png)
- 
- **2**. Next, let's select the "P4Missions" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
- 
-  ![addFrameworks](../../images/tutorials-and-samples/iOS/Phantom4Missions/addFrameworks.png)
-  ![addFrameworksResult](../../images/tutorials-and-samples/iOS/Phantom4Missions/addFrameworksResult.png)
+Once the project is created, let's import the **DJISDK.framework** and **DJIVideoPreviewer** to the project. If you are not familiar with the process of importing DJI SDK and DJIVideoPreviewer using Cocoapods, please check these two tutorials: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) and [Creating a Camera Application](./index.html#Implementing-the-First-Person-View), for details.
 
 ### Setup the Storyboard
 
@@ -1375,6 +1360,4 @@ Moreover, another good news is you can use the DJI Bridge App to test the applic
   Congratulations! You've finished the demo project and implement the two cool **TapFly** and **ActiveTrack** missions using DJI Mobile SDK. It's easy and straightforward. You've learned how to use the DJITapFlyMission, DJIActiveTrackMission and DJIMissionManager to implement the features. Also, you know how to setup and use the simulator of DJI Assistant 2 and DJI Bridge App to test the two missions on your Mac easily. 
 
   But, In order to make a cool **TapFly** and **ActiveTrack** mission application, you still have a long way to go. You can add more necessary features like showing the battery percentage, GPS signal quality, add a checklist like DJI Go app to check the aircraft status before flying, etc. Good luck and hope you enjoy this tutorial!
-
-
 

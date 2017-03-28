@@ -1,0 +1,798 @@
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
+    <title>DJI Mobile SDK Documentation
+    </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+  </head>
+  <body>
+    <nav id="site-header" class="site-header navbar">
+      <div class="container">
+        <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Developer</a></div>
+        <div id="header-navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">SDK<span class="caret"></span></a>
+              <ul class="hovedown-menu">
+                <li><a href="/mobile-sdk">Mobile SDK</a></li>
+                <li><a href="/onboard-sdk">Onboard SDK</a></li>
+                <li><a href="/guidance-sdk">Guidance SDK</a></li>
+              </ul>
+            </li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/showcase">Showcase</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a></li>
+            <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">GitHub<span class="caret"></span></a>
+              <ul class="hovedown-menu">
+                <li><a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS SDK</a></li>
+                <li><a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">Android SDK</a></li>
+                <li><a href="https://github.com/dji-sdk/Onboard-SDK" target="_blank">Onboard SDK</a></li>
+                <li><a href="https://github.com/dji-sdk/Guidance-SDK" target="_blank">Guidance SDK</a></li>
+              </ul>
+            </li>
+            <li><a href="/challenge2016" target="_blank">Challenge</a></li>
+          </ul>
+          <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register" class="head-cta">Register</a></li>
+          </ul>
+          <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+            <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
+              <ul class="hovedown-menu hovedown-menu-right">
+                <li><a href="/user">User Center</a></li>
+                <li><a href="javascript:void(0);" v-on="click: logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div data-offset-top="60" data-spy="affix" class="sub-nav">
+      <div class="container">
+        <h1 class="logo">Mobile SDK</h1>
+        <nav><a href="/mobile-sdk">Overview</a><a href="/mobile-sdk/documentation">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
+            <ul class="hovedown-menu">
+              <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
+              <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
+        </nav>
+      </div>
+    </div>
+    <div id="documentation-page" class="documentation-page">
+      <div class="container">
+        <div class="site-sidebar">
+          <div class="searcher">
+            <div id="panel" class="panel panel_tree">
+              <div class="header">
+                <div class="search-con">
+                  <label id="search-label" for="search">
+                  </label>
+                  <input id="search" type="text" placeholder="Search" autosave="searchdoc" results="10" autocomplete="off">
+                  <div class="search-icon"></div><a class="clean-search glyphicon glyphicon-remove-circle"></a>
+                </div>
+              </div>
+              <div class="tree">
+                <ul></ul>
+              </div>
+              <div class="result">
+                <ul></ul>
+              </div>
+            </div>
+          </div>
+          <div class="nav scrollable js-tree-menu">
+            <dl>
+              <dt>Manager Classes
+              </dt>
+                      <dd><a data-href="../SDKManager/DJISDKManager.html" class="sub-toggle">DJISDKManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../SDKManager/DJIBluetoothProductConnector.html">DJIBluetoothProductConnector</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="DJIKeyManager.html" class="sub-toggle">DJIKeyManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a data-href="DJIKey.html" class="sub-toggle">DJIKey<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="DJIBatteryKey.html">DJIBatteryKey</a>
+                                              </dd>
+                                              <dd><a href="" class="active">DJICameraKey</a>
+                                              </dd>
+                                              <dd><a href="DJIFlightControllerKey.html">DJIFlightControllerKey</a>
+                                              </dd>
+                                              <dd><a href="DJIGimbalKey.html">DJIGimbalKey</a>
+                                              </dd>
+                                              <dd><a href="DJIProductKey.html">DJIProductKey</a>
+                                              </dd>
+                                              <dd><a href="DJIRemoteControllerKey.html">DJIRemoteControllerKey</a>
+                                              </dd>
+                                              <dd><a href="DJIHandheldControllerKey.html">DJIHandheldControllerKey</a>
+                                              </dd>
+                                              <dd><a href="DJIMissionKey.html">DJIMissionKey</a>
+                                              </dd>
+                                              <dd><a href="DJIAirLinkKey.html">DJIAirLinkKey</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a href="DJIKeyedValue.html">DJIKeyedValue</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../FlyZoneManager/DJIFlyZoneManager.html" class="sub-toggle">DJIFlyZoneManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIFlyZoneInformation.html">DJIGEOFlyZoneInformation</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+            </dl>
+            <dl>
+              <dt>Base Classes
+              </dt>
+                      <dd><a data-href="../../BaseClasses/DJIBaseProduct.html" class="sub-toggle">DJIBaseProduct<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../../BaseClasses/DJIVideoFeeder.html">DJIVideoFeeder</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a href="../BaseComponent/DJIBaseComponent.html">DJIBaseComponent</a>
+                      </dd>
+            </dl>
+            <dl>
+              <dt>Product Classes
+              </dt>
+                      <dd><a href="../../Products/Aircraft/DJIAircraft.html">DJIAircraft</a>
+                      </dd>
+                      <dd><a href="../../Products/Handheld/DJIHandheld.html">DJIHandheld</a>
+                      </dd>
+            </dl>
+            <dl>
+              <dt>Component Classes
+              </dt>
+                      <dd><a data-href="../FlightController/DJIFlightController.html" class="sub-toggle">DJIFlightController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../FlightController/DJIFlightController_DJIFlightControllerCurrectState.html">DJIFlightControllerState</a>
+                                  </dd>
+                                  <dd><a href="../Compass/DJICompass.html">DJICompass</a>
+                                  </dd>
+                                  <dd><a data-href="../RTK/DJIRTK.html" class="sub-toggle">RTK<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a data-href="../RTK/DJIRTK_DJIRTKState.html" class="sub-toggle">DJIRTKState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                                <ul class="sub-menu">
+                                                          <dd><a href="../RTK/DJIRTK_DJIRTKReceiverInfo.html">DJIRTKReceiverInfo</a>
+                                                          </dd>
+                                                </ul>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a href="../LandingGear/DJILandingGear.html">DJILandingGear</a>
+                                  </dd>
+                                  <dd><a data-href="../IntelligentFlightAssistant/DJIIntelligentFlightAssistant.html" class="sub-toggle">Intelligent Flight Assistant<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a data-href="../VisionDetectionState/DJIVisionDetectionState.html" class="sub-toggle">DJIVisionDetectionState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                                <ul class="sub-menu">
+                                                          <dd><a href="../VisionDetectionState/DJIVisionDetectionState_DJIVisionDetectionSector.html">Dectection Sector</a>
+                                                          </dd>
+                                                </ul>
+                                              </dd>
+                                              <dd><a href="../IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html">Dectection State</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a data-href="../Simulator/DJISimulator.html" class="sub-toggle">DJISimulator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../Simulator/DJISimulator_DJISimulatorState.html">DJISimulatorState</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a data-href="../IMUState/DJIIMUState.html" class="sub-toggle">DJIIMUState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../IMUState/DJIIMUState_DJIIMUMultiOrientationCalibrationHint.html">DJIIMUMultipleOrientationCalibrationHint</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">DJIBattery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../Battery/DJIBattery_BatteryState.html">DJIBatteryState</a>
+                                  </dd>
+                                  <dd><a data-href="../Battery/DJIBattery_AggregationState.html" class="sub-toggle">DJIBatteryAggregationState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../Battery/DJIBattery_BatteryOverview.html">DJIBatteryOverview</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a href="../Battery/DJIBattery_WarningRecord.html">DJIBatteryWarningRecord</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../Camera/DJICamera.html" class="sub-toggle">DJICamera<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../Camera/DJICamera_DJICameraSystemState.html">DJICameraSystemState</a>
+                                  </dd>
+                                  <dd><a href="../Camera/DJICamera_DJICameraLensState.html">DJICameraFocusState</a>
+                                  </dd>
+                                  <dd><a href="../Camera/DJICamera_DJICameraSDCardState.html">DJICameraSDCardState</a>
+                                  </dd>
+                                  <dd><a href="../Camera/DJICamera_DJICameraSSDState.html">DJICameraSSDState</a>
+                                  </dd>
+                                  <dd><a data-href="../Camera/DJIMediaManager.html" class="sub-toggle">DJIMediaManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">DJIMediaFile</a>
+                                              </dd>
+                                              <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">DJIMediaVideoPlaybackState</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a data-href="../Camera/DJIPlaybackManager.html" class="sub-toggle">DJIPlaybackManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../Camera/DJIPlaybackManager_DJICameraPlaybackState.html">DJICameraPlaybackState</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a href="../Camera/DJICamera_DJICameraParameters.html">DJICameraCapabilities</a>
+                                  </dd>
+                                  <dd><a href="../Camera/DJICamera_DJICameraWhiteBalanceInterface.html">DJICameraWhiteBalance</a>
+                                  </dd>
+                                  <dd><a href="../Camera/DJICamera_DJICameraVideoResolutionAndFrameRate.html">DJICameraVideoResolutionAndFrameRate</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../Gimbal/DJIGimbal.html" class="sub-toggle">DJIGimbal<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../Gimbal/DJIGimbal_GimbalState.html">DJIGimbalState</a>
+                                  </dd>
+                                  <dd><a href="../Gimbal/DJIGimbal_movementSettingsState.html">DJIGimbalMovementSettings</a>
+                                  </dd>
+                                  <dd><a href="../Gimbal/DJIGimbal_DJIGimbalRotation.html">DJIGimbalRotation</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../AirLink/DJIAirLink.html" class="sub-toggle">DJIAirLink<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a data-href="../LBAirLink/DJILBAirLink.html" class="sub-toggle">Lightbridge<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../LBAirLink/DJILBAirLink_DJILBAirLinkChannelInterference.html">DJILightbridgeLinkChannelInterference</a>
+                                              </dd>
+                                              <dd><a href="../LBAirLink/DJILBAirLink_DJILightbridgeRSSI.html">DJILightbridgeRSSI</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a data-href="../OcuSyncLink/DJIOcuSyncLink.html" class="sub-toggle">OcuSyncLink<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../OcuSyncLink/DJIOcuSyncLink_DJIOcuSyncFrequencyInterference.html">DJIOcuSyncFrequencyInterference</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a data-href="../WiFiLink/DJIWiFiLink.html" class="sub-toggle">WiFi<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../WiFiLink/DJIWiFiLink_DJIWiFiChannelInterference.html">DJIWiFiChannelInterference</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a href="../SignalInformation/DJISignalInformation.html">DJISignalInformation</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../RemoteController/DJIRemoteController.html" class="sub-toggle">DJIRemoteController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCAircraftMapping.html">DJIRCAircraftMapping</a>
+                                  </dd>
+                                  <dd><a href="../RemoteController/DJIRemoteController_RCCustomButtonTagParam.html">DJIRCCustomButtonTags</a>
+                                  </dd>
+                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCInfo.html">DJIRCInformation</a>
+                                  </dd>
+                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCMasterSlaveState.html">DJIRCMasterSlaveState</a>
+                                  </dd>
+                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCCredentials.html">DJIRCCredentials</a>
+                                  </dd>
+                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalMapping.html">DJIRCGimbalMapping</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../HandheldController/DJIHandheldController.html" class="sub-toggle">DJIHandheldController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../HandheldController/DJIHandheldController_DJIHandheldControllerHardwareState.html">DJIHandheldControllerHardwareState</a>
+                                  </dd>
+                                  <dd><a data-href="../HandheldController/DJIHandheldController_DJIHandheldControllerLEDCommand.html" class="sub-toggle">DJIHandheldControllerLEDCommand<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../HandheldController/DJIHandheldController_DJIHandheldControllerLEDCommand_DJIHandheldControllerLEDColorPattern.html">DJIHandheldControllerLEDColorPattern</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a href="../MobileRemoteController/DJIMobileRemoteController.html">DJIMobileRemoteController</a>
+                      </dd>
+            </dl>
+            <dl>
+              <dt>Mission Classes (New)
+              </dt>
+                      <dd><a href="../Missions/DJIMissionTrigger.html">DJIMissionTrigger</a>
+                      </dd>
+                      <dd><a href="../Missions/DJIMissionControl.html">DJIMissionControl</a>
+                      </dd>
+                      <dd><a data-href="../Missions/DJIMissionAction.html" class="sub-toggle">DJIMissionAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../Missions/DJIAircraftYawAction.html">DJIAircraftYawAction</a>
+                                  </dd>
+                                  <dd><a href="../Missions/DJIGimbalAttitudeAction.html">DJIGimbalAttitudeAction</a>
+                                  </dd>
+                                  <dd><a href="../Missions/DJIGoHomeAction.html">DJIGoHomeAction</a>
+                                  </dd>
+                                  <dd><a href="../Missions/DJIGoToAction.html">DJIGoToAction</a>
+                                  </dd>
+                                  <dd><a href="../Missions/DJIRecordVideoAction.html">DJIRecordVideoAction</a>
+                                  </dd>
+                                  <dd><a href="../Missions/DJIShootPhotoAction.html">DJIShootPhotoAction</a>
+                                  </dd>
+                                  <dd><a href="../Missions/DJITakeOffAction.html">DJITakeOffAction</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../Missions/DJIWaypointMission_DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a data-href="../WaypointMission/DJIWaypointMission.html" class="sub-toggle">DJIWaypointMissionDeprecated<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../WaypointMission/DJIWaypointMission_DJIWaypointUploadProgress.html">DJIWaypointUploadProgress</a>
+                                              </dd>
+                                              <dd><a href="../WaypointMission/DJIWaypointMission_DJIWaypointDownloadProgress.html">DJIWaypointDownloadProgress</a>
+                                              </dd>
+                                              <dd><a href="../WaypointMission/DJIWaypointMission_DJIWaypointExecutionProgress.html">DJIWaypointExecutionProgress</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                                  <dd><a data-href="../Waypoint/DJIWaypoint.html" class="sub-toggle">DJIWaypoint<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    <ul class="sub-menu">
+                                              <dd><a href="../Waypoint/DJIWaypoint_DJIWaypointAction.html">DJIWaypointAction</a>
+                                              </dd>
+                                    </ul>
+                                  </dd>
+                        </ul>
+                      </dd>
+            </dl>
+            <dl>
+              <dt>Mission Classes (Old)
+              </dt>
+                      <dd><a href="../MissionManager/DJIMissionManager.html">DJIMissionManager</a>
+                      </dd>
+                      <dd><a data-href="../Mission/DJIMission.html" class="sub-toggle">DJIMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../Mission/DJIMission_DJIMissionProgressStatus.html">DJIMissionProgressStatus</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a href="../ActiveTrackMission/DJIActiveTrackMission.html">DJIActiveTrackMission</a>
+                      </dd>
+                      <dd><a data-href="../FollowMeMission/DJIFollowMeMission.html" class="sub-toggle">DJIFollowMeMissionDeprecated<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../FollowMeMission/DJIFollowMeMission_DJIFollowMeMissionStatus.html">DJIFollowMeMissionStatus</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../HotPointMission/DJIHotPointMission.html" class="sub-toggle">DJIHotPointMissionDeprecated<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../HotPointMission/DJIHotPointMission_DJIHotPointMissionStatus.html">DJIHotPointMissionStatus</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../TapFlyMission/DJITapFlyMission.html" class="sub-toggle">DJITapFlyMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../TapFlyMission/DJITapFlyMission_DJITapFlyMissionStatus.html">DJITapFlyMissionStatus</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../PanoramaMission/DJIPanoramaMission.html" class="sub-toggle">DJIPanoramaMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../PanoramaMission/DJIPanoramaMission_DJIPanoramaMissionStatus.html">DJIPanoramaMissionStatus</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+            </dl>
+            <dl>
+              <dt>Misc Classes
+              </dt>
+                      <dd><a data-href="../ParamCapability/DJIParamCapability.html" class="sub-toggle">DJIParamCapability<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../ParamCapability/DJIParamCapability_DJIParamCapabilityMinMax.html">DJIParamCapabilityMinMax</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a data-href="../SDKError/DJIError.html" class="sub-toggle">NSError<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                        <ul class="sub-menu">
+                                  <dd><a href="../SDKError/DJIError_DJISDKCacheError.html">NSError</a>
+                                  </dd>
+                        </ul>
+                      </dd>
+                      <dd><a href="../Diagnostics/DJIDiagnostics.html">DJIDiagnostics</a>
+                      </dd>
+                      <dd><a href="../RemoteLogger/DJIRemoteLogger.html">DJIRemoteLogger</a>
+                      </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="site-main">
+          <div class="article"><div class="article"><h1><font color="#AAA">class </font>DJICameraKey</h1></div>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DJICameraKey</span> : <span class="title">DJIKey</span></span></div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraKey.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/KeyManager/DJIKey.html#djikey">DJIKey</a></code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICameraKey</font></td></tr></table></html>
+<h5 id="description">Description:</h5>
+<p><font color="#666"><code><a href="../../Components/KeyManager/DJICameraKey.html#djicamerakey">DJICameraKey</a></code> is an object dedicated to providing access to Camera  related attributes.</font></p>
+<h5 id="class-keys">Class Keys:</h5>
+<html><table class="key_table"><tr><td><a href="#djicamerakeydjicameraparamthermalisothermmiddlevalue_inline"></a><p class="key_table_key_string key_table_key_first_row">DJICameraParamThermalIsothermMiddleValue</p></td><td><p class="key_table_title_string key_table_key_first_row">Access:</p></td><td><p class="key_table_type_string key_table_key_first_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalisothermmiddlevalue">getThermalIsothermMiddleValueWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamfocusassistantsettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFocusAssistantSettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerafocusassistantsettings">DJICameraFocusAssistantSettings</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraLensState.html#djicamera_djicameralensstate_isfocusassistantenabledforaf">isFocusAssistantEnabledForAF</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamislensafswitchon_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsLensAFSwitchOn</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraLensState.html#djicamera_djicameralensstate_isafswitchon">isAFSwitchOn</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdtotalspace_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDTotalSpace</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_totalspace">capacity</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisadjustableaperturesupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsAdjustableApertureSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_isadjustableaperturesupported">isAdjustableApertureSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalpalette_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalPalette</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalpalette">DJICameraThermalPalette</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalpalette">getThermalPaletteWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisshootingsinglephotoinrawformat_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsShootingSinglePhotoInRAWFormat</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isshootingsinglephotoinrawformat">isShootingSinglePhotoInRAWFormat</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdrawlicense_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDRAWLicense</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerassdvideolicense">DJICameraSSDVideoLicense</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_getssdvideolicense">getSSDVideoLicenseWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamhaserror_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamHasError</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_iscameraerror">hasError</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamexposuresettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamExposureSettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraexposureparameters">DJICameraExposureSettings</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_didupdatecurrentexposureparameters">camera:didUpdateExposureSettings</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalisothermenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalIsothermEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalisothermenabled">getThermalIsothermEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphotoquickviewduration_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoQuickViewDuration</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotoquickviewduration">getPhotoQuickViewDurationWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamformatssd_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFormatSSD</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_formatssd">formatSSDWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardhaserror_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardHasError</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_haserror">hasError</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamtapzoommultiplier_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamTapZoomMultiplier</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_gettapzoommultiplier">getTapZoomMultiplierWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalspotmeteringarea_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalSpotMeteringArea</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">CGRect</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalmeteringarea">getThermalMeteringAreaWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalwindowtransmissioncoefficient_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalWindowTransmissionCoefficient</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_windowtransmissioncoefficient">windowTransmissionCoefficient</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalwindowreflection_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalWindowReflection</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_windowreflection">windowReflection</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphotoburstcount_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoBurstCount</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraphotoburstcount">DJICameraPhotoBurstCount</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotoburstcount">getPhotoBurstCountWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisthermalcamera_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsThermalCamera</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_isthermalimagingcamera">isThermalCamera</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisrecording_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsRecording</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isrecording">isRecording</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisoverheated_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsOverHeated</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_iscameraoverheated">isOverheating</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparammode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameramode">DJICameraMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_mode">mode</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardavailablerecordingtimeinseconds_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardAvailableRecordingTimeInSeconds</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_availablerecordingtimeinseconds">availableRecordingTimeInSeconds</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamautoaeunlockenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamAutoAEUnlockEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getautoaeunlockenabled">getAutoAEUnlockEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamaperture_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamAperture</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraaperture">DJICameraAperture</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getaperture">getApertureWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamexposuremode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamExposureMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraexposuremode">DJICameraExposureMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getexposuremode">getExposureModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamspotmeteringtarget_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSpotMeteringTarget</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">[NSNumber] (Row and Column)</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getspotmeteringareaindex">getSpotMeteringTargetWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamvideoresolutionandframerate_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamVideoResolutionAndFrameRate</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera_DJICameraVideoResolutionAndFrameRate.html#djicamera_djicameravideoresolutionandframerate">DJICameraVideoResolutionAndFrameRate</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getvideoresolutionandframerate">getVideoResolutionAndFrameRateWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamfileindexmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFileIndexMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerafileindexmode">DJICameraFileIndexMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getfileindexmode">getFileIndexModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdavailablerecordingtimeinseconds_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDAvailableRecordingTimeInSeconds</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_availablerecordingtimeinseconds">availableRecordingTimeInSeconds</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisshootingintervalphoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsShootingIntervalPhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isshootingintervalphoto">isShootingIntervalPhoto</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphotorawburstcount_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoRAWBurstCount</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraphotoburstcount">DJICameraPhotoBurstCount</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotorawburstcount">getPhotoRAWBurstCountWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisstoringphoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsStoringPhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isstoringphoto">isStoringPhoto</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamstartshootphoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStartShootPhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_startshootphoto">startShootPhotoWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamdisplayname_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamDisplayName</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSString</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_displayname">displayName</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamfocustarget_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFocusTarget</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">CGPoint</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getlensfocustarget">getFocusTargetWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalspotmeteringtargetpoint_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalSpotMeteringTargetPoint</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">CGPoint</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalspotmeteringtargetpoint">getThermalSpotMeteringTargetPointWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamformatsdcard_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFormatSDCard</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_sdcardoperations_formatsdcard">formatSDCardWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamcontrast_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamContrast</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getcontrast">getContrastWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamwhitebalance_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamWhiteBalance</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera_DJICameraWhiteBalanceInterface.html#djicamera_djicamerawhitebalanceinterface">DJICameraWhiteBalance</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getwhitebalanceandcolortemperature">getWhiteBalanceWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamhdliveviewenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamHDLiveViewEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_gethighdefinitionliveviewenabled">getHDLiveViewEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamdefogenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamDefogEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getdefogenabled">getDefogEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamantiflickerfrequency_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamAntiFlickerFrequency</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraantiflicker">DJICameraAntiFlickerFrequency</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getantiflicker">getAntiFlickerFrequencyWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalareatemperatureaggregations_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalAreaTemperatureAggregations</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalareatemperatureaggregations">DJICameraThermalAreaTemperatureAggregations</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_didupdateareatemperatureaggregations">camera:didUpdateAreaTemperatureAggregations</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamstopshootphoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStopShootPhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_stopshootphoto">stopShootPhotoWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamexposurecompensation_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamExposureCompensation</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraexposurecompensation">DJICameraExposureCompensation</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getexposurecompensation">getExposureCompensationWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalroi_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalROI</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalroi">DJICameraThermalROI</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalroi">getThermalROIWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisinserted_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsInserted</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isinserted">isInserted</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalprofile_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalProfile</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalprofile">DJICameraThermalProfile</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalprofile">getThermalProfileWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsaturation_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSaturation</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getsaturation">getSaturationWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalisothermunit_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalIsothermUnit</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalisothermunit">DJICameraThermalIsothermUnit</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalisothermunit">getThermalIsothermUnitWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalcustomexternalscenesettingsprofile_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalCustomExternalSceneSettingsProfile</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalcustomexternalscenesettings">DJICameraThermalCustomExternalSceneSettingsProfile</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalcustomexternalscenesettingsprofile">getThermalCustomExternalSceneSettingsProfileWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardtotalspaceinmb_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardTotalSpaceInMB</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_totalspaceinmegabytes">totalSpaceInMB</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisplaybackmodesupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsPlaybackModeSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_media_isplaybacksupported">isPlaybackSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisfocusassistantworking_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsFocusAssistantWorking</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraLensState.html#djicamera_djicameralensstate_isfocusassistantworking">isFocusAssistantWorking</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamvideostandard_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamVideoStandard</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameravideostandard">DJICameraVideoStandard</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getvideostandard">getVideoStandardWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamrestorefactorysettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamRestoreFactorySettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_loadfactorysettings">restoreFactorySettings</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisformatted_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsFormatted</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isformatted">isFormatted</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalatmospherictransmissioncoefficient_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalAtmosphericTransmissionCoefficient</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_atmospherictransmissioncoefficient">atmosphericTransmissionCoefficient</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamiso_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamISO</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraiso">DJICameraISO</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getiso">getISOWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisopticalzoomsupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsOpticalZoomSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_isopticalzoomsupported">isOpticalZoomSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsavesettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSaveSettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_savesettings">saveSettingsToProfile:withCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisadjustablefocalpointsupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsAdjustableFocalPointSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_isadjustablefocalpointsupported">isAdjustableFocalPointSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalace_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalACE</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalace">getThermalACEWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdoperationstate_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDOperationState</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerassdoperationstate">DJICameraSSDOperationState</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_operationstate">operationState</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamlenstype_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamLensType</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamvideocaptionenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamVideoCaptionEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getvideocaptionenabled">getVideoCaptionEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamstartcontinuousopticalzoom_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStartContinuousOpticalZoom</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_startcontinuousopticalzoom">startContinuousOpticalZoomInDirection:withSpeed:withCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalmeasurementmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalMeasurementMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalmeasurementmode">DJICameraThermalMeasurementMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalmeasurementmode">getThermalMeasurementModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamfocusringvalueupperbound_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFocusRingValueUpperBound</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getlensfocusringvalueupperbound">getFocusRingValueUpperBoundWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdvideodigitalfilter_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDVideoDigitalFilter</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerassdvideodigitalfilter">DJICameraSSDVideoDigitalFilter</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_getssdvideodigitalfilter">getSSDVideoDigitalFilterWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamlensfocusstatus_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamLensFocusStatus</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameralensfocusstatus">DJICameraFocusStatus</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraLensState.html#djicamera_djicameralensstate_focusstatus">focusStatus</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalisothermlowervalue_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalIsothermLowerValue</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalisothermlowervalue">getThermalIsothermLowerValueWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamvideofilecompressionstandard_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamVideoFileCompressionStandard</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djivideofilecompressionstandard">DJIVideoFileCompressionStandard</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getvideofilecompressionstandard">getVideoFileCompressionStandardWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalsceneemissivity_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalSceneEmissivity</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_sceneemissivity">sceneEmissivity</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdvideoresolutionandframerate_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDVideoResolutionAndFrameRate</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera_DJICameraVideoResolutionAndFrameRate.html#djicamera_djicameravideoresolutionandframerate">DJICameraVideoResolutionAndFrameRate</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_videoframerate">videoFrameRate</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisinitializing_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsInitializing</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isinitializing">isInitializing</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdvideolicenses_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDVideoLicenses</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">[<a href="../../Components/Camera/DJICamera.html#djicamera_djicamerassdvideolicense">DJICameraSSDVideoLicense</a>]</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_getssdvideolicenses">getSSDVideoLicensesWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamdigitalfilter_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamDigitalFilter</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameradigitalfilter">DJICameraDigitalFilter</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getdigitalfilter">getDigitalFilterWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphotoaebcount_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoAEBCount</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraphotoaebcount">DJICameraPhotoAEBCount</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotoaebparam">getPhotoAEBCountWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardremainingspaceinmb_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardRemainingSpaceInMB</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_remainingspaceinmegabytes">remainingSpaceInMB</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamshootphotomode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamShootPhotoMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerashootphotomode">DJICameraShootPhotoMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_getshootphotomode">getShootPhotoModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamorientation_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamOrientation</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraorientation">DJICameraOrientation</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getorientation">getOrientationWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdisconnected_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDIsConnected</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_isconnected">isConnected</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamcameravideohistogramenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamCameraVideoHistogramEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamaudiorecordingenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamAudioRecordingEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getaudiorecordenabled">getAudioRecordingEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdremainingspaceinmb_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDRemainingSpaceInMB</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_remainingspaceinmegabytes">remainingSpaceInMB</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermaltemperaturedataenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalTemperatureDataEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamthermalbrightness_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalBrightness</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalbrightness">getThermalBrightnessWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisaudiorecordingsupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsAudioRecordingSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_isaudiorecordsupported">isAudioRecordingSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamstartrecordvideo_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStartRecordVideo</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_startrecordvideo">startRecordVideoWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamopticalzoomfactor_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamOpticalZoomFactor</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getopticalzoomscale">getOpticalZoomFactorWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamismediadownloadmodesupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsMediaDownloadModeSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_media_ismediadownloadmodesupported">isMediaDownloadModeSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamshutterspeed_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamShutterSpeed</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerashutterspeed">DJICameraShutterSpeed</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getshutterspeed">getShutterSpeedWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermaltemperaturedata_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalTemperatureData</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_didupdatetemperaturedata">camera:didUpdateTemperatureData</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardoperationstate_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardOperationState</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisfull_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsFull</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isfull">isFull</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisshootingburstphoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsShootingBurstPhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isshootingburstphoto">isShootingBurstPhoto</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphototimeintervalsettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoTimeIntervalSettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraphotointervalparam">DJICameraPhotoTimeIntervalSettings</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotointervalparam">getPhotoTimeIntervalSettingsWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisshootingsinglephoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsShootingSinglePhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isshootingsinglephoto">isShootingSinglePhoto</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamistimelapsesupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsTimeLapseSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_istimelapsesupported">isTimeLapseSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardavailablephotocount_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardAvailablePhotoCount</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_availablecapturecount">availableCaptureCount</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalbackgroundtemperature_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalBackgroundTemperature</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_backgroundtemperature">backgroundTemperature</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalscene_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalScene</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalscene">DJICameraThermalScene</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalscene">getThermalSceneWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparampicturestylepreset_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPictureStylePreset</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerapicturestylepreset">DJICameraPictureStylePreset</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamaelock_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamAELock</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getaelock">getAELockWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamturnofffanwhenpossible_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamTurnOffFanWhenPossible</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getturnofffanwhenpossible">getTurnOffFanWhenPossibleWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisverified_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsVerified</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isverified">isVerified</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalwindowtemperature_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalWindowTemperature</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_windowtemperature">windowTemperature</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalcontrast_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalContrast</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalcontrast">getThermalContrastWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamlensinformation_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamLensInformation</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSString</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getlensinformation">getLensInformationWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisssdsupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsSSDSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_isssdsupported">isSSDSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisvideohistogramsupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsVideoHistogramSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisreadonly_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsReadOnly</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isreadonly">isReadOnly</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalgainmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalGainMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalgainmode">DJICameraThermalGainMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalgainmode">getThermalGainModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamssdvideorecordingenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSSDVideoRecordingEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_getssdvideorecordingenabled">getSSDVideoRecordingEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamfocusmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFocusMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameralensfocusmode">DJICameraFocusMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraLensState.html#djicamera_djicameralensstate_focusmode">focusMode</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamdigitalzoomfactor_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamDigitalZoomFactor</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getdigitalzoomscale">getDigitalZoomFactorWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamstoprecordvideo_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStopRecordVideo</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_stoprecordvideo">stopRecordVideoWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamcurrentrecordingtimeinseconds_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamCurrentRecordingTimeInSeconds</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_currentvideorecordingtimeinseconds">currentVideoRecordingTimeInSeconds</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalwindowreflectedtemperature_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalWindowReflectedTemperature</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_windowreflectedtemperature">windowReflectedTemperature</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamrawphotoburstcount_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamRAWPhotoBurstCount</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSSDState.html#djicamera_djicamerassdstate_rawphotoburstcount">rawPhotoBurstCount</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsharpness_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSharpness</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getsharpness">getSharpnessWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamloadsettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamLoadSettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_loadsettings">loadSettingsFromProfile:withCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalatmospherictemperature_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalAtmosphericTemperature</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Float</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalexternalscenesettings_atmospherictemperature">atmosphericTemperature</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalisothermuppervalue_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalIsothermUpperValue</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalisothermuppervalue">getThermalIsothermUpperValueWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamaudiogain_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamAudioGain</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getaudiogain">getAudioGainWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamcameravideohistogramgraph_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamCameraVideoHistogramGraph</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">[NSUInteger]</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamfocusringvalue_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamFocusRingValue</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getlensfocusringvalue">getFocusRingValueWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisinterchangeablelenssupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsInterchangeableLensSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_ischangeablelenssupported">isInterchangeableLensSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermaldigitalzoomfactor_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalDigitalZoomFactor</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermaldigitalzoomscale">DJICameraThermalDigitalZoomFactor</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermaldigitalzoomscale">getThermalDigitalZoomFactorWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamopticalzoomfocallength_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamOpticalZoomFocalLength</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSUInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getopticalzoomfocallength">getOpticalZoomFocalLengthWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisdigitalzoomsupported_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsDigitalZoomSupported</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_isdigitalzoomscalesupported">isDigitalZoomSupported</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamstopcontinuousopticalzoom_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStopContinuousOpticalZoom</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_stopcontinuousopticalzoom">stopContinuousOpticalZoomWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisformatinvalid_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsFormatInvalid</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isinvalidformat">isInvalidFormat</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamsdcardisformatting_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamSDCardIsFormatting</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSDCardState.html#djicamera_djicamerasdcardstate_isformatting">isFormatting</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamshootphotoforbiddenflag_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamShootPhotoForbiddenFlag</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamtapzoomenabled_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamTapZoomEnabled</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_gettapzoomenabled">getTapZoomEnabledWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalsso_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalSSO</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalsso">getThermalSSOWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphototimelapsesettings_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoTimeLapseSettings</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraphototimelapsesettings">DJICameraPhotoTimeLapseSettings</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphototimelapse">getPhotoTimeLapseSettingsWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphotofileformat_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoFileFormat</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraphotofileformat">DJICameraPhotoFileFormat</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotofileformat">getPhotoFileFormatWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamopticalzoomspec_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamOpticalZoomSpec</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicameraopticalzoomspec">DJICameraOpticalZoomSpec</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getopticalzoomspec">getOpticalZoomSpecWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermaldde_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalDDE</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Get, Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">NSInteger</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermaldde">getThermalDDEWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamvideofileformat_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamVideoFileFormat</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">DJICameraParamVideoFileFormat</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getvideofileformat">getVideoFileFormatWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameracomponent_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraComponent</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">-</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">-</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamstartshootphotowithmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamStartShootPhotoWithMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td><a href="#djicamerakeydjicameraparamthermaltriggerffc_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalTriggerFFC</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Action</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_triggerthermalffcmode">triggerThermalFFCWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamisshootingrawburstphoto_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsShootingRAWBurstPhoto</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraSystemState.html#djicamera_djicamerasystemstate_isshootingrawburstphoto">isShootingRAWBurstPhoto</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamislensmounted_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamIsLensMounted</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">Boolean</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraLensState.html#djicamera_djicameralensstate_islensinstalled">isLensMounted</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparammeteringmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamMeteringMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerameteringmode">DJICameraMeteringMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getmeteringmode">getMeteringModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamphotoaspectratio_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamPhotoAspectRatio</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">DJICameraParamPhotoAspectRatio</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_getphotoratio">getPhotoAspectRatioWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamthermalffcmode_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamThermalFFCMode</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set, Push</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><a href="../../Components/Camera/DJICamera.html#djicamera_djicamerathermalffcmode">DJICameraThermalFFCMode</a></p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_thermalcamera_getthermalffcmode">getThermalFFCModeWithCompletion</a></code></font></p>
+<p></p></td><tr><td><a href="#djicamerakeydjicameraparamtapzoomtarget_inline"></a><p class="key_table_key_string key_table_key_row">DJICameraParamTapZoomTarget</p></td><td><p class="key_table_title_string key_table_key_row">Access:</p></td><td><p class="key_table_type_string key_table_key_row">Set</p></td></tr><tr class="key_table_doc_row"><td></td><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string">CGPoint</p></td></tr><td></td><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_tapzoomattarget">tapZoomAtTarget:withCompletion</a></code></font></p>
+<p></p></td></table></html>
+
+          </div>
+        </div>
+      </div>
+      <div id="search-modal" class="search-modal modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header"><a href="javascript:;" @click="closeSearch" class="btn-close">×</a>
+              <h2 class="title"> Search Mobile SDK Document
+              </h2>
+              <input type="text" v-model="searchInput" @keydown.enter="search">
+            </div>
+            <div class="modal-body">
+              <p v-show="!!searchCount" class="search-count"><span v-cloak>{{searchCount}}</span>&nbsp;Results
+              </p>
+              <ul v-show="!!searchCount" class="search-result">
+                <li v-for="item in searchResult"><a v-bind:href="item.url | docUrl">
+                    <h3 class="title">{{{(item.highlights && item.highlights.title) || item.title}}}</h3>
+                    <p class="content">{{{(item.highlights && item.highlights.content[0]) || item.title}}}</p></a></li>
+              </ul>
+              <div v-show="showLoadMore" class="text-center"><a href="javascript:;" @click="loadMoreSearch" class="btn-learn-more">Load More</a></div>
+              <div v-show="searchLoading" class="text-center">Loading...
+              </div>
+              <div v-show="!searchCount &amp;&amp; !searchLoading" class="text-center">Not Found
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="site-footer" class="site-footer">
+      <div class="container">
+        <div class="foot-nav row">
+          <nav class="link-list col-xs-2"><span class="title">SDK</span><a href="/mobile-sdk">Mobile SDK</a><a href="/onboard-sdk">Onboard SDK</a><a href="/guidance-sdk">Guidance SDK</a></nav>
+          <nav class="link-list col-xs-2"><span class="title">Info</span><a href="/products">Products</a><a href="/showcase">Showcase</a><a href="/news">News</a></nav>
+          <nav class="link-list col-xs-2"><span class="title">Community</span><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a><a href="https://github.com/dji-sdk" target="_blank">GitHub</a><a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">Stack Overflow</a></nav>
+          <nav class="link-list col-xs-2"><span class="title">Contact Us</span><a href="mailto:dev@dji.com"> dev@dji.com</a></nav>
+          <nav class="link-list col-xs-3"><span class="title">Business Cooperation</span><a href="mailto:dev.bd@dji.com"> dev.bd@dji.com</a></nav>
+        </div>
+        <div class="foot-copyright row">
+          <div class="col-xs-3 foot-logo"><img src="../../images/dji-logo-foot.png"></div>
+          <div class="copyright col-xs-7"><span>Copyright © 2016 DJI All Rights Reserved</span><a href="/policies/privacy">Privacy</a><a href="/policies/terms">Terms</a></div>
+          <div class="col-xs-2">
+            <div class="lang-selector">
+              <select dir="rtl" v-model="lang">
+                <option value="en">English</option>
+                <option value="cn">中文</option>
+              </select><i class="fa fa-globe"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      window.Config = window.config = {
+        sdk: "mobile-sdk",
+        locale: "en",
+        environment: "development",
+        api_host: ""
+      };
+      
+    </script>
+    <!-- build:js /javascripts/doc-vendor.js-->
+    <script src="../../javascripts/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="../../javascripts/lib/bootstrap.js" type="text/javascript"></script>
+    <script src="../../javascripts/lib/vue.min.js" type="text/javascript"></script>
+    <!-- endbuild-->
+    <!-- build:js /javascripts/doc-app.js-->
+    <script src="../../javascripts/util/cookie.js" type="text/javascript"></script>
+    <script src="../../javascripts/util/url-manager.js" type="text/javascript"></script>
+    <script src="../../javascripts/util/ajax-manager.js" type="text/javascript"></script>
+    <script src="../../javascripts/base/footer.js" type="text/javascript"></script>
+    <script src="../../javascripts/base/header.js" type="text/javascript"></script>
+    <script src="../../javascripts/util/searcher.js" type="text/javascript"></script>
+    <script src="../../javascripts/search_index.js" type="text/javascript"></script>
+    <script src="../../javascripts/searchdoc.js" type="text/javascript"></script>
+    <script src="../../javascripts/api.js" type="text/javascript"></script>
+    <!-- endbuild-->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43055594-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

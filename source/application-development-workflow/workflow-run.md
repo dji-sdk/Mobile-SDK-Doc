@@ -1,6 +1,6 @@
 ---
 title: Run Application
-date: 2016-12-13
+date: 2017-2-23
 keywords: [activate product, upgrade firmware, flight mode switch, connection configuration]
 ---
 
@@ -39,7 +39,7 @@ Any SDK application will need internet connectivity the first time it runs to re
 
 There are several connection configurations between mobile device and product:
 
-* Mobile device -> USB -> Remote Controller -> Lightbridge -> Aircraft
+* Mobile device -> USB -> Remote Controller -> Lightbridge/OcuSync -> Aircraft
 * Mobile device -> WiFi -> Remote Controller -> WiFi -> Aircraft
 * Mobile device -> WiFi -> Handheld Gimbal
 

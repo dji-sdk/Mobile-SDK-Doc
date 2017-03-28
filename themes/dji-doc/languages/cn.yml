@@ -31,6 +31,9 @@ sub_nav:
   documentation: 文档
   downloads: 下载
   support: 技术支持
+  api_reference: API Reference
+  ios_reference: IOS SDK
+  android_reference: Android SDK
 
 policies:
   privacy: 隐私政策
@@ -43,7 +46,7 @@ doc:
   search_title_onboard: '搜索 Onboard SDK 文档'
   results: '搜索结果'
   notfound: '未找到结果'
-  
+
 btn:
   load_more: '加载更多'
   loading: '加载中...'

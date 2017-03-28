@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-2-3
+date: 2017-3-2
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -21,22 +21,44 @@ Screenshots in this section are generated using Xcode 7.3.
    * Other settings can remain as default.
       ![enterProjectInfo](../../images/quick-start/iOSEnterProjectInfo.png)
 
-### Import Framework
+### Install SDK with CocoaPods in the Project
 
-   * In Finder, navigate to the newly created **ImportSDKDemo** folder, and create **Frameworks** folder.
-   * In Finder, copy **DJISDK.framework** from the downloaded SDK **Sample Code** folder  to **ImportSDKDemo/Frameworks/**.
-     ![copyFrameworks](../../images/quick-start/iOSCopyFrameworkToProject.png)
-   * In Xcode right click on the project and select **Add Files to...**
-     ![importFramework](../../images/quick-start/iOSRightClickToAddFiles.png)
-   * Select the **Framework** folder (ensure _Create groups_ is selected in _Options_)
-     ![importFramework2](../../images/quick-start/iOSImportFramework2.png)
-   * The DJI SDK framework should now be listed under the "ImportSDKDemo" Project tree.
-   * Select "ImportSDKDemo" target, open the **General** tab and click on the **+** in **Embedded Binaries**.
-   ![importFrameworkEmbeddedBinaries](../../images/quick-start/iOSImportFrameworkEmbedBinaries.png)
-   * Add the DJI SDK framework.
+   * In Finder, navigate to the root folder of the project, and create a **Podfile**. To learn more about Cocoapods, please check [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+   * Replace the content of the **Podfile** with the followings:
+
+   ~~~
+    # platform :ios, '9.0'
+
+    target 'ImportSDKDemo' do
+    pod 'DJI-SDK-iOS', '~> 4.0’
+    end
+   ~~~
+
+   * Run the following command in the root folder path using **Terminal**:
+
+   ~~~
+    pod install
+   ~~~
+
+   * If you install the SDK successfully, you should get the messages similar to the following:
+
+   ~~~
+    Analyzing dependencies
+    Downloading dependencies
+    Installing DJI-SDK-iOS (4.0)
+    Generating Pods project
+    Integrating client project
+
+    [!] Please close any current Xcode sessions and use `ImportSDKDemo.xcworkspace` for this project from now on.
+    Pod installation complete! There is 1 dependency from the Podfile and 1 total pod
+    installed.
+   ~~~
+
+   * The DJI SDK framework should now be downloaded and placed in the `Pods/DJI-SDK-iOS/iOS_Mobile_SDK/DJISDK.framework` path.
 
 ### Configure Build Settings
 
+   * Open the **ImportSDKDemo.xcworkspace** file in Xcode.
    * For DJI products that connect to the mobile device through USB, add the "Supported external accessory protocols" key to the **info.plist** file, and add the strings "com.dji.video", "com.dji.protocol" and "com.dji.common" to the key.
    ![supportedExternalAccessoryProtocols](../../images/quick-start/iOSSupportedExternalAccessories.png)
    * Since iOS 9, App Transport Security has blocked cleartext HTTP (http://) resource loading. The "App Transport Security Settings" key must be added and "Allow Arbitrary Loads" must be set to "YES".
@@ -59,7 +81,10 @@ Screenshots in this section are generated using Xcode 7.3.
 
    * Create a new method `registerApp`.
    * Use the application's Bundle Identifier to [generate an App Key](../quick-start/index.html#Generate-an-App-Key).
-   * Set the `appKey` string in `registerApp` to the generated App Key.
+   * Create a `DJISDKAppKey` key in the **info.plist** file of the Xcode project and paste the generated App Key string into its string value:
+
+   ![appKeyInPlist](../../images/quick-start/iOSAppKeyInPlist.png)
+
    * Invoke `registerApp` in `viewDidAppear` as shown below:
 
 ~~~objc
@@ -71,26 +96,24 @@ Screenshots in this section are generated using Xcode 7.3.
 
 - (void)registerApp
 {
-    NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+   [DJISDKManager registerAppWithDelegate:self];
 }
 ~~~
 
-   * The `DJISDKManagerDelegate` protocol requires the`sdkManagerDidRegisterAppWithError` method to be implemented.
+   * The `DJISDKManagerDelegate` protocol requires the`appRegisteredWithError` method to be implemented.
    * Additionally implement `showAlertViewWithTitle` to give the registration result in a simple view.
 
 ~~~objc
-- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
+- (void)appRegisteredWithError:(NSError *)error
 {
-    NSString* message = @"Register App Successful!";
+    NSString* message = @"Register App Successed!";
     if (error) {
-        message = @"Register App Failed! Please enter your App Key and check the network.";
+        message = @"Register App Failed! Please enter your App Key in the plist file and check the network.";
     }else
     {
         NSLog(@"registerAppSuccess");
-       [DJISDKManager startConnectionToProduct];
     }
-
+    
     [self showAlertViewWithTitle:@"Register App" withMessage:message];
 }
 
@@ -188,6 +211,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile project(':dJISDKLIB')
 }
 ~~~
@@ -214,11 +238,11 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-import dji.sdk.sdkmanager.DJISDKManager;
-import dji.sdk.base.DJIBaseComponent;
-import dji.sdk.base.DJIBaseProduct;
 import dji.common.error.DJIError;
 import dji.common.error.DJISDKError;
+import dji.sdk.base.BaseComponent;
+import dji.sdk.base.BaseProduct;
+import dji.sdk.sdkmanager.DJISDKManager;
 ~~~
 
 The MainActivity class needs to register the application to get authorization to use the DJI Mobile SDK. It also needs to implement callback methods expected by the SDK.
@@ -242,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize DJI SDK Manager
         mHandler = new Handler(Looper.getMainLooper());
-        DJISDKManager.getInstance().initSDKManager(this, mDJISDKManagerCallback);
+        DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
     }
 }
 ~~~
@@ -252,90 +276,90 @@ public class MainActivity extends AppCompatActivity {
 Add the DJISDKManager callback and implementations of `onGetRegisteredResult` and `onProductChanged`.
 
 ~~~java
- private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.DJISDKManagerCallback() {
+  private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
 
-        @Override
-        public void onGetRegisteredResult(DJIError error) {
-            Log.d(TAG, error == null ? "success" : error.getDescription());
-            if(error == DJISDKError.REGISTRATION_SUCCESS) {
-                DJISDKManager.getInstance().startConnectionToProduct();
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
+      @Override
+      public void onRegister(DJIError error) {
+          Log.d(TAG, error == null ? "success" : error.getDescription());
+          if(error == DJISDKError.REGISTRATION_SUCCESS) {
+              DJISDKManager.getInstance().startConnectionToProduct();
+              Handler handler = new Handler(Looper.getMainLooper());
+              handler.post(new Runnable() {
 
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Register App Successful", Toast.LENGTH_LONG).show();
-                    }
-                });
-            } else {
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
+                  @Override
+                  public void run() {
+                      Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                  }
+              });
+          } else {
+              Handler handler = new Handler(Looper.getMainLooper());
+              handler.post(new Runnable() {
 
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Register App Failed! Please enter your App Key and check the network.", Toast.LENGTH_LONG).show();
-                    }
-                });
+                  @Override
+                  public void run() {
+                      Toast.makeText(getApplicationContext(), "register sdk failed, check if network is available", Toast.LENGTH_LONG).show();
+                  }
+              });
 
-            }
-            Log.e("TAG", error.toString());
-        }
+          }
+          Log.e("TAG", error.toString());
+      }
 
-        @Override
-        public void onProductChanged(DJIBaseProduct oldProduct, DJIBaseProduct newProduct) {
+      @Override
+      public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
 
-            mProduct = newProduct;
-            if(mProduct != null) {
-                mProduct.setDJIBaseProductListener(mDJIBaseProductListener);
-            }
+          mProduct = newProduct;
+          if(mProduct != null) {
+              mProduct.setBaseProductListener(mDJIBaseProductListener);
+          }
 
-            notifyStatusChange();
-        }
-    };
+          notifyStatusChange();
+      }
+  };
 ~~~
 
 Finally methods for `DJIBaseProductListener`, `DJIComponentListener`, `notifyStatusChange` and `Runnable` need to be implemented :
 
 ~~~java
-private DJIBaseProduct.DJIBaseProductListener mDJIBaseProductListener = new DJIBaseProduct.DJIBaseProductListener() {
+private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
 
-        @Override
-        public void onComponentChange(DJIBaseProduct.DJIComponentKey key, DJIBaseComponent oldComponent, DJIBaseComponent newComponent) {
-            if(newComponent != null) {
-                newComponent.setDJIComponentListener(mDJIComponentListener);
-            }
-            notifyStatusChange();
+    @Override
+    public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
+        if(newComponent != null) {
+            newComponent.setComponentListener(mDJIComponentListener);
         }
-
-        @Override
-        public void onProductConnectivityChanged(boolean isConnected) {
-            notifyStatusChange();
-        }
-
-    };
-
-    private DJIBaseComponent.DJIComponentListener mDJIComponentListener = new DJIBaseComponent.DJIComponentListener() {
-
-        @Override
-        public void onComponentConnectivityChanged(boolean isConnected) {
-            notifyStatusChange();
-        }
-
-    };
-
-    private void notifyStatusChange() {
-        mHandler.removeCallbacks(updateRunnable);
-        mHandler.postDelayed(updateRunnable, 500);
+        notifyStatusChange();
     }
 
-    private Runnable updateRunnable = new Runnable() {
+    @Override
+    public void onConnectivityChange(boolean isConnected) {
+        notifyStatusChange();
+    }
 
-        @Override
-        public void run() {
-            Intent intent = new Intent(FLAG_CONNECTION_CHANGE);
-            sendBroadcast(intent);
-        }
-    };
+};
+
+private BaseComponent.ComponentListener mDJIComponentListener = new BaseComponent.ComponentListener() {
+
+    @Override
+    public void onConnectivityChange(boolean isConnected) {
+        notifyStatusChange();
+    }
+
+};
+
+private void notifyStatusChange() {
+    mHandler.removeCallbacks(updateRunnable);
+    mHandler.postDelayed(updateRunnable, 500);
+}
+
+private Runnable updateRunnable = new Runnable() {
+
+    @Override
+    public void run() {
+        Intent intent = new Intent(FLAG_CONNECTION_CHANGE);
+        sendBroadcast(intent);
+    }
+};
 ~~~
 
 The application must be granted permissions to in order for the DJI SDK to operate.
@@ -407,3 +431,4 @@ As this application is only checking for registration and not interacting direct
 If the App Key was generated correctly and the Android simulator or mobile device has internet connectivity, then the following should be seen:
 
  ![AndroidRunSuccess](../../images/quick-start/AndroidRunSuccess.png)
+

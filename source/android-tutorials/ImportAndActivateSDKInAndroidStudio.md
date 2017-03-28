@@ -1,7 +1,7 @@
 ---
 title: Importing and Activating DJI SDK in Android Studio Project
-version: v3.5.1
-date: 2017-2-3
+version: v4.0
+date: 2017-2-20
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio
 keywords: [import and activate SDK, Android Studio]
 ---
@@ -10,7 +10,7 @@ keywords: [import and activate SDK, Android Studio]
 
 ---
 
-In this tutorial, we will use the Android Studio's HelloWorld template project to show you how to import DJI Android SDK and register the application.   Throughout this tutorial we will be using Android Studio 2.1.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
+In this tutorial, we will use the Android Studio's HelloWorld template project to show you how to import DJI Android SDK and register the application. Throughout this tutorial we will be using Android Studio 2.1.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio).
 
@@ -69,6 +69,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -82,6 +83,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile project(':dJISDKLIB')  // <------------
 }
 ~~~
@@ -290,8 +292,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import dji.sdk.sdkmanager.DJISDKManager;
-import dji.sdk.base.DJIBaseComponent;
-import dji.sdk.base.DJIBaseProduct;
+import dji.sdk.base.BaseComponent;
+import dji.sdk.base.BaseProduct;
 import dji.common.error.DJIError;
 import dji.common.error.DJISDKError;
 
@@ -301,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String FLAG_CONNECTION_CHANGE = "dji_sdk_connection_change";
 
-    private static DJIBaseProduct mProduct;
+    private static BaseProduct mProduct;
 
     private Handler mHandler;
 
@@ -338,16 +340,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize DJI SDK Manager
         mHandler = new Handler(Looper.getMainLooper());
-        DJISDKManager.getInstance().initSDKManager(this, mDJISDKManagerCallback);
+        DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
     }
 
     /*
      *  Implement DJISDKManager Callback methods
      */
-    private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.DJISDKManagerCallback() {
+    private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
 
         @Override
-        public void onGetRegisteredResult(DJIError error) {
+        public void onRegister(DJIError error) {
             Log.d(TAG, error == null ? "success" : error.getDescription());
             if(error == DJISDKError.REGISTRATION_SUCCESS) {
                 DJISDKManager.getInstance().startConnectionToProduct();
@@ -374,7 +376,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onProductChanged(DJIBaseProduct oldProduct, DJIBaseProduct newProduct) {
+        public void onProductChanged(BaseProduct oldProduct, BaseProduct newProduct) {
 
             mProduct = newProduct;
             if(mProduct != null) {
@@ -386,12 +388,12 @@ public class MainActivity extends AppCompatActivity {
     };
 
     /*
-     *  Implement DJIBaseProductListener methods
+     *  Implement BaseProductListener methods
      */
-    private DJIBaseProduct.DJIBaseProductListener mDJIBaseProductListener = new DJIBaseProduct.DJIBaseProductListener() {
+    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
 
         @Override
-        public void onComponentChange(DJIBaseProduct.DJIComponentKey key, DJIBaseComponent oldComponent, DJIBaseComponent newComponent) {
+        public void onComponentChange(BaseProduct.DJIComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
             if(newComponent != null) {
                 newComponent.setDJIComponentListener(mDJIComponentListener);
             }
@@ -399,16 +401,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onProductConnectivityChanged(boolean isConnected) {
+        public void onConnectivityChange(boolean isConnected) {
             notifyStatusChange();
         }
 
     };
 
-    private DJIBaseComponent.DJIComponentListener mDJIComponentListener = new DJIBaseComponent.DJIComponentListener() {
+    private BaseComponent.ComponentListener mDJIComponentListener = new BaseComponent.ComponentListener() {
 
         @Override
-        public void onComponentConnectivityChanged(boolean isConnected) {
+        public void onConnectivityChange(boolean isConnected) {
             notifyStatusChange();
         }
 
@@ -457,8 +459,8 @@ public class MainActivity extends AppCompatActivity {
   
 1. In the `onCreate()` method, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23).
 2. Next we initialize the DJISDKManager and Handler in the `onCreate()` method.
-3. Implement the two interface methods of DJISDKManagerCallback. We can use the `onGetRegisteredResult()` method to check the Application registration status and show text message here. Using the `onProductChanged()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-4. Implement the two interface methods of DJIBaseProductListener. We can use the `onComponentChange()` method to check if a component object changes. Using the `onProductConnectivityChanged()` method to check the connectivity status changes for the base product.
+3. Implement the two interface methods of SDKManagerCallback. We can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+4. Implement the two interface methods of BaseProductListener. We can use the `onComponentChange()` method to check if a component object changes. Using the `onConnectivityChange()` method to check the connectivity status changes for the base product.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
 
