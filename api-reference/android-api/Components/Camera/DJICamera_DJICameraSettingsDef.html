@@ -1,533 +1,605 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
-    <title>DJI Mobile SDK Documentation
-    </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
-  </head>
-  <body>
-    <nav id="site-header" class="site-header navbar">
-      <div class="container">
-        <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Developer</a></div>
-        <div id="header-navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">SDK<span class="caret"></span></a>
-              <ul class="hovedown-menu">
-                <li><a href="/mobile-sdk">Mobile SDK</a></li>
-                <li><a href="/onboard-sdk">Onboard SDK</a></li>
-                <li><a href="/guidance-sdk">Guidance SDK</a></li>
-              </ul>
-            </li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/showcase">Showcase</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a></li>
-            <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">GitHub<span class="caret"></span></a>
-              <ul class="hovedown-menu">
-                <li><a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS SDK</a></li>
-                <li><a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">Android SDK</a></li>
-                <li><a href="https://github.com/dji-sdk/Onboard-SDK" target="_blank">Onboard SDK</a></li>
-                <li><a href="https://github.com/dji-sdk/Guidance-SDK" target="_blank">Guidance SDK</a></li>
-              </ul>
-            </li>
-            <li><a href="/challenge2016" target="_blank">Challenge</a></li>
-          </ul>
-          <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register" class="head-cta">Register</a></li>
-          </ul>
-          <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
-            <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
-              <ul class="hovedown-menu hovedown-menu-right">
-                <li><a href="/user">User Center</a></li>
-                <li><a href="javascript:void(0);" v-on="click: logout">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div data-offset-top="60" data-spy="affix" class="sub-nav">
-      <div class="container">
-        <h1 class="logo">Mobile SDK</h1>
-        <nav><a href="/mobile-sdk">Overview</a><a href="/mobile-sdk/documentation">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
+  <title>DJI Mobile SDK Documentation
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
+<body>
+  <nav id="site-header" class="site-header navbar">
+    <div class="container">
+      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Developer</a></div>
+      <div id="header-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">SDK<span class="caret"></span></a>
             <ul class="hovedown-menu">
-              <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
-              <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
-        </nav>
+              <li><a href="/mobile-sdk">Mobile SDK</a></li>
+              <li><a href="/onboard-sdk">Onboard SDK</a></li>
+              <li><a href="/guidance-sdk">Guidance SDK</a></li>
+            </ul>
+          </li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/showcase">Showcase</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a></li>
+          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">GitHub<span class="caret"></span></a>
+            <ul class="hovedown-menu">
+              <li><a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS SDK</a></li>
+              <li><a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">Android SDK</a></li>
+              <li><a href="https://github.com/dji-sdk/Onboard-SDK" target="_blank">Onboard SDK</a></li>
+              <li><a href="https://github.com/dji-sdk/Guidance-SDK" target="_blank">Guidance SDK</a></li>
+            </ul>
+          </li>
+          <li><a href="/challenge2016" target="_blank">Challenge</a></li>
+        </ul>
+        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register" class="head-cta">Register</a></li>
+        </ul>
+        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
+            <ul class="hovedown-menu hovedown-menu-right">
+              <li><a href="/user">User Center</a></li>
+              <li><a href="javascript:void(0);" v-on="click: logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
-    <div id="documentation-page" class="documentation-page">
-      <div class="container">
-        <div class="site-sidebar">
-          <div class="searcher">
-            <div id="panel" class="panel panel_tree">
-              <div class="header">
-                <div class="search-con">
-                  <label id="search-label" for="search">
-                  </label>
-                  <input id="search" type="text" placeholder="Search" autosave="searchdoc" results="10" autocomplete="off">
-                  <div class="search-icon"></div><a class="clean-search glyphicon glyphicon-remove-circle"></a>
-                </div>
-              </div>
-              <div class="tree">
-                <ul></ul>
-              </div>
-              <div class="result">
-                <ul></ul>
+  </nav>
+  <div data-offset-top="60" data-spy="affix" class="sub-nav">
+    <div class="container">
+      <h1 class="logo">Mobile SDK</h1>
+      <nav><a href="/mobile-sdk">Overview</a><a href="/mobile-sdk/documentation">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
+          <ul class="hovedown-menu">
+            <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
+            <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+          </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
+      </nav>
+    </div>
+  </div>
+  <div id="documentation-page" class="documentation-page">
+    <div class="container">
+      <div class="site-sidebar">
+        <div class="searcher">
+          <div id="panel" class="panel panel_tree">
+            <div class="header">
+              <div class="search-con">
+                <label id="search-label" for="search">
+                </label>
+                <input id="search" type="text" placeholder="Search" autosave="searchdoc" results="10" autocomplete="off">
+                <div class="search-icon"></div><a class="clean-search glyphicon glyphicon-remove-circle"></a>
               </div>
             </div>
-          </div>
-          <div class="nav scrollable js-tree-menu">
-            <dl>
-              <dt>Manager Classes
-              </dt>
-                      <dd><a data-href="../SDKManager/DJISDKManager.html" class="sub-toggle">DJISDKManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a data-href="../SDKManager/DJIBluetoothProductConnector.html" class="sub-toggle">BluetoothProductConnector<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../SDKManager/DJIBluetoothProductConnector_DJIBluetoothDevice.html">BluetoothDevice</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../KeyManager/DJIKeyManager.html" class="sub-toggle">KeyManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a data-href="../KeyManager/DJIKey.html" class="sub-toggle">DJIKey<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../KeyManager/DJIBatteryKey.html">BatteryKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJICameraKey.html">CameraKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJIFlightControllerKey.html">FlightControllerKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJIGimbalKey.html">GimbalKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJIProductKey.html">ProductKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJIRemoteControllerKey.html">RemoteControllerKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJIHandheldControllerKey.html">HandheldControllerKey</a>
-                                              </dd>
-                                              <dd><a href="../KeyManager/DJIAirLinkKey.html">AirLinkKey</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../FlyZoneManager/DJIFlyZoneManager.html" class="sub-toggle">FlyZoneManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIFlyZoneInformation.html">GEOFlyZoneInformation</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a href="../GeoSyncFileService/GeoSyncFileService.html">GeoSyncFileService</a>
-                      </dd>
-            </dl>
-            <dl>
-              <dt>Base Classes
-              </dt>
-                      <dd><a href="../../BaseClasses/DJIBaseProduct.html">BaseProduct</a>
-                      </dd>
-                      <dd><a href="../BaseComponent/DJIBaseComponent.html">BaseComponent</a>
-                      </dd>
-            </dl>
-            <dl>
-              <dt>Product Classes
-              </dt>
-                      <dd><a href="../../Products/Aircraft/DJIAircraft.html">Aircraft</a>
-                      </dd>
-                      <dd><a href="../../Products/Handheld/DJIHandheld.html">HandHeld</a>
-                      </dd>
-            </dl>
-            <dl>
-              <dt>Component Classes
-              </dt>
-                      <dd><a data-href="../FlightController/DJIFlightController.html" class="sub-toggle">FlightController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a data-href="../FlightController/DJIFlightController_DJIFlightControllerCurrectState.html" class="sub-toggle">FlightControllerState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../FlightController/DJIFlightController_DJIAttitude.html">Attitude</a>
-                                              </dd>
-                                              <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate3D.html">LocationCoordinate3D</a>
-                                              </dd>
-                                              <dd><a href="../FlightController/DJIFlightController_DJIFlightControllerCurrectState_DJIFlightControllerSmartGoHomeStatus.html">GoHomeAssessment</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../Compass/DJICompass.html">Compass</a>
-                                  </dd>
-                                  <dd><a data-href="../RTK/DJIRTK.html" class="sub-toggle">RTK<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a data-href="../RTK/DJIRTK_DJIRTKState.html" class="sub-toggle">RTKState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                                <ul class="sub-menu">
-                                                          <dd><a href="../RTK/DJIRTK_DJIRTKReceiverInfo.html">ReceiverInfo</a>
-                                                          </dd>
-                                                </ul>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../LandingGear/DJILandingGear.html">LandingGear</a>
-                                  </dd>
-                                  <dd><a data-href="../IntelligentFlightAssistant/DJIIntelligentFlightAssistant.html" class="sub-toggle">Intelligent Flight Assistant<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a data-href="../VisionDetectionState/DJIVisionDetectionState.html" class="sub-toggle">VisionDetectionState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                                <ul class="sub-menu">
-                                                          <dd><a href="../VisionDetectionState/DJIVisionDetectionState_DJIVisionDetectionSector.html">Dectection Sector</a>
-                                                          </dd>
-                                                </ul>
-                                              </dd>
-                                              <dd><a href="../IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html">Dectection State</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../Simulator/DJISimulator.html" class="sub-toggle">Simulator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../Simulator/DJISimulator_DJISimulatorInitializationData.html">InitializationData</a>
-                                              </dd>
-                                              <dd><a href="../Simulator/DJISimulator_DJISimulatorState.html">SimulatorState</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../IMUState/DJIIMUState.html" class="sub-toggle">IMUState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../IMUState/DJIIMUState_DJIIMUMultiOrientationCalibrationHint.html">MultipleOrientationCalibrationHint</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../FlightController/DJIFlightController_DJIVirtualStickFlightControlData.html">FlightControlData</a>
-                                  </dd>
-                                  <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../Battery/DJIBattery_BatteryState.html">BatteryState</a>
-                                  </dd>
-                                  <dd><a data-href="../Battery/DJIBattery_AggregationState.html" class="sub-toggle">AggregationState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../Battery/DJIBattery_BatteryOverview.html">BatteryOverview</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../Battery/DJIBattery_WarningRecord.html">WarningRecord</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="DJICamera.html" class="sub-toggle">Camera<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="DJICamera_DJICameraSystemState.html">SystemState</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraLensState.html">FocusState</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraSDCardState.html">SDCardState</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraSSDState.html">SSDState</a>
-                                  </dd>
-                                  <dd><a data-href="DJIMediaManager.html" class="sub-toggle">MediaManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="DJIMediaManager_DJIMedia.html">MediaFile</a>
-                                              </dd>
-                                              <dd><a href="DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="DJIPlaybackManager.html" class="sub-toggle">PlaybackManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="DJIPlaybackManager_DJICameraPlaybackState.html">PlaybackState</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraParameters.html">Capabilities</a>
-                                  </dd>
-                                  <dd><a data-href="" class="sub-toggle">SettingsDefinitions<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="DJICamera_DJICameraExposureParameters.html">ExposureSettings</a>
-                                              </dd>
-                                              <dd><a href="DJICamera_DJICameraOpticalZoomSpec.html">OpticalZoomSpec</a>
-                                              </dd>
-                                              <dd><a href="DJICamera_DJICameraPhotoIntervalParam.html">PhotoTimeIntervalSettings</a>
-                                              </dd>
-                                              <dd><a href="DJICamera_DJICameraThermalProfile.html">ThermalProfile</a>
-                                              </dd>
-                                              <dd><a href="DJICamera_DJICameraThermalAreaTemperatureAggregations.html">ThermalAreaTemperatureAggregations</a>
-                                              </dd>
-                                              <dd><a href="DJICamera_DJICameraThermalExternalSceneSettings.html">ThermalExternalSceneSettings</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraWhiteBalanceInterface.html">WhiteBalance</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraFocusAssistantSettings.html">FocusAssistantSettings</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraPhotoTimeLapseSettings.html">PhotoTimeLapseSettings</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraVideoResolutionAndFrameRate.html">ResolutionAndFrameRate</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_DJICameraPictureStylePreset.html">PictureStylePreset</a>
-                                  </dd>
-                                  <dd><a href="DJICamera_CameraLiveView.html">CameraLiveView</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../Gimbal/DJIGimbal.html" class="sub-toggle">Gimbal<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../Gimbal/DJIGimbal_GimbalState.html">GimbalState</a>
-                                  </dd>
-                                  <dd><a href="../Gimbal/DJIGimbal_movementSettingsState.html">MovementSettings</a>
-                                  </dd>
-                                  <dd><a href="../Gimbal/DJIGimbal_attitude.html">Attitude</a>
-                                  </dd>
-                                  <dd><a data-href="../Gimbal/DJIGimbal_DJIGimbalRotation.html" class="sub-toggle">Rotation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../Gimbal/DJIGimbal_DJIGimbalRotation_Constructor.html">Builder</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../AirLink/DJIAirLink.html" class="sub-toggle">DJIAirLink<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a data-href="../LBAirLink/DJILBAirLink.html" class="sub-toggle">Lightbridge<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../LBAirLink/DJILBAirLink_DJILBAirLinkChannelInterference.html">ChannelInterference</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../OcuSyncLink/DJIOcuSyncLink.html" class="sub-toggle">OcuSyncLink<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../OcuSyncLink/DJIOcuSyncLink_DJIOcuSyncFrequencyInterference.html">FrequencyInterference</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../WiFiLink/DJIWiFiLink.html" class="sub-toggle">WiFi<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../WiFiLink/DJIWiFiLink_DJIWiFiChannelInterference.html">WifiChannelInterference</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../AuxLink/DJIAuxLink.html">Auxiliary</a>
-                                  </dd>
-                                  <dd><a href="../SignalInformation/DJISignalInformation.html">DJISignalInformation</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../RemoteController/DJIRemoteController.html" class="sub-toggle">RemoteController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCHardwareState.html" class="sub-toggle">HardwareState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../RemoteController/DJIRemoteController_DJIRCHardwareRightWheel.html">RightWheel</a>
-                                              </dd>
-                                              <dd><a href="../RemoteController/DJIRemoteController_DJIRCHardwareTransformationSwitch.html">TransformationSwitch</a>
-                                              </dd>
-                                              <dd><a href="../RemoteController/DJIRemoteController_DJIRCHardwareState_Button.html">Button</a>
-                                              </dd>
-                                              <dd><a href="../RemoteController/DJIRemoteController_DJIRCFiveDButton.html">FiveDButton</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCGPSData.html" class="sub-toggle">GPSData<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../RemoteController/DJIRemoteController_DJIRCGpsTime.html">Time</a>
-                                              </dd>
-                                              <dd><a href="../RemoteController/DJIRemoteController_GPSLocation.html">GPSLocation</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html">ChargeRemaining</a>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html">FocusControllerState</a>
-                                  </dd>
-                                  <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCAircraftMapping.html" class="sub-toggle">AircraftMapping<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../RemoteController/DJIRemoteController_DJIRCAircraftStickMapping.html">AircraftStickMapping</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../RemoteController/DJIRemoteController_RCCustomButtonTagParam.html" class="sub-toggle">CustomButtonTags<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../RemoteController/DJIRemoteController_RCCustomButtonTagParam_Constructor.html">Builder</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCInfo.html">Information</a>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCMasterSlaveState.html">MasterSlaveState</a>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalControlSpeed.html">GimbalControlSpeedCoefficient</a>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_JoinedMasterNameAndPasswordResult.html">Credentials</a>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalMapping.html">GimbalMapping</a>
-                                  </dd>
-                                  <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalStickMapping.html">GimbalStickMapping</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../HandheldController/DJIHandheldController.html" class="sub-toggle">HandheldController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../HandheldController/DJIHandheldController_DJIHandheldControllerHardwareState.html">HardwareState</a>
-                                  </dd>
-                                  <dd><a data-href="../HandheldController/DJIHandheldController_DJIHandheldControllerLEDCommand.html" class="sub-toggle">LEDCommand<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../HandheldController/DJIHandheldController_DJIHandheldControllerLEDCommand_DJIHandheldControllerLEDColorPattern.html">LEDColorPattern</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a href="../MobileRemoteController/DJIMobileRemoteController.html">MobileRemoteController</a>
-                      </dd>
-            </dl>
-            <dl>
-              <dt>Mission Classes (New)
-              </dt>
-                      <dd><a href="../Missions/DJIMissionControl.html">MissionControl</a>
-                      </dd>
-                      <dd><a data-href="../Missions/DJIWaypointMission_DJIWaypointMissionOperator.html" class="sub-toggle">WaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a data-href="../WaypointMission/DJIWaypointMission.html" class="sub-toggle">DJIWaypointMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../WaypointMission/DJIWaypointMission_DJIWaypointMissionStatus.html">DJIWaypointMissionStatus</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                                  <dd><a data-href="../Waypoint/DJIWaypoint.html" class="sub-toggle">DJIWaypoint<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                    <ul class="sub-menu">
-                                              <dd><a href="../Waypoint/DJIWaypoint_DJIWaypointAction.html">DJIWaypointAction</a>
-                                              </dd>
-                                    </ul>
-                                  </dd>
-                        </ul>
-                      </dd>
-            </dl>
-            <dl>
-              <dt>Mission Classes (Old)
-              </dt>
-                      <dd><a href="../MissionManager/DJIMissionManager.html">MissionManager</a>
-                      </dd>
-                      <dd><a data-href="../Mission/DJIMission.html" class="sub-toggle">DJIMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../Mission/DJIMission_DJIMissionProgressStatus.html">DJIMissionProgressStatus</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../ActiveTrackMission/DJIActiveTrackMission.html" class="sub-toggle">DJIActiveTrackMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../ActiveTrackMission/DJIActiveTrackMission_DJIActiveTrackMissionStatus.html">DJIActiveTrackMissionProgressStatus</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../FollowMeMission/DJIFollowMeMission.html" class="sub-toggle">DJIFollowMeMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../FollowMeMission/DJIFollowMeMission_DJIFollowMeMissionStatus.html">DJIFollowMeMissionStatus</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../HotPointMission/DJIHotPointMission.html" class="sub-toggle">DJIHotPointMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../HotPointMission/DJIHotPointMission_DJIHotPointMissionStatus.html">DJIHotPointMissionStatus</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../TapFlyMission/DJITapFlyMission.html" class="sub-toggle">DJITapFlyMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../TapFlyMission/DJITapFlyMission_DJITapFlyMissionStatus.html">DJITapFlyMissionProgressStatus</a>
-                                  </dd>
-                                  <dd><a href="../TapFlyMission/DJITapFlyMission_DJIVector.html">DJIVector</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../PanoramaMission/DJIPanoramaMission.html" class="sub-toggle">DJIPanoramaMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../PanoramaMission/DJIPanoramaMission_DJIPanoramaMissionStatus.html">DJIPanoramaMissionStatus</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../CustomMission/DJICustomMission.html" class="sub-toggle">DJICustomMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../CustomMission/DJICustomMission_DJICustomMissionStatus.html">DJICustomMissionProgressStatus</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIMissionStep.html">Mission Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIWaypointStep.html">Waypoint Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIHotpointStep.html">Hotpoint Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIFollowMeStep.html">Follow Me Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJITakeoffStep.html">Take Off Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIGoHomeStep.html">Go Home Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIGoToStep.html">Go To Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIStartRecordVideoStep.html">Start Record Video Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIStopRecordVideoStep.html">Stop Record Video Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIShootPhotoStep.html">Shoot Photo Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIGimbalAttitudeStep.html">Gimbal Attitude Step</a>
-                                  </dd>
-                                  <dd><a href="../CustomMission/DJICustomMission_DJIAircraftYawStep.html">Aircraft Yaw Step</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-            </dl>
-            <dl>
-              <dt>Misc Classes
-              </dt>
-                      <dd><a href="../../Utils/DJICommonCallbacks.html">CommonCallbacks</a>
-                      </dd>
-                      <dd><a data-href="../ParamCapability/DJIParamCapability.html" class="sub-toggle">DJIParamCapability<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../ParamCapability/DJIParamCapability_DJIParamCapabilityMinMax.html">DJIParamMinMaxCapability</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a data-href="../SDKError/DJIError.html" class="sub-toggle">DJIError<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                        <ul class="sub-menu">
-                                  <dd><a href="../SDKError/DJIError_DJIGimbalError.html">DJIGimbalError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJISDKError.html">DJISDKError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJISDKCacheError.html">DJISDKCacheError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJICameraError.html">DJICameraError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJIFlightControllerError.html">DJIFlightControllerError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJIMissionManagerError.html">DJIMissionError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJIAirLinkError.html">DJIAirLinkError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJIBatteryError.html">DJIBatteryError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJIGeoError.html">DJIGeoError</a>
-                                  </dd>
-                                  <dd><a href="../SDKError/DJIError_DJIRemoteControllerError.html">DJIRemoteControllerError</a>
-                                  </dd>
-                        </ul>
-                      </dd>
-                      <dd><a href="../Diagnostics/DJIDiagnostics.html">DJIDiagnostics</a>
-                      </dd>
-                      <dd><a href="../CodecManager/DJICodecManager.html">DJICodecManager</a>
-                      </dd>
-                      <dd><a href="../Stick/DJIStick.html">Stick</a>
-                      </dd>
-            </dl>
+            <div class="tree">
+              <ul></ul>
+            </div>
+            <div class="result">
+              <ul></ul>
+            </div>
           </div>
         </div>
-        <div class="site-main">
-          <div class="article"><div class="article"><h1><font color="#AAA">class </font>SettingsDefinitions</h1></div>
+        <div class="nav scrollable js-tree-menu">
+          <dl>
+            <dt>Manager Classes
+            </dt>
+                  <dd><a data-href="../SDKManager/DJISDKManager.html" class="sub-toggle">DJISDKManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../SDKManager/DJIBluetoothProductConnector.html" class="sub-toggle">BluetoothProductConnector<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../SDKManager/DJIBluetoothProductConnector_DJIBluetoothDevice.html">BluetoothDevice</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../KeyManager/DJIKeyManager.html" class="sub-toggle">KeyManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../KeyManager/DJIKey.html" class="sub-toggle">DJIKey<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../KeyManager/DJIBatteryKey.html">BatteryKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJICameraKey.html">CameraKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIFlightControllerKey.html">FlightControllerKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIGimbalKey.html">GimbalKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIProductKey.html">ProductKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIRemoteControllerKey.html">RemoteControllerKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIHandheldControllerKey.html">HandheldControllerKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIAirLinkKey.html">AirLinkKey</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../FlyZoneManager/DJIFlyZoneManager.html" class="sub-toggle">FlyZoneManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../FlyZoneManager/DJIFlyZoneManager_DJIFlyZoneInformation.html" class="sub-toggle">FlyZoneInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJISubFlyZoneInformation.html">SubFlyZoneInformation</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Base Classes
+            </dt>
+                  <dd><a data-href="../../BaseClasses/DJIBaseProduct.html" class="sub-toggle">BaseProduct<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../../BaseClasses/DJIVideoFeeder.html">VideoFeeder</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a href="../BaseComponent/DJIBaseComponent.html">BaseComponent</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Product Classes
+            </dt>
+                  <dd><a href="../../Products/Aircraft/DJIAircraft.html">Aircraft</a>
+                  </dd>
+                  <dd><a href="../../Products/Handheld/DJIHandheld.html">HandHeld</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Component Classes
+            </dt>
+                  <dd><a data-href="../FlightController/DJIFlightController.html" class="sub-toggle">FlightController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../FlightController/DJIFlightController_DJIFlightControllerCurrectState.html" class="sub-toggle">FlightControllerState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIFlightController_DJIAttitude.html">Attitude</a>
+                                      </dd>
+                                      <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate3D.html">LocationCoordinate3D</a>
+                                      </dd>
+                                      <dd><a href="../FlightController/DJIFlightController_DJIFlightControllerCurrectState_DJIFlightControllerSmartGoHomeStatus.html">GoHomeAssessment</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../Compass/DJICompass.html">Compass</a>
+                            </dd>
+                            <dd><a data-href="../RTK/DJIRTK.html" class="sub-toggle">RTK<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a data-href="../RTK/DJIRTK_DJIRTKState.html" class="sub-toggle">RTKState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../RTK/DJIRTK_DJIRTKReceiverInfo.html">ReceiverInfo</a>
+                                                </dd>
+                                        </ul>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../LandingGear/DJILandingGear.html">LandingGear</a>
+                            </dd>
+                            <dd><a data-href="../IntelligentFlightAssistant/DJIIntelligentFlightAssistant.html" class="sub-toggle">Intelligent Flight Assistant<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a data-href="../VisionDetectionState/DJIVisionDetectionState.html" class="sub-toggle">VisionDetectionState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../VisionDetectionState/DJIVisionDetectionState_DJIVisionDetectionSector.html">Detection Sector</a>
+                                                </dd>
+                                        </ul>
+                                      </dd>
+                                      <dd><a href="../IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html">Detection State</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Simulator/DJISimulator.html" class="sub-toggle">Simulator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Simulator/DJISimulator_DJISimulatorInitializationData.html">InitializationData</a>
+                                      </dd>
+                                      <dd><a href="../Simulator/DJISimulator_DJISimulatorState.html">SimulatorState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../IMUState/DJIIMUState.html" class="sub-toggle">IMUState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../IMUState/DJIIMUState_DJIIMUMultiOrientationCalibrationHint.html">MultipleOrientationCalibrationHint</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_DJIVirtualStickFlightControlData.html">FlightControlData</a>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Battery/DJIBattery_BatteryState.html">BatteryState</a>
+                            </dd>
+                            <dd><a data-href="../Battery/DJIBattery_AggregationState.html" class="sub-toggle">AggregationState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Battery/DJIBattery_BatteryOverview.html">BatteryOverview</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../Battery/DJIBattery_WarningRecord.html">WarningRecord</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="DJICamera.html" class="sub-toggle">Camera<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="DJICamera_DJICameraSystemState.html">SystemState</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraLensState.html">FocusState</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraSDCardState.html">SDCardState</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraSSDState.html">SSDState</a>
+                            </dd>
+                            <dd><a data-href="DJIMediaManager.html" class="sub-toggle">MediaManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="DJIMediaManager_DJIMedia.html">MediaFile</a>
+                                      </dd>
+                                      <dd><a href="DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="DJIPlaybackManager.html" class="sub-toggle">PlaybackManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="DJIPlaybackManager_DJICameraPlaybackState.html">PlaybackState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraParameters.html">Capabilities</a>
+                            </dd>
+                            <dd><a data-href="" class="sub-toggle">SettingsDefinitions<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="DJICamera_DJICameraExposureParameters.html">ExposureSettings</a>
+                                      </dd>
+                                      <dd><a href="DJICamera_DJICameraOpticalZoomSpec.html">OpticalZoomSpec</a>
+                                      </dd>
+                                      <dd><a href="DJICamera_DJICameraPhotoIntervalParam.html">PhotoTimeIntervalSettings</a>
+                                      </dd>
+                                      <dd><a href="DJICamera_DJICameraThermalProfile.html">ThermalProfile</a>
+                                      </dd>
+                                      <dd><a href="DJICamera_DJICameraThermalAreaTemperatureAggregations.html">ThermalAreaTemperatureAggregations</a>
+                                      </dd>
+                                      <dd><a href="DJICamera_DJICameraThermalExternalSceneSettings.html">ThermalExternalSceneSettings</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraWhiteBalanceInterface.html">WhiteBalance</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraFocusAssistantSettings.html">FocusAssistantSettings</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraPhotoTimeLapseSettings.html">PhotoTimeLapseSettings</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraVideoResolutionAndFrameRate.html">ResolutionAndFrameRate</a>
+                            </dd>
+                            <dd><a href="DJICamera_DJICameraPictureStylePreset.html">PictureStylePreset</a>
+                            </dd>
+                            <dd><a href="DJICamera_CameraLiveView.html">CameraLiveView</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Gimbal/DJIGimbal.html" class="sub-toggle">Gimbal<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Gimbal/DJIGimbal_GimbalState.html">GimbalState</a>
+                            </dd>
+                            <dd><a href="../Gimbal/DJIGimbal_movementSettingsState.html">MovementSettings</a>
+                            </dd>
+                            <dd><a href="../Gimbal/DJIGimbal_attitude.html">Attitude</a>
+                            </dd>
+                            <dd><a data-href="../Gimbal/DJIGimbal_DJIGimbalRotation.html" class="sub-toggle">Rotation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Gimbal/DJIGimbal_DJIGimbalRotation_Constructor.html">Builder</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../AirLink/DJIAirLink.html" class="sub-toggle">AirLink<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../LBAirLink/DJILBAirLink.html" class="sub-toggle">Lightbridge<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../LBAirLink/DJILBAirLink_DJILBAirLinkChannelInterference.html">ChannelInterference</a>
+                                      </dd>
+                                      <dd><a href="../LBAirLink/DJILBAirLink_DJILightbridgeAntennaRSSI.html">LightbridgeAntennaRSSI</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../OcuSyncLink/DJIOcuSyncLink.html" class="sub-toggle">OcuSyncLink<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../OcuSyncLink/DJIOcuSyncLink_DJIOcuSyncFrequencyInterference.html">FrequencyInterference</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../WiFiLink/DJIWiFiLink.html" class="sub-toggle">WiFi<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../WiFiLink/DJIWiFiLink_DJIWiFiChannelInterference.html">WifiChannelInterference</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../RemoteController/DJIRemoteController.html" class="sub-toggle">RemoteController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCHardwareState.html" class="sub-toggle">HardwareState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../RemoteController/DJIRemoteController_DJIRCHardwareRightWheel.html">RightWheel</a>
+                                      </dd>
+                                      <dd><a href="../RemoteController/DJIRemoteController_DJIRCHardwareTransformationSwitch.html">TransformationSwitch</a>
+                                      </dd>
+                                      <dd><a href="../RemoteController/DJIRemoteController_DJIRCHardwareState_Button.html">Button</a>
+                                      </dd>
+                                      <dd><a href="../RemoteController/DJIRemoteController_DJIRCFiveDButton.html">FiveDButton</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCGPSData.html" class="sub-toggle">GPSData<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../RemoteController/DJIRemoteController_DJIRCGpsTime.html">Time</a>
+                                      </dd>
+                                      <dd><a href="../RemoteController/DJIRemoteController_GPSLocation.html">GPSLocation</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html">ChargeRemaining</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html">FocusControllerState</a>
+                            </dd>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCAircraftMapping.html" class="sub-toggle">AircraftMapping<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../RemoteController/DJIRemoteController_DJIRCAircraftStickMapping.html">AircraftStickMapping</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_RCCustomButtonTagParam.html" class="sub-toggle">CustomButtonTags<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../RemoteController/DJIRemoteController_RCCustomButtonTagParam_Constructor.html">Builder</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCInfo.html">Information</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCMasterSlaveState.html">MasterSlaveState</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalControlSpeed.html">GimbalControlSpeedCoefficient</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_ResponseForGimbalControl.html">ResponseForGimbalControl</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_JoinMasterAuthorizationInfo.html">AuthorizationInfo</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_JoinedMasterNameAndPasswordResult.html">Credentials</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalMapping.html">GimbalMapping</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalStickMapping.html">GimbalStickMapping</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../HandheldController/DJIHandheldController.html" class="sub-toggle">HandheldController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../HandheldController/DJIHandheldController_DJIHandheldControllerHardwareState.html">HardwareState</a>
+                            </dd>
+                            <dd><a data-href="../HandheldController/DJIHandheldController_DJIHandheldControllerLEDCommand.html" class="sub-toggle">LEDCommand<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../HandheldController/DJIHandheldController_DJIHandheldControllerLEDCommand_DJIHandheldControllerLEDColorPattern.html">LEDColorPattern</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a href="../MobileRemoteController/DJIMobileRemoteController.html">MobileRemoteController</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Mission Classes
+            </dt>
+                  <dd><a data-href="../Missions/DJIMissionControl.html" class="sub-toggle">MissionControl<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIMissionControlTimelineElement.html">TimelineElement</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionControlError.html">MissionControlError</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Missions/DJIMissionAction.html" class="sub-toggle">MissionAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJITakeOffAction.html">TakeOffAction</a>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIAircraftYawAction.html" class="sub-toggle">AircraftYawAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIAircraftYawAction_DJIAircraftYawActionError.html">AircraftYawActionError</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIGoToAction.html" class="sub-toggle">GoToAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIGoToAction_DJIGoToActionError.html">GoToActionError</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../Missions/DJIGoHomeAction.html">GoHomeAction</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIHotpointAction.html">HotpointAction</a>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIGimbalAttitudeAction.html" class="sub-toggle">GimbalAttitudeAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIGimbalAttitudeAction_DJIGimbalAttitudeActionError.html">GimbalAttitudeActionError</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIRecordVideoAction.html" class="sub-toggle">RecordVideoAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIRecordVideoAction_DJIRecordVideoActionError.html">RecordVideoActionError</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIShootPhotoAction.html" class="sub-toggle">ShootPhotoAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIShootPhotoAction_DJIShootPhotoActionError.html">ShootPhotoActionError</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a href="../Missions/DJIMissionTrigger.html">Trigger</a>
+                  </dd>
+                  <dd><a data-href="../Missions/DJIWaypointMissionOperator.html" class="sub-toggle">WaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../Missions/DJIWaypointMission.html" class="sub-toggle">WaypointMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIWaypointMission_Builder.html">Builder</a>
+                                      </dd>
+                                      <dd><a data-href="../Missions/DJIWaypoint.html" class="sub-toggle">Waypoint<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Missions/DJIWaypoint_DJIWaypointAction.html">WaypointAction</a>
+                                                </dd>
+                                        </ul>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../Missions/DJIWaypointMissionEvent.html">WaypointMissionEvent</a>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIWaypointMissionUploadEvent.html" class="sub-toggle">WaypointMissionUploadEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIWaypointMission_DJIWaypointUploadProgress.html">WaypointUploadProgress</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIWaypointMissionDownloadEvent.html" class="sub-toggle">WaypointMissionDownloadEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIWaypointMission_DJIWaypointDownloadProgress.html">WaypointDownloadProgress</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIWaypointMissionExecutionEvent.html" class="sub-toggle">WaypointMissionExecutionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIWaypointMission_DJIWaypointExecutionProgress.html">WaypointExecutionProgress</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../Missions/DJIWaypointMissionState.html">WaypointMissionState</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Missions/DJIFollowMeMissionOperator.html" class="sub-toggle">FollowMeMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIFollowMeMission.html">FollowMeMission</a>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIFollowMeMissionEvent.html" class="sub-toggle">FollowMeMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIFollowMeMissionState.html">FollowMeMissionState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Missions/DJIPanoramaMissionOperator.html" class="sub-toggle">PanoramaMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIPanoramaMissionEvent.html">PanoramaMissionEvent</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIPanoramaMissionState.html">PanoramaMissionState</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIPanoramaMission_DJIPanoramaMissionStatus.html">PanoramaMissionExecutionState</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Missions/DJIHotpointMissionOperator.html" class="sub-toggle">HotpointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIHotPointMission.html">HotpointMission</a>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIHotpointMissionEvent.html" class="sub-toggle">HotpoinMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIHotpointMissionState.html">HotpointMissionState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Missions/DJITapFlyMissionOperator.html" class="sub-toggle">TapFlyMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../Missions/DJITapFlyMission.html" class="sub-toggle">TapFlyMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJITapFlyMission_DJITapFlyExecutionState.html">TapFlyExecutionState</a>
+                                      </dd>
+                                      <dd><a href="../Missions/DJITapFlyMission_DJIVector.html">Vector</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJITapFlyMissionEvent.html" class="sub-toggle">TapFlyMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJITapFlyMissionState.html">TapFlyMissionState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../Missions/DJIActiveTrackMissionOperator.html" class="sub-toggle">ActiveTrackOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../Missions/DJIActiveTrackMission.html" class="sub-toggle">ActiveTrackMission<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIActiveTrackTrackingState.html">ActiveTrackTrackingState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../Missions/DJIActiveTrackMissionEvent.html" class="sub-toggle">ActiveTrackMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Missions/DJIActiveTrackMissionState.html">ActiveTrackState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                    </ul>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Misc Classes
+            </dt>
+                  <dd><a href="../../Utils/DJICommonCallbacks.html">CommonCallbacks</a>
+                  </dd>
+                  <dd><a data-href="../ParamCapability/DJIParamCapability.html" class="sub-toggle">DJIParamCapability<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../ParamCapability/DJIParamCapability_DJIParamCapabilityMinMax.html">DJIParamMinMaxCapability</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../SDKError/DJIError.html" class="sub-toggle">DJIError<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../SDKError/DJIError_DJIGimbalError.html">DJIGimbalError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJISDKError.html">DJISDKError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJISDKCacheError.html">DJISDKCacheError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJICameraError.html">DJICameraError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIFlightControllerError.html">DJIFlightControllerError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIMissionManagerError.html">DJIMissionError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIAirLinkError.html">DJIAirLinkError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIBatteryError.html">DJIBatteryError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIGeoError.html">DJIGeoError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIRemoteControllerError.html">DJIRemoteControllerError</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a href="../Diagnostics/DJIDiagnostics.html">DJIDiagnostics</a>
+                  </dd>
+                  <dd><a href="../CodecManager/DJICodecManager.html">DJICodecManager</a>
+                  </dd>
+                  <dd><a href="../Stick/DJIStick.html">Stick</a>
+                  </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="site-main">
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>SettingsDefinitions</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SettingsDefinitions</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraSettingsDef</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">This class contains all the enums and setting classes for the DJI Camera.</font></p>
 <h5 id="class-members">Class Members:</h5>
@@ -536,7 +608,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>CameraMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> CameraMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_mode_inline">CameraKey.MODE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_camera_mode_range_inline">CameraKey.CAMERA_MODE_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Camera work modes.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
@@ -547,7 +619,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ShootPhotoMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ShootPhotoMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraShootPhotoMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_shoot_photo_mode_inline">CameraKey.SHOOT_PHOTO_MODE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_shoot_photo_mode_range_inline">CameraKey.SHOOT_PHOTO_MODE_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">The ShootPhoto mode itself can have several modes. The default value  is <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerashootphotomode_djicamerashootphotomodesingle">SINGLE</a></code>.</font></p>
 <h5 id="enum-members-v2">Enum Members:</h5>
@@ -558,7 +630,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ExposureMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ExposureMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraExposureMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_mode_inline">CameraKey.EXPOSURE_MODE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_mode_range_inline">CameraKey.EXPOSURE_MODE_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Camera exposure modes. The default value is <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraexposuremode_program">PROGRAM</a></code>. The different exposure  modes define whether Aperture, Shutter Speed, ISO can be set automatically or manually. Exposure compensation can  be changed in all modes except Manual mode where it is not settable. <b>X5, X5R, Phantom 4 Pro camera, X4S and  X5S:</b><br> Program Mode:       Shutter: Auto     Aperture: Auto     ISO: Manual or Auto<br> Shutter Priority:   Shutter: Manual   Aperture: Auto     ISO: Manual or Auto<br> Aperture Priority:  Shutter: Auto     Aperture: Manual    ISO: Manual or Auto<br> Manual Mode:        Shutter: Manual   Aperture: Manual   ISO: Manual<br><br><br> <b>All  other cameras:</b><br> Program Mode:       Shutter: Auto     Aperture: Fixed    ISO: Auto<br> Shutter Priority:    Shutter: Manual   Aperture: Fixed    ISO: Auto<br> Aperture Priority:  N/A<br> Manual Mode:        Shutter: Manual    Aperture: Manual   ISO: Manual</font></p>
 <h5 id="enum-members-v3">Enum Members:</h5>
@@ -569,7 +641,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ShutterSpeed</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ShutterSpeed</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraShutterSpeed</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_shutter_speed_inline">CameraKey.SHUTTER_SPEED</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_shutter_speed_range_inline">CameraKey.SHUTTER_SPEED_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Camera's shutter speed options.</font></p>
 <h5 id="enum-members-v4">Enum Members:</h5>
@@ -580,7 +652,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ISO</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ISO</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraISO</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_iso_inline">CameraKey.ISO</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_iso_range_inline">CameraKey.ISO_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Camera ISO values.</font></p>
 <h5 id="enum-members-v5">Enum Members:</h5>
@@ -591,7 +663,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>Aperture</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> Aperture</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraAperture</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_aperture_inline">CameraKey.APERTURE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_aperture_range_inline">CameraKey.APERTURE_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Camera aperture values. X5, X5R, Z30, Phantom 4 Pro camera, X4S and X5S support this setting.</font></p>
 <h5 id="enum-members-v6">Enum Members:</h5>
@@ -602,7 +674,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>WhiteBalancePreset</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> WhiteBalancePreset</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraWhiteBalance</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_white_balance_inline">CameraKey.WHITE_BALANCE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_white_balance_present_range_inline">CameraKey.WHITE_BALANCE_PRESENT_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Camera white balance. The default value is Auto.</font></p>
 <h5 id="enum-members-v7">Enum Members:</h5>
@@ -613,7 +685,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>MeteringMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> MeteringMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraMeteringMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_metering_mode_inline">CameraKey.METERING_MODE</a></font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Camera exposure metering. The default value is Center.</font></p>
 <h5 id="enum-members-v8">Enum Members:</h5>
@@ -624,7 +696,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ExposureCompensation</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ExposureCompensation</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraExposureCompensation</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_compensation_inline">CameraKey.EXPOSURE_COMPENSATION</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_exposure_compensation_range_inline">CameraKey.EXPOSURE_COMPENSATION_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Camera exposure compensation.</font></p>
 <h5 id="enum-members-v9">Enum Members:</h5>
@@ -635,7 +707,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ZoomDirection</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ZoomDirection</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraOpticalZoomDirection</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_start_continuous_optical_zoom_inline">CameraKey.START_CONTINUOUS_OPTICAL_ZOOM</a></font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">The direction to adjust the camera zoom (camera focal length). Supported by X5, X5R and X5S with zoom lens, Z3 camera  and Z30 camera.</font></p>
 <h5 id="enum-members-v10">Enum Members:</h5>
@@ -646,7 +718,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ZoomSpeed</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ZoomSpeed</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraOpticalZoomSpeed</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_start_continuous_optical_zoom_inline">CameraKey.START_CONTINUOUS_OPTICAL_ZOOM</a></font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">The speed of lens to zoom. The speed of lens to zoom. Supported by X5, X5R and X5S with zoom lens, Z3 camera and Z30 camera.</font></p>
 <h5 id="enum-members-v11">Enum Members:</h5>
@@ -657,7 +729,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>FocusMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> FocusMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensFocusMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_focus_mode_inline">CameraKey.FOCUS_MODE</a></font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Camera focus mode. It is settable only when <code><a href="../../Components/Camera/DJICamera.html#djicamera_camerasettings_isadjustablefocalpointsupported">isAdjustableFocalPointSupported</a></code> returns  <code>true</code> and the physical AF switch on the camera is set to auto.</font></p>
 <h5 id="enum-members-v12">Enum Members:</h5>
@@ -668,7 +740,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>FocusStatus</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> FocusStatus</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraLensFocusStatus</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_focus_status_inline">CameraKey.FOCUS_STATUS</a></font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
 <p><font color="#666">The focusing status of the camera's lens.</font></p>
 <h5 id="enum-members-v13">Enum Members:</h5>
@@ -679,7 +751,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>PhotoFileFormat</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> PhotoFileFormat</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraPhotoFileFormat</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_file_format_inline">CameraKey.PHOTO_FILE_FORMAT</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_file_format_range_inline">CameraKey.PHOTO_FILE_FORMAT_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Camera photo file formats. The default value is JPEG.</font></p>
 <h5 id="enum-members-v14">Enum Members:</h5>
@@ -690,7 +762,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>PhotoAspectRatio</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> PhotoAspectRatio</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraPhotoAspectRatio</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_aspect_ratio_inline">CameraKey.PHOTO_ASPECT_RATIO</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_aspect_ratio_range_inline">CameraKey.PHOTO_ASPECT_RATIO_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v16">Description:</h5>
 <p><font color="#666">Photo aspect ratio, where the first value is the width and the second value is the height. The default  value is <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraphotoaspectratio_4_3">RATIO_4_3</a></code>.</font></p>
 <h5 id="enum-members-v15">Enum Members:</h5>
@@ -701,7 +773,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>PhotoBurstCount</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> PhotoBurstCount</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraPhotoBurstCount</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_burst_count_inline">CameraKey.PHOTO_BURST_COUNT</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_raw_burst_count_inline">CameraKey.PHOTO_RAW_BURST_COUNT</a></font></td></tr></table></html>
 <h5 id="description-v17">Description:</h5>
 <p><font color="#666">The number of photos taken in one burst shot (shooting photo in burst mode).</font></p>
 <h5 id="enum-members-v16">Enum Members:</h5>
@@ -712,7 +784,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>PhotoTimeLapseFileFormat</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> PhotoTimeLapseFileFormat</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraPhotoTimeLapseFileFormat</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_photo_time_lapse_settings_inline">CameraKey.PHOTO_TIME_LAPSE_SETTINGS</a></font></td></tr></table></html>
 <h5 id="description-v18">Description:</h5>
 <p><font color="#666">File format for camera when it is in time-lapse mode. The default file format is video. If video+JPEG is  selected the minimum interval will be 2 seconds.</font></p>
 <h5 id="enum-members-v17">Enum Members:</h5>
@@ -723,7 +795,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>VideoFileFormat</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> VideoFileFormat</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraVideoFileFormat</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_file_format_inline">CameraKey.VIDEO_FILE_FORMAT</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_file_format_range_inline">CameraKey.VIDEO_FILE_FORMAT_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v19">Description:</h5>
 <p><font color="#666">Video storage formats.</font></p>
 <h5 id="enum-members-v18">Enum Members:</h5>
@@ -734,9 +806,9 @@
 <div class="article"><h6><font color="#AAA">enum </font>VideoResolution</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> VideoResolution</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraVideoResolution</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_resolution_frame_rate_range_inline">CameraKey.VIDEO_RESOLUTION_FRAME_RATE_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v20">Description:</h5>
-<p><font color="#666">Camera video resolution values. The resolutions available for a product are in <code><a href="../../Components/Camera/DJICamera_DJICameraParameters.html#djicamera_djicameraparameters_supportedcameravideoresolutionandframeraterange">supportedCameraVideoResolutionAndFrameRateRange</a></code>.</font></p>
+<p><font color="#666">Camera video resolution values. The resolutions available for a product are in <code><a href="../../Components/Camera/DJICamera_DJICameraParameters.html#djicamera_djicameraparameters_supportedcameravideoresolutionandframeraterange">videoResolutionAndFrameRateRange</a></code>.</font></p>
 <h5 id="enum-members-v19">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_640x480_inline"></a>RESOLUTION_640x480</font></td><td><font color="#666">The camera's video resolution is 640x480.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_640x512_inline"></a>RESOLUTION_640x512</font></td><td><font color="#666">The camera's video resolution is 640x512.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_1280x720_inline"></a>RESOLUTION_1280x720</font></td><td><font color="#666">The camera's video resolution is 1280x720.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_1920x1080_inline"></a>RESOLUTION_1920x1080</font></td><td><font color="#666">The camera's video resolution is 1920x1080.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_2704x1520_inline"></a>RESOLUTION_2704x1520</font></td><td><font color="#666">The camera's video resolution is 2704x1520.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_2720x1530_inline"></a>RESOLUTION_2720x1530</font></td><td><font color="#666">The camera's video resolution is 2720x1530.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_3840x1572_inline"></a>RESOLUTION_3840x1572</font></td><td><font color="#666">The camera's video resolution is 3840x1572.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_3840x2160_inline"></a>RESOLUTION_3840x2160</font></td><td><font color="#666">The camera's video resolution is 3840x2160.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_4096x2160_inline"></a>RESOLUTION_4096x2160</font></td><td><font color="#666">The camera's video resolution is 4096x2160.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_4608x2160_inline"></a>RESOLUTION_4608x2160</font></td><td><font color="#666">The camera's video resolution is 4608x2160.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_4608x2592_inline"></a>RESOLUTION_4608x2592</font></td><td><font color="#666">The camera's video resolution is 4608x2592.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_5280x2160_inline"></a>RESOLUTION_5280x2160</font></td><td><font color="#666">The camera's video resolution is 5280x2160.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_maxresolution_inline"></a>RESOLUTION_MAX</font></td><td><font color="#666">The camera's video resolution will be maximum resolution supported by the camera sensor. For X5S and X4S,  the maximum resolution is 5280x2972.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_nossdvideo_inline"></a>NO_SSD_VIDEO</font></td><td><font color="#666">The camera's SSD video resolution is unset. When the SSD resolution is unset, camera will not store video to SSD.   SSD's resolution is determined by both license key and SD card's video frame rate. If there is no supported  resolution with the current configuration, <code>DJICameraVideoResolutionUnset</code> will be selected and user  should adjust either the license or the frame rate.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoresolution_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The camera's video resolution is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v20">Class Members:</h5>
@@ -745,9 +817,9 @@
 <div class="article"><h6><font color="#AAA">enum </font>VideoFrameRate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> VideoFrameRate</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraVideoFrameRate</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_resolution_frame_rate_range_inline">CameraKey.VIDEO_RESOLUTION_FRAME_RATE_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v21">Description:</h5>
-<p><font color="#666">Camera video frame rate values. The frame rates available for a product  are in <code><a href="../../Components/Camera/DJICamera_DJICameraParameters.html#djicamera_djicameraparameters_supportedcameravideoresolutionandframeraterange">supportedCameraVideoResolutionAndFrameRateRange</a></code>.</font></p>
+<p><font color="#666">Camera video frame rate values. The frame rates available for a product  are in <code><a href="../../Components/Camera/DJICamera_DJICameraParameters.html#djicamera_djicameraparameters_supportedcameravideoresolutionandframeraterange">videoResolutionAndFrameRateRange</a></code>.</font></p>
 <h5 id="enum-members-v20">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_23p976fps_inline"></a>FRAME_RATE_23_DOT_976_FPS</font></td><td><font color="#666">The camera's video frame rate is 23.976fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_24fps_inline"></a>FRAME_RATE_24_FPS</font></td><td><font color="#666">The camera's video frame rate is 24fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_25fps_inline"></a>FRAME_RATE_25_FPS</font></td><td><font color="#666">The camera's video frame rate is 25fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_29p970fps_inline"></a>FRAME_RATE_29_DOT_970_FPS</font></td><td><font color="#666">The camera's video frame rate is 29.97fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_30fps_inline"></a>FRAME_RATE_30_FPS</font></td><td><font color="#666">The camera's video frame rate is 30fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_47p950fps_inline"></a>FRAME_RATE_47_DOT_950_FPS</font></td><td><font color="#666">The camera's video frame rate is 47.95fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_48fps_inline"></a>FRAME_RATE_48_FPS</font></td><td><font color="#666">The camera's video frame rate is 48fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_50fps_inline"></a>FRAME_RATE_50_FPS</font></td><td><font color="#666">The camera's video frame rate is 50fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_59p940fps_inline"></a>FRAME_RATE_59_DOT_940_FPS</font></td><td><font color="#666">The camera's video frame rate is 59.94fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_60fps_inline"></a>FRAME_RATE_60_FPS</font></td><td><font color="#666">The camera's video frame rate is 60fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_90fps_inline"></a>FRAME_RATE_90_FPS</font></td><td><font color="#666">The camera's video frame rate is 90fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_96fps_inline"></a>FRAME_RATE_96_FPS</font></td><td><font color="#666">The camera's video frame rate is 96fps (frames per second).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_100fps_inline"></a>FRAME_RATE_100_FPS</font></td><td><font color="#666">The camera's video frame rate is 100fps (frames per second). This frame rate can only be used when  <code>isSlowMotionSupported</code> returns <code>true</code>.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_120fps_inline"></a>FRAME_RATE_120_FPS</font></td><td><font color="#666">The camera's video frame rate is 120fps (frames per second). This frame rate can only be used when  <code>isSlowMotionSupported</code> returns <code>true</code>.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideoframerate_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The camera's video frame rate is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v21">Class Members:</h5>
@@ -756,7 +828,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>VideoStandard</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> VideoStandard</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraVideoStandard</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_standard_inline">CameraKey.VIDEO_STANDARD</a></font></td></tr></table></html>
 <h5 id="description-v22">Description:</h5>
 <p><font color="#666">Video standard values. The default value is NTSC.</font></p>
 <h5 id="enum-members-v21">Enum Members:</h5>
@@ -767,7 +839,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>VideoFileCompressionStandard</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> VideoFileCompressionStandard</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJIVideoFileCompressionStandard</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_file_compression_standard_inline">CameraKey.VIDEO_FILE_COMPRESSION_STANDARD</a></font></td></tr></table></html>
 <h5 id="description-v23">Description:</h5>
 <p><font color="#666">The compression standard used to store the video files. Only supported by X4S, X5S and Phantom 4 Pro cameras.</font></p>
 <h5 id="enum-members-v22">Enum Members:</h5>
@@ -778,7 +850,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>CameraSSDVideoLicense</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> CameraSSDVideoLicense</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraSSDVideoLicense</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_activate_ssd_video_license_inline">CameraKey.ACTIVATE_SSD_VIDEO_LICENSE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_ssd_video_licenses_inline">CameraKey.SSD_VIDEO_LICENSES</a></font></td></tr></table></html>
 <h5 id="description-v24">Description:</h5>
 <p><font color="#666">DJI camera's license keys. An Inspire 2 License Key activates the usage permission of CinemaDNG or Apple ProRes inside  CineCore 2.0. License keys are obtained by by purchase from the DJI store website using the Inspire 2 serial number.  The Inspire 2 is then connected to DJI Assistant 2, and the  license keys downloaded to it. Only supported by X5S camera.</font></p>
 <h5 id="enum-members-v23">Enum Members:</h5>
@@ -789,7 +861,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>SSDVideoDigitalFilter</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> SSDVideoDigitalFilter</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraSSDVideoDigitalFilter</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_ssd_video_digital_filter_inline">CameraKey.SSD_VIDEO_DIGITAL_FILTER</a></font></td></tr></table></html>
 <h5 id="description-v25">Description:</h5>
 <p><font color="#666">Camera digital filters for videos that will be stored in SSD. The default value  is <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerassdvideodigitalfilternone">NONE</a></code>. Only Supported by Inspire 2.</font></p>
 <h5 id="enum-members-v24">Enum Members:</h5>
@@ -800,7 +872,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>AntiFlickerFrequency</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> AntiFlickerFrequency</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraAntiFlicker</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_anti_flicker_frequency_inline">CameraKey.ANTI_FLICKER_FREQUENCY</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_anti_flicker_range_inline">CameraKey.ANTI_FLICKER_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v26">Description:</h5>
 <p><font color="#666">Camera anti-flickers. The default value is <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameraantiflicker_50hz">MANUAL_50HZ</a></code>.</font></p>
 <h5 id="enum-members-v25">Enum Members:</h5>
@@ -811,7 +883,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>SSDOperationState</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> SSDOperationState</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraSSDOperationState</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_ssd_operation_state_inline">CameraKey.SSD_OPERATION_STATE</a></font></td></tr></table></html>
 <h5 id="description-v27">Description:</h5>
 <p><font color="#666">Solid State Drive (SSD) State.</font></p>
 <h5 id="enum-members-v26">Enum Members:</h5>
@@ -822,7 +894,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>SSDCapacity</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> SSDCapacity</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraSSDCapacity</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_ssd_total_space_inline">CameraKey.SSD_TOTAL_SPACE</a></font></td></tr></table></html>
 <h5 id="description-v28">Description:</h5>
 <p><font color="#666">Solid State Drive (SSD) Capacity.</font></p>
 <h5 id="enum-members-v27">Enum Members:</h5>
@@ -833,7 +905,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>FileIndexMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> FileIndexMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraFileIndexMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_file_index_mode_inline">CameraKey.FILE_INDEX_MODE</a></font></td></tr></table></html>
 <h5 id="description-v29">Description:</h5>
 <p><font color="#666">File index modes.</font></p>
 <h5 id="enum-members-v28">Enum Members:</h5>
@@ -844,7 +916,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>CustomSettingsProfile</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> CustomSettingsProfile</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraCustomSettings</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_save_settings_to_profile_inline">CameraKey.SAVE_SETTINGS_TO_PROFILE</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_load_settings_from_profile_inline">CameraKey.LOAD_SETTINGS_FROM_PROFILE</a></font></td></tr></table></html>
 <h5 id="description-v30">Description:</h5>
 <p><font color="#666">Camera user settings. A user can save or load camera settings to or from the specified user.</font></p>
 <h5 id="enum-members-v29">Enum Members:</h5>
@@ -855,18 +927,18 @@
 <div class="article"><h6><font color="#AAA">enum </font>DigitalFilter</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> DigitalFilter</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraDigitalFilter</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_digital_filter_inline">CameraKey.DIGITAL_FILTER</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_digital_filter_range_inline">CameraKey.DIGITAL_FILTER_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v31">Description:</h5>
 <p><font color="#666">Camera digital filters. The default value is <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameradigitalfilter_none">NONE</a></code>. Z30 camera only  supports <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameradigitalfilter_none">NONE</a></code>, <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameradigitalfilter_blackandwhite">BLACK_AND_WHITE</a></code>  and <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameradigitalfilter_inverse">INVERSE</a></code>.</font></p>
 <h5 id="enum-members-v30">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_none_inline"></a>NONE</font></td><td><font color="#666">The digital filter is set to none or no filter.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_art_inline"></a>ART</font></td><td><font color="#666">The digital filter is set to art.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_blackandwhite_inline"></a>BLACK_AND_WHITE</font></td><td><font color="#666">The digital filter is set to black and white.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_bright_inline"></a>BRIGHT</font></td><td><font color="#666">The digital filter is set to bright.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_dcinelike_inline"></a>D_CINELIKE</font></td><td><font color="#666">The digital filter is set to D-Cinelike (called movie before).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_portrait_inline"></a>PORTRAIT</font></td><td><font color="#666">The digital filter is set to portrait. Only supported by Osmo with X3 camera.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_m31_inline"></a>M_31</font></td><td><font color="#666">The digital filter is set to M31.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_kdx_inline"></a>K_DX</font></td><td><font color="#666">The digital filter is set to kDX.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_prismo_inline"></a>PRISMO</font></td><td><font color="#666">The digital filter is set to prismo.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_jugo_inline"></a>JUGO</font></td><td><font color="#666">The digital filter is set to jugo.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_dlog_inline"></a>D_LOG</font></td><td><font color="#666">The digital filter is set to D-Log (called neutral before).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_truecolor_inline"></a>TRUE_COLOR</font></td><td><font color="#666">The digital filter is set to true color. It is only supported by Phantom 4 with firmware v1.2.503 or above.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_inverse_inline"></a>INVERSE</font></td><td><font color="#666">The digital filter is set to inverse.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_reminiscence_inline"></a>REMINISCENCE</font></td><td><font color="#666">The digital filter is set to reminiscence.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_solarize_inline"></a>SOLARIZE</font></td><td><font color="#666">The digital filter is set to solarize.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_posterize_inline"></a>POSTERIZE</font></td><td><font color="#666">The digital filter is set to posterize.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_whiteboard_inline"></a>WHITEBOARD</font></td><td><font color="#666">The digital filter is set to whiteboard.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_blackboard_inline"></a>BLACKBOARD</font></td><td><font color="#666">The digital filter is set to blackboard.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_aqua_inline"></a>AQUA</font></td><td><font color="#666">The digital filter is set to aqua.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_delta_inline"></a>DELTA</font></td><td><font color="#666">The digital filter is set to delta.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_dk79_inline"></a>DK79</font></td><td><font color="#666">The digital filter is set to dk79.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_vision4_inline"></a>VISION_4</font></td><td><font color="#666">The digital filter is set to vision4.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_vision6_inline"></a>VISION_6</font></td><td><font color="#666">The digital filter is set to vision6.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_truecolorext_inline"></a>TRUE_COLOR_EXT</font></td><td><font color="#666">The digital filter is set to true color extend.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filma_inline"></a>FILM_A</font></td><td><font color="#666">A set of film filter. It's supported by Mavic Pro since protocol version 9, p4p & in2 since protocol version 5.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmb_inline"></a>FILM_B</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmc_inline"></a>FILM_C</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmd_inline"></a>FILM_D</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filme_inline"></a>FILM_E</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmf_inline"></a>FILM_F</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmg_inline"></a>FILM_G</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmh_inline"></a>FILM_H</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmi_inline"></a>FILM_I</font></td><td><font color="#666"></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The digital filter is unknown.</font></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_none_inline"></a>NONE</font></td><td><font color="#666">The digital filter is set to none or no filter.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_art_inline"></a>ART</font></td><td><font color="#666">The digital filter is set to art.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_blackandwhite_inline"></a>BLACK_AND_WHITE</font></td><td><font color="#666">The digital filter is set to black and white.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_bright_inline"></a>BRIGHT</font></td><td><font color="#666">The digital filter is set to bright.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_dcinelike_inline"></a>D_CINELIKE</font></td><td><font color="#666">The digital filter is set to D-Cinelike (called movie before).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_portrait_inline"></a>PORTRAIT</font></td><td><font color="#666">The digital filter is set to portrait. Only supported by Osmo with X3 camera.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_m31_inline"></a>M_31</font></td><td><font color="#666">The digital filter is set to M31.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_kdx_inline"></a>K_DX</font></td><td><font color="#666">The digital filter is set to kDX.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_prismo_inline"></a>PRISMO</font></td><td><font color="#666">The digital filter is set to prismo.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_jugo_inline"></a>JUGO</font></td><td><font color="#666">The digital filter is set to jugo.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_dlog_inline"></a>D_LOG</font></td><td><font color="#666">The digital filter is set to D-Log (called neutral before).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_truecolor_inline"></a>TRUE_COLOR</font></td><td><font color="#666">The digital filter is set to true color. It is only supported by Phantom 4 with firmware v1.2.503 or above.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_inverse_inline"></a>INVERSE</font></td><td><font color="#666">The digital filter is set to inverse.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_reminiscence_inline"></a>REMINISCENCE</font></td><td><font color="#666">The digital filter is set to reminiscence.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_solarize_inline"></a>SOLARIZE</font></td><td><font color="#666">The digital filter is set to solarize.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_posterize_inline"></a>POSTERIZE</font></td><td><font color="#666">The digital filter is set to posterize.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_whiteboard_inline"></a>WHITEBOARD</font></td><td><font color="#666">The digital filter is set to whiteboard.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_blackboard_inline"></a>BLACKBOARD</font></td><td><font color="#666">The digital filter is set to blackboard.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_aqua_inline"></a>AQUA</font></td><td><font color="#666">The digital filter is set to aqua.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_delta_inline"></a>DELTA</font></td><td><font color="#666">The digital filter is set to delta.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_dk79_inline"></a>DK79</font></td><td><font color="#666">The digital filter is set to dk79.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_vision4_inline"></a>VISION_4</font></td><td><font color="#666">The digital filter is set to vision4.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_vision6_inline"></a>VISION_6</font></td><td><font color="#666">The digital filter is set to vision6.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_truecolorext_inline"></a>TRUE_COLOR_EXT</font></td><td><font color="#666">The digital filter is set to true color extend.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filma_inline"></a>FILM_A</font></td><td><font color="#666">The digital filter is set to Film A.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmb_inline"></a>FILM_B</font></td><td><font color="#666">The digital filter is set to Film B.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmc_inline"></a>FILM_C</font></td><td><font color="#666">The digital filter is set to Film C.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmd_inline"></a>FILM_D</font></td><td><font color="#666">The digital filter is set to Film D.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filme_inline"></a>FILM_E</font></td><td><font color="#666">The digital filter is set to Film E.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmf_inline"></a>FILM_F</font></td><td><font color="#666">The digital filter is set to Film F.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmg_inline"></a>FILM_G</font></td><td><font color="#666">The digital filter is set to Film G.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmh_inline"></a>FILM_H</font></td><td><font color="#666">The digital filter is set to Film H.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_filmi_inline"></a>FILM_I</font></td><td><font color="#666">The digital filter is set to Film I.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameradigitalfilter_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The digital filter is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v31">Class Members:</h5>
 </div>
 <div class="api-row" id="djicamera_djicameraorientation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djicamera_djicameraorientation_inline">Orientation</a></div></div><div class="inline-doc" id="djicamera_djicameraorientation_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">enum </font>Orientation</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> Orientation</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_orientation_range_inline">ORIENTATION_RANGE</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraOrientation</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v32">Description:</h5>
 <p><font color="#666">Physical orientation of the camera.</font></p>
 <h5 id="enum-members-v31">Enum Members:</h5>
@@ -877,7 +949,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalROI</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalROI</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalROI</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_roi_inline">CameraKey.THERMAL_ROI</a></font></td></tr></table></html>
 <h5 id="description-v33">Description:</h5>
 <p><font color="#666">Region of interest. Use this feature to manage color range distribution across the screen to maximize contrast for  regions of highest interest.</font></p>
 <h5 id="enum-members-v32">Enum Members:</h5>
@@ -888,7 +960,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalPalette</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalPalette</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalPalette</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_palette_inline">CameraKey.THERMAL_PALETTE</a></font></td></tr></table></html>
 <h5 id="description-v34">Description:</h5>
 <p><font color="#666">The different colors are used to show various temperatures in the thermal imagery image. The colors are not actually  related to wavelengths of light, but rather the grayscale intensity.</font></p>
 <h5 id="enum-members-v33">Enum Members:</h5>
@@ -899,7 +971,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalScene</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalScene</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalScene</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_scene_inline">CameraKey.THERMAL_SCENE</a></font></td></tr></table></html>
 <h5 id="description-v35">Description:</h5>
 <p><font color="#666">Uses the Scene option to instantly enhance your image.</font></p>
 <h5 id="enum-members-v34">Enum Members:</h5>
@@ -910,7 +982,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalIsothermUnit</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalIsothermUnit</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalIsothermUnit</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_isotherm_unit_inline">CameraKey.THERMAL_ISOTHERM_UNIT</a></font></td></tr></table></html>
 <h5 id="description-v36">Description:</h5>
 <p><font color="#666">The unit for Isotherm.</font></p>
 <h5 id="enum-members-v35">Enum Members:</h5>
@@ -921,7 +993,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalGainMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalGainMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalGainMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_gain_mode_inline">CameraKey.THERMAL_GAIN_MODE</a></font></td></tr></table></html>
 <h5 id="description-v37">Description:</h5>
 <p><font color="#666">The gain mode.</font></p>
 <h5 id="enum-members-v36">Enum Members:</h5>
@@ -932,7 +1004,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalResolution</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalResolution</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalResolution</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_profile_inline">CameraKey.THERMAL_PROFILE</a></font></td></tr></table></html>
 <h5 id="description-v38">Description:</h5>
 <p><font color="#666">The resolution of thermal imaging camera.</font></p>
 <h5 id="enum-members-v37">Enum Members:</h5>
@@ -943,7 +1015,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalFrameRateUpperBound</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalFrameRateUpperBound</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalFrameRateUpperBound</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v39">Description:</h5>
 <p><font color="#666">The frame rate upper bound supported by the thermal camera.</font></p>
 <h5 id="enum-members-v38">Enum Members:</h5>
@@ -954,7 +1026,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalLensFocalLength</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalLensFocalLength</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalLensModel</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_profile_inline">CameraKey.THERMAL_PROFILE</a></font></td></tr></table></html>
 <h5 id="description-v40">Description:</h5>
 <p><font color="#666">The focal length of the thermal imaging camera.</font></p>
 <h5 id="enum-members-v39">Enum Members:</h5>
@@ -965,7 +1037,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalVersion</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalVersion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalVersion</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v41">Description:</h5>
 <p><font color="#666">There is a standard version and version with Advanced Radiometry capabilities of the Zenmuse XT thermal camera. This  enum defines the versions.</font></p>
 <h5 id="enum-members-v40">Enum Members:</h5>
@@ -976,7 +1048,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalCustomExternalSceneSettingsProfile</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalCustomExternalSceneSettingsProfile</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalCustomExternalSceneSettings</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_custom_external_scene_settings_profile_inline">CameraKey.THERMAL_CUSTOM_EXTERNAL_SCENE_SETTINGS_PROFILE</a></font></td></tr></table></html>
 <h5 id="description-v42">Description:</h5>
 <p><font color="#666">User defined parameters.</font></p>
 <h5 id="enum-members-v41">Enum Members:</h5>
@@ -987,7 +1059,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalFFCMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalFFCMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalFFCMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_ffc_mode_inline">CameraKey.THERMAL_FFC_MODE</a></font></td></tr></table></html>
 <h5 id="description-v43">Description:</h5>
 <p><font color="#666">Flat-field correciton mods.</font></p>
 <h5 id="enum-members-v42">Enum Members:</h5>
@@ -998,7 +1070,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalDigitalZoomFactor</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalDigitalZoomFactor</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalDigitalZoomScale</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_digital_zoom_factor_inline">CameraKey.THERMAL_DIGITAL_ZOOM_FACTOR</a></font></td></tr></table></html>
 <h5 id="description-v44">Description:</h5>
 <p><font color="#666">Thermal camera digital zoom scale. The default value is x1.</font></p>
 <h5 id="enum-members-v43">Enum Members:</h5>
@@ -1009,7 +1081,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ThermalMeasurementMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ThermalMeasurementMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJICamera_DJICameraThermalMeasurementMode</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_measurement_mode_inline">CameraKey.THERMAL_MEASUREMENT_MODE</a></font></td></tr></table></html>
 <h5 id="description-v45">Description:</h5>
 <p><font color="#666">Thermal camera temperature measurement mode. The default value is  Disabled.</font></p>
 <h5 id="enum-members-v44">Enum Members:</h5>
@@ -1018,90 +1090,89 @@
 </div>
 <div class="api-row" id="djicamera_djicamerathermalareatemperatureaggregations"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/Camera/DJICamera_DJICameraThermalAreaTemperatureAggregations.html">ThermalAreaTemperatureAggregations</a></div></div><div class="api-row" id="djicamera_djicamerathermalexternalscenesettings"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/Camera/DJICamera_DJICameraThermalExternalSceneSettings.html">ThermalExternalSceneSettings</a></div></div>
 
-          </div>
         </div>
       </div>
-      <div id="search-modal" class="search-modal modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header"><a href="javascript:;" @click="closeSearch" class="btn-close">×</a>
-              <h2 class="title"> Search Mobile SDK Document
-              </h2>
-              <input type="text" v-model="searchInput" @keydown.enter="search">
+    </div>
+    <div id="search-modal" class="search-modal modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header"><a href="javascript:;" @click="closeSearch" class="btn-close">×</a>
+            <h2 class="title"> Search Mobile SDK Document
+            </h2>
+            <input type="text" v-model="searchInput" @keydown.enter="search">
+          </div>
+          <div class="modal-body">
+            <p v-show="!!searchCount" class="search-count"><span v-cloak>{{searchCount}}</span>&nbsp;Results
+            </p>
+            <ul v-show="!!searchCount" class="search-result">
+              <li v-for="item in searchResult"><a v-bind:href="item.url | docUrl">
+                  <h3 class="title">{{{(item.highlights && item.highlights.title) || item.title}}}</h3>
+                  <p class="content">{{{(item.highlights && item.highlights.content[0]) || item.title}}}</p></a></li>
+            </ul>
+            <div v-show="showLoadMore" class="text-center"><a href="javascript:;" @click="loadMoreSearch" class="btn-learn-more">Load More</a></div>
+            <div v-show="searchLoading" class="text-center">Loading...
             </div>
-            <div class="modal-body">
-              <p v-show="!!searchCount" class="search-count"><span v-cloak>{{searchCount}}</span>&nbsp;Results
-              </p>
-              <ul v-show="!!searchCount" class="search-result">
-                <li v-for="item in searchResult"><a v-bind:href="item.url | docUrl">
-                    <h3 class="title">{{{(item.highlights && item.highlights.title) || item.title}}}</h3>
-                    <p class="content">{{{(item.highlights && item.highlights.content[0]) || item.title}}}</p></a></li>
-              </ul>
-              <div v-show="showLoadMore" class="text-center"><a href="javascript:;" @click="loadMoreSearch" class="btn-learn-more">Load More</a></div>
-              <div v-show="searchLoading" class="text-center">Loading...
-              </div>
-              <div v-show="!searchCount &amp;&amp; !searchLoading" class="text-center">Not Found
-              </div>
+            <div v-show="!searchCount &amp;&amp; !searchLoading" class="text-center">Not Found
             </div>
           </div>
         </div>
       </div>
     </div>
-    <footer id="site-footer" class="site-footer">
-      <div class="container">
-        <div class="foot-nav row">
-          <nav class="link-list col-xs-2"><span class="title">SDK</span><a href="/mobile-sdk">Mobile SDK</a><a href="/onboard-sdk">Onboard SDK</a><a href="/guidance-sdk">Guidance SDK</a></nav>
-          <nav class="link-list col-xs-2"><span class="title">Info</span><a href="/products">Products</a><a href="/showcase">Showcase</a><a href="/news">News</a></nav>
-          <nav class="link-list col-xs-2"><span class="title">Community</span><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a><a href="https://github.com/dji-sdk" target="_blank">GitHub</a><a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">Stack Overflow</a></nav>
-          <nav class="link-list col-xs-2"><span class="title">Contact Us</span><a href="mailto:dev@dji.com"> dev@dji.com</a></nav>
-          <nav class="link-list col-xs-3"><span class="title">Business Cooperation</span><a href="mailto:dev.bd@dji.com"> dev.bd@dji.com</a></nav>
-        </div>
-        <div class="foot-copyright row">
-          <div class="col-xs-3 foot-logo"><img src="../../images/dji-logo-foot.png"></div>
-          <div class="copyright col-xs-7"><span>Copyright © 2016 DJI All Rights Reserved</span><a href="/policies/privacy">Privacy</a><a href="/policies/terms">Terms</a></div>
-          <div class="col-xs-2">
-            <div class="lang-selector">
-              <select dir="rtl" v-model="lang">
-                <option value="en">English</option>
-                <option value="cn">中文</option>
-              </select><i class="fa fa-globe"></i>
-            </div>
+  </div>
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="foot-nav row">
+        <nav class="link-list col-xs-2"><span class="title">SDK</span><a href="/mobile-sdk">Mobile SDK</a><a href="/onboard-sdk">Onboard SDK</a><a href="/guidance-sdk">Guidance SDK</a></nav>
+        <nav class="link-list col-xs-2"><span class="title">Info</span><a href="/products">Products</a><a href="/showcase">Showcase</a><a href="/news">News</a></nav>
+        <nav class="link-list col-xs-2"><span class="title">Community</span><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a><a href="https://github.com/dji-sdk" target="_blank">GitHub</a><a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">Stack Overflow</a></nav>
+        <nav class="link-list col-xs-2"><span class="title">Contact Us</span><a href="mailto:dev@dji.com"> dev@dji.com</a></nav>
+        <nav class="link-list col-xs-3"><span class="title">Business Cooperation</span><a href="mailto:dev.bd@dji.com"> dev.bd@dji.com</a></nav>
+      </div>
+      <div class="foot-copyright row">
+        <div class="col-xs-3 foot-logo"><img src="../../images/dji-logo-foot.png"></div>
+        <div class="copyright col-xs-7"><span>Copyright © 2016 DJI All Rights Reserved</span><a href="/policies/privacy">Privacy</a><a href="/policies/terms">Terms</a></div>
+        <div class="col-xs-2">
+          <div class="lang-selector">
+            <select dir="rtl" v-model="lang">
+              <option value="en">English</option>
+              <option value="cn">中文</option>
+            </select><i class="fa fa-globe"></i>
           </div>
         </div>
       </div>
-    </footer>
-    <script type="text/javascript">
-      window.Config = window.config = {
-        sdk: "mobile-sdk",
-        locale: "en",
-        environment: "development",
-        api_host: ""
-      };
-      
-    </script>
-    <!-- build:js /javascripts/doc-vendor.js-->
-    <script src="../../javascripts/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../../javascripts/lib/bootstrap.js" type="text/javascript"></script>
-    <script src="../../javascripts/lib/vue.min.js" type="text/javascript"></script>
-    <!-- endbuild-->
-    <!-- build:js /javascripts/doc-app.js-->
-    <script src="../../javascripts/util/cookie.js" type="text/javascript"></script>
-    <script src="../../javascripts/util/url-manager.js" type="text/javascript"></script>
-    <script src="../../javascripts/util/ajax-manager.js" type="text/javascript"></script>
-    <script src="../../javascripts/base/footer.js" type="text/javascript"></script>
-    <script src="../../javascripts/base/header.js" type="text/javascript"></script>
-    <script src="../../javascripts/util/searcher.js" type="text/javascript"></script>
-    <script src="../../javascripts/search_index.js" type="text/javascript"></script>
-    <script src="../../javascripts/searchdoc.js" type="text/javascript"></script>
-    <script src="../../javascripts/api.js" type="text/javascript"></script>
-    <!-- endbuild-->
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-43055594-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
-</html>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    window.Config = window.config = {
+      sdk: "mobile-sdk",
+      locale: "en",
+      environment: "development",
+      api_host: ""
+    };
+    
+  </script>
+  <!-- build:js /javascripts/doc-vendor.js-->
+  <script src="../../javascripts/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+  <script src="../../javascripts/lib/bootstrap.js" type="text/javascript"></script>
+  <script src="../../javascripts/lib/vue.min.js" type="text/javascript"></script>
+  <!-- endbuild-->
+  <!-- build:js /javascripts/doc-app.js-->
+  <script src="../../javascripts/util/cookie.js" type="text/javascript"></script>
+  <script src="../../javascripts/util/url-manager.js" type="text/javascript"></script>
+  <script src="../../javascripts/util/ajax-manager.js" type="text/javascript"></script>
+  <script src="../../javascripts/base/footer.js" type="text/javascript"></script>
+  <script src="../../javascripts/base/header.js" type="text/javascript"></script>
+  <script src="../../javascripts/util/searcher.js" type="text/javascript"></script>
+  <script src="../../javascripts/search_index.js" type="text/javascript"></script>
+  <script src="../../javascripts/searchdoc.js" type="text/javascript"></script>
+  <script src="../../javascripts/api.js" type="text/javascript"></script>
+  <!-- endbuild-->
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-43055594-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
