@@ -1,6 +1,6 @@
 ---
 title: Documentation Introduction
-date: 2016-10-28
+date: 2017-03-07
 keywords: [introduction]
 ---
 
@@ -71,8 +71,7 @@ Several iOS and Android tutorials are provided as examples on how to use the SDK
 
 **Android**
 
-* [Running DJI SDK Sample Code in Android Studio](../android-tutorials/index.html)
-* [Camera Application](../android-tutorials/FPVDemo.html)
+* [Camera Application](../android-tutorials/index.html)
 * [MapView and Waypoint Application (GaodeMap)](../android-tutorials/GSDemo-Gaode-Map.html)
 * [MapView and Waypoint Application (GoogleMap)](../android-tutorials/GSDemo-Google-Map.html)
 * [TapFly and ActiveTrack Application](../android-tutorials/P4MissionsDemo.html)
@@ -82,7 +81,6 @@ Several iOS and Android tutorials are provided as examples on how to use the SDK
 ### Sample Code
 
 * [Android Video Stream Decoding Sample](../sample-code/index.html)
-
 
 ### API Reference
 
