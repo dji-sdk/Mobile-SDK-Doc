@@ -34,7 +34,7 @@ iOS development requires the mobile device be connected to Xcode directly throug
 
 DJI provides a Bridge App to resolve this. Debug mode can be turned on in the SDK Manager which will reroute all USB communication to WiFi. A second mobile device running the bridge app connects to the remote controller and relays WiFi communication. Alternatively, the iOS simulator can connect to the Bridge App over WiFi if only one mobile device is available.
 
-The Bridge App is available to download <a href="https://github.com/dji-sdk/DJI-Bridge-App" target="_blank">here</a> and a tutorial for using the Bridge App is [here](../ios-tutorials/BridgeAppDemo.html).
+The Bridge App is available to download <a href="https://github.com/dji-sdk/iOS-Bridge-App" target="_blank">here</a> and a tutorial for using the Bridge App is [here](../ios-tutorials/BridgeAppDemo.html).
 
 ## Remote Logging
 
