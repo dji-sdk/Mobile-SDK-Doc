@@ -2246,13 +2246,13 @@ th {
     border-bottom: 1px solid #ddd; }
 
 .key_table_key_string {
-  font-weight: normal;
-  color: #70BF41 !important; }
+  font-weight: normal; }
 
 .key_table_title_string {
   font-weight: normal;
   font-style: italic;
-  color: #BBBBBB !important; }
+  color: #BBBBBB !important;
+  padding-left: 15px; }
 
 .key_table_type_string {
   font-weight: normal;
@@ -2621,41 +2621,37 @@ table th[class*="col-"] {
         .table-responsive > .table-bordered > tfoot > tr:last-child > td {
           border-bottom: 0; } }
 
-.key_table > thead > tr > th,
-.key_table > thead > tr > td,
-.key_table > tbody > tr > th,
-.key_table > tbody > tr > td,
-.key_table > tfoot > tr > th,
-.key_table > tfoot > tr > td {
-  border: 0px solid #ddd;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin: 0; }
-
-.key_table > thead > tr > td:nth-child(1),
-.key_table > tbody > tr > td:nth-child(1),
-.key_table > tfoot > tr > td:nth-child(1) {
-  width: 10%; }
-
-.key_table > thead > tr > td:nth-child(2),
-.key_table > tbody > tr > td:nth-child(2),
-.key_table > tfoot > tr > td:nth-child(2) {
-  width: 20% !important; }
-
-.key_table > thead > tr > td:nth-child(3),
-.key_table > tbody > tr > td:nth-child(3),
-.key_table > tfoot > tr > td:nth-child(3) {
-  width: 55%; }
-
-.key_table > thead > tr:nth-child(1) > th, .key_table > thead > tr:nth-child(1) td,
-.key_table > tbody > tr:nth-child(1) > th,
-.key_table > tbody > tr:nth-child(1) td,
-.key_table > tfoot > tr:nth-child(1) > th,
-.key_table > tfoot > tr:nth-child(1) td {
-  padding-top: 0px;
-  margin-top: 0px; }
+.key_table {
+  margin-top: 0 !important;
+  padding-top: 0 !important; }
+  .key_table > thead > tr > th,
+  .key_table > thead > tr > td,
+  .key_table > tbody > tr > th,
+  .key_table > tbody > tr > td,
+  .key_table > tfoot > tr > th,
+  .key_table > tfoot > tr > td {
+    border: 0px solid #ddd;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0;
+    vertical-align: top; }
+  .key_table > thead > tr > td:nth-child(1),
+  .key_table > tbody > tr > td:nth-child(1),
+  .key_table > tfoot > tr > td:nth-child(1) {
+    width: 10% !important; }
+  .key_table > thead > tr > td:nth-child(2),
+  .key_table > tbody > tr > td:nth-child(2),
+  .key_table > tfoot > tr > td:nth-child(2) {
+    width: 90% !important; }
+  .key_table > thead > tr:nth-child(1) > th, .key_table > thead > tr:nth-child(1) td,
+  .key_table > tbody > tr:nth-child(1) > th,
+  .key_table > tbody > tr:nth-child(1) td,
+  .key_table > tfoot > tr:nth-child(1) > th,
+  .key_table > tfoot > tr:nth-child(1) td {
+    padding-top: 0px;
+    margin-top: 0px; }
 
 fieldset {
   padding: 0;

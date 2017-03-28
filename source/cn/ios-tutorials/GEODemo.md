@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
 version: v4.0
-date: 2017-02-15
+date: 2017-03-28
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo
 keywords: [iOS GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
