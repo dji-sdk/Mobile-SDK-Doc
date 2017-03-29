@@ -13,7 +13,7 @@
     -
       title: "SDK Architectural Overview"
       path: "/introduction/sdk_architectural_overview.html"
-- 
+-
   title: "Get Started Immediately"
   list:
     -
@@ -44,13 +44,13 @@
     -
       title: "AirLink"
       path: "/introduction/component-guide-airlink.html"
-    - 
+    -
       title: "Remote Controller"
       path: "/introduction/component-guide-remotecontroller.html"
-    - 
+    -
       title: "Smart Battery"
       path: "/introduction/component-guide-battery.html"
-    - 
+    -
       title: "Missions"
       path: "/introduction/component-guide-missions.html"
     -
@@ -77,7 +77,7 @@
     -
       title: "Testing, Profiling & Debugging"
       path: "/application-development-workflow/workflow-testing.html"
-    -   
+    -
       title: "Deploy"
       path: "/application-development-workflow/workflow-deploy.html"
 -
@@ -101,7 +101,7 @@
     -
       title: "Simulator Application"
       path: "/ios-tutorials/SimulatorDemo.html"
-    - 
+    -
       title: "GEO System Application"
       path: "/ios-tutorials/GEODemo.html"
     -
@@ -128,7 +128,7 @@
     -
       title: "Simulator Application"
       path: "/android-tutorials/SimulatorDemo.html"
-    - 
+    -
       title: "GEO System Application"
       path: "/android-tutorials/GEODemo.html"
 
@@ -138,18 +138,6 @@
     -
       title: "Android Video Stream Decoding Sample"
       path: "/sample-code/index.html"
-
--
-  title: "API REFERENCE"
-  list:
-    -
-      title: "iOS API Reference"
-      extra: "true"
-      path: " https://developer.dji.com/iframe/mobile-sdk-doc/ios/index.html"
-    -
-      title: "Android API Reference"
-      extra: "true"
-      path: " https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/packages.html"
 
 -
   title: "Support"
