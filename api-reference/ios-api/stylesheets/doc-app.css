@@ -16,6 +16,11 @@ html {
   position: relative;
   padding-bottom: 210px; }
 
+html.local {
+  padding-bottom: 0px; }
+  html.local .documentation-page {
+    padding-top: 0px; }
+
 img {
   max-width: 100%;
   height: auto; }

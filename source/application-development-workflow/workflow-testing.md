@@ -98,7 +98,7 @@ The DJI PC Simulator tool is built specifically for SDK developers and can initi
 
 ##### Installation and Setup
 
-* Download the <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> DJI PC Simulator Installer and User Manual </a> and <a href="https://dev.dji.com/downloads/dev/1f3df392-3026-44ed-a9a8-20caa020f6c7" target="_blank"> WIN Driver Installer </a>.
+* Download the **DJI PC Simulator Installer and User Manual** and **WIN Driver Installer** from this page: <http://developer.dji.com/mobile-sdk/downloads/>
 
 * Run the **Win Driver Installer**
     * For earlier product compatibility, a dialog box with the message _Please power on MC and connect it to PC via USB!_ will be shown.
@@ -195,7 +195,7 @@ Therefore, DJI provides a Wireless Bridge Application, or **Bridge App**.
  
 >**Note:** If only one mobile device is available, the Bridge App can also be run with the iOS simulator. In this case the mobile device would host the bridge app, while the developer application runs on the iOS simulator.
 
-The Bridge App is provided by DJI under the MIT license from Github <a href="https://github.com/dji-sdk/DJI-Bridge-App" target="_blank"> here </a>.
+The Bridge App is provided by DJI under the MIT license from Github <a href="https://github.com/dji-sdk/iOS-Bridge-App" target="_blank"> here </a>.
 
 A tutorial describing how to use the DJI Bridge App is [here](../ios-tutorials/BridgeAppDemo.html).
 
