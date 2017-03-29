@@ -82,7 +82,8 @@
         position: absolute;
         right: 7px;
         top: 13px;
-        cursor: pointer; }
+        cursor: pointer;
+        display: none; }
     .searcher .panel .header #search {
       padding: 9px 21px 9px 36px;
       width: 100%;

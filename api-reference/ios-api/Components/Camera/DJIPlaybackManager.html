@@ -129,9 +129,9 @@
             <dl>
               <dt>Base Classes
               </dt>
-                      <dd><a data-href="../../Base Classes/DJIBaseProduct.html" class="sub-toggle">DJIBaseProduct<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                      <dd><a data-href="../../BaseClasses/DJIBaseProduct.html" class="sub-toggle">DJIBaseProduct<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                         <ul class="sub-menu">
-                                  <dd><a href="../../Base Classes/DJIVideoFeeder.html">DJIVideoFeeder</a>
+                                  <dd><a href="../../BaseClasses/DJIVideoFeeder.html">DJIVideoFeeder</a>
                                   </dd>
                         </ul>
                       </dd>
@@ -599,7 +599,7 @@
 <h5 id="description-v22">Description:</h5>
 <p><font color="#666">Downloads the currently selected media files. <br> <br> Precondition:<br> The camera must enter multiple preview mode.<br> <br></font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Components/Camera/DJIPlaybackManager.html#djiplaybackmanager_djifiledownloadpreparingblock">DJIFileDownloadPreparingBlock</a> <font color="#000">prepareBlock</font></font></td><td><font color="#666"><i>Callback to prepare each file for download.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Components/Camera/DJIPlaybackManager.html#djiplaybackmanager_djifiledownloadingblock">DJIFileDownloadingBlock</a> <font color="#000">dataBlock</font></font></td><td><font color="#666"><i>Callback while a file is downloading. The dataBlock can be called multiple times for a file. The error  argument in &lt;code&gt;DJIFileDownloadingBlock&lt;/code&gt; is not used and should be ignored.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Components/Camera/DJIPlaybackManager.html#djiplaybackmanager_djifiledownloadcompletionblock">DJIFileDownloadCompletionBlock</a> <font color="#000">fileCompletionBlock</font></font></td><td><font color="#666"><i>Callback after each file have been downloaded.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">finishBlock</font></font></td><td><font color="#666"><i>Callback after the downloading is finished.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Components/Camera/DJIPlaybackManager.html#djiplaybackmanager_djifiledownloadpreparingblock">DJIFileDownloadPreparingBlock</a> <font color="#000">prepareBlock</font></font></td><td><font color="#666"><i>Callback to prepare each file for download.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Components/Camera/DJIPlaybackManager.html#djiplaybackmanager_djifiledownloadingblock">DJIFileDownloadingBlock</a> <font color="#000">dataBlock</font></font></td><td><font color="#666"><i>Callback while a file is downloading. The dataBlock can be called multiple times for a file. The error  argument in &lt;code&gt;DJIFileDownloadingBlock&lt;/code&gt; is not used and should be ignored.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Components/Camera/DJIPlaybackManager.html#djiplaybackmanager_djifiledownloadcompletionblock">DJIFileDownloadCompletionBlock</a> <font color="#000">fileCompletionBlock</font></font></td><td><font color="#666"><i>Callback after each file have been downloaded.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nullable <a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">finishBlock</font></font></td><td><font color="#666"><i>Callback after the downloading is finished.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiplaybackmanager_stopdownloadingfiles"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiplaybackmanager_stopdownloadingfiles_inline">stopDownloadingFilesWithCompletion</a></div></div><div class="inline-doc" id="djiplaybackmanager_stopdownloadingfiles_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>stopDownloadingFilesWithCompletion</h6></div>
 
@@ -608,7 +608,7 @@
 <h5 id="description-v23">Description:</h5>
 <p><font color="#666">Cancel current file download.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nullable <a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">block</font></font></td><td><font color="#666"><i>Callback after the operation finished.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nullable <a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">block</font></font></td><td><font color="#666"><i>Callback after the operation finished.</i></font></td></tr></table></html></div>
 <html><p><br></p></html>
 <h5 id="related">Related:</h5>
 <div class="api-row" id="djiplaybackmanager_protocol"><div class="api-col left">State Updates</div><div class="api-col middle" style="color:#AAA">protocol</div><div class="api-col right"><a class="trigger" href="#djiplaybackmanager_protocol_inline">DJIPlaybackDelegate</a></div></div><div class="inline-doc" id="djiplaybackmanager_protocol_inline" <blockquote="">

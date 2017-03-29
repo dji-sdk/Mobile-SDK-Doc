@@ -131,7 +131,7 @@
             <dl>
               <dt>Base Classes
               </dt>
-                      <dd><a href="../../Base Classes/DJIBaseProduct.html">BaseProduct</a>
+                      <dd><a href="../../BaseClasses/DJIBaseProduct.html">BaseProduct</a>
                       </dd>
                       <dd><a href="../BaseComponent/DJIBaseComponent.html">BaseComponent</a>
                       </dd>
@@ -529,7 +529,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Battery</span> <span class="keyword">extends</span> <span class="title">BaseComponent</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/BaseComponent/DJIBaseComponent.html#djibasecomponent">BaseComponent</a></code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBattery</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class manages the battery's information and real-time status of the connected product. This object is available from the <code><a href="../../Products/Aircraft/DJIAircraft.html#djiaircraft">Aircraft</a></code> or <code><a href="../../Products/Handheld/DJIHandheld.html#djihandheld">HandHeld</a></code> object which is a subclass of <code><a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct">BaseProduct</a></code>.</font></p>
+<p><font color="#666">This class manages the battery's information and real-time status of the connected product. This object is available from the <code><a href="../../Products/Aircraft/DJIAircraft.html#djiaircraft">Aircraft</a></code> or <code><a href="../../Products/Handheld/DJIHandheld.html#djihandheld">HandHeld</a></code> object which is a subclass of <code><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct">BaseProduct</a></code>.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="state-updates">State Updates</h4>
 <div class="api-row" id="djibattery_setstateupdatecallback"><div class="api-col left">General</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djibattery_setstateupdatecallback_inline">setStateCallback</a></div></div><div class="inline-doc" id="djibattery_setstateupdatecallback_inline" <blockquote="">
@@ -803,7 +803,7 @@ Not supported by non-smart batteries and Osmo series.</font></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFirmwareVersion</span><span class="params">(@NonNull CompletionCallbackWith&lt;String&gt; callback)</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.base</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_firmware_version_inline">FIRMWARE_VERSION</a></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIBaseComponent_getFirmwareVersion</font></td></tr></table></html>
 <h5 id="description-v29">Description:</h5>
-<p><font color="#666">Returns the firmware version of the component. Each component will  have a different firmware version, the combination of which will  form the package firmware version <code><a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct_getfirmwarepackageversion">getFirmwarePackageVersion</a></code> found in <code><a href="../../Base Classes/DJIBaseProduct.html#djibaseproduct">BaseProduct</a></code>.</font></p>
+<p><font color="#666">Returns the firmware version of the component. Each component will  have a different firmware version, the combination of which will  form the package firmware version <code><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_getfirmwarepackageversion">getFirmwarePackageVersion</a></code> found in <code><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct">BaseProduct</a></code>.</font></p>
 <h5 id="input-parameters-v21">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks_completioncallbackwith_interface">CompletionCallbackWith</a>&lt;String&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the value(s) returned.</i></font></td></tr></table></html></div>
 
