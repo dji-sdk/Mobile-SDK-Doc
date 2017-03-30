@@ -4,7 +4,7 @@ date: 2017-3-30
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
-To have a better experience of learning how to get started with the DJI iOS Mobile SDK, please check this <a href="http://www.djivideos.com/video_play/bc9b848d-f7de-4cad-aa58-40ccb6dbc751" class="fancybox fancybox.iframe">Getting Started Video</a>.
+To have a better experience of learning how to get started with the DJI iOS Mobile SDK, please check this <a href="http://www.djivideos.com/video_play/7fefabf9-b8c6-483c-be3d-de1858c48fe8" class="fancybox fancybox.iframe">Getting Started Video</a>.
 
 ## Register as a DJI Developer
 

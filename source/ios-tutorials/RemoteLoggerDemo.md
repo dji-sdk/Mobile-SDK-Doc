@@ -1,7 +1,7 @@
 ---
 title: DJI Remote Logger Tutorial
-version: v4.0
-date: 2017-03-03
+version: v3.5
+date: 2016-12-13
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo
 keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 ---
@@ -69,9 +69,11 @@ Run this command: `sudo brew install ruby`, after installing ruby successfully, 
    
 For other issues, please check the two problems above.
    
-## Download and Import the DJI SDK
+## Download and Import the SDK
 
- If you are not familiar with the process of installing DJI SDK in your Xcode project, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
+You can download the iOS SDK from here: <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">https://developer.dji.com/mobile-sdk/downloads</a>.
+
+If you are not familiar with importing the SDK to your Xcode project, please check this tutorial on Github: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration)
 
 ## Enable Remote Logging
 
@@ -80,8 +82,8 @@ For other issues, please check the two problems above.
 ~~~objc
 - (void)registerApp
 {
-    //Please enter your App key in the "DJISDKAppKey" key in info.plist file.     
-    [DJISDKManager registerAppWithDelegate:self];
+    NSString *appKey = @"Enter Your App Key Here";
+    [DJISDKManager registerApp:appKey withDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -95,7 +97,7 @@ For other issues, please check the two problems above.
 **2**. Next, let's implement the DJISDKManagerDelegate method as shown below:
 
 ~~~objc
-- (void)appRegisteredWithError:(NSError *)error
+- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
 {
     NSString* message = @"Register App Successed!";
     if (error) {
@@ -127,7 +129,7 @@ The delegate method above gets called when the app is registered. If the registr
    
 ~~~objc
 - (IBAction)logSDKVersionButtonAction:(id)sender {
-   DJILogDebug(@"SDK Version: %@", [DJISDKManager SDKVersion]);
+   DJILogDebug(@"SDK Version: %@", [DJISDKManager getSDKVersion]);
 }
 ~~~
 
