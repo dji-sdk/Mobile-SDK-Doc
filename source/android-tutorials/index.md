@@ -6,7 +6,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
 
-*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue or a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
+**Note: This Tutorial and Sample Project is developed based on Android SDK v3.5, an update version for Android SDK v4.0 will be published soon.**
 
 ---
 

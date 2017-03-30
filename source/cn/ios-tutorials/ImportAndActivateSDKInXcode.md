@@ -6,7 +6,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXc
 keywords: [import and activate SDK, Xcode]
 ---
 
-*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue or a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
+**Note: This Tutorial and Sample Project is developed based on iOS SDK v3.5, an update version for iOS SDK v4.0 will be published soon.**
 
 ---
 

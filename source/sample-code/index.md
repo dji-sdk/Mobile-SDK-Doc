@@ -6,7 +6,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-VideoStreamDecodingS
 keywords: [video stream decoding, MediaCodec, FFmpeg, video frame parsing, hardware decoding, YUV]
 ---
 
-*If you come across any mistakes or bugs in this sample code, please let us know using a Github issue. Please feel free to send us Github pull request and help us fix any issues.*
+**Note: This Tutorial and Sample Project is developed based on Android SDK v3.5.1, an update version for Android SDK v4.0 will be published soon.**
 
 ---
 

@@ -6,7 +6,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo
 keywords: [Android GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
 
-*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*
+**Note: This Tutorial and Sample Project is developed based on Android SDK v3.5, an update version for Android SDK v4.0 will be published soon.**
 
 ---
 

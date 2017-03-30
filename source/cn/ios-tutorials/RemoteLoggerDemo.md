@@ -8,6 +8,10 @@ keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 
 <!-- toc -->
 
+**Note: This Tutorial and Sample Project is developed based on iOS SDK v3.5, an update version for iOS SDK v4.0 will be published soon.**
+
+---
+
 This tutorial is designed for you to obtain a better understanding of the DJI Remote Logger Tool. It will teach you how to use it for showing application log messages on a simple webpage.
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo).
