@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2017-3-2
+date: 2017-3-30
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
@@ -40,7 +40,7 @@ Download or clone the iOS Sample Github Project from: <a href="https://github.co
 
 The sample code includes both an Objective C sample project and a Swift Sample project.
 
-Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) and [DJIVideoPreviewer]() now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
+Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
 
 **1.** Install CocoaPods
 
@@ -66,7 +66,6 @@ If you install it successfully, you should get the messages similar to the follo
 Analyzing dependencies
 Downloading dependencies
 Installing DJI-SDK-iOS (4.0)
-Installing DJIVideoPreviewer
 Generating Pods project
 Integrating client project
 
