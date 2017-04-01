@@ -1,16 +1,12 @@
 ---
 title: DJI Remote Logger Tutorial
-version: v3.5.1
-date: 2017-03-30
+version: v4.0
+date: 2017-04-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo
 keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 ---
 
 <!-- toc -->
-
-**Note: This Tutorial and Sample Project is developed based on iOS SDK v3.5.1, an update version for iOS SDK v4.0 will be published soon.**
-
----
 
 This tutorial is designed for you to obtain a better understanding of the DJI Remote Logger Tool. It will teach you how to use it for showing application log messages on a simple webpage.
 
@@ -73,11 +69,9 @@ Run this command: `sudo brew install ruby`, after installing ruby successfully, 
    
 For other issues, please check the two problems above.
    
-## Download and Import the SDK
+## Download and Import the DJI SDK
 
-You can download the iOS SDK from here: <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">https://developer.dji.com/mobile-sdk/downloads</a>.
-
-If you are not familiar with importing the SDK to your Xcode project, please check this tutorial on Github: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration)
+ If you are not familiar with the process of installing DJI SDK in your Xcode project, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
 
 ## Enable Remote Logging
 
@@ -86,8 +80,8 @@ If you are not familiar with importing the SDK to your Xcode project, please che
 ~~~objc
 - (void)registerApp
 {
-    NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+    //Please enter your App key in the "DJISDKAppKey" key in info.plist file.     
+    [DJISDKManager registerAppWithDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -101,7 +95,7 @@ If you are not familiar with importing the SDK to your Xcode project, please che
 **2**. Next, let's implement the DJISDKManagerDelegate method as shown below:
 
 ~~~objc
-- (void)sdkManagerDidRegisterAppWithError:(NSError *)error
+- (void)appRegisteredWithError:(NSError *)error
 {
     NSString* message = @"Register App Successed!";
     if (error) {
@@ -133,7 +127,7 @@ The delegate method above gets called when the app is registered. If the registr
    
 ~~~objc
 - (IBAction)logSDKVersionButtonAction:(id)sender {
-   DJILogDebug(@"SDK Version: %@", [DJISDKManager getSDKVersion]);
+   DJILogDebug(@"SDK Version: %@", [DJISDKManager SDKVersion]);
 }
 ~~~
 
