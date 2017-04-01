@@ -1,12 +1,12 @@
 ---
 title: Creating a Camera Application
-version: v3.5.1
-date: 2017-03-30
+version: v4.0
+date: 2017-04-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
 
-**Note: This Tutorial and Sample Project is developed based on Android SDK v3.5.1, an update version for Android SDK v4.0 will be published soon.**
+*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue or a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
 
 ---
 
@@ -43,7 +43,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         applicationId "com.dji.FPVDemo"
@@ -51,6 +51,8 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
     }
     buildTypes {
         release {
@@ -64,6 +66,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile project(':dJISDKLIB')
 }
 ~~~
@@ -639,88 +642,88 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
 **2.** After you finish the steps above, open the "FPVDemoApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
 
 ~~~java
-@Override
-public void onCreate() {
-    super.onCreate();
-    mHandler = new Handler(Looper.getMainLooper());
-    //This is used to start SDK services and initiate SDK.
-    DJISDKManager.getInstance().initSDKManager(this, mDJISDKManagerCallback);
-}
-
-/**
- * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to 
- * the SDK Registration result and the product changing.
- */
-private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.DJISDKManagerCallback() {
-
-    //Listens to the SDK registration result
     @Override
-    public void onGetRegisteredResult(DJIError error) {
-        
-        if(error == DJISDKError.REGISTRATION_SUCCESS) {
-            
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                }
-            });
-
-            DJISDKManager.getInstance().startConnectionToProduct();
-
-        } else {
-            
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Register sdk fails, check network is available", Toast.LENGTH_LONG).show();
-                }
-            });
-
-        }
-        Log.e("TAG", error.toString());
+    public void onCreate() {
+        super.onCreate();
+        mHandler = new Handler(Looper.getMainLooper());
+        //This is used to start SDK services and initiate SDK.
+        DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
     }
 
-    //Listens to the connected product changing, including two parts, component changing or product connection changing.
-    @Override
-    public void onProductChanged(DJIBaseProduct oldProduct, DJIBaseProduct newProduct) {
+    /**
+     * When starting SDK services, an instance of interface DJISDKManager.SDKManagerCallback will be used to listen to 
+     * the SDK Registration result and the product changing.
+     */
+    private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
 
-        mProduct = newProduct;
-        if(mProduct != null) {
-            mProduct.setDJIBaseProductListener(mDJIBaseProductListener);
+        //Listens to the SDK registration result
+        @Override
+        public void onRegister(DJIError error) {
+
+            if(error == DJISDKError.REGISTRATION_SUCCESS) {
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                DJISDKManager.getInstance().startConnectionToProduct();
+
+            } else {
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Register sdk fails, check network is available", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            }
+            Log.e("TAG", error.toString());
         }
 
-        notifyStatusChange();
-    }
-};
+        //Listens to the connected product changing, including two parts, component changing or product connection changing.
+        @Override
+        public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
 
-private DJIBaseProductListener mDJIBaseProductListener = new DJIBaseProductListener() {
+            mProduct = newProduct;
+            if(mProduct != null) {
+                mProduct.setBaseProductListener(mDJIBaseProductListener);
+            }
 
-    @Override
-    public void onComponentChange(DJIComponentKey key, DJIBaseComponent oldComponent, DJIBaseComponent newComponent) {
-
-        if(newComponent != null) {
-            newComponent.setDJIComponentListener(mDJIComponentListener);
+            notifyStatusChange();
         }
-        notifyStatusChange();
-    }
+    };
 
-    @Override
-    public void onProductConnectivityChanged(boolean isConnected) {
+    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
 
-        notifyStatusChange();
-    }
-};
+        @Override
+        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
+
+            if(newComponent != null) {
+                newComponent.setComponentListener(mDJIComponentListener);
+            }
+            notifyStatusChange();
+        }
+
+        @Override
+        public void onConnectivityChange(boolean isConnected) {
+
+            notifyStatusChange();
+        }
+    };
 ~~~
 
 Here, we implement several features:
   
 1. We override the `onCreate()` method to initialize the DJISDKManager.
-2. Implement the two interface methods of `DJISDKManagerCallback`. You can use the `onGetRegisteredResult()` method to check the Application registration status and show text message here. Using the `onProductChanged()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-3. Implement the two interface methods of `DJIBaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onProductConnectivityChanged()` method to notify the product connectivity changes.
+2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
@@ -765,21 +768,21 @@ protected void onDestroy() {
 }
 
 private void refreshSDKRelativeUI() {
-    DJIBaseProduct mProduct = FPVDemoApplication.getProductInstance();
+    BaseProduct mProduct = FPVDemoApplication.getProductInstance();
 
     if (null != mProduct && mProduct.isConnected()) {
         Log.v(TAG, "refreshSDK: True");
         mBtnOpen.setEnabled(true);
 
-        String str = mProduct instanceof DJIAircraft ? "DJIAircraft" : "DJIHandHeld";
+        String str = mProduct instanceof Aircraft ? "DJIAircraft" : "DJIHandHeld";
         mTextConnectionStatus.setText("Status: " + str + " connected");
-        mProduct.setDJIVersionCallback(this);
 
         if (null != mProduct.getModel()) {
             mTextProduct.setText("" + mProduct.getModel().getDisplayName());
         } else {
             mTextProduct.setText(R.string.product_information);
         }
+
     } else {
         Log.v(TAG, "refreshSDK: False");
         mBtnOpen.setEnabled(false);
@@ -797,7 +800,7 @@ In the code above, we implement the following features:
 
 2. We override the `onDestroy()` method and invoke the `unregisterReceiver()` method by passing the `mReceiver` variable to unregister the broadcast receiver.
 
-3. In the `refreshSDKRelativeUI()` method, we check the DJIBaseProduct's connection status by invoking `isConnected()` method. If the product is connected, we enable the `mBtnOpen` button, update the `mTextConnectionStatus`'s text content and update the `mTextProduct`'s content with product name. Otherwise, if the product is disconnected, we disable the `mBtnOpen` button and update the `mTextProduct` and `mTextConnectionStatus` textViews' content.
+3. In the `refreshSDKRelativeUI()` method, we check the BaseProduct's connection status by invoking `isConnected()` method. If the product is connected, we enable the `mBtnOpen` button, update the `mTextConnectionStatus`'s text content and update the `mTextProduct`'s content with product name. Otherwise, if the product is disconnected, we disable the `mBtnOpen` button and update the `mTextProduct` and `mTextConnectionStatus` textViews' content.
 
 Finally, let's implement the `onClick()` method of `mBtnOpen` button as shown below:
 
@@ -825,7 +828,7 @@ Now, let's open the "MainActivity.java" file and declare the `TAG` and `mReceive
 
 ~~~java
 private static final String TAG = MainActivity.class.getName();
-protected DJICamera.CameraReceivedVideoDataCallback mReceivedVideoDataCallBack = null;
+protected VideoFeeder.VideoDataCallback mReceivedVideoDataCallBack = null;
 ~~~
 
 Then update the `onCreate()` method as shown below:
@@ -838,23 +841,19 @@ protected void onCreate(Bundle savedInstanceState) {
     initUI();
 
     // The callback for receiving the raw H264 video data for camera live view
-    mReceivedVideoDataCallBack = new DJICamera.CameraReceivedVideoDataCallback() {
+    mReceivedVideoDataCallBack = new VideoFeeder.VideoDataCallback() {
 
         @Override
-        public void onResult(byte[] videoBuffer, int size) {
-            if(mCodecManager != null){
-                // Send the raw H264 video data to codec manager for decoding
+        public void onReceive(byte[] videoBuffer, int size) {
+            if (mCodecManager != null) {
                 mCodecManager.sendDataToDecoder(videoBuffer, size);
-            }else {
-                Log.e(TAG, "mCodecManager is null");
             }
         }
     };
-
 }
 ~~~
 
-In the code above, we initialize the `mReceivedVideoDataCallBack` variable using DJICamera's `CameraReceivedVideoDataCallback()`. Inside the callback, we override its `onResult()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
+In the code above, we initialize the `mReceivedVideoDataCallBack` variable using VideoFeeder's `VideoDataCallback()`. Inside the callback, we override its `onReceive()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
 
 Next, let's implement the `onProductChange()` method invoke it in the `onResume()` method as shown below: 
 
@@ -881,7 +880,7 @@ Furthermore, let's implement two important methods to show and reset the live vi
 ~~~java
 private void initPreviewer() {
 
-    DJIBaseProduct product = FPVDemoApplication.getProductInstance();
+    BaseProduct product = FPVDemoApplication.getProductInstance();
 
     if (product == null || !product.isConnected()) {
         showToast(getString(R.string.disconnected));
@@ -889,29 +888,27 @@ private void initPreviewer() {
         if (null != mVideoSurface) {
             mVideoSurface.setSurfaceTextureListener(this);
         }
-        if (!product.getModel().equals(DJIBaseProduct.Model.UnknownAircraft))   
-        {
-            DJICamera camera = product.getCamera();
-            if (camera != null){
-                // Set the callback
-                camera.setDJICameraReceivedVideoDataCallback(mReceivedVideoDataCallBack);
+        if (!product.getModel().equals(Model.UNKNOWN_AIRCRAFT)) {
+            if (VideoFeeder.getInstance().getVideoFeeds() != null
+                    && VideoFeeder.getInstance().getVideoFeeds().size() > 0) {
+                VideoFeeder.getInstance().getVideoFeeds().get(0).setCallback(mReceivedVideoDataCallBack);
             }
         }
     }
 }
 
 private void uninitPreviewer() {
-    DJICamera camera = FPVDemoApplication.getCameraInstance();
+    Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null){
         // Reset the callback
-        FPVDemoApplication.getCameraInstance().setDJICameraReceivedVideoDataCallback(null);
+            VideoFeeder.getInstance().getVideoFeeds().get(0).setCallback(null);
     }
 }
 ~~~
 
-In the `initPreviewer()` method, firstly, we check the product connection status and invoke the `setSurfaceTextureListener()` method of TextureView to set texture listener to MainActivity. Then get the DJICamera variable by invoking the `getCamera()` method of DJIBaseProduct and set `mReceivedVideoDataCallBack` as its "DJICameraReceivedVideoDataCallback". So once the camera is connected and receive video data, it will show on the `mVideoSurface` TextureView.
+In the `initPreviewer()` method, firstly, we check the product connection status and invoke the `setSurfaceTextureListener()` method of TextureView to set texture listener to MainActivity. Then check if `VideoFeeder` has video feeds and the video feed's size is larger than 0 and set the `mReceivedVideoDataCallBack` as its "callback". So once the camera is connected and receive video data, it will show on the `mVideoSurface` TextureView.
 
-Moreover, we implement the `uninitPreviewer()` method to reset DJICamera's "DJICameraReceivedVideoDataCallback" to null.
+Moreover, we implement the `uninitPreviewer()` method to reset Camera's "VideoDataCallback" to null.
 
 Now, let's override the four SurfaceTextureListener interface methods as shown below:
 
@@ -951,27 +948,7 @@ For more detail implementations, please check the Github source code of this tut
 
 ## Connecting to the Aircraft or Handheld Device
 
-After you finish the steps above, you can now connect your mobile device to your DJI Aircraft to use the application, like checking the FPV View. Here are the guidelines:
-
-* In order to connect to a DJI Phantom 4, Inspire 1, Phantom 3 Professional, etc:
-
-  **1**. First, turn on your remote controller.
-  
-  **2**. Then, turn on the power of the DJI aircraft.
-  
-  **3**. Connect your Android device to the remote controller using the USB cable.
-  
-  **4**. Run the application and wait for a few seconds, you will be able to view the live video stream from your aircraft's camera based on what we've finished of the application so far!
-  
-* In order to connect to Phantom 3 Standard, Phantom 3 4K, or OSMO:
-
-  **1**. First, turn on your remote controller or OSMO.
-   
-  **2**. Then, turn on the power of the DJI aircraft. (If you are using Phantom 3 Standard or Phantom 3 4K)
-  
-  **3**. Search for the WiFi of the aircraft's remote controller or OSMO and connect your android device to it.
-  
-  **4**. Run the application and wait for a few seconds, you will be able to view the live video stream from your aircraft or OSMO's camera based on what we've finished of the application so far!
+After you finish the steps above, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and view the live video stream from your DJI product's camera based on what we've finished of the application so far!
   
 ## Enjoying the First Person View
 
@@ -998,37 +975,57 @@ public void onClick(View v) {
 }
 ~~~
 
-Then implement the `captureAction()` method as shown below:
+Then declare a `handler` variable and initialize it in the `onCreate()` method as shown below:
+
+~~~java
+private Handler handler;
+~~~
+
+~~~java
+handler = new Handler();
+~~~
+
+Next, implement the `captureAction()` method as shown below:
 
 ~~~objc
 // Method for taking photo
 private void captureAction(){
 
-    DJICameraSettingsDef.CameraMode cameraMode = DJICameraSettingsDef.CameraMode.ShootPhoto;
-
-    final DJICamera camera = FPVDemoApplication.getCameraInstance();
+    final Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
 
-        DJICameraSettingsDef.CameraShootPhotoMode photoMode = DJICameraSettingsDef.CameraShootPhotoMode.Single; // Set the camera capture mode as Single mode
-        camera.startShootPhoto(photoMode, new DJICommonCallbacks.DJICompletionCallback() {
-
-            @Override
-            public void onResult(DJIError error) {
-                if (error == null) {
-                    showToast("take photo: success");
-                } else {
-                    showToast(error.getDescription());
+        SettingsDefinitions.ShootPhotoMode photoMode = SettingsDefinitions.ShootPhotoMode.SINGLE; // Set the camera capture mode as Single mode
+        camera.setShootPhotoMode(photoMode, new CommonCallbacks.CompletionCallback(){
+                @Override
+                public void onResult(DJIError djiError) {
+                    if (null == djiError) {
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                camera.startShootPhoto(new CommonCallbacks.CompletionCallback() {
+                                    @Override
+                                    public void onResult(DJIError djiError) {
+                                        if (djiError == null) {
+                                            showToast("take photo: success");
+                                        } else {
+                                            showToast(djiError.getDescription());
+                                        }
+                                    }
+                                });
+                            }
+                        }, 2000);
+                    }
                 }
-            }
-
-        }); // Execute the startShootPhoto API
+        });
     }
 }
 ~~~
 
-In the code above, we firstly create a "CameraMode" variable and assign `CameraMode.ShootPhoto` to it. Next, create a "CameraShootPhotoMode" variable and assign "CameraShootPhotoMode.Single" to it. The camera work mode for ShootPhoto has several modes within its definition. You can use "AEBCapture", "Burst", "HDR", etc for "CameraShootPhotoMode", for more details, please check **DJICameraSettingsDef.CameraShootPhotoMode**.
+In the code above, firstly, we create a "ShootPhotoMode" variable and assign "ShootPhotoMode.SINGLE" to it. Then invoke the `setShootPhotoMode()` method of Camera to set the shoot photo mode. The camera shoot photo mode has several modes within its definition. You can use "AEB", "BURST", "HDR", etc for "ShootPhotoMode", for more details, please check **SettingsDefinitions.ShootPhotoMode**.
 
-Next, implement the `startShootPhoto()` method of DJICamera to control the camera to shoot photo. We override its `onResult()` method to get the result and show related text to users.
+Next, implement the `startShootPhoto()` method of Camera inside the completion callback of `setShootPhotoMode` method to control the camera to shoot photo. Here, we invoke the `postDelayed()` method of `Handler` to delay the method execution for 2000 milliseconds since the camera need time to execute the `setShootPhotoMode` command.
+
+Finally, we override its `onResult()` method of `startShootPhoto()` to get the result and show the related texts to users.
 
   Build and run your project and then try the shoot photo function. If the screen flashes after your press the **Capture** button, your capture function should work now.
 
@@ -1048,11 +1045,11 @@ public void onClick(View v) {
             break;
         }
         case R.id.btn_shoot_photo_mode:{
-            switchCameraMode(DJICameraSettingsDef.CameraMode.ShootPhoto);
+            switchCameraMode(SettingsDefinitions.CameraMode.SHOOT_PHOTO);
             break;
         }
         case R.id.btn_record_video_mode:{
-            switchCameraMode(DJICameraSettingsDef.CameraMode.RecordVideo);
+            switchCameraMode(SettingsDefinitions.CameraMode.RECORD_VIDEO);
             break;
         }
         default:
@@ -1064,11 +1061,11 @@ public void onClick(View v) {
 Next, implement the `switchCameraMode()` method:
 
 ~~~java
-private void switchCameraMode(DJICameraSettingsDef.CameraMode cameraMode){
+private void switchCameraMode(SettingsDefinitions.CameraMode cameraMode){
 
-    DJICamera camera = FPVDemoApplication.getCameraInstance();
+    Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
-        camera.setCameraMode(cameraMode, new DJICommonCallbacks.DJICompletionCallback() {
+        camera.setMode(cameraMode, new CommonCallbacks.CompletionCallback() {
             @Override
             public void onResult(DJIError error) {
 
@@ -1080,11 +1077,10 @@ private void switchCameraMode(DJICameraSettingsDef.CameraMode cameraMode){
             }
         });
         }
-
 }
 ~~~
 
-In the code above, we invoke the `setCameraMode()` method of DJICamera and assign the `CameraMode` parameter to it. Then override the `onResult()` method to show the change camera mode result to the users.
+In the code above, we invoke the `setMode()` method of Camera and assign the `cameraMode ` parameter to it. Then override the `onResult()` method to show the change camera mode result to the users.
 
 ### Working on the Record Action
 
@@ -1114,17 +1110,16 @@ Next, implement the `startRecord()` and `stopRecord()` methods as shown below:
 // Method for starting recording
 private void startRecord(){
 
-    DJICameraSettingsDef.CameraMode cameraMode = DJICameraSettingsDef.CameraMode.RecordVideo;
-    final DJICamera camera = FPVDemoApplication.getCameraInstance();
+    final Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
-        camera.startRecordVideo(new DJICommonCallbacks.DJICompletionCallback(){
+        camera.startRecordVideo(new CommonCallbacks.CompletionCallback(){
             @Override
-            public void onResult(DJIError error)
+            public void onResult(DJIError djiError)
             {
-                if (error == null) {
+                if (djiError == null) {
                     showToast("Record video: success");
                 }else {
-                    showToast(error.getDescription());
+                    showToast(djiError.getDescription());
                 }
             }
         }); // Execute the startRecordVideo API
@@ -1134,17 +1129,17 @@ private void startRecord(){
 // Method for stopping recording
 private void stopRecord(){
 
-    DJICamera camera = FPVDemoApplication.getCameraInstance();
+    Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null) {
-        camera.stopRecordVideo(new DJICommonCallbacks.DJICompletionCallback(){
+        camera.stopRecordVideo(new CommonCallbacks.CompletionCallback(){
 
             @Override
-            public void onResult(DJIError error)
+            public void onResult(DJIError djiError)
             {
-                if(error == null) {
+                if(djiError == null) {
                     showToast("Stop recording: success");
                 }else {
-                    showToast(error.getDescription());
+                    showToast(djiError.getDescription());
                 }
             }
         }); // Execute the stopRecordVideo API
@@ -1153,52 +1148,57 @@ private void stopRecord(){
 }
 ~~~
 
-In the code above, we invoke the `startRecordVideo()` and `stopRecordVideo()` methods of DJICamera to implement the start record and stop record features. And show the result messages to our user by override the `onResult()` methods.
+In the code above, we invoke the `startRecordVideo()` and `stopRecordVideo()` methods of Camera to implement the start record and stop record features. And show the result messages to our user by override the `onResult()` methods.
 
 Lastly, when the video starts recording, we should show the recording time info to our users. So let's add the following code to the bottom of `onCreate()` method as follows:
 
 ~~~java
-DJICamera camera = FPVDemoApplication.getCameraInstance();
+Camera camera = FPVDemoApplication.getCameraInstance();
 
-    if (camera != null) {
-        camera.setDJICameraUpdatedSystemStateCallback(new DJICamera.CameraUpdatedSystemStateCallback() {
-            @Override
-            public void onResult(CameraSystemState cameraSystemState) {
-                if (null != cameraSystemState) {
+if (camera != null) {
 
-                    int recordTime = cameraSystemState.getCurrentVideoRecordingTimeInSeconds();
-                    int minutes = (recordTime % 3600) / 60;
-                    int seconds = recordTime % 60;
+    camera.setSystemStateCallback(new SystemState.Callback() {
+        @Override
+        public void onUpdate(SystemState cameraSystemState) {
+            if (null != cameraSystemState) {
 
-                    final String timeString = String.format("%02d:%02d", minutes, seconds);
-                    final boolean isVideoRecording = cameraSystemState.isRecording();
+                int recordTime = cameraSystemState.getCurrentVideoRecordingTimeInSeconds();
+                int minutes = (recordTime % 3600) / 60;
+                int seconds = recordTime % 60;
 
-                    MainActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            recordingTime.setText(timeString);
-                             /*
-                              * Update recordingTime TextView visibility and mRecordBtn's check state
-                              */
-                                if (isVideoRecording){
-                                    recordingTime.setVisibility(View.VISIBLE);
-                                }else
-                                {
-                                    recordingTime.setVisibility(View.INVISIBLE);
-                                }
+                final String timeString = String.format("%02d:%02d", minutes, seconds);
+                final boolean isVideoRecording = cameraSystemState.isRecording();
+
+                MainActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        recordingTime.setText(timeString);
+
+                        /*
+                         * Update recordingTime TextView visibility and mRecordBtn's check state
+                         */
+                        if (isVideoRecording){
+                            recordingTime.setVisibility(View.VISIBLE);
+                        }else
+                        {
+                            recordingTime.setVisibility(View.INVISIBLE);
                         }
-                    });
-                }
+                    }
+                });
             }
-        });
-    }
+        }
+    });
+
+}
 ~~~
 
-Here, we implement the `setDJICameraUpdatedSystemStateCallback()` of DJICamera and override the `onResult()` method to get the current camera system state, we can call the `getCurrentVideoRecordingTimeInSeconds()` method of "DJICamera.CameraSystemState" to get the record time info. Before we show the record time info to our users, we should convert it from seconds to "00:00" format including minutes and seconds. Lastly, we update the TextView `recordingTime` variable's text value with the latest record time info and update the visibility of `recordingTime` TextView in UI Thread.
+Here, we implement the `setSystemStateCallback()` of Camera and override the `onUpdate()` method to get the current camera system state, we can call the `getCurrentVideoRecordingTimeInSeconds()` method of "SystemState" to get the record time info. Before we show the record time info to our users, we should convert it from seconds to "00:00" format including minutes and seconds. Lastly, we update the TextView `recordingTime` variable's text value with the latest record time info and update the visibility of `recordingTime` TextView in UI Thread.
 
 For more details, please check the Github source code of this tutorial.
 
-Now, let's build and run the project and check the functions. Here we use Phantom 4 as an example. You can try to play with the **Capture**, **Record** and **Switch Camera WorkMode** functions, here is a gif animation to demo these three functions:
+Now, let's build and run the project and check the functions. Here we use Mavic Pro as an example. You can try to play with the **Capture**, **Record** and **Switch Camera WorkMode** functions, here is a gif animation to demo these three functions:
    
   ![demoAni](../images/tutorials-and-samples/Android/FPVDemo/demoAni.gif)
    
