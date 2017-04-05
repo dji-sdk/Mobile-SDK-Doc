@@ -1,11 +1,11 @@
 ---
 title: DJI Simulator Tutorial
-version: v3.5.1
-date: 2017-03-30
+version: v4.0
+date: 2017-04-05
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
-**Note: This Tutorial and Sample Project is developed based on Android SDK v3.5.1, an update version for Android SDK v4.0 will be published soon.**
+*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue or a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
 
 ---
 
@@ -34,9 +34,7 @@ In the [Importing and Activating DJI SDK in Android Studio Project](../applicati
 **1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJISimulatorDemo'. Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the mimimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
  
  **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
- 
- ![importSDK](../../images/tutorials-and-samples/Android/SimulatorDemo/importsSDK.png)
- 
+  
  **3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the followings:
  
 ~~~java
@@ -771,59 +769,59 @@ In the code above, we implement the following features:
 Once you finish the above steps, let's implement the `setJoystickListener()` methods of `mScreenJoystickLeft` and `mScreenJoystickRight` variables at the bottom of `initUI()` method as shown below:
 
 ~~~java
-	mScreenJoystickLeft.setJoystickListener(new OnScreenJoystickListener(){
+    mScreenJoystickLeft.setJoystickListener(new OnScreenJoystickListener(){
 
-	    @Override
-	    public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
-	        if(Math.abs(pX) < 0.02 ){
-	            pX = 0;
-	        }
+        @Override
+        public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
+            if(Math.abs(pX) < 0.02 ){
+                pX = 0;
+            }
 
-	        if(Math.abs(pY) < 0.02 ){
-	            pY = 0;
-	        }
-	        float pitchJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
-	        float rollJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
+            if(Math.abs(pY) < 0.02 ){
+                pY = 0;
+            }
+            float pitchJoyControlMaxSpeed = 10;
+            float rollJoyControlMaxSpeed = 10;
 
-	        mPitch = (float)(pitchJoyControlMaxSpeed * pY);
+            mPitch = (float)(pitchJoyControlMaxSpeed * pY);
 
-	        mRoll = (float)(rollJoyControlMaxSpeed * pX);
+            mRoll = (float)(rollJoyControlMaxSpeed * pX);
 
-	        if (null == mSendVirtualStickDataTimer) {
-	            mSendVirtualStickDataTask = new SendVirtualStickDataTask();
-	            mSendVirtualStickDataTimer = new Timer();
-	            mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
-	        }
+            if (null == mSendVirtualStickDataTimer) {
+                mSendVirtualStickDataTask = new SendVirtualStickDataTask();
+                mSendVirtualStickDataTimer = new Timer();
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+            }
 
-	    }
+        }
 
-	});
+    });
 
-	mScreenJoystickRight.setJoystickListener(new OnScreenJoystickListener() {
+    mScreenJoystickRight.setJoystickListener(new OnScreenJoystickListener() {
 
-	    @Override
-	    public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
-	        if(Math.abs(pX) < 0.02 ){
-	            pX = 0;
-	        }
+        @Override
+        public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
+            if(Math.abs(pX) < 0.02 ){
+                pX = 0;
+            }
 
-	        if(Math.abs(pY) < 0.02 ){
-	            pY = 0;
-	        }
-	             float verticalJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickVerticalControlMaxVelocity;
-                float yawJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickYawControlMaxAngularVelocity;
+            if(Math.abs(pY) < 0.02 ){
+                pY = 0;
+            }
+                 float verticalJoyStickControlMaxSpeed = 2;
+                float yawJoyStickControlMaxSpeed = 3;
 
                 mYaw = (float)(yawJoyStickControlMaxSpeed * pX);
                 mThrottle = (float)(yawJoyStickControlMaxSpeed * pY);
 
-	        if (null == mSendVirtualStickDataTimer) {
-	            mSendVirtualStickDataTask = new SendVirtualStickDataTask();
-	            mSendVirtualStickDataTimer = new Timer();
-	            mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
-	        }
+            if (null == mSendVirtualStickDataTimer) {
+                mSendVirtualStickDataTask = new SendVirtualStickDataTask();
+                mSendVirtualStickDataTimer = new Timer();
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+            }
 
-	    }
-	});
+        }
+    });
 ~~~
 
 Here, we implement the following features:
@@ -847,36 +845,32 @@ Lastly, override the `onClick()` method to implement the enable and disable virt
     switch (v.getId()) {
         case R.id.btn_enable_virtual_stick:
             if (mFlightController != null){
-                mFlightController.enableVirtualStickControlMode(
-                        new DJICommonCallbacks.DJICompletionCallback() {
-                            @Override
-                            public void onResult(DJIError djiError) {
-                                if (djiError != null){
-                                    showToast(djiError.getDescription());
-                                }else
-                                {
-                                    showToast("Enable Virtual Stick Success");
-                                }
-                            }
+                mFlightController.setVirtualStickModeEnabled(true, new CommonCallbacks.CompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        if (djiError != null){
+                            showToast(djiError.getDescription());
+                        }else
+                        {
+                            showToast("Enable Virtual Stick Success");
                         }
-                );
+                    }
+                });
             }
         break;
 
         case R.id.btn_disable_virtual_stick:
             if (mFlightController != null){
-                mFlightController.disableVirtualStickControlMode(
-                        new DJICommonCallbacks.DJICompletionCallback() {
-                            @Override
-                            public void onResult(DJIError djiError) {
-                                if (djiError != null) {
-                                    showToast(djiError.getDescription());
-                                } else {
-                                    showToast("Disable Virtual Stick Success");
-                                }
-                            }
+                mFlightController.setVirtualStickModeEnabled(false, new CommonCallbacks.CompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        if (djiError != null) {
+                            showToast(djiError.getDescription());
+                        } else {
+                            showToast("Disable Virtual Stick Success");
                         }
-                );
+                    }
+                });
             }
          break;
         }
