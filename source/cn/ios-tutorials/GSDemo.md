@@ -1,16 +1,17 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v3.5.1
-date: 2017-03-30
+version: v4.0
+date: 2017-04-09
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo
 keywords: [iOS GSDemo, waypoint mission demo]
 ---
 
-**Note: This Tutorial and Sample Project is developed based on iOS SDK v3.5.1, an update version for iOS SDK v4.0 will be published soon.**
+*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
 
 ---
 
-In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
+In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
+Also you will know how to test the Waypoint Mission API with DJI Assistant 2 Simulator too. So let's get started!
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo).
 
@@ -24,7 +25,7 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 
 ### 2. Creating the Map View
 
-Now, let's delete the **ViewController.h** and **ViewController.m** files, which were created by Xcode when you created the project. Then, create a viewController named "**DJIRootViewController**" and set it as the **Root View Controller** in Main.storyboard. Moreover, drag a **MKMapView** from Object Library to **DJIRootViewController**, setup its AutoLayout constraints, and set its delegate to **DJIRootViewController**, as seen below:
+Now, let's open the **GSDemo.xcworkspace** and delete the **ViewController.h** and **ViewController.m** files, which were created by Xcode when you created the project. Then, create a viewController named "**DJIRootViewController**" and set it as the **Root View Controller** in Main.storyboard. Moreover, drag a **MKMapView** from Object Library to **DJIRootViewController**, setup its AutoLayout constraints, and set its delegate to **DJIRootViewController**, as seen below:
    
 ![mkMapView](../../images/tutorials-and-samples/iOS/GSDemo/mkMapView.png)
 
@@ -313,7 +314,7 @@ First, we initialize **userLocation** data to kCLLocationCoordinate2DInvalid in 
 
 In iOS8, we must call **locationManager**'s **requestAlwaysAuthorization** first, which was done in **startUpdateLocation** method. 
 
-Next, add a NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription key to your project’s Info.plist containing the message to be displayed to the user when a UIAlert asking whether or not they want to allow the application to use their location. We set the messages empty here:
+Next, add a "Privacy - Location Always Usage Description" or "Privacy - Location When In Use Usage Description" key to your project’s Info.plist containing the message to be displayed to the user when a UIAlert asking whether or not they want to allow the application to use their location. We set the messages empty here:
 
 ![infoPlist](../../images/tutorials-and-samples/iOS/GSDemo/infoPlist.png)
 
@@ -323,9 +324,9 @@ It's time to build and run the project to check the focus map feature. When you 
 
 ### 5. Showing the Aircraft on Map View
 
-Now, we can focus the mapView to our current location, which is a good start! However, let's do something more interesting. We're going to simulate the aircraft's GPS location using the DJI PC Simulator and show it on our map view.
+Now, we can focus the mapView to our current location, which is a good start! However, let's do something more interesting. We're going to simulate the aircraft's GPS location using the DJI Assistant 2 Simulator and show it on our map view.
 
-You can check the [Using DJI PC Simulator](../application-development-workflow/workflow-testing.html#DJI-PC-Simulator) for its basic usage. If you want to place the aircraft in your current GPS location on Map View, you can set the latitude and longitude values in the **Simulator Config** to yours. We take the simulator's initial values in the following example.
+You can check the [DJI Assistant 2 Simulator](../application-development-workflow/workflow-testing.html#dji-assistant-2-simulator) for its basic usage. If you want to place the aircraft in your current GPS location on Map View, you can set the latitude and longitude values in the **Simulator Config** to yours. We take the simulator's initial values in the following example.
 
 Let's come back to the code. Create a new subclass of **MKAnnotationView** named "DJIAircraftAnnotationView" and a new subclass of NSObject named **DJIAircraftAnnotation**. Below is the code:
 
@@ -527,8 +528,8 @@ Now, let's initialize the UI elements' values in a new method called **initUI**.
 
 - (void)registerApp
 {
-    NSString *appKey = @"Enter Your App Key Here";
-    [DJISDKManager registerApp:appKey withDelegate:self];
+    //Please enter your App key in the info.plist file to register the app.
+    [DJISDKManager registerAppWithDelegate:self];
 }
 ~~~
 
@@ -559,7 +560,7 @@ Next, implement the "DJISDKManagerDelegate" method as follows:
 
 #pragma mark DJISDKManagerDelegate Methods
 
-- (void)sdkManagerDidRegisterAppWithError:(NSError *_Nullable)error
+- (void)appRegisteredWithError:(NSError *)error
 {
     if (error){
         NSString *registerResult = [NSString stringWithFormat:@"Registration Error:%@", error.description];
@@ -570,22 +571,21 @@ Next, implement the "DJISDKManagerDelegate" method as follows:
     }
 }
 
-- (void)sdkManagerProductDidChangeFrom:(DJIBaseProduct *_Nullable)oldProduct to:(DJIBaseProduct *_Nullable)newProduct
+- (void)productConnected:(DJIBaseProduct *)product
 {
-    if (newProduct){
+    if (product){
         DJIFlightController* flightController = [DemoUtility fetchFlightController];
         if (flightController) {
             flightController.delegate = self;
         }
-    }
-    else{
+    }else{
         ShowMessage(@"Product disconnected", nil, nil, @"OK");
     }
 }
 
 ~~~
 
-In the code above, we can implement DJISDKManager's **sdkManagerDidRegisterAppWithError:** delegate method to check the register status and invoke the DJISDKManager's "startConnectionToProduct" method to connect to the aircraft. Moreover, the **sdkManagerProductDidChangeFrom:to:** delegate method will be invoked when the product connectivity status changes, so we can set DJIFlightController's delegate as DJIRootViewController here when product is connected.
+In the code above, we can implement DJISDKManager's `appRegisteredWithError:` delegate method to check the register status and invoke the DJISDKManager's "startConnectionToProduct" method to connect to the aircraft. Moreover, the `productConnected:` delegate method will be invoked when the product connectivity status changes, so we can set DJIFlightController's delegate as DJIRootViewController here when product is connected.
 
 You may notice that there is a "DemoUtility" class here, it's a class which defines methods that will be used frequently in the project. Let's implement it now. Create a new NSObject class and named it as "DemoUtility", replace its .h file and .m file with the followings:
 
@@ -684,12 +684,12 @@ Furthermore, let's implement the **DJIFlightControllerDelegate** method:
 ~~~objc
 #pragma mark DJIFlightControllerDelegate
 
-- (void)flightController:(DJIFlightController *)fc didUpdateSystemState:(DJIFlightControllerCurrentState *)state
+- (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerCurrentState *)state
 {
     self.droneLocation = state.aircraftLocation;
     
     self.modeLabel.text = state.flightModeString;
-    self.gpsLabel.text = [NSString stringWithFormat:@"%d", state.satelliteCount];
+    self.gpsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)state.satelliteCount];
     self.vsLabel.text = [NSString stringWithFormat:@"%0.1f M/S",state.velocityZ];
     self.hsLabel.text = [NSString stringWithFormat:@"%0.1f M/S",(sqrtf(state.velocityX*state.velocityX + state.velocityY*state.velocityY))];
     self.altitudeLabel.text = [NSString stringWithFormat:@"%0.1f M",state.altitude];
@@ -704,23 +704,15 @@ First, it will update the **droneLocation** with the aircraft's current location
 
 Now, let's test the application! 
 
-Build and run the project to install the app onto your mobile device. After that, please connect the aircraft to your PC or Virtual Machine running Windows via a Micro USB cable, and then power on the aircraft and the remote controller. Click Display Simulator. You can type in your current location's latitude and longitude data in the Simulator Config, if you would like. 
+Build and run the project to install the app onto your mobile device. After that, please connect the aircraft to your Mac via a Micro USB cable, and then power on the aircraft and the remote controller. Click **Simulator** to enter the Simulator page. You can type in your current location's latitude and longitude data in the Simulator Settings, if you would like. 
 
 ![simulatorPreview](../../images/tutorials-and-samples/iOS/GSDemo/simulator_preview.png)
 
-Then, run the app and connect your mobile device to the remote controller using Apple's lighting cable. You may see the following screenshot:
+Then, run the app and connect your mobile device to the remote controller using Apple's lightning cable.
 
-![enterNaviModeFailed](../../images/tutorials-and-samples/iOS/GSDemo/enterNaviModeFailed.jpg)
+Next, let's go to the DJI Assistant 2 Simulator on your Mac and press the **Start Simulation** button. If you check the application now, a tiny red aircraft will be shown on the map as seen below:
 
-**Important**: To fix this problem, please switch the Remote Controller's mode selection to the **F** position (which used to be the A position in the previous version) and press **Retry** button. If the mode selection bar is in the F position when the autopilot is powered on, the user must toggle back and forth between **F** and another position and then press the **Retry** button again.
-
-You are required to be in the **F** position when using the Intelligent Navigation, Hotpoint and Joystick functions in the DJI Mobile SDK.
-
-![switchFlightMode](../../images/tutorials-and-samples/iOS/GSDemo/switchFlightMode.png)
-
-Next, let's go to the DJI PC Simulator on your PC and press the **Start Simulation** button. If you check the application now, a tiny red aircraft will be shown on the map as seen below:
-
-![aircraftOnMap1](../../images/tutorials-and-samples/iOS/GSDemo/aircraftOnMap1.jpg)
+![aircraftOnMap](../../images/tutorials-and-samples/iOS/GSDemo/aircraftOnMap.png)
 
 If you cannot find the aircraft, press the "**Focus Map**" button and the map view will zoom in to center the aircraft on the center of the map view region as shown below:
 
@@ -1216,12 +1208,13 @@ Once that's done, let's build and run the project. Try to show the **waypointCon
 
 ### Handling The DJIWaypoint Mission
 
-Now let's go back to DJIRootViewController.m file. Create a property of type **DJIWaypointMission** and named it as "waypointMission", similiarly, create a **DJIMissionManager** property and named it as "missionManager" as shown below:
+Now let's go back to DJIRootViewController.m file. Create a property of type **DJIMutableWaypointMission** and named it as "waypointMission" as shown below:
 
 ~~~objc
-@property(nonatomic, strong) DJIWaypointMission* waypointMission;
-@property(nonatomic, strong) DJIMissionManager* missionManager;
+@property(nonatomic, strong) DJIMutableWaypointMission* waypointMission;
 ~~~
+
+We use **DJIMutableWaypointMission** here since it represents a waypoint mission that can be changed by modifying its parameters.
 
 Next, replace the code in **configBtnActionInGSButtonVC** delegate method with the followings:
 
@@ -1231,7 +1224,7 @@ Next, replace the code in **configBtnActionInGSButtonVC** delegate method with t
     WeakRef(weakSelf);
     
     NSArray* wayPoints = self.mapController.wayPoints;
-    if (wayPoints == nil || wayPoints.count < DJIWaypointMissionMinimumWaypointCount) {
+    if (wayPoints == nil || wayPoints.count < 2) { //DJIWaypointMissionMinimumWaypointCount is 2.
         ShowMessage(@"No or not enough waypoints for mission", @"", nil, @"OK");
         return;
     }
@@ -1245,7 +1238,7 @@ Next, replace the code in **configBtnActionInGSButtonVC** delegate method with t
         [self.waypointMission removeAllWaypoints];
     }
     else{
-        self.waypointMission = [[DJIWaypointMission alloc] init];
+        self.waypointMission = [[DJIMutableWaypointMission alloc] init];
     }
     
     for (int i = 0; i < wayPoints.count; i++) {
@@ -1260,7 +1253,7 @@ Next, replace the code in **configBtnActionInGSButtonVC** delegate method with t
 
 In the code above, we create a local NSArray variable named **wayPoints** and assign its value as the mapController's **wayPoints** array. Next, check whether or not the array exists or whether or not it's empty. If it is empty or does not exist, show a UIAlertView letting the user know there are no waypoints for the mission. 
 
-**Important**: For safety, it's important to add logic to check the GPS satellite count, before the start of the mission. If the satellite count is less than 6, you should prevent the user from starting the waypoint mission and show a warning. Since we are using the DJI PC Simulator here, we are testing the application under a perfect situation, where the GPS satellite count is always 10.
+**Important**: For safety, it's important to add logic to check the GPS satellite count, before the start of the mission. If the satellite count is less than 6, you should prevent the user from starting the waypoint mission and show a warning. Since we are using the DJI Assistant 2 Simulator here, we are testing the application under a perfect situation, where the GPS satellite count is always 10.
 
 Next, we use a for loop to get the **CLLocation** for each waypoint from the **wayPoints** array and check if its **coordinate** is valid by using the method:
 
@@ -1270,9 +1263,21 @@ BOOL CLLocationCoordinate2DIsValid(CLLocationCoordinate2D coord);
 
 Finally, if the coordinate is valid, we create a waypoint of type **DJIWaypoint** and add it to the **waypointMission**.
 
-Once that is complete, let's go to DJIWaypointConfigViewController's delegate method **finishBtnActionInDJIWaypointConfigViewController** and replace the code inside with the followings:
+Once that is complete, let's create a `missionOperator` method and go to DJIWaypointConfigViewController's delegate method **finishBtnActionInDJIWaypointConfigViewController** and replace the code inside with the followings:
 
 ~~~objc
+-(DJIWaypointMissionOperator *)missionOperator {
+    return [DJISDKManager missionControl].waypointMissionOperator;
+}
+
+- (void)showAlertViewWithTitle:(NSString *)title withMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)finishBtnActionInDJIWaypointConfigViewController:(DJIWaypointConfigViewController *)waypointConfigVC
 {
     WeakRef(weakSelf);
@@ -1283,36 +1288,54 @@ Once that is complete, let's go to DJIWaypointConfigViewController's delegate me
     }];
     
     for (int i = 0; i < self.waypointMission.waypointCount; i++) {
-        DJIWaypoint* waypoint = [self.waypointMission getWaypointAtIndex:i];
+        DJIWaypoint* waypoint = [self.waypointMission waypointAtIndex:i];
         waypoint.altitude = [self.waypointConfigVC.altitudeTextField.text floatValue];
     }
     
     self.waypointMission.maxFlightSpeed = [self.waypointConfigVC.maxFlightSpeedTextField.text floatValue];
     self.waypointMission.autoFlightSpeed = [self.waypointConfigVC.autoFlightSpeedTextField.text floatValue];
     self.waypointMission.headingMode = (DJIWaypointMissionHeadingMode)self.waypointConfigVC.headingSegmentedControl.selectedSegmentIndex;
-    self.waypointMission.finishedAction = (DJIWaypointMissionFinishedAction)self.waypointConfigVC.actionSegmentedControl.selectedSegmentIndex;
+    [self.waypointMission setFinishedAction:(DJIWaypointMissionFinishedAction)self.waypointConfigVC.actionSegmentedControl.selectedSegmentIndex];
 
-    [self.missionManager prepareMission:self.waypointMission withProgress:^(float progress) {
-        //Do something with progress
-    } withCompletion:^(NSError * _Nullable error) {
+    [[self missionOperator] loadMission:self.waypointMission];
+    
+    WeakRef(target);
+    
+    [[self missionOperator] addListenerToFinished:self withQueue:dispatch_get_main_queue() andBlock:^(NSError * _Nullable error) {
+        
+        WeakReturn(target);
+        
+        if (error) {
+            [target showAlertViewWithTitle:@"Mission Execution Failed" withMessage:[NSString stringWithFormat:@"%@", error.description]];
+        }
+        else {
+            [target showAlertViewWithTitle:@"Mission Execution Finished" withMessage:nil];
+        }
+    }];
+
+    [[self missionOperator] uploadMissionWithCompletion:^(NSError * _Nullable error) {
         if (error){
-            NSString* prepareError = [NSString stringWithFormat:@"Prepare Mission failed:%@", error.description];
-            ShowMessage(@"", prepareError, nil, @"OK");
+            NSString* uploadError = [NSString stringWithFormat:@"Upload Mission failed:%@", error.description];
+            ShowMessage(@"", uploadError, nil, @"OK");
         }else {
-            ShowMessage(@"", @"Prepare Mission Finished", nil, @"OK");
+            ShowMessage(@"", @"Upload Mission Finished", nil, @"OK");
         }
     }];
 }
 ~~~
 
-Above, we use a for loop to set the **altitude** property of each DJIWaypoint in the **waypointMission** waypoint array based on the settings that are set in the DJIWaypointConfigViewController. After that is complete, we update the "maxFlightSpeed", "autoFlightSpeed", "headingMode" and "finishedAction" properties of **waypointMission**. Then we call the **prepareMission** method of DJIMissionManager to prepare the waypoint mission for execution. You can get the preparation progress from the "DJIMissionProgressHandler" block.
+Above, we use a for loop to set the **altitude** property of each DJIWaypoint in the **waypointMission** waypoint array based on the settings that are set in the DJIWaypointConfigViewController. After that is complete, we update the "maxFlightSpeed", "autoFlightSpeed", "headingMode" and "finishedAction" properties of **waypointMission**. Then we invoke the `loadMission:` method of **DJIWaypointMissionOperator** to load the `waypointMission` into the operator. 
 
-Furthermore, let's implement **startBtnActionInGSButtonVC** as shown below:
+Furthermore, invoke the `addListenerToFinished:withQueue:andBlock` method of **DJIWaypointMissionOperator** and implement its block to inform the user by showing an alert view when the waypoint mission is finished.
+
+Lastly, we call the `uploadMissionWithCompletion:` method of **DJIWaypointMissionOperator** to upload the waypoint mission for execution and show result messages.
+
+Once you finished the above step, let's implement the `startBtnActionInGSButtonVC` method  as shown below:
 
 ~~~objc
 - (void)startBtnActionInGSButtonVC:(DJIGSButtonViewController *)GSBtnVC
 {
-    [self.missionManager startMissionExecutionWithCompletion:^(NSError * _Nullable error) {
+    [[self missionOperator] startMissionWithCompletion:^(NSError * _Nullable error) {
         if (error){
             ShowMessage(@"Start Mission Failed", error.description, nil, @"OK");
         }else
@@ -1323,14 +1346,14 @@ Furthermore, let's implement **startBtnActionInGSButtonVC** as shown below:
 }
 ~~~
 
-Here, call the **startMissionExecutionWithCompletion** method of DJIMissionManager to start the DJIWaypoint mission! Then create a UIAlertView to display error message when start mission failed.
+Here, call the `startMissionWithCompletion:` method of DJIWaypointMissionOperator to start the DJIWaypoint mission! Then create a UIAlertView to display error message when start mission failed.
 
 Finally, let's implement the **stopMissionExecutionWithCompletion** method of DJIMissionManager in the **DJIGSButtonViewController** delegate method to stop the waypoint mission, as shown below:
 
 ~~~objc
 - (void)stopBtnActionInGSButtonVC:(DJIGSButtonViewController *)GSBtnVC
 {
-    [self.missionManager stopMissionExecutionWithCompletion:^(NSError * _Nullable error) {
+    [[self missionOperator] stopMissionWithCompletion:^(NSError * _Nullable error) {
         if (error){
             NSString* failedMessage = [NSString stringWithFormat:@"Stop Mission Failed: %@", error.description];
             ShowMessage(@"", failedMessage, nil, @"OK");
@@ -1338,6 +1361,7 @@ Finally, let's implement the **stopMissionExecutionWithCompletion** method of DJ
         {
             ShowMessage(@"", @"Stop Mission Finished", nil, @"OK");
         }
+
     }];
 }
 ~~~
@@ -1348,19 +1372,15 @@ You've come a long way in this tutorial, and it's time to test the whole applica
 
 **Important**: Make sure the battery level of your aircraft is more than 10%, otherwise the waypoint mission may fail!
 
-Build and run the project to install the application into your mobile device. After that, please connect the aircraft to your PC or Virtual Machine running Windows via a Micro USB cable. Then, power on the remote controller and the aircraft, in that order. 
+Build and run the project to install the application into your mobile device. After that, please connect the aircraft to your Mac via a Micro USB cable. Then, power on the remote controller and the aircraft, in that order. 
 
-Next, press the **Display Simulator** button in the DJI PC Simulator and feel free to type in your current location's latitude and longitude data into the simulator.
+Next, press the **Simulator** button in the DJI Assistant 2 and feel free to type in your current location's latitude and longitude data into the simulator.
 
 ![simulatorPreview](../../images/tutorials-and-samples/iOS/GSDemo/simulator_preview.png)
 
-Then connect your mobile device to the remote controller using Apple's lighting cable and run the application. You may see the following screenshot:
+Next, let's come back to the DJI Assistant 2 Simulator on your Mac and press the **Start Simulation** button. A tiny red aircraft will appear on the map in your application, as seen below:
 
-![enterNaviModeFailed](../../images/tutorials-and-samples/iOS/GSDemo/enterNaviModeFailed.jpg)
-
-If you encounter this issue, check the solution to this problem in the previous part of this tutorial. Next, let's come back to the DJI PC Simulator on your PC and press the **Start Simulation** button. A tiny red aircraft will appear on the map in your application, as seen below:
-
-![aircraftOnMap1](../../images/tutorials-and-samples/iOS/GSDemo/aircraftOnMap1.jpg)
+![aircraftOnMap](../../images/tutorials-and-samples/iOS/GSDemo/aircraftOnMap.png)
 
 Press the **Edit** button, and the map view will zoom in to the region you are in and will center the aircraft:
 
@@ -1374,23 +1394,22 @@ Once you press the **Config** button, the **Waypoint Configuration** view will a
 
 ![flyTowards](../../images/tutorials-and-samples/iOS/GSDemo/startFlying.gif)
 
-At the same time, you will be able to see the Inspire 1 take off and start to fly in the DJI PC Simulator.
+At the same time, you will be able to see the Mavic Pro take off and start to fly in the DJI Assistant 2 Simulator.
 
 ![takeOff](../../images/tutorials-and-samples/iOS/GSDemo/takeOff.gif)
 
-When the waypoint mission finishes, the Inspire 1 will start to go home!
+When the waypoint mission finishes, the Mavic Pro will start to go home!
 
 ![goHome](../../images/tutorials-and-samples/iOS/GSDemo/goHome.gif) 
 
-The remote controller will start beeping, and the **Go Home** button on the remote controller will start to flash a white light. Let's take a look at the DJI PC Simulator now:
+The remote controller will start beeping. Let's take a look at the DJI Assistant 2 Simulator now:
 
 ![landing](../../images/tutorials-and-samples/iOS/GSDemo/landing.gif)
  
-The inspire 1 will eventually go home, land, and the beeping from the remote controller will stop. The application will go back to its normal status. If you press the **Clear** button, all the waypoints you previously set will be cleared. During the mission, if you'd ever like to stop the DJIWaypoint mission, you can do so by pressing the **Stop** button.
+The Mavic Pro will eventually go home, land, and the beeping from the remote controller will stop. The application will go back to its normal status. If you press the **Clear** button, all the waypoints you previously set will be cleared. During the mission, if you'd ever like to stop the DJIWaypoint mission, you can do so by pressing the **Stop** button.
 
 ### Summary
    
-   In this tutorial, you’ve learned how to setup and use the DJI PC Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI PC Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use DJIMissionManager to **prepare**, **start** and **stop** missions. 
+   In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIMutableWaypointMission**. Moreover, you learned how to use DJIMissionManager to **prepare**, **start** and **stop** missions. 
       
    Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
-
