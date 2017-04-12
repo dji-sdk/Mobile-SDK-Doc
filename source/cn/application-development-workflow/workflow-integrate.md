@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-3-2
+date: 2017-04-12
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -34,7 +34,7 @@ Screenshots in this section are generated using Xcode 7.3.
     end
    ~~~
 
-   * Run the following command in the root folder path using **Terminal**:
+   * Run the following command in the root folder path:
 
    ~~~
     pod install
@@ -190,14 +190,16 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.dji.ImportSDKDemo"
+        applicationId "com.dji.importSDKDemo"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
     }
     buildTypes {
         release {
@@ -209,21 +211,22 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')
+    compile project(':dJISDKLIB')  // <------------
+
 }
 ~~~
 
 * The main changes should be:
    * Add `compile project(':dJISDKLIB')` to the **dependencies**.
-   ![AndroidConfigureGradleAfterChange](../../images/quick-start/AndroidConfigureGradleAfterChange.png)
+   ![AndroidConfigureGradleAfterChange](../../images/application-development-workflow/AndroidConfigureGradleAfterChange.png)
    * Select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
    * Right click on **app** module in the project navigator and go to **Open Module Settings**.
-   ![AndroidOpenModuleSettings](../../images/quick-start/AndroidOpenModuleSettings.png)
+   ![AndroidOpenModuleSettings](../../images/application-development-workflow/AndroidOpenModuleSettings.png)
    * Select **app** module on the left, and **Dependencies** on the top tab to confirm "djiSDKLIB" appears in the list.
-   ![AndroidConfirmAppDependencies](../../images/quick-start/AndroidConfirmAppDependencies.png)
+   ![AndroidConfirmAppDependencies](../../images/application-development-workflow/AndroidConfirmAppDependencies.png)
 
 ### Implement App Registration and SDK Callbacks
 
@@ -256,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getName();
     public static final String FLAG_CONNECTION_CHANGE = "dji_sdk_connection_change";
-    private static DJIBaseProduct mProduct;
+    private static BaseProduct mProduct;
     private Handler mHandler;
 
     @Override
@@ -288,7 +291,7 @@ Add the DJISDKManager callback and implementations of `onGetRegisteredResult` an
 
                   @Override
                   public void run() {
-                      Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                      Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
                   }
               });
           } else {
@@ -430,5 +433,4 @@ As this application is only checking for registration and not interacting direct
 
 If the App Key was generated correctly and the Android simulator or mobile device has internet connectivity, then the following should be seen:
 
- ![AndroidRunSuccess](../../images/quick-start/AndroidRunSuccess.png)
-
+ ![AndroidRunSuccess](../../images/application-development-workflow/AndroidRunSuccess.png)
