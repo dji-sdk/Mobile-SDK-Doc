@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2017-03-07
+date: 2016-09-05
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -114,6 +114,11 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Phantom 4</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
+    <tr>
+      <td>Phantom 4 Advanced</td>
       <td>Fixed</td>        
       <td> — </td>
     </tr>
@@ -237,7 +242,6 @@ Some defining product features that distinguish aircraft series are:
 * Remote controller has embedded GPS
 * Inspire 2 also:
     * Optional onboard SSD storage
-    * Optional Remote Controller GPS Accessory
     * Upward facing obstacle avoidance
     * Additional in first person view (FPV) camera
 
@@ -296,6 +300,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Phantom 4</td><td>28</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1380</td><td>350</td></tr>
 <tr>
+<td>Phantom 4 Advanced</td><td>30</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1368</td><td>350</td></tr>
+<tr>
 <td>Phantom 4 Professional</td><td>30</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1388</td><td>350</td></tr>
 </tbody></table></html>
 
@@ -347,6 +353,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Phantom 4</td><td>Fixed</td><td>-</td><td>5 / 3.1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
+<td>Phantom 4 Advanced</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<tr>
 <td>Phantom 4 Professional</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 </tbody></table></html>
 
@@ -362,7 +370,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <th><p>Waypoint</p></th>
 <th><p>Hotpoint</p></th>
 <th><p>Follow Me</p></th>
-<th><p>Active Track</p></th>
+<th><p>ActiveTrack</p></th>
 <th><p>Tap Fly</p></th>
 </tr>
 <tr>
@@ -389,6 +397,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Phantom 3 Standard</td><td>-</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 4</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-15m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Phantom 4 Advanced</td><td>Front, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Phantom 4 Professional</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 </tbody></table></html>
@@ -722,6 +732,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
+<td>Phantom 4 Advanced</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
+<tr>
 <td>Phantom 4 Professional</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
 <tr>
 <td>Zenmuse X3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
@@ -768,6 +780,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4</td><td>-</td><td>94</td><td>20</td><td>f/2.8</td><td>&#8734</td></tr>
 <tr>
+<td>Phantom 4 Advanced</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
+<tr>
 <td>Phantom 4 Professional</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
 <tr>
 <td>Zenmuse X3</td><td>-</td><td>94</td><td>20</td><td>f/2.8</td><td>&#8734</td></tr>
@@ -813,6 +827,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Phantom 3 Standard</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Phantom 4</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<tr>
+<td>Phantom 4 Advanced</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Phantom 4 Professional</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
@@ -884,6 +900,8 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <td>Phantom 3 Standard</td><td>Required</td><td>WiFi</td><td>WiFi, Aux</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
 <tr>
 <td>Phantom 4</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<tr>
+<td>Phantom 4 Advanced</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Phantom 4 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 </tbody></table></html>
