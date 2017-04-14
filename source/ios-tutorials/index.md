@@ -55,7 +55,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
   
 ~~~objc
 #import <DJISDK/DJISDK.h>
-#import <DJIVideoPreviewer/VideoPreviewer.h>
+#import <VideoPreviewer/VideoPreviewer.h>
 
 @interface DJICameraViewController ()<DJIVideoFeedListener, DJISDKManagerDelegate, DJIBaseProductDelegate, DJICameraDelegate>
 

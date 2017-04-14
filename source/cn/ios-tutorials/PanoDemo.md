@@ -22,7 +22,9 @@ You can download the tutorial's final sample code project from this [Github Page
 
 **1.** Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "PanoDemo" in the **Product Name** field and keep the other default settings.
 
-Once the project is created, let's import the **DJISDK.framework** and **DJIVideoPreviewer** to the project. If you are not familiar with the process of importing DJI SDK and DJIVideoPreviewer using Cocoapods, please check these two tutorials: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) and [Creating a Camera Application](./index.html#Implementing-the-First-Person-View), for details.
+Once the project is created, let's import the **DJISDK.framework** to the project. If you are not familiar with the process of importing DJI SDK using Cocoapods, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) 
+
+For importing the VideoPreviewer to the project, you can check our previous tutorial [Creating a Camera Application](./index.html#Implementing-the-First-Person-View) to learn how to download and import the **VideoPreviewer** into your Xcode project.
 
 **2.** In the **Main.storyboard**, add a new View Controller called **CaptureViewController** and set it as the root View Controller for the new View Controller you just added in **Main.storyboard**:
 
@@ -43,7 +45,7 @@ Import the **DJISDK** and **VideoPreviewer** header files to **CaptureViewContro
 ~~~objc
 #import "CaptureViewController.h"
 #import <DJISDK/DJISDK.h>
-#import <DJIVideoPreviewer/VideoPreviewer.h>
+#import <VideoPreviewer/VideoPreviewer.h>
 
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 #define weakReturn(__TARGET__) if(__TARGET__==nil)return;
