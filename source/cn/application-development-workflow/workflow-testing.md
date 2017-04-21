@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2016-12-13
+date: 2017-3-3
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
@@ -18,10 +18,74 @@ This allows both manual and automated flights to be simulated without actually f
 
 DJI provides tools for Windows and Mac which can be used to initialize the simulator, and visualize the aircraft behavior based on the state information provided by the simulator:
 
+* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used newer aircraft like Mavic Pro, Phantom 4 series, Inspire 2 and Matrice series.
 * **DJI PC Simulator** ( <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> Windows </a> only) is used for Phantom 3 series, Inspire 1 series of aircraft.
-* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used newer aircraft like Phantom 4 series, Inspire 2, Matrice series and Mavic Pro.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
+
+### DJI Assistant 2 Simulator
+
+The DJI Assistant 2 tool is built specifically for SDK developers and can initialize, terminate and provide visualization of the aircraft simulator running in the Flight Controller of the DJI aircraft. DJI Assistant 2 connects to the aircraft through USB.
+
+* Supported DJI Products: Mavic Pro, Matrice series, Phantom 4 Series, Inspire 2.
+* Supported Operating Systems: Mac OS X 10, Windows 7, Windows 8, and Windows 8.1
+
+> **Note:** Windows 10 is not officially supported, but generally does work.
+
+#### Installation and Setup
+
+##### Mac
+
+* Download <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> DJI Assistant 2 </a> for Mac.
+* Install the driver by double clicking on it and following the instructions.
+* Open the downloaded **DMG** file.
+* Drag **Assistant.app** into the systems **Applications** folder.
+
+##### Windows
+
+* Download <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> DJI Assistant 2 </a> for Windows.
+* Run the installer executable.
+* Follow the installation instructions.
+* During installation, confirm the request to install the driver.
+
+#### Using DJI Assistant 2
+
+On launch, a window asking for connection of DJI Assistant 2 to the Aircraft will appear.
+
+![assistantLaunch](../../images/application-development-workflow/assistantLaunch.png)
+
+Connect the aircraft to the Mac or PC with a **USB cable**.
+
+Turn on the remote controller and then turn on the aircraft. After a few seconds, the application will detect the aircraft.
+
+Select "Mavic Pro" in the connected devices page, and select the **Simulator** tab on the left side. The following screen should be seen:
+
+ ![P4Connected](../../images/application-development-workflow/MavicConnected.png)
+
+Press the **Open** button and enter the desired starting latitude and longitude and wind speed desired.
+
+Press the **Start Emulating** button. The connected product will be shown, as well as some of the position and speed state information.
+
+ ![simulatorOld](../../images/application-development-workflow/startEmulating.png)
+ 
+ > **Note:** Positive World X, Y and Z are North, East and Up directions respectively.
+ >
+
+Take-off and fly with the remote controller to experiment with the simulator.
+
+The view angle can be changed by left-clicking and dragging in the visualization window. Scrolling within the window will zoom in and out.
+
+While flying, the flight path can be traced by right clicking on the visualization and selecting **Setup**.
+
+ ![setupButton](../../images/application-development-workflow/setupButton.png)
+
+Then select **show trace** under the simulator UI Config tab to display the flight trace, as shown below:
+
+ ![showTrace](../../images/application-development-workflow/showTraces.png)
+
+The flight path trace will then be added to the visualization.
+
+ ![simulator](../../images/application-development-workflow/simulator.png)
 
 ### DJI PC Simulator
 
@@ -34,7 +98,7 @@ The DJI PC Simulator tool is built specifically for SDK developers and can initi
 
 ##### Installation and Setup
 
-* Download the <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> DJI PC Simulator Installer and User Manual </a> and <a href="https://dev.dji.com/downloads/dev/1f3df392-3026-44ed-a9a8-20caa020f6c7" target="_blank"> WIN Driver Installer </a>.
+* Download the **DJI PC Simulator Installer and User Manual** and **WIN Driver Installer** from this page: <http://developer.dji.com/mobile-sdk/downloads/>
 
 * Run the **Win Driver Installer**
     * For earlier product compatibility, a dialog box with the message _Please power on MC and connect it to PC via USB!_ will be shown.
@@ -95,75 +159,11 @@ In the **Simulator Config** window, **Stop Simulation** can be pressed to stop t
 >**Important:** To stop midway through a Waypoint Mission, stop the mission from the application, then stop the simulator. Otherwise the simulator may run the previous waypoint mission when restarted.
 >
 
-For more info about **DJI PC Simulator**, check the User Manual pdf file included in the download of **DJI PC Simulator.**
-
-### DJI Assistant 2 Simulator
-
-The DJI Assistant 2 tool is built specifically for SDK developers and can initialize, terminate and provide visualization of the aircraft simulator running in the Flight Controller of the DJI aircraft. DJI Assistant 2 connects to the aircraft through USB.
-
-* Supported DJI Products: Matrice series, Phantom 4 Series, Mavic Pro, Inspire 2.
-* Supported Operating Systems: Mac OS X 10, Windows 7, Windows 8, and Windows 8.1
-
-> **Note:** Windows 10 is not officially supported, but generally does work.
-
-#### Installation and Setup
-
-##### Mac
-
-* Download <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> DJI Assistant 2 </a> for Mac.
-* Install the driver by double clicking on it and following the instructions.
-* Open the downloaded **DMG** file.
-* Drag **Assistant.app** into the systems **Applications** folder.
-
-##### Windows
-
-* Download <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> DJI Assistant 2 </a> for Windows.
-* Run the installer executable.
-* Follow the installation instructions.
-* During installation, confirm the request to install the driver.
-
-#### Using DJI Assistant 2
-
-On launch, a window asking for connection of DJI Assistant 2 to the Aircraft will appear.
-
-![assistantLaunch](../../images/application-development-workflow/assistantLaunch.png)
-
-Connect the aircraft to the Mac or PC with a **USB cable**.
-
-Turn on the remote controller and then turn on the aircraft. After a few seconds, the application will detect the aircraft.
-
-Select "Phantom 4" in the connected devices page, and select the **Simulator** tab on the left side. The following screen should be seen:
-
- ![P4Connected](../../images/application-development-workflow/P4Connected.png)
-
-Press the **Open** button and enter the desired starting latitude and longitude and wind speed desired.
-
-Press the **Start Emulating** button. The connected product will be shown, as well as some of the position and speed state information.
-
- ![simulatorOld](../../images/application-development-workflow/startEmulating.png)
- 
- > **Note:** Positive World X, Y and Z are North, East and Up directions respectively.
- >
-
-Take-off and fly with the remote controller to experiment with the simulator.
-
-The view angle can be changed by left-clicking and dragging in the visualization window. Scrolling within the window will zoom in and out.
-
-While flying, the flight path can be traced by right clicking on the visualization and selecting **Setup**.
-
- ![setupButton](../../images/application-development-workflow/setupButton.png)
-
-Then select **show trace** under the simulator UI Config tab to display the flight trace, as shown below:
-
- ![showTrace](../../images/application-development-workflow/showTraces.png)
-
-The flight path trace will then be added to the visualization.
-
- ![simulator](../../images/application-development-workflow/simulator.png)
+For more info about **DJI PC Simulator**, check the User Manual pdf file included in the download of **DJI PC Simulator.** 
 
 ### Continuous Integration Simulation
 
-**DJI PC Assistant** and **DJI Assistant 2** both provide visualization of the aircraft simulator which requires a PC or Mac to be connected to the aircraft.
+**DJI Assistant 2** and **DJI PC Simulator** both provide visualization of the aircraft simulator which requires a PC or Mac to be connected to the aircraft.
 
 If visualization is not required, the DJI SDK can be used to start and stop the simulator. This means simulation can be performed without aircraft connection to a Mac or PC, allowing for automated testing in continuous integration environments.
 
@@ -195,7 +195,7 @@ Therefore, DJI provides a Wireless Bridge Application, or **Bridge App**.
  
 >**Note:** If only one mobile device is available, the Bridge App can also be run with the iOS simulator. In this case the mobile device would host the bridge app, while the developer application runs on the iOS simulator.
 
-The Bridge App is provided by DJI under the MIT license from Github <a href="https://github.com/dji-sdk/DJI-Bridge-App" target="_blank"> here </a>.
+The Bridge App is provided by DJI under the MIT license from Github <a href="https://github.com/dji-sdk/iOS-Bridge-App" target="_blank"> here </a>.
 
 A tutorial describing how to use the DJI Bridge App is [here](../ios-tutorials/BridgeAppDemo.html).
 

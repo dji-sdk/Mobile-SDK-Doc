@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v3.5.1
-date: 2017-01-16
+version: v4.0
+date: 2017-02-23
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 ---
 
@@ -13,7 +13,7 @@ In this tutorial, you will learn how to use the DJISimulator in your Xcode proje
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo).
 
-We use Phantom 4 as an example to make this demo.
+We use Mavic Pro as an example to make this demo.
 
 Let's get started!
 
@@ -278,8 +278,8 @@ Next, implement the `onStickChanged:` select method and `setThrottle:andYaw:`, `
 }
 
 -(void) setXVelocity:(float)x andYVelocity:(float)y {
-    self.mXVelocity = x * DJIVirtualStickRollPitchControlMaxVelocity;
-    self.mYVelocity = y * DJIVirtualStickRollPitchControlMaxVelocity;
+    self.mXVelocity = x * 15.0;
+    self.mYVelocity = y * 15.0;
     [self updateVirtualStick];
 }
 
@@ -366,14 +366,17 @@ Once you finished the above step, let's implement the **Enable Virtual Stick** a
         fc.yawControlMode = DJIVirtualStickYawControlModeAngularVelocity;
         fc.rollPitchControlMode = DJIVirtualStickRollPitchControlModeVelocity;
         
-        [fc enableVirtualStickControlModeWithCompletion:^(NSError *error) {
+        WeakRef(target);
+        [fc setVirtualStickModeEnabled:YES withCompletion:^(NSError * _Nullable error) {
+            WeakReturn(target);
             if (error) {
-                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Enter Virtual Stick Mode: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Enter Virtual Stick Mode: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
             }
             else
             {
-                [DemoUtility showAlertViewWithTitle:nil message:@"Enter Virtual Stick Mode:Succeeded" cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:@"Enter Virtual Stick Mode:Succeeded" cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
             }
+
         }];
     }
     else
@@ -390,11 +393,13 @@ Once you finished the above step, let's implement the **Enable Virtual Stick** a
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
     
     if (fc) {
-        [fc disableVirtualStickControlModeWithCompletion:^(NSError * _Nullable error) {
+        WeakRef(target);
+        [fc setVirtualStickModeEnabled:NO withCompletion:^(NSError * _Nullable error) {
+            WeakReturn(target);
             if (error){
-                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Exit Virtual Stick Mode: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Exit Virtual Stick Mode: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
             } else{
-                [DemoUtility showAlertViewWithTitle:nil message:@"Exit Virtual Stick Mode:Succeeded" cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:@"Exit Virtual Stick Mode:Succeeded" cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
             }
         }];
     }
@@ -406,9 +411,9 @@ Once you finished the above step, let's implement the **Enable Virtual Stick** a
 }
 ~~~
 
-In the `onEnterVirtualStickControlButtonClicked:` IBAction method, we first assign the `yawControlMode` and `rollPitchControlMode` properties of DJIFlightController to `DJIVirtualStickYawControlModeAngularVelocity` and `DJIVirtualStickRollPitchControlModeVelocity`. Then invoke the `enableVirtualStickControlModeWithCompletion:` method of DJIFlightController to enable the virtual stick control. 
+In the `onEnterVirtualStickControlButtonClicked:` IBAction method, we first assign the `yawControlMode` and `rollPitchControlMode` properties of DJIFlightController to `DJIVirtualStickYawControlModeAngularVelocity` and `DJIVirtualStickRollPitchControlModeVelocity`. Then invoke the `setVirtualStickModeEnabled:withCompletion:` method of DJIFlightController to enable the virtual stick control. 
 
-Similiarly, in the `onExitVirtualStickControlButtonClicked:` IBAction method, we invoke the `disableVirtualStickControlModeWithCompletion:` method of DJIFlightController to disable virtual stick control.
+Similiarly, in the `onExitVirtualStickControlButtonClicked:` IBAction method, we invoke the `setVirtualStickModeEnabled:withCompletion:` method of DJIFlightController to disable virtual stick control.
 
 ### Implementing DJISimulator
 
@@ -421,10 +426,10 @@ Similiarly, in the `onExitVirtualStickControlButtonClicked:` IBAction method, we
     
     DJIFlightController* fc = [DemoUtility fetchFlightController];
     if (fc && fc.simulator) {
-        self.isSimulatorOn = fc.simulator.isSimulatorStarted;
+        self.isSimulatorOn = fc.simulator.isSimulatorActive;
         [self updateSimulatorUI];
         
-        [fc.simulator addObserver:self forKeyPath:@"isSimulatorStarted" options:NSKeyValueObservingOptionNew context:nil];
+        [fc.simulator addObserver:self forKeyPath:@"isSimulatorActive" options:NSKeyValueObservingOptionNew context:nil];
         [fc.simulator setDelegate:self];
     }
 }
@@ -435,13 +440,13 @@ Similiarly, in the `onExitVirtualStickControlButtonClicked:` IBAction method, we
     
     DJIFlightController* fc = [DemoUtility fetchFlightController];
     if (fc && fc.simulator) {
-        [fc.simulator removeObserver:self forKeyPath:@"isSimulatorStarted"];
+        [fc.simulator removeObserver:self forKeyPath:@"isSimulatorActive"];
         [fc.simulator setDelegate:nil];
     }
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"isSimulatorStarted"]) {
+    if ([keyPath isEqualToString:@"isSimulatorActive"]) {
         self.isSimulatorOn = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
         [self updateSimulatorUI];
     }
@@ -458,9 +463,9 @@ Similiarly, in the `onExitVirtualStickControlButtonClicked:` IBAction method, we
 }
 ~~~
 
-In the `viewWillAppear:` method, we first fetch the DJIFlightController object and update the `isSimulatorOn` variable, then invoke the `updateSimulatorUI` method to update the `simulatorButton` label. Furthermore, we use KVO here to observe the changes of `isSimulatorStarted` variable value of `DJISimulator`. Then set the delegate of the DJIFlightController's DJISimulator to self(DJISimulatorViewController).
+In the `viewWillAppear:` method, we first fetch the DJIFlightController object and update the `isSimulatorOn` variable, then invoke the `updateSimulatorUI` method to update the `simulatorButton` label. Furthermore, we use KVO here to observe the changes of `isSimulatorActive` variable value of `DJISimulator`. Then set the delegate of the DJIFlightController's DJISimulator to self(DJISimulatorViewController).
 
-Next in the `viewWillDisappear:` method, we fetch the latest DJIFlightController object, then remove the observer of `isSimulatorStarted`, and set the delegate of DJISimulator to nil. 
+Next in the `viewWillDisappear:` method, we fetch the latest DJIFlightController object, then remove the observer of `isSimulatorActive`, and set the delegate of DJISimulator to nil. 
 
 Moreover, in the NSKeyValueObserving method, we fetch and update the latest `isSimulatorOn` property and invoke the `updateSimulatorUI` method to update the `simulatorButton`.
 
@@ -476,22 +481,26 @@ Now, let's implement the `onSimulatorButtonClicked:` IBAction method as shown be
         if (!self.isSimulatorOn) {
             // The initial aircraft's position in the simulator.
             CLLocationCoordinate2D location = CLLocationCoordinate2DMake(22, 113);
-            [fc.simulator startSimulatorWithLocation:location updateFrequency:20 GPSSatellitesNumber:10 withCompletion:^(NSError * _Nullable error) {
+            WeakRef(target);
+            [fc.simulator startWithLocation:location updateFrequency:20 GPSSatellitesNumber:10 withCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
                 if (error) {
-                    [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Start simulator error: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                    [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Start simulator error: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
 
                 } else {
-                    [DemoUtility showAlertViewWithTitle:nil message:@"Start Simulator succeeded." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                    [DemoUtility showAlertViewWithTitle:nil message:@"Start Simulator succeeded." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
                 }
             }];
         }
         else {
-            [fc.simulator stopSimulatorWithCompletion:^(NSError * _Nullable error) {
+            WeakRef(target);
+            [fc.simulator stopWithCompletion:^(NSError * _Nullable error) {
+                WeakReturn(target);
                 if (error) {
-                    [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Stop simulator error: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                    [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Stop simulator error: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
 
                 } else {
-                    [DemoUtility showAlertViewWithTitle:nil message:@"Stop Simulator succeeded." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                    [DemoUtility showAlertViewWithTitle:nil message:@"Stop Simulator succeeded." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
                 }
             }];
         }
@@ -499,28 +508,34 @@ Now, let's implement the `onSimulatorButtonClicked:` IBAction method as shown be
 }
 ~~~
 
-In the code above, we first check if the simulator is started, if not, then create an initial aircraft location with CLLocationCoordinate2DMake(22, 113). Next invoke the `startSimulatorWithLocation:updateFrequency:GPSSatellitesNumber:withCompletion:` method of `DJISimulator` with the frequency of 20 and GPS satellite number of 10 to start the simulator. For more details of this method, please check the following method's inline documentations:
+In the code above, we first check if the simulator is started, if not, then create an initial aircraft location with CLLocationCoordinate2DMake(22, 113). Next invoke the `startWithLocation:updateFrequency:GPSSatellitesNumber:withCompletion:` method of `DJISimulator` with the frequency of 20 and GPS satellite number of 10 to start the simulator. For more details of this method, please check the following method's inline documentations:
 
 ~~~objc
 /**
  *  Start simulator. Will result in error if simulation is already started.
  *
  *  @param location     Simulator coordinate latitude and longitude in degrees.
- *  @param frequency    Aircraft simulator state push frequency in Hz with range [2, 150]. A setting of 10 Hz will result in delegate method being called, 10 times per second.
+ *  @param frequency    Aircraft simulator state push frequency in Hz with range
+ *                      [2, 150]. A setting of 10 Hz will result in delegate
+ *                      method being called, 10 times per second.
  *  @param number       The initial number of GPS satellites with range [0, 20].
- *  @param block        The Completion block.
+ *  @param completion        The completion block.
  */
-- (void)startSimulatorWithLocation:(CLLocationCoordinate2D)location updateFrequency:(NSUInteger)frequency GPSSatellitesNumber:(NSUInteger)number withCompletion:(DJICompletionBlock)block;
+- (void)startWithLocation:(CLLocationCoordinate2D)location
+          updateFrequency:(NSUInteger)frequency
+      GPSSatellitesNumber:(NSUInteger)number
+           withCompletion:(DJICompletionBlock)completion;
 ~~~
 
-if the simulator has already started, we can invoke the `stopSimulatorWithCompletion:` method of DJISimulator to stop the simulator.
+if the simulator has already started, we can invoke the `stopWithCompletion:` method of DJISimulator to stop the simulator.
 
 Lastly, let's implement the DJI Simulator delegate method as shown below:
 
 ~~~objc
--(void)simulator:(DJISimulator *)simulator updateSimulatorState:(DJISimulatorState *)state {
-    [self.simulatorStateLabel setHidden:NO];
-    self.simulatorStateLabel.text = [NSString stringWithFormat:@"Yaw: %0.2f Pitch: %0.2f, Roll: %0.2f\n PosX: %0.2f PosY: %0.2f PosZ: %0.2f", state.yaw, state.pitch, state.roll, state.positionX, state.positionY, state.positionZ];
+- (void)simulator:(DJISimulator *_Nonnull)simulator didUpdateState:(DJISimulatorState *_Nonnull)state
+{
+   [self.simulatorStateLabel setHidden:NO];
+   self.simulatorStateLabel.text = [NSString stringWithFormat:@"Yaw: %0.2f Pitch: %0.2f, Roll: %0.2f\n PosX: %0.2f PosY: %0.2f PosZ: %0.2f", state.yaw, state.pitch, state.roll, state.positionX, state.positionY, state.positionZ];
 }
 ~~~
 
@@ -537,12 +552,14 @@ In order to simulate the aircraft's flight behaviour in a simulated environment,
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
     
     if (fc) {
-        [fc takeoffWithCompletion:^(NSError *error) {
+        WeakRef(target);
+        [fc startTakeoffWithCompletion:^(NSError * _Nullable error) {
+            WeakReturn(target);
             if (error) {
-                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Takeoff: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Takeoff: %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
                 
             } else {
-                [DemoUtility showAlertViewWithTitle:nil message:@"Takeoff Success." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:@"Takeoff Success." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
                 
             }
         }];
@@ -559,12 +576,14 @@ In order to simulate the aircraft's flight behaviour in a simulated environment,
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
 
     if (fc) {
-        [fc autoLandingWithCompletion:^(NSError * _Nullable error) {
+        WeakRef(target);
+        [fc startLandingWithCompletion:^(NSError * _Nullable error) {
+            WeakReturn(target);
             if (error) {
-                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"AutoLand : %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"AutoLand : %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
 
             } else {
-                [DemoUtility showAlertViewWithTitle:nil message:@"AutoLand Succeeded." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+                [DemoUtility showAlertViewWithTitle:nil message:@"AutoLand Started." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
             }
         }];
     }
@@ -575,15 +594,15 @@ In order to simulate the aircraft's flight behaviour in a simulated environment,
 }
 ~~~
 
-In the `onTakeoffButtonClicked:` IBAction method, we invoke the `takeoffWithCompletion:` method of DJIFlightController to send the take off command to the aircraft. Similiarly, in the `onLandButtonClicked:` IBAction method, we invoke the `autoLandingWithCompletion:` method to send the auto landing command. It's just that simple and easy.
+In the `onTakeoffButtonClicked:` IBAction method, we invoke the `startTakeoffWithCompletion:` method of DJIFlightController to send the take off command to the aircraft. Similiarly, in the `onLandButtonClicked:` IBAction method, we invoke the `startLandingWithCompletion:` method to send the auto landing command. It's just that simple and easy.
 
-We have gone through a long way so far, now, let's build and run the project, connect the demo application to  your Phantom 4 (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way so far, now, let's build and run the project, connect the demo application to  your Mavic Pro (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
 If everything goes well, you should see something similiar to the following gif animation:
 
 ![](../../images/tutorials-and-samples/iOS/SimulatorDemo/simulatorAnimation.gif)
 
-- If the demo application is connected with Phantom 4 successfully, you should see the `connectButton` button is available to press and the `connectStatusLabel` and `modelNameLabel` show the correct infos.
+- If the demo application is connected with Mavic Pro successfully, you should see the `connectButton` button is available to press and the `connectStatusLabel` and `modelNameLabel` show the correct infos.
 - Press **Open** and enter the simulator demo page, press **EnterVirtualStickControl** button to enable virtual stick control, then press "Start Simulator" to start the simulator.
 - Moreover, press the **Takeoff** button to send take off command to the aircraft, if the command executes successfully, you should see the **PosZ** value start to change, means that the aircraft is rising.
 - Now you can drag the left and right virtual stick controls to simulate the flight behavious.

@@ -1,6 +1,6 @@
 ---
 title: Missions
-date: 2016-12-13
+date: 2017-03-07
 keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
 ---
 
@@ -79,6 +79,12 @@ The Remote Controller yaw stick can be used to adjust the heading of the aircraf
 
 TapFly is only supported on newer aircraft with vision systems.
 
+For Phantom 4 Professional, there are three TapFly modes:
+
+- TapFly Forward – Aircraft will fly towards the target. Forward Obstacle Sensing System is active.
+- TapFly Backward – Aircraft will fly in the opposite direction from the target. Backward Obstacle Sensing System is active.
+- TapFly Free – Aircraft will fly towards the target. User can control the heading by remote controller's stick. Obstacle Sensing Systems may fail to work when aircraft is flying sideward.
+
 ![p4TapFlyAni](../../images/component-guide/p4TapFlyAni.gif)
 
 ### Panorama Mission
@@ -95,7 +101,6 @@ The Custom Mission serializes multiple missions or mission steps. It is an easy 
 * Follow Me Mission
 * Hot Point Mission
 * Aircraft Take off
-* Aircraft Land
 * Goto Waypoint
 * Go Home
 * Shoot Photo

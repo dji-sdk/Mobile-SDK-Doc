@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2017-1-11
+date: 2017-3-2
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
@@ -34,15 +34,13 @@ Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="
 
 ## iOS Sample App
 
-The SDK doesn't need to be downloaded to run the iOS sample application as it's already included in the project.
-
 ### iOS Sample Code Setup
 
 Download or clone the iOS Sample Github Project from: <a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">https://github.com/dji-sdk/Mobile-SDK-iOS</a>.
 
 The sample code includes both an Objective C sample project and a Swift Sample project.
 
-Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
+Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) and [DJIVideoPreviewer]() now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
 
 **1.** Install CocoaPods
 
@@ -67,7 +65,8 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (3.5)
+Installing DJI-SDK-iOS (4.0)
+Installing DJIVideoPreviewer
 Generating Pods project
 Integrating client project
 
@@ -85,30 +84,13 @@ installed.
 
 #### Objective C App Key Setup
 
-Navigate to the **ObjcSampleCode** folder and open the **DJISdkDemo.xcodeproj** project in Xcode.
+Navigate to the **ObjcSampleCode** folder and open the **DJISdkDemo.xcworkspace** project in Xcode.
 
 * Change the <a href="http://developer.dji.com/en/user/mobile-sdk/ios-configuration" target="_blank">Bundle Identifier</a> to a unique identifier and use it to generate an [App Key](#generate-an-app-key).
 
-* Paste the generated App Key string into the `appKey` variable definition in **DJIRootViewController.m**:
+* Paste the generated App Key string into the `DJISDKAppKey` string value of the **info.plist** file of the Xcode project:
 
-~~~objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    //Register App with App Key
-    NSString* appKey = @""; //TODO: Please enter your App Key here
-
-    if ([appKey length] == 0) {
-        ShowResult(@"Please enter your app key.");
-    }
-    else
-    {
-        [DJISDKManager registerApp:appKey withDelegate:self];
-    }
-
-    [self initUI];
-}
-~~~
+![appKeyInPlist](../../images/quick-start/appKeyInPlist.png)
 
 #### Swift App Key Setup
 
@@ -116,24 +98,7 @@ Navigate to the **DJISDKSwiftDemo** folder and open the **DJISDKSwiftDemo.xcodep
 
 * Change the <a href="http://developer.dji.com/en/user/mobile-sdk/ios-configuration" target="_blank">Bundle Identifier</a> to a unique identifier and use it to generate an [App Key](#generate-an-app-key).
 
-* Paste the generated App Key string into the `APP_KEY` variable definition in **StartupViewController.swift**:
-
-~~~swift
-let APP_KEY = ""//TODO: Please enter App Key Here
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-
-    if(APP_KEY.isEmpty){
-        showAlert("Please enter your app key.")
-    }else
-    {
-        DJISDKManager.registerApp(APP_KEY, withDelegate: self)
-    }
-
-    initUI();
-}
-~~~
+* Paste the generated App Key string into the `DJISDKAppKey` string value of the **info.plist** file of the Xcode project the same as the Objective C App Key Setup.
 
 ## Android Sample App
 
@@ -166,7 +131,7 @@ For Aircraft or products that use WiFi as a wireless link, the Mobile Device is 
 
 #### USB Connection Procedure
 
-_Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, M100, M600, M600 Pro:_
+_Mavic Pro, Phantom 4, Phantom 4 Professional, Inspire series, Phantom 3 Professional, Phantom 3 Advanced, M100, M600, M600 Pro:_
 
 Turn on the Remote Controller.
 
@@ -193,10 +158,9 @@ Turn on the Remote Controller.
 * Turn on the Aircraft and wait until the Remote Controller has connected with the Aircraft.
 * Run Sample App on the Mobile Device.
 
-_Osmo:_
+_Osmo Series:_
 
 Turn on the Osmo.  
 
 * Connect Mobile Device to the WiFi network created by the Osmo.
 * Run Sample App on Mobile Device.
-

@@ -1,6 +1,6 @@
 ---
 title: Camera
-date: 2016-12-13
+date: 2017-03-07
 keywords: [single, burst, HDR, AEB, Interval, Timelapse, video resolution, frame rate, aspect ratio, still image, compression, JPEG, DNG, RAW, H.264, MPEG, shutter speed, exposure mode, ISO, Aperture, Exposure Compensation, AE, Auto Exposure, AE Metering, AE Lock, White Balance, Color Temperature, Anti-Flicker, Sharpness, Contrast, Hue, Saturation, Digital Filter, lens, focus, live video feed,  playback manager, media manager, storage, file index, image format]
 ---
 
@@ -17,7 +17,8 @@ DJI cameras have several modes of operation:
 * Still image capture
 * Video capture
 * Playback
-* Media Manager
+* Media Download
+* Broadcast
 
 The camera can only operate in one mode at any one time. For example, media download cannot happen during image capture.
 
@@ -27,6 +28,7 @@ There are several ways to capture a still image with DJI cameras.
 
 * **Single**: Takes a single picture every time the `shootPhoto` command is given.
 * **Burst**: Takes a small burst of photos every time the `shootPhoto` command is given. This can be useful for capturing action scenes.
+* **RAW Burst**: Takes a small burst of RAW photos every time the `shootPhoto` command is given. RAW photos can be shot faster with a continuous RAW burst than using **Interval** as the burst is used in conjunction with SSD storage.
 * **HDR**: Takes a high dynamic range photo. This results in several photos with different exposure levels being taken and then combined into one photo. The different exposure levels increase contrast in both dark and light areas, and therefore the dynamic range of the photo.
 * **AEB (Auto Exposure Bracketing)**: Captures multiple photos at different exposure levels and saves them separately every time the `shootPhoto` command is given.
 * **Interval**: The camera will take photos at a predetermined time interval (for example every 5 seconds) for either a set number of shots, or indefinitely.
@@ -243,6 +245,14 @@ This focus ring value can be tied to the serial number of the camera for future 
 Developers can get live H.264 video data from Camera using the Mobile SDK. The H.264 is a video coding format that is currently one of the most commonly used formats for compression, and distribution of video content. 
 
 Even though most cameras can capture in 1080p or 4K, the live video stream is typically 720p to conserve wireless bandwidth. The live video stream is highly dependent on the quality of the wireless link. Wireless systems are complex, with many variables contributing to overall quality, however generally as the transmission distance increases, or obstacles start to occlude the signal, video quality can deteriorate rapidly.
+
+## Broadcast Mode
+
+For Inspire 2, a new Broadcast Mode for TV broadcasters has been created, allowing videos to be streamed from the Inspire 2 in broadcast standard 720p60 (NTSC) or 1080i50 (PAL). Once connected to broadcasting equipment, footage can be sent live on-air without signal conversion. 
+
+In this camera mode, videos can be recorded. Still photos can also be taken only when video is recording. The only way to exit broadcast mode is to change modes to **Video capture**.
+
+It is only supported by Inspire 2.
 
 ## Playback Manager
 

@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v3.5.1
-date: 2016-12-15
+version: v4.0
+date: 2017-03-28
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map
 keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 ---
@@ -10,12 +10,12 @@ keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 
 ---
 
-In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
-Also you will know how to test the Waypoint Mission API with DJI PC Simulator too. So let's get started!
+In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of MissionManager. 
+Also you will know how to test the Waypoint Mission API with DJI Assistant 2 Simulator too. So let's get started!
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map).
 
-> Note: In this tutorial, we will use Inspire 1 for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="http://lbs.amap.com" target="_blank">Gaode Map API</a> for navigating.
+> Note: In this tutorial, we will use Mavic Pro for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="http://lbs.amap.com" target="_blank">Gaode Map API</a> for navigating.
 
 ## Preparation
 
@@ -145,7 +145,7 @@ Next, double click on the "build.gradle(Module: app)" file to open it and add th
 ~~~xml
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         ...
@@ -298,7 +298,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
 
 3. Lastly, we create a map view fragment and place it at the bottom.
   
-Next, copy the "aircraft.png" and "ic_launcher.png" image files from this Github sample project to the **drawable** folders inside the **res** folder.
+Next, copy the "aircraft.png" and "ic_launcher.png" image files from this tutorial's [Github sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map) to the **drawable** folders inside the **res** folder.
     
 Furthermore, open the AndroidManifest.xml file and update the ".MainActivity" activity element with several attributes as shown below:
   
@@ -321,7 +321,7 @@ Furthermore, open the AndroidManifest.xml file and update the ".MainActivity" ac
    
 ![MainActivity](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/mainActivity.png)
 
-  Lastly, let's create a new xml file named "dialog_waypointsetting.xml" in the layout folder by right-clicking on the "layout" folder and select **New->XML->Layout XML File**. Then replace the code with the same file in Github Sample Project, since the content is too much, we don't show them all here.
+  Lastly, let's create a new xml file named "dialog_waypointsetting.xml" in the layout folder by right-clicking on the "layout" folder and select **New->XML->Layout XML File**. Then replace the code with the same file in this project's [Github sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map), since the content is too much, we don't show them all here.
 
 This xml file will help to setup a textView to enter "Altitude" and create three RadioButton Groups for selecting **Speed**, **Action After Finished** and **Heading**.
 
@@ -572,12 +572,12 @@ After you finish the steps above, open the DJIDemoApplication.java file and repl
 public void onCreate() {
     super.onCreate();
     mHandler = new Handler(Looper.getMainLooper());
-    DJISDKManager.getInstance().initSDKManager(this, mDJISDKManagerCallback);
+    DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
 }
     
-private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.DJISDKManagerCallback() {
+private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
     @Override
-    public void onGetRegisteredResult(DJIError error) {
+    public void onRegister(DJIError error) {
         Log.d(TAG, error == null ? "Success" : error.getDescription());
         if(error == DJISDKError.REGISTRATION_SUCCESS) {
             DJISDKManager.getInstance().startConnectionToProduct();
@@ -588,6 +588,7 @@ private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKM
                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
                 }
             });
+            Log.d(TAG, "Register success");
         } else {
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
@@ -596,16 +597,18 @@ private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKM
                     Toast.makeText(getApplicationContext(), "register sdk fails, check network is available", Toast.LENGTH_LONG).show();
                 }
             });
+            Log.d(TAG, "Register failed");
         }
-        Log.e("TAG", error.toString());
+        Log.e(TAG, error == null ? "success" : error.getDescription());
     }
 
     @Override
-    public void onProductChanged(DJIBaseProduct oldProduct, DJIBaseProduct newProduct) {
-        mProduct = newProduct;
-        if(mProduct != null) {
-            mProduct.setDJIBaseProductListener(mDJIBaseProductListener);
-        }
+    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
+
+            mProduct = newProduct;
+            if(mProduct != null) {
+                mProduct.setBaseProductListener(mDJIBaseProductListener);
+            }
         notifyStatusChange();
     }
 };
@@ -614,7 +617,7 @@ private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKM
 Here, we implement several features:
   
 1. We override the `onCreate()` method to initialize the DJISDKManager.
-2. Implement the two interface methods of DJISDKManagerCallback. You can use the `onGetRegisteredResult()` method to check the Application registration status and show text message here. Using the `onProductChanged()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+2. Implement the two interface methods of DJISDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
 
@@ -635,7 +638,7 @@ Let's open MainActivity.java file and declare the following variables first:
 ~~~java
 private double droneLocationLat = 181, droneLocationLng = 181;
 private Marker droneMarker = null;
-private DJIFlightController mFlightController;
+private FlightController mFlightController;
 ~~~
 
 Then, since we need to detect the product connection status, we should register a BroadcastReceiver in the `onCreate()` method and override the `onReceive()` method of it as shown below:
@@ -684,20 +687,20 @@ private void onProductConnectionChange()
 
  private void initFlightController() {
 
-        DJIBaseProduct product = DJIDemoApplication.getProductInstance();
+        BaseProduct product = DJIDemoApplication.getProductInstance();
         if (product != null && product.isConnected()) {
-            if (product instanceof DJIAircraft) {
-                mFlightController = ((DJIAircraft) product).getFlightController();
+            if (product instanceof Aircraft) {
+                mFlightController = ((Aircraft) product).getFlightController();
             }
         }
 
         if (mFlightController != null) {
-            mFlightController.setUpdateSystemStateCallback(new DJIFlightControllerDelegate.FlightControllerUpdateSystemStateCallback() {
-
+            mFlightController.setStateCallback(
+                    new FlightControllerState.Callback() {
                 @Override
-                public void onResult(DJIFlightControllerCurrentState state) {
-                    droneLocationLat = state.getAircraftLocation().getLatitude();
-                    droneLocationLng = state.getAircraftLocation().getLongitude();
+                public void onUpdate(FlightControllerState djiFlightControllerCurrentState) {
+                    droneLocationLat = djiFlightControllerCurrentState.getAircraftLocation().getLatitude();
+                    droneLocationLng = djiFlightControllerCurrentState.getAircraftLocation().getLongitude();
                     updateDroneLocation();
 
                 }
@@ -706,13 +709,13 @@ private void onProductConnectionChange()
     }
 ~~~
 
-In the code above, we firstly check the product connection status with the help of `isConnected()` method of DJIBaseProduct. Then initialize `mFlightController` variable and override the `onResult()` method to invoke `updateDroneLocation` method. By using the `onResult()` method, you can get the flight controller current state from the parameter.
+In the code above, we firstly check the product connection status with the help of `isConnected()` method of BaseProduct. Then initialize `mFlightController` variable and override the `onUpdate()` method to invoke `updateDroneLocation` method. By using the `onUpdate()` method, you can get the flight controller current state from the parameter.
 
 Furthermore, let's implement the `updateDroneLocation()` method and invoke it in `onClick()` method's locate button click action:
 
 ~~~java
-public static boolean checkGpsCoordinates(double latitude, double longitude) {
-    return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180) && (latitude != 0f && longitude != 0f);
+public static boolean checkGpsCoordination(double latitude, double longitude) {
+        return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180) && (latitude != 0f && longitude != 0f);
 }
     
 private void updateDroneLocation(){
@@ -769,15 +772,15 @@ private void cameraUpdate(){
 }
 ~~~
 
-Before going forward, you can check the [Using DJI PC Simulator](../application-development-workflow/workflow-testing.html#DJI-PC-Simulator) for DJI PC Simulator's basic usage.
+Before going forward, you can check the [Using DJI Assistant 2 Simulator](../application-development-workflow/workflow-testing.html#dji-assistant-2-simulator) for its basic usage.
 
-Now, let's connect the aircraft to your PC or Virtual Machine running Windows via a Micro USB cable, and then power on the aircraft and the remote controller. Click Display Simulator. You can type in your current location's latitude and longitude data in the Simulator Config, if you would like. 
+Now, let's connect the aircraft to your PC or Mac running DJI Assistant 2 via a Micro USB cable, and then power on the aircraft and the remote controller. Press the **Simulator** button in the DJI Assistant 2 and feel free to type in your current location's latitude and longitude data into the simulator.
 
 ![simulatorPreview](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/simulator_preview.png)
 
 Next, build and run the project and install it in your Android device and connect it to the remote controller using USB cable.
 
-Open the DJI PC Simulator on your PC and press the Start Simulation button. If you check the application now, a tiny red aircraft will be shown on the map. If you cannot find the aircraft, press the "LOCATE" button to zoom in to the center of the aircraft on the Map. Here is a gif animation for you to check:
+Press the **Start Simulating** button. If you check the application now, a tiny red aircraft will be shown on the map. If you cannot find the aircraft, press the "LOCATE" button to zoom in to the center of the aircraft on the Map. Here is a gif animation for you to check:
 
 ![locateAircraft](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/locateAircraft.gif)
 
@@ -815,7 +818,7 @@ private void markWaypoint(LatLng point){
     //Create MarkerOptions object
     MarkerOptions markerOptions = new MarkerOptions();
     markerOptions.position(point);
-    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+  markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
     Marker marker = aMap.addMarker(markerOptions);
     mMarkers.put(mMarkers.size(), marker);
 }
@@ -875,14 +878,14 @@ Before we prepare a Waypoint Mission, we should provide a way for user to config
 ~~~java
 private float altitude = 100.0f;
 private float mSpeed = 10.0f;
-private DJIWaypointMission.DJIWaypointMissionFinishedAction mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.NoAction;
-private DJIWaypointMission.DJIWaypointMissionHeadingMode mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.Auto;
+private DJIWaypointMission.DJIWaypointMissionFinishedAction mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.NO_ACTION;
+private DJIWaypointMission.DJIWaypointMissionHeadingMode mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.AUTO;
 
 private DJIWaypointMission mWaypointMission;
-private DJIMissionManager mMissionManager;
+private MissionManager mMissionManager;
 ~~~
 
-Here we declare the `altitude`, `mSpeed`, `mFinishedAction` and `mHeadingMode` variable and intialize them with default value. Also, we declare the DJIWaypointMission and DJIMissionManager objects for setting up missions.
+Here we declare the `altitude`, `mSpeed`, `mFinishedAction` and `mHeadingMode` variable and intialize them with default value. Also, we declare the DJIWaypointMission and MissionManager objects for setting up missions.
 
 Next, replace the code of `showSettingDialog()` method with the followings:
 
@@ -915,13 +918,13 @@ private void showSettingDialog(){
             // TODO Auto-generated method stub
             Log.d(TAG, "Select finish action");
             if (checkedId == R.id.finishNone){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.NoAction;
+                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.NO_ACTION;
             } else if (checkedId == R.id.finishGoHome){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.GoHome;
+                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.GO_HOME;
             } else if (checkedId == R.id.finishAutoLanding){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.AutoLand;
+                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.AUTO_LAND;
             } else if (checkedId == R.id.finishToFirst){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.GoFirstWaypoint;
+                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.GO_FIRST_WAYPOINT;
             }
         }
     });
@@ -931,13 +934,13 @@ private void showSettingDialog(){
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             Log.d(TAG, "Select heading");
             if (checkedId == R.id.headingNext) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.Auto;
+                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.AUTO;
             } else if (checkedId == R.id.headingInitDirec) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.UsingInitialDirection;
+                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.USING_INITIAL_DIRECTION;
             } else if (checkedId == R.id.headingRC) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.ControlByRemoteController;
+                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.CONTROL_BY_REMOTE_CONTROLLER;
             } else if (checkedId == R.id.headingWP) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.UsingWaypointHeading;
+                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.USING_WAYPOINT_HEADING;
             }
         }
     });
@@ -986,45 +989,45 @@ Here, we implement the `setOnCheckedChangeListener()` method of "RadioGroup" cla
 
 For the finished action of DJIWaypointMission, we provide several enum values here:
 
-- **AutoLand**
+- **AUTO_LAND**
 
    The aircraft will land automatically at the last waypoint. 
 
-- **ContinuewUntilEnd**
+- **CONTINUE_UNTIL_END**
 
   If the user attempts to pull the aircraft back along the flight path as the mission is being executed, the aircarft will move towards the previous waypoint and will continue to do so until there are no more waypoint to move back to or the user has stopped attempting to move the aircraft back. 
   
-- **GoFirstWaypoint**
+- **GO_FIRST_WAYPOINT**
 
   The aircraft will go back to its first waypoint and hover in position. 
   
-- **GoHome**
+- **GO_HOME**
 
   The aicraft will go home when the mission is complete. 
 
-- **NoAction**
+- **NO_ACTION**
 
   No further action will be taken on completion of mission. 
   
 For the heading mode of DJIWaypointMission, we provide these enum values here:
 
-- **Auto**
+- **AUTO**
 
   Aircraft's heading will always be in the direction of flight. 
   
-- **ControlByRemoteController**
+- **CONTROL_BY_REMOTE_CONTROLLER**
 
   Aircraft's heading will be controlled by the remote controller. 
   
-- **TowardPointOfInterest**
+- **TOWARD_POINT_OF_INTEREST**
 
   Aircraft's heading will always toward point of interest. 
   
-- **UsingInitialDirection**
+- **USING_INITIAL_DIRECTION**
 
   Aircraft's heading will be set to the initial take-off heading. 
   
-- **UsingWaypointHeading**
+- **USING_WAYPOINT_HEADING**
 
 Aircraft's heading will be set to the previous waypoint's heading while travelling between waypoints. 
   
@@ -1056,7 +1059,7 @@ private void configWayPointMission(){
 
 ~~~java
 private void initMissionManager() {
-    DJIBaseProduct product = DJIDemoApplication.getProductInstance();
+    BaseProduct product = DJIDemoApplication.getProductInstance();
 
     if (product == null || !product.isConnected()) {
         setResultToToast("Product Not Connected");
@@ -1085,7 +1088,7 @@ public void onResult(DJIError error) {
 }
 ~~~
 
-Here, we check the product connection status first and invoke DJIBaseProduct's `getMissionManager()` method to initialize `mMissionmanager` variable. Next, invoke the `setMissionProgressStatusCallback()` and `setMissionExecutionFinishedCallback()` methods of DJIMissionManager and implement the two callback methods of DJIMissionManager. We should also implement the `DJIMissionManager.MissionProgressStatusCallback` and `DJIBaseComponent.DJICompletionCallback` interfaces for the MainActivity class on top.
+Here, we check the product connection status first and invoke BaseProduct's `getMissionManager()` method to initialize `mMissionmanager` variable. Next, invoke the `setMissionProgressStatusCallback()` and `setMissionExecutionFinishedCallback()` methods of MissionManager and implement the two callback methods of MissionManager. We should also implement the `MissionManager.MissionProgressStatusCallback` and `CommonCallbacks.CompletionCallback` interfaces for the MainActivity class on top.
 
 We can get the mission execution status from the `missionProgressStatus()` callback, and check the mission execution result from the `onResult()` callback method.
 
@@ -1113,16 +1116,15 @@ Furthermore, let's implement the prepare mission action and addWaypoint action o
 ~~~java
 @Override
 public void onMapClick(LatLng point) {
-    if (isAdd){
+    if (isAdd == true){
         markWaypoint(point);
         DJIWaypoint mWaypoint = new DJIWaypoint(point.latitude, point.longitude, altitude);
         //Add waypoints to Waypoint arraylist;
         if (mWaypointMission != null) {
             mWaypointMission.addWaypoint(mWaypoint);
-            setResultToToast("AddWaypoint");
         }
     }else{
-        setResultToToast("Cannot add waypoint");
+        setResultToToast("Cannot Add waypoint");
     }
 }
 
@@ -1136,10 +1138,10 @@ private void prepareWayPointMission(){
             }
         };
 
-        mMissionManager.prepareMission(mWaypointMission, progressHandler, new DJICommonCallbacks.DJICompletionCallback() {
+            mMissionManager.prepareMission(mWaypointMission, progressHandler, new CommonCallbacks.CompletionCallback() {
             @Override
             public void onResult(DJIError error) {
-                setResultToToast(error == null ? "Success" : error.getDescription());
+                 setResultToToast(error == null ? "Mission Prepare Successfully" : error.getDescription());
             }
         });
     }
@@ -1157,16 +1159,16 @@ case R.id.prepare:{
 
 #### Start and Stop Mission
   
-Once the mission finish preparation, we can invoke the `startMissionExecution()` and `stopMissionExecution()` methods of DJIMissionManager to implement the start and stop mission feature as shown below:
+Once the mission finish preparation, we can invoke the `startMissionExecution()` and `stopMissionExecution()` methods of MissionManager to implement the start and stop mission feature as shown below:
 
 ~~~java
 private void startWaypointMission(){
 
     if (mMissionManager != null) {
-        mMissionManager.startMissionExecution(new DJICommonCallbacks.DJICompletionCallback() {
+        mMissionManager.startMissionExecution(new CommonCallbacks.CompletionCallback() {
             @Override
             public void onResult(DJIError error) {
-                setResultToToast("Start: " + (error == null ? "Success" : error.getDescription()));
+               setResultToToast("Mission Start: " + (error == null ? "Successfully" : error.getDescription()));
             }
         });
     }
@@ -1175,10 +1177,10 @@ private void startWaypointMission(){
 private void stopWaypointMission(){
 
     if (mMissionManager != null) {
-        mMissionManager.stopMissionExecution(new DJICommonCallbacks.DJICompletionCallback() {
+         mMissionManager.stopMissionExecution(new CommonCallbacks.CompletionCallback() {
             @Override
             public void onResult(DJIError error) {
-                setResultToToast("Stop: " + (error == null ? "Success" : error.getDescription()));
+               setResultToToast("Mission Stop: " + (error == null ? "Successfully" : error.getDescription()));
             }
         });
 
@@ -1238,19 +1240,19 @@ public void onClick(View v) {
 }
 ~~~
 
-## Test Waypoint Mission with DJI PC Simulator  
+## Test Waypoint Mission with DJI Assistant 2 Simulator
 
 You've come a long way in this tutorial, and it's time to test the whole application.
 
 **Important**: Make sure the battery level of your aircraft is more than 10%, otherwise the waypoint mission may fail!
 
-Build and run the project to install the application into your android device. After that, please connect the aircraft to your PC or Virtual Machine running Windows via a Micro USB cable. Then, power on the remote controller and the aircraft, in that order.
+Build and run the project to install the application into your android device. After that, please connect the aircraft to your PC or Mac running DJI Assistant 2 Simulator via a Micro USB cable. Then, power on the remote controller and the aircraft, in that order.
 
-Next, press the **Display Simulator** button in the DJI PC Simulator and feel free to type in your current location's latitude and longitude data into the simulator.
+Next, press the **Simulator** button in the DJI Assistant 2 and feel free to type in your current location's latitude and longitude data into the simulator.
 
 ![simulatorPreview](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/simulator_preview.png)
 
-Then connect your android device to the remote controller using USB cable and run the application. Go back to the DJI PC Simulator on your PC and press the **Start Simulation** button. A tiny red aircraft will appear on the map in your application,  if you press the **LOCATE** button, the map view will zoom in to the region you are in and will center the aircraft:
+Then connect your android device to the remote controller using USB cable and run the application. Go back to the DJI Assistant 2 Simulator on your PC or Mac and press the **Start Simulating** button. A tiny red aircraft will appear on the map in your application,  if you press the **LOCATE** button, the map view will zoom in to the region you are in and will center the aircraft:
 
 ![locateAircraft](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/locateAircraft.gif)
 
@@ -1260,16 +1262,6 @@ Next, press the **Add** button and tap on the Map where you want to add waypoint
 
 Once you press the **CONFIG** button, the **Waypoint Configuration** dialog will appear. Modify the settings as you want and press **Finish** button. Then press the **PREPARE** button to prepare the mission.
 
-If prepare mission failed, you may see the following screenshot:
-
-![prepareMissionFail](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/prepareMissionFail.png)
-
-**Important**: To fix this problem, please switch the Remote Controller's mode selection to the **F** position and press **PREPARE** button to try again. If the mode selection bar is in the F position when the autopilot is powered on, the user must toggle back and forth between **F** and another position and then try again.
-
-You are required to be in the **F** position when using the DJIWaypoint Mission of DJI Mobile SDK.
-
-![switchFlightMode](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/switchFlightModes.png)
-
 If prepare mission success, press the **START** button to start the waypoint mission execution.
   
 ![prepareMission](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/prepareMission.gif)  
@@ -1278,22 +1270,21 @@ Now you will should see the aircraft move towards the waypoints you set previous
 
 ![startMission](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/startMission.gif)
 
-At the same time, you are able to see the Inspire 1 take off and start to fly in the DJI PC Simulator.
+At the same time, you are able to see the Mavic Pro take off and start to fly in the DJI Assistant 2 Simulator.
 
 ![flyingInSimulator](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/takeOff.gif)
 
-When the waypoint mission finishes, an "Execution finished: Success!" message will appear and the Inspire 1 will start to go home!
+When the waypoint mission finishes, an "Execution finished: Success!" message will appear and the Mavic Pro will start to go home!
 
-Also, the remote controller will start beeping, and the **Go Home** button on the remote controller will start to flash a white light. Let's take a look at the DJI PC Simulator now:
+Also, the remote controller will start beeping. Let's take a look at the DJI Assistant 2 Simulator now:
 
 ![landing](../../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/landing.gif)
 
-The inspire 1 will eventually go home, land, and the beeping from the remote controller will stop. The application will go back to its normal status. If you press the **CLEAR** button, all the waypoints you previously set will be cleared. During the mission, if you'd ever like to stop the DJIWaypoint mission, you can do so by pressing the **STOP** button.
+The Mavic Pro will eventually go home, land, and the beeping from the remote controller will stop. The application will go back to its normal status. If you press the **CLEAR** button, all the waypoints you previously set will be cleared. During the mission, if you'd ever like to stop the DJIWaypoint mission, you can do so by pressing the **STOP** button.
   
 ### Summary
 
- In this tutorial, you’ve learned how to setup and use the DJI PC Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI PC Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use DJIMissionManager to **prepare**, **start** and **stop** missions. 
+ In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use MissionManager to **prepare**, **start** and **stop** missions. 
       
-   Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
-
+ Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
 

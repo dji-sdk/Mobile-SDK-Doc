@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v3.5.1
-date: 2016-12-15
+version: v4.0
+date: 2017-03-28
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
@@ -13,7 +13,7 @@ In this tutorial, you will learn how to use the DJISimulator in your Android Stu
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo).
 
-We use Phantom 4 as an example to make this demo.
+We use Mavic Pro as an example to make this demo.
 
 Let's get started!
 
@@ -21,7 +21,7 @@ Let's get started!
 
 DJISimulator is used to control the aircraft in a simulated environment based on the virtual stick input. The simulated aircraft state information will also be displayed on the screen.
 
-You can use the `DJISimulator` class in `DJIFlightController` to control the simulation. It allows both manual and automated flights to be simulated without actually flying the aircraft.
+You can use the `Simulator` class in `FlightController` to control the simulation. It allows both manual and automated flights to be simulated without actually flying the aircraft.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
 
@@ -31,9 +31,9 @@ In the [Importing and Activating DJI SDK in Android Studio Project](../applicati
 
 ### Importing SDK Library
 
-**1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJISimulatorDemo'. Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the mimimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
+**1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJISimulatorDemo'. Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
  
- **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
+ **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLIB" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
  
  ![importSDK](../../images/tutorials-and-samples/Android/SimulatorDemo/importsSDK.png)
  
@@ -44,7 +44,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.dji.simulatorDemo"
@@ -52,6 +52,8 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
     }
     buildTypes {
         release {
@@ -65,6 +67,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile project(':dJISDKLIB')
 
 }
@@ -90,7 +93,7 @@ import dji.sdk.sdkmanager.DJISDKManager;
 
   Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
   
-### Buidling the Layouts of Activity
+### Building the Layouts of Activity
 
 #### 1. Creating DJISimulatorApplication Class
 
@@ -518,82 +521,94 @@ In the code above, you should substitude your **App Key** of the application for
 **2.** After you finish the steps above, open the "DJISimulatorApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
 
 ~~~java
-
 @Override
 public void onCreate() {
-super.onCreate();
+    super.onCreate();
 
-mHandler = new Handler(Looper.getMainLooper());
+    mHandler = new Handler(Looper.getMainLooper());
 
-/**
- * handles SDK Registration using the API_KEY
- */
-DJISDKManager.getInstance().initSDKManager(this, mDJISDKManagerCallback);
+    /**
+     * handles SDK Registration using the API_KEY
+     */
+    DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
 }
 
-private DJISDKManager.DJISDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.DJISDKManagerCallback() {
+private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
 
-@Override
-public void onGetRegisteredResult(DJIError error) {
-    if(error == DJISDKError.REGISTRATION_SUCCESS) {
-        DJISDKManager.getInstance().startConnectionToProduct();
-    } else {
+    @Override
+    public void onRegister(DJIError error) {
+
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
 
-            @Override
-            public void run() {
-                Toast.makeText(getApplicationContext(),
-                        R.string.sdk_registration_message,
-                        Toast.LENGTH_LONG).show();
-            }
-        });
+        if(error == DJISDKError.REGISTRATION_SUCCESS) {
 
-    }
-    Log.v(TAG, error.getDescription());
-}
+            handler.post(new Runnable() {
 
-@Override
-public void onProductChanged(DJIBaseProduct oldProduct, DJIBaseProduct newProduct) {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(),
+                            R.string.success,
+                            Toast.LENGTH_LONG).show();
+                }
+            });
 
-    Log.v(TAG, String.format("onProductChanged oldProduct:%s, newProduct:%s", oldProduct, newProduct));
-    mProduct = newProduct;
-    if(mProduct != null) {
-        mProduct.setDJIBaseProductListener(mDJIBaseProductListener);
-    }
+            DJISDKManager.getInstance().startConnectionToProduct();
+        } else {
+            handler.post(new Runnable() {
 
-    notifyStatusChange();
-}
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(),
+                            R.string.sdk_registration_message,
+                            Toast.LENGTH_LONG).show();
+                }
+            });
 
-private DJIBaseProduct.DJIBaseProductListener mDJIBaseProductListener = new DJIBaseProduct.DJIBaseProductListener() {
-
-    @Override
-    public void onComponentChange(DJIBaseProduct.DJIComponentKey key, DJIBaseComponent oldComponent, DJIBaseComponent newComponent) {
-
-        if(newComponent != null) {
-            newComponent.setDJIComponentListener(mDJIComponentListener);
         }
-        Log.v(TAG, String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s", key, oldComponent, newComponent));
-
-        notifyStatusChange();
+        Log.v(TAG, error.getDescription());
     }
 
     @Override
-    public void onProductConnectivityChanged(boolean isConnected) {
+    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
 
-        Log.v(TAG, "onProductConnectivityChanged: " + isConnected);
+        Log.v(TAG, String.format("onProductChanged oldProduct:%s, newProduct:%s", oldProduct, newProduct));
+        mProduct = newProduct;
+        if(mProduct != null) {
+            mProduct.setBaseProductListener(mDJIBaseProductListener);
+        }
 
         notifyStatusChange();
     }
 
-};
+    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
+
+        @Override
+        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
+
+            if(newComponent != null) {
+                newComponent.setComponentListener(mDJIComponentListener);
+            }
+            Log.v(TAG, String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s", key, oldComponent, newComponent));
+
+            notifyStatusChange();
+        }
+
+        @Override
+        public void onConnectivityChange(boolean isConnected) {
+
+            Log.v(TAG, "onConnectivityChange: " + isConnected);
+
+            notifyStatusChange();
+        }
+
+    };
 ~~~
 
 Here, we implement several features:
   
 1. We override the `onCreate()` method to initialize the DJISDKManager.
-2. Implement the two interface methods of `DJISDKManagerCallback`. You can use the `onGetRegisteredResult()` method to check the Application registration status and show text message here. Using the `onProductChanged()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-3. Implement the two interface methods of `DJIBaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onProductConnectivityChanged()` method to notify the product connectivity changes.
+2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
 
@@ -642,15 +657,15 @@ public void showToast(final String msg) {
 private void updateTitleBar() {
     if(mConnectStatusTextView == null) return;
     boolean ret = false;
-    DJIBaseProduct product = DJISimulatorApplication.getProductInstance();
+    BaseProduct product = DJISimulatorApplication.getProductInstance();
     if (product != null) {
         if(product.isConnected()) {
             //The product is connected
             mConnectStatusTextView.setText(DJISimulatorApplication.getProductInstance().getModel() + " Connected");
             ret = true;
         } else {
-            if(product instanceof DJIAircraft) {
-                DJIAircraft aircraft = (DJIAircraft)product;
+            if(product instanceof Aircraft) {
+                Aircraft aircraft = (Aircraft)product;
                 if(aircraft.getRemoteController() != null && aircraft.getRemoteController().isConnected()) {
                     // The product is not connected, but the remote controller is connected
                     mConnectStatusTextView.setText("only RC Connected");
@@ -689,15 +704,15 @@ As the code shown above, we implement the following features:
 
 **2.** Create the `showToast()` method to display the toast notification message to users.
 
-**3.** In the `updateTitleBar()` method, we first check if mConnectStatusTextView is null, then create a DJIBaseProduct object by invoking the `getProductInstance()` method of DJISimulatorApplication. 
+**3.** In the `updateTitleBar()` method, we first check if mConnectStatusTextView is null, then create a BaseProduct object by invoking the `getProductInstance()` method of DJISimulatorApplication. 
 
-Moreover, invoke the `isConnected()` method of DJIBaseProduct to check if the product is connected, then invoke the `getModel()` method of DJIBaseProduct to get the model name and show it in `mConnectStatusTextView`. If the product is not connected, cast the `product` object as DJIAircraft object, and check if the remoteController is not null and if it's connected, then update the `mConnectStatusTextView`'s text content. 
+Moreover, invoke the `isConnected()` method of BaseProduct to check if the product is connected, then invoke the `getModel()` method of BaseProduct to get the model name and show it in `mConnectStatusTextView`. If the product is not connected, cast the `product` object as Aircraft object, and check if the remoteController is not null and if it's connected, then update the `mConnectStatusTextView`'s text content. 
 
 Lastly, if the product or remote controller are not connected, then update the `mConnectStatusTextView`'s text with "Disconnected".
 
 **4.** We override the `onResume()` method to invoke the `updateTitleBar()` method to update `mConnectStatusTextView` when the activity start interacting with the user. Then override the `onDestroy()` method to unregister the BroadcastReceiver object.
 
-Now let's build and run the project and install it to your Android device. Then connect the demo application to your Phantom 4 (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details), if everything goes well, you should see the title textView content updates to "Phantom_4 Connected" as shown below:
+Now let's build and run the project and install it to your Android device. Then connect the demo application to your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details), if everything goes well, you should see the title textView content updates to "MavicPro Connected" as shown below:
 
 ![registerSuccess](../../images/tutorials-and-samples/Android/SimulatorDemo/updateTitleBar.png)
 
@@ -706,7 +721,7 @@ Now let's build and run the project and install it to your Android device. Then 
  Since we have implemented the Joystick control, now let's continue to work on sending virtual stick flight control data to the aircraft. First, we create a DJIFlightController variable `mFlightController`, a Timer variable `mSendVirtualStickDataTimer`, a SendVirtualStickDataTask(extends from TimerTask class) variable `mSendVirtualStickDataTask` and four float variables on top of `onCreate()` method as shown below:
  
  ~~~java
-    private DJIFlightController mFlightController;
+    private FlightController mFlightController;
     private Timer mSendVirtualStickDataTimer;
     private SendVirtualStickDataTask mSendVirtualStickDataTask;
     
@@ -723,7 +738,7 @@ Now let's build and run the project and install it to your Android device. Then 
 ~~~java
 private void initFlightController() {
 
-    DJIAircraft aircraft = DJISimulatorApplication.getAircraftInstance();
+    Aircraft aircraft = DJISimulatorApplication.getAircraftInstance();
     if (aircraft == null || !aircraft.isConnected()) {
         showToast("Disconnected");
         mFlightController = null;
@@ -743,87 +758,87 @@ public void onResume() {
 
 class SendVirtualStickDataTask extends TimerTask {
 
-    @Override
-    public void run() {
+        @Override
+        public void run() {
 
-        if (mFlightController != null) {
-            mFlightController.sendVirtualStickFlightControlData(
-                    new DJIVirtualStickFlightControlData(
-                            mPitch, mRoll, mYaw, mThrottle
-                    ), new DJICommonCallbacks.DJICompletionCallback() {
-                        @Override
-                        public void onResult(DJIError djiError) {
+            if (mFlightController != null) {
+                mFlightController.sendVirtualStickFlightControlData(
+                        new FlightControlData(
+                                mPitch, mRoll, mYaw, mThrottle
+                        ), new CommonCallbacks.CompletionCallback() {
+                            @Override
+                            public void onResult(DJIError djiError) {
 
+                            }
                         }
-                    }
-            );
+                );
+            }
         }
     }
-}
 ~~~
 
 In the code above, we implement the following features:
 
-**1.** In the `initFlightController()` method, we first check if the aircraft is not null and is connected, then invoke the `getFlightController()` method of DJIAircraft to get the `mFlightController` variable.
+**1.** In the `initFlightController()` method, we first check if the aircraft is not null and is connected, then invoke the `getFlightController()` method of Aircraft to get the `mFlightController` variable.
 
-**2.** Next, extends from TimerTask class to create the **SendVirtualStickDataTask** class. Inside the class, override the `run()` method to invoke the `sendVirtualStickFlightControlData()` method of DJIFlightController to send virtual stick flight control data. Here, we create the **DJIVirtualStickFlightControlData** object from the four float variables declared before: `mPitch`, `mRoll`, `mYaw` and `mThrottle`.
+**2.** Next, extends from TimerTask class to create the **SendVirtualStickDataTask** class. Inside the class, override the `run()` method to invoke the `sendVirtualStickFlightControlData()` method of FlightController to send virtual stick flight control data. Here, we create the **FlightControlData** object from the four float variables declared before: `mPitch`, `mRoll`, `mYaw` and `mThrottle`.
 
 Once you finish the above steps, let's implement the `setJoystickListener()` methods of `mScreenJoystickLeft` and `mScreenJoystickRight` variables at the bottom of `initUI()` method as shown below:
 
 ~~~java
-	mScreenJoystickLeft.setJoystickListener(new OnScreenJoystickListener(){
+    mScreenJoystickLeft.setJoystickListener(new OnScreenJoystickListener(){
 
-	    @Override
-	    public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
-	        if(Math.abs(pX) < 0.02 ){
-	            pX = 0;
-	        }
+        @Override
+        public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
+            if(Math.abs(pX) < 0.02 ){
+                pX = 0;
+            }
 
-	        if(Math.abs(pY) < 0.02 ){
-	            pY = 0;
-	        }
-	        float pitchJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
-	        float rollJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
+            if(Math.abs(pY) < 0.02 ){
+                pY = 0;
+            }
+            float pitchJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
+            float rollJoyControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickRollPitchControlMaxVelocity;
 
-	        mPitch = (float)(pitchJoyControlMaxSpeed * pY);
+            mPitch = (float)(pitchJoyControlMaxSpeed * pY);
 
-	        mRoll = (float)(rollJoyControlMaxSpeed * pX);
+            mRoll = (float)(rollJoyControlMaxSpeed * pX);
 
-	        if (null == mSendVirtualStickDataTimer) {
-	            mSendVirtualStickDataTask = new SendVirtualStickDataTask();
-	            mSendVirtualStickDataTimer = new Timer();
-	            mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
-	        }
+            if (null == mSendVirtualStickDataTimer) {
+                mSendVirtualStickDataTask = new SendVirtualStickDataTask();
+                mSendVirtualStickDataTimer = new Timer();
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+            }
 
-	    }
+        }
 
-	});
+    });
 
-	mScreenJoystickRight.setJoystickListener(new OnScreenJoystickListener() {
+    mScreenJoystickRight.setJoystickListener(new OnScreenJoystickListener() {
 
-	    @Override
-	    public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
-	        if(Math.abs(pX) < 0.02 ){
-	            pX = 0;
-	        }
+        @Override
+        public void onTouch(OnScreenJoystick joystick, float pX, float pY) {
+            if(Math.abs(pX) < 0.02 ){
+                pX = 0;
+            }
 
-	        if(Math.abs(pY) < 0.02 ){
-	            pY = 0;
-	        }
-	             float verticalJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickVerticalControlMaxVelocity;
+            if(Math.abs(pY) < 0.02 ){
+                pY = 0;
+            }
+                 float verticalJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickVerticalControlMaxVelocity;
                 float yawJoyStickControlMaxSpeed = DJIFlightControllerDataType.DJIVirtualStickYawControlMaxAngularVelocity;
 
                 mYaw = (float)(yawJoyStickControlMaxSpeed * pX);
                 mThrottle = (float)(yawJoyStickControlMaxSpeed * pY);
 
-	        if (null == mSendVirtualStickDataTimer) {
-	            mSendVirtualStickDataTask = new SendVirtualStickDataTask();
-	            mSendVirtualStickDataTimer = new Timer();
-	            mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
-	        }
+            if (null == mSendVirtualStickDataTimer) {
+                mSendVirtualStickDataTask = new SendVirtualStickDataTask();
+                mSendVirtualStickDataTimer = new Timer();
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+            }
 
-	    }
-	});
+        }
+    });
 ~~~
 
 Here, we implement the following features:
@@ -844,11 +859,12 @@ Lastly, override the `onClick()` method to implement the enable and disable virt
 @Override
   public void onClick(View v) {
 
-    switch (v.getId()) {
+     switch (v.getId()) {
         case R.id.btn_enable_virtual_stick:
             if (mFlightController != null){
+
                 mFlightController.enableVirtualStickControlMode(
-                        new DJICommonCallbacks.DJICompletionCallback() {
+                        new CommonCallbacks.CompletionCallback() {
                             @Override
                             public void onResult(DJIError djiError) {
                                 if (djiError != null){
@@ -861,12 +877,12 @@ Lastly, override the `onClick()` method to implement the enable and disable virt
                         }
                 );
             }
-        break;
+            break;
 
         case R.id.btn_disable_virtual_stick:
             if (mFlightController != null){
                 mFlightController.disableVirtualStickControlMode(
-                        new DJICommonCallbacks.DJICompletionCallback() {
+                        new CommonCallbacks.CompletionCallback() {
                             @Override
                             public void onResult(DJIError djiError) {
                                 if (djiError != null) {
@@ -878,44 +894,44 @@ Lastly, override the `onClick()` method to implement the enable and disable virt
                         }
                 );
             }
-         break;
+            break;
         }
     }
 ~~~
 
-This invoke the `enableVirtualStickControlMode()` and `disableVirtualStickControlMode()` methods of DJIFlightController to enable and disable the virtual stick control mode.
+This invoke the `enableVirtualStickControlMode()` and `disableVirtualStickControlMode()` methods of FlightController to enable and disable the virtual stick control mode.
 
 ### Implementing DJISimulator
 
-Let's implement the DJISimulator feature now. In order to update the simulator state data in `mTextView`, we may need to implement the `setUpdatedSimulatorStateDataCallback()` method of DJISimulator in the `initFlightController()` method as shown below:
+Let's implement the DJISimulator feature now. In order to update the simulator state data in `mTextView`, we may need to implement the `setStateCallback()` method of DJISimulator in the `initFlightController()` method as shown below:
 
 ~~~objc
-   private void initFlightController() {
+    private void initFlightController() {
 
-        DJIAircraft aircraft = DJISimulatorApplication.getAircraftInstance();
+        Aircraft aircraft = DJISimulatorApplication.getAircraftInstance();
         if (aircraft == null || !aircraft.isConnected()) {
             showToast("Disconnected");
             mFlightController = null;
             return;
         } else {
             mFlightController = aircraft.getFlightController();
-            mFlightController.getSimulator().setUpdatedSimulatorStateDataCallback(new DJISimulator.UpdatedSimulatorStateDataCallback() {
+            mFlightController.getSimulator().setStateCallback(new SimulatorState.Callback() {
                 @Override
-                public void onSimulatorDataUpdated(final DJISimulatorStateData djiSimulatorStateData) {
+                public void onUpdate(final SimulatorState stateData) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
 
-                            String yaw = String.format("%.2f", djiSimulatorStateData.getYaw());
-                            String pitch = String.format("%.2f", djiSimulatorStateData.getPitch());
-                            String roll = String.format("%.2f", djiSimulatorStateData.getRoll());
-                            String positionX = String.format("%.2f", djiSimulatorStateData.getPositionX());
-                            String positionY = String.format("%.2f", djiSimulatorStateData.getPositionY());
-                            String positionZ = String.format("%.2f", djiSimulatorStateData.getPositionZ());
+                            String yaw = String.format("%.2f", stateData.getYaw());
+                            String pitch = String.format("%.2f", stateData.getPitch());
+                            String roll = String.format("%.2f", stateData.getRoll());
+                            String positionX = String.format("%.2f", stateData.getPositionX());
+                            String positionY = String.format("%.2f", stateData.getPositionY());
+                            String positionZ = String.format("%.2f", stateData.getPositionZ());
 
                             mTextView.setText("Yaw : " + yaw + ", Pitch : " + pitch + ", Roll : " + roll + "\n" + ", PosX : " + positionX +
-                                                ", PosY : " + positionY +
-                                                ", PosZ : " + positionZ);
+                                    ", PosY : " + positionY +
+                                    ", PosZ : " + positionZ);
                         }
                     });
                 }
@@ -924,68 +940,66 @@ Let's implement the DJISimulator feature now. In order to update the simulator s
     }
 ~~~
 
-In the code above, we override the `onSimulatorDataUpdated()` method to get the lastest simulator state data, then invoke the `getYaw()`, `getPitch()`, `getRoll()`, `getPositionX()`, `getPositionY()` and `getPositionZ()` methods of `DJISimulatorStateData` to get the updated yaw, pitch, roll, positionX, positionY and positionZ values and show them in `mTextView`.
+In the code above, we override the `onUpdate()` method to get the lastest simulator state data, then invoke the `getYaw()`, `getPitch()`, `getRoll()`, `getPositionX()`, `getPositionY()` and `getPositionZ()` methods of `SimulatorState` to get the updated yaw, pitch, roll, positionX, positionY and positionZ values and show them in `mTextView`.
 
 Next, override the `onCheckedChanged()` method of `mBtnSimulator` toggleButton's  `setOnCheckedChangeListener()` method as shown below:
 
 ~~~java
-    mBtnSimulator.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (isChecked) {
+mBtnSimulator.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
 
-                mTextView.setVisibility(View.VISIBLE);
+            mTextView.setVisibility(View.VISIBLE);
 
-                if (mFlightController != null) {
-                    mFlightController.getSimulator()
-                            .startSimulator(new DJISimulatorInitializationData(
-                                    23, 113, 10, 10
-                            )
-                                    , new DJICommonCallbacks.DJICompletionCallback() {
-                                @Override
-                                public void onResult(DJIError djiError) {
-                                    if (djiError != null) {
-                                        showToast(djiError.getDescription());
-                                    }else
-                                    {
-                                        showToast("Start Simulator Success");
-                                    }
+            if (mFlightController != null) {
+
+                mFlightController.getSimulator()
+                        .start(InitializationData.createInstance(new LocationCoordinate2D(23, 113), 10, 10),
+                                new CommonCallbacks.CompletionCallback() {
+                            @Override
+                            public void onResult(DJIError djiError) {
+                                if (djiError != null) {
+                                    showToast(djiError.getDescription());
+                                }else
+                                {
+                                    showToast("Start Simulator Success");
                                 }
-                            });
-                }
+                            }
+                        });
+            }
 
-            } else {
+        } else {
 
-                mTextView.setVisibility(View.INVISIBLE);
+            mTextView.setVisibility(View.INVISIBLE);
 
-                if (mFlightController != null) {
-                    mFlightController.getSimulator()
-                            .stopSimulator(
-                                    new DJICommonCallbacks.DJICompletionCallback() {
-                                        @Override
-                                        public void onResult(DJIError djiError) {
-                                            if (djiError != null) {
-                                                showToast(djiError.getDescription());
-                                            }else
-                                            {
-                                                showToast("Stop Simulator Success");
-                                            }
+            if (mFlightController != null) {
+                mFlightController.getSimulator()
+                        .stop(new CommonCallbacks.CompletionCallback() {
+                                    @Override
+                                    public void onResult(DJIError djiError) {
+                                        if (djiError != null) {
+                                            showToast(djiError.getDescription());
+                                        }else
+                                        {
+                                            showToast("Stop Simulator Success");
                                         }
                                     }
-                            );
-                }
+                                }
+                        );
             }
         }
-    });
+    }
+});
 ~~~
 
 In the code above, we implement the following features:
 
-**1.** If the `mBtnSimulator` toggle button is checked, then show the `mTextView`. Next, if the `mFlightController` is not null, we invoke the `startSimulator()` method of DJISimulator by passing  a DJISimulatorInitializationData with lattitude 23, longitude 113, simulationStateUpdateFrequency 10 and numOfSatellites 10 parameters to it. For more details of DJISimulatorInitializationData, please check the [Android API Reference](https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/dji/sdk/FlightController/DJISimulatorInitializationData.html).
+**1.** If the `mBtnSimulator` toggle button is checked, then show the `mTextView`. Next, if the `mFlightController` is not null, we invoke the `start()` method of DJISimulator by passing  a `InitializationData` with LocationCoordinate2D struct (lattitude 23 and longitude 113), updateFrequency 10 and satelliteCount 10 parameters to it. For more details of DJISimulatorInitializationData, please check the [Android API Reference](https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/dji/sdk/FlightController/DJISimulatorInitializationData.html).
 
-**2.** Next, overide the `onResult()` method of `startSimulator()`, invoke `showToast()` method to show the start simulator result to the user.
+**2.** Next, overide the `onResult()` method of `start()`, invoke `showToast()` method to show the start simulator result to the user.
 
-**3.** Similarly, if the `mBtnSimulator` toggle button is not checked, then invoke the `stopSimulator()` method of DJISimulator to stop the simulator. Furthermore, override the `onResult()` method and invoke the `showToast()` method to show the stop simulator result to the user.
+**3.** Similarly, if the `mBtnSimulator` toggle button is not checked, then invoke the `stop()` method of DJISimulator to stop the simulator. Furthermore, override the `onResult()` method and invoke the `showToast()` method to show the stop simulator result to the user.
 
 ### Working on Takeoff and AutoLanding features
 
@@ -994,8 +1008,8 @@ Finally, let's add the following code at the bottom of `onClick()` method to imp
 ~~~java
 case R.id.btn_take_off:
     if (mFlightController != null){
-        mFlightController.takeOff(
-                new DJICommonCallbacks.DJICompletionCallback() {
+        mFlightController.startTakeoff(
+                new CommonCallbacks.CompletionCallback() {
                     @Override
                     public void onResult(DJIError djiError) {
                         if (djiError != null) {
@@ -1007,36 +1021,39 @@ case R.id.btn_take_off:
                 }
         );
     }
+
     break;
 
 case R.id.btn_land:
     if (mFlightController != null){
-        mFlightController.autoLanding(
-                new DJICommonCallbacks.DJICompletionCallback() {
+
+        mFlightController.startLanding(
+                new CommonCallbacks.CompletionCallback() {
                     @Override
                     public void onResult(DJIError djiError) {
                         if (djiError != null) {
                             showToast(djiError.getDescription());
                         } else {
-                            showToast("AutoLand Started");
+                            showToast("Start Landing");
                         }
                     }
                 }
         );
-    }
-    break;
 
+    }
+
+    break;
 ~~~
 
-For the case of "R.id.btn\_take\_off", we invoke the `takeOff()` method of DJIFlightController to send the take off command to the aircraft. Similiarly, for the case of "R.id.btn_land", we invoke the `autoLanding()` method to send the auto landing command. It's just that simple and easy.
+For the case of "R.id.btn\_take\_off", we invoke the `startTakeoff()` method of FlightController to send the take off command to the aircraft. Similiarly, for the case of "R.id.btn_land", we invoke the `startLanding()` method to send the auto landing command. It's just that simple and easy.
 
-We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Phantom 4 (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
 If everything goes well, you should see something similiar to the following gif animations like this:
 
  <html><center><img src="../../images/tutorials-and-samples/Android/SimulatorDemo/simulatorAnimation.gif"></center></html>
  
-- If the demo application is connected with Phantom 4 successfully, you should see the title textView content updates to "Phantom_4 Connected".
+- If the demo application is connected with Mavic Pro successfully, you should see the title textView content updates to "MavicPro Connected".
 
 - Press **Enable Virtual Stick** button to enable virtual stick control, then press **Start Simulator** to start the simulator.
 
@@ -1053,3 +1070,4 @@ In this tutorial, you've learned how to use the DJISimulator feature to simulate
 This demo is a simple demonstration of using DJISimulator, to have a better user experience, you can create a 3D simulated environment using 3D game engine like <a href="https://unity3d.com" target="_blank"> Unity3D </a> to show the simulated data and aircraft flight behavious inside your mobile application (Like the Flight Simulator in DJI Go app)!  
 
 Furthermore, the DJISimulator allows for automated testing in continous integration environment(Like <a href="https://jenkins.io" target="_blank">Jenkins</a>), it would help your DJI-SDK based application testing process. Good luck, and hope you enjoyed this tutorial!
+

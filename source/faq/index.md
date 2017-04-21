@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2016-12-13
+date: 2017-03-07
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
@@ -312,7 +312,7 @@ Generally the total distance couldn't be larger than **40km**, if that error occ
 
 ### How can I run the Android SDK Sample Code?
 
-The following tutorial can help here: [Running DJI SDK Sample Code in Android Studio](../android-tutorials/index.html).
+The following tutorial can help here: [Run Android Sample Application](../quick-start/index.html#android-sample-app).
 
 ### How do I reset the default app behavior for a USB Accessory  (DJI Product) on Android devices?
 

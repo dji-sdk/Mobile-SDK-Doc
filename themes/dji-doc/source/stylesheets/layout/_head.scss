@@ -49,7 +49,7 @@ $header-height: 60px;
     }
     .caret {
       border-width: 3px;
-      margin-left: .5em; 
+      margin-left: .5em;
       border-top-color: $light-text-color;
     }
     .hovedown {
@@ -108,7 +108,7 @@ $header-height: 60px;
       @include transition(all .5s);
     }
   }
-  
+
   .nav-user {
     .fa {
       font-size: 18px;
@@ -150,20 +150,73 @@ $header-height: 60px;
     margin: 0;
     padding: 0;
     float: left;
-    a {
+    > a, .menu-item  {
       float: left;
       display: block;
-      margin: 0 20px;
+      padding: 0 20px;
       border-bottom: 2px solid transparent;
       font-size: 12px;
       color: $light-text-color;
       font-family: $font-gotham;
       line-height: 48px;
+      cursor: pointer;
       &:hover {
         color: $dji-blue;
       }
       &.active {
         border-bottom: 2px solid $dji-blue;
+      }
+    }
+    .caret{
+      margin-left: 8px;
+    }
+    .hovedown {
+      position: relative;
+      cursor: pointer;
+
+      .hovedown-toggle {
+        transition: all 0.3s ease-in-out;
+      }
+      .hovedown-menu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: $z-index5;
+        left: 0;
+        top: $header-height - 10;
+        min-width: 140px;
+        background: rgba(255, 255, 255, .98);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+        transition: all 0.3s ease-in-out;
+        > li {
+          cursor: pointer;
+          > a {
+            display: block;
+            padding: 0px 12px;
+            height: 46px;
+            font-family: $font-gotham;
+            color: $light-text-color;
+            &:hover {
+              color: $dji-blue;
+            }
+          }
+          &:last-of-type {
+            a {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+      .hovedown-menu-right {
+        left: auto;
+        right: 0;
+        text-align: right;
+      }
+      &:hover {
+        .hovedown-menu {
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
   }

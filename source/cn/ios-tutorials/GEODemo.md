@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
-version: v3.5.1
-date: 2017-01-16
+version: v4.0
+date: 2017-03-28
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo
 keywords: [iOS GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
@@ -10,11 +10,11 @@ keywords: [iOS GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NF
 
 ---
 
-In this tutorial, you will learn how to use the `DJIFlyZoneManager` and `DJIFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, and unlock authorization fly zones.
+In this tutorial, you will learn how to use the `DJIFlyZoneManager` and `DJIGEOFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, and unlock authorization fly zones.
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo).
 
-We use Phantom 4 as an example to make this demo. Let's get started!
+We use Mavic Pro as an example to make this demo. Let's get started!
 
 ## Introduction
 
@@ -507,14 +507,14 @@ Moreover, implement the `updateFlyZonesInSurroundingArea` method and `updateFlyZ
 
 -(void) updateFlyZonesInSurroundingArea
 {
-    [[DJIFlyZoneManager sharedInstance] getFlyZonesInSurroundingAreaWithCompletion:^(NSArray<DJIFlyZoneInformation *> * _Nullable infos, NSError * _Nullable error) {
+    [[DJIFlyZoneManager sharedInstance] getFlyZonesInSurroundingAreaWithCompletion:^(NSArray<DJIGEOFlyZoneInformation *> * _Nullable infos, NSError * _Nullable error) {
         if (nil == error && nil != infos) {
             [self updateFlyZoneOverlayWithInfos:infos];
         }
     }];
 }
 
-- (void)updateFlyZoneOverlayWithInfos:(NSArray<DJIFlyZoneInformation*> *_Nullable)flyZoneInfos
+- (void)updateFlyZoneOverlayWithInfos:(NSArray<DJIGEOFlyZoneInformation*> *_Nullable)flyZoneInfos
 {
     NSMutableArray *removeFlyZones = [NSMutableArray array];
     BOOL *flyZoneExistFlag = (BOOL *)malloc(sizeof(BOOL) * flyZoneInfos.count);
@@ -523,7 +523,7 @@ Moreover, implement the `updateFlyZonesInSurroundingArea` method and `updateFlyZ
     for (DJIFlyZoneCircle *flyZoneCircle in self.flyZones) {
         BOOL exist = NO;
         for (int i = 0; i < flyZoneInfos.count; i++) {
-            DJIFlyZoneInformation* flyZoneInfo = [flyZoneInfos objectAtIndex:i];
+            DJIGEOFlyZoneInformation* flyZoneInfo = [flyZoneInfos objectAtIndex:i];
             CLLocationCoordinate2D flyZoneCoordinate = flyZoneInfo.coordinate;
             
             if (fabs(flyZoneCircle.flyZoneCoordinate.latitude - flyZoneCoordinate.latitude) < 0.0001 && fabs(flyZoneCircle.flyZoneCoordinate.longitude - flyZoneCoordinate.longitude) < 0.0001 && flyZoneInfo.category == flyZoneCircle.category) {
@@ -553,7 +553,7 @@ Moreover, implement the `updateFlyZonesInSurroundingArea` method and `updateFlyZ
         dispatch_block_t block = ^{
             for (int i = 0; i < flyZoneInfos.count; i++) {
                 if (!flyZoneExistFlag[i]) {
-                    DJIFlyZoneInformation *flyZoneInfo = [flyZoneInfos objectAtIndex:i];
+                    DJIGEOFlyZoneInformation *flyZoneInfo = [flyZoneInfos objectAtIndex:i];
                     CLLocationCoordinate2D flyZoneCoordinate = flyZoneInfo.coordinate;
                     CGFloat radius = flyZoneInfo.radius;
                     
@@ -767,7 +767,7 @@ Next, let's implement the `onLoginButtonClicked:` and `onLogoutButtonClicked:` I
 ~~~objc
 - (IBAction)onLoginButtonClicked:(id)sender
 {
-    [[DJIFlyZoneManager sharedInstance] logIntoDJIUserAccountWithCompletion:^(NSError * _Nullable error) {
+    [[DJIFlyZoneManager sharedInstance] logIntoDJIUserAccountWithCompletion:^(DJIUserAccountStatus status, NSError * _Nullable error) {
         if (error) {
             ShowResult([NSString stringWithFormat:@"GEO Login Error: %@", error.description]);
             
@@ -891,7 +891,7 @@ Now let's implement the start and stop simulator buttons' IBAction methods as sh
         if (latitude && longitude) {
             CLLocationCoordinate2D location = CLLocationCoordinate2DMake(latitude, longitude);
             WeakRef(target);
-            [flightController.simulator startSimulatorWithLocation:location updateFrequency:20 GPSSatellitesNumber:10 withCompletion:^(NSError * _Nullable error) {
+            [flightController.simulator startWithLocation:location updateFrequency:20 GPSSatellitesNumber:10 withCompletion:^(NSError * _Nullable error) {
                 WeakReturn(target);
                 if (error) {
                     ShowResult(@"Start simulator error:%@", error.description);
@@ -917,7 +917,7 @@ Now let's implement the start and stop simulator buttons' IBAction methods as sh
         return;
     }
     
-    [flightController.simulator stopSimulatorWithCompletion:^(NSError * _Nullable error) {
+    [flightController.simulator stopWithCompletion:^(NSError * _Nullable error) {
         if (error) {
             ShowResult(@"Stop simulator error:%@", error.description);
         }else
@@ -934,7 +934,7 @@ In the code above, we implement the following features:
 
 2. Then we implement the UIAlertAction handler of `startAction` and invoke the `startSimulatorWithLocation:updateFrequency:GPSSatellitesNumber:withCompletion:` method of DJISimulator to start the simulator by passing the `location` variable, which is made from the two textFields's content, and **20** as frequency, **10** as GPS Satellites number. If starting simulator successfully without error, invoke the `refreshMapViewRegion` method of **DJIMapViewController** to update the map view's region and zoom into the new coordinate we just set. Lastly, add the two UIAlertAction variables and present the UIAlertController.
 
-3. In the `onStopSimulatorButtonClicked:` method, we firstly fetch the DJIFlightController object and then invoke the `stopSimulatorWithCompletion:` method of DJISimulator to stop the simulator.
+3. In the `onStopSimulatorButtonClicked:` method, we firstly fetch the DJIFlightController object and then invoke the `stopWithCompletion:` method of DJISimulator to stop the simulator.
 
 ### Implementing GEO System Features
 
@@ -953,12 +953,12 @@ Before using the GEO System feature, we should enable the GEO system first. Let'
     
     DJIAircraft* aircraft = [DemoUtility fetchAircraft];
     if (aircraft != nil) {
-        [aircraft.flightController.simulator setFlyZoneEnabled:YES withCompletion:^(NSError * _Nullable error) {
+        [aircraft.flightController.simulator setFlyZoneLimitationEnabled:YES withCompletion:^(NSError * _Nullable error) {
             if (error) {
-                NSLog(@"setFlyZoneEnabled failed");
+                NSLog(@"setFlyZoneLimitationEnabled failed");
             }else
             {
-                NSLog(@"setFlyZoneEnabled success");
+                NSLog(@"setFlyZoneLimitationEnabled success");
             }
         }];
     }
@@ -983,7 +983,8 @@ Before using the GEO System feature, we should enable the GEO system first. Let'
     [super viewWillDisappear:animated];
     
     DJIAircraft* aircraft = [DemoUtility fetchAircraft];
-    [aircraft.flightController.simulator setFlyZoneEnabled:NO withCompletion:^(NSError * _Nullable error) {
+    
+    [aircraft.flightController.simulator setFlyZoneLimitationEnabled:NO withCompletion:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"setFlyZone disabled failed");
         }else
@@ -994,6 +995,8 @@ Before using the GEO System feature, we should enable the GEO system first. Let'
 
     if (self.updateLoginStateTimer)
         self.updateLoginStateTimer = nil;
+    if (self.updateFlyZoneDataTimer)
+        self.updateFlyZoneDataTimer = nil;
 }
 
 - (void)setEnableGEOButtonText:(BOOL)enabled
@@ -1032,11 +1035,11 @@ Before using the GEO System feature, we should enable the GEO system first. Let'
 
 In the code above, we implement the following features:
 
-1. In the `viewWillAppear` method, we firstly fetch the **DJIAircraft** object, and invoke the `setFlyZoneEnabled:withCompletion:` method of **DJISimulator** to enable the fly zone system in the simulator. Here, if we want to use the fly zone system in DJISimulator, we should enable it first. By default, the fly zone system is disabled in the simulator, rebooting the aircraft is required to make the setting take effect.
+1. In the `viewWillAppear` method, we firstly fetch the **DJIAircraft** object, and invoke the `setFlyZoneLimitationEnabled:withCompletion:` method of **DJISimulator** to enable the fly zone system in the simulator. Here, if we want to use the fly zone system in DJISimulator, we should enable it first. By default, the fly zone system is disabled in the simulator, rebooting the aircraft is required to make the setting take effect.
 
 2. Then invoke the `getGEOSystemEnabled:` method of **DJIFlyZoneManager** to check if the GEO system is enabled or not and update the `enableGEOButton` button's title.
 
-3. In the `viewWillDisappear:` method, we invoke the `setFlyZoneEnabled:withCompletion:` method of DJISimualtor to disable the fly zone system in the simulator.
+3. In the `viewWillDisappear:` method, we invoke the `setFlyZoneLimitationEnabled:withCompletion:` method of DJISimualtor to disable the fly zone system in the simulator.
 
 4. In the `setEnableGEOButtonText:` method, we update the `enableGEOButton`'s title and the `isGEOSystemEnabled` property based on the value of `enabled` parameter.
 
@@ -1130,21 +1133,20 @@ Lastly, let's implement the delegate methods of **DJIFlyZoneDelegate** and **DJI
 ~~~objc
 #pragma mark - DJIFlyZoneDelegate Method
 
--(void)flyZoneManager:(DJIFlyZoneManager *)manager didUpdateFlyZoneStatus:(DJIFlyZoneStatus)status
+-(void)flyZoneManager:(DJIFlyZoneManager *)manager didUpdateFlyZoneStatus:(DJIFlyZoneState)status
 {
     NSString* flyZoneStatusString = @"Unknown";
-    
     switch (status) {
-        case DJIFlyZoneStatusClear:
+        case DJIFlyZoneStateClear:
             flyZoneStatusString = @"NoRestriction";
             break;
-        case DJIFlyZoneStatusInWarningZone:
+        case DJIFlyZoneStateInWarningZone:
             flyZoneStatusString = @"AlreadyInWarningArea";
             break;
-        case DJIFlyZoneStatusNearRestrictedZone:
+        case DJIFlyZoneStateNearRestrictedZone:
             flyZoneStatusString = @"ApproachingRestrictedArea";
             break;
-        case DJIFlyZoneStatusInRestrictedZone:
+        case DJIFlyZoneStateInRestrictedZone:
             flyZoneStatusString = @"AlreadyInRestrictedArea";
             break;
         default:
@@ -1156,7 +1158,7 @@ Lastly, let's implement the delegate methods of **DJIFlyZoneDelegate** and **DJI
 
 #pragma mark - DJIFlightControllerDelegate Method
 
--(void) flightController:(DJIFlightController*)fc didUpdateSystemState:(DJIFlightControllerCurrentState*)state
+-(void) flightController:(DJIFlightController*)fc didUpdateState:(DJIFlightControllerState*)state
 {
     if (CLLocationCoordinate2DIsValid(state.aircraftLocation)) {
         double heading = RADIAN(state.attitude.yaw);
@@ -1167,8 +1169,8 @@ Lastly, let's implement the delegate methods of **DJIFlyZoneDelegate** and **DJI
 
 In the code above, we implement the following features:
 
-1. In the `flyZoneManager:didUpdateFlyZoneStatus:` delegate method,  we use a switch statement to check the **DJIFlyZoneStatus** enum value and update the `flyZoneStatusLabel` content.
-2. In the `flightController:didUpdateSystemState:` delegate method, we get the updated aircraft location and heading data from the **DJIFlightControllerCurrentState** and invoke the `updateAircraftLocation:withHeading:` method of DJIMapViewController to update the aircraft's location and fly zone overlays on the map view.
+1. In the `flyZoneManager:didUpdateFlyZoneStatus:` delegate method,  we use a switch statement to check the **DJIFlyZoneState** enum value and update the `flyZoneStatusLabel` content.
+2. In the `flightController: didUpdateState:` delegate method, we get the updated aircraft location and heading data from the **DJIFlightControllerState** and invoke the `updateAircraftLocation:withHeading:` method of DJIMapViewController to update the aircraft's location and fly zone overlays on the map view.
 
 #### Unlock Fly Zones
 
@@ -1229,13 +1231,13 @@ Now let's implement the `onUnlockButtonClicked` IBAction method and the `showFly
                 ShowResult(@"unlock fly zones failed%@", error.description);
             } else {
                                 
-                [[DJIFlyZoneManager sharedInstance] getUnlockedFlyZonesWithCompletion:^(NSArray<DJIFlyZoneInformation *> * _Nullable infos, NSError * _Nullable error) {
+                [[DJIFlyZoneManager sharedInstance] getUnlockedFlyZonesWithCompletion:^(NSArray<DJIGEOFlyZoneInformation *> * _Nullable infos, NSError * _Nullable error) {
                     if (error) {
                         ShowResult(@"get unlocked fly zone failed:%@", error.description);
                     } else {
                         NSString* resultMessage = [NSString stringWithFormat:@"unlock zone: %tu ", [infos count]];
                         for (int i = 0; i < infos.count; ++i) {
-                            DJIFlyZoneInformation* info = [infos objectAtIndex:i];
+                            DJIGEOFlyZoneInformation* info = [infos objectAtIndex:i];
                             resultMessage = [resultMessage stringByAppendingString:[NSString stringWithFormat:@"\n ID:%lu Name:%@ Begin:%@ End:%@\n", (unsigned long)info.flyZoneID, info.name, info.unlockStartTime, info.unlockEndTime]];
                         }
                         ShowResult(resultMessage);
@@ -1272,7 +1274,7 @@ Lastly, add the three UIAlertAction objects to the `alertController` and present
 
 ## Running the Sample Code 
 
-We have gone through a long way so far, now, let's build and run the project, connect the demo application to your Phantom 4 (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way so far, now, let's build and run the project, connect the demo application to your Mavic Pro (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
 ### Unlock Authorization Fly Zone Workflow
 
@@ -1321,7 +1323,7 @@ Here is the screenshot of using **Start Simulator** feature in the sample:
 
 Once you locate the aircraft to the coordinate of (37.4613697, -122.1237315), you may see there are some color circles, which represent different types of fly zones. 
 
-Also the textView on the right side will show the `DJIFlyZoneInformation` info, includes the fly zone number, fly zone id (required in the unlock process), fly zone category and name.
+Also the textView on the right side will show the `DJIGEOFlyZoneInformation` info, includes the fly zone number, fly zone id (required in the unlock process), fly zone category and name.
 
 At the same time, the fly zone status label's info will be updated according to the aircraft's coordinate changes.
 
@@ -1369,6 +1371,6 @@ Lastly, please restart the aircraft to make the settings become effective.
 
 ## Summary
 
-In this tutorial, you've learned how to use the `DJIFlyZoneManager` and `DJIFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, how to unlock authorization fly zones and how to add aircraft annotation and draw fly zone circle overlays on the map view to represent the fly zones. Moreover, you've learned how to use the DJISimulator feature to simulate the aircraft's coordinate and test the GEO System feature indoor without flying outside.
+In this tutorial, you've learned how to use the `DJIFlyZoneManager` and `DJIGEOFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, how to unlock authorization fly zones and how to add aircraft annotation and draw fly zone circle overlays on the map view to represent the fly zones. Moreover, you've learned how to use the DJISimulator feature to simulate the aircraft's coordinate and test the GEO System feature indoor without flying outside.
 
 Hope this tutorial can help you integrate the GEO System feature in your DJI SDK based Application. Good luck, and hope you enjoyed this tutorial!
