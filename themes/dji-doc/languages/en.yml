@@ -34,6 +34,8 @@ sub_nav:
   api_reference: API Reference
   ios_reference: IOS SDK
   android_reference: Android SDK
+  ios_uilib: IOS UI Library
+  android_uilib: Android UI Library
 
 policies:
   privacy: Privacy
