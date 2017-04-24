@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
-version: v4.0
-date: 2017-04-01
+version: v4.0.1
+date: 2017-04-24
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---

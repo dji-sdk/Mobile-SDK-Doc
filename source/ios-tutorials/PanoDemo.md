@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
-version: v4.0
-date: 2017-04-07
+version: v4.0.1
+date: 2017-04-24
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -117,7 +117,6 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
 - (void)productConnected:(DJIBaseProduct *)product
 {
     if (product) {
-        [product setDelegate:self];
         DJICamera* camera = [self fetchCamera];
         if (camera != nil) {
             camera.delegate = self;
@@ -181,7 +180,6 @@ Furthermore, implement the `-(DJIFlightController*) fetchFlightController` metho
 - (void)productConnected:(DJIBaseProduct *)product
 {
     if (product) {
-        [product setDelegate:self];
         DJICamera* camera = [self fetchCamera];
         if (camera != nil) {
             camera.delegate = self;
