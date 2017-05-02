@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
 <head>
   <meta charset="utf-8">
@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -451,7 +453,7 @@
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>DJIMediaManager</h1></div>
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DJIMediaManager</span> : <span class="title">NSObject</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">The media manager is used to interact with the file system on the SD card. By using the media manager, the user  can get the metadata for all the multimedia files, and has access to each individual multimedia file.</font></p>
 <h5 id="class-members">Class Members:</h5>
@@ -459,7 +461,7 @@
 <div class="article"><h6><font color="#AAA">property </font>delegate</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">nullable</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;DJIMediaManagerDelegate&gt; delegate</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_delegate</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Delegate that receives media manager's status update.</font></p>
 <h5 id="see-also">See Also:</h5>
@@ -469,7 +471,7 @@
 <div class="article"><h6><font color="#AAA">method </font>fetchMediaListWithCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)fetchMediaListWithCompletion:(<span class="keyword">void</span> (^_Nonnull)(<span class="built_in">NSArray</span>&lt;DJIMediaFile *&gt; *_Nullable mediaList, <span class="built_in">NSError</span> *_Nullable error))completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_fetchMediaList</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Fetch the media list from the remote album. Set the camera's work mode to <code><a href="../../Components/Camera/DJICamera.html#djicamera_djicameramode_djicameramodemediadownload">DJICameraModeMediaDownload</a></code>  before executing this method.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
@@ -478,7 +480,7 @@
 <div class="article"><h6><font color="#AAA">method </font>deleteMedia:withCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)deleteMedia:(<span class="built_in">NSArray</span>&lt;DJIMediaFile *&gt; *_Nonnull)media withCompletion:(<span class="keyword">void</span> (^_Nullable)(<span class="built_in">NSArray</span>&lt;DJIMediaFile *&gt; *_Nonnull deleteFailures, <span class="built_in">NSError</span> *_Nullable error))completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_deleteMedia</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Delete media files from remote album. Set the camera's work mode to <code><a href="../../Components/Camera/DJICamera.html#djicamera_djicameramode_djicameramodemediadownload">DJICameraModeMediaDownload</a></code> before executing  his method. Deletion is not supported by the media file generated by a panorama mission.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
@@ -487,7 +489,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isVideoPlaybackSupported</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)isVideoPlaybackSupported</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_VideoPlayback_isVideoPlaybackSupported</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Checks if the media manager supports video playback or not. Video playback is supported only by Mavic Pro.  @return <code>YES</code> if the media manager supports video playback.</font></p>
 <h5 id="return">Return:</h5>
@@ -496,7 +498,7 @@
 <div class="article"><h6><font color="#AAA">method </font>playVideo:withCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)playVideo:(DJIMediaFile *)videoMedia withCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_VideoPlayback_playVideo</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Start video playback through <code><a href="../../Components/Camera/DJIMediaManager.html#djimediamanager">DJIMediaManager</a></code>. When the media manager is playing a video, video data can be  received from <code><a href="../../Components/Camera/DJIMediaManager.html#djimediamanager_updatevideoplaybackdata">manager:didUpdateVideoPlaybackData:length:forRendering</a></code> and playback state received  from <code><a href="../../Components/Camera/DJIMediaManager.html#djimediamanager_updatevideoplaybackstate">manager:didUpdateVideoPlaybackState</a></code>. Video playback  through <code><a href="../../Components/Camera/DJIMediaManager.html#djimediamanager">DJIMediaManager</a></code> is fixed at 720p.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
@@ -505,7 +507,7 @@
 <div class="article"><h6><font color="#AAA">method </font>resumeWithCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)resumeWithCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_VideoPlayback_resume</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">The media manager resumes the paused video.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
@@ -514,7 +516,7 @@
 <div class="article"><h6><font color="#AAA">method </font>pauseWithCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)pauseWithCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_VideoPlayback_pause</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">The media manager pauses the playing video.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
@@ -523,7 +525,7 @@
 <div class="article"><h6><font color="#AAA">method </font>stopWithCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)stopWithCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_VideoPlayback_stop</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">The media manager stops the playing video.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
@@ -532,7 +534,7 @@
 <div class="article"><h6><font color="#AAA">method </font>moveToPosition:withCompletion</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)moveToPosition:(<span class="keyword">float</span>)position withCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_VideoPlayback_moveToPosition</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Video playback is skipped to the new position in seconds from the start of the video.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
@@ -542,7 +544,7 @@
 <div class="article"><h6><font color="#AAA">protocol </font>DJIMediaManagerDelegate</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">DJIMediaManagerDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_Protocol</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">This protocol provides a delegate method to receive the updated video playback state of the media manager.</font></p>
 <h5 id="protocol-methods">Protocol Methods:</h5>
@@ -551,7 +553,7 @@
 <div class="article"><h6><font color="#AAA">method </font>manager:didUpdateVideoPlaybackState</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">-(<span class="keyword">void</span>)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackState:(DJIMediaVideoPlaybackState *)state</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_updateVideoPlaybackState</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">Updates the video playback state of the media manager. This update method will only be called when the media manager is playing a video.</font></p>
 <h5 id="input-parameters-v8">Input Parameters:</h5>
@@ -560,7 +562,7 @@
 <div class="article"><h6><font color="#AAA">method </font>manager:didUpdateVideoPlaybackData:length:forRendering</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">-(<span class="keyword">void</span>)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackData:(uint8_t *)data length:(size_t)length forRendering:(<span class="built_in">BOOL</span>)forRendering</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMediaManager_updateVideoPlaybackData</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Updates the video playback data of the media manager. This update method will only be called when the media manager is playing a video.</font></p>
 <h5 id="input-parameters-v9">Input Parameters:</h5>

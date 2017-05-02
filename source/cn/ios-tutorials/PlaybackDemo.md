@@ -1,7 +1,7 @@
 ---
 title: Creating a Photo and Video Playback Application
-version: v4.0
-date: 2017-03-31
+version: v4.0.1
+date: 2017-04-24
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS playback demo, playback application, preview photos and videos, download photos and videos, delete photos and videos]
 ---
