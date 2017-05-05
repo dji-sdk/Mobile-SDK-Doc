@@ -107,6 +107,9 @@
     -
       title: "Using the Remote Logger"
       path: "/cn/ios-tutorials/RemoteLoggerDemo.html"
+    - 
+      title: "Using the UI Library"
+      path: "/cn/ios-tutorials/UILibraryDemo.html"
 -
   title: "ANDROID TUTORIALS"
   list:
