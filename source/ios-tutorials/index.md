@@ -108,7 +108,7 @@ Moreover, in the `resetVideoPreview` method, we invoke the `unSetView` method of
 
 If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `removeListener:` method of `DJIVideoFeeder` class to remove the `DJICameraViewController` listener from the `secondaryVideoFeed` for video feed, otherwise, we remove the `DJICameraViewController` listener from the `primaryVideoFeed` for video feed.
 
-**3.** Once you finished the above steps, let's implement the `DJIBaseProductDelegate` delegate method to fetch `DJICamera` instance and set the `product` and `camera` instances' delegates to "self" as shown below:
+**3.** Once you finished the above steps, let's implement the `DJIBaseProductDelegate` delegate methods and the `viewWillDisappear` method as shown below:
 
 ~~~
 - (DJICamera*) fetchCamera {
@@ -139,6 +139,16 @@ If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we inv
     }
 }
 
+- (void)productDisconnected
+{
+    DJICamera *camera = [self fetchCamera];
+    if (camera && camera.delegate == self) {
+        [camera setDelegate:nil];
+    }
+    [self resetVideoPreview];
+    
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -152,7 +162,7 @@ If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we inv
 
 Firstly, we create the `- (DJICamera*) fetchCamera` method to fetch the updated DJICamera object. Before we get return the DJICamera object, we need to check if the product object of DJISDKManager is kind of **DJIAircraft** of **DJIHandheld** class. Since the camera component of the aircraft or handheld device may be changed or disconnected, we need to fetch the camera object everytime we want to use it to ensure we get the correct camera object. 
 
-Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the `productConnected` delegate method. Lastly, reset the `camera` instance's delegate to nil and invoke the `resetVideoPreview` method to reset the videoPreviewer in the `viewWillDisappear` method.
+Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the `productConnected` delegate method. Lastly, reset the `camera` instance's delegate to nil and invoke the `resetVideoPreview` method to reset the videoPreviewer in the `productDisconnected` and `viewWillDisappear` methods.
         
 **4**. Lastly, let's implement the "DJIVideoFeedListener" and "DJICameraDelegate" delegate methods, as shown below:
   
