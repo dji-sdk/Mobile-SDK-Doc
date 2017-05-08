@@ -8,9 +8,9 @@ The DJI UILibrary is a suite of product agnostic UI objects that fast tracks the
 
 The UILibrary includes:
 
-* A library/framework that can be imported into an Android or iOS app that give access to the DJI UI Elements
-* Sample code and tutorials
-* This developer guide and API documentation
+* a library/framework that can be imported into an Android or iOS app that give access to the DJI UI Elements
+* sample code and tutorials
+* this developer guide and API documentation
 
 This introduction will describe what functionality the UILibrary provides, and the basic concepts of it.
 
@@ -18,7 +18,7 @@ This introduction will describe what functionality the UILibrary provides, and t
 
 UILibrary was designed around core concepts that help categorize the kind of UI elements available and their expectable behavior both at runtime and while being customized.
 
-### Widgets
+## Widgets
 
 Widget represents the major part of the UI. They are small view which display a specific piece of information.
 
@@ -29,7 +29,7 @@ Widgets offer many different customization angle. You may simply edit the image 
 See below for examples of Widgets:
 
 <html>
-<table class="table-pictures" border="1">
+<table class="table-pictures">
 <tbody>
   <tr valign="top">
     <td><font style="font-weight:bold" align="center"><p>Aircraft Battery Percentage </p></td>
@@ -64,11 +64,11 @@ Depends on your need of modifying UI Widgets, you can customize the widgets in t
 
 #### Asset Swap
 
-- iOS
+##### iOS
 
   You can replace image assets inside the library with your own custom assets.
 
-- Android
+##### Android
 
   Asset Swap can keep the Widget’s original behavior and overall look, only change some assets. Here are the steps:
 
@@ -87,11 +87,11 @@ Depends on your need of modifying UI Widgets, you can customize the widgets in t
 
 #### Subclassing
 
-- iOS
+##### iOS
 
   You can subclass widgets to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data as property. Please refer to API documentation for more details.
 
-- Android
+##### Android
   
   Subclassing can completely change the behavior and the look of Widgets. Here are the steps:
 
@@ -101,7 +101,7 @@ Depends on your need of modifying UI Widgets, you can customize the widgets in t
 
   3. To perform some actions to aircraft, use(call) methods with the name follow `performXXXAction` pattern.
 
-### Panels
+## Panels
 
 Panels are more complex control elements. Normally, they are complex menus and setting views. They are usually a lot more enclosed because they handle very complex logics. They can be placed in your app's UI using native methods. See below examples:
 
@@ -116,9 +116,9 @@ Panels are more complex control elements. Normally, they are complex menus and s
   </tr>
 
   <tr>
-    <td align="center"><img src="../../images/ui-library-introduction/cameraSettingsPanel.png" width=80%></td>
-    <td align="center"><img src="../../images/ui-library-introduction/exposureSettingsPanel.png" width=80%></td>
-    <td align="center"><img src="../../images/ui-library-introduction/preflightChecklistPanel.png" width=80%></td>
+    <td align="center"><img src="../../images/ui-library-introduction/cameraSettingsPanel.png" width=90%></td>
+    <td align="center"><img src="../../images/ui-library-introduction/exposureSettingsPanel.png" width=90%></td>
+    <td align="center"><img src="../../images/ui-library-introduction/preflightChecklistPanel.png" width=90%></td>
   </tr>
 
 </table>
@@ -128,16 +128,20 @@ Panels are more complex control elements. Normally, they are complex menus and s
 
 Due to Panel’s complex nature, DJI does not offer a way to customize their looks and functionalities currenlty.
 
-### Contents
+## Contents
 
 Contents represent the element that usually populates the background of the UI. FPV is the most commonly used today. They come ready to use and may have direct interactions with other widgets/panels.
 
-### Default Layout
+## Default Layout
 
 The default layout is a fully functioning mini-DJI Go. It uses all the elements of the UILibrary to give you the foundation of your app. The default layout is easily changeable and configurable.
 
-### Model
+## Model
 
 Finally, the Model is a high level data accessor living inside the UILibrary and directly built on top of the [DJI Mobile SDK](./mobile_sdk_introduction.html). It registers intentions from UILibrary objects and provides the data to them while handling most of the SDK's life cycle events. It is heavily used by widgets today and we recommend you using it in your custom work in the future.
+
+
+
+
 
 
