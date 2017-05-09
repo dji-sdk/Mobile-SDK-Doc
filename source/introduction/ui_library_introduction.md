@@ -4,32 +4,32 @@ date: 2017-05-09
 keywords: [ui library introduction, UILibrary, widget, panel, default layout, asset swap, widget customization, panles customization]
 ---
 
-Many applications that control DJI products using the DJI Mobile SDK have similar core functionality. They will typically:
+Many applications that control DJI products using the DJI Mobile SDK share similar core functionalities. They will typically:
 
 * Show a live view of the camera feed
 * Show product state (aircraft telemetry, battery level, signal strength, etc.)
 * Allow the user to review and change product settings
-* Have basic functionality such as automatic take off, land, go home.
+* Have basic functionalities such as automatic take off, land, go home.
 
-When a developer makes an application, they typically have to provide this set of core functionality before adding their own, unique features.
+To make an application, a developer typically has to provide this set of core functionalities before adding some unique ones.
 
-The DJI UILibrary provides UI objects that have this core functionality, and so can be used to greatly speed development time. In fact, using the default UILibrary, an application can be created with no additional lines of code that looks like:
+The DJI UILibrary provides UI elements that have these core functionalities, hence can be used to speed up development time. In fact, by using the default UILibrary, an application can be created with no additional lines of code. It looks like:
 
 ![DefaultScreen](../images/product-introduction/defaultScreen.png)
 
-Developers can pick and choose which parts of the UILibrary they want to use, not use and customize. 
+Developers can pick and choose which parts of the UILibrary they want to include, exclude and customize. 
 
 UILibrary is available in the DJI Mobile SDK v4.0 and later. 
 
 ## Concepts Overview
 
-UILibrary comprises three main categories of UI element:
+UILibrary comprises of three main UI element categories:
 
-* **Widget**: An independent UI element that gives state or simple control (like battery indicator or automatic take-off button)
-* **Collection**: An organized collection of widgets that are related to each other (e.g. camera exposure state)
-* **Panel**: Complicated, information rich UI elements (e.g. camera settings)
+* **Widget**: An independent UI element that gives state or simple control (e.g.  battery indicator, or automatic take-off button)
+* **Collection**: (iOS only) An organized collection of widgets that are related to each other (e.g. camera exposure state)
+* **Panel**: Complex menus and settings views with rich UI elements (e.g. camera settings)
 
-All UI elements can simply be used in an application without maintenance. They are already tied to the DJI Mobile SDK, and will start automatically updating themselves after instantiation.
+All UI elements can simply be included in an application without extra maintenance. They are already tied to the DJI Mobile SDK, and will start updating themselves after instantiation.
 
 The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UILibrary API reference has the complete list of UI elements available.
 
