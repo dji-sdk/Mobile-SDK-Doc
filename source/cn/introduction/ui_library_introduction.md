@@ -1,33 +1,41 @@
 ---
 title: UI Library Introduction
-date: 2017-05-08
+date: 2017-05-09
 keywords: [ui library introduction, UILibrary, widget, panel, default layout, asset swap, widget customization, panles customization]
 ---
 
-The DJI UILibrary is a suite of product agnostic UI objects that fast tracks the development of iOS applications using the [DJI Mobile SDK](./mobile_sdk_introduction.html). It helps you simplify the creation of DJI Mobile SDK based apps in iOS. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps. Moreover, with the ease of use, UILibrary let you focus more on business and application logic. The DJI UILibrary is implemented using “subscription keys” (DJIKey ) feature of DJI SDK Mobile 4.0.
+Many applications that control DJI products using the DJI Mobile SDK have similar core functionality. They will typically:
 
-The UILibrary includes:
+* Show a live view of the camera feed
+* Show product state (aircraft telemetry, battery level, signal strength, etc.)
+* Allow the user to review and change product settings
+* Have basic functionality such as automatic take off, land, go home.
 
-* a library/framework that can be imported into an Android or iOS app that give access to the DJI UI Elements
-* sample code and tutorials
-* this developer guide and API documentation
+When a developer makes an application, they typically have to provide this set of core functionality before adding their own, unique features.
 
-This introduction will describe what functionality the UILibrary provides, and the basic concepts of it.
+The DJI UILibrary provides UI objects that have this core functionality, and so can be used to greatly speed development time. In fact, using the default UILibrary, an application can be created with no additional lines of code that looks like:
+
+![DefaultScreen](../../images/product-introduction/defaultScreen.png)
+
+Developers can pick and choose which parts of the UILibrary they want to use, not use and customize. 
+
+UILibrary is available in the DJI Mobile SDK v4.0 and later. 
 
 ## Concepts Overview
 
-UILibrary was designed around core concepts that help categorize the kind of UI elements available and their expectable behavior both at runtime and while being customized.
+UILibrary comprises three main categories of UI element:
 
-## Widgets
+* **Widget**: An independent UI element that gives state or simple control (like battery indicator or automatic take-off button)
+* **Collection**: An organized collection of widgets that are related to each other (e.g. camera exposure state)
+* **Panel**: Complicated, information rich UI elements (e.g. camera settings)
 
-Widget represents the major part of the UI. They are small view which display a specific piece of information.
+All UI elements can simply be used in an application without maintenance. They are already tied to the DJI Mobile SDK, and will start automatically updating themselves after instantiation.
 
-They may also offer a precise control point to a specific action - for instance, take off.
+The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UILibrary API reference has the complete list of UI elements available.
 
-Widgets offer many different customization angle. You may simply edit the image assets provided inside the UILibrary framework, change the visual rendering of the information consumed or provide your own information logic and reuse the existing rendering.
+## Widget
 
-See below for examples of Widgets:
-
+A widget is the simplest component of the UILibrary. It typically represents a simple state element or gives a simple control. Some examples of widgets include:
 <html>
 <table class="table-pictures">
 <tbody>
@@ -48,29 +56,23 @@ See below for examples of Widgets:
 </table>
 </html>
 
-These Widgets have already been linked to relevant DJIKeys. They require from very little time for setting up. Once added to the screen, Widgets will automatically update according to information changes.
+### Customization
 
-### Widget Collections
-
-Widget Collections are grouping objects which allow the developer to easily display a set of widgets in an orderly fashion without the hassle of building the organization mechanism.
-
-They also provide structure for the widgets to look alike each other while inside the same collection and apply an interaction level to all as to offer potential customization points in behavior.
-
-You can also create your own collections and add pre-existing widgets to them.
-
-### Widget Customization
-
-Depends on your need of modifying UI Widgets, you can customize the widgets in two ways: **Asset Swap** and **Subclassing**.
+Widgets can be customized by either swapping the asset, or subclassing the widget.
 
 #### Asset Swap
 
+Swapping the asset keeps the widget's behavior and logic, but changes its look.
+
 ##### iOS
 
-  You can replace image assets inside the library with your own custom assets.
+  1. Open the **DJIUILibrary.framework**
+  2. Replace assets in the "DJIUILibrary.framework/Assets/"" directory
+  3. Replace the orignal **DJIUILibrary.framework** file in the Xcode project
+
+> Note: The image assets are required to be of the same names and pixel dimensions as the original ones.
 
 ##### Android
-
-  Asset Swap can keep the Widget’s original behavior and overall look, only change some assets. Here are the steps:
 
   1. Rename AAR file to have a zip extension
   2. Unzip AAR file
@@ -89,21 +91,31 @@ Depends on your need of modifying UI Widgets, you can customize the widgets in t
 
 ##### iOS
 
-  You can subclass widgets to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data as property. Please refer to API documentation for more details.
+  You can subclass widgets to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data it is using as properties. Please refer to [API documentation](http://developer.dji.com/api-reference/ios-uilib-api/Widgets/AutoExposureLockWidget.html) for more details.
 
 ##### Android
   
-  Subclassing can completely change the behavior and the look of Widgets. Here are the steps:
+  In Android, subclassing can completely change the behavior and the look of Widgets. The steps are:
 
-  1. Override `void initView(Context var1, AttributeSet var2, int var3)` and inflate/initialize your custom layout in there. Remember to **not call super.initView()**.
+  1. Override `void initView(Context var1, AttributeSet var2, int var3)` and inflate/initialize the custom layout. Remember, **do not call** `super.initView()`.
 
-  2. To get updated with information changes, override methods with the name follow `onXXXChange` pattern. Ex: `onBatteryPercentageChange(int percentage)` in `BatteryWidget` . This method will be called everytime battery percentage changes. Overriding this method will give you integer value of battery percentage. Remember to **not call super.onXXXChange()**.
+  2. To get updated with information changes, override methods with the name following the `onXXXChange` pattern (for example, the `onBatteryPercentageChange(int percentage)` in `BatteryWidget`). This method will be called every time battery percentage changes. Overriding this method will give you the integer value of battery percentage. Remember, **do not call** `super.initView()`.              
 
-  3. To perform some actions to aircraft, use(call) methods with the name follow `performXXXAction` pattern.
+  3. To perform actions, use methods that follow the naming pattern `performXXXAction`.
+
+## Collection
+
+A widget collection groups multiple, often related widgets together in an organized way. It controls the layout of the widgets relative to each other.
+
+Collections can also be created and used to organize pre-existing widgets.
+
+Widget collections are used in iOS Only.
 
 ## Panels
 
-Panels are more complex control elements. Normally, they are complex menus and setting views. They are usually a lot more enclosed because they handle very complex logics. They can be placed in your app's UI using native methods. See below examples:
+Panels are more complex elements with rich information and control, such as settings menus or the pre-flight checklist. 
+
+Examples of panels include:
 
 <html>
 
@@ -124,24 +136,19 @@ Panels are more complex control elements. Normally, they are complex menus and s
 </table>
 </html>
 
-### Panels Customization
+### Customization
 
-Due to Panel’s complex nature, DJI does not offer a way to customize their looks and functionalities currenlty.
+Due to the complexity of panels, customization is not currently provided.
 
-## Contents
+## Samples & Tutorials
 
-Contents represent the element that usually populates the background of the UI. FPV is the most commonly used today. They come ready to use and may have direct interactions with other widgets/panels.
+We provide sample projects for the DJI UI Library, please check below:
 
-## Default Layout
+- [iOS UI Library Github Sample](https://github.com/dji-sdk/Mobile-UILibrary-iOS)
 
-The default layout is a fully functioning mini-DJI Go. It uses all the elements of the UILibrary to give you the foundation of your app. The default layout is easily changeable and configurable.
+- [Android UI Library Github Sample](https://github.com/dji-sdk/Mobile-UILibrary-Android)
 
-## Model
+Moreover, an iOS UI Library tutorial is provided as an example on how to use the iOS UI Library.
 
-Finally, the Model is a high level data accessor living inside the UILibrary and directly built on top of the [DJI Mobile SDK](./mobile_sdk_introduction.html). It registers intentions from UILibrary objects and provides the data to them while handling most of the SDK's life cycle events. It is heavily used by widgets today and we recommend you using it in your custom work in the future.
-
-
-
-
-
-
+- [Creating a Simplified DJI Go app using DJI Mobile UI Library](TODO)
+ 
