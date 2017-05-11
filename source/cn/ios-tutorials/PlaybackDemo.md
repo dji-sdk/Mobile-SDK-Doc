@@ -45,7 +45,7 @@ Congratulations! Let's move forward.
 
 In order to preview, edit or download the photos or videos files from the DJICamera, you need to use the `DJIPlaybackManager` or `DJIMediaManager` of DJICamera. Here, we use `DJIPlaybackManager` to demonstrate how to implement it. 
 
-### Switching to Playback Mode
+## Switching to Playback Mode
 
 Now, let's create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "PlaybackViewController". We will use it to implement the camera playback features. 
 
@@ -149,7 +149,7 @@ In the code above, we implement the following things:
 
 So when the user enter the **PlaybackViewController**, the DJICamera will switch to playback mode automatically, when user exit back to the **DefaultLayoutViewController**, the DJICamera will switch to shoot photo mode.
 
-### Previewing Single Files
+## Previewing Single Files
 
 Since we can switch to the **Playback** mode now, let's add two `UISwipeGestureRecognizer`s to preview the previous and the next media files in the SD Card.
 
@@ -329,7 +329,7 @@ Once it's done, build and run the project. Try swiping left and right in the **P
 
  ![playVideo](../../images/tutorials-and-samples/iOS/UILibraryDemo/playVideo.gif)
 
-### Previewing Multiple Files
+## Previewing Multiple Files
 
 Before we move forward, let's explain the Playback mode. There are multiple playback modes in the camera, and we can check the `DJICameraPlaybackMode` enum type in the DJICameraPlaybackState.h file as follows:
 
@@ -620,7 +620,7 @@ Let's build and run the project and try to enter Multiple Preview Mode. Use the 
 
 ![multiPre](../../images/tutorials-and-samples/iOS/UILibraryDemo/multiPre.png)
 
-### Deleting Photos and Videos
+## Deleting Photos and Videos
 
 You can now preview photos and videos in Single Preview Mode and Multiple Preview Mode. But what if you want to delete a file you don't like? Let's implement the delete files feature!
 
@@ -823,7 +823,7 @@ Build and run the project, and try the select multiple files, delete single and 
 
 ![deleteMultiFiles](../../images/tutorials-and-samples/iOS/UILibraryDemo/deleteMultiFiles.gif)
 
-### Downloading And Saving Photos
+## Downloading And Saving Photos
 
 ### 1. Downloading Photos
 
