@@ -2,6 +2,16 @@
   p, ul, ol, img, dl, blockquote, table {
     margin-bottom: 20px;
   }
+  //CSS Customization for table with "table-pictures" id
+  .table-pictures{
+    tbody{
+      tr{
+        td{
+          border-width: 2px;
+        }
+      }
+    }
+  }
   p {
      margin-bottom:1.0em;
   }
@@ -35,6 +45,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top : 20px;
   }
   a {
     color: $dji-blue;
