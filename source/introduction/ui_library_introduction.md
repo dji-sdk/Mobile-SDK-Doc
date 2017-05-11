@@ -1,7 +1,7 @@
 ---
 title: UI Library Introduction
-date: 2017-05-09
-keywords: [ui library introduction, UILibrary, widget, panel, default layout, asset swap, widget customization, panles customization]
+date: 2017-05-11
+keywords: [ui library introduction, UI Library, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 
 Many applications that control DJI products using the DJI Mobile SDK share similar core functionalities. They will typically:
@@ -13,17 +13,17 @@ Many applications that control DJI products using the DJI Mobile SDK share simil
 
 To make an application, a developer typically has to provide this set of core functionalities before adding some unique ones.
 
-The DJI UILibrary provides UI elements that have these core functionalities, hence can be used to speed up development time. In fact, by using the default UILibrary, an application can be created with no additional lines of code. It looks like:
+The DJI UI Library provides UI elements that have these core functionalities, hence can be used to speed up development time. In fact, by using the default UI Library, an application can be created with no additional lines of code. It looks like:
 
 ![DefaultScreen](../images/product-introduction/defaultScreen.png)
 
-Developers can pick and choose which parts of the UILibrary they want to include, exclude and customize. 
+Developers can pick and choose which parts of the UI Library they want to include, exclude and customize. 
 
-UILibrary is available in the DJI Mobile SDK v4.0 and later. 
+UI Library is available in the DJI Mobile SDK v4.0 and later. 
 
 ## Concepts Overview
 
-UILibrary comprises of three main UI element categories:
+UI Library has three main UI categories:
 
 * **Widget**: An independent UI element that gives state or simple control (e.g.  battery indicator, or automatic take-off button)
 * **Collection**: (iOS only) An organized collection of widgets that are related to each other (e.g. camera exposure state)
@@ -31,11 +31,11 @@ UILibrary comprises of three main UI element categories:
 
 All UI elements can simply be included in an application without extra maintenance. They are already tied to the DJI Mobile SDK, and will start updating themselves after instantiation.
 
-The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UILibrary API reference has the complete list of UI elements available.
+The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UI Library API reference has the complete list of UI elements available.
 
 ## Widget
 
-A widget is the simplest component of the UILibrary. It typically represents a simple state element or gives a simple control. Some examples of widgets include:
+A widget is the simplest component of the UI Library. It typically represents a simple state element or gives a simple control. Some examples of widgets include:
 <html>
 <table class="table-pictures">
 <tbody>
@@ -91,7 +91,7 @@ Swapping the asset keeps the widget's behavior and logic, but changes its look.
 
 ##### iOS
 
-  You can subclass widgets to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data it is using as properties. Please refer to [API documentation](http://developer.dji.com/api-reference/ios-uilib-api/Widgets/AutoExposureLockWidget.html) for more details.
+  Widgets can be subclassed to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data it is using as properties. Please refer to the [API documentation](http://developer.dji.com/api-reference/ios-uilib-api/Widgets/AutoExposureLockWidget.html) for more details.
 
 ##### Android
   
@@ -142,13 +142,13 @@ Due to the complexity of panels, customization is not currently provided.
 
 ## Samples & Tutorials
 
-We provide sample projects for the DJI UI Library, please check below:
+Sample projects are provided for the DJI UI Library:
 
 - [iOS UI Library Github Sample](https://github.com/dji-sdk/Mobile-UILibrary-iOS)
 
 - [Android UI Library Github Sample](https://github.com/dji-sdk/Mobile-UILibrary-Android)
 
-Moreover, an iOS UI Library tutorial is provided as an example on how to use the iOS UI Library.
+<!-- An iOS UI Library tutorial is provided as an example on how to use the iOS UI Library.
 
 - [Creating a Simplified DJI Go app using DJI Mobile UI Library](TODO)
- 
+  -->
