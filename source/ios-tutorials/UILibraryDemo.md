@@ -229,5 +229,5 @@ If you can see the live video feed and test the features like this, congratulati
 
 ### Summary
 
-In this tutorial, you have learned how to use the DJI iOS UI Library and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. You also learned how to enter camera playback mode to edit media files, download and save photos to the iOS Photo Album. Hope you enjoy it!
+In this tutorial, you have learned how to use the DJI iOS UI Library and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. Hope you enjoy it!
 

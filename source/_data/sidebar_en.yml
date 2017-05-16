@@ -116,6 +116,9 @@
 -
   title: "ANDROID TUTORIALS"
   list:
+    - 
+      title: "Getting Started with UI Library"
+      path: "/android-tutorials/UILibraryDemo.html"
     -
       title: "Camera Application"
       path: "/android-tutorials/index.html"
