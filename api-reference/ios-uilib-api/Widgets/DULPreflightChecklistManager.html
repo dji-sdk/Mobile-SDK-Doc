@@ -56,8 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
-            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
+            <li><a href="/api-reference/ios-uiilb-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uiilb-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -99,8 +99,6 @@
           <dl>
             <dt>Widget
             </dt>
-                  <dd><a href="AutoExposureLockWidget.html">DULAutoExposureSwitchWidget</a>
-                  </dd>
                   <dd><a href="PreFlightStatusWidget.html">DULPreFlightStatusWidget</a>
                   </dd>
                   <dd><a href="DULConnectionWidget.html">DULConnectionWidget</a>
@@ -112,8 +110,6 @@
                   <dd><a href="RemoteControllerSignalWidget.html">DULRemoteControlSignalWidget</a>
                   </dd>
                   <dd><a href="GPSSignalWidget.html">DULGPSSignalWidget</a>
-                  </dd>
-                  <dd><a href="DULWiFiSignalWidget.html">DULWifiSignalWidget</a>
                   </dd>
                   <dd><a href="VideoSignalWidget.html">DULVideoSignalWidget</a>
                   </dd>
@@ -144,8 +140,6 @@
                   <dd><a href="TakeOffLandWidget.html">DULTakeOffWidget</a>
                   </dd>
                   <dd><a href="ReturnHomeWidget.html">DULReturnHomeWidget</a>
-                  </dd>
-                  <dd><a href="FocusModeWidget.html">DULFocusModeWidget</a>
                   </dd>
                   <dd><a href="CameraConfigShutterWidget.html">DULCameraConfigShutterWidget</a>
                   </dd>
@@ -205,17 +199,11 @@
                                       </dd>
                                       <dd><a href="DULESCChecklistItem.html">DULESCChecklistItem</a>
                                       </dd>
-                                      <dd><a href="DULVisiionChecklistItem.html">DULVisionChecklistItem</a>
-                                      </dd>
                                       <dd><a href="DULRemoteControllerChecklistItem.html">DULRemoteControllerChecklistItem</a>
-                                      </dd>
-                                      <dd><a href="DULRemoteControllerBatteryChecklistItem.html">DULRemoteControllerBatteryChecklistItem</a>
                                       </dd>
                                       <dd><a href="DULRadioQualityChecklistItem.html">DULRadioQualityChecklistItem</a>
                                       </dd>
                                       <dd><a href="DULAircraftBatteryChecklistItem.html">DULAircraftBatteryChecklistItem</a>
-                                      </dd>
-                                      <dd><a href="DULAircraftBatteryTemperatureChecklistItem.html">DULAircraftBatteryTemperatureChecklistItem</a>
                                       </dd>
                                       <dd><a href="DULGimbalChecklistItem.html">DULGimbalChecklistItem</a>
                                       </dd>
@@ -271,7 +259,7 @@
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>DULPreflightChecklistManager</h1></div>
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DULPreflightChecklistManager</span> : <span class="title">NSObject</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">The preflight checklist manager class manages the life-cycle of preflight checklist items, triggers their monitoring activity, and collects their states in order to produce a decision on whether or not it is advisable to take off. It is not a UI object, but can be used to produce a preflight checklist UI.</font></p>
 <h5 id="class-members">Class Members:</h5>
@@ -279,7 +267,7 @@
 <div class="article"><h6><font color="#AAA">class method </font>defaultManager</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">+ (<span class="keyword">instancetype</span>)defaultManager</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_defaultManager</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Returns the default configured instance. This instance will be prepopulated with a default set of checklist items.</font></p>
 </div>
@@ -287,7 +275,7 @@
 <div class="article"><h6><font color="#AAA">protocol </font>DULPreflightChecklistManagerListener</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">DULPreflightChecklistManagerListener</span> &lt;<span class="title">NSObject</span>&gt;</span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManagerListener</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Defines the communication between the ChecklistManager and the listeners</font></p>
 <h5 id="protocol-methods">Protocol Methods:</h5>
@@ -295,7 +283,7 @@
 <div class="article"><h6><font color="#AAA">method </font>preflightChecklistManager:noticedChangesForItem</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">required</div><div class="line">- (<span class="keyword">void</span>)preflightChecklistManager:(DULPreflightChecklistManager *)manager noticedChangesForItem:(DULPreflightChecklistItem *)item</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManagerListener_preflightChecklistManager_noticedChangesForItem</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Called when an item changes.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
@@ -305,7 +293,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>DULPreflightChecklistState</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, DULPreflightChecklistState)</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_ChecklistState</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">State that each item will report.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
@@ -314,7 +302,7 @@
 <div class="article"><h6><font color="#AAA">property </font>isReadyToFly</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> isReadyToFly</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_isReadyToFly</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Preflight checklist is ready to fly.</font></p>
 </div>
@@ -322,7 +310,7 @@
 <div class="article"><h6><font color="#AAA">property </font>overallState</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DULPreflightChecklistState overallState</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_overallState</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Aggregated state of all the items.</font></p>
 <h5 id="see-also">See Also:</h5>
@@ -332,7 +320,7 @@
 <div class="article"><h6><font color="#AAA">method </font>addChecklistItem</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)addChecklistItem:(DULPreflightChecklistItem *)item</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_addChecklistItem</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Add a preflight checklist item to the manager.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
@@ -341,7 +329,7 @@
 <div class="article"><h6><font color="#AAA">method </font>removeChecklistItem</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)removeChecklistItem:(DULPreflightChecklistItem *)item</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_removeChecklistItem</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Remove a preflight checklist item from the manager.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
@@ -350,7 +338,7 @@
 <div class="article"><h6><font color="#AAA">method </font>checkListItemCount</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">NSInteger</span>)checkListItemCount</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_checkListItemCount</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Number of items in the preflight checklist.</font></p>
 <h5 id="return">Return:</h5>
@@ -359,7 +347,7 @@
 <div class="article"><h6><font color="#AAA">method </font>checklistItemAtIndex</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (DULPreflightChecklistItem *)checklistItemAtIndex:(<span class="built_in">NSInteger</span>)index</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_checklistItemAtIndex</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Returns the preflight checklist item at an index.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
@@ -370,7 +358,7 @@
 <div class="article"><h6><font color="#AAA">method </font>startCheckingList</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)startCheckingList</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_startCheckingList</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">When you are ready to show the check list, call this method to start activating the logic of each checklist item.</font></p>
 </div>
@@ -378,7 +366,7 @@
 <div class="article"><h6><font color="#AAA">method </font>stopCheckingList</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)stopCheckingList</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_stopCheckingList</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">When you are done with the checklist don't forget to call stopCheckingList.</font></p>
 </div>
@@ -386,7 +374,7 @@
 <div class="article"><h6><font color="#AAA">method </font>item:didChangeState:didChangeDescription</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)item:(DULPreflightChecklistItem *)item didChangeState:(<span class="built_in">BOOL</span>)didChangeState didChangeDescription:(<span class="built_in">BOOL</span>)didChangeDescription</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_itemdidChangeStatedidChangeDescrtiption</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
 <p><font color="#666">Method that responds to changes in an item.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
@@ -395,7 +383,7 @@
 <div class="article"><h6><font color="#AAA">method </font>addListener</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)addListener:(<span class="keyword">id</span> &lt;DULPreflightChecklistManagerListener&gt;)listener</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_addListener</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Adds a listener.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
@@ -404,12 +392,12 @@
 <div class="article"><h6><font color="#AAA">method </font>removeListener</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)removeListener:(<span class="keyword">id</span> &lt;DULPreflightChecklistManagerListener&gt;)listener</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager_removeListener</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DULPreflightChecklistManager.h</font></td></tr></table></html>
 <h5 id="description-v16">Description:</h5>
 <p><font color="#666">Removes a listener.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">id &lt;<a href="../Widgets/DULPreflightChecklistManager.html#dulpreflightchecklistmanagerlistener">DULPreflightChecklistManagerListener</a>&gt; <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener being removed.</i></font></td></tr></table></html></div>
-<div class="api-row" id="dulpreflightchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULPreflightChecklistItem.html">DULPreflightChecklistItem</a></div></div><div class="api-row" id="duloverallchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULOverallChecklistItem.html">DULOverallChecklistItem</a></div></div><div class="api-row" id="dulaircraftconnectionchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftConnectionChecklistItem.html">DULAircraftConnectionChecklistitem</a></div></div><div class="api-row" id="dulaircraftlocationchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftLocationChecklistItem.html">DULAircraftLocationChecklistItem</a></div></div><div class="api-row" id="dulflightmodechecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULFlightModeChecklistItem.html">DULFlightModeChecklistItem</a></div></div><div class="api-row" id="dulcompasschecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULCompassChecklistItem.html">DULCompassChecklistItem</a></div></div><div class="api-row" id="dulimuchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULIMUChecklistItem.html">DULIMUChecklistItem</a></div></div><div class="api-row" id="dulescchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULESCChecklistItem.html">DULESCChecklistItem</a></div></div><div class="api-row" id="dulvisiionchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULVisiionChecklistItem.html">DULVisionChecklistItem</a></div></div><div class="api-row" id="dulremotecontrollerchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULRemoteControllerChecklistItem.html">DULRemoteControllerChecklistItem</a></div></div><div class="api-row" id="dulremotecontrollerbatterychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULRemoteControllerBatteryChecklistItem.html">DULRemoteControllerBatteryChecklistItem</a></div></div><div class="api-row" id="dulradioqualitychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULRadioQualityChecklistItem.html">DULRadioQualityChecklistItem</a></div></div><div class="api-row" id="dulaircraftbatterychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftBatteryChecklistItem.html">DULAircraftBatteryChecklistItem</a></div></div><div class="api-row" id="dulaircraftbatterytemperaturechecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftBatteryTemperatureChecklistItem.html">DULAircraftBatteryTemperatureChecklistItem</a></div></div><div class="api-row" id="dulgimbalchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULGimbalChecklistItem.html">DULGimbalChecklistItem</a></div></div><div class="api-row" id="dulstoragecapacitychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULStorageCapacityChecklistItem.html">DULStorageCapacityChecklistItem</a></div></div>
+<div class="api-row" id="dulpreflightchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULPreflightChecklistItem.html">DULPreflightChecklistItem</a></div></div><div class="api-row" id="duloverallchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULOverallChecklistItem.html">DULOverallChecklistItem</a></div></div><div class="api-row" id="dulaircraftconnectionchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftConnectionChecklistItem.html">DULAircraftConnectionChecklistitem</a></div></div><div class="api-row" id="dulaircraftlocationchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftLocationChecklistItem.html">DULAircraftLocationChecklistItem</a></div></div><div class="api-row" id="dulflightmodechecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULFlightModeChecklistItem.html">DULFlightModeChecklistItem</a></div></div><div class="api-row" id="dulcompasschecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULCompassChecklistItem.html">DULCompassChecklistItem</a></div></div><div class="api-row" id="dulimuchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULIMUChecklistItem.html">DULIMUChecklistItem</a></div></div><div class="api-row" id="dulescchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULESCChecklistItem.html">DULESCChecklistItem</a></div></div><div class="api-row" id="dulremotecontrollerchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULRemoteControllerChecklistItem.html">DULRemoteControllerChecklistItem</a></div></div><div class="api-row" id="dulradioqualitychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULRadioQualityChecklistItem.html">DULRadioQualityChecklistItem</a></div></div><div class="api-row" id="dulaircraftbatterychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULAircraftBatteryChecklistItem.html">DULAircraftBatteryChecklistItem</a></div></div><div class="api-row" id="dulgimbalchecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULGimbalChecklistItem.html">DULGimbalChecklistItem</a></div></div><div class="api-row" id="dulstoragecapacitychecklistitem"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Widgets/DULStorageCapacityChecklistItem.html">DULStorageCapacityChecklistItem</a></div></div>
 
         </div>
       </div>
