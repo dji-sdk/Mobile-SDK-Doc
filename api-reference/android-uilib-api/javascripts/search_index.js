@@ -900,10 +900,10 @@ var search_data = {
                    2,
                    "/Widgets/FocusModeWidget.html",
                    "#FocusModeWidget_onFocusModeChange_inline",
-                   "Triggers when FocusMode has changed  @param focusMode Camera focus mode enum",
+                   "Triggers when FocusMode has changed  @param FocusMode Camera focus mode enum",
             ],
             [
-                   "Triggers when FocusMode has changed  @param focusMode Camera focus mode enum",
+                   "Triggers when FocusMode has changed  @param FocusMode Camera focus mode enum",
                    1,
                    "/Widgets/FocusModeWidget.html",
                    "#FocusModeWidget_onFocusModeChange_inline",

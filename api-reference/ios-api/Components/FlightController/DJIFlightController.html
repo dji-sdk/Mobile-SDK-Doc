@@ -56,8 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uiilb-api/index.html">IOS UI Library</a></li>
-            <li><a href="/api-reference/android-uiilb-api/index.html">Android UI Library</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -898,7 +898,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)startGoHomeWithCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIFlightController.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#djiflightcontrollerkey_djiflightcontrollerparamgohome_inline">DJIFlightControllerKey.DJIFlightControllerParamGoHome</a></font></td></tr></table></html>
 <h5 id="description-v48">Description:</h5>
-<p><font color="#666">The aircraft will start to go home. The completion block will return execution result once this method is invoked.</font></p>
+<p><font color="#666">The aircraft will start to go home. This method is considered complete once the aircraft has landed at its  home position.</font></p>
 <h5 id="input-parameters-v32">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>Completion block.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflightcontroller_cancelgohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightcontroller_cancelgohome_inline">cancelGoHomeWithCompletion</a></div></div><div class="inline-doc" id="djiflightcontroller_cancelgohome_inline" <blockquote="">
@@ -907,7 +907,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)cancelGoHomeWithCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIFlightController.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#djiflightcontrollerkey_djiflightcontrollerparamcancelgohome_inline">DJIFlightControllerKey.DJIFlightControllerParamCancelGoHome</a></font></td></tr></table></html>
 <h5 id="description-v49">Description:</h5>
-<p><font color="#666">The aircraft will stop going home and will hover in place.</font></p>
+<p><font color="#666">The aircraft will stop going home and will hover in place. The <code><a href="../../Components/FlightController/DJIFlightController.html#djiflightcontroller_gohome">startGoHomeWithCompletion</a></code> completion  block will immediately return an error.</font></p>
 <h5 id="input-parameters-v33">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>Completion block.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflightcontroller_sethomelocation"><div class="api-col left">Location</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightcontroller_sethomelocation_inline">setHomeLocation:withCompletion</a></div></div><div class="inline-doc" id="djiflightcontroller_sethomelocation_inline" <blockquote="">
