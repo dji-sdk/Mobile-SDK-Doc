@@ -29,15 +29,19 @@ As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need
 
 **1**. Now, let's create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'UILibraryDemo'. Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
 
-**2**. Next, download the **android-uilib-release.aar** file from this [Github link](https://github.com/dji-sdk/Mobile-UILibrary-Android/blob/master/libs/android-uilib-release.aar). Go to **File -> New -> New Module** on the Android Studio menu, select "Import .JAR/.AAR Package" and press "Next" as shown below:
+**2**. Next, download the **android-uilib-release.aar** file from this [Github link](https://github.com/dji-sdk/Mobile-UILibrary-Android/blob/master/libs/android-uilib-release.aar). Go to **File -> New -> New Module** on the Android Studio menu:
 
-  ![importAAR](../images/tutorials-and-samples/Android/UILibraryDemo/importAAR.png)
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/newModule.png" width="400">
 
-Enter the downloaded **android-uilib-release.aar** file location in the "File name" field. A "android-uilib-release" name will show in the "Subproject name" field. Press "Finish" button to finish the settings.
+Choose "Import .JAR/.AAR Package" and click on "Next" button as shown below:
 
-Moreover, right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, press the "+" button at the bottom and select "3 Module dependency", then choose the ":android-uilib-release" module and press "OK". You should find the ":android-uilib-release" appear in the list now.
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/importAAR.png" width="600">
 
-  ![dependency](../images/tutorials-and-samples/Android/UILibraryDemo/dependency.png)
+Choose the downloaded **android-uilib-release.aar** file path in the "File name" field. A "android-uilib-release" name will show in the "Subproject name" field. Press "Finish" button to finish the settings.
+
+Moreover, right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, click on the "+" sign at the bottom and select "3 Module dependency", then choose the ":android-uilib-release" module and press "OK". You should find the ":android-uilib-release" appear in the list now.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/dependency.png" width="600">
 
 **3**. Furthermore, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the following:
 
@@ -49,7 +53,7 @@ android {
     buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId "com.dji.uilibrarydemo"
-        minSdkVersion 19
+        minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -74,10 +78,11 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     testCompile 'junit:junit:4.12'
     compile project(':android-uilib-release')
+    compile 'com.android.support:recyclerview-v7:23.4.0'
 }
 ~~~
 
-In the code above, we change the `compileSdkVersion`, `buildToolsVersion`, `targetSdkVersion` number, etc.
+In the code above, we update the `compileSdkVersion`, `buildToolsVersion`, `targetSdkVersion` number, etc. Also, we add the "compile 'com.android.support:recyclerview-v7:23.4.0'" at the bottom of "dependencies" to add the necessary **recyclerview** library.
 
  ![configureAndroidSDK](../images/tutorials-and-samples/Android/UILibraryDemo/buildGradle.png)
 
@@ -550,7 +555,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    //1
+    <!--1-->
     <!-- Widget to see first person view (FPV) -->
     <dji.ui.widget.FPVWidget
         android:layout_width="match_parent"
@@ -560,7 +565,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    //2
+    <!--2-->
     <!-- Widgets in top status bar -->
     <LinearLayout
         android:id="@+id/signal"
@@ -608,7 +613,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
             android:layout_height="22dp"/>
     </LinearLayout>
 
-    //3
+    <!--3-->
     <LinearLayout
         android:id="@+id/camera"
         android:layout_width="wrap_content"
@@ -655,7 +660,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
             android:layout_width="108dp"
             android:layout_height="25dp"/>
 
-    //4
+    <!--4-->
     </LinearLayout>
     <dji.ui.widget.RemainingFlightTimeWidget
         android:layout_alignParentTop="true"
@@ -664,7 +669,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
         android:background="@color/transparent"
         android:layout_height="20dp"/>
 
-    //5
+    <!--5-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -680,7 +685,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
 
     </LinearLayout>
 
-    //6
+    <!--6-->
     <!--Take off and return home buttons on left -->
     <LinearLayout
         android:layout_width="40dp"
@@ -700,7 +705,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
             android:layout_marginTop="12dp"/>
     </LinearLayout>
 
-    //7
+    <!--7-->
     <dji.ui.widget.controls.CameraControlsWidget
         android:id="@+id/CameraCapturePanel"
         android:layout_alignParentRight="true"
@@ -708,7 +713,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
         android:layout_width="50dp"
         android:layout_height="213dp"/>
 
-    //8
+    <!--8-->
     <dji.ui.panel.CameraSettingExposurePanel
         android:id="@+id/CameraExposureMode"
         android:layout_width="180dp"
@@ -719,7 +724,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
         android:layout_height="263dp"
         android:visibility="invisible"/>
 
-    //9
+    <!--9-->
     <dji.ui.panel.CameraSettingAdvancedPanel
         android:id="@+id/CameraAdvancedSetting"
         android:layout_width="180dp"
@@ -730,7 +735,7 @@ Once you've done that, let's continue to open the "activity_main.xml" file, and 
         android:gravity="center"
         android:visibility="invisible"/>
 
-    //10
+    <!--10-->
     <!-- Pre-flight checklist panel -->
     <dji.ui.panel.PreFlightCheckListPanel
         android:id="@+id/PreflightCheckView"
