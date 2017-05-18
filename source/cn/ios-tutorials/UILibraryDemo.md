@@ -74,8 +74,36 @@ Pod installation complete! There are 2 dependencies from the Podfile and 2 total
 ## Importing VideoPreviewer
 
  You can check our previous tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **VideoPreviewer** into your Xcode project.
- 
-## Working on the MainViewController and DefaultlayoutViewController
+
+## Quick Try on DJI UI Library
+
+ After you finish the steps above, let's try to implement the standard DJI Go UIs and functionalities using DJI UI Library with very few steps.
+
+ Open the "ViewController.h" header file, replace the code with the following:
+
+ ~~~
+ #import <DJIUILibrary/DJIUILibrary.h>
+
+ @interface ViewController : DULDefaultLayoutViewController
+
+ @end
+ ~~~
+
+ Here, we import the "DJIUILibrary" header file and make the ViewController inherits from `DULDefaultLayoutViewController`. 
+
+ Next, let open "Main.storyboard" file and set the View Controller's "Class" value as **DULDefaultLayoutViewController** as shown below:
+
+<img src="../../images/tutorials-and-samples/iOS/UILibraryDemo/setClassValue.png" width="300">
+
+ Lastly, since DJI UI Library doesn't support **Bitcode** yet, so let's navigate to the Xcode's "Build Settings" -> "Enable Bitcode", and set the value to "No".
+
+ Now, let's build and run the project on an iPad, you should be able to see the following gif animation if everything goes well:
+
+<img src="../../images/tutorials-and-samples/iOS/UILibraryDemo/firstTry.gif" width="1000">
+
+With the help to DJI UI Library, it's simple and straightforward to implement the standard DJI Go UIs and functionalities in your own application. So far if you connect the application to DJI Products, the functionalities (Like show live video feed, shoot photo, etc) won't work. You need to implement application registration and start a connection between the DJI SDK and the DJI producst. Let's continue to implement these features.
+
+## Application Registration and Product Connection
 
 **1**. Now, let's open the `UILibraryDemo.xcworkspace` file in Xcode and delete the **ViewController** class which is created by Xcode by default. Then create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "MainViewController". We will use it to manage the SDK Registration and production connection works. Next, create another new file, choose the same template and subclass, name it as "DefaultLayoutViewController".
 
@@ -207,7 +235,9 @@ In the code above, we have implemented the following logics:
 
 3. Similarly, implement the delegate methods: `- (void)productConnected:(DJIBaseProduct *)product` and `- (void)productDisconnected` of **DJISDKManagerDelegate** to show alert view and update the status of the UILabel objects and `connectButton` when the connection between DJI product and the application changes.
 
-**3**. Lastly, let's open the **DefaultLayoutViewController.h** file, import the **DJIUILibrary** header file and change the subclass to `DULDefaultLayoutViewController` as shown below:
+## Working on the DefaultLayoutViewController
+
+Let's open the **DefaultLayoutViewController.h** file, import the **DJIUILibrary** header file and change the subclass to `DULDefaultLayoutViewController` as shown below:
 
 ```
 #import <DJIUILibrary/DJIUILibrary.h>

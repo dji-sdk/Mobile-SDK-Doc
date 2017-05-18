@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
 version: v4.0.1
-date: 2017-05-15
+date: 2017-05-18
 github: https://github.com/DJI-Mobile-SDK-Tutorials/xxxxx
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -15,7 +15,7 @@ In this tutorial, you will learn how to use DJI Android UI Library and DJI Andro
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/xxxxx).
 
-We use Phantom 4 and iPad Air as an example to make this demo. For more details of customizing the layouts for iPhone devices, please check the tutorial's Github Sample Project. Let's get started!
+We use Mavic Pro and Nexus 5 as an example to make this demo. For more details of customizing the layouts for iPhone devices, please check the tutorial's Github Sample Project. Let's get started!
 
 ## Introduction
 
@@ -27,7 +27,7 @@ As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need
 
 ## Importing DJI SDK and UILibrary with AAR file
 
-**1**. Now, let's create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'UILibraryDemo'. Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
+**1**. Now, let's create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'UILibraryDemo'. Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 18: Android 4.3 (Jelly Bean)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
 **2**. Next, download the **android-uilib-release.aar** file from this [Github link](https://github.com/dji-sdk/Mobile-UILibrary-Android/blob/master/libs/android-uilib-release.aar). Go to **File -> New -> New Module** on the Android Studio menu:
 
@@ -91,7 +91,7 @@ In the code above, we update the `compileSdkVersion`, `buildToolsVersion`, `targ
 
 Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
 
-**4**. Now, open the MainActivity.java file in `com.dji.uilibrary` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
+**4**. Now, open the MainActivity.java file and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.uilibrarydemo;
@@ -103,92 +103,295 @@ import dji.sdk.sdkmanager.DJISDKManager;
 
 Wait for a few seconds and check if the words turn red, if they remain gray color, congrats! You have imported the DJI Android SDK and DJI UI Library into your Android Studio project successfully!
 
-## Registering the Application
+## Quick Try on DJI UI Library
 
-### Modifying AndroidManifest file
+### Building the Default Layout using UI Library
 
-After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
-
-Let's open the "AndroidManifest.xml" file and add the following elements on top of the **application** element:
+Now, let's continue to open the "activity_main.xml" file, and replace the code with the following:
 
 ~~~xml
-<!-- DJI SDK need permission -->
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-<uses-permission android:name="android.permission.VIBRATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blue"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
 
-<uses-feature android:name="android.hardware.camera" />
-<uses-feature android:name="android.hardware.camera.autofocus" />
-<uses-feature
-    android:name="android.hardware.usb.host"
-    android:required="false" />
-<uses-feature
-    android:name="android.hardware.usb.accessory"
-    android:required="true" />
+    <!--1-->
+    <!-- Widget to see first person view (FPV) -->
+    <dji.ui.widget.FPVWidget
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <dji.ui.widget.FPVOverlayWidget
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--2-->
+    <!-- Widgets in top status bar -->
+    <LinearLayout
+        android:id="@+id/signal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/dark_gray"
+        android:orientation="horizontal">
+
+        <dji.ui.widget.PreFlightStatusWidget
+            android:id="@+id/status"
+            android:layout_width="238dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FlightModeWidget
+            android:layout_width="103dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.GPSSignalWidget
+            android:layout_width="44dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.VisionWidget
+            android:layout_width="22dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.RemoteControlSignalWidget
+            android:layout_width="38dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.VideoSignalWidget
+            android:layout_width="38dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.WiFiSignalWidget
+            android:layout_width="22dp"
+            android:layout_height="20dp"/>
+
+        <dji.ui.widget.BatteryWidget
+            android:layout_width="56dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.ConnectionWidget
+            android:layout_marginTop="5dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"/>
+    </LinearLayout>
+
+    <!--3-->
+    <LinearLayout
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signal"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="12dp"
+        android:background="@color/dark_gray"
+        android:orientation="horizontal">
+
+        <dji.ui.widget.AutoExposureLockWidget
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FocusExposureSwitchWidget
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FocusModeWidget
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigISOWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigShutterWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigApertureWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigEVWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigWBWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.CameraConfigStorageWidget
+            android:layout_width="108dp"
+            android:layout_height="25dp"/>
+
+    <!--4-->
+    </LinearLayout>
+    <dji.ui.widget.RemainingFlightTimeWidget
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:background="@color/transparent"
+        android:layout_height="20dp"/>
+
+    <!--5-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <dji.ui.widget.dashboard.DashboardWidget
+            android:id="@+id/Compass"
+            android:layout_width="405dp"
+            android:layout_height="91dp"
+            android:layout_marginRight="12dp"/>
+
+    </LinearLayout>
+
+    <!--6-->
+    <!--Take off and return home buttons on left -->
+    <LinearLayout
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <dji.ui.widget.TakeOffWidget
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"/>
+
+        <dji.ui.widget.ReturnHomeWidget
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
+
+    <!--7-->
+    <dji.ui.widget.controls.CameraControlsWidget
+        android:id="@+id/CameraCapturePanel"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/camera"
+        android:layout_width="50dp"
+        android:layout_height="213dp"/>
+
+    <!--8-->
+    <dji.ui.panel.CameraSettingExposurePanel
+        android:id="@+id/CameraExposureMode"
+        android:layout_width="180dp"
+        android:layout_below="@id/camera"
+        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:layout_height="263dp"
+        android:visibility="invisible"/>
+
+    <!--9-->
+    <dji.ui.panel.CameraSettingAdvancedPanel
+        android:id="@+id/CameraAdvancedSetting"
+        android:layout_width="180dp"
+        android:layout_height="263dp"
+        android:layout_below="@id/camera"
+        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:visibility="invisible"/>
+
+    <!--10-->
+    <!-- Pre-flight checklist panel -->
+    <dji.ui.panel.PreFlightCheckListPanel
+        android:id="@+id/PreflightCheckView"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signal"
+        android:visibility="gone"/>
+
+</RelativeLayout>
 ~~~
 
-Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
+In the xml file above, we implement the following UIs:
 
-Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
+1. Firstly, we add the `dji.ui.widget.FPVWidget` and `dji.ui.widget.FPVOverlayWidget` elements to show the first person view (FPV).
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/fpvView.png" width="600">
+
+2. Next, on top of the screen, we create a **LinearLayout** to group the top status bar widgets, like `PreFlightStatusWidget`, `FlightModeWidget`, `GPSSignalWidget`, `RemoteControlSignalWidget`, etc. 
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/topBar.png" width="600">
+
+3. Moreover, we create another **LinearLayout** to group the camera configurations and config widgets below the status bar widgets, like `AutoExposureLockWidget`, `FocusExposureSwitchWidget`, `CameraConfigISOWidget`, `CameraConfigStorageWidget`, etc. Also we add the `dji.ui.widget.RemainingFlightTimeWidget` element to show the remaining flight time widget below the top status bar widgets too.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/cameraParams.png" width="600">
+
+4. Below the top status bar, we add a `RemainingFlightTimeWidget` to show the remaining flight time.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/remainingFlightTime.png" width="600">
+
+5. At the bottom of the screen, we add another **LinearLayout** to group the `DashboardWidget`. It includes the circular `CompassWidget`, the `DistanceHomeWidget`, the `HorizontalVelocityWidget`, the `DistanceRCWidget`, the `VerticalVelocityWidget` and the `AltitudeWidget` as shown below:
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/dashboard.png" width="600">
+
+6. On the left side of the screen, we add a **LinearLayout** to group the `TakeOffWidget` and `ReturnHomeWidget` which will be shown as two buttons.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/takeOff_backHome.png" width="60">
+
+7. On the right side of the screen, we add the `dji.ui.widget.controls.CameraControlsWidget` element to create a `CameraControlsWidget` to show the camera control widget. Tapping the Menu button on top will toggle between show and hide `CameraSettingAdvancedPanel`. Tapping the switch button in the middle will toggle camera mode between **shoot photo** and **record video**. Tapping the bottom button will toggle between show and hide `CameraSettingExposurePanel`.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/cameraControlWidget.png" width="60">
+
+8. To add the `CameraSettingExposurePanel`, we add the `dji.ui.panel.CameraSettingExposurePanel` element and configure its attributes.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/exposurePanel.png" width="200">
+
+9. To add the `CameraSettingAdvancedPanel`, we add the `dji.ui.panel.CameraSettingAdvancedPanel` element and configure its attributes.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/advancedPanel.png" width="200">
+
+10. Lastly, we add the `dji.ui.panel.PreFlightCheckListPanel` element to create the `PreFlightCheckListPanel`. When user press on the `PreFlightStatusWidget`, it will show up below the top status bar.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/checklistPanel.png" width="400">
+
+Once you finished the steps above, open the "colors.xml" file and replace the content with the following:
 
 ~~~xml
-<!-- DJI SDK -->
-<uses-library android:name="com.android.future.usb.accessory" />
-
-<meta-data
-    android:name="com.dji.sdk.API_KEY"
-    android:value="Please enter your App Key here." />
-
-<activity
-    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
-    android:theme="@android:style/Theme.Translucent">
-    <intent-filter>
-        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-    </intent-filter>
-
-    <meta-data
-        android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-        android:resource="@xml/accessory_filter" />
-</activity>
-
-<service android:name="dji.sdk.sdkmanager.DJIGlobalService"></service>
-<!-- DJI SDK -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="background_blue">#242d34</color>
+    <color name="transparent">#00000000</color>
+    <color name="dark_gray">#80000000</color>
+</resources>
 ~~~
 
-In the code above, you should substitute your **App Key** of the application for "Please enter your App Key here." in the **value** attribute under the `android:name="com.dji.sdk.API_KEY"` attribute. For the "accessory_filter.xml" file, you can get it from this tutorial's Github Sample project.
-
-Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as shown below:
+Moreover, let's open the "styles.xml" file and replace the content with the following:
 
 ~~~xml
-<activity android:name=".ConnectionActivity"
-    android:screenOrientation="portrait">
+<resources>
 
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
-<activity android:name=".MainActivity"
-    android:screenOrientation="landscape"></activity>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Base.Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+</resources>
 ~~~
 
-In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **portrait** and set "MainActivity" as **landscape**.
+Now, let's build and run the project and install it to your Android device. If everything goes well, you should see something like the gif animation below:
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/miniDJIGo.gif" width="600">
+
+With the help to DJI UI Library, it's simple and straightforward to implement the standard DJI Go UIs and functionalities in your own application. So far if you connect the application to DJI Products, the functionalities (Like show live video feed, shoot photo, etc) won't work. You need to implement application registration and start a connection between the DJI SDK and the DJI producst. Let's continue to implement these features.
+
+## Application Registration and Product Connection
+
+Now let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
 ### Implementing DemoApplication Class
 
-Now let's right click on the 'com.dji.uilibrarydemo' module in the project navigator and select "New -> Java Class" to create a new file, enter "DemoApplication" as the Name. Then replace the code with the same file in this tutorial's Github sample project, here we explain the important parts of it:
+Right click on the 'com.dji.uilibrarydemo' module in the project navigator and select "New -> Java Class" to create a new file, enter "DemoApplication" as the **Name**. Then replace the code with the same file in this tutorial's Github sample project, here we explain the important parts of it:
 
 ~~~java
 @Override
@@ -432,6 +635,64 @@ Open the **activity_connection.xml** layout file and replace the code with the f
     android:orientation="vertical">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sdk_version"
+        android:textSize="15dp"
+        android:id="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="DJIUILibraryDemo"
+        android:id="@+id/textView"
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black_overlay"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/text_product_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_information"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/text_connection_status"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:background="@drawable/round_btn"
+        android:text="Open"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginBottom="43dp" />
+
+    <TextView
+        android:id="@+id/text_model_available"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/model_not_available"
+        android:textSize="15dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
         android:id="@+id/text_connection_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -440,73 +701,16 @@ Open the **activity_connection.xml** layout file and replace the code with the f
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_alignBottom="@+id/text_product_info"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="89dp" />
-
-    <TextView
-        android:id="@+id/text_product_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp"
-        android:text="@string/product_information"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        />
-
-    <TextView
-        android:id="@+id/text_model_available"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="300dp"
-        android:text="@string/model_not_available"
-        android:textSize="15dp"/>
-
-    <Button
-        android:id="@+id/btn_open"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
-        android:background="@drawable/round_btn"
-        android:text="Open"
-        android:textColor="@color/colorWhite"
-        android:textSize="20dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
-        android:text="@string/sdk_version"
-        android:textSize="15dp"
-        android:id="@+id/textView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="DJIUILibraryDemo"
-        android:id="@+id/textView"
-        android:layout_marginTop="58dp"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@color/black_overlay"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/textView2" />
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 ~~~
 
-In the xml file, we create five TextViews and one Button within a RelativeLayout. We use the TextView(id: text\_connection\_status) to show the product connection status and use the TextView(id:text\_product\_info) to show the connected product name. The Button(id: btn\_open) is used to open the **MainActivity**.
+In the xml file, we create five TextViews and one Button within a RelativeLayout. We use the **TextView(id: text\_connection\_status)** to show the product connection status and use the **TextView(id:text\_product\_info)** to show the connected product name. The **Button(id: btn\_open)** is used to open the "MainActivity".
 
-Moreover, copy all the images file from this tutorial's Github sample project's **drawable** folder (**app->src->main->res->drawable**) to the same folder in the project.
+Moreover, copy all the image files from this tutorial's Github sample project's "drawable" folder (**app->src->main->res->drawable**) to the same folder in the project.
 
 ![imageFiles](../images/tutorials-and-samples/Android/UILibraryDemo/imageFiles.png)
 
@@ -518,6 +722,12 @@ Furthermore, open the "colors.xml" file and update the content as shown below:
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black_overlay">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_gray">#B3FFFFFF</color>
+    <color name="background_blue">#242d34</color>
+    <color name="dark_gray">#80000000</color>
 </resources>
 ~~~
 
@@ -535,275 +745,88 @@ Lastly, open the "strings.xml" file and replace the content with the followings:
 </resources>
 ~~~
 
-Now, let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
+### Modifying AndroidManifest file
 
-![registerSuccess](../images/tutorials-and-samples/Android/UILibraryDemo/registerSuccess.png)
-
-## Working on the MainActivity
-
-### Building the Default Layout using UI Library
-
-Once you've done that, let's continue to open the "activity_main.xml" file, and replace the code with the following:
+Once you finished the steps above, let's open the "AndroidManifest.xml" file and add the following elements on top of the **application** element:
 
 ~~~xml
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_blue"
-    android:orientation="horizontal"
-    tools:context=".MainActivity">
+<!-- DJI SDK need permission -->
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-    <!--1-->
-    <!-- Widget to see first person view (FPV) -->
-    <dji.ui.widget.FPVWidget
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <dji.ui.widget.FPVOverlayWidget
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <!--2-->
-    <!-- Widgets in top status bar -->
-    <LinearLayout
-        android:id="@+id/signal"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/dark_gray"
-        android:orientation="horizontal">
-
-        <dji.ui.widget.PreFlightStatusWidget
-            android:id="@+id/status"
-            android:layout_width="238dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.FlightModeWidget
-            android:layout_width="103dp"
-            android:layout_height="22dp"/>
-
-        <dji.ui.widget.GPSSignalWidget
-            android:layout_width="44dp"
-            android:layout_height="22dp"/>
-
-        <dji.ui.widget.VisionWidget
-            android:layout_width="22dp"
-            android:layout_height="22dp"/>
-
-        <dji.ui.widget.RemoteControlSignalWidget
-            android:layout_width="38dp"
-            android:layout_height="22dp"/>
-
-        <dji.ui.widget.VideoSignalWidget
-            android:layout_width="38dp"
-            android:layout_height="22dp"/>
-
-        <dji.ui.widget.WiFiSignalWidget
-            android:layout_width="22dp"
-            android:layout_height="20dp"/>
-
-        <dji.ui.widget.BatteryWidget
-            android:layout_width="56dp"
-            android:layout_height="22dp"/>
-
-        <dji.ui.widget.ConnectionWidget
-            android:layout_marginTop="5dp"
-            android:layout_width="22dp"
-            android:layout_height="22dp"/>
-    </LinearLayout>
-
-    <!--3-->
-    <LinearLayout
-        android:id="@+id/camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signal"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="12dp"
-        android:background="@color/dark_gray"
-        android:orientation="horizontal">
-
-        <dji.ui.widget.AutoExposureLockWidget
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.FocusExposureSwitchWidget
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.FocusModeWidget
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.config.CameraConfigISOWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.config.CameraConfigShutterWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.config.CameraConfigApertureWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.config.CameraConfigEVWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.config.CameraConfigWBWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
-
-        <dji.ui.widget.CameraConfigStorageWidget
-            android:layout_width="108dp"
-            android:layout_height="25dp"/>
-
-    <!--4-->
-    </LinearLayout>
-    <dji.ui.widget.RemainingFlightTimeWidget
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
-        android:layout_width="match_parent"
-        android:background="@color/transparent"
-        android:layout_height="20dp"/>
-
-    <!--5-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:padding="12dp">
-
-        <dji.ui.widget.dashboard.DashboardWidget
-            android:id="@+id/Compass"
-            android:layout_width="405dp"
-            android:layout_height="91dp"
-            android:layout_marginRight="12dp"/>
-
-    </LinearLayout>
-
-    <!--6-->
-    <!--Take off and return home buttons on left -->
-    <LinearLayout
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="12dp"
-        android:orientation="vertical">
-
-        <dji.ui.widget.TakeOffWidget
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="12dp"/>
-
-        <dji.ui.widget.ReturnHomeWidget
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"/>
-    </LinearLayout>
-
-    <!--7-->
-    <dji.ui.widget.controls.CameraControlsWidget
-        android:id="@+id/CameraCapturePanel"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/camera"
-        android:layout_width="50dp"
-        android:layout_height="213dp"/>
-
-    <!--8-->
-    <dji.ui.panel.CameraSettingExposurePanel
-        android:id="@+id/CameraExposureMode"
-        android:layout_width="180dp"
-        android:layout_below="@id/camera"
-        android:layout_toLeftOf="@+id/CameraCapturePanel"
-        android:background="@color/transparent"
-        android:gravity="center"
-        android:layout_height="263dp"
-        android:visibility="invisible"/>
-
-    <!--9-->
-    <dji.ui.panel.CameraSettingAdvancedPanel
-        android:id="@+id/CameraAdvancedSetting"
-        android:layout_width="180dp"
-        android:layout_height="263dp"
-        android:layout_below="@id/camera"
-        android:layout_toLeftOf="@+id/CameraCapturePanel"
-        android:background="@color/transparent"
-        android:gravity="center"
-        android:visibility="invisible"/>
-
-    <!--10-->
-    <!-- Pre-flight checklist panel -->
-    <dji.ui.panel.PreFlightCheckListPanel
-        android:id="@+id/PreflightCheckView"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signal"
-        android:visibility="gone"/>
-
-</RelativeLayout>
+<uses-feature android:name="android.hardware.camera" />
+<uses-feature android:name="android.hardware.camera.autofocus" />
+<uses-feature
+    android:name="android.hardware.usb.host"
+    android:required="false" />
+<uses-feature
+    android:name="android.hardware.usb.accessory"
+    android:required="true" />
 ~~~
 
-In the xml file above, we implement the following UIs:
+Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
 
-1. Firstly, we add the `dji.ui.widget.FPVWidget` and `dji.ui.widget.FPVOverlayWidget` elements to show the first person view (FPV).
+Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/fpvView.png" width="600">
+~~~xml
+<!-- DJI SDK -->
+<uses-library android:name="com.android.future.usb.accessory" />
 
-2. Next, on top of the screen, we create a **LinearLayout** to group the top status bar widgets, like `PreFlightStatusWidget`, `FlightModeWidget`, `GPSSignalWidget`, `RemoteControlSignalWidget`, etc. 
+<meta-data
+    android:name="com.dji.sdk.API_KEY"
+    android:value="Please enter your App Key here." />
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/topBar.png" width="600">
+<activity
+    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
+    android:theme="@android:style/Theme.Translucent">
+    <intent-filter>
+        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+    </intent-filter>
 
-3. Moreover, we create another **LinearLayout** to group the camera configurations and config widgets below the status bar widgets, like `AutoExposureLockWidget`, `FocusExposureSwitchWidget`, `CameraConfigISOWidget`, `CameraConfigStorageWidget`, etc. Also we add the `dji.ui.widget.RemainingFlightTimeWidget` element to show the remaining flight time widget below the top status bar widgets too.
+    <meta-data
+        android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+        android:resource="@xml/accessory_filter" />
+</activity>
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/cameraParams.png" width="600">
-
-5. At the bottom of the screen, we add another **LinearLayout** to group the `DashboardWidget`. It includes the circular `CompassWidget`, the `DistanceHomeWidget`, the `HorizontalVelocityWidget`, the `DistanceRCWidget`, the `VerticalVelocityWidget` and the `AltitudeWidget` as shown below:
-
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/dashboard.png" width="600">
-
-6. On the left side of the screen, we add a **LinearLayout** to group the `TakeOffWidget` and `ReturnHomeWidget` which will be shown as two buttons.
-
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/takeOff_backHome.png" width="80">
-
-7. On the right side of the screen, we add the `dji.ui.widget.controls.CameraControlsWidget` element to create a `CameraControlsWidget` to show the camera control widget. Tapping the Menu button on top will toggle between show and hide `CameraSettingAdvancedPanel`. Tapping the switch button in the middle will toggle camera mode between **shoot photo** and **record video**. Tapping the bottom button will toggle between show and hide `CameraSettingExposurePanel`.
-
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/cameraControlWidget.png" width="80">
-
-8. To add the `CameraSettingExposurePanel`, we add the `dji.ui.panel.CameraSettingExposurePanel` element and configure its attributes.
-
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/exposurePanel.png" width="200">
-
-9. To add the `CameraSettingAdvancedPanel`, we add the `dji.ui.panel.CameraSettingAdvancedPanel` element and configure its attributes.
-
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/advancedPanel.png" width="200">
-
-10. Lastly, we add the `dji.ui.panel.PreFlightCheckListPanel` element to create the `PreFlightCheckListPanel`. When user press on the `PreFlightStatusWidget`, it will show up below the top status bar.
-
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/checklistPanel.png" width="400">
-
-### Implementing MainActivity Class
-
-Lastly, let's open the "MainActivity.java" file and implement the `onResume()` method to hide the navigation bar and status bar as shown below:
-
-~~~java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    // Hide both the navigation bar and the status bar.
-    View decorView = getWindow().getDecorView();
-    decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-}
+<service android:name="dji.sdk.sdkmanager.DJIGlobalService"></service>
+<!-- DJI SDK -->
 ~~~
+
+In the code above, you should substitute your **App Key** of the application for "Please enter your App Key here." in the **value** attribute under the `android:name="com.dji.sdk.API_KEY"` attribute. For the "accessory_filter.xml" file, you can get it from this tutorial's Github Sample project.
+
+Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as shown below:
+
+~~~xml
+<activity android:name=".ConnectionActivity"
+    android:screenOrientation="landscape">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+<activity android:name=".MainActivity"
+    android:screenOrientation="landscape">
+</activity>
+~~~
+
+In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **landscape** and set "MainActivity" as **landscape**.
+
+Now, let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
+
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/registerSuccess.png" width="600">
 
 ## Connecting to the Aircraft and Run the Project
 
@@ -811,7 +834,7 @@ Now, please check this [Connect Mobile Device and Run Application](../applicatio
   
 If you can see the live video feed and test the features like this, congratulations! Using the DJI UI Library is that easy.
 
-![freeform](../images/tutorials-and-samples/iOS/UILibraryDemo/connectToAircraft.gif)
+<img src="../images/tutorials-and-samples/Android/UILibraryDemo/connectToAircraft.gif" width="600">
 
 ### Summary
 
