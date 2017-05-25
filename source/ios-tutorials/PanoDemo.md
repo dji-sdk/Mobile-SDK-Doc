@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
-version: v4.0.1
-date: 2017-04-24
+version: v4.1
+date: 2017-05-25
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
