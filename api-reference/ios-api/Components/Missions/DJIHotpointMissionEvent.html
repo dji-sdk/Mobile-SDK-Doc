@@ -129,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">DJIIndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">DJIAppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">DJIUserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -198,6 +204,12 @@
                             <dd><a data-href="../IMUState/DJIIMUState.html" class="sub-toggle">DJIIMUState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../IMUState/DJIIMUState_DJIIMUMultiOrientationCalibrationHint.html">DJIIMUMultipleOrientationCalibrationHint</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">DJIAirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">DJIAirSenseAirplaneState</a>
                                       </dd>
                               </ul>
                             </dd>
@@ -502,7 +514,7 @@
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">States of <code><a href="../../Components/Missions/DJIHotpointMissionOperator.html#djihotpointmissionoperator">DJIHotpointMissionOperator</a></code>.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_unknown_inline"></a>DJIHotpointMissionStateUnknown</font></td><td><font color="#666">The state of the operator is unknown. This is the inital state when the  operator has just been created.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_disconnected_inline"></a>DJIHotpointMissionStateDisconnected</font></td><td><font color="#666">The connection between the mobile device and aircraft is broken.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_recovering_inline"></a>DJIHotpointMissionStateRecovering</font></td><td><font color="#666">The connection between the mobile device and aircraft is recovering.  At this time, the operator is synchronizing the state from the aircraft.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_notsupported_inline"></a>DJIHotpointMissionStateNotSupported</font></td><td><font color="#666">The connected product does not support Hotpoint mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_readytostart_inline"></a>DJIHotpointMissionStateReadyToStart</font></td><td><font color="#666">The operator is ready to start a Hotpoint mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_executinginitialphase_inline"></a>DJIHotpointMissionStateExecutingInitialPhase</font></td><td><font color="#666">The aircraft is moving torwards the start point of the Hotpoint mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_executing_inline"></a>DJIHotpointMissionStateExecuting</font></td><td><font color="#666">The execution is started successfully.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_executionpaused_inline"></a>DJIHotpointMissionStateExecutionPaused</font></td><td><font color="#666">Hotpoint mission is paused successfully. User can call  <code><a href="../../Components/Missions/DJIHotpointMissionOperator.html#djihotpointmissionoperator_resumemission">resumeMissionWithCompletion</a></code> to continue the execution.</font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_unknown_inline"></a>DJIHotpointMissionStateUnknown</font></td><td><font color="#666">The state of the operator is unknown. This is the initial state when the  operator has just been created.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_disconnected_inline"></a>DJIHotpointMissionStateDisconnected</font></td><td><font color="#666">The connection between the mobile device and aircraft is broken.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_recovering_inline"></a>DJIHotpointMissionStateRecovering</font></td><td><font color="#666">The connection between the mobile device and aircraft is recovering.  At this time, the operator is synchronizing the state from the aircraft.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_notsupported_inline"></a>DJIHotpointMissionStateNotSupported</font></td><td><font color="#666">The connected product does not support Hotpoint mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_readytostart_inline"></a>DJIHotpointMissionStateReadyToStart</font></td><td><font color="#666">The operator is ready to start a Hotpoint mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_executinginitialphase_inline"></a>DJIHotpointMissionStateExecutingInitialPhase</font></td><td><font color="#666">The aircraft is moving towards the start point of the Hotpoint mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_executing_inline"></a>DJIHotpointMissionStateExecuting</font></td><td><font color="#666">The execution is started successfully.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmissionstate_executionpaused_inline"></a>DJIHotpointMissionStateExecutionPaused</font></td><td><font color="#666">Hotpoint mission is paused successfully. User can call  <code><a href="../../Components/Missions/DJIHotpointMissionOperator.html#djihotpointmissionoperator_resumemission">resumeMissionWithCompletion</a></code> to continue the execution.</font></td></tr></table></html></div>
 
         </div>
       </div>
