@@ -129,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -210,6 +216,12 @@
                             <dd><a href="../FlightController/DJIFlightController_DJIVirtualStickFlightControlData.html">FlightControlData</a>
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
+                            </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
                             </dd>
                     </ul>
                   </dd>
@@ -658,7 +670,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> RotationMode</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">The mode of the gimabl rotation operation.</font></p>
+<p><font color="#666">The mode of the gimbal rotation operation.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djigimbal_djigimbalrotation_djigimbalrotationmode_relativeangle_inline"></a>RELATIVE_ANGLE</font></td><td><font color="#666">The angle value, when the gimbal is rotating, relative to the current angle.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djigimbal_djigimbalrotation_djigimbalrotationmode_absoluteangle_inline"></a>ABSOLUTE_ANGLE</font></td><td><font color="#666">The angle value, when the gimbal is rotating, relative to 0 degrees (aircraft heading).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djigimbal_djigimbalrotation_djigimbalrotationmode_speed_inline"></a>SPEED</font></td><td><font color="#666">Rotate the gimbal's pitch, roll, and yaw in SPEED Mode. The direction can either be set to clockwise or  counter-clockwise. <br> For Phantom 3 Professional, Phantom 3 Advanced and Phantom 3 Standard, roll and  yaw rotations are not available. <br> For Inspire 1, Inspire Pro and M100, pitch, roll and yaw rotations  are available. <br> For Osmo, roll rotation is not available. The yaw angleVelocity of  DJIGimbalSpeedRotation range is (0, 120). <br></font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>

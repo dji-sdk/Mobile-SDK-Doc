@@ -129,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -210,6 +216,12 @@
                             <dd><a href="DJIFlightController_DJIVirtualStickFlightControlData.html">FlightControlData</a>
                             </dd>
                             <dd><a href="DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
+                            </dd>
+                            <dd><a data-href="DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
                             </dd>
                     </ul>
                   </dd>
@@ -650,7 +662,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">LocationCoordinate3D <span class="title">getAircraftLocation</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_aircraft_location_latitude_inline">FlightControllerKey.AIRCRAFT_LOCATION_LATITUDE</a>, <a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_aircraft_location_longitude_inline">FlightControllerKey.AIRCRAFT_LOCATION_LONGITUDE</a>, <a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_altitude_inline">FlightControllerKey.ALTITUDE</a></font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Gets the current location of the aircraft as a coordinate. The altitude is  relative to take off location, measured by the barometer, in meters.</font></p>
+<p><font color="#666">Gets the current location of the aircraft as a coordinate. <code>nil</code> if the location is invalid.</font></p>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate3D.html#djiflightcontroller_djilocationcoordinate3d">LocationCoordinate3D</a></font></td><td><font color="#666"><i>The current location of the aircraft as a coordinate.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflightcontroller_djiflightcontrollercurrectstate_attitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightcontroller_djiflightcontrollercurrectstate_attitude_inline">getAttitude</a></div></div><div class="inline-doc" id="djiflightcontroller_djiflightcontrollercurrectstate_attitude_inline" <blockquote="">
