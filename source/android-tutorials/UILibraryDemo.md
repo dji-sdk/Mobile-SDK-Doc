@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
 version: v4.0.1
-date: 2017-05-18
+date: 2017-06-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/xxxxx
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -23,7 +23,7 @@ DJI UI Library is a visual framework consisting of UI Elements. It helps you sim
 
 Additionally, with the ease of use, UILibrary let you focus more on business and application logic. 
 
-As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application developement.
+As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
 
 ## Importing DJI SDK and UILibrary with AAR file
 
@@ -103,9 +103,7 @@ import dji.sdk.sdkmanager.DJISDKManager;
 
 Wait for a few seconds and check if the words turn red, if they remain gray color, congrats! You have imported the DJI Android SDK and DJI UI Library into your Android Studio project successfully!
 
-## Quick Try on DJI UI Library
-
-### Building the Default Layout using UI Library
+## Building the Default Layout using UI Library
 
 Now, let's continue to open the "activity_main.xml" file, and replace the code with the following:
 
@@ -379,13 +377,9 @@ Moreover, let's open the "styles.xml" file and replace the content with the foll
 </resources>
 ~~~
 
-Now, let's build and run the project and install it to your Android device. If everything goes well, you should see something like the gif animation below:
+With the help of DJI UI Library, it's simple and straightforward to implement the standard DJI Go UIs and functionalities in your own application. 
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/miniDJIGo.gif" width="600">
-
-With the help to DJI UI Library, it's simple and straightforward to implement the standard DJI Go UIs and functionalities in your own application. So far if you connect the application to DJI Products, the functionalities (Like show live video feed, shoot photo, etc) won't work. You need to implement application registration and start a connection between the DJI SDK and the DJI producst. Let's continue to implement these features.
-
-## Application Registration and Product Connection
+## Application Registration
 
 Now let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
@@ -474,276 +468,7 @@ Here, we implement several features:
 2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message to inform users. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
 
-### Implementing ConnectionActivity
-
-#### Working on the ConnectionActivity Class
-
-To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**. 
-
-Now let's Right-click on the package `com.dji.uilibrarydemo` in the project navigator and choose **New -> Activity -> Basic Activity**, Type in "ConnectionActivity" in the "Activity Name" field, then press "Finish" button.
-
-Next, replace the code of the "ConnectionActivity.java" file with the same file in this tutorial's Github Sample project, here we explain the important parts of it:
-
-- Define and Setup UI Elements Variables
-
-~~~java
-private TextView mTextConnectionStatus;
-private TextView mTextProduct;
-private TextView mTextModelAvailable;
-private Button mBtnOpen;
-~~~
-
-~~~java
-private void initUI() {
-    mTextConnectionStatus = (TextView) findViewById(R.id.text_connection_status);
-    mTextModelAvailable = (TextView) findViewById(R.id.text_model_available);
-    mTextProduct = (TextView) findViewById(R.id.text_product_info);
-    mBtnOpen = (Button) findViewById(R.id.btn_open);
-    mBtnOpen.setOnClickListener(this);
-    mBtnOpen.setEnabled(false);
-}
-~~~
-
-~~~java
-@Override
-public void onClick(View v) {
-    switch (v.getId()) {
-
-        case R.id.btn_open: {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            break;
-        }
-        default:
-            break;
-    }
-}
-~~~
-
-In the code shown above, we implement the following features:
-
-1. Create the layout UI elements variables, including three TextureViews `mTextConnectionStatus`, `mTextProduct`, `mTextModelAvailable` and one Button `mBtnOpen`. 
-
-2. In the `initUI()` method, we initialize the UI elements and invoke `setOnClickListener()` method of `mBtnOpen` and set "ConnectionActivity" as the listener.
-
-3. Lastly, override the onClick() method to implement the Button's click action. When user press the "OPEN" button, it will start the "MainActivity".
-
-We will define the UI elements layouts in the "activity_connection.xml" file later.
-
-- Setup the BroadcastReceiver
-
-~~~java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // When the compile and target version is higher than 22, please request the
-    // following permissions at runtime to ensure the
-    // SDK work well.
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
-                        Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
-                        Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
-                        Manifest.permission.READ_PHONE_STATE,
-                }
-                , 1);
-    }
-
-    setContentView(R.layout.activity_connection);
-
-    initUI();
-
-    // Register the broadcast receiver for receiving the device connection's changes.
-    IntentFilter filter = new IntentFilter();
-    filter.addAction(DemoApplication.FLAG_CONNECTION_CHANGE);
-    registerReceiver(mReceiver, filter);
-}
-~~~
-
-~~~java
-@Override
-protected void onDestroy() {
-    Log.e(TAG, "onDestroy");
-    unregisterReceiver(mReceiver);
-    super.onDestroy();
-}
-~~~
-
-~~~java
-protected BroadcastReceiver mReceiver = new BroadcastReceiver() {
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        refreshSDKRelativeUI();
-    }
-};
-~~~
-
-~~~java
-private void refreshSDKRelativeUI() {
-    BaseProduct mProduct = DemoApplication.getProductInstance();
-
-    if (null != mProduct && mProduct.isConnected()) {
-        Log.v(TAG, "refreshSDK: True");
-        mBtnOpen.setEnabled(true);
-
-        String str = mProduct instanceof Aircraft ? "DJIAircraft" : "DJIHandHeld";
-        mTextConnectionStatus.setText("Status: " + str + " connected");
-        updateVersion();
-
-        if (null != mProduct.getModel()) {
-            mTextProduct.setText("" + mProduct.getModel().getDisplayName());
-        } else {
-            mTextProduct.setText(R.string.product_information);
-        }
-    } else {
-        Log.v(TAG, "refreshSDK: False");
-        mBtnOpen.setEnabled(false);
-
-        mTextProduct.setText(R.string.product_information);
-        mTextConnectionStatus.setText(R.string.connection_loose);
-    }
-}
-~~~
-
-In the code above, we implement the following features:
-
-1. In the `onCreate()` method, we firstly request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23). Next, we invoke the `initUI()` method to initialize the UIs. Moreover, we register the broadcast receiver for receiving the device connection's changes.
-
-2. In the `onDestroy()` method, we invoke the `unregisterReceiver()` method by passing the `mReceiver` variable to unregister the broadcast receiver.
-
-3. Create the "BroadcastReceiver" and override its `onReceive()` method to invoke the `refreshSDKRelativeUI()` method to refresh the UI elements.
-
-4. In the `refreshSDKRelativeUI()` method, we check the BaseProduct's connection status by invoking `isConnected()` method. If the product is connected, we enable the `mBtnOpen` button, update the `mTextConnectionStatus`'s text content and update the `mTextProduct`'s content with product name. Otherwise, if the product is disconnected, we disable the `mBtnOpen` button and update the `mTextProduct` and `mTextConnectionStatus` textViews' content.
-
 For more details, please check this tutorial's Github Sample project.
-
-#### Working on the ConnectionActivity Layout
-
-Open the **activity_connection.xml** layout file and replace the code with the following:
-
-~~~xml
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sdk_version"
-        android:textSize="15dp"
-        android:id="@+id/textView2"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="DJIUILibraryDemo"
-        android:id="@+id/textView"
-        android:layout_marginTop="18dp"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@color/black_overlay"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/text_product_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/product_information"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/text_connection_status"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/btn_open"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:background="@drawable/round_btn"
-        android:text="Open"
-        android:textColor="@color/colorWhite"
-        android:textSize="20dp"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_marginBottom="43dp" />
-
-    <TextView
-        android:id="@+id/text_model_available"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/model_not_available"
-        android:textSize="15dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/text_connection_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Status: No Product Connected"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
-~~~
-
-In the xml file, we create five TextViews and one Button within a RelativeLayout. We use the **TextView(id: text\_connection\_status)** to show the product connection status and use the **TextView(id:text\_product\_info)** to show the connected product name. The **Button(id: btn\_open)** is used to open the "MainActivity".
-
-Moreover, copy all the image files from this tutorial's Github sample project's "drawable" folder (**app->src->main->res->drawable**) to the same folder in the project.
-
-![imageFiles](../images/tutorials-and-samples/Android/UILibraryDemo/imageFiles.png)
-
-Furthermore, open the "colors.xml" file and update the content as shown below:
-
-~~~xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="black_overlay">#000000</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="transparent">#00000000</color>
-    <color name="light_gray">#B3FFFFFF</color>
-    <color name="background_blue">#242d34</color>
-    <color name="dark_gray">#80000000</color>
-</resources>
-~~~
-
-Lastly, open the "strings.xml" file and replace the content with the followings:
-
-~~~xml
-<resources>
-    <string name="app_name">UILibraryDemo</string>
-    <string name="action_settings">Settings</string>
-    <string name="disconnected">Disconnected</string>
-    <string name="product_information">Product Information</string>
-    <string name="connection_loose">Status: No Product Connected</string>
-    <string name="model_not_available">Model Not Available</string>
-    <string name="sdk_version">DJI SDK Version: 4.0.1</string>
-</resources>
-~~~
 
 ### Modifying AndroidManifest file
 
@@ -777,7 +502,7 @@ Once you finished the steps above, let's open the "AndroidManifest.xml" file and
     android:required="true" />
 ~~~
 
-Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
+Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardware which are used by the application.
 
 Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
 
@@ -807,22 +532,54 @@ Moreover, let's add the following elements as childs of element on top of the "M
 
 In the code above, you should substitute your **App Key** of the application for "Please enter your App Key here." in the **value** attribute under the `android:name="com.dji.sdk.API_KEY"` attribute. For the "accessory_filter.xml" file, you can get it from this tutorial's Github Sample project.
 
-Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as shown below:
+Lastly, update the "MainActivity" activity elements as shown below:
 
 ~~~xml
-<activity android:name=".ConnectionActivity"
+<activity android:name=".MainActivity"
     android:screenOrientation="landscape">
     <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
     </intent-filter>
 </activity>
-<activity android:name=".MainActivity"
-    android:screenOrientation="landscape">
-</activity>
 ~~~
 
-In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **landscape** and set "MainActivity" as **landscape**.
+In the code above, we add the attributes of "android:screenOrientation" to set "MainActivity" as **landscape** and add an intent filter for it.
+
+### Working on the MainActivity
+
+Finally, let's open the "MainActivity.java" file, replace the code with the following:
+
+~~~java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // When the compile and target version is higher than 22, please request the
+        // following permissions at runtime to ensure the
+        // SDK work well.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
+                            Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
+                            Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
+                            Manifest.permission.READ_PHONE_STATE,
+                    }
+                    , 1);
+        }
+
+        setContentView(R.layout.activity_main);
+    }
+
+}
+~~~
+
+ In the `onCreate()` method, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23). 
 
 Now, let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
