@@ -289,7 +289,7 @@ Once you are done, go back to DJIRootViewController.m file and add the following
     }
 }
 
-- (IBAction)focusMapAction:(id)sender {
+- (IBAction)focusMapAction:(id)sender
 {
     if (CLLocationCoordinate2DIsValid(self.userLocation)) {
         MKCoordinateRegion region = {0};
