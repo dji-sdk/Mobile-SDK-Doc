@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
-version: v4.0.2
-date: 2017-05-12
+version: v4.1.1
+date: 2017-06-06
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo
 keywords: [Android GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
@@ -1117,12 +1117,12 @@ Now, let's add the following code at the bottom of `initUI()` method in MainActi
 ~~~java
     MainActivity.this.runOnUiThread(new Runnable() {
         public void run() {
-            loginStatusTv.setText(DJISDKManager.getInstance().getFlyZoneManager().getUserAccountState().name());
+            loginStatusTv.setText(loginStatusTv.setText(UserAccountManager.getInstance().getUserAccountState().name());
         }
     });
 ~~~
 
-In the code above, we invoke the `getUserAccountState()` method of **FlyZoneManager** to fetch the current user account status and update the textView `loginStatusTv`'s text content.
+In the code above, we invoke the `getUserAccountState()` method of **UserAccountManager** to fetch the current user account status and update the textView `loginStatusTv`'s text content.
 
 Next, let's implement the `onClick()` method for `btnLogin` and `btnLogout` buttons as shown below:
 
@@ -1131,7 +1131,7 @@ Next, let's implement the `onClick()` method for `btnLogin` and `btnLogout` butt
 public void onClick(View v) {
     switch (v.getId()) {
         case R.id.geo_login_btn:
-            DJISDKManager.getInstance().getFlyZoneManager().logIntoDJIUserAccount(this,
+            UserAccountManager.getInstance().logIntoDJIUserAccount(this,
                     new CommonCallbacks.CompletionCallbackWith<UserAccountState>() {
                         @Override
                         public void onSuccess(final UserAccountState userAccountState) {
@@ -1154,7 +1154,7 @@ public void onClick(View v) {
 
         case R.id.geo_logout_btn:
 
-            DJISDKManager.getInstance().getFlyZoneManager().logoutOfDJIUserAccount(new CommonCallbacks.CompletionCallback() {
+            UserAccountManager.getInstance().logoutOfDJIUserAccount(new CommonCallbacks.CompletionCallback() {
                 @Override
                 public void onResult(DJIError error) {
                     if (null == error) {
@@ -1193,7 +1193,7 @@ public void onClick(View v) {
 }
 ~~~
 
-In the code above, we invoke the `logIntoDJIUserAccount()` method of **FlyZoneManager** to present a login view for the user to login. When login success, we update the `loginStatusTv`'s text content with the user account status. Similarly, invoke the `logoutOfDJIUserAccount()` method of **FlyZoneManager** to log out the user account.
+In the code above, we invoke the `logIntoDJIUserAccount()` method of **UserAccountManager** to present a login view for the user to login. When login success, we update the `loginStatusTv`'s text content with the user account status. Similarly, invoke the `logoutOfDJIUserAccount()` method of **UserAccountManager** to log out the user account.
 
 ### Working on GEO System Features
 
@@ -1380,7 +1380,7 @@ DJISDKManager.getInstance().getFlyZoneManager().getFlyZonesInSurroundingArea(new
 });
 }
 
-private void showSurroundFlyZonesInTv(final ArrayList<FlyZoneInformation> flyZones) {
+private void showSurroundFlyZonesInTv(final List<FlyZoneInformation> flyZones) {
     MainActivity.this.runOnUiThread(new Runnable() {
         @Override
         public void run() {
@@ -1705,9 +1705,9 @@ case R.id.geo_unlock_nfzs_btn:
 
 case R.id.geo_get_unlock_nfzs_btn:
 
-    DJISDKManager.getInstance().getFlyZoneManager().getUnlockedFlyZones(new CommonCallbacks.CompletionCallbackWith<ArrayList<FlyZoneInformation>>(){
+    DJISDKManager.getInstance().getFlyZoneManager().getUnlockedFlyZones(new CommonCallbacks.CompletionCallbackWith<List<FlyZoneInformation>>(){
         @Override
-        public void onSuccess(final ArrayList<FlyZoneInformation> flyZoneInformations) {
+        public void onSuccess(final List<FlyZoneInformation> flyZoneInformations) {
             showToast("Get Unlock NFZ success");
             showSurroundFlyZonesInTv(flyZoneInformations);
         }

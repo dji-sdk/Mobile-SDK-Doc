@@ -155,7 +155,7 @@
                   </dd>
                   <dd><a href="CameraEVConfigWidget.html">CameraConfigEVWidget</a>
                   </dd>
-                  <dd><a href="CompassCalibratingWorkFlow.html">CompassCalibratingWorkFlow</a>
+                  <dd><a href="" class="active">CompassCalibratingWorkFlow</a>
                   </dd>
           </dl>
           <dl>
@@ -165,22 +165,39 @@
                   </dd>
                   <dd><a href="CameraSettingExposurePanel.html">CameraSettingExposurePanel</a>
                   </dd>
-                  <dd><a href="" class="active">PreFlightCheckListPanel</a>
+                  <dd><a href="PreFlightCheckListPanel.html">PreFlightCheckListPanel</a>
                   </dd>
           </dl>
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>PreFlightCheckListPanel</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PreFlightCheckListPanel</span> <span class="keyword">extends</span> <span class="title">ListViewWidget</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.ui.panel</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>ListViewWidget</code></font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">To allow user to toggle hide and show this panel, use in conjunction with <code><a href="../Widgets/PreFlightStatusWidget.html#preflightstatuswidget">PreFlightStatusWidget</a></code></font></p>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>CompassCalibratingWorkFlow</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CompassCalibratingWorkFlow</span> <span class="keyword">extends</span> <span class="title">OldFrameLayoutWidget</span></span></div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.ui.widget.compass</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>OldFrameLayoutWidget</code></font></td></tr></table></html>
 <h5 id="display">Display:</h5>
 <br style="clear:both">
-<p><font color="#666">Panel that shows the preflight checklist that includes a list of items (like IMU, GPS etc) and their state that roll up into an overall state.</font></p>
+<p><font color="#666">The progress of compas calibration.</font></p>
 <h5 id="interaction">Interaction:</h5>
-<p><font color="#666">All the settings are presented in ListView hierachy.</font></p>
+<p><font color="#666">Depends on the step, there will be buttons at the bottom of the dialog for the user to interact. The user can either quit out of or continue with the process.</font></p>
+<h5 id="usage">Usage:</h5>
+<p><font color="#666">To step the user through the compass clibration process</font></p>
+<h5 id="class-members">Class Members:</h5>
+<div class="api-row" id="compasscalibratingworkflow_startcalibration"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#compasscalibratingworkflow_startcalibration_inline">startCalibration</a></div></div><div class="inline-doc" id="compasscalibratingworkflow_startcalibration_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>startCalibration</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">startCalibration</span><span class="params">(<span class="keyword">final</span> ActionCallback callback)</span></span></div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.ui.widget.compass</font></td></tr></table></html>
+<h5 id="description">Description:</h5>
+<p><font color="#666">Call this to send the start calibration command to the aircraft. As soon as the aircraft sends back the progress data, a dialog will show up to guide the user through the process.</font></p>
+</div>
+<div class="api-row" id="compasscalibratingworkflow_stopcalibration"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#compasscalibratingworkflow_stopcalibration_inline">stopCalibration</a></div></div><div class="inline-doc" id="compasscalibratingworkflow_stopcalibration_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>stopCalibration</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">stopCalibration</span><span class="params">(<span class="keyword">final</span> ActionCallback callback)</span></span></div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.ui.widget.compass</font></td></tr></table></html>
+<h5 id="description-v2">Description:</h5>
+<p><font color="#666">Call this to send the stop calibration command to the aircraft.</font></p>
+</div>
 
         </div>
       </div>
