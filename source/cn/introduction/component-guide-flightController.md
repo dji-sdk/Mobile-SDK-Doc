@@ -77,7 +77,7 @@ The Flight controller manages several sub components of the aircraft including s
 
 ### Compass
 
-The compass measures magnetic field direction and is used to determine the heading of the aircraft relative to North. The compass sometimes needs to be calibrated if flying near magnetic interference. Compass calibration will require the user to rotate the aircraft vertically and horizontally through the azimuth. Products with multiple compasses (like the Phantom 4) will have their compass state fused into one compass class for simplicity.
+The compass measures magnetic field direction and is used to determine the heading of the aircraft relative to North. The compass sometimes needs to be calibrated if flying near magnetic interference. Compass calibration will require the user to rotate the aircraft vertically and horizontally. Products with multiple compasses (like the Phantom 4) will have their compass state fused into one compass class for simplicity.
 
 ### IMU - Inertial Measurement Unit
 

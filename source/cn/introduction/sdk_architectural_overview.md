@@ -36,7 +36,7 @@ The handheld camera product is simpler and has less components than an aircraft.
 
 ## Missions
 
-All missions inherit from DJIMission so they can be handled by the Mission Manager.
+Missions can be used to easily automate flight. For more details, please check the [Missions](./component-guide-missions.html) section. All missions inherit from DJIMission so they can be handled by the Mission Manager.
 
 <html><img src="../../images/sdk-architectural-overview/SDKMissionArchitecture.png"></html> 
 

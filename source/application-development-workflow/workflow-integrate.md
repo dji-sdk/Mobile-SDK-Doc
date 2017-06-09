@@ -90,7 +90,7 @@ Screenshots in this section are generated using Xcode 7.3.
 ~~~objc
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     [self registerApp];
 }
 
