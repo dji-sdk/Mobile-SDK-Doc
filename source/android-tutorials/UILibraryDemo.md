@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
-version: v4.0.1
-date: 2017-06-01
+version: v4.1.1
+date: 2017-06-14
 github: https://github.com/DJI-Mobile-SDK-Tutorials/xxxxx
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -19,11 +19,13 @@ We use Mavic Pro and Nexus 5 as an example to make this demo. For more details o
 
 ## Introduction
 
-DJI UI Library is a visual framework consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in Android. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
+DJI UI Library is a visual library consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in Android. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
 
 Additionally, with the ease of use, UILibrary let you focus more on business and application logic. 
 
 As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
+
+For an in depth learning on DJI UI Library, please go to the [UI Library Introduction](../introduction/ui_library_introduction.html).
 
 ## Importing DJI SDK and UILibrary with AAR file
 

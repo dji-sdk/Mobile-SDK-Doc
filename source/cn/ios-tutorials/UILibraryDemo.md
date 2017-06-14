@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
-version: v4.0.1
-date: 2017-06-01
+version: v4.1.1
+date: 2017-06-14
 github: https://github.com/DJI-Mobile-SDK-Tutorials/xxxxx
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -25,6 +25,8 @@ Additionally, with the ease of use, UILibrary let you focus more on business and
 
 As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
 
+For an in depth learning on DJI UI Library, please go to the [UI Library Introduction](../../introduction/ui_library_introduction.html).
+
 ## Importing DJI SDK and UILibrary with CocoaPods
 
 Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "UILibraryDemo" in the **Product Name** field and keep the other default settings.
@@ -37,8 +39,8 @@ Then replace the content of the **Podfile** with the followings:
 # platform :ios, '9.0'
 
 target 'UILibraryDemo' do
-  pod 'DJI-SDK-iOS', '~> 4.0.1'
-  pod 'DJI-UILibrary-iOS', '~> 4.0'
+  pod 'DJI-SDK-iOS', '~> 4.1.1'
+  pod 'DJI-UILibrary-iOS', '~> 4.1.1'
 end
 
 ~~~
@@ -54,8 +56,8 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (4.0.1)
-Installing DJI-UILibrary-iOS (4.0.1.1.0.0)
+Installing DJI-SDK-iOS (4.1.1)
+Installing DJI-UILibrary-iOS (4.1.1)
 Generating Pods project
 Integrating client project
 
@@ -105,7 +107,7 @@ Next, let's open the **DefaultLayoutViewController.h** file and import the **DJI
 @end
 ```
 
-The **DULDefaultLayoutViewController** is a viewController designed around 5 childViewController, and it's a fully functioning mini-DJI Go. It uses all the elements of the UILibrary to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
+The **DULDefaultLayoutViewController** is a viewController designed around 5 child view controllers, and it's a fully functioning mini-DJI Go. It uses all the elements of the UILibrary to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
 
 ## Application Registration
 

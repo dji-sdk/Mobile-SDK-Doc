@@ -83,6 +83,9 @@
 -
   title: "IOS TUTORIALS"
   list:
+    - 
+      title: "Getting Started with UI Library"
+      path: "/cn/ios-tutorials/UILibraryDemo.html"
     -
       title: "Camera Application"
       path: "/cn/ios-tutorials/index.html"
@@ -113,6 +116,9 @@
 -
   title: "ANDROID TUTORIALS"
   list:
+    - 
+      title: "Getting Started with UI Library"
+      path: "/cn/android-tutorials/UILibraryDemo.html"
     -
       title: "Camera Application"
       path: "/cn/android-tutorials/index.html"
