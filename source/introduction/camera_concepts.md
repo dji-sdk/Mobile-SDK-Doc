@@ -142,7 +142,7 @@ Aperture is usually described with f-numbers (also called f-stops) where f/1.4 i
 * The f-number (N) is formally the ratio of the lens [focal length](#field-of-view-and-focal-length) (f) to aperture diameter (D): N=f/D 
 * Customarily it is written as f/N (which is the equation above rearranged) and describes the diameter of the lens 
 * To double the amount of light, the aperture area must be doubled 
-* As the aperture is a circle, doubling the aperture area increases the diameter by 1.414 (square root of 2) 
+* As the aperture is a circle, doubling the aperture area increases the diameter by a factor of 1.414 (square root of 2) 
 * Therefore to change an aperture by one exposure stop, the f-number is changed by 1.414 
 * D is inversely proportional to N, thus a larger N will describe a smaller D 
 * Compared to an aperture of f/1.4, f/2 is an aperture of half the area (f/1.4*1.414) and therefore one stop smaller.

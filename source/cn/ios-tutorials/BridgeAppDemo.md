@@ -78,7 +78,7 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 #define WeakRef(__obj) __weak typeof(self) __obj = self
 #define WeakReturn(__obj) if(__obj ==nil)return;
 
-@interface DJICameraViewController ()<DJICameraDelegate, DJIBaseProductDelegate, DJIVideoFeedListener>
+@interface DJICameraViewController ()<DJICameraDelegate, DJISDKManagerDelegate, DJIVideoFeedListener>
 
 @property (nonatomic, strong) DJICamera* camera;
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
@@ -118,7 +118,7 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
     return nil;
 }
 
-#pragma mark DJIBaseProductDelegate Method
+#pragma mark DJISDKManagerDelegate Method
 
 - (void)productConnected:(DJIBaseProduct *)product
 {
@@ -383,7 +383,7 @@ Once you finish it, let's implement the **captureAction**, **recordAction** and 
 
 #define ENABLE_DEBUG_MODE 0
 
-@interface DJICameraViewController ()<DJICameraDelegate, DJISDKManagerDelegate, DJIBaseProductDelegate, DJIVideoFeedListener>
+@interface DJICameraViewController ()<DJICameraDelegate, DJISDKManagerDelegate, DJIVideoFeedListener>
 
 ~~~
 
