@@ -10,7 +10,7 @@ Description of aircraft movement is dependent on the location and orientation of
 
 ### Body Coordinate System
 
-The body coordinate system is relative to the aircraft itself. Three orthogonal axes are defined such that the origin is the center of mass, and the **X** axis is directed through the front of the aircraft and the **Y** axis through the right of the aircraft. Using the <a href="https://en.wikipedia.org/wiki/Right-hand_rule" target="_blank">coordinate right hand rule</a>, the **Z** axis is then through the bottom of the aircraft.
+The body coordinate system is relative to the aircraft itself. Three perpendicular axes are defined such that the origin is the center of mass, and the **X** axis is directed through the front of the aircraft and the **Y** axis through the right of the aircraft. Using the <a href="https://en.wikipedia.org/wiki/Right-hand_rule" target="_blank">coordinate right hand rule</a>, the **Z** axis is then through the bottom of the aircraft.
 
 ![](../images/flightController-concepts/xyz_noRedArrows.png)
 
@@ -54,7 +54,7 @@ To pitch forward, the back propellors spin faster and have more thrust than the 
 
 The above diagram shows the aircraft from the front. Roll measures an object's rotation about the longitudinal (X, roll) axis. Adjusting the roll will tilt the aircraft left or right.
 
-To roll left, the right propellors spin faster and have more thrust than the left propellors. The DJI Mobile SDK provides APIs to adjust the velocity along the Y axis, or the roll angle and throttle to achieve movement.
+To roll left, the right propellors spin faster and have more thrust than the left propellors. The DJI Mobile SDK provides APIs to adjust the roll angle and velocity to achieve movement.
 
 ### Yaw
 

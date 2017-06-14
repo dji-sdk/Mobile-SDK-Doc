@@ -108,7 +108,7 @@ Moreover, in the `resetVideoPreview` method, we invoke the `unSetView` method of
 
 If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `removeListener:` method of `DJIVideoFeeder` class to remove the `DJICameraViewController` listener from the `secondaryVideoFeed` for video feed, otherwise, we remove the `DJICameraViewController` listener from the `primaryVideoFeed` for video feed.
 
-**3.** Once you finished the above steps, let's implement the `DJIBaseProductDelegate` delegate methods and the `viewWillDisappear` method as shown below:
+**3.** Once you finished the above steps, let's implement the `DJISDKManagerDelegate` delegate methods and the `viewWillDisappear` method as shown below:
 
 ~~~
 - (DJICamera*) fetchCamera {
@@ -160,7 +160,7 @@ If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we inv
 }
 ~~~
 
-Firstly, we create the `- (DJICamera*) fetchCamera` method to fetch the updated DJICamera object. Before we get return the DJICamera object, we need to check if the product object of DJISDKManager is kind of **DJIAircraft** of **DJIHandheld** class. Since the camera component of the aircraft or handheld device may be changed or disconnected, we need to fetch the camera object everytime we want to use it to ensure we get the correct camera object. 
+Firstly, we create the `- (DJICamera*) fetchCamera` method to fetch the updated DJICamera object. Before we get the return DJICamera object, we need to check if the product object of DJISDKManager is kind of **DJIAircraft** of **DJIHandheld** class. Since the camera component of the aircraft or handheld device may be changed or disconnected, we need to fetch the camera object everytime we want to use it to ensure we get the correct camera object. 
 
 Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the `productConnected` delegate method. Lastly, reset the `camera` instance's delegate to nil and invoke the `resetVideoPreview` method to reset the videoPreviewer in the `productDisconnected` and `viewWillDisappear` methods.
         
@@ -238,7 +238,7 @@ In the code above, we firstly invoke the following method of DJICamera to set th
   
 ### 1. Switching Camera Mode
 
-   Before we implementing the record function, we need to switch the camera work mode firstly.
+   Before we implement the record function, we need to switch the camera work mode firstly.
    
    Let's check the DJICameraMode enum in **DJICameraSettingsDef.h** file.
    

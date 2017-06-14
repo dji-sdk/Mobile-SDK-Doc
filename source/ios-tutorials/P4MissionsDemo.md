@@ -111,7 +111,7 @@ After you finish the above steps, let's register our application. Open the RootV
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

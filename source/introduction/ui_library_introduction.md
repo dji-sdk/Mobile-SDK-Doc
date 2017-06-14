@@ -109,7 +109,21 @@ A widget collection groups multiple, often related widgets together in an organi
 
 Collections can also be created and used to organize pre-existing widgets.
 
-Widget collections are used in iOS Only.
+Widget collections are used in iOS Only. Example of widget collections include:
+
+<html>
+<table class="table-pictures">
+<tbody>
+  <tr valign="top">
+    <td><font style="font-weight:bold" align="center"><p>Status Bar Widget Collection </p></td>
+  </tr>
+
+  <tr>
+    <td align="center"><img src="../images/ui-library-introduction/statusBarWidgetCollections.png" width=90%></td>
+  </tr>
+</tbody>
+</table>
+</html>
 
 ## Panels
 
