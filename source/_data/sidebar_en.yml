@@ -87,6 +87,9 @@
   title: "IOS TUTORIALS"
   list:
     - 
+      title: "Application Activation and Aircraft Binding"
+      path: "/ios-tutorials/ActivationAndBinding.html"
+    - 
       title: "Getting Started with UI Library"
       path: "/ios-tutorials/UILibraryDemo.html"
     -
@@ -119,6 +122,9 @@
 -
   title: "ANDROID TUTORIALS"
   list:
+    - 
+      title: "Application Activation and Aircraft Binding"
+      path: "/android-tutorials/ActivationAndBinding.html"
     - 
       title: "Getting Started with UI Library"
       path: "/android-tutorials/UILibraryDemo.html"
