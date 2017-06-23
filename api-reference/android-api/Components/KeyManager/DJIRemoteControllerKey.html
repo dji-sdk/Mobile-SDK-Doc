@@ -1,5 +1,5 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,58 +10,9 @@
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
-      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Developer</a></div>
-      <div id="header-navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">SDK<span class="caret"></span></a>
-            <ul class="hovedown-menu">
-              <li><a href="/mobile-sdk">Mobile SDK</a></li>
-              <li><a href="/onboard-sdk">Onboard SDK</a></li>
-              <li><a href="/guidance-sdk">Guidance SDK</a></li>
-            </ul>
-          </li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/showcase">Showcase</a></li>
-          <li><a href="/news">News</a></li>
-          <li><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a></li>
-          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">GitHub<span class="caret"></span></a>
-            <ul class="hovedown-menu">
-              <li><a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS SDK</a></li>
-              <li><a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">Android SDK</a></li>
-              <li><a href="https://github.com/dji-sdk/Onboard-SDK" target="_blank">Onboard SDK</a></li>
-              <li><a href="https://github.com/dji-sdk/Guidance-SDK" target="_blank">Guidance SDK</a></li>
-            </ul>
-          </li>
-          <li><a href="/challenge2016" target="_blank">Challenge</a></li>
-        </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register" class="head-cta">Register</a></li>
-        </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
-          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
-            <ul class="hovedown-menu hovedown-menu-right">
-              <li><a href="/user">User Center</a></li>
-              <li><a href="javascript:void(0);" v-on="click: logout">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Android SDK API Reference</a></div>
     </div>
   </nav>
-  <div data-offset-top="60" data-spy="affix" class="sub-nav">
-    <div class="container">
-      <h1 class="logo">Mobile SDK</h1>
-      <nav><a href="/mobile-sdk">Overview</a><a href="/mobile-sdk/documentation">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
-          <ul class="hovedown-menu">
-            <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
-            <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
-            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
-          </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
-      </nav>
-    </div>
-  </div>
   <div id="documentation-page" class="documentation-page">
     <div class="container">
       <div class="site-sidebar">
@@ -254,12 +205,6 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
-                                      </dd>
-                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                        <ul class="sub-menu">
-                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
-                                                </dd>
-                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -700,9 +645,7 @@
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCGimbalMapping.html#djiremotecontroller_djircgimbalmapping">GimbalMapping</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyright_wheel_inline"></a><p class="key_table_key_string key_table_key_row">RIGHT_WHEEL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>HardwareState.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareRightWheel.html#djiremotecontroller_djirchardwarerightwheel">RightWheel</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djirchardwarestate_rightwheel">getRightWheel</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareRightWheel.html#djiremotecontroller_djirchardwarerightwheel">RightWheel</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeycustom_button_2_inline"></a><p class="key_table_key_string key_table_key_row">CUSTOM_BUTTON_2</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>HardwareState.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState_Button.html#djiremotecontroller_djirchardwarestate_button">Button</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeycustom_button_2_inline"></a><p class="key_table_key_string key_table_key_row">CUSTOM_BUTTON_2</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>HardwareState.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState_Button.html#djiremotecontroller_djirchardwarestate_button">Button</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djirchardwarestate_custombutton2">getC2Button</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeymode_inline"></a><p class="key_table_key_string key_table_key_row">MODE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djiremotecontrollermode">RCMode</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_setremotecontrollermode">setMode</a></code></font></p>
@@ -712,9 +655,7 @@
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djiremotecontrollermode">RCMode</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyconnect_to_master_inline"></a><p class="key_table_key_string key_table_key_row">CONNECT_TO_MASTER</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinedMasterNameAndPasswordResult.html#djiremotecontroller_joinedmasternameandpasswordresult">Credentials</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_joinmasterrc">connectToMaster</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinedMasterNameAndPasswordResult.html#djiremotecontroller_joinedmasternameandpasswordresult">Credentials</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeygps_data_inline"></a><p class="key_table_key_string key_table_key_row">GPS_DATA</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCGPSData.html#djiremotecontroller_djircgpsdata">GPSData</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeygps_data_inline"></a><p class="key_table_key_string key_table_key_row">GPS_DATA</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCGPSData.html#djiremotecontroller_djircgpsdata">GPSData</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_updategpsdatacallbackinterface">Callback</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_updategpsdata">onUpdate</a></code></font></p>
@@ -728,41 +669,29 @@
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCAircraftMapping.html#djiremotecontroller_djircaircraftmappingstyle">AircraftMappingStyle</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyfive_d_button_inline"></a><p class="key_table_key_string key_table_key_row">FIVE_D_BUTTON</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCFiveDButton.html#djiremotecontroller_djircfivedbutton">FiveDButton</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djirchardwarestate_fivedbutton">getFiveDButton</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCFiveDButton.html#djiremotecontroller_djircfivedbutton">FiveDButton</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyis_master_slave_mode_v2_supported_inline"></a><p class="key_table_key_string key_table_key_row">IS_MASTER_SLAVE_MODE_V2_SUPPORTED</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td colspan="2"><a href="#remotecontrollerkeyflight_mode_switch_position_inline"></a><p class="key_table_key_string key_table_key_row">FLIGHT_MODE_SWITCH_POSITION</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>HardwareState.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djiremotecontrollerflightmodeswitchposition">FlightModeSwitch</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeyis_master_slave_mode_v2_supported_inline"></a><p class="key_table_key_string key_table_key_row">IS_MASTER_SLAVE_MODE_V2_SUPPORTED</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td colspan="2"><a href="#remotecontrollerkeyflight_mode_switch_position_inline"></a><p class="key_table_key_string key_table_key_row">FLIGHT_MODE_SWITCH_POSITION</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>HardwareState.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djiremotecontrollerflightmodeswitchposition">FlightModeSwitch</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djirchardwarestate_flightmodeswitch">getFlightModeSwitch</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djiremotecontrollerflightmodeswitchposition">FlightModeSwitch</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyfocus_controller_direction_inline"></a><p class="key_table_key_string key_table_key_row">FOCUS_CONTROLLER_DIRECTION</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate">FocusControllerState</a>.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocuscontroldirection">Direction</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeyfocus_controller_direction_inline"></a><p class="key_table_key_string key_table_key_row">FOCUS_CONTROLLER_DIRECTION</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate">FocusControllerState</a>.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocuscontroldirection">Direction</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate_direction">getDirection</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocuscontroldirection">Direction</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyresponse_to_request_for_gimbal_control_inline"></a><p class="key_table_key_string key_table_key_row">RESPONSE_TO_REQUEST_FOR_GIMBAL_CONTROL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_ResponseForGimbalControl.html#djiremotecontroller_responseforgimbalcontrol">ResponseForGimbalControl</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeyresponse_to_request_for_gimbal_control_inline"></a><p class="key_table_key_string key_table_key_row">RESPONSE_TO_REQUEST_FOR_GIMBAL_CONTROL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_ResponseForGimbalControl.html#djiremotecontroller_responseforgimbalcontrol">ResponseForGimbalControl</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_responserequester">respondToRequestForGimbalControl</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_ResponseForGimbalControl.html#djiremotecontroller_responseforgimbalcontrol">ResponseForGimbalControl</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyconnected_master_credentials_inline"></a><p class="key_table_key_string key_table_key_row">CONNECTED_MASTER_CREDENTIALS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinedMasterNameAndPasswordResult.html#djiremotecontroller_joinedmasternameandpasswordresult">Credentials</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_getjoinedmasterrcinfos">getConnectedMasterCredentials</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinedMasterNameAndPasswordResult.html#djiremotecontroller_joinedmasternameandpasswordresult">Credentials</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeystop_master_searching_inline"></a><p class="key_table_key_string key_table_key_row">STOP_MASTER_SEARCHING</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeystop_master_searching_inline"></a><p class="key_table_key_string key_table_key_row">STOP_MASTER_SEARCHING</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_stopmasterrcsearch">stopMasterSearching</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeycustom_button_tags_inline"></a><p class="key_table_key_string key_table_key_row">CUSTOM_BUTTON_TAGS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_RCCustomButtonTagParam.html#djiremotecontroller_rccustombuttontagparam">CustomButtonTags</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_setrccustombuttontag">setCustomButtonTags</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_getrccustombuttontag">getCustomButtonTags</a></code></font></p>
-<p></p></td></tr><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_RCCustomButtonTagParam.html#djiremotecontroller_rccustombuttontagparam">CustomButtonTags</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeypassword_inline"></a><p class="key_table_key_string key_table_key_row">PASSWORD</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>String</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_setrcpassword">setPassword</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_getrcpassword">getPassword</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyname_inline"></a><p class="key_table_key_string key_table_key_row">NAME</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>String</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td colspan="2"><a href="#remotecontrollerkeytransformation_switch_inline"></a><p class="key_table_key_string key_table_key_row">TRANSFORMATION_SWITCH</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>HardwareState.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareTransformationSwitch.html#djiremotecontroller_djirchardwaretransformationswitch">TransformationSwitch</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState.html#djiremotecontroller_djirchardwarestate_transformationswitch">getTransformationSwitch</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareTransformationSwitch.html#djiremotecontroller_djirchardwaretransformationswitch">TransformationSwitch</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeystop_pairing_inline"></a><p class="key_table_key_string key_table_key_row">STOP_PAIRING</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeystop_pairing_inline"></a><p class="key_table_key_string key_table_key_row">STOP_PAIRING</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_exitpairingmode">stopPairing</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeyrequest_gimbal_control_inline"></a><p class="key_table_key_string key_table_key_row">REQUEST_GIMBAL_CONTROL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djircrequestgimbalcontrolresult">RequestGimbalControlResult</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_requestgimbalcontrolright">requestGimbalControl</a></code></font></p>
@@ -770,9 +699,7 @@
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djircrequestgimbalcontrolresult">RequestGimbalControlResult</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyfocus_controller_control_type_inline"></a><p class="key_table_key_string key_table_key_row">FOCUS_CONTROLLER_CONTROL_TYPE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate">FocusControllerState</a>.<a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocuscontroltype">ControlType</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocusstate_controltype">getControlType</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCRemoteFocusState.html#djiremotecontroller_djircremotefocuscontroltype">ControlType</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#remotecontrollerkeyconnect_to_master_with_id_inline"></a><p class="key_table_key_string key_table_key_row">CONNECT_TO_MASTER_WITH_ID</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinMasterAuthorizationInfo.html#djiremotecontroller_joinmasterauthorizationinfo">AuthorizationInfo</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td colspan="2"><a href="#remotecontrollerkeyconnect_to_master_with_id_inline"></a><p class="key_table_key_string key_table_key_row">CONNECT_TO_MASTER_WITH_ID</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinMasterAuthorizationInfo.html#djiremotecontroller_joinmasterauthorizationinfo">AuthorizationInfo</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_joinmasterwithidandauthenticationcode">connectToMaster</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/RemoteController/DJIRemoteController_JoinMasterAuthorizationInfo.html#djiremotecontroller_joinmasterauthorizationinfo">AuthorizationInfo</a></code></font></p>
@@ -839,29 +766,6 @@
       </div>
     </div>
   </div>
-  <footer id="site-footer" class="site-footer">
-    <div class="container">
-      <div class="foot-nav row">
-        <nav class="link-list col-xs-2"><span class="title">SDK</span><a href="/mobile-sdk">Mobile SDK</a><a href="/onboard-sdk">Onboard SDK</a><a href="/guidance-sdk">Guidance SDK</a></nav>
-        <nav class="link-list col-xs-2"><span class="title">Info</span><a href="/products">Products</a><a href="/showcase">Showcase</a><a href="/news">News</a></nav>
-        <nav class="link-list col-xs-2"><span class="title">Community</span><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a><a href="https://github.com/dji-sdk" target="_blank">GitHub</a><a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">Stack Overflow</a></nav>
-        <nav class="link-list col-xs-2"><span class="title">Contact Us</span><a href="mailto:dev@dji.com"> dev@dji.com</a></nav>
-        <nav class="link-list col-xs-3"><span class="title">Business Cooperation</span><a href="mailto:dev.bd@dji.com"> dev.bd@dji.com</a></nav>
-      </div>
-      <div class="foot-copyright row">
-        <div class="col-xs-3 foot-logo"><img src="../../images/dji-logo-foot.png"></div>
-        <div class="copyright col-xs-7"><span>Copyright © 2016 DJI All Rights Reserved</span><a href="/policies/privacy">Privacy</a><a href="/policies/terms">Terms</a></div>
-        <div class="col-xs-2">
-          <div class="lang-selector">
-            <select dir="rtl" v-model="lang">
-              <option value="en">English</option>
-              <option value="cn">中文</option>
-            </select><i class="fa fa-globe"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
   <script type="text/javascript">
     window.Config = window.config = {
       sdk: "mobile-sdk",

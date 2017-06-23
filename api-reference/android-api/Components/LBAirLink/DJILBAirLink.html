@@ -1,5 +1,5 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,58 +10,9 @@
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
-      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Developer</a></div>
-      <div id="header-navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">SDK<span class="caret"></span></a>
-            <ul class="hovedown-menu">
-              <li><a href="/mobile-sdk">Mobile SDK</a></li>
-              <li><a href="/onboard-sdk">Onboard SDK</a></li>
-              <li><a href="/guidance-sdk">Guidance SDK</a></li>
-            </ul>
-          </li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/showcase">Showcase</a></li>
-          <li><a href="/news">News</a></li>
-          <li><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a></li>
-          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">GitHub<span class="caret"></span></a>
-            <ul class="hovedown-menu">
-              <li><a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS SDK</a></li>
-              <li><a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">Android SDK</a></li>
-              <li><a href="https://github.com/dji-sdk/Onboard-SDK" target="_blank">Onboard SDK</a></li>
-              <li><a href="https://github.com/dji-sdk/Guidance-SDK" target="_blank">Guidance SDK</a></li>
-            </ul>
-          </li>
-          <li><a href="/challenge2016" target="_blank">Challenge</a></li>
-        </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register" class="head-cta">Register</a></li>
-        </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
-          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
-            <ul class="hovedown-menu hovedown-menu-right">
-              <li><a href="/user">User Center</a></li>
-              <li><a href="javascript:void(0);" v-on="click: logout">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Android SDK API Reference</a></div>
     </div>
   </nav>
-  <div data-offset-top="60" data-spy="affix" class="sub-nav">
-    <div class="container">
-      <h1 class="logo">Mobile SDK</h1>
-      <nav><a href="/mobile-sdk">Overview</a><a href="/mobile-sdk/documentation">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
-          <ul class="hovedown-menu">
-            <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
-            <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
-            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
-          </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
-      </nav>
-    </div>
-  </div>
   <div id="documentation-page" class="documentation-page">
     <div class="container">
       <div class="site-sidebar">
@@ -254,12 +205,6 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
-                                      </dd>
-                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                        <ul class="sub-menu">
-                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
-                                                </dd>
-                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -666,7 +611,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgeFrequencyBand</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgeFrequencyBand</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_lb_frequency_band_inline">AirLinkKey.LB_FREQUENCY_BAND</a>, <a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_supported_frequency_bands_inline">AirLinkKey.SUPPORTED_FREQUENCY_BANDS</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">LBAirLink frequency band. Supported only by Phantom 4 Professional.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
@@ -677,7 +622,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>ChannelSelectionMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> ChannelSelectionMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_channel_selection_mode_inline">AirLinkKey.CHANNEL_SELECTION_MODE</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Downlink channel selection mode (manual or automatic) for the wireless link.</font></p>
 <h5 id="enum-members-v2">Enum Members:</h5>
@@ -688,7 +633,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgeUnit</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgeUnit</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_secondary_video_osd_unit_inline">AirLinkKey.SECONDARY_VIDEO_OSD_UNIT</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">OSD data units.</font></p>
 <h5 id="enum-members-v3">Enum Members:</h5>
@@ -699,7 +644,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgeSecondaryVideoOutputPort</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgeSecondaryVideoOutputPort</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_secondary_video_output_port_inline">AirLinkKey.SECONDARY_VIDEO_OUTPUT_PORT</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Remote Controller port to which to send secondary video (in addition to USB video sent to the Mobile Device).</font></p>
 <h5 id="enum-members-v4">Enum Members:</h5>
@@ -710,7 +655,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgeSecondaryVideoDisplayMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgeSecondaryVideoDisplayMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_secondary_video_display_mode_inline">AirLinkKey.SECONDARY_VIDEO_DISPLAY_MODE</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Defines the combination of video sources to form the secondary output video. The secondary output can display  video streams from one or two input sources. When the encode mode is single:<br> Source 1 represents video from  one of the Source1Only input ports (HDMI or AV).<br> Source 2 represents video from EXT input port  (HD Gimbal Camera).<br> When the encode mode is dual:<br> Source 1 represents video from HDMI input port.<br>  Source 2 represents video from AV input port.</font></p>
 <h5 id="enum-members-v5">Enum Members:</h5>
@@ -721,7 +666,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgeSecondaryVideoFormat</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgeSecondaryVideoFormat</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_hdmi_output_format_inline">AirLinkKey.HDMI_OUTPUT_FORMAT</a>, <a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_sdi_output_format_inline">AirLinkKey.SDI_OUTPUT_FORMAT</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Secondary output video resolution and frame rate.</font></p>
 <h5 id="enum-members-v6">Enum Members:</h5>
@@ -732,7 +677,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgePIPPosition</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgePIPPosition</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_pip_position_inline">AirLinkKey.PIP_POSITION</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">PIP (Picture In Picture) position on the screen relative to the main subject video.</font></p>
 <h5 id="enum-members-v7">Enum Members:</h5>
@@ -743,7 +688,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>LightbridgeTransmissionMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> LightbridgeTransmissionMode</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_transmission_mode_inline">AirLinkKey.TRANSMISSION_MODE</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.airlink</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">FPV(First-person view) Video can prioritize either quality or latency.</font></p>
 <h5 id="enum-members-v8">Enum Members:</h5>
@@ -841,7 +786,7 @@
 <div class="article"><h6><font color="#AAA">method </font>setDataRate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setDataRate</span><span class="params">(LightbridgeDataRate rate, <span class="keyword">final</span> CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">LightbridgeLinkKey.DATA_RATE</font></td></tr></table></html>
 <h5 id="description-v23">Description:</h5>
 <p><font color="#666">Sets the downlink data rate (throughput). Higher data rates increase the quality of video transmission, but can  only be used at shorter ranges.</font></p>
 <h5 id="input-parameters-v11">Input Parameters:</h5>
@@ -850,7 +795,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getDataRate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getDataRate</span><span class="params">(<span class="keyword">final</span> CompletionCallbackWith&lt;LightbridgeDataRate&gt; callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">LightbridgeLinkKey.DATA_RATE</font></td></tr></table></html>
 <h5 id="description-v24">Description:</h5>
 <p><font color="#666">Gets the current downlink data rate (throughput).</font></p>
 <h5 id="input-parameters-v12">Input Parameters:</h5>
@@ -1156,7 +1101,7 @@
 <div class="article"><h6><font color="#AAA">method </font>setFrequencyBand</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFrequencyBand</span><span class="params">(LightbridgeFrequencyBand frequencyBand, <span class="keyword">final</span> CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_lb_frequency_band_inline">AirLinkKey.LB_FREQUENCY_BAND</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999">LightbridgeLinkKeys.FREQUENCY_BAND</font></td></tr></table></html>
 <h5 id="description-v58">Description:</h5>
 <p><font color="#666">Sets the LB air link frequency band. It is only supported by Inspire 2 and Phantom 4 Pro. For the other products
 with LB air link, the frequency band is always 2.4 GHz.</font></p>
@@ -1166,7 +1111,7 @@ with LB air link, the frequency band is always 2.4 GHz.</font></p>
 <div class="article"><h6><font color="#AAA">method </font>getFrequencyBand</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFrequencyBand</span><span class="params">(<span class="keyword">final</span> CompletionCallbackWith&lt;LightbridgeFrequencyBand&gt; callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIAirLinkKey.html#airlinkkey_lb_frequency_band_inline">AirLinkKey.LB_FREQUENCY_BAND</a></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.airlink</font></td></tr></table></html>
 <h5 id="description-v59">Description:</h5>
 <p><font color="#666">Gets the LB air link frequency band. It is only supported by Inspire 2 and Phantom 4 Pro. For the other products  with LB air link, the frequency band is always 2.4 GHz.</font></p>
 <h5 id="input-parameters-v45">Input Parameters:</h5>
@@ -1201,29 +1146,6 @@ with LB air link, the frequency band is always 2.4 GHz.</font></p>
       </div>
     </div>
   </div>
-  <footer id="site-footer" class="site-footer">
-    <div class="container">
-      <div class="foot-nav row">
-        <nav class="link-list col-xs-2"><span class="title">SDK</span><a href="/mobile-sdk">Mobile SDK</a><a href="/onboard-sdk">Onboard SDK</a><a href="/guidance-sdk">Guidance SDK</a></nav>
-        <nav class="link-list col-xs-2"><span class="title">Info</span><a href="/products">Products</a><a href="/showcase">Showcase</a><a href="/news">News</a></nav>
-        <nav class="link-list col-xs-2"><span class="title">Community</span><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a><a href="https://github.com/dji-sdk" target="_blank">GitHub</a><a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">Stack Overflow</a></nav>
-        <nav class="link-list col-xs-2"><span class="title">Contact Us</span><a href="mailto:dev@dji.com"> dev@dji.com</a></nav>
-        <nav class="link-list col-xs-3"><span class="title">Business Cooperation</span><a href="mailto:dev.bd@dji.com"> dev.bd@dji.com</a></nav>
-      </div>
-      <div class="foot-copyright row">
-        <div class="col-xs-3 foot-logo"><img src="../../images/dji-logo-foot.png"></div>
-        <div class="copyright col-xs-7"><span>Copyright © 2016 DJI All Rights Reserved</span><a href="/policies/privacy">Privacy</a><a href="/policies/terms">Terms</a></div>
-        <div class="col-xs-2">
-          <div class="lang-selector">
-            <select dir="rtl" v-model="lang">
-              <option value="en">English</option>
-              <option value="cn">中文</option>
-            </select><i class="fa fa-globe"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
   <script type="text/javascript">
     window.Config = window.config = {
       sdk: "mobile-sdk",
