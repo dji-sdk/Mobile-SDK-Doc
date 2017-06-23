@@ -255,6 +255,12 @@
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
                                       </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
+                                                </dd>
+                                        </ul>
+                                      </dd>
                               </ul>
                             </dd>
                             <dd><a data-href="../Camera/DJIPlaybackManager.html" class="sub-toggle">PlaybackManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -697,7 +703,9 @@
 </p><p><font color="#666"><code><a href="../../Components/OcuSyncLink/DJIOcuSyncLink.html#djiocusynclink_djiocusyncwarningmessage">OcuSyncWarningMessage</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#airlinkkeysupported_frequency_bands_inline"></a><p class="key_table_key_string key_table_key_row">SUPPORTED_FREQUENCY_BANDS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_djilbairlinkfrequencyband">LightbridgeFrequencyBand</a>[]</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_getsupportedfrequencyband">getSupportedFrequencyBands</a></code></font></p>
-<p></p></td><tr><td colspan="2"><a href="#airlinkkeyavailable_channel_numbers_inline"></a><p class="key_table_key_string key_table_key_row">AVAILABLE_CHANNEL_NUMBERS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer[]</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td><tr><td></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_djilbairlinkfrequencyband">LightbridgeFrequencyBand</a></code></font></p>
+<p></p></td></tr><tr><td colspan="2"><a href="#airlinkkeyavailable_channel_numbers_inline"></a><p class="key_table_key_string key_table_key_row">AVAILABLE_CHANNEL_NUMBERS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer[]</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/WiFiLink/DJIWiFiLink.html#djiwifilink_getavailablechannels">getAvailableChannelNumbers</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#airlinkkeysecondary_video_osd_top_margin_inline"></a><p class="key_table_key_string key_table_key_row">SECONDARY_VIDEO_OSD_TOP_MARGIN</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_setosdtopmargin">setSecondaryVideoOSDTopMargin</a></code></font></p>
@@ -767,7 +775,7 @@
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_getfrequencyband">getFrequencyBand</a></code></font></p>
 <p></p></td></tr><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_djilbairlinkfrequencyband">LightbridgeFrequencyBand</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#airlinkkeyfrequency_point_index_inline"></a><p class="key_table_key_string key_table_key_row">FREQUENCY_POINT_INDEX</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH, SET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#airlinkkeyfrequency_point_index_inline"></a><p class="key_table_key_string key_table_key_row">FREQUENCY_POINT_INDEX</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/OcuSyncLink/DJIOcuSyncLink.html#djiocusynclink_setchannelnumber">setChannelNumber</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/OcuSyncLink/DJIOcuSyncLink.html#djiocusynclink_getchannelnumber">getChannelNumber</a></code></font></p>
@@ -775,7 +783,7 @@
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_setosdbottommargin">setSecondaryVideoOSDBottomMargin</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_getosdbottommargin">getSecondaryVideoOSDBottomMargin</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#airlinkkeyfrequency_point_index_valid_range_inline"></a><p class="key_table_key_string key_table_key_row">FREQUENCY_POINT_INDEX_VALID_RANGE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer[]</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#airlinkkeyfrequency_point_index_valid_range_inline"></a><p class="key_table_key_string key_table_key_row">FREQUENCY_POINT_INDEX_VALID_RANGE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Float[]</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/OcuSyncLink/DJIOcuSyncLink.html#djiocusynclink_getchannelnumbervalidrange">getChannelNumberValidRange</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#airlinkkeychannel_selection_mode_inline"></a><p class="key_table_key_string key_table_key_row">CHANNEL_SELECTION_MODE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_djilbairlinkchannelselectionmode">ChannelSelectionMode</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/LBAirLink/DJILBAirLink.html#djilbairlink_setchannelselectionmode">setChannelSelectionMode</a></code></font></p>
@@ -825,7 +833,7 @@
 </p><p><font color="#666"><code><a href="../../Components/WiFiLink/DJIWiFiLink.html#djiwifilink_getwifichannel">getChannelNumber</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#airlinkkeyis_wifi_link_supported_inline"></a><p class="key_table_key_string key_table_key_row">IS_WIFI_LINK_SUPPORTED</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/AirLink/DJIAirLink.html#djiairlink_iswifilinksupported">isWiFiLinkSupported</a></code></font></p>
-<p></p></td><tr><td colspan="2"><a href="#airlinkkeyvideo_data_channel_inline"></a><p class="key_table_key_string key_table_key_row">VIDEO_DATA_CHANNEL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>VideoDataChannel</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td></table></html>
+<p></p></td></table></html>
 
         </div>
       </div>
