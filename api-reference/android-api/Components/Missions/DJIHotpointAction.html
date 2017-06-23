@@ -1,5 +1,5 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
-<html lang="en" style="padding-bottom:0px" class="local"></html>
+<html lang="en"></html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,9 +10,58 @@
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
-      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Android SDK API Reference</a></div>
+      <div class="navbar-header"><a href="/" class="logo"><img src="../../images/dji-logo@2x.png">Developer</a></div>
+      <div id="header-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">SDK<span class="caret"></span></a>
+            <ul class="hovedown-menu">
+              <li><a href="/mobile-sdk">Mobile SDK</a></li>
+              <li><a href="/onboard-sdk">Onboard SDK</a></li>
+              <li><a href="/guidance-sdk">Guidance SDK</a></li>
+            </ul>
+          </li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/showcase">Showcase</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a></li>
+          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle">GitHub<span class="caret"></span></a>
+            <ul class="hovedown-menu">
+              <li><a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS SDK</a></li>
+              <li><a href="https://github.com/dji-sdk/Mobile-SDK-Android" target="_blank">Android SDK</a></li>
+              <li><a href="https://github.com/dji-sdk/Onboard-SDK" target="_blank">Onboard SDK</a></li>
+              <li><a href="https://github.com/dji-sdk/Guidance-SDK" target="_blank">Guidance SDK</a></li>
+            </ul>
+          </li>
+          <li><a href="/challenge2016" target="_blank">Challenge</a></li>
+        </ul>
+        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register" class="head-cta">Register</a></li>
+        </ul>
+        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+          <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
+            <ul class="hovedown-menu hovedown-menu-right">
+              <li><a href="/user">User Center</a></li>
+              <li><a href="javascript:void(0);" v-on="click: logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
+  <div data-offset-top="60" data-spy="affix" class="sub-nav">
+    <div class="container">
+      <h1 class="logo">Mobile SDK</h1>
+      <nav><a href="/mobile-sdk">Overview</a><a href="/mobile-sdk/documentation">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
+          <ul class="hovedown-menu">
+            <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
+            <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uiilb-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uiilb-api/index.html">Android UI Library</a></li>
+          </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
+      </nav>
+    </div>
+  </div>
   <div id="documentation-page" class="documentation-page">
     <div class="container">
       <div class="site-sidebar">
@@ -80,13 +129,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
-                            </dd>
                     </ul>
-                  </dd>
-                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
-                  </dd>
-                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -167,12 +210,6 @@
                             <dd><a href="../FlightController/DJIFlightController_DJIVirtualStickFlightControlData.html">FlightControlData</a>
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
-                            </dd>
-                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                              <ul class="sub-menu">
-                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
-                                      </dd>
-                              </ul>
                             </dd>
                     </ul>
                   </dd>
@@ -564,7 +601,7 @@
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>HotpointAction</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HotpointAction</span> <span class="keyword">extends</span> <span class="title">MissionAction</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/Missions/DJIMissionAction.html#djimissionaction">MissionAction</a></code></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/Missions/DJIMissionAction.html#djimissionaction">MissionAction</a></code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHotpointAction</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">This class represents a hotpoint action used as an element in a Timeline mission. By creating an object of this class and adding it to Mission Control's Timeline,  the aircraft will fly along a portion of a circle centered on a location of interest when the Timeline reaches the action.</font></p>
 <h5 id="class-members">Class Members:</h5>
@@ -572,16 +609,16 @@
 <div class="article"><h6><font color="#AAA">method </font>HotpointAction</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">HotpointAction(HotpointMission hotpointMission)</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHotpointAction_initWithMission</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Initialize with hotpoint mission. The Hotpoint action  will automatically stop after one complete orbit (360 degrees).</font></p>
+<p><font color="#666">Initialize with hotpoint mission. The Hotpoint action  will automatically stop after one complete orbit (360 degress).</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission">HotpointMission</a> <font color="#000">hotpointMission</font></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission">HotpointMission</a></code>.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djihotpointaction_initwithmissionsurroundingangle"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointaction_initwithmissionsurroundingangle_inline">HotpointAction</a></div></div><div class="inline-doc" id="djihotpointaction_initwithmissionsurroundingangle_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>HotpointAction</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">HotpointAction(HotpointMission hotpointMission, <span class="keyword">float</span> surroundingAngle)</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHotpointAction_initWithMissionsurroundingAngle</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Initialize with a hotpoint mission and  the angular distance the aircraft should travel within the orbit.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
@@ -590,18 +627,18 @@
 <div class="article"><h6><font color="#AAA">method </font>setSurroundingAngle</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSurroundingAngle</span><span class="params">(<span class="keyword">double</span> surroundingAngle)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHotpointAction_surroundingAngle</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">The angular distance in degrees the aircraft will travel in the  orbit of the hotpoint. The default is 360 degrees.</font></p>
+<p><font color="#666">The anglular distance in degrees the aircraft will travel in the  orbit of the hotpoint. The default is 360 degrees.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double <font color="#000">surroundingAngle</font></font></td><td><font color="#666"><i>Angle in degrees</i></font></td></tr></table></html></div>
 <div class="api-row" id="djihotpointaction_getsurroundingangle"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointaction_getsurroundingangle_inline">getSurroundingAngle</a></div></div><div class="inline-doc" id="djihotpointaction_getsurroundingangle_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getSurroundingAngle</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">getSurroundingAngle</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIHotpointAction_getSurroundingAngle</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">The angular distance in degrees the aircraft will travel in the  orbit of the hotpoint. The default is 360 degrees.</font></p>
+<p><font color="#666">The anglular distance in degrees the aircraft will travel in the  orbit of the hotpoint. The default is 360 degrees.</font></p>
 <h5 id="return">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>Angle in degrees.</i></font></td></tr></table></html></div>
 <h5 id="inherited-methods">Inherited Methods:</h5>
@@ -609,7 +646,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isRunning</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isRunning</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline.actions</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionAction_isRunning</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666"><code>true</code> if the action is running.</font></p>
 <h5 id="return-v2">Return:</h5>
@@ -619,7 +656,7 @@
 <div class="article"><h6><font color="#AAA">method </font>triggers</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">List&lt;Trigger&gt; <span class="title">triggers</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_triggers</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">If implemented, Mission Control loads and activates the triggers for the duration that the Timeline element is executing.</font></p>
 <h5 id="return-v3">Return:</h5>
@@ -628,7 +665,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isPausable</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isPausable</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_isPausable</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666"><code>true</code> if the element can be paused. If <code>false</code>, then when the Timeline is asked  to pause when this element is running, nothing will happen.</font></p>
 <h5 id="return-v4">Return:</h5>
@@ -637,7 +674,7 @@
 <div class="article"><h6><font color="#AAA">method </font>checkValidity</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">DJIError <span class="title">checkValidity</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_checkValidity</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Returns an error if there is a configuration or parameter error in the element.  Returns <code>null</code> if there is no issue.</font></p>
 <h5 id="return-v5">Return:</h5>
@@ -646,7 +683,7 @@
 <div class="article"><h6><font color="#AAA">method </font>willRun</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">willRun</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_willRun</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">If Implemented, this is called by Mission Control right before running the element.</font></p>
 </div>
@@ -654,7 +691,7 @@
 <div class="article"><h6><font color="#AAA">method </font>run</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_run</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Starts execution of Timeline element. Missions adopting this behavior are being run with their respective operators.</font></p>
 </div>
@@ -662,7 +699,7 @@
 <div class="article"><h6><font color="#AAA">method </font>pause</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_pauseRun</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">Pauses the execution of the element. Must be implemented if <code><a href="../../Components/Missions/DJIMissionControlTimelineElement.html#djimissioncontroltimelineelement_ispausable">isPausable</a></code> returns <code>true</code>.</font></p>
 </div>
@@ -670,7 +707,7 @@
 <div class="article"><h6><font color="#AAA">method </font>resume</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">resume</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_resumeRun</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Resumes the execution of the element. Must be implemented if <code><a href="../../Components/Missions/DJIMissionControlTimelineElement.html#djimissioncontroltimelineelement_ispausable">isPausable</a></code> returns <code>true</code>.</font></p>
 </div>
@@ -678,7 +715,7 @@
 <div class="article"><h6><font color="#AAA">method </font>stop</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_stopRun</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
 <p><font color="#666">Stops execution of the element.</font></p>
 </div>
@@ -686,7 +723,7 @@
 <div class="article"><h6><font color="#AAA">method </font>didRun</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">didRun</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.timeline</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIMissionControlTimelineElement_didRun</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Called after element execution, regardless of wether or not it was successful.</font></p>
 </div>
@@ -720,6 +757,29 @@
       </div>
     </div>
   </div>
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="foot-nav row">
+        <nav class="link-list col-xs-2"><span class="title">SDK</span><a href="/mobile-sdk">Mobile SDK</a><a href="/onboard-sdk">Onboard SDK</a><a href="/guidance-sdk">Guidance SDK</a></nav>
+        <nav class="link-list col-xs-2"><span class="title">Info</span><a href="/products">Products</a><a href="/showcase">Showcase</a><a href="/news">News</a></nav>
+        <nav class="link-list col-xs-2"><span class="title">Community</span><a href="http://forum.dev.dji.com/en" target="_blank">Forum</a><a href="https://github.com/dji-sdk" target="_blank">GitHub</a><a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">Stack Overflow</a></nav>
+        <nav class="link-list col-xs-2"><span class="title">Contact Us</span><a href="mailto:dev@dji.com"> dev@dji.com</a></nav>
+        <nav class="link-list col-xs-3"><span class="title">Business Cooperation</span><a href="mailto:dev.bd@dji.com"> dev.bd@dji.com</a></nav>
+      </div>
+      <div class="foot-copyright row">
+        <div class="col-xs-3 foot-logo"><img src="../../images/dji-logo-foot.png"></div>
+        <div class="copyright col-xs-7"><span>Copyright © 2016 DJI All Rights Reserved</span><a href="/policies/privacy">Privacy</a><a href="/policies/terms">Terms</a></div>
+        <div class="col-xs-2">
+          <div class="lang-selector">
+            <select dir="rtl" v-model="lang">
+              <option value="en">English</option>
+              <option value="cn">中文</option>
+            </select><i class="fa fa-globe"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script type="text/javascript">
     window.Config = window.config = {
       sdk: "mobile-sdk",
