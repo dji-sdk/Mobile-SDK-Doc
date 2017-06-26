@@ -149,7 +149,7 @@ Turn on the Remote Controller.
 
 #### WiFi Connection Procedure
 
-_Phantom 3 Standard, Phantom 3 4K:_
+_Phantom 3 Standard, Phantom 3 4K, Spark:_
 
 Turn on the Remote Controller.  
 
@@ -157,10 +157,10 @@ Turn on the Remote Controller.
 * Turn on the Aircraft and wait until the Remote Controller has connected with the Aircraft.
 * Run Sample App on the Mobile Device.
 
-_Osmo Series:_
+_Osmo Series, Mavic Pro, Spark:_
 
-Turn on the Osmo.  
+Turn on the product (Osmo or aircraft).  
 
-* Connect Mobile Device to the WiFi network created by the Osmo.
+* Connect Mobile Device to the WiFi network created by the product.
 * Run Sample App on Mobile Device.
 

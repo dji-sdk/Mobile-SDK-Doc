@@ -50,6 +50,7 @@ Aircraft flight can be controlled in several ways:
 * **Manually**: Remote controller control sticks can be manipulated by the user
 * **[Missions](./component-guide-missions.html)**: Simple high level flight automation
 * **[Virtual Sticks](#virtual-sticks)**: Stick commands can be sent using DJI Mobile SDK APIs that simulate manual flight. 
+* **Gestures**: Some aircraft (e.g. Spark) will perform basic flight maneuvers based on a gesture from the user.
 
 ### Flight Orientation
 
@@ -77,7 +78,7 @@ The Flight controller manages several sub components of the aircraft including s
 
 ### Compass
 
-The compass measures magnetic field direction and is used to determine the heading of the aircraft relative to North. The compass sometimes needs to be calibrated if flying near magnetic interference. Compass calibration will require the user to rotate the aircraft vertically and horizontally. Products with multiple compasses (like the Phantom 4) will have their compass state fused into one compass class for simplicity.
+The compass measures magnetic field direction and is used to determine the heading of the aircraft relative to North. The compass sometimes needs to be calibrated if flying near magnetic interference. Compass calibration will require the user to rotate the aircraft vertically and horizontally through the azimuth. Products with multiple compasses (like the Phantom 4) will have their compass state fused into one compass class for simplicity.
 
 ### IMU - Inertial Measurement Unit
 
