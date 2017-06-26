@@ -50,6 +50,7 @@ Aircraft flight can be controlled in several ways:
 * **Manually**: Remote controller control sticks can be manipulated by the user
 * **[Missions](./component-guide-missions.html)**: Simple high level flight automation
 * **[Virtual Sticks](#virtual-sticks)**: Stick commands can be sent using DJI Mobile SDK APIs that simulate manual flight. 
+* **Gestures**: Some aircraft (e.g. Spark) will perform basic flight maneuvers based on a gesture from the user.
 
 ### Flight Orientation
 
