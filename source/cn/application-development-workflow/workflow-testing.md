@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2017-3-3
+date: 2017-6-27
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
@@ -18,7 +18,7 @@ This allows both manual and automated flights to be simulated without actually f
 
 DJI provides tools for Windows and Mac which can be used to initialize the simulator, and visualize the aircraft behavior based on the state information provided by the simulator:
 
-* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used newer aircraft like Mavic Pro, Phantom 4 series, Inspire 2 and Matrice series.
+* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used for newer aircraft like Spark, Mavic Pro, Phantom 4 series, Inspire 2 and Matrice series.
 * **DJI PC Simulator** ( <a href="https://dev.dji.com/downloads/dev/0d63fc06-30a9-4818-9b27-66265f777cdd" target="_blank"> Windows </a> only) is used for Phantom 3 series, Inspire 1 series of aircraft.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
@@ -27,7 +27,7 @@ Additionally, simulator initialization, monitoring and termination can be contro
 
 The DJI Assistant 2 tool is built specifically for SDK developers and can initialize, terminate and provide visualization of the aircraft simulator running in the Flight Controller of the DJI aircraft. DJI Assistant 2 connects to the aircraft through USB.
 
-* Supported DJI Products: Mavic Pro, Matrice series, Phantom 4 Series, Inspire 2.
+* Supported DJI Products: Spark, Mavic Pro, Matrice series, Phantom 4 Series, Inspire 2.
 * Supported Operating Systems: Mac OS X 10, Windows 7, Windows 8, and Windows 8.1
 
 > **Note:** Windows 10 is not officially supported, but generally does work.

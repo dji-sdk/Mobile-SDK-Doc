@@ -1,6 +1,6 @@
 ---
 title: Smart Battery
-date: 2017-03-07
+date: 2017-06-27
 keywords: [smart battery, lifetime, battery aggregation, multiple batteries]
 ---
 

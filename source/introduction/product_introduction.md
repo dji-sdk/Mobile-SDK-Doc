@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2017-05-22
+date: 2017-06-27
 keywords: [component, propellor, sensor, product comparison]
 ---
 

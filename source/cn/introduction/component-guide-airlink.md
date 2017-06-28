@@ -1,6 +1,6 @@
 ---
 title: AirLink
-date: 2016-10-28
+date: 2017-6-27
 keywords: [airlink, wifi, OcuSync, lightbridge, Picture in Picture, PIP, OSD, On Screen Display, Auxiliary]
 ---
 
@@ -23,7 +23,7 @@ Osmo is not included in this table and uses the WiFi wireless link between itsel
 
 ## WiFi
 
-WiFi is used as the wireless communication link for both aircraft and handheld camera products. In the case of aircraft, the remote controller acts as a WiFi access point (AP) and the aircraft and mobile device join it as clients. Similarly for Osmo, the mobile device joins the Osmo AP as a client.
+WiFi is used as the wireless communication link for both aircraft and handheld camera products. In the case of aircraft, the remote controller acts as a WiFi access point (AP) and the aircraft and mobile device join it as clients. Some aircraft also act as the AP themselves, allowing the mobile device to connect directly. Similarly for Osmo, the mobile device joins the Osmo AP as a client.
 
 Aspects of the wireless link that can customized include:
 

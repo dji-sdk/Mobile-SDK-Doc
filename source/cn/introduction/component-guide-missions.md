@@ -1,6 +1,6 @@
 ---
 title: Missions
-date: 2017-03-07
+date: 2017-06-27
 keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
 ---
 
@@ -83,7 +83,7 @@ For Phantom 4 Professional, there are three TapFly modes:
 
 - TapFly Forward – Aircraft will fly towards the target. Forward Obstacle Sensing System is active.
 - TapFly Backward – Aircraft will fly in the opposite direction from the target. Backward Obstacle Sensing System is active.
-- TapFly Free – Aircraft will fly towards the target. User can control the heading by remote controller's stick. Obstacle Sensing Systems may fail to work when aircraft is flying sideward.
+- TapFly Free – Aircraft will fly towards the target. User can control the heading with the remote controller's stick. Obstacle Sensing Systems may fail to work when aircraft is flying sidewards.
 
 ![p4TapFlyAni](../../images/component-guide/p4TapFlyAni.gif)
 

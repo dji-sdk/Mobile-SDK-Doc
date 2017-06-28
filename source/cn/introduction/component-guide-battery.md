@@ -1,6 +1,6 @@
 ---
 title: Smart Battery
-date: 2017-03-07
+date: 2017-06-27
 keywords: [smart battery, lifetime, battery aggregation, multiple batteries]
 ---
 
@@ -31,3 +31,4 @@ A multi-battery system is as strong as its weakest link. Therefore for most effi
 # Extreme Weather Durability
 
  Self-heating technology is built into Inspire 2's Intelligent Flight Batteries, allowing it to fly in temperatures as low as -4°F (-20°C).
+

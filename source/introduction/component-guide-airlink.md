@@ -1,6 +1,6 @@
 ---
 title: AirLink
-date: 2016-10-28
+date: 2017-6-27
 keywords: [airlink, wifi, OcuSync, lightbridge, Picture in Picture, PIP, OSD, On Screen Display, Auxiliary]
 ---
 

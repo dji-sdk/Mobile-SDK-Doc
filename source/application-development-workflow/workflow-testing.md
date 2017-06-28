@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2017-3-3
+date: 2017-6-27
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 

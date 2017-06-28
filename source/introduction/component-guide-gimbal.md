@@ -1,6 +1,6 @@
 ---
 title: Gimbal
-date: 2016-12-27
+date: 2017-06-27
 keywords: [FPV Mode, Yaw Follow Mode, Free Mode, gimbal state, fine tune roll, balancing, smoothTrack, smoothTrack speed, smoothTrack acceleration, smoothTrack deadband, controller speed, controller smoothing, controller deadband, selfie, orientation lock, endpoint, range extension, motor control, upright mode]
 ---
 

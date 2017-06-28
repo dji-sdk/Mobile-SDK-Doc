@@ -1,6 +1,6 @@
 ---
 title: Run Application
-date: 2017-2-23
+date: 2017-6-27
 keywords: [activate product, upgrade firmware, flight mode switch, connection configuration]
 ---
 

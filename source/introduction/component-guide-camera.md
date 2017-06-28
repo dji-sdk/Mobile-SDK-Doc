@@ -1,6 +1,6 @@
 ---
 title: Camera
-date: 2017-03-07
+date: 2017-06-27
 keywords: [single, burst, HDR, AEB, Interval, Timelapse, video resolution, frame rate, aspect ratio, still image, compression, JPEG, DNG, RAW, H.264, MPEG, shutter speed, exposure mode, ISO, Aperture, Exposure Compensation, AE, Auto Exposure, AE Metering, AE Lock, White Balance, Color Temperature, Anti-Flicker, Sharpness, Contrast, Hue, Saturation, Digital Filter, lens, focus, live video feed,  playback manager, media manager, storage, file index, image format]
 ---
 

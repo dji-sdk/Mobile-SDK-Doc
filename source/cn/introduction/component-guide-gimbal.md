@@ -1,6 +1,6 @@
 ---
 title: Gimbal
-date: 2016-12-27
+date: 2017-06-27
 keywords: [FPV Mode, Yaw Follow Mode, Free Mode, gimbal state, fine tune roll, balancing, smoothTrack, smoothTrack speed, smoothTrack acceleration, smoothTrack deadband, controller speed, controller smoothing, controller deadband, selfie, orientation lock, endpoint, range extension, motor control, upright mode]
 ---
 
@@ -33,11 +33,9 @@ Gimbal features vary significantly across product lines. Therefore the DJI Mobil
 
 The gimbal has several work modes that define how the gimbal follows aircraft movement, and how many axes are available for control.
 
-
 - **FPV (First Person View) Mode**: Only pitch is controllable. Yaw and roll will be fixed relative to the product while pitch remains controllable.
 - **Yaw Follow Mode**: Pitch and roll are controllable. Yaw will follow the products heading.
 - **Free Mode**: Pitch, roll and yaw are all controllable, meaning the gimbal can move independently of the product's yaw. In this mode, even if the product yaw changes, the camera will continue pointing in the same world direction. 
-
 
 ## Gimbal State
 

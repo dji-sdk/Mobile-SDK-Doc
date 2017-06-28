@@ -137,19 +137,23 @@ As an example of ISO, [DJI's Zenmuse X5](http://www.dji.com/zenmuse-x5) has an I
 
 Another way to increase exposure is to increase the aperture. 
 
-Aperture is usually described in f-numbers (also called f-stops):
+Aperture is usually described with f-numbers (also called f-stops) where f/1.4 is a large aperture and f/22 is a small aperture.
 
-* The f-number describes the diameter of the aperture
-* To double the amount of light, the aperture area must be doubled
-* Doubling the aperture area, increases the diameter by 1.414 (square root of 2)
-* Therefore to increase an aperture by one exposure stop, the f-number is increased by 1.414
-
+* The f-number (N) is formally the ratio of the lens [focal length](#field-of-view-and-focal-length) (f) to aperture diameter (D): N=f/D 
+* Customarily it is written as f/N (which is the equation above rearranged) and describes the diameter of the lens 
+* To double the amount of light, the aperture area must be doubled 
+* As the aperture is a circle, doubling the aperture area increases the diameter by a factor of 1.414 (square root of 2) 
+* Therefore to change an aperture by one exposure stop, the f-number is changed by 1.414 
+* D is inversely proportional to N, thus a larger N will describe a smaller D 
+* Compared to an aperture of f/1.4, f/2 is an aperture of half the area (f/1.4*1.414) and therefore one stop smaller.
 
 However as shown [previously](#resolve-the-image), as the aperture increases each pixel will see more than one feature in the scene, causing the picture to be increasingly out of focus.  
 
 A lens can be used to bring parts of the scene back into focus. 
 
 <html><img src="../../images/camera-concepts/LensOnAperture.gif" width=100%></html>
+
+> **Note:** This is a simplification. There are many lenses in a modern camera system many of which are between the aperture and sensor. However, the described concepts are the same between simple and more complex systems.
 
 Lenses however can only focus light from a fixed distance in front of it, to a fixed distance behind it. Light coming from a different distance in front of it, will focus at a different distance behind it. When a lens is used to bring a feature into focus, features at different distances to the camera will be out of focus.
 
@@ -273,9 +277,6 @@ Calculating the difference in exposure for aperture, shutter and ISO for the sec
 </tr>
 </table>
 </html>
-
-
-
 
 ## Field of View and Focal Length
 

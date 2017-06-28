@@ -1,6 +1,6 @@
 ---
 title: Flight Controller
-date: 2016-12-13
+date: 2017-06-27
 keywords: [flight controller, motor control, flight control, flight orientation, course lock, home lock, aircraft heading, flight limitation, GEO, compass, IMU, RTK, DRTK, Vision System, Obstacle Avoidance, Intelligent Flight Assistant, landing gear, transport mode, battery threshold, Smart RTH, Failsafe RTH, Low Battery RTH, virtual stick, roll pitch control mode, yaw control mode, vertical throttle control mode]
 ---
 
@@ -50,6 +50,7 @@ Aircraft flight can be controlled in several ways:
 * **Manually**: Remote controller control sticks can be manipulated by the user
 * **[Missions](./component-guide-missions.html)**: Simple high level flight automation
 * **[Virtual Sticks](#virtual-sticks)**: Stick commands can be sent using DJI Mobile SDK APIs that simulate manual flight. 
+* **Gestures**: Some aircraft (e.g. Spark) will perform basic flight maneuvers based on a gesture from the user.
 
 ### Flight Orientation
 
@@ -77,7 +78,7 @@ The Flight controller manages several sub components of the aircraft including s
 
 ### Compass
 
-The compass measures magnetic field direction and is used to determine the heading of the aircraft relative to North. The compass sometimes needs to be calibrated if flying near magnetic interference. Compass calibration will require the user to rotate the aircraft vertically and horizontally. Products with multiple compasses (like the Phantom 4) will have their compass state fused into one compass class for simplicity.
+The compass measures magnetic field direction and is used to determine the heading of the aircraft relative to North. The compass sometimes needs to be calibrated if flying near magnetic interference. Compass calibration will require the user to rotate the aircraft vertically and horizontally through the azimuth. Products with multiple compasses (like the Phantom 4) will have their compass state fused into one compass class for simplicity.
 
 ### IMU - Inertial Measurement Unit
 
