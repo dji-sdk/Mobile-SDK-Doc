@@ -56,8 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uiilb-api/index.html">IOS UI Library</a></li>
-            <li><a href="/api-reference/android-uiilb-api/index.html">Android UI Library</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -129,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -211,6 +217,12 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -242,6 +254,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -601,15 +619,15 @@
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>FiveDButton</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">FiveDButton</span> <span class="keyword">extends</span> <span class="title">Button</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState_Button.html#djiremotecontroller_djirchardwarestate_button">Button</a></code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCFiveDButton</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/RemoteController/DJIRemoteController_DJIRCHardwareState_Button.html#djiremotecontroller_djirchardwarestate_button">Button</a></code></font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_five_d_button_inline">RemoteControllerKey.FIVE_D_BUTTON</a></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">State of the 5D button on the remote controller. Vertical movement, horizontal movment and if it is pressed are  not exclusive.</font></p>
+<p><font color="#666">State of the 5D button on the remote controller. Vertical movement, horizontal movement and if it is pressed are  not exclusive.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <div class="api-row" id="djiremotecontroller_djircfivedbutton_verticalmovement"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircfivedbutton_verticalmovement_inline">getVerticalDirection</a></div></div><div class="inline-doc" id="djiremotecontroller_djircfivedbutton_verticalmovement_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getVerticalDirection</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">FiveDButtonDirection <span class="title">getVerticalDirection</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCFiveDButton_verticalMovement</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Get the movement in the vertical direction of the 5D button. Up is the positive direction and down is the  negative direction.</font></p>
 <h5 id="return">Return:</h5>
@@ -618,7 +636,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getHorizontalDirection</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">FiveDButtonDirection <span class="title">getHorizontalDirection</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCFiveDButton_horizontalMovement</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Get the movement in the horizontal direction of the 5D button. Right is the positive direction and left is the  negative direction.</font></p>
 <h5 id="return-v2">Return:</h5>
@@ -628,7 +646,7 @@
 <div class="article"><h6><font color="#AAA">enum </font>FiveDButtonDirection</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">enum</span> FiveDButtonDirection</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCFiveDButtonDirection</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Movement direction of the remote controller's 5D button.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
@@ -640,7 +658,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isPresent</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isPresent</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCHardwareState_Button_isPresent</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666"><code>true</code> if the hardware button is present.</font></p>
 <h5 id="return-v3">Return:</h5>
@@ -649,7 +667,7 @@
 <div class="article"><h6><font color="#AAA">method </font>isClicked</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isClicked</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIRemoteController_DJIRCHardwareState_Button_buttonDown</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666"><code>true</code> if button is pressed down.</font></p>
 <h5 id="return-v4">Return:</h5>

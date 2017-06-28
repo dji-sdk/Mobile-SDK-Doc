@@ -56,8 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uiilb-api/index.html">IOS UI Library</a></li>
-            <li><a href="/api-reference/android-uiilb-api/index.html">Android UI Library</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -129,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -211,6 +217,12 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -242,6 +254,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -601,7 +619,7 @@
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>WaypointMissionOperator</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaypointMissionOperator</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">The waypoint operator is the only object that controls, runs and monitors Waypoint Missions. It can be accessed from <code><a href="../../Components/Missions/DJIMissionControl.html#djimissioncontrol">MissionControl</a></code>.</font></p>
 <h5 id="class-members">Class Members:</h5>
@@ -610,7 +628,7 @@
 <div class="article"><h6><font color="#AAA">method </font>loadMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Nullable</span></div><div class="line"> <span class="function">DJIError <span class="title">loadMission</span><span class="params">(@NonNull WaypointMission mission)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_loadMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Loads the WaypointMission into device memory. This also verifies all the information of <code>mission</code>. If something is incorrect, callback.result() will be called with an Error. Otherwise, callback.result() will be called with a <code>null</code> value. The <code>mission</code> object will remain in device memory even after the WaypointMission execution has finished.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
@@ -621,7 +639,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getLoadedMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">WaypointMission <span class="title">getLoadedMission</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_loadedMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Gets the currently loaded mission of the operator. There are two ways to load a mission. 1. A mission can be loaded by user through <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadmission">loadMission</a></code>. 2. If the aircraft is already executing a waypoint mission when SDK is re-connected, the operator will download part of the mission's information from the aircraft and load it automatically. In that case, the loaded mission will only contain the summary of the executing mission but information for each waypoint is absent. User can call <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_downloadmission">downloadMission</a></code> to get all the information for the loaded mission. The <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadedmission">getLoadedMission</a></code> will be reset to <code>null</code> when the execution of the loadedMission is stopped, finished or interrupted.</font></p>
 <h5 id="return-v2">Return:</h5>
@@ -630,16 +648,16 @@
 <div class="article"><h6><font color="#AAA">method </font>uploadMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">uploadMission</span><span class="params">(<span class="keyword">final</span> CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_uploadMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Uploads the loaded WaypointMission to aircraft. This should only be called after a WaypointMission has been successfully loaded into device memory using @link { #loadMission()), or a WaypointMission has been successfully downloaded from aircraft. To check the progress of upload, use @link{ #addUploadListener()).</font></p>
+<p><font color="#666">Starts to upload the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadedmission">getLoadedMission</a></code> to the aircraft. It can only be called when the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadedmission">getLoadedMission</a></code> is complete and the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> is <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_readytoupload">READY_TO_UPLOAD</a></code>. If a timeout error occurs during the previous upload, the upload operation will resume from the previous break-point. After a mission is uploaded successfully, the <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate">WaypointMissionState</a></code> will become <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_readytoexecute">READY_TO_EXECUTE</a></code>.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">final <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks_completioncallback_interface">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that will be called when the upload operation succeeds or fails to start. </i></font></td></tr></table></html></div>
 <div class="api-row" id="djiwaypointmissionoperator_retryuploadmission"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointmissionoperator_retryuploadmission_inline">retryUploadMission</a></div></div><div class="inline-doc" id="djiwaypointmissionoperator_retryuploadmission_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>retryUploadMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">retryUploadMission</span><span class="params">(CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_retryUploadMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Retry upload waypoint mission.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
@@ -648,9 +666,9 @@
 <div class="article"><h6><font color="#AAA">method </font>downloadMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">downloadMission</span><span class="params">(CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_downloadMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Downloads the current WaypointMission from aircraft into device memory. To check the progress of download, use @link{ #addDownloadListener()).</font></p>
+<p><font color="#666">Downloads information of each waypoint from aircraft and save it to <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadedmission">getLoadedMission</a></code>. If a download operation is started, the operator will download the information of waypoints missing in <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadedmission">getLoadedMission</a></code> one-by-one in ascending order. If <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_loadedmission">getLoadedMission</a></code> is already complete (containing all the waypoints), this method will call <code>completion</code> immediately without error. It can only be called when the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> is one of the following: - <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executing">EXECUTING</a></code> - <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executionpaused">EXECUTION_PAUSED</a></code></font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks_completioncallback_interface">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that will be called when the download operation succeeds or fails to start. </i></font></td></tr></table></html></div>
 <html><p><br></p></html>
@@ -659,16 +677,16 @@
 <div class="article"><h6><font color="#AAA">method </font>startMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">startMission</span><span class="params">(CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_startMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">Executes the current WaypointMission inside aircraft. This should only be called after a WaypointMission has been successfully uploaded to the aircraft using @link (#uploadMission()), To check the progress of execution, use @link{ #addExecutionListener()).</font></p>
+<p><font color="#666">Starts the execution of the uploaded mission. It can only be called when the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> is <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_readytoexecute">READY_TO_EXECUTE</a></code>. After a mission is started successfully, the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> will become <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executing">EXECUTING</a></code>.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks_completioncallback_interface">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that will be called when the operator succeeds or fails to start the execution. If it fails, an error will be returned.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiwaypointmissionoperator_resumemission"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointmissionoperator_resumemission_inline">resumeMission</a></div></div><div class="inline-doc" id="djiwaypointmissionoperator_resumemission_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>resumeMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">resumeMission</span><span class="params">(CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_resumeMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Resumes the paused mission. It can only be called when the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> is <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executionpaused">EXECUTION_PAUSED</a></code>. After a mission is resumed successfully, the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> will become <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executing">EXECUTING</a></code>.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
@@ -677,7 +695,7 @@
 <div class="article"><h6><font color="#AAA">method </font>pauseMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pauseMission</span><span class="params">(CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_pauseMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Pauses the executing mission. It can only be called when the <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate">WaypointMissionState</a></code> is <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executing">EXECUTING</a></code>. After a mission is paused successfully, the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> will become <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executionpaused">EXECUTION_PAUSED</a></code>.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
@@ -686,7 +704,7 @@
 <div class="article"><h6><font color="#AAA">method </font>stopMission</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">stopMission</span><span class="params">(CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_stopMission</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Stops the executing or paused mission. It can only be called when the <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> is one of the following: - <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executing">EXECUTING</a></code> - <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_executionpaused">EXECUTION_PAUSED</a></code> After a mission is stopped successfully, <code><a href="../../Components/Missions/DJIWaypointMissionOperator.html#djiwaypointmissionoperator_currentstate">getCurrentState</a></code> will become <code><a href="../../Components/Missions/DJIWaypointMissionState.html#djiwaypointmissionstate_readytoupload">READY_TO_UPLOAD</a></code>.</font></p>
 <h5 id="input-parameters-v8">Input Parameters:</h5>
@@ -695,7 +713,7 @@
 <div class="article"><h6><font color="#AAA">method </font>setAutoFlightSpeed</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAutoFlightSpeed</span><span class="params">(<span class="keyword">float</span> speed, CompletionCallback callback)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_setAutoFlightSpeed</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Set the flight speed while the mission is executing automatically (without manual joystick speed input). This is the only property or method in this class that can communicate with the aircraft during a mission. All other properties and methods are used offline to prepare the mission which is then uploaded to the aircraft.</font></p>
 <h5 id="input-parameters-v9">Input Parameters:</h5>
@@ -706,7 +724,7 @@
 <div class="article"><h6><font color="#AAA">method </font>getCurrentState</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@NonNull</span></div><div class="line"> <span class="function">WaypointMissionState <span class="title">getCurrentState</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_currentState</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">The current state of the operator.</font></p>
 <h5 id="return-v3">Return:</h5>
@@ -717,7 +735,7 @@
 <div class="article"><h6><font color="#AAA">method </font>addListener</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addListener</span><span class="params">(@NonNull WaypointMissionOperatorListener listener)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_addListener</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Add listener to listen for events.</font></p>
 <h5 id="input-parameters-v10">Input Parameters:</h5>
@@ -726,7 +744,7 @@
 <div class="article"><h6><font color="#AAA">method </font>removeListener</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeListener</span><span class="params">(WaypointMissionOperatorListener listener)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_removeListener</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
 <p><font color="#666">Removes listener. If the same listener is listening to multiple events and notifications (e.g. upload event and download event), it will not receive any update of them.</font></p>
 <h5 id="input-parameters-v11">Input Parameters:</h5>
@@ -737,7 +755,7 @@
 <div class="article"><h6><font color="#AAA">interface </font>WaypointMissionOperatorListener</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">WaypointMissionOperatorListener</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_Listener</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Listener interface for Waypoint mission operator events.</font></p>
 <h5 id="interface-methods">Interface Methods:</h5>
@@ -745,7 +763,7 @@
 <div class="article"><h6><font color="#AAA">method </font>onUploadUpdate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onUploadUpdate</span><span class="params">(@NonNull WaypointMissionUploadEvent uploadEvent)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_Listener_onUploadUpdate</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v16">Description:</h5>
 <p><font color="#666">Called when an upload event happens.</font></p>
 <h5 id="input-parameters-v12">Input Parameters:</h5>
@@ -754,7 +772,7 @@
 <div class="article"><h6><font color="#AAA">method </font>onDownloadUpdate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onDownloadUpdate</span><span class="params">(@NonNull WaypointMissionDownloadEvent downloadEvent)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_Listener_onDownloadUpdate</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v17">Description:</h5>
 <p><font color="#666">Called when an download event happens.</font></p>
 <h5 id="input-parameters-v13">Input Parameters:</h5>
@@ -763,7 +781,7 @@
 <div class="article"><h6><font color="#AAA">method </font>onExecutionStart</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onExecutionStart</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_Listener_onStart</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v18">Description:</h5>
 <p><font color="#666">Called when the waypoint mission starts.</font></p>
 </div>
@@ -771,7 +789,7 @@
 <div class="article"><h6><font color="#AAA">method </font>onExecutionUpdate</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onExecutionUpdate</span><span class="params">(@NonNull WaypointMissionExecutionEvent executionEvent)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_Listener_onExecutionUpdate</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v19">Description:</h5>
 <p><font color="#666">Called when there is an execution update for the waypoint mission operator.</font></p>
 <h5 id="input-parameters-v14">Input Parameters:</h5>
@@ -780,7 +798,7 @@
 <div class="article"><h6><font color="#AAA">method </font>onExecutionFinish</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onExecutionFinish</span><span class="params">(@Nullable DJIError error)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Doc Key:</i></font></td><td width="85%"><font color="#999">DJIWaypointMissionOperator_Listener_onFinish</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.waypoint</font></td></tr></table></html>
 <h5 id="description-v20">Description:</h5>
 <p><font color="#666">Called when the waypoint mission ends.</font></p>
 <h5 id="input-parameters-v15">Input Parameters:</h5>
