@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v4.2
-date: 2017-06-29
+version: v4.2.1
+date: 2017-07-04
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
@@ -798,14 +798,14 @@ Once you finish the above steps, let's implement the `setJoystickListener()` met
             float pitchJoyControlMaxSpeed = 10;
             float rollJoyControlMaxSpeed = 10;
 
-            mPitch = (float)(pitchJoyControlMaxSpeed * pY);
+            mPitch = (float)(pitchJoyControlMaxSpeed * pX);
 
-            mRoll = (float)(rollJoyControlMaxSpeed * pX);
+            mRoll = (float)(rollJoyControlMaxSpeed * pY);
 
             if (null == mSendVirtualStickDataTimer) {
                 mSendVirtualStickDataTask = new SendVirtualStickDataTask();
                 mSendVirtualStickDataTimer = new Timer();
-                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 0, 200);
+                mSendVirtualStickDataTimer.schedule(mSendVirtualStickDataTask, 100, 200);
             }
 
         }
@@ -823,11 +823,11 @@ Once you finish the above steps, let's implement the `setJoystickListener()` met
             if(Math.abs(pY) < 0.02 ){
                 pY = 0;
             }
-                 float verticalJoyStickControlMaxSpeed = 2;
-                float yawJoyStickControlMaxSpeed = 3;
+            float verticalJoyControlMaxSpeed = 2;
+            float yawJoyControlMaxSpeed = 30;
 
-                mYaw = (float)(yawJoyStickControlMaxSpeed * pX);
-                mThrottle = (float)(yawJoyStickControlMaxSpeed * pY);
+            mYaw = (float)(yawJoyControlMaxSpeed * pX);
+            mThrottle = (float)(verticalJoyControlMaxSpeed * pY);
 
             if (null == mSendVirtualStickDataTimer) {
                 mSendVirtualStickDataTask = new SendVirtualStickDataTask();
@@ -843,7 +843,7 @@ Here, we implement the following features:
 
 **1.** Override the `onTouch()` method of **setJoystickListener** and filter the `pX` and `pY` variables' value by checking if they are less than 0.02. We should not send the virtual stick data to flight controller too frequently if the value is too small.
 
-**2.** Get the maximum velocity of vertical control and maximum angle velocity of Virtual Stick, then store them to `verticalJoyControlMaxSpeed` and `yawJoyControlMaxSpeed` variables. Since the value of `pX` is between -1 (left) and 1 (right), the value of `pY` is between -1 (down) and 1 (up), we multiply by using the `verticalJoyControlMaxSpeed` and `yawJoyControlMaxSpeed` valures to update the `mYaw` and `mThrottle` data. Here we take Mode 2(American mode) of remote controller as example.
+**2.** Get the maximum velocity of pitch and roll control, then store them to `pitchJoyControlMaxSpeed` and `rollJoyControlMaxSpeed` variables. Since the value of `pX` is between -1 (left) and 1 (right), the value of `pY` is between -1 (down) and 1 (up), we multiply by using the `pitchJoyControlMaxSpeed` and `rollJoyControlMaxSpeed` values to update the `mPitch` and `mRoll` data. Here we take Mode 2(American mode) of remote controller as example.
 
 **3.** Lastly, we check if `mSendVirtualStickDataTimer` is null, and create it by invoking the `SendVirtualStickDataTask()` method. Then, create the `mSendVirtualStickDataTimer` and invoke its `schedule()` method to trigger the timer by passing `mSendVirtualStickDataTask` variable, 0 milliseconds of delay and 200 milliseconds between subsequent executions.
 
@@ -909,6 +909,10 @@ Let's implement the DJISimulator feature now. In order to update the simulator s
             return;
         } else {
             mFlightController = aircraft.getFlightController();
+            mFlightController.setRollPitchControlMode(RollPitchControlMode.VELOCITY);
+            mFlightController.setYawControlMode(YawControlMode.ANGULAR_VELOCITY);
+            mFlightController.setVerticalControlMode(VerticalControlMode.VELOCITY);
+            mFlightController.setRollPitchCoordinateSystem(FlightCoordinateSystem.BODY);
             mFlightController.getSimulator().setStateCallback(new SimulatorState.Callback() {
                 @Override
                 public void onUpdate(final SimulatorState stateData) {

@@ -27,7 +27,9 @@ As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need
 
 For an in depth learning on DJI UI Library, please go to the [UI Library Introduction](../introduction/ui_library_introduction.html).
 
-## Importing DJI SDK and UILibrary with AAR file
+## Importing DJI SDK and UILibrary
+
+### Importing DJI UI Library with AAR file
 
 **1**. Now, let's create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'UILibraryDemo'. Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 18: Android 4.3 (Jelly Bean)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
@@ -91,9 +93,26 @@ In the code above, we update the `compileSdkVersion`, `buildToolsVersion`, `targ
 > Note: We also remove the **compile 'com.android.support:design:23.4.0'** in the "dependencies" to avoid getting the following errors:
 > ![configureAndroidSDK](../images/tutorials-and-samples/Android/UILibraryDemo/values_error.png)
 
+### Importing DJI SDK Package
+
+**1**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
+
+**2**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and add `compile project(':dJISDKLIB')` at the bottom of `dependencies` part:
+
+~~~xml
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    testCompile 'junit:junit:4.12'
+    compile project(':android-uilib-release')
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile project(':dJISDKLIB')
+}
+~~~
+
 Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
 
-**4**. Now, open the MainActivity.java file and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
+Now, open the MainActivity.java file and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
  
 ~~~java
 package com.dji.uilibrarydemo;
