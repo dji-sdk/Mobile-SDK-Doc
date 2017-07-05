@@ -1145,9 +1145,9 @@ Moreover, let's implement the delegate methods of **DJIFlyZoneDelegate** and **D
 
 - (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerState *)state
 {
-    if (CLLocationCoordinate2DIsValid(state.aircraftLocation)) {
+    if (CLLocationCoordinate2DIsValid(state.aircraftLocation.coordinate)) {
         double heading = RADIAN(state.attitude.yaw);
-        [self.djiMapViewController updateAircraftLocation:state.aircraftLocation withHeading:heading];
+        [self.djiMapViewController updateAircraftLocation:state.aircraftLocation.coordinate withHeading:heading];
     }
 }
 ~~~

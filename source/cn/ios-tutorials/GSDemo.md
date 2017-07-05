@@ -684,7 +684,7 @@ Furthermore, let's implement the **DJIFlightControllerDelegate** method:
 ~~~objc
 #pragma mark DJIFlightControllerDelegate
 
-- (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerCurrentState *)state
+- (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerState *)state
 {
     self.droneLocation = state.aircraftLocation.coordinate;
     
@@ -700,7 +700,7 @@ Furthermore, let's implement the **DJIFlightControllerDelegate** method:
 }
 ~~~
 
-First, it will update the **droneLocation** with the aircraft's current location. Next, update the text for the status labels from the DJIFlightControllerCurrentState. Furthermore, update the aircraft's location and heading by calling the related methods from **DJIMapController**.
+First, it will update the **droneLocation** with the aircraft's current location. Next, update the text for the status labels from the `DJIFlightControllerState`. Furthermore, update the aircraft's location and heading by calling the related methods from **DJIMapController**.
 
 Now, let's test the application! 
 
