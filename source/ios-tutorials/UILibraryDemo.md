@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
-version: v4.2
-date: 2017-06-27
+version: v4.2.2
+date: 2017-07-07
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UILibraryDemo
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -39,8 +39,8 @@ Then replace the content of the **Podfile** with the followings:
 # platform :ios, '9.0'
 
 target 'UILibraryDemo' do
-  pod 'DJI-SDK-iOS', '~> 4.1.1'
-  pod 'DJI-UILibrary-iOS', '~> 4.1.1'
+  pod 'DJI-SDK-iOS', '~> 4.2.2'
+  pod 'DJI-UILibrary-iOS', '~> 4.2'
 end
 
 ~~~
@@ -56,8 +56,8 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (4.1.1)
-Installing DJI-UILibrary-iOS (4.1.1)
+Installing DJI-SDK-iOS (4.2.2)
+Installing DJI-UILibrary-iOS (4.2)
 Generating Pods project
 Integrating client project
 
