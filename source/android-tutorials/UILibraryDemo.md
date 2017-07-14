@@ -33,7 +33,7 @@ For an in depth learning on DJI UI Library, please go to the [UI Library Introdu
 
 **1**. Now, let's create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'UILibraryDemo'. Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 18: Android 4.3 (Jelly Bean)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
-**2**. Next, download the **android-uilib-release.aar** file from this [Github link](https://github.com/dji-sdk/Mobile-UILibrary-Android/blob/master/libs/android-uilib-release.aar). Go to **File -> New -> New Module** on the Android Studio menu:
+**2**. Next, download the **dji-uilibrary.aar** file from this [Github link](https://github.com/dji-sdk/Mobile-UILibrary-Android/blob/master/libs/). Go to **File -> New -> New Module** on the Android Studio menu:
 
 <img src="../images/tutorials-and-samples/Android/UILibraryDemo/newModule.png" width="400">
 
@@ -41,9 +41,9 @@ Choose "Import .JAR/.AAR Package" and click on "Next" button as shown below:
 
 <img src="../images/tutorials-and-samples/Android/UILibraryDemo/importAAR.png" width="600">
 
-Choose the downloaded **android-uilib-release.aar** file path in the "File name" field. A "android-uilib-release" name will show in the "Subproject name" field. Press "Finish" button to finish the settings.
+Choose the downloaded **dji-uilibrary.aar** file path in the "File name" field. A "dji-uilibrary" name will show in the "Subproject name" field. Press "Finish" button to finish the settings.
 
-Moreover, right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, click on the "+" sign at the bottom and select "3 Module dependency", then choose the ":android-uilib-release" module and press "OK". You should find the ":android-uilib-release" appear in the list now.
+Moreover, right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, click on the "+" sign at the bottom and select "3 Module dependency", then choose the ":dji-uilibrary" module and press "OK". You should find the ":dji-uilibrary" appear in the list now.
 
 <img src="../images/tutorials-and-samples/Android/UILibraryDemo/dependency.png" width="600">
 
@@ -79,10 +79,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     testCompile 'junit:junit:4.12'
-    compile project(':android-uilib-release')
     compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile project(':dji-uilibrary')
 }
 ~~~
 
@@ -104,8 +104,8 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.4.0'
     testCompile 'junit:junit:4.12'
-    compile project(':android-uilib-release')
     compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile project(':dji-uilibrary')
     compile project(':dJISDKLIB')
 }
 ~~~
