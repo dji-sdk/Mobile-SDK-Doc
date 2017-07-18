@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v4.2.2
-date: 2017-07-14
+date: 2017-07-18
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -43,6 +43,14 @@ Next, let's import the **DJISDK.framework** to the project and implement the reg
 ### Importing the VideoPreviewer
 
 You can check the [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **VideoPreviewer** into your Xcode project.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a cylinder of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ### Setup the Storyboard
 
@@ -387,7 +395,7 @@ In the code above, we implement the `updatePoint:` and `updatePoint:andColor:` m
 
 #### Showing Live Video Stream
    
-   In order to show the live video stream in the TapFlyViewController, we should import the following headers and implement the protocols of `DJICameraDelegate`, `DJIVideoFeedListener` firstly:
+   In order to show the live video stream in the TapFlyViewController, we should import the following headers and implement the protocols of `DJIVideoFeedListener` firstly:
 
 ~~~objc
 #import "TapFlyViewController.h"
@@ -395,7 +403,7 @@ In the code above, we implement the `updatePoint:` and `updatePoint:andColor:` m
 #import "DemoUtility.h"
 #import "StatusViewController.h"
 
-@interface TapFlyViewController () <DJICameraDelegate, DJIVideoFeedListener>
+@interface TapFlyViewController () <DJIVideoFeedListener>
 
 @end
 ~~~
@@ -407,12 +415,6 @@ Then, invoke the `start` instance method of VideoPreviewer, set its view as `fpv
     [super viewWillAppear:animated];
 
     [[VideoPreviewer instance] setView:self.fpvView];
-        
-    DJICamera* camera = [DemoUtility fetchCamera];
-    if (camera) {
-        camera.delegate = self;
-    }
-    
     [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
     [[VideoPreviewer instance] start];
 }
@@ -1017,7 +1019,7 @@ Here, we implement the four event-handling methods for touches to track user's m
 
 #### Showing Live Video Stream
    
-   In order to show the live video stream of Mavic Pro's camera on the app, let's come to ActiveTrackViewController.m file and implement its class extension part firstly. Import the following headers and implement the protocols of `DJICameraDelegate`, `DJIVideoFeedListener` and `TrackingRenderViewDelegate`:
+   In order to show the live video stream of Mavic Pro's camera on the app, let's come to ActiveTrackViewController.m file and implement its class extension part firstly. Import the following headers and implement the protocols of `DJIVideoFeedListener` and `TrackingRenderViewDelegate`:
 
 ~~~objc
 #import "ActiveTrackViewController.h"
@@ -1025,7 +1027,7 @@ Here, we implement the four event-handling methods for touches to track user's m
 #import "DemoUtility.h"
 #import "DJIScrollView.h"
 
-@interface ActiveTrackViewController () <DJICameraDelegate, DJIVideoFeedListener, TrackingRenderViewDelegate>
+@interface ActiveTrackViewController () <DJIVideoFeedListener, TrackingRenderViewDelegate>
 
 @end
 ~~~
@@ -1038,12 +1040,6 @@ Then, in the `viewWillAppear:` method, invoke the `start` instance method of Vid
     [super viewWillAppear:animated];
 
     [[VideoPreviewer instance] setView:self.fpvView];
-    
-    DJICamera* camera = [DemoUtility fetchCamera];
-    if (camera) {
-        camera.delegate = self;
-    }
-    
     [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
     [[VideoPreviewer instance] start];
 }
@@ -1482,7 +1478,7 @@ Now you can connect your iPhone which is running the demo application to the rem
 
 Moreover, another good news is you can use the DJI Bridge App to test the application directly on the iOS Simulator! If you are not familiar with the DJI Bridge App, please check the [DJI Bridge App Tutorial](./BridgeAppDemo.html). 
    
-   Let's go to RootViewController.m file and add a Macro on top of the class extension part as shown below:
+Let's go to RootViewController.m file and add a Macro on top of the class extension part as shown below:
    
 ~~~objc
 #define ENTER_DEBUG_MODE 1
