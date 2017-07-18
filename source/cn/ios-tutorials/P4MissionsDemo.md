@@ -1481,7 +1481,7 @@ Moreover, another good news is you can use the DJI Bridge App to test the applic
 Let's go to RootViewController.m file and add a Macro on top of the class extension part as shown below:
    
 ~~~objc
-#define ENTER_DEBUG_MODE 1
+#define ENTER_DEBUG_MODE 0
 
 @interface RootViewController ()<DJISDKManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *tapFlyMissionButton;
@@ -1518,11 +1518,11 @@ Here are two screenshots of testing the two missions on your Mac:
   
   - TapFly Mission Test
   
-![setupButton](../images/tutorials-and-samples/iOS/Phantom4Missions/tapFlyTest.png)
+![setupButton](../../images/tutorials-and-samples/iOS/Phantom4Missions/tapFlyTest.png)
   
   - AciveTrack Mission Test
 
-![setupButton](../images/tutorials-and-samples/iOS/Phantom4Missions/activeTrackTest.png)
+![setupButton](../../images/tutorials-and-samples/iOS/Phantom4Missions/activeTrackTest.png)
 
 ### Summary
 

@@ -815,7 +815,7 @@ Remember to place the `fpvView` at the bottom, and change the top UIView object'
 
 **3.** Drag and drop two UILabel objects, four UIButton objects and two UISwitch objects on top of the View of Active Track View Controller and place them on the right positions as shown below:
 
-<img src="../../images/tutorials-and-samples/iOS/Phantom4Missions/activeTrackUI.png" width=70%>
+<img src="../images/tutorials-and-samples/iOS/Phantom4Missions/activeTrackUI.png" width=70%>
 
 For more details of the UI customization, please check the Github source code of this demo project. Lastly, create seven IBOutlet properties and four IBAction methods for them in the ActiveTrackViewController.m file as shown below:
 
@@ -1481,7 +1481,7 @@ Moreover, another good news is you can use the DJI Bridge App to test the applic
 Let's go to RootViewController.m file and add a Macro on top of the class extension part as shown below:
    
 ~~~objc
-#define ENTER_DEBUG_MODE 1
+#define ENTER_DEBUG_MODE 0
 
 @interface RootViewController ()<DJISDKManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *tapFlyMissionButton;
