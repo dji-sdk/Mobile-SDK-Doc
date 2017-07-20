@@ -1,12 +1,12 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v4.2.2
-date: 2017-07-18
+date: 2017-07-20
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
 
-In this tutorial, you will learn how to use the TapFly and ActiveTrack Missions of DJI iOS SDK to create a cool application for DJI Mavic Pro. Also you will get familiar with `DJITapFlyMissionOperator`, `DJIActiveTrackMissionOperator` and using the Simulator of DJI Assistant 2 for testing, which is convenient for you to test the missions indoor. So let's get started!
+In this tutorial, you will learn how to use the TapFly and ActiveTrack Missions of DJI iOS SDK to create a cool application for DJI Mavic Pro. Also, you will get familiar with `DJITapFlyMissionOperator`, `DJIActiveTrackMissionOperator` and using the Simulator of DJI Assistant 2 for testing, which is convenient for you to test the missions indoor. So let's get started!
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions).
    
@@ -16,7 +16,7 @@ The TapFly and ActiveTrack missions bring you a more autonomous flying experienc
     
 ### TapFly Mission
 
-Given a coordinate in the live video stream (which can come from a user tap), the aircraft will calculate and fly towards the coordinate's direction in the real world. During flight, the aircraft will automatically detect and avoid obstacles. Also, the aircraft will stop flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass. 
+Given a coordinate in the live video stream (which can come from a user tap), the aircraft will calculate and fly towards the coordinate's direction in the real world. During a flight, the aircraft will automatically detect and avoid obstacles. Also, the aircraft will stop flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass. 
 
 During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
 
@@ -26,7 +26,7 @@ Here is a <a href="https://www.djivideos.com/watch/1230a9a3-2985-4262-9cc4-6ce09
 
 An ActiveTrack Mission allows an aircraft to track a moving subject using the vision system and without a GPS tracker on the subject. To use an ActiveTrack mission:
 
-The main camera is used to track the target, so the gimbal cannot be adjusted during an ActiveTrack mission. During the mission the aircraft can be manually flown with pitch, roll and throttle to move around the subject being tracked.
+The main camera is used to track the target, so the gimbal cannot be adjusted during an ActiveTrack mission. During the mission, the aircraft can be manually flown with pitch, roll and throttle to move around the subject being tracked.
 
 Here is a <a href="https://www.djivideos.com/watch/b90658c6-2dbe-4993-93e6-1a146c991eff" target="_blank"> video </a> for you to get the first impression of the ActiveTrack Mission.
 
@@ -60,7 +60,7 @@ You can check the [Creating a Camera Application](./index.html) tutorial to lear
 
 #### 2. Adding Two ViewControllers
 
-   Control drag from the two buttons to the two new UIViewController objects seperately and choose the "Show" action segue. Here we create two UIViewController classes and named them as "ActiveTrackViewController" and "TapFlyViewController". Then set the class of the two new UIViewController objects in storyboard as these two classes.
+   Control drag from the two buttons to the two new UIViewController objects separately and choose the "Show" action segue. Here we create two UIViewController classes and named them as "ActiveTrackViewController" and "TapFlyViewController". Then set the class of the two new UIViewController objects in storyboard as these two classes.
 
    Next, drag two Bar Button items(Name them both as "Status") from Object Library and place them on the right side of navigation bar of "ActiveTrackViewController" and "TapFlyViewController" objects in the storyboard.
 
@@ -311,7 +311,7 @@ Moreover, here are the coordinate transformations class methods' implementations
 }
 ~~~
 
-The "StreamSpace" in the above method names means the video stream coordinate system. Those methods include tranformations of CGPoint, CGSize and CGRect, we will use them frequently later. For the remaining implementation of this class, please check this tutorial's Github sample project.
+The "StreamSpace" in the above method names means the video stream coordinate system. Those methods include transformations of CGPoint, CGSize and CGRect, we will use them frequently later. For the remaining implementation of this class, please check this tutorial's Github sample project.
 
 ### Working on the PointingTouchView
 
@@ -782,21 +782,11 @@ Now let's build and run the project, if everything goes well, you should be able
 
 >**Important**: Remember to switch the remote controller to **P** mode before you test the TapFly mission.
 
-<!-- Here are two gif animations for you to get a better understanding of using the TapFly mission, especially the **Horizontal Obstacle Avoidance** feature:
+Here is a gif animation for you to get a better understanding of using the TapFly mission feature:
 
--  Enable Horizontal Obstacle Avoidance
+![tapFlyMissionHoriGif](../../images/tutorials-and-samples/iOS/Phantom4Missions/tapFlyMission.gif)
 
-![tapFlyMissionHoriGif](../../images/tutorials-and-samples/iOS/Phantom4Missions/tapFlyMissionHoriGif.gif)
-
-   In the animation, you can see there are two flat surface obstacles stand towards the Phantom 4. We tap on the right obstacle and ask the Mavic Pro to fly towards it. With the help of the front obstacle sensors, Mavic Pro won't hit the obstacle and crash. You may notice that we switch on the "Horizontal Obstacle Avoidance Enable" before the TapFly mission start. 
-   
-   Press the **GO** button, Mavic Pro will start to fly towards it. When flying close to the obstacle, the Obstacle Sensing System will help to adjust the aircraft's attitude and fly towards the right side of it. 
- 
--  Disable Horizontal Obstacle Avoidance
-
-![tapFlyMissionUpwardsGif](../../images/tutorials-and-samples/iOS/Phantom4Missions/tapFlyMissionUpwardsGif.gif)
-
-   If we switch off the "Horizontal Obstacle Avoidance Enable", when the Mavic Pro fly close to the obstacle, it will rise to avoid the obstacle and continue to fly towards the origin direction. When you want to stop the mission, just press the **X** button, Mavic Pro will stop immediately and hover there. -->
+In the animation, when you tap on the screen, a green circle appears, which is the direction you want Mavic Pro fly towards. Press the **GO** button on the right side, Mavic Pro will start to execute the TapFly mission and fly. When you want to stop the mission, just press the **X** button, Mavic Pro will stop immediately and hover there.
 
 ## Implementing ActiveTrack Mission
 
@@ -1456,19 +1446,23 @@ Now let's build and run the project, if everything goes well, you should be able
 
 >**Important**: Remember to switch the remote controller to **P** mode before you test the ActiveTrack mission.
 
-<!-- Here is a gif animation for you to get a better understanding of using the ActiveTrack mission:
+Here is a gif animation for you to get a better understanding of using the ActiveTrack mission:
 
-![ActiveTrackMissionGif](../images/tutorials-and-samples/iOS/Phantom4Missions/ActiveTrackMissionGif.gif)
+![ActiveTrackMissionGif](../../images/tutorials-and-samples/iOS/Phantom4Missions/ActiveTrackMission.gif)
 
-In the animation, you can see there is a person standing there, you can touch the screen to draw a green rectangle on him. Then the rectangle will turn red and a question mark will appear to ask you for confirmation. You can tap on the rectangle to confirm it or tap outside to reject it. 
+In the animation, you can see there is a person standing there, you can touch the screen to draw a green rectangle on him. Then the rectangle will turn orange and a question mark will appear to ask you for confirmation. You can press the **A** button on the right side to accept the confirmation.
 
 After the confirmation, the ActiveTrack mission starts. The person walks around and the green rectangle will follow it to track its movement. This means that Mavic Pro is now tracking you automatically!
 
-Press the **X** button if you want to stop the ActiveTrack mission. By the way, you can try to switch on the "RetreatEnabled" switcher on the bottom right corner of the screen to enable the **Retreat** feature. Once you go towards the Mavic Pro, it will fly backwards. -->
+You can press the **R** button to stop the aircraft from following you and ask for your confirmation again. Also, press the **S** button if you want to stop the ActiveTrack mission. 
+
+Moreover, if you switch on the **GestureEnabled** switcher at the bottom of the screen, you will enable the gesture mode of Mavic Pro. Raise your arms in a **V**, Mavic Pro will recognize you and start to track you automatically.
+
+Lastly, you can try to switch on the **RetreatEnabled** switcher at the bottom right corner of the screen to enable the **Retreat** feature. Once you go towards the Mavic Pro, it will fly backwards.
 
 ### Using the DJI Assistant 2 for Mission Testing
 
-Since most of our developers don't have a perfect testing environment, like a big indoor space, wide backyard, etc. If we need to go outdoors and bring our latop to debug and test our application everytime, it's time consuming and not efficient. 
+Since most of our developers don't have a perfect testing environment, like a big indoor space, wide backyard, etc. If we need to go outdoors and bring our laptop to debug and test our application everytime, it's time consuming and not efficient. 
 
 Luckily, we have a new DJI Assistant 2 (Includes the 3D Simulator) for you to test the mission easily on your Mac. The simulator creates a virtual 3D environment from flight data transmitted to the Mac.
 
