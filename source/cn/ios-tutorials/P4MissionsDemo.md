@@ -1345,9 +1345,6 @@ Furthermore, let's create the following two methods:
       if (event.error) {
           ShowResult(@"Mission Interrupted: %@", event.error.description);
       }
-      else {
-          ShowResult(@"Mission Stopped. ");
-      }
   }
   
   if (event.trackingState) {
