@@ -112,10 +112,6 @@ The trade-off between capturing RAW and compressed images is:
 For still images, DIJ cameras typically support JPEG (compressed) and DNG (RAW) image formats. Cameras can also capture in JPEG + RAW, saving two images for each shot.
 
 For video, only the Zenmuse X5 RAW and X5S supports capturing raw video. RAW video files have a high data rate and large file size and therefore can only be captured onto a solid state drive (SSD). All cameras support compressed formats MP4 (MPEG – 4 AVC) and MOV (H.264).
-
-##### Photo Quality
-
-As a JPEG image is compressed increased, it's file size and image quality reduces. Quality options of **Normal**, **Fine** and **Excellent** are available for users and developers to choose the right balance for their application.
  
 ## Exposure Options
 
