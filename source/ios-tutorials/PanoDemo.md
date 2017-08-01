@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
 version: v4.2.1
-date: 2017-07-04
+date: 2017-08-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -17,6 +17,14 @@ In this tutorial, you will learn how to build a cool panorama app. With the help
 ![several tasks](../images/tutorials-and-samples/iOS/PanoramaDemo/workFlow.png)
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo).
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a cylinder of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the FPV
 

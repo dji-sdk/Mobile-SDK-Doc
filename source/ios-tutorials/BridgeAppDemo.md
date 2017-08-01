@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
 version: v4.2.2
-date: 2017-07-07
+date: 2017-08-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---
@@ -54,6 +54,14 @@ Now try to open the bridge app, and connect your mobile device to the remote con
 Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "BridgeAppDemo" in the **Product Name** field and keep the other default settings.
 
 Once the project is created, let's import the **DJISDK.framework** to it. If you are not familiar with the process of importing and activating DJI SDK, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a cylinder of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Importing the VideoPreviewer
 

@@ -1,7 +1,7 @@
 ---
 title: Creating a Photo and Video Playback Application
 version: v4.2.2
-date: 2017-07-07
+date: 2017-08-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS playback demo, playback application, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -18,6 +18,14 @@ In order for our app to manage photos and videos, however, it must first be able
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo).
 
 We use Phantom 4 and iPad Air as an example to make this demo. For more details of customizing the layouts for iPhone devices, please check the tutorial's Github Sample Project. Let's get started!
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a cylinder of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing DJI Go Style Default Layout
 
