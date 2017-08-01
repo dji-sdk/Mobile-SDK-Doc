@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-6-27
+date: 2017-8-1
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -65,6 +65,10 @@ Screenshots in this section are generated using Xcode 7.3.
    ![allowArbitraryLoads](../images/quick-start/iOSAllowArbitraryLoads.png)
    * Currently the DJI iOS SDK doesn't support **Bitcode** for iOS device, please modify the Build Settings to disable it.
    ![disableBitcode](../images/quick-start/disableBitcode.png)
+   * For Xcode project which uses Swift 3 above, please delete all the paths in **Header Search Paths** except `$(PODS_ROOT)/Headers/Public` in **Build Settings** to help fix the Swift compiler error.
+   ![headerSearchPathIssue](../images/application-development-workflow/headerSearchPathIssue_1.png)
+   > Note: The Swift compiler error looks like this: **Inclue of non-modular header inside framework module 'DJISDK'**.
+   >![headerSearchPathIssue2](../images/application-development-workflow/headerSearchPathIssue_2.png)
 
 ### Register Application
 
@@ -128,7 +132,7 @@ Screenshots in this section are generated using Xcode 7.3.
 
 ### Run Import SDK Demo
 
-The **ImportSDKDemo** project can now be run. You can download the sample code of this project from <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode" target="_blank">Github</a>.
+The **ImportSDKDemo** project can now be run. You can download the sample code of this project from Github: <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode" target="_blank">Objective-C</a> | <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode-Swift" target="_blank">Swift</a>.
 
 As this application is only checking for registration and not interacting directly with a product, no product needs to be connected to the application for this to run. Therefore, the application can either be run on a mobile device (with or without a DJI product connected) or in the iOS simulator. The application will need internet connectivity to perform registration successfully.
 
