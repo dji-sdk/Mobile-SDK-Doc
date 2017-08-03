@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-6-27
+date: 2017-8-03
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -170,63 +170,50 @@ A new application can be used to show how to integrate the DJI SDK into an Andro
       * Click **Finish** when done.
    ![AndroidCustomizeTheActivity](../../images/quick-start/AndroidCustomizeTheActivity.png)
 
-### Import Module
+### Import AAR Package
 
 After unzipping the downloaded Android SDK package:
 
-   * In the Android Studio menu bar select **File->New->Import Module**
-   ![AndroidNewModuleImport](../../images/quick-start/AndroidNewModuleImport.png)
-   * Move to the next screen, and finish import.
-   ![AndroidImportNewModuleDependencies](../../images/quick-start/AndroidImportNewModuleDependencies.png)
+  * In the Android Studio menu bar select **File->Project Structure**
+  ![AddNewModule](../../images/application-development-workflow/AddNewModule.png)
+  * Press the **+** button on the upper left corner to open "Create New Module" window and select "Import .JAR/.AAR Package"
+  ![AddNewModule](../../images/application-development-workflow/createNewModule.png)
+  * Move to the next screen, and select the path of the downloaded Android SDK AAR Package file
+  ![AndroidImportNewModuleDependencies](../../images/application-development-workflow/AARFilePath.png)
+  * Press "Finish" and select **Dependencies** tab on the "Project Structure" window. Press **+** button and select "3 Module dependency"
+  ![SelectModuleDependency](../../images/application-development-workflow/selectModuleDependency.png)
+  * Choose **:dji_android_sdk** as the Module and press "OK"
+  ![SelectModuleDependency](../../images/application-development-workflow/chooseModule.png)
 
 ### Configure Gradle Script
 
   * In **Gradle Scripts** double click on **build.gradle (Module: app)**
   ![AndroidConfigureGradleInitial](../../images/quick-start/AndroidConfigureGradleInitial.png)
-  * Replace the script with:
+  * Add these lines in the `build.gradle(Module: app)` file:
 
 ~~~java
-apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
-
+    ...
     defaultConfig {
-        applicationId "com.dji.importSDKDemo"
-        minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        ...
+        // Enabling multidex support.
         multiDexEnabled true
-
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+    ...
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
+    ...
+    compile project(':dji_android_sdk') //This line is added automatically after importing the AAR package.
     compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')  // <------------
-
 }
 ~~~
 
 * The main changes should be:
-   * Add `compile project(':dJISDKLIB')` to the **dependencies**.
+   * Add `multiDexEnabled true` to enable multidex support.
+   * Add `compile 'com.android.support:multidex:1.0.1'` to the **dependencies**.
    ![AndroidConfigureGradleAfterChange](../../images/application-development-workflow/AndroidConfigureGradleAfterChange.png)
    * Select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
-   * Right click on **app** module in the project navigator and go to **Open Module Settings**.
-   ![AndroidOpenModuleSettings](../../images/application-development-workflow/AndroidOpenModuleSettings.png)
-   * Select **app** module on the left, and **Dependencies** on the top tab to confirm "djiSDKLIB" appears in the list.
-   ![AndroidConfirmAppDependencies](../../images/application-development-workflow/AndroidConfirmAppDependencies.png)
 
 ### Implement App Registration and SDK Callbacks
 
@@ -265,6 +252,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // When the compile and target version is higher than 22, please request the following permission at runtime to ensure the SDK works well.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
+                    Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
+                    Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
+                    Manifest.permission.READ_PHONE_STATE,
+            }
+            , 1);
+        }
+
         setContentView(R.layout.activity_main);
 
         //Initialize DJI SDK Manager
@@ -367,14 +369,23 @@ private Runnable updateRunnable = new Runnable() {
 
 The application must be granted permissions to in order for the DJI SDK to operate.
 
-   * Double click on **AndroidManifest.xml** in the **app** module.
+  * Double click on **AndroidManifest.xml** in the **app** module.
    ![AndroidManifest](../../images/quick-start/AndroidManifest.png)
-   * After `package=com.dji.ImportSDKDemo` and before `<application` insert:
 
-~~~objc
+  * Before `android:icon="@mipmap/ic_launcher"` insert:
+~~~xml
+tools:replace="android:icon"
+~~~
+  
+  >Note: The code above will help to fix the "Manifest merger failed" error:
+  >![fixManifestError](../../images/application-development-workflow/fixManifestError.png)
+  
+  * After `package=com.dji.ImportSDKDemo` and before `<application` insert:
+
+~~~xml
 <!-- Permissions and features -->
-<uses-sdk />
-
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 <uses-permission android:name="android.permission.VIBRATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -397,6 +408,7 @@ The application must be granted permissions to in order for the DJI SDK to opera
 <uses-feature
     android:name="android.hardware.usb.accessory"
     android:required="true" />
+
 <!-- Permissions and features -->
 ~~~
 
@@ -404,22 +416,22 @@ Insert the following after `android:theme="@style/AppTheme">` and before `<activ
 
 ~~~xml
 <!-- DJI SDK -->
-    <uses-library android:name="com.android.future.usb.accessory" />
+<uses-library android:name="com.android.future.usb.accessory" />
+<meta-data
+    android:name="com.dji.sdk.API_KEY"
+    android:value="Please enter your App Key here." />
+<activity
+    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
+    android:theme="@android:style/Theme.Translucent" >
+    <intent-filter>
+        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+    </intent-filter>
     <meta-data
-        android:name="com.dji.sdk.API_KEY"
-        android:value="Please enter your App Key here." />
-    <activity
-        android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
-        android:theme="@android:style/Theme.Translucent" >
-        <intent-filter>
-            <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-        </intent-filter>
-        <meta-data
-            android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-            android:resource="@xml/accessory_filter" />
-    </activity>
-    <service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
-    </service>
+        android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+        android:resource="@xml/accessory_filter" />
+</activity>
+<service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
+</service>
 <!-- DJI SDK -->
 ~~~
 
@@ -433,11 +445,10 @@ As this application is only checking for registration and not interacting direct
 
 If the App Key was generated correctly and the Android simulator or mobile device has internet connectivity, then the following should be seen:
 
- ![AndroidRunSuccess](../../images/application-development-workflow/AndroidRunSuccess.png)
+<img src="../../images/application-development-workflow/AndroidRunSuccess.png" width=30%>
 
 ### FFmpeg License
 
 The DJI Android SDK is dynamically linked with unmodified libraries of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a>. The source code of these FFmpeg libraries, the compilation instructions, and the LGPL v2.1 license are provided in [Github](https://github.com/dji-sdk/FFmpeg).
-
 
 
