@@ -1,8 +1,9 @@
 ---
 title: DJI Simulator Tutorial
 version: v4.2.2
-date: 2017-07-07
+date: 2017-08-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
+keywords: [iOS simulator demo, VirtualStick, virtual stick]
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -24,6 +25,14 @@ DJISimulator is used to control the aircraft in a simulated environment based on
 You can use the `DJISimulator` class in `DJIFlightController` to control the simulation. It allows both manual and automated flights to be simulated without actually flying the aircraft.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a cylinder of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the UI of the Application
 
