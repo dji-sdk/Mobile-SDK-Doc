@@ -99,6 +99,9 @@
       title: "Photo and Video Playback  Application"
       path: "/ios-tutorials/PlaybackDemo.html"
     -
+      title: "Media Manager Application"
+      path: "/ios-tutorials/MediaManagerDemo.html"
+    -
       title: "MapView and Waypoint Application"
       path: "/ios-tutorials/GSDemo.html"
     -

@@ -67,7 +67,7 @@ If everything goes well, you should see the storyboard layout like this:
 
 Once you finish the above steps, let's open the "DefaultLayoutViewController.m" file and replace the content with the followings:
 
-~~~
+~~~objc
 #import "DefaultLayoutViewController.h"
 #import "DemoUtility.h"
 
@@ -93,7 +93,7 @@ In the code above, we create an IBOutlet property for the `playbackBtn` and set 
 
 Next, open the "PlaybackViewController.m" file and replace the content with the followings:
 
-~~~
+~~~objc
 #import "PlaybackViewController.h"
 #import "DemoUtility.h"
 
