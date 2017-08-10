@@ -40,7 +40,7 @@ Download or clone the iOS Sample Github Project from: <a href="https://github.co
 
 The sample code includes both an Objective C sample project and a Swift Sample project.
 
-Since the sample code project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
+Since the sample project has been integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) now, please check the following steps to install **DJISDK.framework** using CocoaPods after you downloading the project:
 
 **1.** Install CocoaPods
 

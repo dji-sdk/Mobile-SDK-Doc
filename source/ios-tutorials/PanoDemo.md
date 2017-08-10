@@ -16,7 +16,7 @@ In this tutorial, you will learn how to build a cool panorama app. With the help
 
 ![several tasks](../images/tutorials-and-samples/iOS/PanoramaDemo/workFlow.png)
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo).
 
 ## Application Activation and Aircraft Binding in China
 

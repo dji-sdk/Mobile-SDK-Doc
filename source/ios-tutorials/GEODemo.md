@@ -12,7 +12,7 @@ keywords: [iOS GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NF
 
 In this tutorial, you will learn how to use the `DJIFlyZoneManager` and `DJIFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, and unlock authorization fly zones.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo).
 
 We use Mavic Pro as an example to make this demo. Let's get started!
 

@@ -9,7 +9,7 @@ keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, B
 >
 > Note: This tutorial only works for applications used in **China**. The same steps can be used for activating application and binding aircraft in an existing application.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo).
 
 ## Introduction
 

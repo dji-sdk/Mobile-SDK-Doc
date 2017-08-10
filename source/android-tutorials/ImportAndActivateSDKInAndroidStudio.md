@@ -12,7 +12,7 @@ keywords: [import and activate SDK, Android Studio]
 
 In this tutorial, we will use the Android Studio's HelloWorld template project to show you how to import DJI Android SDK and register the application.   Throughout this tutorial we will be using Android Studio 2.1.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio).
 
 ## Creating an Android Studio Project
 
