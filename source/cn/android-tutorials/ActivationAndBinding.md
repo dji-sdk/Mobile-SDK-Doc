@@ -23,7 +23,7 @@ DJI aircraft firmware requires mobile applications that control DJI aircraft to 
 
 - Outside of China, the SDK will automatically activate the application without requiring the user to log in.
 
-- Additionally, users in China are required to bind their aircraft to their user account in DJI Go / DJI Go 4. This is required only once. If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be **disabled**, and flight will be limited to a cylinder of 100m diameter and 30m height to ensure the aircraft stays within line of sight. 
+- Additionally, users in China are required to bind their aircraft to their user account in DJI Go / DJI Go 4. This is required only once. If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be **disabled**, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight. 
 
 ## Application Activation
 
