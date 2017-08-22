@@ -195,7 +195,7 @@ Therefore, DJI provides a Wireless Bridge Application, or **Bridge App**.
  
 >**Note:** If only one mobile device is available, the Bridge App can also be run with the iOS simulator. In this case the mobile device would host the bridge app, while the developer application runs on the iOS simulator.
 
-The Bridge App is provided by DJI under the MIT license from Github <a href="https://github.com/dji-sdk/iOS-Bridge-App" target="_blank"> here </a>.
+The SDK Bridge App is provided by DJI, you can download it from [Apple App Store](https://itunes.apple.com/us/app/sdk-bridge/id1263583917?ls=1&mt=8).
 
 A tutorial describing how to use the DJI Bridge App is [here](../ios-tutorials/BridgeAppDemo.html).
 

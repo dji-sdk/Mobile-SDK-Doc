@@ -12,7 +12,7 @@ keywords: [DJI Bridge App demo, remote debugging]
 
 This tutorial is designed for you to gain a better understanding of the DJI Bridge App. It will teach you how to use it for app debugging by implementing the live video view and two basic camera functionalities: "Take Photo" and "Record video".
 
-You can download the <a href="https://github.com/dji-sdk/DJI-Bridge-App" target="_blank">DJI Bridge App Source Code</a>, build and install it on your mobile device.
+You can download and install the DJI SDK Bridge App from <a href="https://itunes.apple.com/us/app/sdk-bridge/id1263583917?ls=1&mt=8" target="_blank">App Store</a> to your mobile device.
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo).
    
