@@ -129,7 +129,7 @@ The **DULDefaultLayoutViewController** is a viewController designed around 5 chi
 
 Lastly, let's implement the application registration feature. Open the **DefaultLayoutViewController.m** file and implement the `DJISDKManagerDelegate` protocol as shown below:
 
-~~~
+~~~objc
 #import "DefaultLayoutViewController.h"
 
 @interface DefaultLayoutViewController ()<DJISDKManagerDelegate>
@@ -139,7 +139,7 @@ Lastly, let's implement the application registration feature. Open the **Default
 
 Furthermore, replace the @implementation part of **DefaultLayoutViewController** with the followings:
 
-~~~
+~~~objc
 @implementation DefaultLayoutViewController
 
 - (void)viewDidLoad

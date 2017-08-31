@@ -78,7 +78,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 
 **2.** Furthermore, let's create the `setupVideoPreviewer` and `resetVideoPreviewer` methods as shown below:
 
-~~~
+~~~objc
 - (void)setupVideoPreviewer {
     [[VideoPreviewer instance] setView:self.fpvPreviewView];
     DJIBaseProduct *product = [DJISDKManager product];
@@ -118,7 +118,7 @@ If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we inv
 
 **3.** Once you finished the above steps, let's implement the `DJISDKManagerDelegate` delegate methods and the `viewWillDisappear` method as shown below:
 
-~~~
+~~~objc
 - (DJICamera*) fetchCamera {
     
     if (![DJISDKManager product]) {
@@ -230,7 +230,7 @@ Let's implement the `captureAction` IBAction method as shown below:
 
 In the code above, we firstly invoke the following method of DJICamera to set the shoot photo mode to `DJICameraShootPhotoModeSingle`:
 
-~~~
+~~~objc
 - (void)setShootPhotoMode:(DJICameraShootPhotoMode)mode withCompletion:(DJICompletionBlock)completion;
 ~~~
 

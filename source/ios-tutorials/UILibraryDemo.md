@@ -115,13 +115,13 @@ For more details of the storyboard settings, please check the tutorial's Github 
 
 Next, let's open the **DefaultLayoutViewController.h** file and import the **DJIUILibrary** header file and change the subclass to `DULDefaultLayoutViewController` as shown below:
 
-```
+~~~objc
 #import <DJIUILibrary/DJIUILibrary.h>
 
 @interface DefaultLayoutViewController : DULDefaultLayoutViewController
 
 @end
-```
+~~~
 
 The **DULDefaultLayoutViewController** is a viewController designed around 5 child view controllers, and it's a fully functioning mini-DJI Go. It uses all the elements of the UILibrary to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
 
@@ -129,7 +129,7 @@ The **DULDefaultLayoutViewController** is a viewController designed around 5 chi
 
 Lastly, let's implement the application registration feature. Open the **DefaultLayoutViewController.m** file and implement the `DJISDKManagerDelegate` protocol as shown below:
 
-~~~
+~~~objc
 #import "DefaultLayoutViewController.h"
 
 @interface DefaultLayoutViewController ()<DJISDKManagerDelegate>
@@ -139,7 +139,7 @@ Lastly, let's implement the application registration feature. Open the **Default
 
 Furthermore, replace the @implementation part of **DefaultLayoutViewController** with the followings:
 
-~~~
+~~~objc
 @implementation DefaultLayoutViewController
 
 - (void)viewDidLoad
