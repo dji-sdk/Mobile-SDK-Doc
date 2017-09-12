@@ -1288,7 +1288,7 @@ Create the following variables above the `onCreate()` method as shown below:
 private Marker marker;
 private LatLng latLng;
 private double droneLocationLat = 181, droneLocationLng = 181;
-private DJIFlightController mFlightController = null;
+private FlightController mFlightController = null;
 ~~~
 
 Then add the following two methods above the `onMapReady()` method as shown below:
@@ -1345,7 +1345,7 @@ private boolean isFlightControllerSupported() {
 
 ~~~
 
-In the code above, we mainly initialize the `mFlightController` variable and implement the `setStateCallback()` method of **DJIFlightController** to invoke the `updateDroneLocation()` method to update the aircraft location on the map view when it's moving.
+In the code above, we mainly initialize the `mFlightController` variable and implement the `setStateCallback()` method of **FlightController** to invoke the `updateDroneLocation()` method to update the aircraft location on the map view when it's moving.
 
 Moreover, let's update the `onMapReady()` method with the following codes:
 
