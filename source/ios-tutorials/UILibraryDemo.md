@@ -47,8 +47,8 @@ Then replace the content of the **Podfile** with the followings:
 # platform :ios, '9.0'
 
 target 'UILibraryDemo' do
-  pod 'DJI-SDK-iOS', '~> 4.2.2'
-  pod 'DJI-UILibrary-iOS', '~> 4.2'
+  pod 'DJI-SDK-iOS', '~> 4.3'
+  pod 'DJI-UILibrary-iOS', '~> 4.3'
 end
 
 ~~~
@@ -64,8 +64,8 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (4.2.2)
-Installing DJI-UILibrary-iOS (4.2)
+Installing DJI-SDK-iOS (4.3)
+Installing DJI-UILibrary-iOS (4.3)
 Generating Pods project
 Integrating client project
 
