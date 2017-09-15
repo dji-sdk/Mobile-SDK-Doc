@@ -355,9 +355,19 @@
                             </dd>
                             <dd><a href="../Missions/DJIShootPhotoAction.html">DJIShootPhotoAction</a>
                             </dd>
+                            <dd><a href="../Missions/DJILandAction.html">DJILandAction</a>
+                            </dd>
                     </ul>
                   </dd>
-                  <dd><a href="../Missions/DJIMissionTrigger.html">DJIMissionTrigger</a>
+                  <dd><a data-href="../Missions/DJIMissionTrigger.html" class="sub-toggle">DJIMissionTrigger<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIBatteryLevelMissionTrigger.html">DJIBatteryLevelMissionTrigger</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIWaypointReachedMissionTrigger.html">DJIWaypointReachedMissionTrigger</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIAircraftLandedMissionTrigger.html">DJIAircraftLandedMissionTrigger</a>
+                            </dd>
+                    </ul>
                   </dd>
                   <dd><a data-href="../Missions/DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
@@ -512,20 +522,12 @@
 <h5 id="see-also-v2">See Also:</h5>
 <p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">DJIGimbalMode</a></code></font></p>
 </div>
-<div class="api-row" id="djigimbal_gimbalstate_isattitudereset"><div class="api-col left">Attitude Reset</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_isattitudereset_inline">isAttitudeReset</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_isattitudereset_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">property </font>isAttitudeReset</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isAttitudeReset</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamisattitudereset_inline">DJIGimbalKey.DJIGimbalParamIsAttitudeReset</a></font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666"><code>YES</code> if the attitude has been reset. If the gimbal is not in the original  position, this value will return <code>NO</code>.</font></p>
-</div>
 <div class="api-row" id="djigimbal_gimbalstate_ismobiledevicemounted"><div class="api-col left">Check Mobile Device Mounted</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismobiledevicemounted_inline">isMobileDeviceMounted</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismobiledevicemounted_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>isMobileDeviceMounted</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isMobileDeviceMounted</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
+<h5 id="description-v6">Description:</h5>
 <p><font color="#666"><code>YES</code> if the mobile device is mounted on the gimbal.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_ismotoroverloaded"><div class="api-col left">Check Motor Overloaded</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismotoroverloaded_inline">isMotorOverloaded</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismotoroverloaded_inline" <blockquote="">
@@ -533,7 +535,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isMotorOverloaded</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
-<h5 id="description-v8">Description:</h5>
+<h5 id="description-v7">Description:</h5>
 <p><font color="#666"><code>YES</code> if one of the gimbal motors is overloaded.</font></p>
 </div>
 <html><p><br></p></html>
@@ -543,7 +545,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isCalibrationSuccessful</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamiscalibrationsuccessful_inline">DJIGimbalKey.DJIGimbalParamIsCalibrationSuccessful</a></font></td></tr></table></html>
-<h5 id="description-v9">Description:</h5>
+<h5 id="description-v8">Description:</h5>
 <p><font color="#666"><code>YES</code> if the gimbal calibration succeeded.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_iscalibrating"><div class="api-col left">Calibrate</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_iscalibrating_inline">isCalibrating</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_iscalibrating_inline" <blockquote="">
@@ -551,7 +553,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isCalibrating</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamiscalibrating_inline">DJIGimbalKey.DJIGimbalParamIsCalibrating</a></font></td></tr></table></html>
-<h5 id="description-v10">Description:</h5>
+<h5 id="description-v9">Description:</h5>
 <p><font color="#666"><code>YES</code> if the gimbal is calibrating.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_calibrationprogress"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_calibrationprogress_inline">calibrationProgress</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_calibrationprogress_inline" <blockquote="">
@@ -559,7 +561,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSInteger</span> calibrationProgress</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamcalibrationprogress_inline">DJIGimbalKey.DJIGimbalParamCalibrationProgress</a></font></td></tr></table></html>
-<h5 id="description-v11">Description:</h5>
+<h5 id="description-v10">Description:</h5>
 <p><font color="#666">Current progress (percentage) for calibration.</font></p>
 </div>
 <html><p><br></p></html>
@@ -569,7 +571,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isPitchAtStop</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamispitchatstop_inline">DJIGimbalKey.DJIGimbalParamIsPitchAtStop</a></font></td></tr></table></html>
-<h5 id="description-v12">Description:</h5>
+<h5 id="description-v11">Description:</h5>
 <p><font color="#666"><code>YES</code> if the gimbal's pitch value is at its limit.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_isrollatstop"><div class="api-col left">Roll Reach Limit</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_isrollatstop_inline">isRollAtStop</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_isrollatstop_inline" <blockquote="">
@@ -577,7 +579,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isRollAtStop</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamisrollatstop_inline">DJIGimbalKey.DJIGimbalParamIsRollAtStop</a></font></td></tr></table></html>
-<h5 id="description-v13">Description:</h5>
+<h5 id="description-v12">Description:</h5>
 <p><font color="#666"><code>YES</code> if the gimbal's roll value is at its limit.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_isyawatstop"><div class="api-col left">Yaw Reach Limit</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_isyawatstop_inline">isYawAtStop</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_isyawatstop_inline" <blockquote="">
@@ -585,7 +587,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isYawAtStop</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamisyawatstop_inline">DJIGimbalKey.DJIGimbalParamIsYawAtStop</a></font></td></tr></table></html>
-<h5 id="description-v14">Description:</h5>
+<h5 id="description-v13">Description:</h5>
 <p><font color="#666"><code>YES</code> if the gimbal's yaw value is at its limit.</font></p>
 </div>
 <html><p><br></p></html>
@@ -595,7 +597,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isBalanceTesting</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
-<h5 id="description-v15">Description:</h5>
+<h5 id="description-v14">Description:</h5>
 <p><font color="#666"><code>YES</code> if the gimbal is currently testing payload balance.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_pitchtestresult"><div class="api-col left">Pitch Axis Balance Test Result</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_pitchtestresult_inline">pitchBalanceTestResult</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_pitchtestresult_inline" <blockquote="">
@@ -603,7 +605,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJIGimbalBalanceTestResult pitchBalanceTestResult</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
-<h5 id="description-v16">Description:</h5>
+<h5 id="description-v15">Description:</h5>
 <p><font color="#666">Returns the pitch axis balance test result.</font></p>
 <h5 id="see-also-v3">See Also:</h5>
 <p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_balancetestresult">DJIGimbalBalanceTestResult</a></code></font></p>
@@ -613,7 +615,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJIGimbalBalanceTestResult rollBalanceTestResult</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
-<h5 id="description-v17">Description:</h5>
+<h5 id="description-v16">Description:</h5>
 <p><font color="#666">Returns the roll axis balance test result.</font></p>
 <h5 id="see-also-v4">See Also:</h5>
 <p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_balancetestresult">DJIGimbalBalanceTestResult</a></code></font></p>
@@ -623,10 +625,18 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJIGimbalBalanceState balanceState</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
-<h5 id="description-v18">Description:</h5>
+<h5 id="description-v17">Description:</h5>
 <p><font color="#666">Returns the balance status of the gimbal.</font></p>
 <h5 id="see-also-v5">See Also:</h5>
 <p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_loadingbalancestatus">DJIGimbalBalanceState</a></code></font></p>
+</div>
+<div class="api-row" id="djigimbal_gimbalstate_ismountedupwards"><div class="api-col left">Mounted Upwards</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismountedupwards_inline">isMountedUpwards</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismountedupwards_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>isMountedUpwards</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isMountedUpwards</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
+<h5 id="description-v18">Description:</h5>
+<p><font color="#666"><code>YES</code> if the gimbal is mounted upwards on the aircraft. It is only supported by M210 and M210 RTK.</font></p>
 </div>
 
         </div>

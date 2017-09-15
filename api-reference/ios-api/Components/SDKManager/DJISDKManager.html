@@ -355,9 +355,19 @@
                             </dd>
                             <dd><a href="../Missions/DJIShootPhotoAction.html">DJIShootPhotoAction</a>
                             </dd>
+                            <dd><a href="../Missions/DJILandAction.html">DJILandAction</a>
+                            </dd>
                     </ul>
                   </dd>
-                  <dd><a href="../Missions/DJIMissionTrigger.html">DJIMissionTrigger</a>
+                  <dd><a data-href="../Missions/DJIMissionTrigger.html" class="sub-toggle">DJIMissionTrigger<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIBatteryLevelMissionTrigger.html">DJIBatteryLevelMissionTrigger</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIWaypointReachedMissionTrigger.html">DJIWaypointReachedMissionTrigger</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIAircraftLandedMissionTrigger.html">DJIAircraftLandedMissionTrigger</a>
+                            </dd>
+                    </ul>
                   </dd>
                   <dd><a data-href="../Missions/DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
@@ -609,7 +619,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)enableBridgeModeWithBridgeAppIP:(<span class="built_in">NSString</span> *)bridgeAppIP</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJISDKManager.h</font></td></tr></table></html>
 <h5 id="description-v16">Description:</h5>
-<p><font color="#666">Enter debug mode with debug IP.</font></p>
+<p><font color="#666">Enter debug mode with debug IP. Please download and use the latest DJI SDK  Bridge app from App Store: https://itunes.apple.com/us/app/sdk-bridge/id1263583917?ls=1&amp;mt=8</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSString * <font color="#000">bridgeAppIP</font></font></td><td><font color="#666"><i>Debug IP of the DJI Bridge App.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djisdkmanager_enableremotelogging"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class method</div><div class="api-col right"><a class="trigger" href="#djisdkmanager_enableremotelogging_inline">enableRemoteLoggingWithDeviceID:logServerURLString</a></div></div><div class="inline-doc" id="djisdkmanager_enableremotelogging_inline" <blockquote="">

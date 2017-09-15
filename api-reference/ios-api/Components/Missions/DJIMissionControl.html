@@ -355,9 +355,19 @@
                             </dd>
                             <dd><a href="DJIShootPhotoAction.html">DJIShootPhotoAction</a>
                             </dd>
+                            <dd><a href="DJILandAction.html">DJILandAction</a>
+                            </dd>
                     </ul>
                   </dd>
-                  <dd><a href="DJIMissionTrigger.html">DJIMissionTrigger</a>
+                  <dd><a data-href="DJIMissionTrigger.html" class="sub-toggle">DJIMissionTrigger<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="DJIMissionTrigger_DJIBatteryLevelMissionTrigger.html">DJIBatteryLevelMissionTrigger</a>
+                            </dd>
+                            <dd><a href="DJIMissionTrigger_DJIWaypointReachedMissionTrigger.html">DJIWaypointReachedMissionTrigger</a>
+                            </dd>
+                            <dd><a href="DJIMissionTrigger_DJIAircraftLandedMissionTrigger.html">DJIAircraftLandedMissionTrigger</a>
+                            </dd>
+                    </ul>
                   </dd>
                   <dd><a data-href="DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
@@ -546,12 +556,12 @@
 <div class="api-row" id="djimissioncontrol_scheduleelements"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimissioncontrol_scheduleelements_inline">scheduleElements</a></div></div><div class="inline-doc" id="djimissioncontrol_scheduleelements_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>scheduleElements</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">NSError</span> * _Nullable)scheduleElements:(<span class="built_in">NSArray</span> &lt;<span class="keyword">id</span> &lt;DJIMissionControlTimelineElement&gt;&gt; *)elementsArray</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">NSError</span> * _Nullable)scheduleElements:(<span class="built_in">NSArray</span> &lt;<span class="keyword">id</span> &lt;DJIMissionControlTimelineElement&gt;&gt; *)elements</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Adds an array of elements to the end of the Timeline.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSArray &lt;id &lt;<a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a>&gt;&gt; * <font color="#000">elementsArray</font></font></td><td><font color="#666"><i>An array of <code><a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a></code> elements.</i></font></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSArray &lt;id &lt;<a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a>&gt;&gt; * <font color="#000">elements</font></font></td><td><font color="#666"><i>An array of <code><a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a></code> elements.</i></font></td></tr></table></html>
 <h5 id="return-v8">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSError * _Nullable</font></td><td><font color="#666"><i>The first error if one occurred. &lt;code&gt;userInfo&lt;/code&gt; will hold a dictionary with two keys: @"element" -&gt; holding the elemnt involved in the error and @"index" -&gt; the index in the array for the element.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djimissioncontrol_scheduleelementatindex"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimissioncontrol_scheduleelementatindex_inline">scheduleElement:atIndex</a></div></div><div class="inline-doc" id="djimissioncontrol_scheduleelementatindex_inline" <blockquote="">
@@ -564,7 +574,7 @@
 <h5 id="input-parameters-v3">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">id &lt;<a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a>&gt; <font color="#000">element</font></font></td><td><font color="#666"><i>A <code><a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a></code> element</i></font></td></tr><tr valign="top"><td><font color="#70BF41">NSUInteger <font color="#000">index</font></font></td><td><font color="#666"><i>The element index to insert the new element before.</i></font></td></tr></table></html>
 <h5 id="return-v9">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSError * _Nullable</font></td><td><font color="#666"><i>The first error if one occured.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSError * _Nullable</font></td><td><font color="#666"><i>The first error if one occurred.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djimissioncontrol_unscheduleelement"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimissioncontrol_unscheduleelement_inline">unscheduleElement</a></div></div><div class="inline-doc" id="djimissioncontrol_unscheduleelement_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>unscheduleElement</h6></div>
 
@@ -673,7 +683,7 @@
 <div class="api-row" id="djimissioncontrol_istimelinerunning"><div class="api-col left">State</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimissioncontrol_istimelinerunning_inline">isTimelineRunning</a></div></div><div class="inline-doc" id="djimissioncontrol_istimelinerunning_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>isTimelineRunning</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isTimelineRunning</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isTimelineRunning</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
 <h5 id="description-v23">Description:</h5>
 <p><font color="#666"><code>YES</code> if the Timeline is running.</font></p>
@@ -689,7 +699,7 @@
 <div class="api-row" id="djimissioncontrol_istimelinepaused"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimissioncontrol_istimelinepaused_inline">isTimelinePaused</a></div></div><div class="inline-doc" id="djimissioncontrol_istimelinepaused_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>isTimelinePaused</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isTimelinePaused</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isTimelinePaused</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
 <h5 id="description-v25">Description:</h5>
 <p><font color="#666"><code>YES</code> if Timeline is paused.</font></p>
@@ -813,7 +823,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@optional</span></div><div class="line">- (<span class="keyword">void</span>)didRun</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
 <h5 id="description-v39">Description:</h5>
-<p><font color="#666">Called after element execution, regardless of wether or not it was successful.</font></p>
+<p><font color="#666">Called after element execution, regardless of whether or not it was successful.</font></p>
 </div>
 </div>
 <div class="api-row" id="djimissioncontrol_djimissioncontroltimelineeventblock"><div class="api-col left">Timeline Event</div><div class="api-col middle" style="color:#AAA">typedef block</div><div class="api-col right"><a class="trigger" href="#djimissioncontrol_djimissioncontroltimelineeventblock_inline">DJIMissionControlTimelineEventBlock</a></div></div><div class="inline-doc" id="djimissioncontrol_djimissioncontroltimelineeventblock_inline" <blockquote="">
@@ -915,14 +925,23 @@
 <p><font color="#666">Used by elements to notify Mission Control of the end of the execution of it.</font></p>
 <h5 id="input-parameters-v19">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">id &lt;<a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a>&gt; <font color="#000">element</font></font></td><td><font color="#666"><i>A previously scheduled element. Should also be the element running.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">NSError * _Nullable <font color="#000">error</font></font></td><td><font color="#666"><i>An optional error if the execution end was the result of it.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djimissioncontroltimelineelementfeedback_elementdidstoprunning"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimissioncontroltimelineelementfeedback_elementdidstoprunning_inline">elementDidStopRunning</a></div></div><div class="inline-doc" id="djimissioncontroltimelineelementfeedback_elementdidstoprunning_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>elementDidStopRunning</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">required</div><div class="line">- (<span class="keyword">void</span>)elementDidStopRunning:(<span class="keyword">id</span> &lt;DJIMissionControlTimelineElement&gt;)element</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
+<h5 id="description-v51">Description:</h5>
+<p><font color="#666">Used by elements to notify Mission Control of their successful manual stop.</font></p>
+<h5 id="input-parameters-v20">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">id &lt;<a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a>&gt; <font color="#000">element</font></font></td><td><font color="#666"><i>A previously scheduled element. Should also be the element running.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djimissioncontroltimelineelementfeedback_elementfailedstoppingwitherror"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djimissioncontroltimelineelementfeedback_elementfailedstoppingwitherror_inline">element:failedStoppingWithError</a></div></div><div class="inline-doc" id="djimissioncontroltimelineelementfeedback_elementfailedstoppingwitherror_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>element:failedStoppingWithError</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">required</div><div class="line">- (<span class="keyword">void</span>)element:(<span class="keyword">id</span> &lt;DJIMissionControlTimelineElement&gt;)element failedStoppingWithError:(<span class="built_in">NSError</span> *)error</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
-<h5 id="description-v51">Description:</h5>
+<h5 id="description-v52">Description:</h5>
 <p><font color="#666">Used by elements to notify Mission Control of a failure to stop the execution of the element. This should only be used to handle error after stopRun is called.</font></p>
-<h5 id="input-parameters-v20">Input Parameters:</h5>
+<h5 id="input-parameters-v21">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">id &lt;<a href="../../Components/Missions/DJIMissionControl.html#djimissioncontroltimelineelement">DJIMissionControlTimelineElement</a>&gt; <font color="#000">element</font></font></td><td><font color="#666"><i>A previously scheduled element. Should also be the element running.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">NSError * <font color="#000">error</font></font></td><td><font color="#666"><i>A valid error object.</i></font></td></tr></table></html></div>
 </div>
 <div class="api-row" id="djimissioncontrolerrordomain"><div class="api-col left">Error</div><div class="api-col middle" style="color:#AAA">const</div><div class="api-col right"><a class="trigger" href="#djimissioncontrolerrordomain_inline">DJIMissionControlErrorDomain</a></div></div><div class="inline-doc" id="djimissioncontrolerrordomain_inline" <blockquote="">
@@ -930,7 +949,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="built_in">NSErrorDomain</span> DJIMissionControlErrorDomain</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
-<h5 id="description-v52">Description:</h5>
+<h5 id="description-v53">Description:</h5>
 <p><font color="#666">The domain associated with errors specific to Mission Control.</font></p>
 </div>
 <div class="api-row" id="djimissioncontrolerror"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djimissioncontrolerror_inline">DJIMissionControlError</a></div></div><div class="inline-doc" id="djimissioncontrolerror_inline" <blockquote="">
@@ -938,10 +957,10 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, DJIMissionControlError)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMissionControl.h</font></td></tr></table></html>
-<h5 id="description-v53">Description:</h5>
+<h5 id="description-v54">Description:</h5>
 <p><font color="#666">Defines all MissionControl related errors.</font></p>
 <h5 id="enum-members-v2">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_unknown_inline"></a>DJIMissionControlErrorUnknown</font></td><td><font color="#666">Default placeholder when no other code matches.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelineerrorcantpauseunpausableelement_inline"></a>DJIMissionControlTimelineErrorCantPauseUnpausableElement</font></td><td><font color="#666">Can't pause an element which is not pausbile.  This error doesn't is informational and doesn't impact Timeline.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelineerrorcantschedulewhilerunning_inline"></a>DJIMissionControlTimelineErrorCantScheduleWhileRunning</font></td><td><font color="#666">Tried to schedule new element while the Timeline was running.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_elementerrorprotocolnotconform_inline"></a>DJIMissionControlElementErrorProtocolNotConform</font></td><td><font color="#666">Element passed does not conform to DJIMissionControlTimelineElement protocol</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_elementerrorinvalidmissionoperator_inline"></a>DJIMissionControlElementErrorInvalidMissionOperator</font></td><td><font color="#666">The element passed is a mission without a valid operator.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_elementerrorinvalidpauseimplementation_inline"></a>DJIMissionControlElementErrorInvalidPauseImplementation</font></td><td><font color="#666">IsPausable was set to yes but the item doesn't implement pauseRun and/or resumeRun methods.</font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_unknown_inline"></a>DJIMissionControlErrorUnknown</font></td><td><font color="#666">Default placeholder when no other code matches.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelineerrorcantpauseunpausableelement_inline"></a>DJIMissionControlTimelineErrorCantPauseUnpausableElement</font></td><td><font color="#666">Can't pause an element which is not pausbile.  This error doesn't is informational and doesn't impact Timeline.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelineerrorcantschedulewhilerunning_inline"></a>DJIMissionControlTimelineErrorCantScheduleWhileRunning</font></td><td><font color="#666">Tried to schedule new element while the Timeline was running.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelinestarterroralreadyatend_inline"></a>DJIMissionControlTimelineStartErrorAlreadyAtEnd</font></td><td><font color="#666">Can't start a timeline whose marker is already at the end.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelinestarterroralreadyrunning_inline"></a>DJIMissionControlTimelineStartErrorAlreadyRunning</font></td><td><font color="#666">Can't start a timeline which was already running.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelinestarterrortimelineispaused_inline"></a>DJIMissionControlTimelineStartErrorTimelineIsPaused</font></td><td><font color="#666">Can't start a paused timeline. Need to call resume instead.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelinepauseerrornotrunning_inline"></a>DJIMissionControlTimelinePauseErrorNotRunning</font></td><td><font color="#666">Can't pause a timeline which is not running.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelinepauseerroralreadypaused_inline"></a>DJIMissionControlTimelinePauseErrorAlreadyPaused</font></td><td><font color="#666">Can't pause a timeline which is already paused.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelineresumeerrornotrunning_inline"></a>DJIMissionControlTimelineResumeErrorNotRunning</font></td><td><font color="#666">Can't resume a timeline which is not running.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelineresumeerrornotpaused_inline"></a>DJIMissionControlTimelineResumeErrorNotPaused</font></td><td><font color="#666">Can't resume a timeline which is not paused.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_timelinestoperrornotrunning_inline"></a>DJIMissionControlTimelineStopErrorNotRunning</font></td><td><font color="#666">Can't resume a timeline which is not paused.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_elementerrorprotocolnotconform_inline"></a>DJIMissionControlElementErrorProtocolNotConform</font></td><td><font color="#666">Element passed does not conform to DJIMissionControlTimelineElement protocol</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_elementerrorinvalidmissionoperator_inline"></a>DJIMissionControlElementErrorInvalidMissionOperator</font></td><td><font color="#666">The element passed is a mission without a valid operator.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djimissioncontrolerror_elementerrorinvalidpauseimplementation_inline"></a>DJIMissionControlElementErrorInvalidPauseImplementation</font></td><td><font color="#666">IsPausable was set to yes but the item doesn't implement pauseRun and/or resumeRun methods.</font></td></tr></table></html></div>
 
         </div>
       </div>
