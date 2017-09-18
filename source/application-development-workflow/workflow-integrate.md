@@ -176,15 +176,20 @@ A new application can be used to show how to integrate the DJI SDK into an Andro
 
 ### Import Maven Dependency
 
+  * Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. Press the "+" button at the bottom of the window and choose "Library Dependency".
+  <img src="../images/application-development-workflow/libraryDependency.png" width=85%>
+
+  * Search for "dji-sdk" and select the latest version of DJI Android SDK and press "OK" to add the DJI Android SDK Maven Dependency to the project.
+  <img src="../images/application-development-workflow/chooseLibraryDependency.png" width=85%>
+
+
+### Configure Gradle Script
+
   * In **Gradle Scripts** double click on **build.gradle (Module: app)**
-  ![AndroidConfigureGradleInitial](../images/quick-start/AndroidConfigureGradleInitial.png)
+  ![AndroidConfigureGradleInitial](../images/application-development-workflow/AndroidConfigureGradleInitial.png)
   * Add these lines in the `build.gradle(Module: app)` file:
 
 ~~~java
-repositories{
-    mavenLocal()
-}
-
 android {
     ...
     defaultConfig {
@@ -198,15 +203,12 @@ android {
 dependencies {
     ...
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.dji:dji-sdk:4.3.0' //This line will import the DJI SDK Maven dependency.
 }
 ~~~
 
 * The main changes should be:
-   * Add `mavenLocal()` to make Gradle look in the local Maven cache for dependencies.
    * Add `multiDexEnabled true` to enable multidex support.
    * Add `compile 'com.android.support:multidex:1.0.1'` to the **dependencies**.
-   * Add `compile 'com.dji:dji-sdk:4.3.0'` to import the DJI SDK Maven dependency.
 
    ![AndroidConfigureGradleAfterChange](../images/application-development-workflow/AndroidConfigureGradleAfterChange.png)
    * Select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
