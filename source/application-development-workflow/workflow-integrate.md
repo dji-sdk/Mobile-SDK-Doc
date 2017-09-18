@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-8-03
+date: 2017-09-18
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -174,28 +174,17 @@ A new application can be used to show how to integrate the DJI SDK into an Andro
       * Click **Finish** when done.
    ![AndroidCustomizeTheActivity](../images/quick-start/AndroidCustomizeTheActivity.png)
 
-### Import AAR Package
-
-After unzipping the downloaded Android SDK package:
-
-  * In the Android Studio menu bar select **File->Project Structure**
-  ![AddNewModule](../images/application-development-workflow/AddNewModule.png)
-  * Press the **+** button on the upper left corner to open "Create New Module" window and select "Import .JAR/.AAR Package"
-  ![AddNewModule](../images/application-development-workflow/createNewModule.png)
-  * Move to the next screen, and select the path of the downloaded Android SDK AAR Package file
-  ![AndroidImportNewModuleDependencies](../images/application-development-workflow/AARFilePath.png)
-  * Press "Finish" and select **Dependencies** tab on the "Project Structure" window. Press **+** button and select "3 Module dependency"
-  ![SelectModuleDependency](../images/application-development-workflow/selectModuleDependency.png)
-  * Choose **:dji_android_sdk** as the Module and press "OK"
-  ![SelectModuleDependency](../images/application-development-workflow/chooseModule.png)
-
-### Configure Gradle Script
+### Import Maven Dependency
 
   * In **Gradle Scripts** double click on **build.gradle (Module: app)**
   ![AndroidConfigureGradleInitial](../images/quick-start/AndroidConfigureGradleInitial.png)
   * Add these lines in the `build.gradle(Module: app)` file:
 
 ~~~java
+repositories{
+    mavenLocal()
+}
+
 android {
     ...
     defaultConfig {
@@ -208,21 +197,24 @@ android {
 
 dependencies {
     ...
-    compile project(':dji_android_sdk') //This line is added automatically after importing the AAR package.
     compile 'com.android.support:multidex:1.0.1'
+    compile 'com.dji:dji-sdk:4.3.0' //This line will import the DJI SDK Maven dependency.
 }
 ~~~
 
 * The main changes should be:
+   * Add `mavenLocal()` to make Gradle look in the local Maven cache for dependencies.
    * Add `multiDexEnabled true` to enable multidex support.
    * Add `compile 'com.android.support:multidex:1.0.1'` to the **dependencies**.
+   * Add `compile 'com.dji:dji-sdk:4.3.0'` to import the DJI SDK Maven dependency.
+
    ![AndroidConfigureGradleAfterChange](../images/application-development-workflow/AndroidConfigureGradleAfterChange.png)
    * Select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
 
 ### Implement App Registration and SDK Callbacks
 
 Double click on **MainActivity.java** in the **app** module.
-   ![AndroidImplementationMainActivity](../images/quick-start/AndroidImplementationMainActivity.png)
+   ![AndroidImplementationMainActivity](../images/application-development-workflow/AndroidImplementationMainActivity.png)
 To import additional Android and DJI SDK classes that will be needed for the registration demonstration, add the following after `import android.os.Bundle;`:
 
 ~~~java
@@ -374,15 +366,7 @@ private Runnable updateRunnable = new Runnable() {
 The application must be granted permissions to in order for the DJI SDK to operate.
 
   * Double click on **AndroidManifest.xml** in the **app** module.
-   ![AndroidManifest](../images/quick-start/AndroidManifest.png)
-
-  * Before `android:icon="@mipmap/ic_launcher"` insert:
-~~~xml
-tools:replace="android:icon"
-~~~
-  
-  >Note: The code above will help to fix the "Manifest merger failed" error:
-  >![fixManifestError](../images/application-development-workflow/fixManifestError.png)
+   ![AndroidManifest](../images/application-development-workflow/AndroidManifest.png)
   
   * After `package=com.dji.ImportSDKDemo` and before `<application` insert:
 
