@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.0)
+    Installing DJI-SDK-iOS (4.3.1)
     Generating Pods project
     Integrating client project
 
