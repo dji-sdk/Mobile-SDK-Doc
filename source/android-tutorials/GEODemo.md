@@ -951,7 +951,7 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two interface methods of SDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 
 #### 3. Request Permissions in ConnectionActivity

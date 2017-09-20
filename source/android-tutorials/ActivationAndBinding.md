@@ -1,7 +1,7 @@
 ---
 title: Application Activation and Aircraft Binding
-version: v4.2.1
-date: 2017-07-04
+version: v4.3
+date: 2017-09-20
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo
 keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, Bound, Activated, Real Name System]
 ---
@@ -31,7 +31,7 @@ Now, let's create a new project in Android Studio, open Android Studio and selec
 
 ### Registering the Application
 
-This demo is build based on the [ImportSDKDemo](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio) Github Sample, you can check the [Integrate SDK into Application](../application-development-workflow/workflow-integrate.html#implement-app-registration-and-sdk-callbacks) tutorial to learn how to import the Android SDK library and register the application using DJI Mobile SDK.
+This demo is build based on the [ImportSDKDemo](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ImportAndActivateSDKInAndroidStudio) Github Sample, you can check the [Integrate SDK into Application](../application-development-workflow/workflow-integrate.html#implement-app-registration-and-sdk-callbacks) tutorial to learn how to import the Android SDK Maven Dependency and register the application using DJI Mobile SDK.
 
 ### Implementing the UI of Application
 

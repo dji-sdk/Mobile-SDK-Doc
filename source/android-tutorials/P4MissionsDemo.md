@@ -939,7 +939,7 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two methods of the DJISDKManagerCallback interface. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 
 Now, let's build and run the project and install it in your Android device to test it. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.

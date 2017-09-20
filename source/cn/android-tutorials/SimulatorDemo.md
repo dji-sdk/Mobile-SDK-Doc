@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v4.2.1
-date: 2017-08-02
+version: v4.3
+date: 2017-09-20
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
@@ -37,68 +37,12 @@ Additionally, simulator initialization, monitoring and termination can be contro
 
 In the [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration) tutorial, you have learned how to import the DJI Android SDK into your Android Studio project and activate your application. If you haven't read that previously, please take a look at it. Once you've done that, let's continue to create the project.
 
-### Importing SDK Library
+### Importing Maven Dependency
 
-**1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJISimulatorDemo'. Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
- 
- **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLIB" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
-  
- **3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the followings:
- 
-~~~java
-apply plugin: 'com.android.application'
+Open Android Studio and select **File -> New -> New Project** to create a new project, named "DJISimulatorDemo". Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the Android SDK Maven Dependency and activate your application. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
-    defaultConfig {
-        applicationId "com.dji.simulatorDemo"
-        minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
-
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')
-
-}
-~~~
- 
-  Here, we modify its dependencies by adding `compile project(':dJISDKLIB')` in the "dependencies" part at the bottom, and change the **compileSdkVersion**, **buildToolsVersion** number, etc. 
-  
- ![configureAndroidSDK](../../images/tutorials-and-samples/Android/SimulatorDemo/buildGradle.png)
- 
- Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
- 
- **4**. Let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Struture window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
- 
- ![dependencies](../../images/tutorials-and-samples/Android/SimulatorDemo/dependencies.png)
- 
- **5**. Now, open the MainActivity.java file in `com.dji.simulatorDemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
- 
-~~~java
-package com.dji.simulatorDemo;
-
-import dji.sdk.sdkmanager.DJISDKManager;
-~~~
-
-  Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
-  
 ### Building the Layouts of Activity
 
 #### 1. Creating DJISimulatorApplication Class
@@ -148,7 +92,7 @@ Next, copy and paste the **joystick.png** and **joystick_bg.png** files from thi
 
 ![joystickImages](../../images/tutorials-and-samples/Android/SimulatorDemo/joystickImages.png)
 
-#### 3. Implementing UI Elements in MainActivity Class
+#### 3. Implementing the UI Elements in MainActivity Class
 
 Now, let's open the MainActivity.java file and replace the code with the followings:
 
@@ -533,10 +477,16 @@ public void onCreate() {
 
     mHandler = new Handler(Looper.getMainLooper());
 
-    /**
-     * handles SDK Registration using the API_KEY
-     */
-    DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+    //Check the permissions before registering the application for android system 6.0 above.
+    int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+
+            //This is used to start SDK services and initiate SDK.
+            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+        } else {
+            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+        }
 }
 
 private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
@@ -612,7 +562,7 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of `DJISDKManager` to register the application.
 2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
 

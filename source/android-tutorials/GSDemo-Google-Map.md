@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v4.2.1
-date: 2017-08-02
+version: v4.3
+date: 2017-09-20
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap
 keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission demo]
 ---
@@ -160,26 +160,9 @@ Then select **Tools->Android->Sync Project with Gradle Files** to sync the gradl
 
 For more details about configuring your App for Multidex with Gradle, please check this link: <a href="http://developer.android.com/tools/building/multidex.html" target="_blank">http://developer.android.com/tools/building/multidex.html</a>.
 
-### Importing the SDK
+### Importing the Maven Dependency
 
-Unzip the Android SDK package downloaded from <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
-
-Next, double click on the "build.gradle(Module: app)" file to open it and add the `compile project(':dJISDKLIB')` at the bottom of **dependencies** part:
-
-~~~xml
-dependencies {
-    ...
-    compile 'com.google.android.gms:play-services:9.2.0'
-    compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')
-}
-~~~
-
-Like we do before, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
-
-Now, let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Struture window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
-
- ![dependencies](../images/tutorials-and-samples/Android/GSDemo-Google-Map/dependencies.png)
+You can check the [Integrate SDK into Application](../application-development-workflow/workflow-integrate.html#implement-app-registration-and-sdk-callbacks) tutorial to learn how to import the Android SDK Maven Dependency.
  
 ### Building the Layouts of MainActivity
 
@@ -598,7 +581,18 @@ After you finish the steps above, open the DJIDemoApplication.java file and repl
 public void onCreate() {
     super.onCreate();
     mHandler = new Handler(Looper.getMainLooper());
-    DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+
+    //Check the permissions before registering the application for android system 6.0 above.
+    int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+
+            //This is used to start SDK services and initiate SDK.
+            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+        } else {
+            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+        }
+
 }
     
 private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
@@ -642,7 +636,7 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
 
   Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two interface methods of SDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
@@ -1351,5 +1345,3 @@ The Mavic Pro will eventually go home, land, and the beeping from the remote con
 In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to use the **WaypointMission.Builder** to configure waypoint mission settings, how to create and set the waypointList in the **WaypointMission.Builder**. Moreover, you learned how to use WaypointMissionOperator to **upload**, **start** and **stop** missions. 
       
 Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
-
-
