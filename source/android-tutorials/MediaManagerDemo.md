@@ -1,9 +1,9 @@
 ---
 title: Creating a Media Manager Application
-version: v4.2.2
-date: 2017-08-14
+version: v4.3
+date: 2017-09-23
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
-keywords: [iOS mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
+keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
 ---
 
@@ -27,11 +27,11 @@ We use Mavic Pro and Nexus 5 as an example to make this demo. For more details o
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Importing DJI SDK and UILibrary with AAR file
+## Importing Maven Dependency
 
-**1**. Now, create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'MediaManagerDemo'. Enter the company domain and package name (Here we use "com.dji.mediaManagerDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
+Now, create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'MediaManagerDemo'. Enter the company domain and package name (Here we use "com.dji.mediaManagerDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
-**2**. Next, download the **dji-sdk.aar** and **dji-uilibrary.aar** files from this [Github link](https://github.com/dji-sdk/Mobile-UILibrary-Android/blob/master/libs/). And check the [Importing DJI SDK and UILibrary](http://developer.dji.com/mobile-sdk/documentation/android-tutorials/UILibraryDemo.html#importing-dji-sdk-and-uilibrary) tutorial to import the DJI Android SDK and UI Library to your Android Studio project. 
+In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the Android SDK Maven Dependency and activate your application. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
 ## Implementing the UI of Application
 
@@ -441,6 +441,7 @@ Once you finished the steps above, let's open the "activity_main.xml" file, and 
         android:layout_below="@+id/play_btn"
         android:layout_marginTop="0dp"
         android:layout_toStartOf="@+id/pointing_drawer_sd"
+        android:background="@color/black_overlay"
         android:visibility="invisible" />
 
     <android.support.v7.widget.RecyclerView
@@ -509,7 +510,7 @@ Here is a screenshot of the implemented UI of MainActivity:
 
 ### Initializing the UI Elements in MainActivity
 
-Once you finished the steps above, let's open the "MainActivity.java" file and replace the code with the followings:
+Once you finished the steps above, let's open the "MainActivity.java" file and replace the code with the following:
 
 ~~~java
 
@@ -628,7 +629,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 }
 ~~~
 
-In the code above, we implement the followings:
+In the code above, we implement the following:
 
 1. Create variables for **Button**, **RecyclerView**, **SlidingDrawer**, **ImageView** and **TextView**.
 2. Next, create an `initUI()` method to initialize the UI elements and invoke the `setOnClickListener` method of **Button**s to set `MainActivity` as the listener. Then invoke the `initUI()` method in the `onCreate()` method.
@@ -668,8 +669,6 @@ After you finish the above steps, let's register our application with the **App 
 ~~~
 
 Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
-
-Remember to insert `tools:replace="android:icon"` before `android:icon="@mipmap/ic_launcher"` in the `application` element to fix the "Manifest merger failed" error.
 
 Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
 
@@ -711,14 +710,14 @@ Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as 
         <category android:name="android.intent.category.LAUNCHER" />
     </intent-filter>
 </activity>
+<activity android:name=".DefaultLayoutActivity"
+    android:screenOrientation="landscape"></activity>
 <activity
     android:name=".MainActivity"
     android:screenOrientation="landscape"></activity>
-<activity android:name=".DefaultLayoutActivity"
-    android:screenOrientation="landscape"></activity>
 ~~~
 
-In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **portrait**, set "MainActivity" as **landscape** and set "DefaultLayoutActivity" as **landscape**.
+In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **portrait**, set "DefaultLayoutActivity" as **landscape** and set "MainActivity" as **landscape**.
 
 **2.** After you finish the steps above, open the "DemoApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
 
@@ -727,8 +726,16 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
     public void onCreate() {
         super.onCreate();
         mHandler = new Handler(Looper.getMainLooper());
-        //This is used to start SDK services and initiate SDK.
-        DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+
+        //Check the permissions before registering the application for android system 6.0 above.
+        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+            //This is used to start SDK services and initiate SDK.
+            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+        } else {
+            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+        }
     }
 
     /**
@@ -799,7 +806,7 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
 
@@ -828,7 +835,7 @@ private View lastClickView;
 
 In the code above, we create variables for the `FileListAdapter`, `List<MediaFile>`, `MediaManager`, `FetchMediaTaskScheduler` and so on. 
 
-Next, improve the `onDestroy()` method with the followings:
+Next, improve the `onDestroy()` method with the following:
 
 ~~~java
 @Override
@@ -850,7 +857,7 @@ protected void onDestroy() {
 }
 ~~~
 
-Here, we implement the followings:
+Here, we implement the following:
 
 1. Invoke the `setMode()` method of `Camera` and set camera mode as `SHOOT_PHOTO` mode and show toast if there is any error in the completion callback.
 2. Then invoke the `clear()` method of `List<MediaFile>` to reset the `mediaFileList`. 
@@ -931,7 +938,7 @@ In the code above, we implement the following features:
 
 3. If the product is connected, initialize the `mMediaManager` by invoking the `getMediaManager()` method of `Camera`.
 
-### Refreshing Media File List
+### Fetching Media File List
 
 Once we have finished the steps above, we can start to fetch the media files list from the Camera SD card and show them on the `listView`.
 
@@ -1093,7 +1100,7 @@ In the code above, we implement the following features:
 
 2. Invoke the `setMode()` method of `Camera` and set the **CameraMode** to `MEDIA_DOWNLOAD`. In the completion block, if there is no error, invoke the `showProgressDialog()` method to show the fetch file progress and invoke the `getFileList()` method to fetch the media file list. Lastly, initialize the `FetchMediaTaskScheduler` to schedule the fetch media file task.
 
-Furthermore, create a new XML Layout file and name it as "media_info_item.xml" in the **layout** folder, replace the code with the followings:
+Furthermore, create a new XML Layout file and name it as "media_info_item.xml" in the **layout** folder, replace the code with the following:
 
 ~~~xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1271,7 +1278,7 @@ So far, we have finished implementing refreshing the media file list, and show t
 
 Now, build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation: 
 
-![]()
+<img src="../images/tutorials-and-samples/Android/MediaManagerDemo/refreshFiles.gif" width=80%>
 
 ## Downloading and Editing the Media Files
 
@@ -1442,7 +1449,7 @@ For more details of the implementation, please check the sample code of this tut
 
 Now, we can test the features we have implemented so far. Build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation: 
 
-![]()
+<img src="../images/tutorials-and-samples/Android/MediaManagerDemo/editFiles.gif" width=80%>
 
 ## Working on the Video Playback
 
@@ -1591,7 +1598,7 @@ Here, we implement the following features:
 
 2. In the `moveToPosition()` method, we firstly create the `promptsView` from the layout of `prompt_input_position`. Then initialize the `alertDialogBuilder` and set its view as `promptsView`. After that, initialize the `userInput` variable from the `promptsView`. Invoke the `setCancelable()` method to set dialog as not cancelable. Also invoke the `setPositiveButton()` method to set a listener to be invoked when the positive button of the dialog is pressed. Moreover, override the `onClick()` method and invoke the `moveToPosition()` method of `MediaManager` to skip to the new position in seconds from the start of the video. 
 
-Furthermore, create a new XML Layout file and name it as "prompt_input_position.xml" in the **layout** folder, replace the code with the followings:
+Furthermore, create a new XML Layout file and name it as "prompt_input_position.xml" in the **layout** folder, replace the code with the following:
 
 ~~~xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1702,10 +1709,10 @@ In the code above, we implement the following features:
 
 We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
-If everything goes well, you should see something similiar to the following gif animations like this:
+If everything goes well, you should see something similar to the following gif animations like this:
 
-![]()
+<img src="../images/tutorials-and-samples/Android/MediaManagerDemo/videoPlayback.gif" width=80%>
 
 ### Summary
 
-In this tutorial, you have learned how to use `DJIMediaManager` to preview photos, play videos, download or delete files, you also learn how to get and show the video playback status info. By using the `DJIMediaManager`, the users can get the metadata for all the multimedia files, and has access to each individual multimedia file. Hope you enjoy it!
+In this tutorial, you have learned how to use `MediaManager` to preview photos, play videos, download or delete files, you also learn how to get and show the video playback status info. By using the `MediaManager`, the users can get the metadata for all the multimedia files, and has access to each individual multimedia file. Hope you enjoy it!

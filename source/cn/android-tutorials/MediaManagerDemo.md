@@ -1,9 +1,9 @@
 ---
 title: Creating a Media Manager Application
-version: v4.2.2
-date: 2017-08-10
+version: v4.3
+date: 2017-09-23
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
-keywords: [iOS mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
+keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
 ---
 
@@ -11,13 +11,13 @@ keywords: [iOS mediaManager demo, mediaManager application, media download, down
 
 ---
 
-In this tutorial, you will learn how to use the `DJIMediaManager` to interact with the file system on the SD card of the aircraft's camera. By the end of this tutorial, you will have an app that you can use to preview photos, play videos, download or delete files and so on.
+In this tutorial, you will learn how to use the `MediaManager` to interact with the file system on the SD card of the aircraft's camera. By the end of this tutorial, you will have an app that you can use to preview photos, play videos, download or delete files and so on.
 
-In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI iOS UI Library, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
+In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI Android UI Library, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
 
-You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-MediaManagerDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo).
 
-We use Mavic Pro and iPad Air as an example to make this demo. For more details of customizing the layouts for iPhone devices, please check the tutorial's Github Sample Project.
+We use Mavic Pro and Nexus 5 as an example to make this demo. For more details of customizing the layouts for iPhone devices, please check the tutorial's Github Sample Project.
 
 ## Application Activation and Aircraft Binding in China
 
@@ -27,746 +27,1693 @@ We use Mavic Pro and iPad Air as an example to make this demo. For more details 
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Implementing DJI Go Style Default Layout
+## Importing Maven Dependency
 
-### Importing DJI SDK and UILibrary with CocoaPods
+Now, create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'MediaManagerDemo'. Enter the company domain and package name (Here we use "com.dji.mediaManagerDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
-To create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "MediaManagerDemo" in the **Product Name** field and keep the other default settings. Once the project is created, import the DJI SDK and DJI UI Library.
+In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the Android SDK Maven Dependency and activate your application. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
-You can check [Getting Started with DJI UI Library](./UILibraryDemo.html#importing-dji-sdk-and-uilibrary-with-cocoapods) tutorial to learn how to import the **DJISDK.framework** and **UILibrary.framework** into your Xcode project.
+## Implementing the UI of Application
 
-### Importing the VideoPreviewer
+### Working on the ConnectionActivity Layout
 
-You can check [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **VideoPreviewer** into your Xcode project.
+Please check the [Creating an Camera Application](./index.html#5-implementing-the-connectionactivity-layout) tutorial for the detail implementations.
 
-### Working on the MainViewController and DefaultlayoutViewController
+### Building the Default Layout using UI Library
 
-You can check this tutorial's Github Sample Code to learn how to implement the **MainViewController** to do SDK registration and update UIs and show alert views to inform users when DJI product is connected and disconnected. Also, you can learn how to implement shooting photos and recording videos functionalities with standard DJI Go UIs by using **DULDefaultLayoutViewController** of DJI UI Library from the [Getting Started with DJI UI Library](./UILibraryDemo.html#working-on-the-mainviewcontroller-and-defaultlayoutviewcontroller) tutorial.
+Now, create a new Empty Activity class with the name of "DefaultLayoutActivity" in the `com.dji.mediaManagerDemo` package. Replace the code with the following, remember to import the related classes as Android Studio suggested:
 
-If everything goes well, you can see the live video feed and test the shoot photo and record video features like this:
+~~~java
+public class DefaultLayoutActivity extends AppCompatActivity implements View.OnClickListener{
 
-![connectToAircraft](../../images/tutorials-and-samples/iOS/MediaManagerDemo/connectToAircraft.gif)
+    private Button mMediaManagerBtn;
 
-Congratulations! We can move forward now.
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_default_layout);
 
-## Working on the UI of the Application
+        mMediaManagerBtn = (Button)findViewById(R.id.btn_mediaManager);
+        mMediaManagerBtn.setOnClickListener(this);
 
-Now, to create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "MediaManagerViewController". We will use it to implement the Media Manager features.
-
-Next, open the **Main.storyboard** file and drag and drop a new "View Controller" object from the Object Library and set its "Class" value as **MediaManagerViewController**.
-
-Moreover, drag and drop a new "Container View" object in the **MediaManagerViewController** and set its ViewController's "Class" value as **DULFPVViewController**, which contains a `DULFPVView` and will show the video playback.
-
-Furthermore, drag and drop a UIImageView object on top of the "Container View" and hide it as default, we will use it to show the downloaded photo. Moreover, drag and drop eleven UIButton objects, one UITextField, one UITableView and a UIActivityIndicatorView, place them in the following positions:
-
-![mediaManagerVCUI](../../images/tutorials-and-samples/iOS/MediaManagerDemo/mediaManagerVCUI.png)
-
-The layout of the UI elements is a bit complicated, for more details of the configuration, please check the **Main.storyboard** in this tutorial's Github Sample Project.
-
-Lastly, drag and place a UIButton on the bottom right corner of the **DefaultLayoutViewController** view and create a segue to show the **MediaManagerViewController** when the user press the button.
-
-If everything goes well, you should see the whole storyboard layout like this:
-
-![mediaManagerVCUI](../../images/tutorials-and-samples/iOS/MediaManagerDemo/storyboardUI.png)
-
-Once you finish the above steps, open the "DefaultLayoutViewController.m" file and replace the content with the followings:
-
-~~~objc
-#import "DefaultLayoutViewController.h"
-#import "DemoUtility.h"
-
-@interface DefaultLayoutViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *mediaDownloadBtn;
-
-@end
-
-@implementation DefaultLayoutViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    if (IS_IPAD) {
-        [self.mediaDownloadBtn setImage:[UIImage imageNamed:@"mediaDownload_icon_iPad"] forState:UIControlStateNormal];
-    }else{
-        [self.mediaDownloadBtn setImage:[UIImage imageNamed:@"mediaDownload_icon"] forState:UIControlStateNormal];
     }
-}
 
-@end
-~~~
+    @Override
+    public void onClick(View v) {
 
-In the code above, we create an IBOutlet property for the `mediaDownloadBtn` and set its image in the `viewDidLoad` method. You can get the "mediaDownload_icon.png" and  "mediaDownload_icon_iPad.png" files from this tutorial's Github Sample Project.
-
-Next, open the "MediaManagerViewController.m" file and replace the content with the followings:
-
-~~~objc
-#import "MediaManagerViewController.h"
-#import "DemoUtility.h"
-
-@interface MediaManagerViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *positionTextField;
-@property (weak, nonatomic) IBOutlet UITableView *mediaTableView;
-@property (weak, nonatomic) IBOutlet UIView *videoPreviewView;
-@property (weak, nonatomic) IBOutlet UIButton *editBtn;
-@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
-@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
-@property (weak, nonatomic) IBOutlet UIButton *reloadBtn;
-@property (weak, nonatomic) IBOutlet UIImageView *displayImageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-
-@end
-
-@implementation MediaManagerViewController
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self initData];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return NO;
-}
-
-#pragma mark - Custom Methods
-- (void)initData
-{
-    [self.deleteBtn setEnabled:NO];
-    [self.cancelBtn setEnabled:NO];
-    [self.reloadBtn setEnabled:NO];
-    [self.editBtn setEnabled:NO];
-}
-
-#pragma mark - IBAction Methods
-- (IBAction)backBtnAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)editBtnAction:(id)sender {
-    [self.mediaTableView setEditing:YES animated:YES];
-    [self.deleteBtn setEnabled:YES];
-    [self.cancelBtn setEnabled:YES];
-    [self.editBtn setEnabled:NO];
-}
-
-- (IBAction)cancelBtnAction:(id)sender {
-    [self.mediaTableView setEditing:NO animated:YES];
-    [self.editBtn setEnabled:YES];
-    [self.deleteBtn setEnabled:NO];
-    [self.cancelBtn setEnabled:NO];
-}
-
-- (IBAction)reloadBtnAction:(id)sender {
-}
-
-- (IBAction)statusBtnAction:(id)sender {
-}
-
-- (IBAction)downloadBtnAction:(id)sender {
-}
-
-- (IBAction)playBtnAction:(id)sender {
-}
-
-- (IBAction)resumeBtnAction:(id)sender {
-}
-
-- (IBAction)pauseBtnAction:(id)sender {
-}
-
-- (IBAction)stopBtnAction:(id)sender {
-}
-
-- (IBAction)moveToPositionAction:(id)sender {
-}
-
-- (IBAction)showStatusBtnAction:(id)sender {
-}
-~~~
-
-In the code above, we implement the following things:
-
-1. Firstly, we define the IBOutlet properties for the UI elements, like UIButton, UITableView, UITextField, etc.
-
-2. Next, we implement the `viewDidLoad` method, and invoke the `initData` method to disable the `deleteBtn`, `cancelBtn`, `reloadBtn` and `editBtn` initially.
-
-3. Lastly, we implement the IBAction methods for all the UIButtons. For the `backBtnAction` method, we invoke the `popViewControllerAnimated` method of UINavigationController to go back to the `DefaultLayoutViewController`.
-
-For the `editBtnAction` method, we make `mediaTableView` goes into editing mode by invoking `setEditing:animated:` method of UITableView. Then enable the `deleteBtn` and `cancelBtn` buttons, disable the `editBtn` button.
-
-For the `cancelBtnAction` method, on contract, we disable the editing mode of `mediaTableView` and enable the `editBtn` button, also disable the `deleteBtn` and `cancelBtn` buttons. We will implement the other IBAction methods later.
-
-## Switching to Media Download Mode
-
-In order to preview, edit or download the photos or videos files from the DJICamera, you need to use the `DJIPlaybackManager` or `DJIMediaManager` of DJICamera. Here, we use `DJIMediaManager` to demonstrate how to implement it.
-
-Now, create a property of `DJIMediaManager` in the class extension part and implement the `viewWillAppear:` and `viewWillDisappear:` methods as shown below:
-
-~~~objc
-@property (nonatomic, weak) DJIMediaManager *mediaManager;
-~~~
-
-~~~objc
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    DJICamera *camera = [DemoUtility fetchCamera];
-    if (camera != nil) {
-        camera.delegate = self;
-        self.mediaManager = camera.mediaManager;
-        self.mediaManager.delegate = self;
-        [camera setMode:DJICameraModeMediaDownload withCompletion:^(NSError *error) {
-            if (error) {
-                NSLog(@"setMode failed: %@", error.description);
+        switch (v.getId()) {
+            case R.id.btn_mediaManager: {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
             }
-        }];
-    }
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    DJICamera *camera = [DemoUtility fetchCamera];
-    [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            ShowResult(@"Set CameraWorkModeShootPhoto Failed, %@", error.description);
+            default:
+                break;
         }
-    }];
-
-    if (camera && camera.delegate == self) {
-        [camera setDelegate:nil];
-        self.mediaManager.delegate = nil;
     }
 }
 ~~~
 
-In the code above, we implement the following things:
+In the code above, we create a Button variable `mMediaManagerBtn` and initialize it in the `onCreate()` method. Moreover, implement the `onClick()` method of the Button and invoke `startActivity()` method to start the `MainActivity`. 
 
-1. In the `viewWillAppear` method, we firstly invoke the `fetchCamera` method of **DemoUtility** class to fetch the DJICamera object. Then check if the camera is nil, if not set its delegate as `MediaManagerViewController`, also initialize the `mediaManager` and set its delegate as `MediaManagerViewController`.Furthermore, invoke the `setMode:withCompletion:` method of **DJICamera** and pass the `DJICameraModeMediaDownload` param to switch the camera mode to media download mode.
+Next, continue to open the "activity_default_layout.xml" file, and replace the code with the following:
 
-2. Similarly, in the `viewWillDisappear` method, we also invoke the `setMode:withCompletion:` method of **DJICamera** and pass the `DJICameraModeShootPhoto` param to switch the camera mode to shoot photo mode. Then reset the delegates of DJICamera and DJIMediaManager.So when the user enter the **MediaManagerViewController**, the DJICamera will switch to media download mode automatically, when user exit back to the **DefaultLayoutViewController**, the DJICamera will switch to shoot photo mode.
+~~~xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blue"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <!-- Widget to see first person view (FPV) -->
+    <dji.ui.widget.FPVWidget
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <dji.ui.widget.FPVOverlayWidget
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- Widgets in top status bar -->
+    <LinearLayout
+        android:id="@+id/signal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/dark_gray"
+        android:orientation="horizontal">
+
+        <dji.ui.widget.PreFlightStatusWidget
+            android:id="@+id/status"
+            android:layout_width="238dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FlightModeWidget
+            android:layout_width="103dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.GPSSignalWidget
+            android:layout_width="44dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.VisionWidget
+            android:layout_width="22dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.RemoteControlSignalWidget
+            android:layout_width="38dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.VideoSignalWidget
+            android:layout_width="38dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.WiFiSignalWidget
+            android:layout_width="22dp"
+            android:layout_height="20dp"/>
+
+        <dji.ui.widget.BatteryWidget
+            android:layout_width="56dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.ConnectionWidget
+            android:layout_marginTop="5dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signal"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="12dp"
+        android:background="@color/dark_gray"
+        android:orientation="horizontal">
+
+        <dji.ui.widget.AutoExposureLockWidget
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FocusExposureSwitchWidget
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FocusModeWidget
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigISOWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigShutterWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigApertureWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigEVWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.config.CameraConfigWBWidget
+            android:layout_width="50dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.CameraConfigStorageWidget
+            android:layout_width="108dp"
+            android:layout_height="25dp"/>
+
+    </LinearLayout>
+    <dji.ui.widget.RemainingFlightTimeWidget
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:background="@color/transparent"
+        android:layout_height="20dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <dji.ui.widget.dashboard.DashboardWidget
+            android:id="@+id/Compass"
+            android:layout_width="405dp"
+            android:layout_height="91dp"
+            android:layout_marginRight="12dp"/>
+
+    </LinearLayout>
+    
+    <!--Take off and return home buttons on left -->
+    <LinearLayout
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <dji.ui.widget.TakeOffWidget
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"/>
+
+        <dji.ui.widget.ReturnHomeWidget
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
+
+
+    <dji.ui.widget.controls.CameraControlsWidget
+        android:id="@+id/CameraCapturePanel"
+        android:layout_width="50dp"
+        android:layout_height="213dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/camera" />
+
+
+    <dji.ui.panel.CameraSettingExposurePanel
+        android:id="@+id/CameraExposureMode"
+        android:layout_width="180dp"
+        android:layout_height="263dp"
+        android:layout_below="@id/camera"
+        android:layout_marginLeft="360dp"
+        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:visibility="invisible" />
+
+    <dji.ui.panel.CameraSettingAdvancedPanel
+        android:id="@+id/CameraAdvancedSetting"
+        android:layout_width="180dp"
+        android:layout_height="263dp"
+        android:layout_below="@id/camera"
+        android:layout_marginLeft="360dp"
+        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:visibility="invisible" />
+    
+    <!-- Pre-flight checklist panel -->
+    <dji.ui.panel.PreFlightCheckListPanel
+        android:id="@+id/PreflightCheckView"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signal"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_mediaManager"
+            android:layout_width="38dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/CameraCapturePanel"
+            android:layout_below="@id/CameraCapturePanel"
+            android:layout_marginLeft="530dp"
+            android:background="@drawable/playback"
+            android:visibility="visible" />
+
+    </LinearLayout>
+    
+</RelativeLayout>
+~~~
+
+In the xml file above, we implement the UI Library's default layout. For more details, please check the [Getting Started with UI Library](http://developer.dji.com/mobile-sdk/documentation/android-tutorials/UILibraryDemo.html#building-the-default-layout-using-ui-library) tutorial.
+
+Once you finished the steps above, open the "color.xml" file and replace the content with the following:
+
+~~~xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black_overlay">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="background_blue">#242d34</color>
+    <color name="transparent">#00000000</color>
+    <color name="dark_gray">#80000000</color>
+</resources>
+~~~
+
+Moreover, open the "styles.xml" file and replace the content with the following:
+
+~~~xml
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Base.Theme.AppCompat.Light.NoActionBar">
+    </style>
+</resources>
+~~~
+
+### Working on the MainActivity Layout
+
+Once you finished the steps above, let's open the "activity_main.xml" file, and replace the content with the following:
+
+~~~xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dji.mediaManagerDemo.MainActivity">
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Back"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/delete_btn"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/back_btn"
+        android:text="Delete"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/reload_btn"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/delete_btn"
+        android:text="Reload"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/download_btn"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/reload_btn"
+        android:text="Download"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/status_btn"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/download_btn"
+        android:text="Status"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/play_btn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/back_btn"
+        android:text="Play"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/resume_btn"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/back_btn"
+        android:layout_toEndOf="@+id/play_btn"
+        android:text="Resume"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/pause_btn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/reload_btn"
+        android:layout_toEndOf="@+id/resume_btn"
+        android:text="Pause"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/stop_btn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/reload_btn"
+        android:layout_toEndOf="@+id/pause_btn"
+        android:text="Stop"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/moveTo_btn"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/reload_btn"
+        android:layout_toEndOf="@+id/stop_btn"
+        android:text="MoveTo"
+        android:textSize="11sp" />
+
+    <!-- Widget to see first person view (FPV) -->
+    <dji.ui.widget.FPVWidget
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/play_btn"
+        android:layout_toStartOf="@+id/pointing_drawer_sd"
+        android:id="@+id/FPVWidget" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/play_btn"
+        android:layout_marginTop="0dp"
+        android:layout_toStartOf="@+id/pointing_drawer_sd"
+        android:background="@color/black_overlay"
+        android:visibility="invisible" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/filelistView"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/FPVWidget" />
+
+    <SlidingDrawer
+        android:id="@+id/pointing_drawer_sd"
+        android:layout_width="230dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:content="@+id/pointing_drawer_content"
+        android:handle="@+id/pointing_handle"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@id/pointing_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/pointing_drawer_content"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="340dp"
+            android:background="@color/black_overlay">
+
+            <ScrollView
+                android:layout_width="250dp"
+                android:layout_height="fill_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/pointing_push_tv"
+                    style="@style/status_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:scrollbars="vertical"
+                    android:text="@string/push_info" />
+            </ScrollView>
+        </RelativeLayout>
+    </SlidingDrawer>
+</RelativeLayout>
+~~~
+
+In the xml above, we define the following UI elements:
+
+1. Create 10 **Button**s with the names of "BACK", "DELETE", "RELOAD", "DOWNLOAD", "STATUS", "PLAY", "RESUME", "PAUSE", "STOP" and "MOVETO" on the upper left corner.
+2. Create a **FPVWidget** widget below the Buttons to show the live camera video stream. 
+3. Create an **ImageView** to show the downloaded photo and overlay it over the **FPVWidget**. 
+4. Create a **RecyclerView** on the right side to show the info of media files list.
+5. Lastly, create a **ScrollView** with a **TextView** to show the video playback state info.
+
+Here is a screenshot of the implemented UI of MainActivity:
+
+![mainActivity_UI](../../images/tutorials-and-samples/Android/MediaManagerDemo/mainActivity_UI.png)
+
+### Initializing the UI Elements in MainActivity
+
+Once you finished the steps above, let's open the "MainActivity.java" file and replace the code with the following:
+
+~~~java
+
+public class MainActivity extends Activity implements View.OnClickListener {
+
+    private static final String TAG = MainActivity.class.getName();
+    private static MainActivity activity;
+
+    private Button mBackBtn, mDeleteBtn, mReloadBtn, mDownloadBtn, mStatusBtn;
+    private Button mPlayBtn, mResumeBtn, mPauseBtn, mStopBtn, mMoveToBtn;
+    private RecyclerView listView;
+    private SlidingDrawer mPushDrawerSd;
+    private ImageView mDisplayImageView;
+    private TextView mPushTv;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        initUI();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {    
+        super.onDestroy();
+    }
+
+    void initUI() {
+
+        //Init RecyclerView
+        listView = (RecyclerView) findViewById(R.id.filelistView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this, OrientationHelper.VERTICAL,false);
+        listView.setLayoutManager(layoutManager);
+
+        mPushDrawerSd = (SlidingDrawer)findViewById(R.id.pointing_drawer_sd);
+        mPushTv = (TextView)findViewById(R.id.pointing_push_tv);
+        mBackBtn = (Button) findViewById(R.id.back_btn);
+        mDeleteBtn = (Button) findViewById(R.id.delete_btn);
+        mDownloadBtn = (Button) findViewById(R.id.download_btn);
+        mReloadBtn = (Button) findViewById(R.id.reload_btn);
+        mStatusBtn = (Button) findViewById(R.id.status_btn);
+        mPlayBtn = (Button) findViewById(R.id.play_btn);
+        mResumeBtn = (Button) findViewById(R.id.resume_btn);
+        mPauseBtn = (Button) findViewById(R.id.pause_btn);
+        mStopBtn = (Button) findViewById(R.id.stop_btn);
+        mMoveToBtn = (Button) findViewById(R.id.moveTo_btn);
+        mDisplayImageView = (ImageView) findViewById(R.id.imageView);
+        mDisplayImageView.setVisibility(View.VISIBLE);
+
+        mBackBtn.setOnClickListener(this);
+        mDeleteBtn.setOnClickListener(this);
+        mDownloadBtn.setOnClickListener(this);
+        mReloadBtn.setOnClickListener(this);
+        mDownloadBtn.setOnClickListener(this);
+        mStatusBtn.setOnClickListener(this);
+        mPlayBtn.setOnClickListener(this);
+        mResumeBtn.setOnClickListener(this);
+        mPauseBtn.setOnClickListener(this);
+        mStopBtn.setOnClickListener(this);
+        mMoveToBtn.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back_btn: {
+                break;
+            }
+            case R.id.delete_btn:{
+                break;
+            }
+            case R.id.reload_btn: {
+                break;
+            }
+            case R.id.download_btn: {
+                break;
+            }
+            case R.id.status_btn: {
+                break;
+            }
+            case R.id.play_btn: {
+                break;
+            }
+            case R.id.resume_btn: {
+                break;
+            }
+            case R.id.pause_btn: {
+                break;
+            }
+            case R.id.stop_btn: {
+                break;
+            }
+            case R.id.moveTo_btn: {
+                break;
+            }
+            default:
+                break;
+        }
+    }
+}
+~~~
+
+In the code above, we implement the following:
+
+1. Create variables for **Button**, **RecyclerView**, **SlidingDrawer**, **ImageView** and **TextView**.
+2. Next, create an `initUI()` method to initialize the UI elements and invoke the `setOnClickListener` method of **Button**s to set `MainActivity` as the listener. Then invoke the `initUI()` method in the `onCreate()` method.
+3. Lastly, implement the `onClick()` method for all the **Button**s.
+
+## Registering the Application
+
+After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
+
+**1.** Let's open the AndroidManifest.xml file and add the following elements on top of the **application** element:
+
+~~~xml
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+<uses-feature android:name="android.hardware.camera" />
+<uses-feature android:name="android.hardware.camera.autofocus" />
+<uses-feature
+    android:name="android.hardware.usb.host"
+    android:required="false" />
+<uses-feature
+    android:name="android.hardware.usb.accessory"
+    android:required="true" />
+~~~
+
+Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardware which are used by the application.
+
+Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
+
+~~~xml
+<!-- DJI SDK -->
+<uses-library android:name="com.android.future.usb.accessory" />
+
+<meta-data
+    android:name="com.dji.sdk.API_KEY"
+    android:value="Please enter your APP Key here." />
+
+<activity
+    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
+    android:theme="@android:style/Theme.Translucent">
+    <intent-filter>
+        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+    </intent-filter>
+
+    <meta-data
+        android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+        android:resource="@xml/accessory_filter" />
+</activity>
+
+<service android:name="dji.sdk.sdkmanager.DJIGlobalService" />
+<!-- DJI SDK -->
+~~~
+
+In the code above, you should substitute your **App Key** of the application for "Please enter your App Key here." in the **value** attribute under the `android:name="com.dji.sdk.API_KEY"` attribute.
+
+Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as shown below:
+
+~~~xml
+<activity
+    android:name=".ConnectionActivity"
+    android:screenOrientation="portrait">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+<activity android:name=".DefaultLayoutActivity"
+    android:screenOrientation="landscape"></activity>
+<activity
+    android:name=".MainActivity"
+    android:screenOrientation="landscape"></activity>
+~~~
+
+In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **portrait**, set "DefaultLayoutActivity" as **landscape** and set "MainActivity" as **landscape**.
+
+**2.** After you finish the steps above, open the "DemoApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
+
+~~~java
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mHandler = new Handler(Looper.getMainLooper());
+
+        //Check the permissions before registering the application for android system 6.0 above.
+        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+            //This is used to start SDK services and initiate SDK.
+            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+        } else {
+            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
+     * the SDK Registration result and the product changing.
+     */
+
+    private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
+
+        //Listens to the SDK registration result
+        @Override
+        public void onRegister(DJIError error) {
+            if(error == DJISDKError.REGISTRATION_SUCCESS) {
+                DJISDKManager.getInstance().startConnectionToProduct();
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
+                    }
+                });
+            } else {
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Register sdk fails, check network is available", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            }
+            Log.e("TAG", error.toString());
+        }
+
+        //Listens to the connected product changing, including two parts, component changing or product connection changing.
+        @Override
+        public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
+
+            mProduct = newProduct;
+            if(mProduct != null) {
+                mProduct.setBaseProductListener(mDJIBaseProductListener);
+            }
+
+            notifyStatusChange();
+        }
+    };
+
+    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
+
+        @Override
+        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
+
+            if(newComponent != null) {
+                newComponent.setComponentListener(mDJIComponentListener);
+            }
+            notifyStatusChange();
+        }
+
+        @Override
+        public void onConnectivityChange(boolean isConnected) {
+
+            notifyStatusChange();
+        }
+
+    };
+~~~
+
+Here, we implement several features:
+  
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
+2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
+
+**3.** Lastly, open the "ConnectionActivity.java" file and replace the code with the same file in the Github Source Code.
+
+Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
+
+<img src="../../images/tutorials-and-samples/Android/MediaManagerDemo/registerSuccess.png" width=30%>
 
 ## Refreshing Media File List
 
-Once we have finished the steps above, we can start to fetch the media files list from the Camera SD card and show them on the tableView.
+### Initializing MediaManager
 
-Create the following properties in the class extension part and initialize it in the `initData` method:
+Now, continue to work on the "MainActivity.java" file. Firstly, add the following codes at the beginning of the `MainActivity` class:
 
-~~~objc
-@property(nonatomic, strong) NSMutableArray* mediaList;
-@property (nonatomic, strong) NSIndexPath *selectedCellIndexPath;
+~~~java
+private FileListAdapter mListAdapter;
+private List<MediaFile> mediaFileList = new ArrayList<MediaFile>();
+private MediaManager mMediaManager;
+private MediaManager.FileListState currentFileListState = MediaManager.FileListState.UNKNOWN;
+private ProgressDialog mLoadingDialog;
+private FetchMediaTaskScheduler scheduler;
+private int lastClickViewIndex =-1;
+private View lastClickView;
 ~~~
 
-~~~objc
-- (void)initData
-{
-    self.mediaList = [[NSMutableArray alloc] init];
-    ...
+In the code above, we create variables for the `FileListAdapter`, `List<MediaFile>`, `MediaManager`, `FetchMediaTaskScheduler` and so on. 
+
+Next, improve the `onDestroy()` method with the following:
+
+~~~java
+@Override
+protected void onDestroy() {
+    lastClickView = null;
+    DemoApplication.getCameraInstance().setMode(SettingsDefinitions.CameraMode.SHOOT_PHOTO, new CommonCallbacks.CompletionCallback() {
+            @Override
+            public void onResult(DJIError mError) {
+              if (mError != null){
+                  setResultToToast("Set Shoot Photo Mode Failed" + mError.getDescription());
+              }
+            }
+    });
+
+    if (mediaFileList != null) {
+        mediaFileList.clear();
+    }
+    super.onDestroy();
 }
 ~~~
 
-Next, create two new methods: `loadMediaList` and `updateMediaList:` and invoke the `loadMediaList` method at the bottom of `viewWillAppear:` method and `reloadBtnAction:` IBAction method:
+Here, we implement the following:
 
-~~~objc
-- (void)viewWillAppear:(BOOL)animated
-{
-    ...
-    if (camera != nil) {
-        ...
-        [self loadMediaList];
+1. Invoke the `setMode()` method of `Camera` and set camera mode as `SHOOT_PHOTO` mode and show toast if there is any error in the completion callback.
+2. Then invoke the `clear()` method of `List<MediaFile>` to reset the `mediaFileList`. 
+
+Moveover, add the following code in the `initUI()` method:
+
+~~~java
+//Init FileListAdapter
+mListAdapter = new FileListAdapter();
+listView.setAdapter(mListAdapter);
+
+//Init Loading Dialog
+mLoadingDialog = new ProgressDialog(MainActivity.this);
+mLoadingDialog.setMessage("Please wait");
+mLoadingDialog.setCanceledOnTouchOutside(false);
+mLoadingDialog.setCancelable(false);
+~~~
+
+In the code above, we firstly initialize the `mListAdapter` and invoke the `setAdapter()` method of `RecyclerView` to set it as `listView`'s adapter. Then initialize the `mLoadingDialog` to show messages.
+
+Furthermore, implement the following two methods to show and hide the `mLoadingDialog` dialog:
+
+~~~java
+private void showProgressDialog() {
+    if (mLoadingDialog != null) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                mLoadingDialog.show();
+            }
+        });
     }
 }
 
-- (IBAction)reloadBtnAction:(id)sender {
-    [self loadMediaList];
-}
-
--(void) loadMediaList
-{
-    [self.loadingIndicator setHidden:NO];
-    if (self.mediaManager.fileListState == DJIMediaFileListStateSyncing ||
-             self.mediaManager.fileListState == DJIMediaFileListStateDeleting) {
-        NSLog(@"Media Manager is busy. ");
-    }else {
-        WeakRef(target);
-        [self.mediaManager refreshFileListWithCompletion:^(NSError * _Nullable error) {
-            WeakReturn(target);
-            if (error) {
-                ShowResult(@"Fetch Media File List Failed: %@", error.localizedDescription);
+private void hideProgressDialog() {
+    if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                mLoadingDialog.dismiss();
             }
-            else {
-                NSLog(@"Fetch Media File List Success.");
-                NSArray *mediaFileList = [target.mediaManager fileListSnapshot];
-                [target updateMediaList:mediaFileList];
-            }
-            [target.loadingIndicator setHidden:YES];
-        }];
+        });
     }
 }
+~~~
 
--(void) updateMediaList:(NSArray*)mediaList
-{
-    [self.mediaList removeAllObjects];
-    [self.mediaList addObjectsFromArray:mediaList];
+Lastly, continue to implement the methods as shown below:
 
-    DJIFetchMediaTaskScheduler *taskScheduler = [DemoUtility fetchCamera].mediaManager.taskScheduler;
-    taskScheduler.suspendAfterSingleFetchTaskFailure = NO;
-    [taskScheduler resumeWithCompletion:nil];
-    for (DJIMediaFile *file in self.mediaList) {
-        if (file.thumbnail == nil) {
-            WeakRef(target);
-            DJIFetchMediaTask *task = [DJIFetchMediaTask taskWithFile:file content:DJIFetchMediaTaskContentThumbnail andCompletion:^(DJIMediaFile * _Nullable file, DJIFetchMediaTaskContent content, NSError * _Nullable error) {
-                WeakReturn(target);
-                [target.mediaTableView reloadData];
-            }];
-            [taskScheduler moveTaskToEnd:task];
+~~~java
+private MediaManager.FileListStateListener updateFileListStateListener = new MediaManager.FileListStateListener() {
+    @Override
+    public void onFileListStateChange(MediaManager.FileListState state) {
+        currentFileListState = state;
+    }
+};
+
+private void initMediaManager() {
+    if (DemoApplication.getProductInstance() == null) {
+        mediaFileList.clear();
+        mListAdapter.notifyDataSetChanged();
+        DJILog.e(TAG, "Product disconnected");
+        return;
+    } else {
+        if (null != DemoApplication.getCameraInstance() && DemoApplication.getCameraInstance().isMediaDownloadModeSupported()) {
+            mMediaManager = DemoApplication.getCameraInstance().getMediaManager();
+        } else if (null != DemoApplication.getCameraInstance()
+                && !DemoApplication.getCameraInstance().isMediaDownloadModeSupported()) {
+            setResultToToast("Media Download Mode not Supported");
         }
     }
-
-    [self.reloadBtn setEnabled:YES];
-    [self.editBtn setEnabled:YES];
-}
-~~~
-
-The code above implements:
-
-1. In the `loadMediaList` method, we firstly show the `loadingIndicator` and check the `fileListState` enum value of the `DJIMediaManager`. If the value is `DJIMediaFileListStateSyncing` or `DJIMediaFileListStateDeleting`, we show an NSLog to inform users that the media manager is busy. For other values, we invoke the `refreshFileListWithCompletion:` method of the `DJIMediaManager` to refresh the file list from the SD card. In the completion block, if there is no error, we should get a copy of the current file list by invoking the `fileListSnapshot` method of `DJIMediaManager` and initialize the `mediaFileList` variable. Then invoke the `updateMediaList:` method and pass the `mediaFileList`. Lastly, hide the `loadingIndicator` since the operation of refreshing the file list has finished.
-
-2. In the `updateMediaList:` method, we firstly remove all the objects in the `mediaList` array and add new objects to it from the `mediaList` array. Next, create a `mediaTaskScheduler` variable and assign it with the `taskScheduler` property of `DJIMediaManager`. Then, assign `NO` to the `suspendAfterSingleFetchTaskFailure` property of `DJIFetchMediaTaskScheduler` to prevent from suspending the scheduler when an error occurs during the execution. Moreover, invoke the `resumeWithCompletion` method of `DJIFetchMediaTaskScheduler` to resume the scheduler, which will execute tasks in the queue sequentially.
-
-Furthermore, create a for loop to loop through all the `DJIMediaFile` variables in the `mediaList` array and invoke the `taskWithFile:content:andCompletion:` method of `DJIFetchMediaTaskScheduler` by passing the `file` variable and `DJIFetchMediaTaskContentThumbnail` value to ask the scheduler to download the thumbnail of the media file.
-
-In the completion block, we invoke the `reloadData` method of `UITableView` to reload everything in the table view. After that, invoke the `moveTaskToEnd` method to push the `task` to the back of the queue and be executed after the executing task is complete.
-
-Lastly, we enable the `reloadBtn` and `editBtn` buttons.
-
-Once you finish the steps above, you should implement the following UITableView methods:
-
-~~~objc
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.mediaList.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaFileCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"mediaFileCell"];
-    }
-
-    if (self.selectedCellIndexPath == indexPath) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-
-    DJIMediaFile *media = [self.mediaList objectAtIndex:indexPath.row];
-    cell.textLabel.text = media.fileName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Create Date: %@ Size: %0.1fMB Duration:%f cusotmInfo:%@", media.timeCreated, media.fileSizeInBytes / 1024.0 / 1024.0,media.durationInSeconds, media.customInformation];
-    if (media.thumbnail == nil) {
-        [cell.imageView setImage:[UIImage imageNamed:@"dji.png"]];
-    }
-    else
-    {
-        [cell.imageView setImage:media.thumbnail];
-    }
-
-    return cell;
+    return;
 }
 ~~~
 
 In the code above, we implement the following features:
 
-1. Return `1` as the section number of the table view.
-2. Return the `count` value of the `mediaList` array as the number of rows in section.
-3. If the `UITableViewCell` selected, set its `accessoryType` as `UITableViewCellAccessoryCheckmark` to show a checkmark on the right side of the table view cell, otherwise, set the `accessoryType` as `UITableViewCellAccessoryNone` to hide the checkmark.
+1. Firslty, initialize the `updateFileListStateListener` and update the value of `currentFileListState` variable inside the `onFileListStateChange` callback method. 
 
-Next, get the `DJIMediaFile` object in the `self.mediaList` array by using the `indexPath.row` index. Lastly, update the `textLabel`, `detailTextLabel` and `imageView` properties of table view cell according to the `DJIMediaFile` object. For the "dji.png" file, you can get it from the tutorial's Github Sample project.
+2. Next, in the `initMediaManager()` method, check if the product is connected, if not, reset the `mediaFileList` and invoke the `notifyDataSetChanged()` method of `FileListAdapter` to update the `listView`. 
 
-Now, to build and run the project, connect the demo application to a Mavic Pro (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and enter the `MediaManagerViewController`, you should be able to see something similar to the following screenshot:
+3. If the product is connected, initialize the `mMediaManager` by invoking the `getMediaManager()` method of `Camera`.
 
-<img src="../../images/tutorials-and-samples/iOS/MediaManagerDemo/fetchMediaFiles.gif" width=100%>
+### Fetching Media File List
+
+Once we have finished the steps above, we can start to fetch the media files list from the Camera SD card and show them on the `listView`.
+
+Implement the following methods as shown below:
+
+~~~java
+private void getFileList() {
+    mMediaManager = DemoApplication.getCameraInstance().getMediaManager();
+    if (mMediaManager != null) {
+
+        if ((currentFileListState == MediaManager.FileListState.SYNCING) || (currentFileListState == MediaManager.FileListState.DELETING)){
+            DJILog.e(TAG, "Media Manager is busy.");
+        }else{
+            mMediaManager.refreshFileList(new CommonCallbacks.CompletionCallback() {
+                @Override
+                public void onResult(DJIError error) {
+                    if (null == error) {
+                        hideProgressDialog();
+
+                        //Reset data
+                        if (currentFileListState != MediaManager.FileListState.INCOMPLETE) {
+                            mediaFileList.clear();
+                            lastClickViewIndex = -1;
+                            lastClickView = null;
+                        }
+
+                        mediaFileList = mMediaManager.getFileListSnapshot();
+                        Collections.sort(mediaFileList, new Comparator<MediaFile>() {
+                            @Override
+                            public int compare(MediaFile lhs, MediaFile rhs) {
+                                if (lhs.getTimeCreated() < rhs.getTimeCreated()) {
+                                    return 1;
+                                } else if (lhs.getTimeCreated() > rhs.getTimeCreated()) {
+                                    return -1;
+                                }
+                                return 0;
+                            }
+                        });
+                        scheduler.resume(new CommonCallbacks.CompletionCallback() {
+                            @Override
+                            public void onResult(DJIError error) {
+                                if (error == null) {
+                                    getThumbnails();
+                                    getPreviews();
+                                }
+                            }
+                        });
+                    } else {
+                        hideProgressDialog();
+                        setResultToToast("Get Media File List Failed:" + error.getDescription());
+                    }
+                }
+            });
+        }
+    }
+}
+
+private void getThumbnailByIndex(final int index) {
+    FetchMediaTask task = new FetchMediaTask(mediaFileList.get(index), FetchMediaTaskContent.THUMBNAIL, taskCallback);
+    scheduler.moveTaskToEnd(task);
+}
+
+private void getPreviewByIndex(final int index) {
+    FetchMediaTask task = new FetchMediaTask(mediaFileList.get(index), FetchMediaTaskContent.PREVIEW, taskCallback);
+    scheduler.moveTaskToEnd(task);
+}
+
+private void getThumbnails() {
+    if (mediaFileList.size() <= 0) {
+        setResultToToast("No File info for downloading thumbnails");
+        return;
+    }
+    for (int i = 0; i < mediaFileList.size(); i++) {
+        getThumbnailByIndex(i);
+    }
+}
+
+private void getPreviews() {
+    if (mediaFileList.size() <= 0) {
+        setResultToToast("No File info for downloading previews");
+        return;
+    }
+    for (int i = 0; i < mediaFileList.size(); i++) {
+        getPreviewByIndex(i);
+    }
+}
+
+private FetchMediaTask.Callback taskCallback = new FetchMediaTask.Callback() {
+    @Override
+    public void onUpdate(MediaFile file, FetchMediaTaskContent option, DJIError error) {
+        if (null == error) {
+            if (option == FetchMediaTaskContent.PREVIEW) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        mListAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+            if (option == FetchMediaTaskContent.THUMBNAIL) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        mListAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        } else {
+            DJILog.e(TAG, "Fetch Media Task Failed" + error.getDescription());
+        }
+    }
+};
+
+~~~
+
+In the code above, we implement the following features:
+
+1. In the `getFileList()` method, we fetch the latest `mMediaManager` object and check if it's not null. Then check the value of the `currentFileListState` variable. If the state is neither `SYNCING` nor `DELETING`, invoke the `refreshFileList()` method of `MediaManager` to refresh the file list from the SD card. 
+
+2. In the `onResult()` callback method, if there is no error, then check if the `currentFileListState` value is not equal to `MediaManager.FileListState.INCOMPLETE` and reset the `mediaFileList` list, the `lastClickViewIndex` and the `lastClickView` variables. 
+
+3. Invoke the `getFileListSnapshot()` method of `MediaManager` to get the current file list and store it in the `mediaFileList` variable.
+
+4. Sort the media files in the `mediaFileList` based on the created time. Then invoke the `resume()` method of `FetchMediaTaskScheduler` to resume the scheduler and invoke the `getThumbnails()` and `getPreviews()` methods in the `onResult()` callback method. If there is an error, invoke the `hideProgressDialog()` method to hide the progress dialog. 
+
+5. Next, create the `getThumbnailByIndex()` and `getPreviewByIndex()` methods to initialize the `FetchMediaTask` tasks for `FetchMediaTaskContent.THUMBNAIL` and `FetchMediaTaskContent.PREVIEW`, and then move the tasks to the end of `FetchMediaTaskScheduler`.
+
+6. After that, create the `getThumbnails()` and `getPreviews()` methods to go through the files in the `mediaFileList` and invoke the `getThumbnailByIndex()` and `getPreviewByIndex()` methods to initialize the `FetchMediaTask` tasks.
+
+7. Lastly, initialize the `taskCallback` variable and implement the `onUpdate()` callback method. If there is no error, check the value of the `option` variable. If the value is equal to either `FetchMediaTaskContent.PREVIEW` or `FetchMediaTaskContent.THUMBNAIL`, invoke the `notifyDataSetChanged()` method of the `FileListAdapter` in the UI thread to update the `listView`.
+
+Once you finish the steps above, continue to insert the following code below the `mMediaManager = DemoApplication.getCameraInstance().getMediaManager();` in the `initMediaManager()` method:
+
+~~~java
+if (null != mMediaManager) {
+    mMediaManager.addUpdateFileListStateListener(this.updateFileListStateListener);
+    DemoApplication.getCameraInstance().setMode(SettingsDefinitions.CameraMode.MEDIA_DOWNLOAD, new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            if (error == null) {
+                DJILog.e(TAG, "Set cameraMode success");
+                showProgressDialog();
+                getFileList();
+            } else {
+                setResultToToast("Set cameraMode failed");
+            }
+        }
+    });
+    if (mMediaManager.isVideoPlaybackSupported()) {
+        DJILog.e(TAG, "Camera support video playback!");
+    } else {
+        setResultToToast("Camera does not support video playback!");
+    }
+    scheduler = mMediaManager.getScheduler();
+}
+~~~
+
+In the code above, we implement the following features:
+
+1. Check if the `mMediaManager` is not null, then invoke the `addUpdateFileListStateListener()` method of `mMediaManager` to add listener for file list state update.
+
+2. Invoke the `setMode()` method of `Camera` and set the **CameraMode** to `MEDIA_DOWNLOAD`. In the completion block, if there is no error, invoke the `showProgressDialog()` method to show the fetch file progress and invoke the `getFileList()` method to fetch the media file list. Lastly, initialize the `FetchMediaTaskScheduler` to schedule the fetch media file task.
+
+Furthermore, create a new XML Layout file and name it as "media_info_item.xml" in the **layout** folder, replace the code with the following:
+
+~~~xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_selector"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/filethumbnail"
+        android:layout_width="110dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:minHeight="150dp"
+        android:minWidth="250dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/filename"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/filethumbnail"
+        android:clickable="false"
+        android:text="FileName" />
+
+    <TextView
+        android:id="@+id/filetype"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/filename"
+        android:layout_toEndOf="@+id/filethumbnail"
+        android:clickable="false"
+        android:text="FileType" />
+
+    <TextView
+        android:id="@+id/fileSize"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/filetype"
+        android:layout_toEndOf="@+id/filethumbnail"
+        android:clickable="false"
+        android:text="FileSize" />
+
+    <TextView
+        android:id="@+id/filetime"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/fileSize"
+        android:layout_toEndOf="@+id/filethumbnail"
+        android:clickable="false"
+        android:text="FileTime" />
+
+</RelativeLayout>
+~~~
+
+In the code above, we define the layout of the ItemHolder in `listView`. Add one `ImageView` on the left side and four `TextView`s on the right side as shown below:
+
+![ItemHolder](../../images/tutorials-and-samples/Android/MediaManagerDemo/media_info_item.png)
+
+Lastly, continue to implement the following methods to show fetched media files in the `listView`:
+
+~~~java   
+private class ItemHolder extends RecyclerView.ViewHolder {
+    ImageView thumbnail_img;
+    TextView file_name;
+    TextView file_type;
+    TextView file_size;
+    TextView file_time;
+
+    public ItemHolder(View itemView) {
+        super(itemView);
+        this.thumbnail_img = (ImageView) itemView.findViewById(R.id.filethumbnail);
+        this.file_name = (TextView) itemView.findViewById(R.id.filename);
+        this.file_type = (TextView) itemView.findViewById(R.id.filetype);
+        this.file_size = (TextView) itemView.findViewById(R.id.fileSize);
+        this.file_time = (TextView) itemView.findViewById(R.id.filetime);
+    }
+}
+
+private class FileListAdapter extends RecyclerView.Adapter<ItemHolder> {
+    @Override
+    public int getItemCount() {
+        if (mediaFileList != null) {
+            return mediaFileList.size();
+        }
+        return 0;
+    }
+
+    @Override
+    public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.media_info_item, parent, false);
+        return new ItemHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ItemHolder mItemHolder, final int index) {
+
+        final MediaFile mediaFile = mediaFileList.get(index);
+        if (mediaFile != null) {
+            if (mediaFile.getMediaType() != MediaFile.MediaType.MOV && mediaFile.getMediaType() != MediaFile.MediaType.MP4) {
+                mItemHolder.file_time.setVisibility(View.GONE);
+            } else {
+                mItemHolder.file_time.setVisibility(View.VISIBLE);
+                mItemHolder.file_time.setText(mediaFile.getDurationInSeconds() + " s");
+            }
+            mItemHolder.file_name.setText(mediaFile.getFileName());
+            mItemHolder.file_type.setText(mediaFile.getMediaType().name());
+            mItemHolder.file_size.setText(mediaFile.getFileSize() + " Bytes");
+            mItemHolder.thumbnail_img.setImageBitmap(mediaFile.getThumbnail());
+            mItemHolder.thumbnail_img.setOnClickListener(ImgOnClickListener);
+            mItemHolder.thumbnail_img.setTag(mediaFile);
+            mItemHolder.itemView.setTag(index);
+
+            if (lastClickViewIndex == index) {
+                mItemHolder.itemView.setSelected(true);
+            } else {
+                mItemHolder.itemView.setSelected(false);
+            }
+            mItemHolder.itemView.setOnClickListener(itemViewOnClickListener);
+
+        }
+    }
+}
+
+private View.OnClickListener itemViewOnClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        lastClickViewIndex = (int) (v.getTag());
+
+        if (lastClickView != null && lastClickView != v) {
+            lastClickView.setSelected(false);
+        }
+        v.setSelected(true);
+        lastClickView = v;
+    }
+};
+
+private View.OnClickListener ImgOnClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        MediaFile selectedMedia = (MediaFile )v.getTag();
+        final Bitmap previewImage = selectedMedia.getPreview();
+        runOnUiThread(new Runnable() {
+            public void run() {
+                mDisplayImageView.setVisibility(View.VISIBLE);
+                mDisplayImageView.setImageBitmap(previewImage);
+            }
+        });
+    }
+};
+~~~
+
+The code above implements:
+
+1. Define the `ItemHolder` class, which extends from the `RecyclerView.ViewHolder`. Inside the class, define one `ImageView` and four `TextView`s and initialize them by invoking the `findViewById()` method.
+
+2. Define the `FileListAdapter` class and extend it from `RecyclerView.Adapter<ItemHolder>`. In this class, Override the `getItemCount()` method and return the size of the `mediaFileList`. 
+
+3. Moreover, in the `onCreateViewHolder` method, we define the layout of the `ItemHolder` in `listView` using the "media_info_item.xml" file.
+
+4. In the `onBindViewHolder` method, get the `mediaFile` variable from the `mediaFileList` by using the `index` value. Then update the infos of the `ItemHolder` with this `mediaFile`, like `file_name`, `file_type`, `thumbnail_img`, etc. Set the `mediaFile` as the tag of `thumbnail_img` and set the tag of `itemView` as the `index` value. We will use them later. Also, invoke the `setOnClickListener()` method of `ImageView` to register the callback to be invoked when the `thumbnail_img` is clicked. 
+
+5. Furthermore, if the current `ItemHolder` is selected, invoke the `setSelected()` method of its `itemView` variable and pass `true` to it. Then, invoke the `setOnClickListener()` method and pass the `itemViewOnClickListener` variable to register the callback to be invoked when the `itemView` is clicked.
+
+6. Next, initialize the `itemViewOnClickListener` and `ImgOnClickListener` variables and override their `onClick()` methods. When the `itemView` is clicked, update the value of `lastClickViewIndex` and the selected state of `lastClickView`. When the `thumbnail_img` is clicked, create the `selectedMedia` variable by invoking the `getTag()` method of the selected `thumbnail_img` and then invoke the `getPreview()` method of `MediaFile` to fetch the Preview image and store it in the `previewImage` variable. Lastly, show the `mDisplayImageView` and set the `previewImage` as the content of it. 
+
+For more details of the implementation, please check the sample code of this tutorial on Github.
+
+So far, we have finished implementing refreshing the media file list, and show them in the RecyclerView `listView`. Also, you can select a specific media file and preview the image. 
+
+Now, build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation: 
+
+<img src="../../images/tutorials-and-samples/Android/MediaManagerDemo/refreshFiles.gif" width=80%>
 
 ## Downloading and Editing the Media Files
 
-After showing all the media files in the table view, we can start to implement the features of downloading and deleting media files.
+Once you finish the steps above, continue to add the following codes at the beginning of the `MainActivity` class:
 
-Now, continue to create the following properties in the class extension part:
-
-~~~objc
-@property(nonatomic, strong) DJIAlertView* statusAlertView;
-@property(nonatomic) DJIMediaFile *selectedMedia;
-@property(nonatomic) NSUInteger previousOffset;
-@property(nonatomic) NSMutableData *fileData;
+~~~java
+private ProgressDialog mDownloadDialog;
+File destDir = new File(Environment.getExternalStorageDirectory().getPath() + "/MediaManagerDemo/");
+private int currentProgress = -1;
 ~~~
 
-Next, initialize the properties in the `initData` method:
+In the code above, we define the `mDownloadDialog`, `destDir` and `currentProgress` variables for media files downloading.
 
-~~~objc
-- (void)initData
-{
-    ...
+Moveover, add the following code in the `initUI()` method:
 
-    self.fileData = nil;
-    self.selectedMedia = nil;
-    self.previousOffset = 0;
+~~~java
+//Init Download Dialog
+mDownloadDialog = new ProgressDialog(MainActivity.this);
+mDownloadDialog.setTitle("Downloading file");
+mDownloadDialog.setIcon(android.R.drawable.ic_dialog_info);
+mDownloadDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+mDownloadDialog.setCanceledOnTouchOutside(false);
+mDownloadDialog.setCancelable(true);
+mDownloadDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        if (mMediaManager != null) {
+            mMediaManager.exitMediaDownloading();
+        }
+    }
+});
+~~~
+
+Here, we initialize the `mDownloadDialog` and configure different settings for it. Also, override the `onCancel()` callback method of `OnCancelListener` and invoke the `exitMediaDownloading()` method of `MediaManager` to stop the media fil downloading process when the cancel button is pressed.
+
+Next, implement the following methods to show and hide the download `mDownloadDialog`:
+
+~~~java
+private void ShowDownloadProgressDialog() {
+    if (mDownloadDialog != null) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                mDownloadDialog.incrementProgressBy(-mDownloadDialog.getProgress());
+                mDownloadDialog.show();
+            }
+        });
+    }
+}
+
+private void HideDownloadProgressDialog() {
+
+    if (null != mDownloadDialog && mDownloadDialog.isShowing()) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                mDownloadDialog.dismiss();
+            }
+        });
+    }
 }
 ~~~
 
-Moreover, implement the table View delegate method as shown below:
+Once you finish the work above, continue to implement the following two methods:
 
-~~~objc
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    if (self.mediaTableView.isEditing) {
+~~~java
+private void downloadFileByIndex(final int index){
+    if ((mediaFileList.get(index).getMediaType() == MediaFile.MediaType.PANORAMA)
+            || (mediaFileList.get(index).getMediaType() == MediaFile.MediaType.SHALLOW_FOCUS)) {
         return;
     }
 
-    self.selectedCellIndexPath = indexPath;
-
-    DJIMediaFile *currentMedia = [self.mediaList objectAtIndex:indexPath.row];
-    if (![currentMedia isEqual:self.selectedMedia]) {
-        self.previousOffset = 0;
-        self.selectedMedia = currentMedia;
-        self.fileData = nil;
-    }
-
-    [tableView reloadData];
-}
-~~~
-
-In the code above, we assign the `selectedCellIndexPath` property with the `indexPath` value. Then get the current selected `currentMedia` object from the `mediaList` array using the `indexPath` param of this method. Moreover, check if the `currentMedia` object is the same as `self.selectedMedia` property.
-
-If not, reset the `previousOffset` and `fileData` properties and update the `self.selectedMedia` object with the `currentMedia`. Lastly, invoke the `reloadData` method to reload everything in the table view.
-
-Once you finish the steps above, we continue to implement the `downloadBtnAction:` method as shown below:
-
-~~~objc
-- (IBAction)downloadBtnAction:(id)sender {
-
-    BOOL isPhoto = self.selectedMedia.mediaType == DJIMediaTypeJPEG || self.selectedMedia.mediaType == DJIMediaTypeTIFF;
-    WeakRef(target);
-    if (self.statusAlertView == nil) {
-        NSString* message = [NSString stringWithFormat:@"Fetch Media Data \n 0.0"];
-        self.statusAlertView = [DJIAlertView showAlertViewWithMessage:message titles:@[@"Cancel"] action:^(NSUInteger buttonIndex) {
-            WeakReturn(target);
-            if (buttonIndex == 0) {
-                [target.selectedMedia stopFetchingFileDataWithCompletion:^(NSError * _Nullable error) {
-                    target.statusAlertView = nil;
-                }];
-            }
-        }];
-    }
-
-    [self.selectedMedia fetchFileDataWithOffset:self.previousOffset updateQueue:dispatch_get_main_queue() updateBlock:^(NSData * _Nullable data, BOOL isComplete, NSError * _Nullable error) {
-        WeakReturn(target);
-        if (error) {
-            [target.statusAlertView updateMessage:[[NSString alloc] initWithFormat:@"Download Media Failed:%@",error]];
-            [target performSelector:@selector(dismissStatusAlertView) withObject:nil afterDelay:2.0];
+    mediaFileList.get(index).fetchFileData(destDir, null, new DownloadListener<String>() {
+        @Override
+        public void onFailure(DJIError error) {
+            HideDownloadProgressDialog();
+            setResultToToast("Download File Failed" + error.getDescription());
+            currentProgress = -1;
         }
-        else
-        {
-            if (isPhoto) {
-                if (target.fileData == nil) {
-                    target.fileData = [data mutableCopy];
-                }
-                else {
-                    [target.fileData appendData:data];
-                }
-            }
-            target.previousOffset += data.length;
-            float progress = target.previousOffset * 100.0 / target.selectedMedia.fileSizeInBytes;
-            [target.statusAlertView updateMessage:[NSString stringWithFormat:@"Downloading: %0.1f%%", progress]];
-            if (target.previousOffset == target.selectedMedia.fileSizeInBytes && isComplete) {
-                [target dismissStatusAlertView];
-                if (isPhoto) {
-                    [target showPhotoWithData:target.fileData];
-                    [target savePhotoWithData:target.fileData];
-                }
+
+        @Override
+        public void onProgress(long total, long current) {
+        }
+
+        @Override
+        public void onRateUpdate(long total, long current, long persize) {
+            int tmpProgress = (int) (1.0 * current / total * 100);
+            if (tmpProgress != currentProgress) {
+                mDownloadDialog.setProgress(tmpProgress);
+                currentProgress = tmpProgress;
             }
         }
-    }];
-}
-~~~
 
-In the code above, we implement the following features:
-
-1. We firstly create a BOOL variable `isPhoto` and assign value to it by checking the `mediaType` enum value of the `DJIMediaFile`. For more details of the `DJIMediaType` enum, please check the "DJIMediaFile.h" file.
-
-2. Next, if the `statusAlertView` is nil, we initialize it by invoking the `showAlertViewWithMessage:titles:action:` method of `DJIAlertView`. Here we create a alertView with one button named "Cancel". If user press on the "Cancel" button of the alertView, we invoke the `stopFetchingFileDataWithCompletion:` method of `DJIMediaFile` to stop the fetch file task.
-
-3. Furthermore, invoke the `fetchFileDataWithOffset:updateQueue:updateBlock:` method of `DJIMediaFile` to fetch the media file's full resolution data from the SD card. The full resolution data could be either **image** or **video**. Inside the completion block, if there is an error, update message of the `statusAlertView` to inform users and dismiss the alert view after 2 seconds. If there is no error and the media file is a photo, initialize the `fileData` property or append `data` to it by checking if it is nil.
-
-Next, accumulate the value of the `previousOffset` property by adding the length of the `data` param. Calculate the percentage of the current download progress and assign the value to the `progress` variable. Also, update the message of the `statusAlertView` to inform users of the download progress. Furthermore, check if the download has completed and dismiss the alert view.
-
-Lastly, check if the media file is a photo, and invoke the `showPhotoWithData:` and `savePhotoWithData:` methods to show the full resolution photo and save it to the iOS Photo Library.
-
-You can check the implementations of the `showPhotoWithData:` and `savePhotoWithData:` methods below:
-
-~~~objc
--(void) showPhotoWithData:(NSData*)data
-{
-    if (data) {
-        UIImage* image = [UIImage imageWithData:data];
-        if (image) {
-            [self.displayImageView setImage:image];
-            [self.displayImageView setHidden:NO];
+        @Override
+        public void onStart() {
+            currentProgress = -1;
+            ShowDownloadProgressDialog();
         }
-    }
-}
 
-#pragma mark Save Download Images
--(void) savePhotoWithData:(NSData*)data
-{
-    if (data) {
-        UIImage* image = [UIImage imageWithData:data];
-        if (image) {
-            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        @Override
+        public void onSuccess(String filePath) {
+            HideDownloadProgressDialog();
+            setResultToToast("Download File Success" + ":" + filePath);
+            currentProgress = -1;
         }
-    }
+    });
 }
 
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
+private void deleteFileByIndex(final int index) {
+    ArrayList<MediaFile> fileToDelete = new ArrayList<MediaFile>();
+    if (mediaFileList.size() > index) {
+        fileToDelete.add(mediaFileList.get(index));
+        mMediaManager.deleteFiles(fileToDelete, new CommonCallbacks.CompletionCallbackWithTwoParam<List<MediaFile>, DJICameraError>() {
+            @Override
+            public void onSuccess(List<MediaFile> x, DJICameraError y) {
+                DJILog.e(TAG, "Delete file success");
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        MediaFile file = mediaFileList.remove(index);
 
-    NSString* message = @"";
-    if (error != NULL)
-    {
-        //Show message when save image failed
-        message = [NSString stringWithFormat:@"Save Image Failed! Error: %@", error];
-    }
-    else
-    {
-        //Show message when save image successfully
-        message = [NSString stringWithFormat:@"Saved to Photo Album"];
-    }
+                        //Reset select view
+                        lastClickViewIndex = -1;
+                        lastClickView = null;
 
-    WeakRef(target);
-    if (self.statusAlertView == nil) {
-        self.statusAlertView = [DJIAlertView showAlertViewWithMessage:message titles:@[@"Dismiss"] action:^(NSUInteger buttonIndex) {
-            WeakReturn(target);
-            if (buttonIndex == 0) {
-                [target dismissStatusAlertView];
+                        //Update recyclerView
+                        mListAdapter.notifyItemRemoved(index);
+                    }
+                });
             }
-        }];
+
+            @Override
+            public void onFailure(DJIError error) {
+                setResultToToast("Delete file failed");
+            }
+        });
     }
 }
 ~~~
 
 In the code above, we implement the following features:
 
-1. In the `showPhotoWithData:` method, we check if the `data` is not nil and create a `UIImage` object from it. Then check if the created `image` is not nil and show it on the `displayImageView` object.
+1. In the `downloadFileByIndex()` method, we firstly check if the media type is either `PANORAMA` or `SHALLOW_FOCUS` by invoking the `getMediaType()` method of `MediaFile`, if not, continue to execute.
 
-2. Similarly, in the `savePhotoWithData:` method, we create a `UIImage` object from the `data` param and invoke the `UIImageWriteToSavedPhotosAlbum()` method to save the image to the photos album.
+2. Invoke the `fetchFileData()` method of `MediaFile` to fetch the media files' full resolution data from the SD card. In the `onFailure()` method, invoke the `HideDownloadProgressDialog()` method to hide the `mDownloadDialog`, also reset the value of the `currentProgress` variable to -1.
 
-3. In the selector method, we firstly create a `NSString` object and set its value by checking if there is an error. Next, show the `statusAlertView` to inform the users of the message and dismiss the alert view when the users press on the **Dismiss** button.
+3. In the `onRateUpdate()` method, we calculate the current download progress and save it to the `tmpProgress` variable. Then update the `mDownloadDialog` and `currentProgress` based on this variable. In the `onStart()` method, reset the `currentProgress` variable and invoke the `ShowDownloadProgressDialog()` method to show the `mDownloadDialog`. 
 
-Once you have finished the steps above, we can continue to implement the feature of deleting media files. Here we should implement the delegate methods of UITableView as shown below:
+4. In the `onSuccess()` method, invoke the `HideDownloadProgressDialog()` method to hide the `mDownloadDialog` and reset the `currentProgress` variable.
 
-~~~objc
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
+5. Moreover, in the `deleteFileByIndex()` method, we firstly create an ArrayList variable `fileToDelete`, then check if the size of the `mediaFileList` is bigger than the index. Next, invoke the `add()` method of `ArrayList` and to add the selected media file you want to delete. Invoke the `deleteFiles()` method of `MediaManager()` and pass the `fileToDelete` variable to delete media files from SD card. In the completion block, we override the `onSuccess()` method to reset the selected view, and update the `listView` with the removed item.
+
+Lastly, implement the `onClick()` method of `delete_btn`, `reload_btn` and `download_btn` buttons as shown below:
+
+~~~java
+case R.id.delete_btn:{
+    deleteFileByIndex(lastClickViewIndex);
+    break;
 }
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    DJIMediaFile* currentMedia = [self.mediaList objectAtIndex:indexPath.row];
-    [self.mediaManager deleteFiles:@[currentMedia] withCompletion:^(NSArray<DJIMediaFile *> * _Nonnull failedFiles, NSError * _Nullable error) {
-        if (error) {
-            ShowResult(@"Delete File Failed:%@",error);
-            for (DJIMediaFile * media in failedFiles) {
-                NSLog(@"%@ delete failed",media.fileName);
-            }
-        }else
-        {
-            ShowResult(@"Delete File Successfully");
-            [self.mediaList removeObjectAtIndex:indexPath.row];
-            [self.mediaTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-        }
-
-    }];
+case R.id.reload_btn: {
+    getFileList();
+    break;
+}
+case R.id.download_btn: {
+    downloadFileByIndex(lastClickViewIndex);
+    break;
 }
 ~~~
 
-The code above implements:
+For more details of the implementation, please check the sample code of this tutorial on Github.
 
-1. In the `tableView:canEditRowAtIndexPath:` method, return `YES` to allow the swipe gesture to delete the table view cell.
+Now, we can test the features we have implemented so far. Build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation: 
 
-2. In the `tableView:commitEditingStyle:forRowAtIndexPath:` method, we get the `currentMedia` object from the `mediaList` array firstly. Next, invoke the `deleteFiles:withCompletion:` method of `DJIMediaManager` to delete the select media file. Inside the completion block, if there is an error, show an alert view to inform user of the error description. If not, remove the deleted media file from the `mediaList` array and invoke the `deleteRowsAtIndexPaths:withRowAnimation:` method of `mediaTableView` to remove the table view cell too.
-
-Now, to build and run the project, connect the demo application to a Mavic Pro and enter the `MediaManagerViewController`, try to download an image file from the SD card, display and save it to the photos album. Also, try to swipe right on the table view cell and delete the media file from the table view. If everything goes well, you should be able to see something similar to the following gif animation:
-
-<img src="../../images/tutorials-and-samples/iOS/MediaManagerDemo/downloadEditPhoto.gif" width=100%>
+<img src="../../images/tutorials-and-samples/Android/MediaManagerDemo/editFiles.gif" width=80%>
 
 ## Working on the Video Playback
 
-After you finish the steps above, you should know how to download and display the image media file using `DJIMediaManager`, we can continue to implement the **Video Playback** features.
+Now, continue to implement the video playback feature of `MediaManager`. In the `onDestroy()` method, insert the following code below the `lastClickView = null;` :
 
-Now, implement the following IBAction methods:
+~~~java
+if (mMediaManager != null) {
+    mMediaManager.stop(null);
+    mMediaManager.removeMediaUpdatedVideoPlaybackStateListener(updatedVideoPlaybackStateListener);
+    mMediaManager.exitMediaDownloading();
+}
+~~~
 
-~~~objc
-- (IBAction)playBtnAction:(id)sender {
+Here, we invoke the `stop()` method of `MediaManager` to stop the playing video. Then invoke the `removeMediaUpdatedVideoPlaybackStateListener()` method to remove the listener. Lastly, invoke the `exitMediaDownloading()` method to exit the `MEDIA_DOWNLOAD` mode and enter the `SHOOT_PHOTO` mode.
 
-    [self.displayImageView setHidden:YES];
-    if ((self.selectedMedia.mediaType == DJIMediaTypeMOV) || (self.selectedMedia.mediaType == DJIMediaTypeMP4)) {
-        [self.positionTextField setPlaceholder:[NSString stringWithFormat:@"%d sec", (int)self.selectedMedia.durationInSeconds]];
-        [self.mediaManager playVideo:self.selectedMedia withCompletion:^(NSError * _Nullable error) {
-            if (error) {
-                ShowResult(@"Play Video Failed: %@", error.description);
+Next, insert the following code below the `mMediaManager.addUpdateFileListStateListener(this.updateFileListStateListener);` in the `initMediaManager()` method:
+
+~~~java
+mMediaManager.addMediaUpdatedVideoPlaybackStateListener(this.updatedVideoPlaybackStateListener);
+~~~
+
+In the code above, invoke the `addMediaUpdatedVideoPlaybackStateListener()` method and pass the `updatedVideoPlaybackStateListener` variable to add the listener for video playback state update.
+
+Furthermore, initialize the `updatedVideoPlaybackStateListener` variable and implement the `updateStatusTextView()` and `addLineToSB()` methods as shown below:
+
+~~~java
+private MediaManager.VideoPlaybackStateListener updatedVideoPlaybackStateListener =
+        new MediaManager.VideoPlaybackStateListener() {
+            @Override
+            public void onUpdate(MediaManager.VideoPlaybackState videoPlaybackState) {
+                updateStatusTextView(videoPlaybackState);
             }
-        }];
+        };
+
+private void updateStatusTextView(MediaManager.VideoPlaybackState videoPlaybackState) {
+    final StringBuffer pushInfo = new StringBuffer();
+
+    addLineToSB(pushInfo, "Video Playback State", null);
+    if (videoPlaybackState != null) {
+        if (videoPlaybackState.getPlayingMediaFile() != null) {
+            addLineToSB(pushInfo, "media index", videoPlaybackState.getPlayingMediaFile().getIndex());
+            addLineToSB(pushInfo, "media size", videoPlaybackState.getPlayingMediaFile().getFileSize());
+            addLineToSB(pushInfo,
+                    "media duration",
+                    videoPlaybackState.getPlayingMediaFile().getDurationInSeconds());
+            addLineToSB(pushInfo, "media created date", videoPlaybackState.getPlayingMediaFile().getDateCreated());
+            addLineToSB(pushInfo,
+                    "media orientation",
+                    videoPlaybackState.getPlayingMediaFile().getVideoOrientation());
+        } else {
+            addLineToSB(pushInfo, "media index", "None");
+        }
+        addLineToSB(pushInfo, "media current position", videoPlaybackState.getPlayingPosition());
+        addLineToSB(pushInfo, "media current status", videoPlaybackState.getPlaybackStatus());
+        addLineToSB(pushInfo, "media cached percentage", videoPlaybackState.getCachedPercentage());
+        addLineToSB(pushInfo, "media cached position", videoPlaybackState.getCachedPosition());
+        pushInfo.append("\n");
+        setResultToText(pushInfo.toString());
     }
 }
 
-- (IBAction)resumeBtnAction:(id)sender {
-
-    [self.mediaManager resumeWithCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            ShowResult(@"Resume failed: %@", error.description);
-        }
-    }];
+private void addLineToSB(StringBuffer sb, String name, Object value) {
+    if (sb == null) return;
+    sb.
+            append((name == null || "".equals(name)) ? "" : name + ": ").
+            append(value == null ? "" : value + "").
+            append("\n");
 }
 
-- (IBAction)pauseBtnAction:(id)sender {
-    [self.mediaManager pauseWithCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            ShowResult(@"Pause failed: %@", error.description);
-        }
-    }];
-}
-
-- (IBAction)stopBtnAction:(id)sender {
-    [self.mediaManager stopWithCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            ShowResult(@"Stop failed: %@", error.description);
-        }
-    }];
-}
-
-- (IBAction)moveToPositionAction:(id)sender {
-    NSUInteger second = 0;
-    if (self.positionTextField.text.length) {
-        second = [self.positionTextField.text floatValue];
+private void setResultToText(final String string) {
+    if (mPushTv == null) {
+        setResultToToast("Push info tv has not be init...");
     }
-
-    WeakRef(target);
-    [self.mediaManager moveToPosition:second withCompletion:^(NSError * _Nullable error) {
-        WeakReturn(target);
-        if (error) {
-            ShowResult(@"Move to position failed: %@", error.description);
+    MainActivity.this.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            mPushTv.setText(string);
         }
-        [target.positionTextField setText: @""];
-    }];
+    });
+}
+~~~
 
+Here, we implement the following features:
+
+1. When intialize the `updatedVideoPlaybackStateListener`, we override the `onUpdate()` method. Then invoke the `updateStatusTextView()` method by passing the `videoPlaybackState` variable as param to update the video playback status info in the `mPushTv` TextView.
+
+2. In the `updateStatusTextView()` method, we create the `pushInfo` variable firstly and invoke the `addLineToSB()` method to append video playback state info. Then invoke the `setResultToText()` method to show it it the `mPushTv` TextView.
+
+Moreover, continue to implement the following methods:
+
+~~~java
+private void playVideo() {
+    mDisplayImageView.setVisibility(View.INVISIBLE);
+    MediaFile selectedMediaFile = mediaFileList.get(lastClickViewIndex);
+    if ((selectedMediaFile.getMediaType() == MediaFile.MediaType.MOV) || (selectedMediaFile.getMediaType() == MediaFile.MediaType.MP4)) {
+        mMediaManager.playVideoMediaFile(selectedMediaFile, new CommonCallbacks.CompletionCallback() {
+            @Override
+            public void onResult(DJIError error) {
+                if (null != error) {
+                    setResultToToast("Play Video Failed" + error.getDescription());
+                } else {
+                    DJILog.e(TAG, "Play Video Success");
+                }
+            }
+        });
+    }
+}
+
+private void moveToPosition(){
+
+    LayoutInflater li = LayoutInflater.from(this);
+    View promptsView = li.inflate(R.layout.prompt_input_position, null);
+    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+    alertDialogBuilder.setView(promptsView);
+    final EditText userInput = (EditText) promptsView.findViewById(R.id.editTextDialogUserInput);
+    alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+            String ms = userInput.getText().toString();
+            mMediaManager.moveToPosition(Integer.parseInt(ms),
+                    new CommonCallbacks.CompletionCallback() {
+                        @Override
+                        public void onResult(DJIError error) {
+                            if (null != error) {
+                                setResultToToast("Move to video position failed" + error.getDescription());
+                            } else {
+                                DJILog.e(TAG, "Move to video position successfully.");
+                            }
+                        }
+                    });
+        }
+    })
+            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
+    AlertDialog alertDialog = alertDialogBuilder.create();
+    alertDialog.show();
+
+}
+~~~
+
+Here, we implement the following features:
+
+1. In the `playVideo()` method, we firstly hide the `mDisplayImageView` image view. Then initialize the `selectedMediaFile` variable and check if the media type is either `MOV` or `MP4`. If so, invoke the `playVideoMediaFile()` method of `MediaManager` and pass the `selectedMediaFile` variable as the param to start the video playback. In the completion block, override the `onResult()` method to show toast message to inform users if there is any error. 
+
+2. In the `moveToPosition()` method, we firstly create the `promptsView` from the layout of `prompt_input_position`. Then initialize the `alertDialogBuilder` and set its view as `promptsView`. After that, initialize the `userInput` variable from the `promptsView`. Invoke the `setCancelable()` method to set dialog as not cancelable. Also invoke the `setPositiveButton()` method to set a listener to be invoked when the positive button of the dialog is pressed. Moreover, override the `onClick()` method and invoke the `moveToPosition()` method of `MediaManager` to skip to the new position in seconds from the start of the video. 
+
+Furthermore, create a new XML Layout file and name it as "prompt_input_position.xml" in the **layout** folder, replace the code with the following:
+
+~~~xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_prompt"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input Position : "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/editTextDialogUserInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number">
+
+        <requestFocus />
+
+    </EditText>
+
+</LinearLayout>
+~~~
+
+In the code above, we create a **TextView** and a **EditText** as shown below:
+
+![](../../images/tutorials-and-samples/Android/MediaManagerDemo/prompt_input.png)
+
+Lastly, let's implement the `onClick()` method of `status_btn`, `play_btn`, `resume_btn`, `pause_btn`, `stop_btn` and `moveTo_btn` as shown below:
+
+~~~java
+case R.id.status_btn: {
+    if (mPushDrawerSd.isOpened()) {
+        mPushDrawerSd.animateClose();
+    } else {
+        mPushDrawerSd.animateOpen();
+    }
+    break;
+}
+case R.id.play_btn: {
+    playVideo();
+    break;
+}
+case R.id.resume_btn: {
+    mMediaManager.resume(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            if (null != error) {
+                setResultToToast("Resume Video Failed" + error.getDescription());
+            } else {
+                DJILog.e(TAG, "Resume Video Success");
+            }
+        }
+    });
+    break;
+}
+case R.id.pause_btn: {
+    mMediaManager.pause(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            if (null != error) {
+                setResultToToast("Pause Video Failed" + error.getDescription());
+            } else {
+                DJILog.e(TAG, "Pause Video Success");
+            }
+        }
+    });
+    break;
+}
+case R.id.stop_btn: {
+    mMediaManager.stop(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            if (null != error) {
+                setResultToToast("Stop Video Failed" + error.getDescription());
+            } else {
+                DJILog.e(TAG, "Stop Video Success");
+            }
+        }
+    });
+    break;
+}
+case R.id.moveTo_btn: {
+    moveToPosition();
+    break;
 }
 ~~~
 
 In the code above, we implement the following features:
 
-1. In the `playBtnAction:` method, we firstly hide the `displayImageView` image view. Then check the `mediaType` enum value of the `selectedMedia` object to see if the selected media file is a video. Furthermore, update the `placeholder` string of the `positionTextField` with the video duration and invoke the `playVideo:withCompletion:` method of `DJIMediaManager` to start playing the video.
+1. In the case of `status_btn` button, invoke the `isOpened()` method of the `mPushDrawerSd` variable to check if it's open, if so, invoke the `animateClose()` method of it to close the drawer with an animation. Otherwise, invoke the `animateOpen()` method of it to open the drawer with an animation.
 
-2. In the `resumeBtnAction:` method, we invoke the `resumeWithCompletion:` method of `DJIMediaManager` to resume the paused video.
+2. In the case of `play_btn` button, invoke the `playVideo()` method to start the video playback. 
 
-3. In the `pauseBtnAction:` method, we invoke the `pauseWithCompletion:` method of `DJIMediaManager` to pause the playing video.
+3. In the case of `resume_btn` button, invoke the `resume()` method of `MediaManager` to resume the paused video and override the `onResult()` method and show toast message to inform user if there is any error.
 
-4. In the `stopBtnAction:` method, we call the `stopWithCompletion:` method of `DJIMediaManager` to stop the playing video.
+4. In the case of `pause_btn` button, invoke the `pause()` method of `MediaManager` to pause the playing video and override the `onResult()` method and show toast message to inform user if there is any error.
 
-5. In the `moveToPositionAction:` method, we get the text value of the `positionTextField` and convert it to an NSUInteger value `second`. Then invoke the `moveToPosition:withCompletion:` method of `DJIMediaManager` to skip to the input position in seconds from the start of the video. Inside the completion block, we clean up the text content of the `positionTextField`.
+5. In the case of `stop_btn` button, invoke the `stop()` method of `MediaManager` to stop the playing video and override the `onResult()` method and show toast message to inform user if there is any error.
 
-Lastly, we can show the video playback state info by implementing the following methods:
+6. Lastly, for the case of `moveTo_btn` button, invoke the `moveToPosition()` method to skip to the new position in seconds from the start of the video. 
 
-~~~objc
-- (void)initData
-{
-    ...
+We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
 
-    self.statusView = [DJIScrollView viewWithViewController:self];
-    [self.statusView setHidden:YES];
-}
+If everything goes well, you should see something similar to the following gif animations like this:
 
-- (IBAction)showStatusBtnAction:(id)sender {
-    [self.statusView setHidden:NO];
-    [self.statusView show];
-}
-
-#pragma mark - DJIMediaManagerDelegate Method
-
-- (void)manager:(DJIMediaManager *)manager didUpdateVideoPlaybackState:(DJIMediaVideoPlaybackState *)state {
-    NSMutableString *stateStr = [NSMutableString string];
-    if (state.playingMedia == nil) {
-        [stateStr appendString:@"No media\n"];
-    }
-    else {
-        [stateStr appendFormat:@"media: %@\n", state.playingMedia.fileName];
-        [stateStr appendFormat:@"Total: %f\n", state.playingMedia.durationInSeconds];
-        [stateStr appendFormat:@"Orientation: %@\n", [self orientationToString:state.playingMedia.videoOrientation]];
-    }
-    [stateStr appendFormat:@"Status: %@\n", [self statusToString:state.playbackStatus]];
-    [stateStr appendFormat:@"Position: %f\n", state.playingPosition];
-
-    [self.statusView writeStatus:stateStr];
-}
-
--(NSString *)statusToString:(DJIMediaVideoPlaybackStatus)status {
-    switch (status) {
-        case DJIMediaVideoPlaybackStatusPaused:
-            return @"Paused";
-        case DJIMediaVideoPlaybackStatusPlaying:
-            return @"Playing";
-        case DJIMediaVideoPlaybackStatusStopped:
-            return @"Stopped";
-        default:
-            break;
-    }
-    return nil;
-}
-
--(NSString *)orientationToString:(DJICameraOrientation)orientation {
-    switch (orientation) {
-        case DJICameraOrientationLandscape:
-            return @"Landscape";
-        case DJICameraOrientationPortrait:
-            return @"Portrait";
-        default:
-            break;
-    }
-    return nil;
-}
-~~~
-
-In the code above, we implement the following features:
-
-1. At the bottom of the `initData` method, we initialize `statusView` and hide it. For more details of the `DJIScrollView`, please check the "DJIScrollView.h" and "DJIScrollView.m" files in the tutorial's Github Sample project.
-2. In the `showStatusBtnAction:` method, show the `statusView` when the users press the **Status** button.
-3. Implement the delegate method of `DJIMediaManagerDelegate`. We create a `stateStr` NSMutableString variable and append different string values to it. Like `fileName`, `durationInSeconds` and `videoOrientation` of the `DJIMediaFile`, for more details, please check the "DJIMediaFile" class. Lastly, invoke the `writeStatus` method of `DJIScrollView` to show the `stateStr` NSMutableString in the `statusTextView` of `DJIScrollView`.
-4. In the `statusToString:` and `orientationToString:` methods, return specific NSString values according to the values of the `DJIMediaVideoPlaybackStatus` and `DJICameraOrientation` enums.
-
-Congratulations! You have finished all the features of this demo. Now build and run the project, connect the demo application to a Mavic Pro and enter the `MediaManagerViewController`, try to play with the **Video Playback** features. If everything goes well, you should be able to see something similar to the following gif animation:
-
-<img src="../../images/tutorials-and-samples/iOS/MediaManagerDemo/videoPlayback.gif" width=100%>
+<img src="../../images/tutorials-and-samples/Android/MediaManagerDemo/videoPlayback.gif" width=80%>
 
 ### Summary
 
-In this tutorial, you have learned how to use `DJIMediaManager` to preview photos, play videos, download or delete files, you also learn how to get and show the video playback status info. By using the `DJIMediaManager`, the users can get the metadata for all the multimedia files, and has access to each individual multimedia file. Hope you enjoy it!
+In this tutorial, you have learned how to use `MediaManager` to preview photos, play videos, download or delete files, you also learn how to get and show the video playback status info. By using the `MediaManager`, the users can get the metadata for all the multimedia files, and has access to each individual multimedia file. Hope you enjoy it!
+
