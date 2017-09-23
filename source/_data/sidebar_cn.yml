@@ -132,6 +132,9 @@
       title: "Camera Application"
       path: "/cn/android-tutorials/index.html"
     -
+      title: "Media Manager Application"
+      path: "/cn/android-tutorials/MediaManagerDemo.html"
+    -
       title: "MapView and Waypoint Application (GaodeMap)"
       path: "/cn/android-tutorials/GSDemo-Gaode-Map.html"
     -
