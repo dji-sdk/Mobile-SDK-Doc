@@ -23,6 +23,8 @@ DJI's products that require an Apple Lightning connection to an iOS mobile devic
 
 Therefore, an application needs to go through the MFi Program Application process before being released on the App Store. This process requires communication between the developer, DJI and Apple and can take several weeks to complete if no challenges come up.
 
+After the application gets MFI authorization and is released on the App Store, if developer need to update the application, it's not necessary to go through the MFi Program Application process again if the **App Name** and **Bundle Identifier** of the application are not changed.
+
 #### How to Apply for the MFi Program
 
 ![graph](../../images/application-development-workflow/MFiProcess.png) 
