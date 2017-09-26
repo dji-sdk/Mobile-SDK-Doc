@@ -55,8 +55,11 @@ The PPID will appear in the **MFI PROGRAM** section as shown below:
 
 During the application submission process, enter the PPID in the **Notes** section of the App Review Information webpage:
 
-![graph](../images/application-development-workflow/reviewNotes.png)
+<img src="../images/application-development-workflow/reviewNotes.png" width=100%>
+
+> **Important**: Please don’t use different **App Name**, **App Version** or **Bundle Identifier** when you fill in the App Information page in iTunes Connect. Otherwise, Apple will not be able to find your MFi application info in DJI's MFI Product Plan Form list and may reject your application submission.
 
 ##### 6. Apple reviews the App to determine whether it can be published on the App Store
 
 The normal Apple review process proceeds.
+
