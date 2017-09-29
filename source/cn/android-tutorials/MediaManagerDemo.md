@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
-version: v4.3
-date: 2017-09-23
+version: v4.3.2
+date: 2017-09-29
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 

@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.2.1
-date: 2017-08-30
+version: v4.3.2
+date: 2017-09-29
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions
 keywords: [Android Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -40,65 +40,13 @@ Here is a <a href="https://www.djivideos.com/watch/b90658c6-2dbe-4993-93e6-1a146
 
 ## Implementing the UI of Application
 
-Now that you know the details of the two missions, we can start working on the application. In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the DJI Android SDK into your Android Studio project and activate your application. If you haven't read that previously, please take a look at it. Once you've done that, let's create the project.
+Now that you know the details of the two missions, we can start working on the application.
 
-### Importing the Framework and Libraries
+### Importing Maven Dependency
 
- **1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'P4MissionsDemo'. Enter the company domain and package name(Here we use "com.dji.P4MissionsDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
- 
- **2**. Unzip the Android SDK package downloaded from <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
-  
- **3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the following:
- 
-~~~java
-apply plugin: 'com.android.application'
+Open Android Studio and select **File -> New -> New Project** to create a new project, named 'P4MissionsDemo'. Enter the company domain and package name(Here we use "com.dji.P4MissionsDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
 
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
-    defaultConfig {
-        applicationId "com.dji.P4MissionsDemo"
-        minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
-        // Enabling multidex support.
-        multiDexEnabled true
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile project(':dJISDKLIB')
-}
-~~~
- 
- In the code above, we modify its dependencies by adding `compile project(':dJISDKLIB')` at the bottom, and change the compileSdkVersion, buildToolsVersion number, etc. 
-  
- ![configureAndroidSDK](../images/tutorials-and-samples/Android/Phantom4Missions/buildGradle.png)
- 
- Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
- 
- **4**. Let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
- 
- ![dependencies](../images/tutorials-and-samples/Android/Phantom4Missions/dependencies.png)
- 
- **5**. Now, open the MainActivity.java file in `com.dji.p4MissionsDemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
- 
-~~~java
-package com.dji.p4MissionsDemo;
-
-import dji.sdk.sdkmanager.DJISDKManager;
-~~~
-
-Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
+In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the Android SDK Maven Dependency and activate your application. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
 ### Building the Layouts of Activities
 
@@ -1088,10 +1036,7 @@ private void initPreviewer() {
         }
 
         if (!mProduct.getModel().equals(Model.UNKNOWN_AIRCRAFT)) {
-            if (VideoFeeder.getInstance().getVideoFeeds() != null
-                    && VideoFeeder.getInstance().getVideoFeeds().size() > 0) {
-                VideoFeeder.getInstance().getVideoFeeds().get(0).setCallback(mReceivedVideoDataCallBack);
-            }
+            VideoFeeder.getInstance().getPrimaryVideoFeed().setCallback(mReceivedVideoDataCallBack);
         }
     }
 }
@@ -1514,9 +1459,8 @@ public boolean onTouch(View v, MotionEvent event) {
             RectF rectF = getActiveTrackRect(mSendRectIV);
             PointF pointF = new PointF(downX / mBgLayout.getWidth(), downY / mBgLayout.getHeight());
             RectF pointRectF = new RectF(pointF.x, pointF.y, 0, 0);
-            int index = ++globalIndex;
-            mActiveTrackMission = isDrawingRect ? new ActiveTrackMission(rectF, index, ActiveTrackMode.TRACE) :
-                    new ActiveTrackMission(pointRectF, index, ActiveTrackMode.TRACE);
+            mActiveTrackMission = isDrawingRect ? new ActiveTrackMission(rectF, ActiveTrackMode.TRACE) :
+                    new ActiveTrackMission(pointRectF, ActiveTrackMode.TRACE);
 
             getActiveTrackOperator().startTracking(mActiveTrackMission, new CommonCallbacks.CompletionCallback() {
                 @Override
