@@ -1,6 +1,6 @@
 ---
 title: Deploy
-date: 2016-06-24
+date: 2017-09-30
 keywords: [deploy, xcode configuration, MFI authorization]
 ---
 
@@ -60,6 +60,8 @@ During the application submission process, enter the PPID in the **Notes** secti
 <img src="../../images/application-development-workflow/reviewNotes.png" width=100%>
 
 > **Important**: Please don’t use different **App Name**, **App Version** or **Bundle Identifier** when you fill in the App Information page in iTunes Connect. Otherwise, Apple will not be able to find your MFi application info in DJI's MFI Product Plan Form list and may reject your application submission.
+
+<img src="../../images/application-development-workflow/mfiInfoComparison.png" width=100%>
 
 ##### 6. Apple reviews the App to determine whether it can be published on the App Store
 
