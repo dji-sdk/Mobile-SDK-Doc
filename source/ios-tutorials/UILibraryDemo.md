@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
-version: v4.3
-date: 2017-09-15
+version: v4.3.2
+date: 2017-10-17
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UILibraryDemo
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
