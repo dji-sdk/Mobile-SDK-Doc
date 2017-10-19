@@ -10,7 +10,7 @@ keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 
 ---
 
-In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of MissionManager. 
+In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of MissionControl. 
 Also you will know how to test the Waypoint Mission API with DJI Assistant 2 Simulator too. So let's get started!
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map).

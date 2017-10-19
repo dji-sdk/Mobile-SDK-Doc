@@ -20,7 +20,7 @@ A mobile application accesses the DJI Mobile SDK through several main classes il
 * **Product**: The aircraft or handheld product, this class holds basic product properties and contains the main product components.
 * **Component**: Component classes describe the gimbal, camera, flight controller, remote controller and wireless link. The classes provide component control, state information and contain subcomponents.
 * **Mission**: Classes that describe different missions such as Waypoint and ActiveTrack missions and hold their setup properties and status.
-* **Mission Manager**: Missions are controlled through the mission manager. It provides control of mission preparation, execution, termination, pausing and resumption as well as provides access to the currently executing mission.
+* **Mission Control**: Mission Control handles execution of missions. Either single missions can be run through dedicated mission operators, or a series of missions and actions can be run serially using the Timeline.
 
 ## Aircraft Product
 
@@ -36,7 +36,7 @@ The handheld camera product is simpler and has less components than an aircraft.
 
 ## Missions
 
-Missions can be used to easily automate flight. For more details, please check the [Missions](./component-guide-missions.html) section. All missions inherit from DJIMission so they can be handled by the Mission Manager.
+Missions can be used to easily automate flight. For more details, please check the [Missions](./component-guide-missions.html) section. All missions inherit from DJIMission so they can be handled by the Mission Control.
 
 <html><img src="../images/sdk-architectural-overview/SDKMissionArchitecture.png"></html> 
 

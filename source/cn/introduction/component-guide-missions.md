@@ -1,7 +1,7 @@
 ---
 title: Missions
 date: 2017-06-27
-keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
+keywords: [mission control, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
 ---
 
 ## Introduction
@@ -10,11 +10,9 @@ Missions can be used to easily automate flight. There are many different mission
 
 Missions run from the mobile device can offer more complex or customizable behavior, however if the wireless link between remote controller and aircraft is lost then they can be interrupted. In comparison, missions run from the aircraft will be less customizable and be limited by aircraft memory, but be able to continue when there is a loss in the wireless link.
 
+## Mission Control
 
-## Mission Manager
-
-All missions are managed through the DJI Mobile SDK's Mission Manager. The Mission Manager provides a consistent execution experience for all missions and allows preparation, starting, pausing, resuming, downloading and ending of missions.
-
+Mission Control handles execution of missions. Either single missions can be run through dedicated mission operators, or a series of missions and actions can be run serially using the Timeline.
 
 ## Waypoint Mission
 

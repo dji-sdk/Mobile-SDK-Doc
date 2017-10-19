@@ -10,7 +10,7 @@ keywords: [iOS GSDemo, waypoint mission demo]
 
 ---
 
-In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionManager. 
+In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of DJIMissionControl. 
 Also you will know how to test the Waypoint Mission API with DJI Assistant 2 Simulator too. So let's get started!
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GSDemo).
@@ -1356,7 +1356,7 @@ Once you finished the above step, let's implement the `startBtnActionInGSButtonV
 
 Here, call the `startMissionWithCompletion:` method of DJIWaypointMissionOperator to start the DJIWaypoint mission! Then create a UIAlertView to display error message when start mission failed.
 
-Finally, let's implement the **stopMissionExecutionWithCompletion** method of DJIMissionManager in the **DJIGSButtonViewController** delegate method to stop the waypoint mission, as shown below:
+Finally, let's implement the **stopMissionExecutionWithCompletion** method of DJIMissionControl in the **DJIGSButtonViewController** delegate method to stop the waypoint mission, as shown below:
 
 ~~~objc
 - (void)stopBtnActionInGSButtonVC:(DJIGSButtonViewController *)GSBtnVC
@@ -1418,6 +1418,6 @@ The Mavic Pro will eventually go home, land, and the beeping from the remote con
 
 ### Summary
    
-   In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIMutableWaypointMission**. Moreover, you learned how to use DJIMissionManager to **prepare**, **start** and **stop** missions. 
+   In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIMutableWaypointMission**. Moreover, you learned how to use DJIMissionControl to **prepare**, **start** and **stop** missions. 
       
    Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
