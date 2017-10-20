@@ -1,7 +1,7 @@
 ---
 title: Missions
 date: 2017-06-27
-keywords: [mission control, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
+keywords: [mission control, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission]
 ---
 
 ## Introduction
@@ -22,7 +22,7 @@ During the mission, the mission can be manually adjusted using the remote contro
 
 ![](../images/component-guide/waypoints.gif)
 
-A Waypoint Mission is uploaded to and executed by the aircraft, but is limited by the amount of storage in the flight controller. Accordingly only 99 waypoints can be executed per mission. Custom Mission can be used to easily queue waypoint missions, in applications that require more than 99 points.
+A Waypoint Mission is uploaded to and executed by the aircraft, but is limited by the amount of storage in the flight controller. Accordingly only 99 waypoints can be executed per mission.
 
 ### Hot Point Mission
 
@@ -90,20 +90,5 @@ For Phantom 4 Professional, there are three TapFly modes:
 The Panorama Mission rotates the camera 180 or 360 degrees while taking photos which can then be downloaded to render a panorama. In full circle mode, 8 photos are taken. In half circle mode, 5 photos are taken. Other commands cannot be sent to the camera until the mission is finished. The Panorama Mission does not support the image stitching feature, so the images must be stitched manually. All the images will be stored on the SD card.
 
 The Panorama Mission is only supported on OSMO. 
-
-### Custom Mission
-
-The Custom Mission serializes multiple missions or mission steps. It is an easy way to create complex, rich missions. Each mission step is uploaded to the aircraft at time of execution. Mission steps available are:
-
-* Waypoint Mission
-* Follow Me Mission
-* Hot Point Mission
-* Aircraft Take off
-* Goto Waypoint
-* Go Home
-* Shoot Photo
-* Record Video
-* Change Aircraft Yaw
-* Change Gimbal Attitude
 
 

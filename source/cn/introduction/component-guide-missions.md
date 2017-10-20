@@ -1,7 +1,7 @@
 ---
 title: Missions
 date: 2017-06-27
-keywords: [mission control, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
+keywords: [mission control, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission]
 ---
 
 ## Introduction
@@ -22,7 +22,7 @@ During the mission, the mission can be manually adjusted using the remote contro
 
 ![](../../images/component-guide/waypoints.gif)
 
-A Waypoint Mission is uploaded to and executed by the aircraft, but is limited by the amount of storage in the flight controller. Accordingly only 99 waypoints can be executed per mission. Custom Mission can be used to easily queue waypoint missions, in applications that require more than 99 points.
+A Waypoint Mission is uploaded to and executed by the aircraft, but is limited by the amount of storage in the flight controller. Accordingly only 99 waypoints can be executed per mission.
 
 ### Hot Point Mission
 
@@ -91,19 +91,5 @@ The Panorama Mission rotates the camera 180 or 360 degrees while taking photos w
 
 The Panorama Mission is only supported on OSMO. 
 
-### Custom Mission
-
-The Custom Mission serializes multiple missions or mission steps. It is an easy way to create complex, rich missions. Each mission step is uploaded to the aircraft at time of execution. Mission steps available are:
-
-* Waypoint Mission
-* Follow Me Mission
-* Hot Point Mission
-* Aircraft Take off
-* Goto Waypoint
-* Go Home
-* Shoot Photo
-* Record Video
-* Change Aircraft Yaw
-* Change Gimbal Attitude
 
 
