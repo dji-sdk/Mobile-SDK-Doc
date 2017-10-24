@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
 version: v4.3.2
-date: 2017-09-29
+date: 2017-10-24
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -547,7 +547,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onStop() {
         super.onStop();
     }
-
+    
     @Override
     protected void onDestroy() {    
         super.onDestroy();
@@ -668,7 +668,7 @@ After you finish the above steps, let's register our application with the **App 
     android:required="true" />
 ~~~
 
-Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardware which are used by the application.
+Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
 
 Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
 
@@ -882,23 +882,23 @@ Furthermore, implement the following two methods to show and hide the `mLoadingD
 
 ~~~java
 private void showProgressDialog() {
-    if (mLoadingDialog != null) {
-        runOnUiThread(new Runnable() {
-            public void run() {
+    runOnUiThread(new Runnable() {
+        public void run() {
+            if (mLoadingDialog != null) {
                 mLoadingDialog.show();
             }
-        });
-    }
+        }
+    });
 }
 
 private void hideProgressDialog() {
-    if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
-        runOnUiThread(new Runnable() {
-            public void run() {
+    runOnUiThread(new Runnable() {
+        public void run() {
+            if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
                 mLoadingDialog.dismiss();
             }
-        });
-    }
+        }
+    });
 }
 ~~~
 
@@ -1458,12 +1458,16 @@ Now, continue to implement the video playback feature of `MediaManager`. In the 
 ~~~java
 if (mMediaManager != null) {
     mMediaManager.stop(null);
+    mMediaManager.removeFileListStateCallback(this.updateFileListStateListener);
     mMediaManager.removeMediaUpdatedVideoPlaybackStateListener(updatedVideoPlaybackStateListener);
     mMediaManager.exitMediaDownloading();
+    if (scheduler!=null) {
+      scheduler.removeAllTasks();
+    }
 }
 ~~~
 
-Here, we invoke the `stop()` method of `MediaManager` to stop the playing video. Then invoke the `removeMediaUpdatedVideoPlaybackStateListener()` method to remove the listener. Lastly, invoke the `exitMediaDownloading()` method to exit the `MEDIA_DOWNLOAD` mode and enter the `SHOOT_PHOTO` mode.
+Here, we invoke the `stop()` method of `MediaManager` to stop the playing video. Then invoke the `removeMediaUpdatedVideoPlaybackStateListener()` method to remove the listener. Moreover, invoke the `removeFileListStateCallback()` method to remove the file list state callback. Next, invoke the `exitMediaDownloading()` method to exit the `MEDIA_DOWNLOAD` mode and enter the `SHOOT_PHOTO` mode. Lastly, if the `scheduler` is not null, invoke the `removeAllTasks()` method to remove all the existing media tasks.
 
 Next, insert the following code below the `mMediaManager.addUpdateFileListStateListener(this.updateFileListStateListener);` in the `initMediaManager()` method:
 
@@ -1716,4 +1720,3 @@ If everything goes well, you should see something similar to the following gif a
 ### Summary
 
 In this tutorial, you have learned how to use `MediaManager` to preview photos, play videos, download or delete files, you also learn how to get and show the video playback status info. By using the `MediaManager`, the users can get the metadata for all the multimedia files, and has access to each individual multimedia file. Hope you enjoy it!
-
