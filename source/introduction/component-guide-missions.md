@@ -73,7 +73,7 @@ There are three modes of the Active Track Mission:
 
 The TapFly mission flies the aircraft in the direction of a point on the live video stream that the user chooses. The mission is initialized with a position target from the live video stream. The 3D direction of the coordinate is calculated, and the aircraft proceeds to fly in that direction. The aircraft can automatically avoid obstacles when the scene is sufficiently illuminated (more than 300 lux but less than 10,000 lux). The aircraft stops flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass. 
 
-The Remote Controller yaw stick can be used to adjust the heading of the aircraft during mission execution, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
+The Remote Controller yaw stick can be used to adjust the heading of the aircraft during mission execution, which also adjusts the direction of flight to the new yaw. 
 
 TapFly is only supported on newer aircraft with vision systems.
 

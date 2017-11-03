@@ -18,7 +18,7 @@ The TapFly and ActiveTrack missions bring you a more autonomous flying experienc
 
 Given a coordinate in the live video stream (which can come from a user tap), the aircraft will calculate and fly towards the coordinate's direction in the real world. During a flight, the aircraft will automatically detect and avoid obstacles. Also, the aircraft will stop flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass. 
 
-During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
+During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw. 
 
 Here is a <a href="https://www.djivideos.com/watch/1230a9a3-2985-4262-9cc4-6ce09c765028" target="_blank"> video </a> for you to get the first impression of the TapFly Mission.
 
