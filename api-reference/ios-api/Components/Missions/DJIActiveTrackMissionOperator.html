@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -127,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">DJIIndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">DJIAppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">DJIUserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -199,6 +207,12 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">DJIAirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">DJIAirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">DJIBattery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -230,6 +244,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">DJIMediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">DJIMediaVideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">DJIFetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">DJIFetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -335,9 +355,19 @@
                             </dd>
                             <dd><a href="DJIShootPhotoAction.html">DJIShootPhotoAction</a>
                             </dd>
+                            <dd><a href="DJILandAction.html">DJILandAction</a>
+                            </dd>
                     </ul>
                   </dd>
-                  <dd><a href="DJIMissionTrigger.html">DJIMissionTrigger</a>
+                  <dd><a data-href="DJIMissionTrigger.html" class="sub-toggle">DJIMissionTrigger<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="DJIMissionTrigger_DJIBatteryLevelMissionTrigger.html">DJIBatteryLevelMissionTrigger</a>
+                            </dd>
+                            <dd><a href="DJIMissionTrigger_DJIWaypointReachedMissionTrigger.html">DJIWaypointReachedMissionTrigger</a>
+                            </dd>
+                            <dd><a href="DJIMissionTrigger_DJIAircraftLandedMissionTrigger.html">DJIAircraftLandedMissionTrigger</a>
+                            </dd>
+                    </ul>
                   </dd>
                   <dd><a data-href="DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
@@ -628,10 +658,10 @@ After the gesture mode is enabled, <code><a href="../../Components/Missions/DJIA
 <p><font color="#666">Enables/disable if the aircraft can retreat (fly backwards) when the target  comes toward it. When it is disabled, the aircraft will not retreat and instead  rotate the gimbal pitch down to track the target as it goes underneath. If the  target goes beyond the gimbal's pitch stop, the target will be lost and the mission  will stop.</font></p>
 <h5 id="input-parameters-v13">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">BOOL <font color="#000">enabled</font></font></td><td><font color="#666"><i><code>YES</code> to enable retreat during ActiveTrack mission.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiactivetrackmissionoperator_getretreateanbled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiactivetrackmissionoperator_getretreateanbled_inline">getRetreatEanbledWithCompletion</a></div></div><div class="inline-doc" id="djiactivetrackmissionoperator_getretreateanbled_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">method </font>getRetreatEanbledWithCompletion</h6></div>
+<div class="api-row" id="djiactivetrackmissionoperator_getretreateanbled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiactivetrackmissionoperator_getretreateanbled_inline">getRetreatEnabledWithCompletion</a></div></div><div class="inline-doc" id="djiactivetrackmissionoperator_getretreateanbled_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>getRetreatEnabledWithCompletion</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)getRetreatEanbledWithCompletion:(DJIBooleanCompletionBlock)completion</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)getRetreatEnabledWithCompletion:(DJIBooleanCompletionBlock)completion</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIActiveTrackMissionOperator.h</font></td></tr></table></html>
 <h5 id="description-v21">Description:</h5>
 <p><font color="#666">Gets if retreat is enabled in ActiveTrack mission.</font></p>

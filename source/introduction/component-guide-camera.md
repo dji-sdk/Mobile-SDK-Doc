@@ -1,6 +1,6 @@
 ---
 title: Camera
-date: 2017-03-07
+date: 2017-06-27
 keywords: [single, burst, HDR, AEB, Interval, Timelapse, video resolution, frame rate, aspect ratio, still image, compression, JPEG, DNG, RAW, H.264, MPEG, shutter speed, exposure mode, ISO, Aperture, Exposure Compensation, AE, Auto Exposure, AE Metering, AE Lock, White Balance, Color Temperature, Anti-Flicker, Sharpness, Contrast, Hue, Saturation, Digital Filter, lens, focus, live video feed,  playback manager, media manager, storage, file index, image format]
 ---
 
@@ -112,10 +112,6 @@ The trade-off between capturing RAW and compressed images is:
 For still images, DIJ cameras typically support JPEG (compressed) and DNG (RAW) image formats. Cameras can also capture in JPEG + RAW, saving two images for each shot.
 
 For video, only the Zenmuse X5 RAW and X5S supports capturing raw video. RAW video files have a high data rate and large file size and therefore can only be captured onto a solid state drive (SSD). All cameras support compressed formats MP4 (MPEG – 4 AVC) and MOV (H.264).
-
-##### Photo Quality
-
-As a JPEG image is compressed increased, it's file size and image quality reduces. Quality options of **Normal**, **Fine** and **Excellent** are available for users and developers to choose the right balance for their application.
  
 ## Exposure Options
 
@@ -139,7 +135,7 @@ The camera aperture controls how large the **window** the sensor can see the wor
 
 Aperture is measured in f-numbers or f-stops, where the numbers relate to the aperture diameter. A doubling of aperture area, is equivalent to multiplying the diameter by 1.414 (square root of 2), and increases the exposure by one stop.
 
-Cameras on the Phantom and Mavic series of products have fixed aperture lenses (e.g. f/2.8). The Zenmuse X5 has an aperture range of f/1.7 to f/16.
+For example, cameras on the Mavic Pro and Spark have fixed aperture lenses (e.g. f/2.8). The Zenmuse X5 has an aperture range of f/1.7 to f/16.
 
 ##### Exposure Mode
 

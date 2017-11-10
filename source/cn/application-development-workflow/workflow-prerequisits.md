@@ -31,7 +31,7 @@ Several general and platform specific prerequisites are required to develop an a
 
   - Android API Level 22 or higher
   - Android Studio 1.5 or higher
-  - Device support: Samsung tabs 705c, Samsung S6, Samsung S5, Samsung NOTE4, Samsung NOTE3, Google Nexus 9, Google Nexus 7 II, Ascend Mate7, Huawei Mate 8, Nubia Z7 mini, SONY Xperia Z3, MI 3, MI PAD
+  - Device support: Samsung S7, Samsung S8, Samsung tabs 705c, Samsung S6, Samsung S5, Samsung NOTE4, Samsung NOTE3, Google Pixel, Google Nexus 9, Google Nexus 7 II, Ascend Mate7, Huawei Mate 8, Nubia Z7 mini, SONY Xperia Z3, MI 3, MI PAD
 
 > Note: Support for additional Android devices available as testing and development continues.
 

@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -127,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">DJIIndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">DJIAppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">DJIUserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -199,6 +207,12 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">DJIAirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">DJIAirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">DJIBattery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -230,6 +244,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">DJIMediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">DJIMediaVideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">DJIFetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">DJIFetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -335,9 +355,19 @@
                             </dd>
                             <dd><a href="../Missions/DJIShootPhotoAction.html">DJIShootPhotoAction</a>
                             </dd>
+                            <dd><a href="../Missions/DJILandAction.html">DJILandAction</a>
+                            </dd>
                     </ul>
                   </dd>
-                  <dd><a href="../Missions/DJIMissionTrigger.html">DJIMissionTrigger</a>
+                  <dd><a data-href="../Missions/DJIMissionTrigger.html" class="sub-toggle">DJIMissionTrigger<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIBatteryLevelMissionTrigger.html">DJIBatteryLevelMissionTrigger</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIWaypointReachedMissionTrigger.html">DJIWaypointReachedMissionTrigger</a>
+                            </dd>
+                            <dd><a href="../Missions/DJIMissionTrigger_DJIAircraftLandedMissionTrigger.html">DJIAircraftLandedMissionTrigger</a>
+                            </dd>
+                    </ul>
                   </dd>
                   <dd><a data-href="../Missions/DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
@@ -474,23 +504,23 @@
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Returns the gimbal's roll fine-tune value. The range for the fine-tuned value is [-10, 10] degrees.  If the fine-tune value is negative, the gimbal will be fine-tuned to the specified number of degrees in  the counterclockwise direction.</font></p>
 </div>
+<div class="api-row" id="djigimbal_gimbalstate_pitchfinetuneindegrees"><div class="api-col left">Pitch Fine Tune</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_pitchfinetuneindegrees_inline">pitchFineTuneInDegrees</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_pitchfinetuneindegrees_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>pitchFineTuneInDegrees</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="keyword">float</span> pitchFineTuneInDegrees</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
+<h5 id="description-v4">Description:</h5>
+<p><font color="#666">Returns the gimbal's pitch fine-tune value. The range for the fine-tuned value is [-10, 10] degrees.  If the fine-tune value is negative, the gimbal will be fine- tuned to the specified number of degrees  in the downward direction. It is only supported by Spark.</font></p>
+</div>
 <div class="api-row" id="djigimbal_gimbalstate_workmode"><div class="api-col left">Work Mode</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_workmode_inline">mode</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_workmode_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>mode</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJIGimbalMode mode</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparammode_inline">DJIGimbalKey.DJIGimbalParamMode</a></font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
+<h5 id="description-v5">Description:</h5>
 <p><font color="#666">Returns the gimbal's current work mode.</font></p>
 <h5 id="see-also-v2">See Also:</h5>
 <p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">DJIGimbalMode</a></code></font></p>
-</div>
-<div class="api-row" id="djigimbal_gimbalstate_isattitudereset"><div class="api-col left">Attitude Reset</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_isattitudereset_inline">isAttitudeReset</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_isattitudereset_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">property </font>isAttitudeReset</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isAttitudeReset</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparamisattitudereset_inline">DJIGimbalKey.DJIGimbalParamIsAttitudeReset</a></font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666"><code>YES</code> if the attitude has been reset. If the gimbal is not in the original  position, this value will return <code>NO</code>.</font></p>
 </div>
 <div class="api-row" id="djigimbal_gimbalstate_ismobiledevicemounted"><div class="api-col left">Check Mobile Device Mounted</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismobiledevicemounted_inline">isMobileDeviceMounted</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismobiledevicemounted_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>isMobileDeviceMounted</h6></div>
@@ -599,6 +629,14 @@
 <p><font color="#666">Returns the balance status of the gimbal.</font></p>
 <h5 id="see-also-v5">See Also:</h5>
 <p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_loadingbalancestatus">DJIGimbalBalanceState</a></code></font></p>
+</div>
+<div class="api-row" id="djigimbal_gimbalstate_ismountedupwards"><div class="api-col left">Mounted Upwards</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismountedupwards_inline">isMountedUpwards</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismountedupwards_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>isMountedUpwards</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isMountedUpwards</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalState.h</font></td></tr></table></html>
+<h5 id="description-v18">Description:</h5>
+<p><font color="#666"><code>YES</code> if the gimbal is mounted upwards on the aircraft. It is only supported by M210 and M210 RTK.</font></p>
 </div>
 
         </div>

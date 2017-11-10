@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
-version: v4.0
-date: 2017-03-3
+version: v4.3.2
+date: 2017-10-17
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -16,13 +16,23 @@ In this tutorial, you will learn how to build a cool panorama app. With the help
 
 ![several tasks](../images/tutorials-and-samples/iOS/PanoramaDemo/workFlow.png)
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo).
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the FPV
 
 **1.** Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "PanoDemo" in the **Product Name** field and keep the other default settings.
 
-Once the project is created, let's import the **DJISDK.framework** and **DJIVideoPreviewer** to the project. If you are not familiar with the process of importing DJI SDK and DJIVideoPreviewer using Cocoapods, please check these two tutorials: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) and [Creating a Camera Application](./index.html#Implementing-the-First-Person-View), for details.
+Once the project is created, let's import the **DJISDK.framework** to the project. If you are not familiar with the process of importing DJI SDK using Cocoapods, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) 
+
+For importing the VideoPreviewer to the project, you can check our previous tutorial [Creating a Camera Application](./index.html#Implementing-the-First-Person-View) to learn how to download and import the **VideoPreviewer** into your Xcode project.
 
 **2.** In the **Main.storyboard**, add a new View Controller called **CaptureViewController** and set it as the root View Controller for the new View Controller you just added in **Main.storyboard**:
 
@@ -43,39 +53,34 @@ Import the **DJISDK** and **VideoPreviewer** header files to **CaptureViewContro
 ~~~objc
 #import "CaptureViewController.h"
 #import <DJISDK/DJISDK.h>
-#import <DJIVideoPreviewer/VideoPreviewer.h>
+#import <VideoPreviewer/VideoPreviewer.h>
 
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 #define weakReturn(__TARGET__) if(__TARGET__==nil)return;
 
-@interface CaptureViewController ()<DJICameraDelegate, DJISDKManagerDelegate>{
+@interface CaptureViewController ()<DJICameraDelegate, DJIVideoFeedListener, DJISDKManagerDelegate>{
 
 ~~~
  
-**4**. In the **viewDidAppear** method, set **fpvPreviewView** instance as a view of **VideoPreviewer** to show the Video Stream, then invoke the **registerApp** method to register the app:
+**4**. In the **viewDidLoad** method, set **fpvPreviewView** instance as a view of **VideoPreviewer** to show the Video Stream, then invoke the **registerApp** method to register the app:
  
 ~~~objc
 - (void)viewDidLoad {
-{
     [super viewDidLoad];
+    
     self.title = @"Panorama Demo";
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-
     [[VideoPreviewer instance] setView:self.fpvPreviewView];
     [self registerApp];
+
 }
 
 - (void) registerApp {
-    //Please enter your App key in the "DJISDKAppKey" key in info.plist file.     
+    //Please enter the App Key in the info.plist file to register the App.
     [DJISDKManager registerAppWithDelegate:self];
 }
 ~~~
 
-Also, implement the DJISDKManagerDelegate methods to do initial setup after register app success. Moreover, in the `sdkManagerProductDidChangeFrom` method, let's fetch a camera object and set its delegate and its playbackManager property's delegate as shown below:
+Also, implement the DJISDKManagerDelegate methods to do initial setup after register app success. Moreover, in the `productConnected:` method, let's fetch a camera object and set its delegate and its playbackManager property's delegate as shown below:
 
 ~~~objc
 
@@ -92,52 +97,48 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
     if (![DJISDKManager product]) {
         return nil;
     }
-    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
-        return ((DJIAircraft*)[DJISDKManager product]).camera;
-    }
-    return nil;
+    return [DJISDKManager product].camera;
 }
 
 #pragma mark DJISDKManagerDelegate Method
 
 - (void)appRegisteredWithError:(NSError *)error {
-    
+
     NSString* message = @"Register App Successfully!";
     if (error) {
         message = @"Register App Failed! Please enter your App Key and check the network.";
     }else{
         NSLog(@"registerAppSuccess");
+        
         [DJISDKManager startConnectionToProduct];
+        [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
         [[VideoPreviewer instance] start];
     }
     
     [self showAlertViewWithTitle:@"Register App" withMessage:message];
-
+    
 }
 
--(void) sdkManagerProductDidChangeFrom:(DJIBaseProduct* _Nullable) oldProduct to:(DJIBaseProduct* _Nullable) newProduct
+- (void)productConnected:(DJIBaseProduct *)product
 {
-    __weak DJICamera* camera = [self fetchCamera];
-    if (camera) {
-        [camera setDelegate:self];
-        [camera.playbackManager setDelegate:self];
+    if (product) {
+        DJICamera* camera = [self fetchCamera];
+        if (camera != nil) {
+            camera.delegate = self;
+            [camera.playbackManager setDelegate:self];
+        }
     }
 }
 
 ~~~
 
- Furthermore, implement the **DJICameraDelegate** methods, as shown below:
+ Furthermore, implement the **DJIVideoFeedListener** delegate method, as shown below:
   
 ~~~objc
   
-#pragma mark - DJICameraDelegate Method
--(void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
-{
-    [[VideoPreviewer instance] push:videoBuffer length:(int)size];
-}
-
-- (void)camera:(DJICamera *)camera didUpdateSystemState:(DJICameraSystemState *)systemState
-{
+#pragma mark - DJIVideoFeedListener
+-(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
+    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
 
 ~~~
@@ -148,7 +149,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
 
 ## Rotating with Virtual Stick
 
-In order to generate a panorama, you need to take a series of photos from different angles while keeping the center of the drone still. This is easy to do with the gimbal on Inspire 1, but with the Phantom 3 you cannot control the gimbal's yaw angle using our SDK. Instead we will rotate the entire drone. Here's the instruction.
+In order to generate a panorama, you need to take a series of photos from different angles while keeping the center of the drone still. This is easy to do with the gimbal on Inspire 1, but with the Phantom 4 you cannot control the gimbal's yaw angle using our SDK. Instead we will rotate the entire drone. Here's the instruction.
 
 **1.** Add a **Capture** button in **Capture View Controller** in **Main.storyboard**. Name its **IBOutlet** as **captureBtn** respectively, and its **IBAction** as **-(IBAction)onCaptureButtonClicked:(id)sender**.
 
@@ -181,19 +182,22 @@ Furthermore, implement the `-(DJIFlightController*) fetchFlightController` metho
     return nil;
 }
 
-- (void)sdkManagerProductDidChangeFrom:(DJIBaseProduct *)oldProduct to:(DJIBaseProduct *)newProduct
+- (void)productConnected:(DJIBaseProduct *)product
 {
-    DJICamera* camera = [self fetchCamera];
-    if (camera) {
-        [camera setDelegate:self];
-        [camera.playbackManager setDelegate:self];
+    if (product) {
+        DJICamera* camera = [self fetchCamera];
+        if (camera != nil) {
+            camera.delegate = self;
+            [camera.playbackManager setDelegate:self];
+        }
     }
-        
+    
     DJIFlightController *flightController = [self fetchFlightController];
     if (flightController) {
         [flightController setDelegate:self];
         [flightController setYawControlMode:DJIVirtualStickYawControlModeAngle];
         [flightController setRollPitchCoordinateSystem:DJIVirtualStickFlightCoordinateSystemGround];
+        
         [flightController setVirtualStickModeEnabled:YES withCompletion:^(NSError * _Nullable error) {
             if (error) {
                 NSLog(@"Enable VirtualStickControlMode Failed");
@@ -203,7 +207,7 @@ Furthermore, implement the `-(DJIFlightController*) fetchFlightController` metho
 }
 ~~~
 
-As the code shown above, we configure the flightController's **delegate**, and **yawControlMode** properties. Then invoke the `enableVirtualStickControlModeWithCompletion` method to prepare for the virtual stick control.
+As the code shown above, we configure the flightController's **delegate**, and **yawControlMode** properties. Then invoke the `setVirtualStickModeEnabled:withCompletion:` method to prepare for the virtual stick control.
 
 **3.** Using the flightController virtual stick api is similar to sending commands using your remote controller. The virtual stick api can be used to directly specify the pitch, roll, yaw and throttle values of the drone and must be called with a certain frequency(Like 10 Hz) determined by the drone's flight controller, otherwise the flight controller will assume that the connection is lost, and the command may not be executed successfully. Hense, we should use a NSTimer to send virtual stick command in 10Hz as shown below:
 
@@ -244,6 +248,8 @@ As the code shown above, we configure the flightController's **delegate**, and *
     vsFlightCtrlData.verticalThrottle = 0;
     vsFlightCtrlData.yaw = yawAngle;
     
+    flightController.isVirtualStickAdvancedModeEnabled = YES;
+
     [flightController sendVirtualStickFlightControlData:vsFlightCtrlData withCompletion:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"Send FlightControl Data Failed %@", error.description);
@@ -259,13 +265,19 @@ You can set up the virtual stick flight control data by setting a **DJIVirtualSt
 - (void)sendVirtualStickFlightControlData:(DJIVirtualStickFlightControlData)controlData withCompletion:(DJICompletionBlock)completion;
 ~~~
 
+Also, for DJI Products which have collision avoidance feature, like Phantom 4, Mavic Pro, Spark, etc, we can enable the collision avoidance for virtual stick control by setting `YES` to the `isVirtualStickAdvancedModeEnabled` property of DJIFlightController as shown below:
+
+~~~objc
+flightController.isVirtualStickAdvancedModeEnabled = YES;
+~~~
+
 **4.** Now try to build and run the app, connect your mobile device to the remote controller, switch the flight mode to **F** (Function) mode, take off the drone and press the **Capture** button. You should see the drone rotates in 360 degrees, 45 degrees each time.
 
-Here is the gif animation example of using DJI PC Simulator to test this feature:
+Here is the gif animation example of using DJI Assistant 2 Simulator to test this feature:
 
 ![virtualStickControl](../images/tutorials-and-samples/iOS/PanoramaDemo/virtualStickControl.gif)
 
-If you are not familiar with the DJI PC Simulator, please check the [DJI PC Simulator Tutorial](../application-development-workflow/workflow-testing.html#DJI-PC-Simulator).
+If you are not familiar with the DJI Assistant 2 Simulator, please check the [DJI Assistant 2 Simulator Tutorial](../application-development-workflow/workflow-testing.html#Using-DJI-Assistant-2).
 
 ## Shooting a Series of Photos
 
@@ -275,58 +287,130 @@ We can invoke the following DJICamera method to shoot photos:
 - (void)startShootPhotoWithCompletion:(DJICompletionBlock)completion;
 ~~~
 
-Let's implement the **rotateDroneWithJoystick** method as shown below to make the drone shoot photos automatically once it finish 45 degrees' rotation each time:
+Let's implement the methods as shown below to make the drone shoot photos automatically once it finish 45 degrees' rotation each time:
 
 ~~~objc
+#pragma mark - Rotate Drone With Joystick Methods
 - (void)rotateDroneWithJoystick {
-
-    weakSelf(target);
-
-    DJICamera *camera = [target fetchCamera];
-    [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
-        weakReturn(target);
-        if (!error) {
-          dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
-            for(int i = 0;i < PHOTO_NUMBER; i++){
-
-            float yawAngle = ROTATE_ANGLE*i;
-            
-            if (yawAngle > 180.0) { //Filter the angle between -180 ~ 0, 0 ~ 180
-                yawAngle = yawAngle - 360;
+    
+    if([[DJISDKManager product].model isEqual: DJIAircraftModelNameSpark])
+    {
+        weakSelf(target);
+        [[DJISDKManager missionControl].activeTrackMissionOperator setGestureModeEnabled:NO withCompletion:^(NSError * _Nullable error) {
+            weakReturn(target);
+            if (error) {
+                NSLog(@"Set Gesture mode enabled failed");
+            }else{
+                [target setCameraModeToShootPhoto];
             }
-            
-            NSTimer *timer =  [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(rotateDrone:) userInfo:@{@"YawAngle":@(yawAngle)} repeats:YES];
-            [timer fire];
+        }];
+    }else{
+        [self setCameraModeToShootPhoto];
+    }
+}
 
-            [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
-            [[NSRunLoop currentRunLoop]runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
-            
-            [timer invalidate];
-            timer = nil;
-            
-            [camera setShootPhotoMode:DJICameraShootPhotoModeSingle withCompletion:^(NSError * _Nullable error) {
-              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [camera startShootPhotoWithCompletion:nil];
-              });
-            }];
-            sleep(2);
+-(void)setCameraModeToShootPhoto {
+    weakSelf(target);
+    DJICamera *camera = [target fetchCamera];
+    [camera getModeWithCompletion:^(DJICameraMode mode, NSError * _Nullable error) {
+        if (error == nil) {
+            if (mode == DJICameraModeShootPhoto) {
+                [target enableVirtualStick];
+            }
+            else {
+                [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
+                    weakReturn(target);
+                    if (error == nil) {
+                        [target enableVirtualStick];
+                    }
+                }];
+            }
         }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-            [self showAlertViewWithTitle:@"Capture Photos" withMessage:@"Capture finished"];
-           });
-            
-          });
+    }];
+}
+
+#pragma mark DJISDKManagerDelegate Methods
+- (void)productConnected:(DJIBaseProduct *)product
+{
+    if (product) {
+        DJICamera* camera = [self fetchCamera];
+        if (camera != nil) {
+            camera.delegate = self;
+            [camera.playbackManager setDelegate:self];
+        }
+    }
+    
+    DJIFlightController *flightController = [self fetchFlightController];
+    if (flightController) {
+        [flightController setDelegate:self];
+    }
+}
+
+-(void)enableVirtualStick {
+    DJIFlightController *flightController = [self fetchFlightController];
+    [flightController setYawControlMode:DJIVirtualStickYawControlModeAngle];
+    [flightController setRollPitchCoordinateSystem:DJIVirtualStickFlightCoordinateSystemGround];
+    [flightController setVirtualStickModeEnabled:YES withCompletion:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Enable VirtualStickControlMode Failed");
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self executeVirtualStickControl];
+        });
+    }];
+}
+
+- (void)executeVirtualStickControl
+{
+    __weak DJICamera *camera = [self fetchCamera];
+
+    for(int i = 0;i < PHOTO_NUMBER; i++){
+
+        float yawAngle = ROTATE_ANGLE*i;
+
+        if (yawAngle > 180.0) { //Filter the angle between -180 ~ 0, 0 ~ 180
+            yawAngle = yawAngle - 360;
+        }
+        
+        NSTimer *timer =  [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(rotateDrone:) userInfo:@{@"YawAngle":@(yawAngle)} repeats:YES];
+        [timer fire];
+        
+        [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop]runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
+        
+        [timer invalidate];
+        timer = nil;
+        
+        [camera startShootPhotoWithCompletion:nil];
+        
+        sleep(2);
+    }
+
+    DJIFlightController *flightController = [self fetchFlightController];
+    [flightController setVirtualStickModeEnabled:NO withCompletion:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Disable VirtualStickControlMode Failed");
+            DJIFlightController *flightController = [self fetchFlightController];
+            [flightController setVirtualStickModeEnabled:NO withCompletion:nil];
         }
     }];
 
+    weakSelf(target);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakReturn(target);
+        [target showAlertViewWithTitle:@"Capture Photos" withMessage:@"Capture finished"];
+    });
 }
+
 ~~~
 
-Firstly, we set DJICamera's **Mode** to `DJICameraModeShootPhoto` in case the camera mode is set to other values before we start the 360 degrees panorama shoot photo action using virtual stick.
+In the code above, we implement the following things:
 
-Then we should dispatch a new asynchronous thread to execute the virtual stick rotation and shoot photo actions. We use `sleep(2)` to sleep for 2 seconds between rotating the drone and shooting photo actions here to ensure each action is executed ordered(Shoot photo action may take around 2 seconds to finish). When the for loop finished, we can show an alert view in the main thread to notify the user "Capture finished".
+1. We create the `rotateDroneWithJoystick` and `setCameraModeToShootPhoto` methods to make sure the current work mode of the camera is `DJICameraModeShootPhoto` in case it's set to other values before we start the 360 degrees panorama shoot photo action using virtual stick. Also, in the `rotateDroneWithJoystick` method, we firstly check if the current DJI Product is **DJI Spark**, if so, we invoke the `setGestureModeEnabled:withCompletion:` method of `DJIActiveTrackMissionOperator` to disable gesture mode since **DJI Spark** will enable it by default and the virtual stick control may not be available under gesture mode.
+
+2. Then we refactor the `productConnected:` delegate method and create the `enableVirtualStick` method to configure the `yawControlMode`, `rollPitchCoordinateSystem` properties and enable the virtual stick mode of DJIFlightController.
+
+3. Create the `executeVirtualStickControl` method and dispatch a new asynchronous thread to execute it in the completion block of `setVirtualStickModeEnabled:withCompletion:` method. In the `executeVirtualStickControl` method, we use `sleep(2)` to sleep for 2 seconds between rotating the drone and shooting photo actions here to ensure each action is executed ordered(Shoot photo action may take around 2 seconds to finish). When the for loop finished, we disable the virtual stick mode and show an alert view in the main thread to notify the user "Capture finished".
 
 ## Rotating Gimbal to Shoot Photos
 
@@ -339,29 +423,11 @@ If you have an Inspire 1, you will benefit from being able to shoot photos witho
     if (![DJISDKManager product]) {
         return nil;
     }
-    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
-        return ((DJIAircraft*)[DJISDKManager product]).gimbal;
-    }
-    return nil;
+    return [DJISDKManager product].gimbal;
 }
 ~~~
 
-It is necessary to reset the gimbal's position before rotating and  shooting photos, otherwise the gimbal may reach the maximum angle of  yaw axis when rotating 360 degrees. We can call **DJIGimbal**'s `resetWithCompletion` method to reset the gimbal's pitch, roll and yaw back to the origin values. Here is the code: 
-
-~~~objc
-//Reset Gimbal at the beginning
-    DJIGimbal *gimbal = [self fetchGimbal];
-    
-    //Reset Gimbal at the beginning
-    [gimbal resetWithCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"ResetGimbal Failed: %@", [NSString stringWithFormat:@"%@", error.description]);
-        }
-    }];
-    sleep(3);
-~~~
-
-**2.** Rotate the gimbal clockwise from the origin position to 360 degrees(45 degrees each time), then take photos between each rotation. Let's implement the **rotateGimbal** method as shown below:
+**2.** Next, implement the **rotateGimbal** method as shown below to rotate the gimbal clockwise from the origin position to 360 degrees(45 degrees each time), then take photos between each rotation:
 
 ~~~objc
 #pragma mark - Rotate Gimbal Methods
@@ -426,15 +492,23 @@ It is necessary to reset the gimbal's position before rotating and  shooting pho
         
         sleep(2);
     }
-    
+
+    weakSelf(target);
     dispatch_async(dispatch_get_main_queue(), ^{
+        weakReturn(target);
         [self showAlertViewWithTitle:@"Capture Photos" withMessage:@"Capture finished"];
     });
     
 }
 ~~~
 
-As it's shown above, we set the DJICamera's cameraMode to **DJICameraModeShootPhoto**, then dispatch a new asynchronous thread to execute the `executeRotateGimbal` method. Then in the executeRotateGimbal method, reset Gimbal's position and use a for loop to shoot photo and rotate gimbal 45 degrees each time. When the for loop finished, we can show an alert view in the main thread to notify the user "Capture Photos finished".
+In the code above, we implement the following features:
+
+1. Set the DJICamera's cameraMode to **DJICameraModeShootPhoto**, then dispatch a new asynchronous thread to execute the `executeRotateGimbal` method.
+
+2. In the `executeRotateGimbal` method, reset Gimbal's position. It is necessary to reset the gimbal's position before rotating and shooting photos, otherwise the gimbal may reach the maximum angle of yaw axis when rotating 360 degrees.  
+
+3. Use a for loop to shoot photo and rotate gimbal 45 degrees each time. When the for loop finished, we can show an alert view in the main thread to notify the user "Capture Photos finished".
 
 **3.** Rewrite the **onCaptureButtonClicked** method as shown below:
 
@@ -446,16 +520,16 @@ As it's shown above, we set the DJICamera's cameraMode to **DJICameraModeShootPh
 
 Build and run the app, and try the capture button function of the app without taking off the Inspire 1. You should see the gimbal of Inspire 1 rotating 360 degrees and shoot photos smoothly.
 
-## Shooting Photos with DJIWaypointMission 
+## Shooting Photos with DJIMutableWaypointMission 
 
-**Note: Please make sure the drone's battery energy percentage is more than 30% when you use DJIWaypointMission**
+**Note: Please make sure the drone's battery energy percentage is more than 30% when you use DJIMutableWaypointMission**
 
-It seems a bit inconvenient and odd to use `sleep(2)` between rotating the drone and shooting photos. Shouldn't there be an easier, more efficient way to implement this? Yes, the DJIWaypointMission is designed for executing series of actions within different waypoints, which is perfect for our application!
+It seems a bit inconvenient and odd to use `sleep(2)` between rotating the drone and shooting photos. Shouldn't there be an easier, more efficient way to implement this? Yes, the DJIMutableWaypointMission is designed for executing series of actions within different waypoints, which is perfect for our application!
 
-**1.** To use the DJIWaypointMission, firstly we should implement the **DJIMissionManagerDelegate** and **DJIFlightControllerDelegate** protocol in the class extension of **CaptureViewController.m** as shown below:
+**1.** To use the DJIMutableWaypointMission, firstly we should implement the **DJIFlightControllerDelegate** protocol in the class extension of **CaptureViewController.m** as shown below:
 
 ~~~objc
-@interface CaptureViewController ()<DJICameraDelegate, DJIPlaybackDelegate, DJISDKManagerDelegate, DJIMissionManagerDelegate, DJIFlightControllerDelegate>{
+@interface CaptureViewController ()<DJICameraDelegate, DJIPlaybackDelegate, DJISDKManagerDelegate, DJIVideoFeedListener, DJIFlightControllerDelegate>{
     
 }
 ~~~
@@ -463,18 +537,16 @@ It seems a bit inconvenient and odd to use `sleep(2)` between rotating the drone
 Then declare the following properties for setting up DJIWaypointMission:
 
 ~~~objc
-@property (strong, nonatomic) UIAlertView* prepareMissionProgressAlert;
-@property (nonatomic) bool isMissionStarted;
+@property (strong, nonatomic) UIAlertView* uploadMissionProgressAlert;
 @property (atomic) CLLocationCoordinate2D aircraftLocation;
 @property (atomic) double aircraftAltitude;
 @property (atomic) DJIGPSSignalLevel gpsSignalLevel;
 @property (atomic) double aircraftYaw;
-@property (nonatomic, strong) DJIMission* mission;
 ~~~
 
-Here we create a **prepareMissionProgressAlert** to show the prepare mission progress message. The "aircraftLocation", "aircraftAltitude", "gpsSignalLevel" and "aircraftYaw" properties will be updated as the latest flight controller system status of the drone.
+Here we create an **uploadMissionProgressAlert** to show the upload mission progress message. The "aircraftLocation", "aircraftAltitude", "gpsSignalLevel" and "aircraftYaw" properties will be updated as the latest flight controller system status of the drone.
 
-Moreover, initialize the **isMissionStarted** and **aircraftLocation** properties in the ViewDidLoad method:
+Moreover, initialize the **aircraftLocation** property in the ViewDidLoad method:
 
 ~~~objc
 
@@ -482,80 +554,41 @@ Moreover, initialize the **isMissionStarted** and **aircraftLocation** propertie
     [super viewDidLoad];
     
     self.title = @"Panorama Demo";
-    
-    self.isMissionStarted = NO;
     self.aircraftLocation = kCLLocationCoordinate2DInvalid;
-    
+    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    [self registerApp];
+
 }
 
 ~~~
 
-**2.** There are three delegate methods need to be implemented, the **DJISDKManagerDelegate**, **DJIMissionManagerDelegate** and **DJIFlightControllerDelegate** methods:
+**2.** The **DJIFlightControllerDelegate** method need to be implemented:
 
 ~~~objc
-#pragma mark DJISDKManagerDelegate Methods
-- (void)sdkManagerProductDidChangeFrom:(DJIBaseProduct *)oldProduct to:(DJIBaseProduct *)newProduct
-{
-    DJICamera* camera = [self fetchCamera];
-    if (camera) {
-        [camera setDelegate:self];
-        [camera.playbackManager setDelegate:self];
-    }
-    
-    [[DJIMissionManager sharedInstance] setDelegate:self];
-    
-    DJIFlightController *flightController = [self fetchFlightController];
-    if (flightController) {
-        [flightController setDelegate:self];
-        [flightController setYawControlMode:DJIVirtualStickYawControlModeAngle];
-        [flightController setRollPitchCoordinateSystem:DJIVirtualStickFlightCoordinateSystemGround];
-        [flightController setVirtualStickModeEnabled:YES withCompletion:^(NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"Enable VirtualStickControlMode Failed");
-            }
-        }];
-    }
-}
-
-#pragma mark - DJIMissionManagerDelegate Methods
-- (void)missionManager:(DJIMissionManager *)manager didFinishMissionExecution:(NSError *)error
-{
-    if (error) {
-        [self showAlertViewWithTitle:@"Mission Execution Failed" withMessage:[NSString stringWithFormat:@"%@", error.description]];
-    }
-    else {
-        
-        if (self.isMissionStarted) {
-            [self showAlertViewWithTitle:@"Intelligent Navigation" withMessage:@"Mission Finished"];
-            self.isMissionStarted = NO;
-        }
-    }
-
-}
-
-- (void)missionManager:(DJIMissionManager *)manager missionProgressStatus:(DJIMissionProgressStatus *)missionProgress
-{
-    
-}
 
 #pragma mark - DJIFlightControllerDelegate Method
 - (void)flightController:(DJIFlightController *_Nonnull)fc didUpdateState:(DJIFlightControllerState *_Nonnull)state
 {
-    self.aircraftLocation = CLLocationCoordinate2DMake(state.aircraftLocation.latitude, state.aircraftLocation.longitude);
+    self.aircraftLocation = CLLocationCoordinate2DMake(state.aircraftLocation.coordinate.latitude, state.aircraftLocation.coordinate.longitude);
     self.gpsSignalLevel = state.gpsSignalQualityLevel;
     self.aircraftAltitude = state.altitude;
     self.aircraftYaw = state.attitude.yaw;
 }
 ~~~
 
-As the code shown above, we set the delegate of DJIMissionManager in the "DJISDKManagerDelegate" method, then notify the user the mission execution result by showing alert views in the "DJIMissionManagerDelegate" method. Lastly, we update the **aircraftLocation**, **gpsSignalLevel**, **aircraftAltitude** and **aircraftYaw** property values in the DJIFlightControllerDelegate method.
+As the code shown above, we update the **aircraftLocation**, **gpsSignalLevel**, **aircraftAltitude** and **aircraftYaw** property values in the DJIFlightControllerDelegate method.
 
-**3.** Now let's initialize the DJIWaypointMission by creating a new method named `initializeMission ` as shown below:
+**3.** Now let's create a new method named `missionOperator` method to fetch the `DJIWaypointMissionOperator` object and initialize the DJIMutableWaypointMission by creating a new method named `initializeMission ` as shown below:
 
 ~~~objc
-- (DJIMission*) initializeMission {
+
+- (DJIWaypointMissionOperator *)missionOperator {
+    return [[DJISDKManager missionControl] waypointMissionOperator];
+}
+
+- (void) initializeMission {
     
-    DJIWaypointMission *mission = [[DJIWaypointMission alloc] init];
+    DJIMutableWaypointMission *mission = [[DJIMutableWaypointMission alloc] init];
     mission.maxFlightSpeed = 15.0;
     mission.autoFlightSpeed = 4.0;
     
@@ -569,7 +602,7 @@ As the code shown above, we set the delegate of DJIMissionManager in the "DJISDK
         if (rotateAngle > 180) { //Filter the angle between -180 ~ 0, 0 ~ 180
             rotateAngle = rotateAngle - 360;
         }
-
+        
         DJIWaypointAction *action1 = [[DJIWaypointAction alloc] initWithActionType:DJIWaypointActionTypeShootPhoto param:0];
         DJIWaypointAction *action2 = [[DJIWaypointAction alloc] initWithActionType:DJIWaypointActionTypeRotateAircraft param:rotateAngle];
         [wp1 addAction:action1];
@@ -578,99 +611,134 @@ As the code shown above, we set the delegate of DJIMissionManager in the "DJISDK
     
     DJIWaypoint *wp2 = [[DJIWaypoint alloc] initWithCoordinate:self.aircraftLocation];
     wp2.altitude = self.aircraftAltitude + 1;
-
+    
     [mission addWaypoint:wp1];
     [mission addWaypoint:wp2];
     [mission setFinishedAction:DJIWaypointMissionFinishedNoAction]; //Change the default action of Go Home to None
     
-    return mission;
+    [[self missionOperator] loadMission:mission];
+
+    weakSelf(target);
+
+    [[self missionOperator] addListenerToUploadEvent:self withQueue:dispatch_get_main_queue() andBlock:^(DJIWaypointMissionUploadEvent * _Nonnull event) {
+        
+        weakReturn(target);
+        if (event.currentState == DJIWaypointMissionStateUploading) {
+                        
+            NSString *message = [NSString stringWithFormat:@"Uploaded Waypoint Index: %ld, Total Waypoints: %ld" ,event.progress.uploadedWaypointIndex + 1, event.progress.totalWaypointCount];
+            
+            if (target.uploadMissionProgressAlert == nil) {
+                target.uploadMissionProgressAlert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+                [target.uploadMissionProgressAlert show];
+            }
+            else {
+                [target.uploadMissionProgressAlert setMessage:message];
+            }
+            
+        }else if (event.currentState == DJIWaypointMissionStateReadyToExecute){
+            
+            [target.uploadMissionProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+            target.uploadMissionProgressAlert = nil;
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Upload Mission Finished" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *startMissionAction = [UIAlertAction actionWithTitle:@"Start Mission" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [target startWaypointMission];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:cancelAction];
+            [alert addAction:startMissionAction];
+            [target presentViewController:alert animated:YES completion:nil];
+
+        }
+        
+    }];
+    
+    [[self missionOperator] addListenerToFinished:self withQueue:dispatch_get_main_queue() andBlock:^(NSError * _Nullable error) {
+        
+        weakReturn(target);
+        
+        if (error) {
+            [target showAlertViewWithTitle:@"Mission Execution Failed" withMessage:[NSString stringWithFormat:@"%@", error.description]];
+        }
+        else {
+            [target showAlertViewWithTitle:@"Mission Execution Finished" withMessage:nil];
+        }
+    }];
+
 }
 ~~~
 
-In the code above, we create a DJIWaypointMission object firstly and set its **maxFlightSpeed** and **autoFlightSpeed** properties. Then we use a for loop to create 16 **DJIWaypointAction** objects. Each step in the for loop, we create two **DJIWaypointActions**. Set the first waypoint action type as **DJIWaypointActionTypeShootPhoto**, the other waypoint action type as **DJIWaypointActionTypeRotateAircraft** with the appropriate rotate angles. Then add these two waypoint actions to the first DJIWaypoint.
+In the code above, we create a DJIMutableWaypointMission object firstly and set its **maxFlightSpeed** and **autoFlightSpeed** properties. Then we use a for loop to create 16 **DJIWaypointAction** objects. Each step in the for loop, we create two **DJIWaypointActions**. Set the first waypoint action type as **DJIWaypointActionTypeShootPhoto**, the other waypoint action type as **DJIWaypointActionTypeRotateAircraft** with the appropriate rotate angles. Then add these two waypoint actions to the first DJIWaypoint.
 
 DJIWaypointMission requires at least two waypoints, and each waypoint must have different physical location, so we create another DJIWaypoint and control the drone to fly upwards 1 meter and take no action. 
 
-Finally, add the two DJIWaypoint to the DJIWaypointMision object and set its **finishAction** type as DJIWaypointMissionFinishedNoAction. If we don't set the **finishAction** property, when the drone finish the waypoint mission, it will execute the go home command automatically instead of staying at the original position.
+Next, we add the two DJIWaypoint to the DJIWaypointMision object and set its **finishAction** type as DJIWaypointMissionFinishedNoAction. If we don't set the **finishAction** property, when the drone finish the waypoint mission, it will execute the go home command automatically instead of staying at the original position.
 
-**4.** Once it's finished, let's create two new methods called `- (void)prepareWaypointMission` and `- (void)startWaypointMission` to upload waypoint mission to the drone and start the mission. Here is the code:
+Furthermore, we invoke the `loadMission:` method of DJIWaypointMissionOperator to load the waypoint mission into the operator. 
+
+Lastly, invoke the `addListenerToUploadEvent:withQueue:andBlock:` and `addListenerToFinished:withQueue:andBlock:` methods of DJIWaypointMissionOperator to track the upload and finish events of the waypoint mission and show alert view to inform the user about the mission execution status and progress.
+
+**4.** Once it's finished, let's create two new methods called `- (void)uploadWaypointMission` and `- (void)startWaypointMission` to upload waypoint mission to the drone and start the mission. Here is the code:
 
 ~~~objc
-- (void)prepareWaypointMission {
-   
-    self.mission = [self initializeMission];
-    if (self.mission == nil) return; //Initialization failed
+- (void)uploadWaypointMission {
+    
+    [self initializeMission];
     
     weakSelf(target);
-    [[DJIMissionManager sharedInstance] prepareMission:self.mission withProgress:^(float progress) {
-        
-        NSString *message = [NSString stringWithFormat:@"Mission Upload %.2f%%" ,progress*100];
-        
-        if (target.prepareMissionProgressAlert == nil) {
-            target.prepareMissionProgressAlert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-            [target.prepareMissionProgressAlert show];
-        }
-        else {
-            [target.prepareMissionProgressAlert setMessage:message];
-        }
-        
-        if (progress*100 == 100) {
-            [target.prepareMissionProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
-            target.prepareMissionProgressAlert = nil;
-        }
-        
-    } withCompletion:^(NSError * _Nullable error) {
-        
-        if (target.prepareMissionProgressAlert) {
-            [target.prepareMissionProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
-            target.prepareMissionProgressAlert = nil;
-        }
+    
+    [[self missionOperator] uploadMissionWithCompletion:^(NSError * _Nullable error) {
+
+        weakReturn(target);
         
         if (error) {
-            [target showAlertViewWithTitle:@"Prepare Mission Failed" withMessage:[NSString stringWithFormat:@"%@", error.description]];
+            NSLog(@"%@", [NSString stringWithFormat:@"Upload Mission Failed: %@", [NSString stringWithFormat:@"%@", error.description]]);
         }else
         {
-            [target showAlertViewWithTitle:@"Prepare Mission Finished" withMessage:nil];
+            NSLog(@"Upload Mission Finished");
         }
-        
-        [target startWaypointMission];
     }];
 }
 
-- (void)startWaypointMission {
-
+- (void)startWaypointMission
+{
     weakSelf(target);
-    [[DJIMissionManager sharedInstance] startMissionExecutionWithCompletion:^(NSError * _Nullable error) {
+    //Start Mission
+    [[self missionOperator] startMissionWithCompletion:^(NSError * _Nullable error) {
+        
         weakReturn(target);
-        target.isMissionStarted = YES;
+
         if (error) {
-            NSLog(@"Start Mission Failed: %@", error.description);
+            [target showAlertViewWithTitle:@"Start Mission Failed" withMessage:[NSString stringWithFormat:@"%@", error.description]];
         }
+        else {
+            [target showAlertViewWithTitle:@"Start Mission Success" withMessage:nil];
+        }
+
     }];
-   
 }
 ~~~
 
-In the `prepareWaypointMission` method, we firstly call the `initializeMission` method and assign the DJIMission object to the **mission** property. Then we invoke DJIMissionManager's following method to upload waypoint mission task to the drone:
+In the `uploadWaypointMission` method, we firstly call the `initializeMission` method to initialize the DJIMutableWaypointMission. Then we invoke DJIWaypointMissionOperator's following method to upload waypoint mission task to the drone:
 
 ~~~objc
-- (void)prepareMission:(DJIMission *_Nonnull)mission withProgress:(DJIMissionProgressHandler)preparationProgress withCompletion:(DJICompletionBlock)completion;
+- (void)uploadMissionWithCompletion:(DJICompletionBlock)completion;
 ~~~
 
-We can check the mission preparation progress and update the **prepareMissionProgressAlert** message contents in the **preparationProgress** block. Furthermore, notify users the prepare mission result by showing an alertView and call the `startWaypointMission` method in the completion block to start the waypoint mission.
-
-In the `startWaypointMission` method     we call the following method of DJIMissionManager to start the waypoint mission:
+In the `startWaypointMission` method, we call the following method of DJIWaypointMissionOperator to start the waypoint mission:
 
 ~~~objc
-- (void)startMissionExecutionWithCompletion:(DJICompletionBlock)completion;
+- (void)startMissionWithCompletion:(DJICompletionBlock)completion;
 ~~~
+
+In the completion block, we notify users the start mission result by showing an alertView.
 
 **5.** Since the DJIWaypointMission relies on good GPS signal quality, you should check the GPS signal status before executing the waypoint mission. At the same time, you should also check whether the **aircraftLocation** is valid. Let's implement the  **rotateDroneWithWaypointMission** method as shown below:
 
 ~~~objc
 - (void)rotateDroneWithWaypointMission {
     if (CLLocationCoordinate2DIsValid(self.aircraftLocation) && self.gpsSignalLevel != DJIGPSSignalLevel0 && self.gpsSignalLevel != DJIGPSSignalLevel1) {
-        [self prepareWaypointMission];
+        [self uploadWaypointMission];
     }
     else {
         [self showAlertViewWithTitle:@"GPS signal weak" withMessage:@"Rotate drone failed"];
@@ -729,6 +797,8 @@ Now the user can choose their preferred methods to take 360 degrees Panorama pho
 
 ## Selecting and Downloading Photos
 
+### Using Playback Mode
+
 In order to download multiple photos, you should go through a series of playback modes. Firstly, enter **Playback** mode, then enter **Multiple Preview** mode, furthermore enter **Multiple Edit** mode, lastly, select all the photos you just capture, and download them.
  
 ![diagram.png](../images/tutorials-and-samples/iOS/PanoramaDemo/downloadPhotos.png)
@@ -752,7 +822,7 @@ Now, let's implement the **DJIPlaybackDelegate** method as shown below to update
 }
 ~~~
 
-**3.** Implement the **onDownloadButtonClicked** method to enter playback mode:  
+**3.** Implement the **onDownloadButtonClicked** method as shown below:  
 
 ~~~objc
 -(IBAction)onDownloadButtonClicked:(id)sender {
@@ -761,22 +831,22 @@ Now, let's implement the **DJIPlaybackDelegate** method as shown below to update
     DJICamera *camera = [self fetchCamera];
     [camera setMode:DJICameraModePlayback withCompletion:^(NSError * _Nullable error) {
         weakReturn(target);
-        
+
         if (error) {
             NSLog(@"Enter playback mode failed: %@", error.description);
         }else {
-            [target selectPhotos];
+            [target selectPhotosForPlaybackMode];
         }
     }];
 }
 ~~~
 
-Here we set the DJICamera's cameraMode as **DJICameraModePlayback**. If it succeeded, we can call the **selectPhotos** method to start selecting photos.
+Here we invoke the `setMode:withCompletion:` method to set the camera mode to `DJICameraModePlayback` . If it succeeded, we can invoke the `selectPhotosForPlaybackMode` method to select photos.
 
-**4**. Once it's done, let's implement the `selectPhotos` method to select the latest photos you capture for the panorama:
+**4**. Once it's done, let's implement the `selectPhotosForPlaybackMode` method to select the latest photos you have captured for the panorama:
 
 ~~~objc
--(void)selectPhotos {
+-(void)selectPhotosForPlaybackMode {
     
     weakSelf(target);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -804,7 +874,7 @@ Here we set the DJICamera's cameraMode as **DJICameraModePlayback**. If it succe
                 sleep(1);
             }
         }
-        [target downloadPhotos];
+        [target downloadPhotosForPlaybackMode];
     });
 }
 ~~~
@@ -813,16 +883,16 @@ It takes a few seconds for the drone to respond to commands, so you should dispa
 
 ![select photo diagram](../images/tutorials-and-samples/iOS/PanoramaDemo/selectPhotoDiagram.png)
 
-The default selected photo is the last photo. Select all photos in the last page. If you have selected more photos than you need, you can deselect the extra photos starting from the index 0. If you do not have enough photos selected, just go to previous page and repeat the procedure again until you select the exact number of photos you needed. Here is the gif animation for selecting photos:
+The default selected photo is the last photo. Select all photos in the last page. If you have selected more photos than you need, you can deselect the extra photos starting from the index 0. If you do not have enough photos selected, just go to the previous page and repeat the procedure again until you select the exact number of photos you needed. Here is the gif animation for selecting photos:
 
 ![multiple select photo](../images/tutorials-and-samples/iOS/PanoramaDemo/selectMultiPhotos.gif)
 
-**5.** After you select all the photos, invoke the **downloadPhotos** method to download all the photos you need.
+**5.** After you select all the photos, invoke the **downloadPhotosForPlaybackMode** method to download all the photos you need.
 
-Create and implement the `-(void)downloadPhotos` method as shown below:
+Create and implement the `downloadPhotosForPlaybackMode` method as shown below:
 
 ~~~objc
--(void)downloadPhotos {
+-(void)downloadPhotosForPlaybackMode {
     __block int finishedFileCount = 0;
     __block NSMutableData* downloadedFileData;
     __block long totalFileSize;
@@ -915,6 +985,152 @@ Finally, let's notify the users the download result by showing UIAlertView in th
 Build and run the code, press the **capture** button to rotate the drone and shoot photos, after it finished, press **download** button to download all the photos shoot. If everything goes well, you should see the following animation:
 
 ![downloadPhotos](../images/tutorials-and-samples/iOS/PanoramaDemo/downloadMultiPhotos.gif)
+
+### Using Media Download Mode
+
+In order to download multiple photos using Media Download Mode, you should make good use of the `DJIMediaManager` and `DJIFetchMediaTaskScheduler` to refresh media file list and schedule the tasks.
+
+Firstly, enter **Media Download** mode, then refresh the media file list from the SD card, furthermore resume the `DJIFetchMediaTaskScheduler`, moreover, create multiple `DJIFetchMediaTask` for the photos to download, lastly, enqueue the tasks to the scheduler to execute and download photos.
+
+![mediaDownload](../images/tutorials-and-samples/iOS/PanoramaDemo/mediaDownloadPhotos.png)
+
+Now, let's improve the `onDownloadButtonClicked:` method as shown below:
+
+~~~objc
+-(IBAction)onDownloadButtonClicked:(id)sender {
+    
+    weakSelf(target);
+    DJICamera *camera = [self fetchCamera];
+    if (camera.isPlaybackSupported) {
+        [camera setMode:DJICameraModePlayback withCompletion:^(NSError * _Nullable error) {
+            weakReturn(target);
+
+            if (error) {
+                NSLog(@"Enter playback mode failed: %@", error.description);
+            }else {
+                [target selectPhotosForPlaybackMode];
+            }
+        }];
+    }
+    else if (camera.isMediaDownloadModeSupported) {
+        [camera setMode:DJICameraModeMediaDownload withCompletion:^(NSError * _Nullable error) {
+            weakReturn(target);
+            if (error) {
+                NSLog(@"Enter Media Download mode failed: %@", error.description);
+            } else {
+                [target loadMediaListsForMediaDownloadMode];
+            }
+        }];
+    }
+}
+~~~ 
+
+Here we firstly check if the DJICamera support media download mode, and invoke the `setMode:withCompletion:` method to set the camera mode to `DJICameraModeMediaDownload`. If it succeeded, we can invoke the `loadMediaListsForMediaDownloadMode` method to select photos. 
+
+Next, let's implement the `loadMediaListsForMediaDownloadMode` method as shown below:
+
+~~~objc
+-(void)loadMediaListsForMediaDownloadMode {
+    DJICamera *camera = [self fetchCamera];
+    [self showDownloadProgressAlert];
+    [self.downloadProgressAlert setTitle:[NSString stringWithFormat:@"Refreshing file list. "]];
+    [self.downloadProgressAlert setMessage:[NSString stringWithFormat:@"Loading..."]];
+
+    weakSelf(target);
+    [camera.mediaManager refreshFileListWithCompletion:^(NSError * _Nullable error) {
+        weakReturn(target);
+        if (error) {
+            [target.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+            target.downloadProgressAlert = nil;
+            NSLog(@"Refresh file list failed: %@", error.description);
+        }
+        else {
+            [target downloadPhotosForMediaDownloadMode];
+        }
+    }];
+}
+~~~
+
+In the code above, we invoke the `refreshFileListWithCompletion:` method of `DJIMediaManager` to refresh the file list from the SD card. If there is no error, invoke the `downloadPhotosForMediaDownloadMode` method to download photos.
+
+Once you finish the steps above, let's implement the `downloadPhotosForMediaDownloadMode` method as shown below to download photos:
+
+~~~objc
+-(void)downloadPhotosForMediaDownloadMode {
+    __block int finishedFileCount = 0;
+
+    self.imageArray=[NSMutableArray new];
+
+    DJICamera *camera = [self fetchCamera];
+    NSArray<DJIMediaFile *> *files = [camera.mediaManager fileListSnapshot];
+    if (files.count < PHOTO_NUMBER) {
+        [self.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+        self.downloadProgressAlert = nil;
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Download failed" message:[NSString stringWithFormat:@"Not enough photos are taken. "] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+
+    [camera.mediaManager.taskScheduler resumeWithCompletion:^(NSError * _Nullable error) {
+        if (error) {
+            [self.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+            self.downloadProgressAlert = nil;
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Download failed" message:[NSString stringWithFormat:@"Resume file task scheduler failed. "] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }];
+
+    [self.downloadProgressAlert setTitle:[NSString stringWithFormat:@"Downloading..."]];
+    [self.downloadProgressAlert setMessage:[NSString stringWithFormat:@"Download (%d/%d)", 0, PHOTO_NUMBER]];
+
+    weakSelf(target);
+    for (int i = (int)files.count - PHOTO_NUMBER; i < files.count; i++) {
+        DJIMediaFile *file = files[i];
+        
+        DJIFetchMediaTask *task = [DJIFetchMediaTask taskWithFile:file content:DJIFetchMediaTaskContentPreview andCompletion:^(DJIMediaFile * _Nonnull file, DJIFetchMediaTaskContent content, NSError * _Nullable error) {
+            weakReturn(target);
+            if (error) {
+                [target.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+                target.downloadProgressAlert = nil;
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Download failed" message:[NSString stringWithFormat:@"Download file %@ failed. ", file.fileName] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+            }
+            else {
+                [target.imageArray addObject:file.preview];
+                finishedFileCount++;
+                [target.downloadProgressAlert setMessage:[NSString stringWithFormat:@"Download (%d/%d)", finishedFileCount, PHOTO_NUMBER]];
+
+                if (finishedFileCount == PHOTO_NUMBER) {
+
+                    [target.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+                    target.downloadProgressAlert = nil;
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Download Complete" message:[NSString stringWithFormat:@"%d files have been downloaded. ", PHOTO_NUMBER] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alertView show];
+                    [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
+                        if (error) {
+                            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Set CameraMode to ShootPhoto Failed" message:[NSString stringWithFormat:@"%@", error.description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                            [alertView show];
+                        }
+                    }];
+                }
+            }
+        }];
+        [camera.mediaManager.taskScheduler moveTaskToEnd:task];
+    }
+}
+~~~
+
+In the code above, we implement the following features:
+
+1. Firstly, we initialize an NSMutableArray `imageArray`, which will be used to stored the downloaded images. And then invoke the `fileListSnapshot` method of `DJIMediaManager` to get the current `DJIMediaFile` file list, and store them in the `files` array object. After that, we check if the current media files' count is less than `PHOTO_NUMBER`, which is the photo count to create a panorama. If so, inform the user that not enough photos are taken using a UIAlertView and return.
+
+2. Moreover, we invoke the `resumeWithCompletion:` method to resume the `DJIFetchMediaTaskScheduler` and inform the user that resume file task scheduler failed using a UIAlertView. 
+
+3. Lastly, we create a for loop and create 8(The value of `PHOTO_NUMBER`) `DJIFetchMediaTask` objects by invoking the `taskWithFile:content:andCompletion:` method of `DJIFetchMediaTask` class. Inside the completion block of the method, we firstly check if any error exists and show a UIAlertView to inform users. If not, access the `preview` property of `DJIMediaFile` to get the preview image for this media and add it to the `imageArray` array. Next, increase the value of `finishedFileCount` by 1 and show the media file download status message by using the `downloadProgressAlert`. If the value of `finishedFileCount` reach 8, we show a UIAlertView to inform the user that the download complete and set the camera mode back to `DJICameraModeShootPhoto`. Lastly, we invoke the `moveTaskToEnd:` method of `DJIFetchMediaTaskScheduler` to push the newly created task to the back of the queue for executing.
+
+Build and run the code, press the **capture** button to rotate the drone and shoot photos, here we use **Spark** for testing. After it finished, press **download** button to download all the photos shoot. If everything goes well, you should see the following animation:
+
+![mediaDownload](../images/tutorials-and-samples/iOS/PanoramaDemo/mediaDownload.gif)
 
 ## Using OpenCV to Create Panorama
 
@@ -1141,15 +1357,25 @@ Here is the code for **Stitching.mm** file:
 #import "StitchingWrapper.h"
 #import "OpenCVConversion.h"
 
-#define COMPRESS_RATIO 0.2
+#define HIGHT_COMPRESS_RATIO 0.2
+#define LOW_COMPRESS_RATIO 1.0
 
 @implementation Stitching
 
 + (bool) stitchImageWithArray:(NSMutableArray*)imageArray andResult:(cv::Mat &) result {
-    
+    if (imageArray == nil || imageArray.count == 0) {
+        return false;
+    }
+
+    float ratio = HIGHT_COMPRESS_RATIO;
+    UIImage *image = [imageArray firstObject];
+    if (image.size.height < 1000) {
+        ratio = LOW_COMPRESS_RATIO;
+    }
+
     NSMutableArray* compressedImageArray =[NSMutableArray new];
     for(UIImage *rawImage in imageArray){
-        UIImage *compressedImage=[self compressedToRatio:rawImage ratio:COMPRESS_RATIO];
+        UIImage *compressedImage=[self compressedToRatio:rawImage ratio:ratio];
         [compressedImageArray addObject:compressedImage];
     }
     [imageArray removeAllObjects];
@@ -1175,6 +1401,7 @@ Here is the code for **Stitching.mm** file:
     return true;
 }
 
+//compress the photo width and height to COMPRESS_RATIO
 + (UIImage *)compressedToRatio:(UIImage *)img ratio:(float)ratio {
     CGSize compressedSize;
     compressedSize.width=img.size.width*ratio;
@@ -1189,7 +1416,9 @@ Here is the code for **Stitching.mm** file:
 @end
 ~~~
 
-Because of the limited computing ability and memory storage of mobile devices, we don't suggest you to process full resolution images, because the stitching process may take a long time or cause run out of memory problem. We call the `+ (UIImage *)compressedToRatio:(UIImage *)img ratio:(float)ratio` method to reduce the photo width and height by a ratio of **COMPRESS_RATIO**, which reduces the resolution dramatically(COMPRESS_RATIO<sup>2</sup>). Then we convert the images to cv::Mat and push them into cv::vector. Finally, we can call the **stitch** function in the **StitchingWrapper.cpp** file to do the actual stitching work.
+Because of the limited computing ability and memory storage of mobile devices, we don't suggest you to process full resolution images, because the stitching process may take a long time or cause run out of memory problem. We call the `+ (UIImage *)compressedToRatio:(UIImage *)img ratio:(float)ratio` method to reduce the photo width and height by a ratio of **HIGHT_COMPRESS_RATIO** or **LOW_COMPRESS_RATIO**, which reduces the resolution dramatically(Like HIGHT_COMPRESS_RATIO<sup>2</sup>). If the `image` size is not small(The height is less than 1000), we use `LOW_COMPRESS_RATIO`, otherwise, use `HIGHT_COMPRESS_RATIO`.
+
+Then we convert the images to cv::Mat and push them into cv::vector. Finally, we can call the **stitch** function in the **StitchingWrapper.cpp** file to do the actual stitching work.
 
 **4.** Now add an **UIImageView** in the **Main.storyboard**, set its **Mode** to **Aspect Fit** and create its outlet, called **imageView** in the "StitchingViewController.h" file.
 

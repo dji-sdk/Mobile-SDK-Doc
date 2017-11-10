@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
-version: v4.0
-date: 2017-2-22
+version: v4.3.2
+date: 2017-09-29
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo
 keywords: [Android GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
@@ -10,15 +10,23 @@ keywords: [Android GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone
 
 ---
 
-In this tutorial, you will learn how to use the `FlyZoneManager` and `GEOFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, and unlock authorization fly zones.
+In this tutorial, you will learn how to use the `FlyZoneManager` and `FlyZoneInformation` of DJI Mobile SDK to get the fly zone information, and unlock authorization fly zones.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo).
 
-We use Phantom 4 as an example to make this demo. Let's get started!
+We use Mavic Pro as an example to make this demo. Let's get started!
 
 ## Introduction
 
 The [Geospatial Environment Online (GEO) system](http://www.dji.com/flysafe/geo-system) is a best-in-class geospatial information system that provides drone operators with information that will help them make smart decisions about where and when to fly. It combines up-to-date airspace information, a warning and flight-restriction system, a mechanism for [unlocking](http://www.dji.com/flysafe/geo-system/unlock) (self-authorizing) drone flights in locations where flight is permitted under certain conditions, and a minimally-invasive accountability mechanism for these decisions.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the UI of the Application
 
@@ -29,9 +37,7 @@ In the [Importing and Activating DJI SDK in Android Studio Project](../applicati
 **1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJIGEODemo'. Enter the company domain and package name (Here we use "com.dji.geodemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Google Maps Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
  
 **2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
- 
- ![importSDK](../../images/tutorials-and-samples/Android/GEODemo/importsSDK.png)
- 
+  
 **3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the followings:
  
 ~~~java
@@ -101,7 +107,7 @@ import dji.sdk.sdkmanager.DJISDKManager;
 
 Since we create this demo project using "Google Maps Activity" of Android Studio, the Google Play Services is set up automatically for you. You can now start using the Google Maps Android APIs to develop your app.
 
-To learn how to generate SHA-1 key and how to apply for an Google Maps API key in <a href="https://console.developers.google.com/apis" target="_blank">Google Developer Console</a>, please refer to the **Setting Up Google Play Services** section of [Creating a MapView and Waypoint Application](../android-tutorials/GSDemo-Google-Map.html#3-generating-sha-1-key) tutorial.
+To learn how to generate SHA-1 key and how to apply for an Google Maps API key in <a href="https://console.developers.google.com/apis" target="_blank">Google Developer Console</a>, please refer to the **Setting Up Google Play Services** section of [Creating a MapView and Waypoint Application](../android-tutorials/GSDemo-Google-Map.html#3-applying-for-an-google-api-key) tutorial.
 
 Once you finish the above step, please open the "google\_maps\_api.xml" file in the **values** folder and replace the **YOUR\_KEY_HERE** with the **Google Maps API key** you just get as shown below:
 
@@ -945,7 +951,7 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two interface methods of SDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 
 #### 3. Request Permissions in ConnectionActivity
@@ -1119,12 +1125,12 @@ Now, let's add the following code at the bottom of `initUI()` method in MainActi
 ~~~java
     MainActivity.this.runOnUiThread(new Runnable() {
         public void run() {
-            loginStatusTv.setText(FlyZoneManager.getInstance().getCurrentUserAccountStatus().name());
+            loginStatusTv.setText(loginStatusTv.setText(UserAccountManager.getInstance().getUserAccountState().name());
         }
     });
 ~~~
 
-In the code above, we invoke the `getCurrentUserAccountStatus()` method of **FlyZoneManager** to fetch the current user account status and update the textView `loginStatusTv`'s text content.
+In the code above, we invoke the `getUserAccountState()` method of **UserAccountManager** to fetch the current user account status and update the textView `loginStatusTv`'s text content.
 
 Next, let's implement the `onClick()` method for `btnLogin` and `btnLogout` buttons as shown below:
 
@@ -1133,41 +1139,40 @@ Next, let's implement the `onClick()` method for `btnLogin` and `btnLogout` butt
 public void onClick(View v) {
     switch (v.getId()) {
         case R.id.geo_login_btn:
-            FlyZoneManager.getInstance().logIntoDJIUserAccount(this, new CommonCallbacks.CompletionCallbackWith<UserAccountStatus>() {
-                @Override
-                public void onSuccess(final UserAccountStatus userAccountStatus) {
-                    showToast(userAccountStatus.name());
-                    MainActivity.this.runOnUiThread(new Runnable() {
+            UserAccountManager.getInstance().logIntoDJIUserAccount(this,
+                    new CommonCallbacks.CompletionCallbackWith<UserAccountState>() {
                         @Override
-                        public void run() {
-                            loginStatusTv.setText(userAccountStatus.name());
+                        public void onSuccess(final UserAccountState userAccountState) {
+                            showToast(userAccountState.name());
+                            MainActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    loginStatusTv.setText(userAccountState.name());
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onFailure(DJIError error) {
+                            showToast(error.getDescription());
                         }
                     });
 
-                }
-
-                @Override
-                public void onFailure(DJIError error) {
-                    showToast(error.getDescription());
-                }
-            });
             break;
 
         case R.id.geo_logout_btn:
 
-            FlyZoneManager.getInstance().logoutOfDJIUserAccount(new CommonCallbacks.CompletionCallback() {
+            UserAccountManager.getInstance().logoutOfDJIUserAccount(new CommonCallbacks.CompletionCallback() {
                 @Override
                 public void onResult(DJIError error) {
                     if (null == error) {
                         showToast("logoutOfDJIUserAccount Success");
-
                         MainActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 loginStatusTv.setText("NotLoggedin");
                             }
                         });
-
                     } else {
                         showToast(error.getDescription());
                     }
@@ -1175,7 +1180,6 @@ public void onClick(View v) {
             });
 
             break;
-
         case R.id.geo_unlock_nfzs_btn:
             break;
 
@@ -1197,7 +1201,7 @@ public void onClick(View v) {
 }
 ~~~
 
-In the code above, we invoke the `LogIntoDJIUserAccount()` method of **FlyZoneManager** to present a login view for the user to login. When login success, we update the `loginStatusTv`'s text content with the user account status. Similarly, invoke the `logoutOfDJIUserAccount()` method of **FlyZoneManager** to log out the user account.
+In the code above, we invoke the `logIntoDJIUserAccount()` method of **UserAccountManager** to present a login view for the user to login. When login success, we update the `loginStatusTv`'s text content with the user account status. Similarly, invoke the `logoutOfDJIUserAccount()` method of **UserAccountManager** to log out the user account.
 
 ### Working on GEO System Features
 
@@ -1218,7 +1222,7 @@ case R.id.geo_set_geo_enabled_btn:
                     // of the selected item
                     switch (which) {
                         case 0:
-                            FlyZoneManager.getInstance().setGEOSystemEnabled(true, new CommonCallbacks.CompletionCallback() {
+                            DJISDKManager.getInstance().getFlyZoneManager().setGEOSystemEnabled(true, new CommonCallbacks.CompletionCallback() {
                                 @Override
                                 public void onResult(DJIError djiError) {
                                     if (null == djiError) {
@@ -1230,16 +1234,19 @@ case R.id.geo_set_geo_enabled_btn:
                             });
                             break;
                         case 1:
-                            FlyZoneManager.getInstance().setGEOSystemEnabled(false, new CommonCallbacks.CompletionCallback() {
-                                @Override
-                                public void onResult(DJIError djiError) {
-                                    if (null == djiError) {
-                                        showToast("set GEO Disable Success");
-                                    } else {
-                                        showToast(djiError.getDescription());
-                                    }
-                                }
-                            });
+
+                            DJISDKManager.getInstance().getFlyZoneManager().setGEOSystemEnabled(false,
+                                    new CommonCallbacks.CompletionCallback() {
+                                        @Override
+                                        public void onResult(DJIError error) {
+                                            if (null == error) {
+                                                showToast("set GEO Disable Success");
+                                            } else {
+                                                showToast(error.getDescription());
+                                            }
+                                        }
+                                    });
+
                             break;
                         case 2:
                             dialog.dismiss();
@@ -1252,7 +1259,7 @@ case R.id.geo_set_geo_enabled_btn:
     break;
 
 case R.id.geo_get_geo_enabled_btn:
-    FlyZoneManager.getInstance().getGEOSystemEnabled(new CommonCallbacks.CompletionCallbackWith<Boolean>() {
+    DJISDKManager.getInstance().getFlyZoneManager().getGEOSystemEnabled(new CommonCallbacks.CompletionCallbackWith<Boolean>() {
 
         @Override
         public void onSuccess(Boolean aBoolean) {
@@ -1281,7 +1288,7 @@ Create the following variables above the `onCreate()` method as shown below:
 private Marker marker;
 private LatLng latLng;
 private double droneLocationLat = 181, droneLocationLng = 181;
-private DJIFlightController mFlightController = null;
+private FlightController mFlightController = null;
 ~~~
 
 Then add the following two methods above the `onMapReady()` method as shown below:
@@ -1338,7 +1345,7 @@ private boolean isFlightControllerSupported() {
 
 ~~~
 
-In the code above, we mainly initialize the `mFlightController` variable and implement the `setStateCallback()` method of **DJIFlightController** to invoke the `updateDroneLocation()` method to update the aircraft location on the map view when it's moving.
+In the code above, we mainly initialize the `mFlightController` variable and implement the `setStateCallback()` method of **FlightController** to invoke the `updateDroneLocation()` method to update the aircraft location on the map view when it's moving.
 
 Moreover, let's update the `onMapReady()` method with the following codes:
 
@@ -1366,33 +1373,34 @@ Lastly, add the following two methods below the `onMapReady()` method as shown b
 ~~~java
 private void printSurroundFlyZones() {
 
-FlyZoneManager.getInstance().getFlyZonesInSurroundingArea(new CommonCallbacks.CompletionCallbackWith<ArrayList<GEOFlyZoneInformation>>() {
-        @Override
-        public void onSuccess(ArrayList<GEOFlyZoneInformation> flyZones) {
-            showToast("get surrounding Fly Zone Success!");
-            showSurroundFlyZonesInTv(flyZones);
-        }
+DJISDKManager.getInstance().getFlyZoneManager().getFlyZonesInSurroundingArea(new CommonCallbacks.CompletionCallbackWith<ArrayList<FlyZoneInformation>>() {
+    @Override
+    public void onSuccess(ArrayList<FlyZoneInformation> flyZones) {
+        showToast("get surrounding Fly Zone Success!");
+        updateFlyZonesOnTheMap(flyZones);
+        showSurroundFlyZonesInTv(flyZones);
+    }
 
-        @Override
-        public void onFailure(DJIError error) {
-            showToast(error.getDescription());
-        }
-    });
+    @Override
+    public void onFailure(DJIError error) {
+        showToast(error.getDescription());
+    }
+});
 }
 
-private void showSurroundFlyZonesInTv(final ArrayList<GEOFlyZoneInformation> flyZones) {
+private void showSurroundFlyZonesInTv(final List<FlyZoneInformation> flyZones) {
     MainActivity.this.runOnUiThread(new Runnable() {
         @Override
         public void run() {
             StringBuffer sb = new StringBuffer();
-            for (GEOFlyZoneInformation flyZone : flyZones) {
+            for (FlyZoneInformation flyZone : flyZones) {
                 if (flyZone != null && flyZone.getCategory() != null){
 
                     sb.append("FlyZoneId: ").append(flyZone.getFlyZoneID()).append("\n");
                     sb.append("Category: ").append(flyZone.getCategory().name()).append("\n");
                     sb.append("Latitude: ").append(flyZone.getCoordinate().getLatitude()).append("\n");
                     sb.append("Longitude: ").append(flyZone.getCoordinate().getLongitude()).append("\n");
-                    sb.append("FlyZoneType: ").append(flyZone.getType().name()).append("\n");
+                    sb.append("FlyZoneType: ").append(flyZone.getFlyZoneType().name()).append("\n");
                     sb.append("Radius: ").append(flyZone.getRadius()).append("\n");
                     sb.append("Shape: ").append(flyZone.getShape().name()).append("\n");
                     sb.append("StartTime: ").append(flyZone.getStartTime()).append("\n");
@@ -1421,12 +1429,19 @@ case R.id.geo_get_surrounding_nfz_btn:
 case R.id.geo_update_location_btn:
     latLng = new LatLng(DataOsdGetPushCommon.getInstance().getLatitude(),
             DataOsdGetPushCommon.getInstance().getLongitude());
+    if (latLng != null) {
+        //Create MarkerOptions object
+        final MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.aircraft));
+        marker = mMap.addMarker(markerOptions);
+    }
     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
     mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
     break;
 ~~~
 
-When you press the `btnGetSurroundNFZ` button, it will invoke the `printSurroundFlyZones()` method to update the fly zone infos on the `flyZonesTv` textView. When you press the `btnUpdateLocation` method, it will get the updated latitude and longitude data of the aircraft from `DataOsdGetPushCommon` and invoke the `moveCamera()` and `animateCamera()` method of **GoogleMap** to move and zoom in the camera to the aircraft's updated location on the map.
+When you press the `btnGetSurroundNFZ` button, it will invoke the `printSurroundFlyZones()` method to update the fly zone infos on the `flyZonesTv` textView. When you press the `btnUpdateLocation` method, it will get the updated latitude and longitude data of the aircraft from `DataOsdGetPushCommon` and update the aircraft location on the map view. Then invoke the `moveCamera()` and `animateCamera()` method of **GoogleMap** to move and zoom in the camera to the aircraft's updated location on the map.
 
 #### Unlock Fly Zones
 
@@ -1469,73 +1484,158 @@ public void onReturn(View view) {
 
 In the code above, we mainly override methods of android.app.Activity. In the `onResume()` method, we invoke the `initFlightController()` methods to initialize the `mFlightController` variable.
 
-Next, in the `onDestroy()` method, invoke the `unregisterReceiver()` method to unregister the `mReceiver`.
-
-Moreover, add the following code at the bottom of `onCreate()` method:
+Next, add the following code at the bottom of `onCreate()` method:
 
 ~~~java        
 
-FlyZoneManager.getInstance().setFlyZoneStateCallback(new FlyZoneState.Callback() {
-    @Override
-    public void onUpdate(@NonNull FlyZoneState flyZoneState) {
-        showToast(flyZoneState.name());
-    }
-});
+DJISDKManager.getInstance().getFlyZoneManager()
+        .setFlyZoneStateCallback(new FlyZoneState.Callback() {
+            @Override
+            public void onUpdate(FlyZoneState status) {
+                showToast(status.name());
+            }
+        });
 ~~~
 
 The code above will show the fly forbid status to the user. For example, if the aircraft is approaching a restricted fly area, it will pop up a message to warn the user.
 
-Before we unlock the fly zones, we should show the fly zone on the map by drawing circles with different colors. Let's create the `updateFlyZonesOnTheMap()` method and invoke it in `printSurroundFlyZones()` method as shown below:
+Before we unlock the fly zones, we should show the fly zone on the map by drawing polygons or circles with different colors. Let's define a `unlockableIds` arrayList, two int values and a `FlyfrbBasePainter` object above the `onCreate()` method first:
+
+~~~
+private ArrayList<Integer> unlockableIds = new ArrayList<Integer>();
+private final int limitFillColor = Color.HSVToColor(120, new float[] {0, 1, 1});
+private final int limitCanUnlimitFillColor = Color.argb(40, 0xFF, 0xFF, 0x00);
+private FlyfrbBasePainter painter = new FlyfrbBasePainter();
+~~~
+
+For more details of the `FlyfrbBasePainter` class, please check the "FlyfrbBasePainter.java" file in this tutorial's Github Sample Project.
+
+Then create the `updateFlyZonesOnTheMap()` method and invoke it in `printSurroundFlyZones()` method as shown below:
 
 ~~~objc
-private void updateFlyZonesOnTheMap(final ArrayList<GEOFlyZoneInformation> flyZones) {
-    if (mMap == null) {
-        return;
-    }
-    MainActivity.this.runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            mMap.clear();
-              for (GEOFlyZoneInformation flyZone : flyZones) {
-                CircleOptions circle = new CircleOptions();
-                circle.radius(flyZone.getRadius());
-                circle.center(new LatLng(flyZone.getCoordinate().getLatitude(), flyZone.getCoordinate().getLongitude()));
-                switch (flyZone.getCategory()) {
-                    case WARNING:
-                        circle.strokeColor(Color.GREEN);
-                        break;
-                    case ENHANCED_WARNING:
-                        circle.strokeColor(Color.BLUE);
-                        break;
-                    case AUTHORIZATION:
-                        circle.strokeColor(Color.YELLOW);
-                        break;
-                    case RESTRICTED:
-                        circle.strokeColor(Color.RED);
-                        break;
+private void updateFlyZonesOnTheMap(final ArrayList<FlyZoneInformation> flyZones) {
+        if (mMap == null) {
+            return;
+        }
+        MainActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mMap.clear();
+                if (latLng != null) {
 
-                    default:
-                        break;
-                }
-                mMap.addCircle(circle);
-            }
-            if (latLng != null) {
                     //Create MarkerOptions object
                     final MarkerOptions markerOptions = new MarkerOptions();
                     markerOptions.position(latLng);
                     markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.aircraft));
+
                     marker = mMap.addMarker(markerOptions);
-             }
-        }
-    });
+                }
+                for (FlyZoneInformation flyZone : flyZones) {
+
+                    //print polygon
+                    if(flyZone.getSubFlyZones() != null){
+                        SubFlyZoneInformation[] polygonItems = flyZone.getSubFlyZones();
+                        int itemSize = polygonItems.length;
+                        for(int i = 0; i != itemSize; ++i) {
+                            if(polygonItems[i].getShape() == SubFlyZoneShape.POLYGON) {
+                                DJILog.d("updateFlyZonesOnTheMap", "sub polygon points " + i + " size: " + polygonItems[i].getVertices().size());
+                                DJILog.d("updateFlyZonesOnTheMap", "sub polygon points " + i + " category: " + flyZone.getCategory().value());
+                                DJILog.d("updateFlyZonesOnTheMap", "sub polygon points " + i + " limit height: " + polygonItems[i].getMaxFlightHeight());
+                                addPolygonMarker(polygonItems[i].getVertices(), flyZone.getCategory().value(), polygonItems[i].getMaxFlightHeight());
+                            }
+                            else if (polygonItems[i].getShape() == SubFlyZoneShape.CYLINDER){
+                                LocationCoordinate2D tmpPos = polygonItems[i].getCenter();
+                                double subRadius = polygonItems[i].getRadius();
+                                DJILog.d("updateFlyZonesOnTheMap", "sub circle points " + i + " coordinate: " + tmpPos.getLatitude() + "," + tmpPos.getLongitude());
+                                DJILog.d("updateFlyZonesOnTheMap", "sub circle points " + i + " radius: " + subRadius);
+
+                                CircleOptions circle = new CircleOptions();
+                                circle.radius(subRadius);
+                                circle.center(new LatLng(tmpPos.getLatitude(),
+                                        tmpPos.getLongitude()));
+                                switch (flyZone.getCategory()) {
+                                    case WARNING:
+                                        circle.strokeColor(Color.GREEN);
+                                        break;
+                                    case ENHANCED_WARNING:
+                                        circle.strokeColor(Color.BLUE);
+                                        break;
+                                    case AUTHORIZATION:
+                                        circle.strokeColor(Color.YELLOW);
+                                        unlockableIds.add(flyZone.getFlyZoneID());
+                                        break;
+                                    case RESTRICTED:
+                                        circle.strokeColor(Color.RED);
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+                                mMap.addCircle(circle);
+                            }
+                        }
+                    }
+                    else {
+                        CircleOptions circle = new CircleOptions();
+                        circle.radius(flyZone.getRadius());
+                        circle.center(new LatLng(flyZone.getCoordinate().getLatitude(), flyZone.getCoordinate().getLongitude()));
+                        switch (flyZone.getCategory()) {
+                            case WARNING:
+                                circle.strokeColor(Color.GREEN);
+                                break;
+                            case ENHANCED_WARNING:
+                                circle.strokeColor(Color.BLUE);
+                                break;
+                            case AUTHORIZATION:
+                                circle.strokeColor(Color.YELLOW);
+                                unlockableIds.add(flyZone.getFlyZoneID());
+                                break;
+                            case RESTRICTED:
+                                circle.strokeColor(Color.RED);
+                                break;
+
+                            default:
+                                break;
+                        }
+                        mMap.addCircle(circle);
+                    }
+                }
+
+            }
+        });
+
+    }
+
+private void addPolygonMarker(List<LocationCoordinate2D> polygonPoints, int area_level, int height) {
+    if(polygonPoints == null) {
+        return;
+    }
+
+    ArrayList<LatLng> points = new ArrayList<>();
+
+    for (LocationCoordinate2D point : polygonPoints) {
+        points.add(new LatLng(point.getLatitude(), point.getLongitude()));
+    }
+    int fillColor = limitFillColor;
+    if(painter.getmHeightToColor().get(height) != null) {
+        fillColor = painter.getmHeightToColor().get(height);
+    }
+    else if(area_level == FlyForbidProtocol.LevelType.CAN_UNLIMIT.value()) {
+        fillColor = limitCanUnlimitFillColor;
+    } else if(area_level == FlyForbidProtocol.LevelType.STRONG_WARNING.value() || area_level == FlyForbidProtocol.LevelType.WARNING.value()) {
+        fillColor = getResources().getColor(R.color.gs_home_fill);
+    }
+    Polygon plg = mMap.addPolygon(new PolygonOptions().addAll(points)
+            .strokeColor(painter.getmColorTransparent())
+            .fillColor(fillColor));
 
 }
 
 private void printSurroundFlyZones() {
 
-    FlyZoneManager.getInstance().getFlyZonesInSurroundingArea(new CommonCallbacks.CompletionCallbackWith<ArrayList<GEOFlyZoneInformation>>() {
+    DJISDKManager.getInstance().getFlyZoneManager().getFlyZonesInSurroundingArea(new CommonCallbacks.CompletionCallbackWith<ArrayList<FlyZoneInformation>>() {
         @Override
-        public void onSuccess(ArrayList<GEOFlyZoneInformation> flyZones) {
+        public void onSuccess(ArrayList<FlyZoneInformation> flyZones) {
             showToast("get surrounding Fly Zone Success!");
             updateFlyZonesOnTheMap(flyZones);
             showSurroundFlyZonesInTv(flyZones);
@@ -1551,8 +1651,9 @@ private void printSurroundFlyZones() {
 
 In the code above, we implement the following features:
 
-1. In the `updateFlyZonesOnTheMap()` method, we use a for loop to get each `flyZone` object in the flyZones arraylist and then create `CircleOptions` variable and set its radius and center based on the `flyZone` object's infos.
-2. Next, invoke the `strokeColor` method of the **CircleOptions** class to stroke different color based the fly zone category. Lastly, invoke the `addCircle()` method of **GoogleMap** class to add the `circle` on the map. Also invoke the `addMarker()` method of **GoogleMap** class to initialize the `marker` variable.
+1. In the `updateFlyZonesOnTheMap()` method, we use a for loop to get each `flyZone` object in the flyZones arraylist and then check if the `flyZone` has polygon fly zone and add different shape of fly zones with different colors on the map.
+
+2. Next, in the `printSurroundFlyZones()` method, we invoke `getFlyZonesInSurroundingArea` method of `FlyZoneManager` to get the fly zone infos in the surrounding area. Then invoke the `updateFlyZonesOnTheMap()` method and pass the `flyZones` object to draw flyzone shapes on the map. Also, invoke the `showSurroundFlyZonesInTv()` method to show fly zone infos on the `flyZonesTv` textView.
 
 Finally, let's implement the `onClick()` method of `btnUnlock` and `btnGetUnlock` buttons as shown below:
 
@@ -1586,7 +1687,7 @@ case R.id.geo_unlock_nfzs_btn:
                             } else {
                                 String value2 = input.getText().toString();
                                 unlockFlyZoneIds.add(Integer.parseInt(value2));
-                                FlyZoneManager.getInstance().unlockFlyZones(unlockFlyZoneIds, new CommonCallbacks.CompletionCallback() {
+                                DJISDKManager.getInstance().getFlyZoneManager().unlockFlyZones(unlockFlyZoneIds, new CommonCallbacks.CompletionCallback() {
                                     @Override
                                     public void onResult(DJIError error) {
 
@@ -1612,11 +1713,11 @@ case R.id.geo_unlock_nfzs_btn:
 
 case R.id.geo_get_unlock_nfzs_btn:
 
-    FlyZoneManager.getInstance().getUnlockedFlyZones(new CommonCallbacks.CompletionCallbackWith<ArrayList<GEOFlyZoneInformation>>(){
+    DJISDKManager.getInstance().getFlyZoneManager().getUnlockedFlyZones(new CommonCallbacks.CompletionCallbackWith<List<FlyZoneInformation>>(){
         @Override
-        public void onSuccess(ArrayList<GEOFlyZoneInformation> djiFlyZoneInformations) {
+        public void onSuccess(final List<FlyZoneInformation> flyZoneInformations) {
             showToast("Get Unlock NFZ success");
-            showSurroundFlyZonesInTv(djiFlyZoneInformations);
+            showSurroundFlyZonesInTv(flyZoneInformations);
         }
 
         @Override
@@ -1644,7 +1745,7 @@ In the code above, we implement the following features:
 
  It will dismiss the "AlertDialog".
   
-**2.** For the case of `btnGetUnlock` button, we invoke the `getUnlockedFlyZones()` method of **FlyZoneManager** to fetch unlocked fly zone infos, then override the `onSuccess()` method and invoke the `showSurroundFlyZonesInTv()` method by passing the `djiFlyZoneInformations` ArrayList to update the fly zone infos in the right `flyZonesTv` textView.
+**2.** For the case of `btnGetUnlock` button, we invoke the `getUnlockedFlyZones()` method of **FlyZoneManager** to fetch unlocked fly zone infos, then override the `onSuccess()` method and invoke the `showSurroundFlyZonesInTv()` method by passing the `flyZoneInformations` ArrayList to update the fly zone infos in the right `flyZonesTv` textView.
 
 For more details of the implementation, please check this tutorial's Github Sample Project.
 
@@ -1658,7 +1759,7 @@ We have gone through a long way so far, now, let's build and run the project, co
 
 **2.** Press **SET GEO ENABLED** button and select "enable" to enable the GEO system and restart the aircraft.
 
-**3.** Open the Simulator of DJI Assistant 2 or DJI PC Simulator and enter the coordinate data (37.453671, -122.118101) (Near Palo Alto Airport) to start simulating the aircraft's coordinate to the authorization area.
+**3.** Open the Simulator of DJI Assistant 2 or DJI PC Simulator and enter the coordinate data (37.4613697, -122.1237315) (Near Palo Alto Airport) to start simulating the aircraft's coordinate to the authorization area.
 
 **4.** Press **UPDATE LOCATION** and **GET SURROUNDING NFZ** buttons to update the aircraft location on the map and update the fly zone information around the aircraft on the right textView. 
 
@@ -1707,7 +1808,7 @@ Wait for a while, you may see there a red aircraft placed inside the yellow circ
 
 ![updateFlyZone](../../images/tutorials-and-samples/Android/GEODemo/updateFlyZoneInfos.png)
 
-Also the textView on the right side will show the `GEOFlyZoneInformation` info, includes the fly zone name, fly zone id (required in the unlock process), fly zone category, type, etc. 
+Also the textView on the right side will show the `FlyZoneInformation` info, includes the fly zone name, fly zone id (required in the unlock process), fly zone category, type, etc. 
 
 Here are the explanation of the three fly zone circles:
 
@@ -1751,6 +1852,6 @@ Lastly, please restart the aircraft to make the settings become effective.
 
 ## Summary
 
-In this tutorial, you've learned how to use the `FlyZoneManager` and `GEOFlyZoneInformation` of DJI Mobile SDK to get the fly zone information, how to unlock authorization fly zones and how to add aircraft annotation and draw fly zone circle overlays on the map view to represent the fly zones. Moreover, you've learned how to use the DJISimulator to simulate the aircraft's coordinate and test the GEO System feature indoor without flying outside.
+In this tutorial, you've learned how to use the `FlyZoneManager` and `FlyZoneInformation` of DJI Mobile SDK to get the fly zone information, how to unlock authorization fly zones and how to add aircraft annotation and draw fly zone circle overlays on the map view to represent the fly zones. Moreover, you've learned how to use the DJISimulator to simulate the aircraft's coordinate and test the GEO System feature indoor without flying outside.
 
 Hope this tutorial can help you integrate the GEO System feature in your DJI SDK based Application. Good luck, and hope you enjoyed this tutorial!

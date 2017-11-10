@@ -1,8 +1,9 @@
 ---
 title: DJI Simulator Tutorial
-version: v4.0
-date: 2017-02-16
+version: v4.3.2
+date: 2017-10-17
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
+keywords: [iOS simulator demo, VirtualStick, virtual stick]
 ---
 
 *If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*
@@ -11,7 +12,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 
 In this tutorial, you will learn how to use the DJISimulator in your Xcode project using DJI Mobile SDK. With the help of Virtual Stick control, you can input Virtual Stick flight control data and check the changes of simulator state in real time.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo).
 
 We use Mavic Pro as an example to make this demo.
 
@@ -24,6 +25,14 @@ DJISimulator is used to control the aircraft in a simulated environment based on
 You can use the `DJISimulator` class in `DJIFlightController` to control the simulation. It allows both manual and automated flights to be simulated without actually flying the aircraft.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the UI of the Application
 
@@ -71,7 +80,7 @@ Let's open RootViewController.m file and create IBOutlets properties to link the
 }
 ~~~
 
-Next, invoke the above method at the end of both the `viewDidAppear` method and `sdkManagerProductDidChangeFrom:to:` method as shown below:
+Next, invoke the above method at the end of both the `viewDidAppear` method and `productConnected:` method as shown below:
 
 ~~~objc
 - (void)viewDidAppear:(BOOL)animated
@@ -85,11 +94,11 @@ Next, invoke the above method at the end of both the `viewDidAppear` method and 
 ~~~
 
 ~~~objc
-- (void)sdkManagerProductDidChangeFrom:(DJIBaseProduct *)oldProduct to:(DJIBaseProduct *)newProduct
+- (void)productConnected:(DJIBaseProduct *)product
 {
     ...
     
-    [self updateStatusBasedOn:newProduct];
+    [self updateStatusBasedOn:product];
 }
 ~~~
 

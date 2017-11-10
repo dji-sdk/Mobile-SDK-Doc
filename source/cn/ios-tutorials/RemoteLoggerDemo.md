@@ -1,7 +1,7 @@
 ---
 title: DJI Remote Logger Tutorial
-version: v4.0
-date: 2017-03-03
+version: v4.3.2
+date: 2017-10-17
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo
 keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 ---
@@ -10,7 +10,7 @@ keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 
 This tutorial is designed for you to obtain a better understanding of the DJI Remote Logger Tool. It will teach you how to use it for showing application log messages on a simple webpage.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo).
 
 ## Introduction
 
@@ -18,7 +18,7 @@ You can download the tutorial's final sample code project from this [Github Page
 
 ### HTTP Mode
 
-![httpMode](../../../images/tutorials-and-samples/iOS/RemoteLoggerDemo/httpModeFinalOne.png)
+![httpMode](../../images/tutorials-and-samples/iOS/RemoteLoggerDemo/httpModeFinalOne.png)
 
 You can connect your iOS device and Mac to the same WiFi network or connect to a local wireless connection created on your Mac too. This would be helpful when you test your application outside without internet connection.
 
@@ -68,7 +68,15 @@ If you meet the following error, you may need to install ruby:
 Run this command: `sudo brew install ruby`, after installing ruby successfully, try `./run_log_server.bash` command again. Problem should be solved.
    
 For other issues, please check the two problems above.
-   
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
+
 ## Download and Import the DJI SDK
 
  If you are not familiar with the process of installing DJI SDK in your Xcode project, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
@@ -163,3 +171,4 @@ Finally, build and run the project, press the button, you may be able to see the
 ### Summary
 
   Congratulations! You've learned how to use DJI Remote Logger Tool to show log messages of your application using DJI Mobile SDK. With DJI Remote Logger Tool, you can developer and debug your application with DJI Mobile SDK more efficiently. Hope you enjoy this tutorial, Thanks!
+

@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v4.0
-date: 2017-03-28
+version: v4.3.2
+date: 2017-09-29
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap
 keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission demo]
 ---
@@ -10,11 +10,11 @@ keywords: [Android GSDemo, Google Map, Google Play Service, waypoint mission dem
 
 ---
 
-In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of MissionManager. 
+In this tutorial, you will learn how to implement the DJIWaypoint Mission feature and get familiar with the usages of MissionControl. 
 
 Also you will know how to test the Waypoint Mission API with DJI Assistant 2 Simulator too. So let's get started!
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-GoogleMap).
 
 > Note: In this tutorial, we will use Mavic Pro for testing, use Android Studio 2.1.1 for developing the demo application, and use the <a href="https://developers.google.com/maps/" target="_blank">Google Map API</a> for navigating.
 
@@ -27,6 +27,14 @@ You can download the latest Android SDK from here: <a href="https://developer.dj
 ### Setup Android Development Environment
    
   Throughout this tutorial we will be using Android Studio 2.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the UI of Application
 
@@ -152,28 +160,9 @@ Then select **Tools->Android->Sync Project with Gradle Files** to sync the gradl
 
 For more details about configuring your App for Multidex with Gradle, please check this link: <a href="http://developer.android.com/tools/building/multidex.html" target="_blank">http://developer.android.com/tools/building/multidex.html</a>.
 
-### Importing the SDK
+### Importing the Maven Dependency
 
-Unzip the Android SDK package downloaded from <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
-
- ![importSDK](../images/tutorials-and-samples/Android/GSDemo-Google-Map/importsSDK.png)
-
-Next, double click on the "build.gradle(Module: app)" file to open it and add the `compile project(':dJISDKLIB')` at the bottom of **dependencies** part:
-
-~~~xml
-dependencies {
-    ...
-    compile 'com.google.android.gms:play-services:9.2.0'
-    compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')
-}
-~~~
-
-Like we do before, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
-
-Now, let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Struture window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
-
- ![dependencies](../images/tutorials-and-samples/Android/GSDemo-Google-Map/dependencies.png)
+You can check the [Integrate SDK into Application](../application-development-workflow/workflow-integrate.html#implement-app-registration-and-sdk-callbacks) tutorial to learn how to import the Android SDK Maven Dependency.
  
 ### Building the Layouts of MainActivity
 
@@ -267,10 +256,10 @@ Open the **activity_main.xml** layout file and replace the code with the followi
             android:text="Config"
             android:layout_weight="0.9"/>
         <Button
-            android:id="@+id/prepare"
+            android:id="@+id/upload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prepare"
+            android:text="Upload"
             android:layout_weight="0.9"/>
         <Button
             android:id="@+id/start"
@@ -299,7 +288,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
   
 1. Create a LinearLayout to show a TextView with "GSDemo" title and put it on the top.
 
-2. Create two lines of Buttons: "LOCATE", "ADD", "CLEAR", "CONFIG", "PREPARE", "START" and "STOP", place them horizontally.
+2. Create two lines of Buttons: "LOCATE", "ADD", "CLEAR", "CONFIG", "UPLOAD", "START" and "STOP", place them horizontally.
 
 3. Lastly, we create a map view fragment and place it at the bottom.
   
@@ -353,7 +342,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected static final String TAG = "MainActivity";
     private GoogleMap gMap;
     private Button locate, add, clear;
-    private Button config, prepare, start, stop;
+    private Button config, upload, start, stop;
 
     @Override
     protected void onResume(){
@@ -383,7 +372,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         add = (Button) findViewById(R.id.add);
         clear = (Button) findViewById(R.id.clear);
         config = (Button) findViewById(R.id.config);
-        prepare = (Button) findViewById(R.id.prepare);
+        upload = (Button) findViewById(R.id.upload);
         start = (Button) findViewById(R.id.start);
         stop = (Button) findViewById(R.id.stop);
 
@@ -391,7 +380,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         add.setOnClickListener(this);
         clear.setOnClickListener(this);
         config.setOnClickListener(this);
-        prepare.setOnClickListener(this);
+        upload.setOnClickListener(this);
         start.setOnClickListener(this);
         stop.setOnClickListener(this);
     }
@@ -525,9 +514,9 @@ In the code shown above, we implement the following features:
 
 For more details, please check the tutorial's Github Sample Project. If you are not familiar with adding a Google map to your application, please follow this <a href="https://developers.google.com/maps/documentation/android-api/utility/setup#library-dependency" target="_blank">guide</a>. 
 
-We have gone through a long process to setup the UI of the application. Now, let's build and run the project and install it in your Android device to test it. Here we use Nexus 5 for testing. If everything goes well, you should see the following gif animation of the application:
+##### Implementing ConnectionActivity Class
 
-![p4MissionsUIDemo](../images/tutorials-and-samples/Android/GSDemo-Google-Map/GSDemoAni.gif)
+To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**. You can check this section in [Creating a Camera Application](index.html#4-implementing-connectionactivity-class) to learn how to implement the ConnectionActivity Class in this project.
 
 ### Registering your Application
 
@@ -592,7 +581,18 @@ After you finish the steps above, open the DJIDemoApplication.java file and repl
 public void onCreate() {
     super.onCreate();
     mHandler = new Handler(Looper.getMainLooper());
-    DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+
+    //Check the permissions before registering the application for android system 6.0 above.
+    int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+
+            //This is used to start SDK services and initiate SDK.
+            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+        } else {
+            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+        }
+
 }
     
 private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
@@ -605,7 +605,7 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
                 }
             });
         } else {
@@ -636,10 +636,10 @@ private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKMana
 
   Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two interface methods of SDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 
-Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
+Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
 ![registerSuccess](../images/tutorials-and-samples/Android/GSDemo-Google-Map/registerSuccess.png)
 
@@ -698,7 +698,7 @@ protected BroadcastReceiver mReceiver = new BroadcastReceiver() {
     };
 ~~~
 
-The `onReceive()` method will be invoked when the DJI Product connection status change, we can us it to update our aircraft's location.
+The `onReceive()` method will be invoked when the DJI Product connection status change, we can use it to update our aircraft's location.
 
 Next, let's implement the `initFlightController()` method and invoke it inside the `onProductConnectionChange()` method:
 
@@ -895,19 +895,21 @@ Now, let's try to build and run your application on an Android device and try to
 
 #### Configurating Waypoint Mission
 
-Before we prepare a Waypoint Mission, we should provide a way for user to configure it, like setting the flying altitude, speed, heading, etc. So let's declare several variables as shown below firstly:
+Before we upload a Waypoint Mission, we should provide a way for user to configure it, like setting the flying altitude, speed, heading, etc. So let's declare several variables as shown below firstly:
 
 ~~~java
 private float altitude = 100.0f;
 private float mSpeed = 10.0f;
-private DJIWaypointMission.DJIWaypointMissionFinishedAction mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.NO_ACTION;
-private DJIWaypointMission.DJIWaypointMissionHeadingMode mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.AUTO;
 
-private DJIWaypointMission mWaypointMission;
-private MissionManager mMissionManager;
+private List<Waypoint> waypointList = new ArrayList<>();
+
+public static WaypointMission.Builder waypointMissionBuilder;
+private WaypointMissionOperator instance;
+private WaypointMissionFinishedAction mFinishedAction = WaypointMissionFinishedAction.NO_ACTION;
+private WaypointMissionHeadingMode mHeadingMode = WaypointMissionHeadingMode.AUTO;
 ~~~
 
-Here we declare the `altitude`, `mSpeed`, `mFinishedAction` and `mHeadingMode` variable and intialize them with default value. Also, we declare the DJIWaypointMission and MissionManager objects for setting up missions.
+Here we declare the `altitude`, `mSpeed`, `mFinishedAction` and `mHeadingMode` variable and intialize them with default value. Also, we declare the **WaypointMission.Builder** and **WaypointMissionOperator** variables for setting up missions.
 
 Next, replace the code of `showSettingDialog()` method with the followings:
 
@@ -923,7 +925,6 @@ private void showSettingDialog(){
     speed_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            // TODO Auto-generated method stub
             if (checkedId == R.id.lowSpeed){
                 mSpeed = 3.0f;
             } else if (checkedId == R.id.MidSpeed){
@@ -935,34 +936,36 @@ private void showSettingDialog(){
     });
 
     actionAfterFinished_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             Log.d(TAG, "Select finish action");
             if (checkedId == R.id.finishNone){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.NO_ACTION;
+                mFinishedAction = WaypointMissionFinishedAction.NO_ACTION;
             } else if (checkedId == R.id.finishGoHome){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.GO_HOME;
+                mFinishedAction = WaypointMissionFinishedAction.GO_HOME;
             } else if (checkedId == R.id.finishAutoLanding){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.AUTO_LAND;
+                mFinishedAction = WaypointMissionFinishedAction.AUTO_LAND;
             } else if (checkedId == R.id.finishToFirst){
-                mFinishedAction = DJIWaypointMission.DJIWaypointMissionFinishedAction.GO_FIRST_WAYPOINT;
+                mFinishedAction = WaypointMissionFinishedAction.GO_FIRST_WAYPOINT;
             }
         }
     });
 
     heading_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             Log.d(TAG, "Select heading");
 
             if (checkedId == R.id.headingNext) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.AUTO;
+                mHeadingMode = WaypointMissionHeadingMode.AUTO;
             } else if (checkedId == R.id.headingInitDirec) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.USING_INITIAL_DIRECTION;
+                mHeadingMode = WaypointMissionHeadingMode.USING_INITIAL_DIRECTION;
             } else if (checkedId == R.id.headingRC) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.CONTROL_BY_REMOTE_CONTROLLER;
+                mHeadingMode = WaypointMissionHeadingMode.CONTROL_BY_REMOTE_CONTROLLER;
             } else if (checkedId == R.id.headingWP) {
-                mHeadingMode = DJIWaypointMission.DJIWaypointMissionHeadingMode.USING_WAYPOINT_HEADING;
+                mHeadingMode = WaypointMissionHeadingMode.USING_WAYPOINT_HEADING;
             }
         }
     });
@@ -972,8 +975,9 @@ private void showSettingDialog(){
             .setView(wayPointSettings)
             .setPositiveButton("Finish",new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface dialog, int id) {
+
                     String altitudeString = wpAltitude_TV.getText().toString();
-                    altitude = Integer.parseInt(nulltoIntegerDefault(altitudeString));
+                    altitude = Integer.parseInt(nulltoIntegerDefalt(altitudeString));
                     Log.e(TAG,"altitude "+altitude);
                     Log.e(TAG,"speed "+mSpeed);
                     Log.e(TAG, "mFinishedAction "+mFinishedAction);
@@ -1053,164 +1057,194 @@ For the heading mode of DJIWaypointMission, we provide these enum values here:
 
 Aircraft's heading will be set to the previous waypoint's heading while travelling between waypoints. 
   
-Now, let's continue to implement the `configWayPointMission()` method as shown below:
+Now, let's continue to implement the `getWaypointMissionOperator()` and `configWayPointMission()` methods as shown below:
   
 ~~~java
+public WaypointMissionOperator getWaypointMissionOperator() {
+    if (instance == null) {
+        instance = DJISDKManager.getInstance().getMissionControl().getWaypointMissionOperator();
+    }
+    return instance;
+}
+
 private void configWayPointMission(){
 
-    if (mWaypointMission != null){
-        mWaypointMission.finishedAction = mFinishedAction;
-        mWaypointMission.headingMode = mHeadingMode;
-        mWaypointMission.autoFlightSpeed = mSpeed;
+    if (waypointMissionBuilder == null){
 
-        if (mWaypointMission.waypointsList.size() > 0){
-            for (int i=0; i< mWaypointMission.waypointsList.size(); i++){
-                mWaypointMission.getWaypointAtIndex(i).altitude = altitude;
-            }
-            setResultToToast("Set Waypoint altitude success");
-        }
-   }
-}
-~~~
+        waypointMissionBuilder = new WaypointMission.Builder().finishedAction(mFinishedAction)
+                                                              .headingMode(mHeadingMode)
+                                                              .autoFlightSpeed(mSpeed)
+                                                              .maxFlightSpeed(mSpeed)
+                                                              .flightPathMode(WaypointMissionFlightPathMode.NORMAL);
 
-  In the code above, we check if `mWaypointMission` is null and set its `finishedAction`, `headingMode` and `autoFlightSpeed` variables of DJIWaypointMission.   Then we use a for loop to set the DJIWaypoint's altitude of DJIWaypointMission's waypointsList. 
-    
-#### Prepare Waypoint Mission
+    }else
+    {
+        waypointMissionBuilder.finishedAction(mFinishedAction)
+                .headingMode(mHeadingMode)
+                .autoFlightSpeed(mSpeed)
+                .maxFlightSpeed(mSpeed)
+                .flightPathMode(WaypointMissionFlightPathMode.NORMAL);
 
-  Now, let's initialize the `mMissionManager` and `mWaypointMission` variables by implementing the `initMissionManager()` method as shown below:
-
-~~~java
-private void initMissionManager() {
-    BaseProduct product = DJIDemoApplication.getProductInstance();
-
-    if (product == null || !product.isConnected()) {
-        setResultToToast("Product Not Connected");
-        mMissionManager = null;
-        return;
-    } else {
-
-        setResultToToast("Product Connected");
-        mMissionManager = product.getMissionManager();
-        mMissionManager.setMissionProgressStatusCallback(this);
-        mMissionManager.setMissionExecutionFinishedCallback(this);
     }
 
-    mWaypointMission = new DJIWaypointMission();
-}
+    if (waypointMissionBuilder.getWaypointList().size() > 0){
 
-@Override
-public void missionProgressStatus(DJIMission.DJIMissionProgressStatus progressStatus) {
+        for (int i=0; i< waypointMissionBuilder.getWaypointList().size(); i++){
+            waypointMissionBuilder.getWaypointList().get(i).altitude = altitude;
+        }
 
-}
+        setResultToToast("Set Waypoint attitude successfully");
+    }
 
-@Override
-public void onResult(DJIError error) {
-    setResultToToast("Execution finished: " + (error == null ? "Success" : error.getDescription()));
+    DJIError error = getWaypointMissionOperator().loadMission(waypointMissionBuilder.build());
+    if (error == null) {
+        setResultToToast("loadWaypoint succeeded");
+    } else {
+        setResultToToast("loadWaypoint failed " + error.getDescription());
+    }
 
 }
 ~~~
 
-Here, we check the product connection status first and invoke DJIBaseProduct's `getMissionManager()` method to initialize `mMissionmanager` variable. Next, invoke the `setMissionProgressStatusCallback()` and `setMissionExecutionFinishedCallback()` methods of MissionManager and implement the two callback methods of MissionManager. We should also implement the `MissionManager.MissionProgressStatusCallback` and `CommonCallbacks.CompletionCallback` interfaces for the MainActivity class on top.
+In the code above, we firstly get the `WaypointMissionOperator` instance in the `getWaypointMissionOperator()` method, then in the `configWayPointMission()` method, we check if `waypointMissionBuilder` is null and set its `finishedAction`, `headingMode`, `autoFlightSpeed`, `maxFlightSpeed` and `flightPathMode` variables of **WaypointMission.Builder**.  Then we use a for loop to set each DJIWaypoint's altitude in the `waypointMissionBuilder`'s waypointsList. Next, we invoke the `loadMission()` method of WaypointMissionOperator and pass the `waypointMissionBuilder.build()` as its parameter to load the waypoint mission to the operator.
+    
+#### Upload Waypoint Mission
 
-We can get the mission execution status from the `missionProgressStatus()` callback, and check the mission execution result from the `onResult()` callback method.
-
-Moreover, we should invoke the `initMissionManager()` method in the following two methods:
+Now, let's create the following methods to setup `WaypointMissionOperatorListener`:
 
 ~~~java
 @Override
-protected void onResume(){
-    super.onResume();
-    initFlightController();
-    initMissionManager();
+protected void onCreate(Bundle savedInstanceState) {
+   ...
+   addListener();
+   
 }
 
-private void onProductConnectionChange()
-{
-    initFlightController();
-    initMissionManager();
+@Override
+protected void onDestroy(){
+    ...
+    removeListener();
 }
+
+//Add Listener for WaypointMissionOperator
+private void addListener() {
+    if (getWaypointMissionOperator() != null) {
+        getWaypointMissionOperator().addListener(eventNotificationListener);
+    }
+}
+
+private void removeListener() {
+    if (getWaypointMissionOperator() != null) {
+        getWaypointMissionOperator().removeListener(eventNotificationListener);
+    }
+}
+
+private WaypointMissionOperatorListener eventNotificationListener = new WaypointMissionOperatorListener() {
+    @Override
+    public void onDownloadUpdate(WaypointMissionDownloadEvent downloadEvent) {
+
+    }
+
+    @Override
+    public void onUploadUpdate(WaypointMissionUploadEvent uploadEvent) {
+
+    }
+
+    @Override
+    public void onExecutionUpdate(WaypointMissionExecutionEvent executionEvent) {
+
+    }
+
+    @Override
+    public void onExecutionStart() {
+
+    }
+
+    @Override
+    public void onExecutionFinish(@Nullable final DJIError error) {
+        setResultToToast("Execution finished: " + (error == null ? "Success!" : error.getDescription()));
+    }
+};
 ~~~
 
-When user resume the application and the product connection change, we should both call the `iniMissionManager()` to do initialization work.
+In the code above, we invoke the `addListener()` and `removeListener()` methods of WaypointMissionOperator to add and remove the `WaypointMissionOperatorListener` and then invoke the `addListener()` method at the bottom of `onCreate()` method and invoke the `removeListener()` method in the `onDestroy()` method.
 
-Furthermore, let's implement the prepare mission action and addWaypoint action of DJIWaypointMission as shown below:
+Next, initialize the `WaypointMissionOperatorListener` instance and implement its `onExecutionFinish()` method to show a message to inform user when the mission execution finished.
+
+Furthermore, let's set waypointList of **WaypointMission.Builder** when user tap on the map to add a waypoint in the `onMapClick()` method and implement the `uploadWayPointMission()` method to upload mission to the operator as shown below:
 
 ~~~java
 @Override
 public void onMapClick(LatLng point) {
-    if (isAdd){
+    if (isAdd == true){
         markWaypoint(point);
-        DJIWaypoint mWaypoint = new DJIWaypoint(point.latitude, point.longitude, altitude);
-        //Add waypoints to Waypoint arraylist;
-        if (mWaypointMission != null) {
-            mWaypointMission.addWaypoint(mWaypoint);
-            setResultToToast("AddWaypoint");
+        Waypoint mWaypoint = new Waypoint(point.latitude, point.longitude, altitude);
+        //Add Waypoints to Waypoint arraylist;
+        if (waypointMissionBuilder != null) {
+            waypointList.add(mWaypoint);
+            waypointMissionBuilder.waypointList(waypointList).waypointCount(waypointList.size());
+        }else
+        {
+            waypointMissionBuilder = new WaypointMission.Builder();
+            waypointList.add(mWaypoint);
+            waypointMissionBuilder.waypointList(waypointList).waypointCount(waypointList.size());
         }
     }else{
-        setResultToToast("Cannot add waypoint");
+        setResultToToast("Cannot Add Waypoint");
     }
 }
 
-private void prepareWayPointMission(){
+private void uploadWayPointMission(){
 
-    if (mMissionManager != null && mWaypointMission != null) {
-
-        DJIMission.DJIMissionProgressHandler progressHandler = new DJIMission.DJIMissionProgressHandler() {
-            @Override
-            public void onProgress(DJIMission.DJIProgressType type, float progress) {
+    getWaypointMissionOperator().uploadMission(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            if (error == null) {
+                setResultToToast("Mission upload successfully!");
+            } else {
+                setResultToToast("Mission upload failed, error: " + error.getDescription() + " retrying...");
+                getWaypointMissionOperator().retryUploadMission(null);
             }
-        };
+        }
+    });
 
-        mMissionManager.prepareMission(mWaypointMission, progressHandler, new CommonCallbacks.CompletionCallback() {
-            @Override
-            public void onResult(DJIError error) {
-                  setResultToToast(error == null ? "Mission Prepare Successfully" : error.getDescription());
-            }
-        });
-    }
-}   
+}
 ~~~
 
-Actually, we can get the mission preparation progress by overriding the `onProgress()` method of DJIMissionProgressHandler. Lastly, let's add the `R.id.prepare` case checking in the `onClick()` method:
+Lastly, let's add the `R.id.upload` case checking in the `onClick()` method:
 
 ~~~java
-case R.id.prepare:{
-    prepareWayPointMission();
+case R.id.upload:{
+    uploadWayPointMission();
     break;
 }
 ~~~
 
 #### Start and Stop Mission
   
-Once the mission finish preparation, we can invoke the `startMissionExecution()` and `stopMissionExecution()` methods of MissionManager to implement the start and stop mission feature as shown below:
+Once the mission finish uploading, we can invoke the `startMission()` and `stopMission()` methods of WaypointMissionOperator to implement the start and stop mission features as shown below:
 
 ~~~java
 private void startWaypointMission(){
 
-    if (mMissionManager != null) {
-        mMissionManager.startMissionExecution(new CommonCallbacks.CompletionCallback() {
-            @Override
-            public void onResult(DJIError error) {
-                setResultToToast("Mission Start: " + (error == null ? "Successfully" : error.getDescription()));
-            }
-        });
-    }
+    getWaypointMissionOperator().startMission(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            setResultToToast("Mission Start: " + (error == null ? "Successfully" : error.getDescription()));
+        }
+    });
+
 }
 
 private void stopWaypointMission(){
 
-    if (mMissionManager != null) {
-        mMissionManager.stopMissionExecution(new CommonCallbacks.CompletionCallback() {
-            @Override
-            public void onResult(DJIError error) {
-                setResultToToast("Stop: " + (error == null ? "Success" : error.getDescription()));
-            }
-        });
-
-        if (mWaypointMission != null){
-            mWaypointMission.removeAllWaypoints();
+    getWaypointMissionOperator().stopMission(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            setResultToToast("Mission Stop: " + (error == null ? "Successfully" : error.getDescription()));
         }
-    }
+    });
+
 }
 ~~~
 
@@ -1229,24 +1263,25 @@ public void onClick(View v) {
             enableDisableAdd();
             break;
         }
-        case R.id.clear:{
+        case R.id.clear: {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    gMap.clear();
+                    aMap.clear();
                 }
+
             });
-            if (mWaypointMission != null){
-                mWaypointMission.removeAllWaypoints(); // Remove all the waypoints added to the task
-            }
+            waypointList.clear();
+            waypointMissionBuilder.waypointList(waypointList);
+            updateDroneLocation();
             break;
         }
         case R.id.config:{
             showSettingDialog();
             break;
         }
-        case R.id.prepare:{
-            prepareWayPointMission();
+        case R.id.upload:{
+            uploadWayPointMission();
             break;
         }
         case R.id.start:{
@@ -1283,13 +1318,13 @@ Next, press the **Add** button and tap on the Map where you want to add waypoint
 
 ![addWaypointsAni](../images/tutorials-and-samples/Android/GSDemo-Google-Map/addWaypointsAni.gif)
 
-Once you press the **CONFIG** button, the **Waypoint Configuration** dialog will appear. Modify the settings as you want and press **Finish** button. Then press the **PREPARE** button to prepare the mission.
+Once you press the **CONFIG** button, the **Waypoint Configuration** dialog will appear. Modify the settings as you want and press **Finish** button. Then press the **UPLOAD** button to upload the mission.
 
-If prepare mission success, press the **START** button to start the waypoint mission execution.
+If upload mission success, press the **START** button to start the waypoint mission execution.
   
 ![prepareMission](../images/tutorials-and-samples/Android/GSDemo-Google-Map/prepareMission.gif)  
   
-Now you will should see the aircraft move towards the waypoints you set previously on the map view, as shown below:
+Now you should see the aircraft move towards the waypoints you set previously on the map view, as shown below:
 
 ![startMission](../images/tutorials-and-samples/Android/GSDemo-Google-Map/startMission.gif)
 
@@ -1307,8 +1342,6 @@ The Mavic Pro will eventually go home, land, and the beeping from the remote con
   
 ### Summary
 
- In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to configure **DJIWaypoint** parameters, how to add waypoints to **DJIWaypointMission**. Moreover, you learned how to use MissionManager to **prepare**, **start** and **stop** missions. 
+In this tutorial, you’ve learned how to setup and use the DJI Assistant 2 Simulator to test your waypoint mission application, upgrade your aircraft's firmware to the developer version, use the DJI Mobile SDK to create a simple map view, modify annotations of the map view, show the aircraft on the map view by using GPS data from the DJI Assistant 2 Simulator. Next, you learned how to use the **WaypointMission.Builder** to configure waypoint mission settings, how to create and set the waypointList in the **WaypointMission.Builder**. Moreover, you learned how to use WaypointMissionOperator to **upload**, **start** and **stop** missions. 
       
- Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!
-
-
+Congratulations! Now that you've finished the demo project, you can build on what you've learned and start to build your own waypoint mission application. You can improve the method which waypoints are added(such as drawing a line on the map and generating waypoints automatically), play around with the properties of a waypoint (such as heading, etc.), and adding more functionality. In order to make a cool waypoint mission application, you still have a long way to go. Good luck and hope you enjoy this tutorial!

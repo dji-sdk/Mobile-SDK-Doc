@@ -23,10 +23,10 @@ nav#site-header.site-header.navbar
         li
           a(href=url('products'))
             = __('nav.products')
-        li
+        //- li
           a(href=url('showcase'))
             = __('nav.showcase')
-        li
+        //- li
           a(href=url('news'))
             = __('nav.news')
         li
@@ -45,7 +45,7 @@ nav#site-header.site-header.navbar
               a(href="https://github.com/dji-sdk/Onboard-SDK", target="_blank") Onboard SDK
             li
               a(href="https://github.com/dji-sdk/Guidance-SDK", target="_blank") Guidance SDK
-        li
+        //- li
           a(href=url('challenge2016'), target="_blank") Challenge
       ul.nav.navbar-nav.navbar-right.nav-user(v-cloak="", v-show="!loggedIn")
         li

@@ -10,6 +10,9 @@
     -
       title: "Mobile SDK Introduction"
       path: "/introduction/mobile_sdk_introduction.html"
+    - 
+      title: "UI Library Introduction"
+      path: "/introduction/ui_library_introduction.html"
     -
       title: "SDK Architectural Overview"
       path: "/introduction/sdk_architectural_overview.html"
@@ -83,12 +86,21 @@
 -
   title: "IOS TUTORIALS"
   list:
+    - 
+      title: "Application Activation and Aircraft Binding"
+      path: "/ios-tutorials/ActivationAndBinding.html"
+    - 
+      title: "Getting Started with UI Library"
+      path: "/ios-tutorials/UILibraryDemo.html"
     -
       title: "Camera Application"
       path: "/ios-tutorials/index.html"
     -
       title: "Photo and Video Playback  Application"
       path: "/ios-tutorials/PlaybackDemo.html"
+    -
+      title: "Media Manager Application"
+      path: "/ios-tutorials/MediaManagerDemo.html"
     -
       title: "MapView and Waypoint Application"
       path: "/ios-tutorials/GSDemo.html"
@@ -113,9 +125,18 @@
 -
   title: "ANDROID TUTORIALS"
   list:
+    - 
+      title: "Application Activation and Aircraft Binding"
+      path: "/android-tutorials/ActivationAndBinding.html"
+    - 
+      title: "Getting Started with UI Library"
+      path: "/android-tutorials/UILibraryDemo.html"
     -
       title: "Camera Application"
       path: "/android-tutorials/index.html"
+    -
+      title: "Media Manager Application"
+      path: "/android-tutorials/MediaManagerDemo.html"
     -
       title: "MapView and Waypoint Application (GaodeMap)"
       path: "/android-tutorials/GSDemo-Gaode-Map.html"

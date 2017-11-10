@@ -1,6 +1,6 @@
 ---
 title: Mobile SDK Introduction
-date: 2016-12-13
+date: 2017-06-27
 keywords: [sdk introduction, Kinetic Energy, Share Space, Highly Asynchronous]
 ---
 
@@ -92,8 +92,8 @@ The mobile device connects to a DJI product either wirelessly with WiFi or throu
   </tr>
   <tr valign="top">
     <td><font color="#52545A" align="center"><p>Phantom 4 </br>Phantom 4 Professional </br> Phantom 3 Professional </br> Phantom 3 Advanced </br> Inspire 1 </br> Inspire 1 Pro/Raw </br> Inspire 2 </br> Matrice 100 </br> Matrice 600 </br> Matrice 600 Pro </br> Mavic Pro</p></td>
-    <td><font color="#52545A" align="center"><p>Phantom 3 4K </br> Phantom 3 Standard </p></td>
-    <td><font color="#52545A" align="center"><p>Osmo </br>Osmo Mobile</br>Osmo +</br>Mavic Pro</p></td>
+    <td><font color="#52545A" align="center"><p>Phantom 3 4K </br> Phantom 3 Standard <br>Spark</p></td>
+    <td><font color="#52545A" align="center"><p>Osmo </br>Osmo Mobile</br>Osmo +</br>Mavic Pro<br>Spark</p></td>
   </tr>
 
 </table>

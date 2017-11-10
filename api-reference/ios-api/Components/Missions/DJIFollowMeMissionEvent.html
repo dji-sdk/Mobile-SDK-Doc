@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -127,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">DJIIndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">DJIAppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">DJIUserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -199,6 +207,12 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">DJIAirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">DJIAirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">DJIBattery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -230,6 +244,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">DJIMediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">DJIMediaVideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">DJIFetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">DJIFetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -335,9 +355,19 @@
                             </dd>
                             <dd><a href="DJIShootPhotoAction.html">DJIShootPhotoAction</a>
                             </dd>
+                            <dd><a href="DJILandAction.html">DJILandAction</a>
+                            </dd>
                     </ul>
                   </dd>
-                  <dd><a href="DJIMissionTrigger.html">DJIMissionTrigger</a>
+                  <dd><a data-href="DJIMissionTrigger.html" class="sub-toggle">DJIMissionTrigger<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="DJIMissionTrigger_DJIBatteryLevelMissionTrigger.html">DJIBatteryLevelMissionTrigger</a>
+                            </dd>
+                            <dd><a href="DJIMissionTrigger_DJIWaypointReachedMissionTrigger.html">DJIWaypointReachedMissionTrigger</a>
+                            </dd>
+                            <dd><a href="DJIMissionTrigger_DJIAircraftLandedMissionTrigger.html">DJIAircraftLandedMissionTrigger</a>
+                            </dd>
+                    </ul>
                   </dd>
                   <dd><a data-href="DJIWaypointMissionOperator.html" class="sub-toggle">DJIWaypointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
@@ -500,7 +530,7 @@
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">All the possible state of <code><a href="../../Components/Missions/DJIFollowMeMissionOperator.html#djifollowmemissionoperator">DJIFollowMeMissionOperator</a></code>.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_unknown_inline"></a>DJIFollowMeMissionStateUnknown</font></td><td><font color="#666">The state of the operator is unknown. It is the inital state when the  operator is just created.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_disconnected_inline"></a>DJIFollowMeMissionStateDisconnected</font></td><td><font color="#666">The connection between the mobile device and aircraft is lost.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_notsupported_inline"></a>DJIFollowMeMissionStateNotSupported</font></td><td><font color="#666">The connected product does not support Follow Me mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_recovering_inline"></a>DJIFollowMeMissionStateRecovering</font></td><td><font color="#666">The connection between the mobile device and aircraft is built-up. The operator  is synchronizing the state from the aircraft.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_readytostart_inline"></a>DJIFollowMeMissionStateReadyToStart</font></td><td><font color="#666">The operator is ready to start a Follow Me mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_executing_inline"></a>DJIFollowMeMissionStateExecuting</font></td><td><font color="#666">The mission execution is started successfully.</font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_unknown_inline"></a>DJIFollowMeMissionStateUnknown</font></td><td><font color="#666">The state of the operator is unknown. It is the initial state when the  operator is just created.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_disconnected_inline"></a>DJIFollowMeMissionStateDisconnected</font></td><td><font color="#666">The connection between the mobile device and aircraft is lost.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_notsupported_inline"></a>DJIFollowMeMissionStateNotSupported</font></td><td><font color="#666">The connected product does not support Follow Me mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_recovering_inline"></a>DJIFollowMeMissionStateRecovering</font></td><td><font color="#666">The connection between the mobile device and aircraft is built-up. The operator  is synchronizing the state from the aircraft.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_readytostart_inline"></a>DJIFollowMeMissionStateReadyToStart</font></td><td><font color="#666">The operator is ready to start a Follow Me mission.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djifollowmemissionstate_executing_inline"></a>DJIFollowMeMissionStateExecuting</font></td><td><font color="#666">The mission execution is started successfully.</font></td></tr></table></html></div>
 
         </div>
       </div>

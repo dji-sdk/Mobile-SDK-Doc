@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -127,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -209,6 +217,14 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_Limits.html">Limits</a>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -240,6 +256,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -509,7 +531,7 @@
                     <ul class="sub-menu">
                             <dd><a href="../Missions/DJIHotPointMission.html">HotpointMission</a>
                             </dd>
-                            <dd><a data-href="../Missions/DJIHotpointMissionEvent.html" class="sub-toggle">HotpoinMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../Missions/DJIHotpointMissionEvent.html" class="sub-toggle">HotpointMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../Missions/DJIHotpointMissionState.html">HotpointMissionState</a>
                                       </dd>
@@ -622,24 +644,24 @@
 <p><font color="#666">Returns the gimbal's roll fine-tune value. The range for the fine-tuned value is [-10, 10] degrees.  If the fine-tune value is negative, the gimbal will be fine-tuned to the specified number of degrees in  the counterclockwise direction.</font></p>
 <h5 id="return-v2">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djigimbal_gimbalstate_pitchfinetuneindegrees"><div class="api-col left">Pitch Fine Tune</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_pitchfinetuneindegrees_inline">getPitchFineTuneInDegrees</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_pitchfinetuneindegrees_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>getPitchFineTuneInDegrees</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">getPitchFineTuneInDegrees</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
+<h5 id="description-v4">Description:</h5>
+<p><font color="#666">Returns the gimbal's pitch fine-tune value. The range for the fine-tuned value is [-10, 10] degrees.  If the fine-tune value is negative, the gimbal will be fine- tuned to the specified number of degrees  in the downward direction. It is only supported by Spark.</font></p>
+<h5 id="return-v3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djigimbal_gimbalstate_workmode"><div class="api-col left">Work Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_workmode_inline">getMode</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_workmode_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>getMode</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">GimbalMode <span class="title">getMode</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#gimbalkey_mode_inline">GimbalKey.MODE</a></font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Returns the gimbal's current work mode.</font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">GimbalMode</a></font></td><td><font color="#666"><i>A <code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">GimbalMode</a></code> enum value.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_gimbalstate_isattitudereset"><div class="api-col left">Attitude Reset</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_isattitudereset_inline">isAttitudeReset</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_isattitudereset_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">method </font>isAttitudeReset</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isAttitudeReset</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#gimbalkey_is_attitude_reset_inline">GimbalKey.IS_ATTITUDE_RESET</a></font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666"><code>true</code> if the attitude has been reset. If the gimbal is not in the original  position, this value will return <code>false</code>.</font></p>
+<p><font color="#666">Returns the gimbal's current work mode.</font></p>
 <h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">GimbalMode</a></font></td><td><font color="#666"><i>A <code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">GimbalMode</a></code> enum value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djigimbal_gimbalstate_ismobiledevicemounted"><div class="api-col left">Check Mobile Device Mounted</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismobiledevicemounted_inline">isMobileDeviceMounted</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismobiledevicemounted_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>isMobileDeviceMounted</h6></div>
 
@@ -754,6 +776,15 @@
 <p><font color="#666">Returns the balance status of the gimbal.</font></p>
 <h5 id="return-v16">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_loadingbalancestatus">BalanceState</a></font></td><td><font color="#666"><i>A <code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_loadingbalancestatus">BalanceState</a></code> enum value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djigimbal_gimbalstate_ismountedupwards"><div class="api-col left">Mounted Upwards</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_gimbalstate_ismountedupwards_inline">isMountedUpwards</a></div></div><div class="inline-doc" id="djigimbal_gimbalstate_ismountedupwards_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>isMountedUpwards</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isMountedUpwards</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
+<h5 id="description-v18">Description:</h5>
+<p><font color="#666"><code>true</code> if the gimbal is mounted upwards on the aircraft. It is only supported by M210 and M210 RTK.</font></p>
+<h5 id="return-v17">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
 
         </div>
       </div>

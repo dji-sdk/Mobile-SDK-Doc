@@ -1,6 +1,6 @@
 ---
 title: Gimbal
-date: 2016-12-27
+date: 2017-06-27
 keywords: [FPV Mode, Yaw Follow Mode, Free Mode, gimbal state, fine tune roll, balancing, smoothTrack, smoothTrack speed, smoothTrack acceleration, smoothTrack deadband, controller speed, controller smoothing, controller deadband, selfie, orientation lock, endpoint, range extension, motor control, upright mode]
 ---
 
@@ -8,7 +8,7 @@ keywords: [FPV Mode, Yaw Follow Mode, Free Mode, gimbal state, fine tune roll, b
 
 Cameras fixed to an aircraft will record images that pitch and roll with the aircraft as it moves. Multi rotor aircraft need to pitch and roll simply to move horizontally, and so getting a stable horizontal shot is not possible.
 
-A gimbal is used to keep a camera or sensor horizontal when its mount (e.g. aircraft) is moving. The gimbal has three motors controlling rotation in orthogonal axes. The gimbal feeds gyroscope information back to the motor controllers to compensate for rotational movement of the mount.
+A gimbal is used to keep a camera or sensor horizontal when its mount (e.g. aircraft) is moving. The gimbal has three motors controlling rotation in perpendicular axes. The gimbal feeds gyroscope information back to the motor controllers to compensate for rotational movement of the mount.
 
 In addition to stabilization, the three motors can be used to control the direction the camera is pointing, and can be used to smoothly track a target, or pan a shot. The three axes of rotation are referred to as Pitch, Roll and Yaw, and the gimbal orientation is referred to as its attitude. Explanations of these axes can be found in the [Flight Control Concepts](./flightController_concepts.html).
 
@@ -33,11 +33,9 @@ Gimbal features vary significantly across product lines. Therefore the DJI Mobil
 
 The gimbal has several work modes that define how the gimbal follows aircraft movement, and how many axes are available for control.
 
-
 - **FPV (First Person View) Mode**: Only pitch is controllable. Yaw and roll will be fixed relative to the product while pitch remains controllable.
 - **Yaw Follow Mode**: Pitch and roll are controllable. Yaw will follow the products heading.
 - **Free Mode**: Pitch, roll and yaw are all controllable, meaning the gimbal can move independently of the product's yaw. In this mode, even if the product yaw changes, the camera will continue pointing in the same world direction. 
-
 
 ## Gimbal State
 

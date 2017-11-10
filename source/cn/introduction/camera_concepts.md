@@ -27,7 +27,7 @@ The image becomes a constant color of all light combined:
 
 ### Resolve the Image
 
-To resolve the image, it is required that light from each feature of the scene only hit one small part of the sensor, or one pixel. This can be achieved by covering the sensor and putting a small hole or **aperture** in the cover to let light through.
+To resolve the image, it is required that light from each feature of the scene only hit one small part of the sensor, or one pixel. This can be achieved by covering the sensor and putting a small hole or [aperture](#aperture) in the cover to let light through.
 
 <html><img src="../../images/camera-concepts/IntroduceAperture.gif" width=100%></html>
 
@@ -95,7 +95,7 @@ While a slower shutter speed will increase exposure, the trade-off is potential 
 >
 >**Note:** Changing the shutter speed by itself also changes the exposure. To make both images have the same exposure, another exposure control method (ISO) was changed to compensate. ISO is described in the next section.
 
-Shutter speed is usually measured in seconds. As an example, DJI's Zenmuse X5 camera has a shutter speed range of 1/8000 seconds (fast) to 8 seconds (slow).
+Shutter speed is usually measured in seconds. As an example, [DJI's Zenmuse X5](http://www.dji.com/zenmuse-x5) camera has a shutter speed range of 1/8000 seconds (fast) to 8 seconds (slow).
 
 If the shutter is open for twice the amount of time, then exposure is doubled. Therefore doubling or halving shutter speed is the equivalent of increasing or decreasing the exposure by one stop.
 
@@ -131,25 +131,29 @@ In the two pictures below (demonstrating shutter speed difference), the ISO was 
 >  
 > If a picture is taken of a black scene, then the result should be very little red, green and blue light detected. If the exposure of the image is increased using amplification (ISO), then the red, green and blue pixels will all get brighter, but to slightly different levels. This means the combination of red, green, blue pixels will no longer be black, but instead be slightly red, green or blue depending on which pixel had more additive noise. 
 
-As an example of ISO, DJI's Zenmuse X5 has an ISO range from 100 (low noise) to 25600 (high noise). The ISO number is proportional to the amount of light the sensor is exposed to. Doubling the ISO is the same as increasing the exposure by one stop.
+As an example of ISO, [DJI's Zenmuse X5](http://www.dji.com/zenmuse-x5) has an ISO range from 100 (low noise) to 25600 (high noise). The ISO number is proportional to the amount of light the sensor is exposed to. Doubling the ISO is the same as increasing the exposure by one stop.
 
 ### Aperture
 
 Another way to increase exposure is to increase the aperture. 
 
-Aperture is usually described in f-numbers (also called f-stops):
+Aperture is usually described with f-numbers (also called f-stops) where f/1.4 is a large aperture and f/22 is a small aperture.
 
-* The f-number describes the diameter of the aperture
-* To double the amount of light, the aperture area must be doubled
-* Doubling the aperture area, increases the diameter by 1.414 (square root of 2)
-* Therefore to increase an aperture by one exposure stop, the f-number is increased by 1.414
-
+* The f-number (N) is formally the ratio of the lens [focal length](#field-of-view-and-focal-length) (f) to aperture diameter (D): N=f/D 
+* Customarily it is written as f/N (which is the equation above rearranged) and describes the diameter of the lens 
+* To double the amount of light, the aperture area must be doubled 
+* As the aperture is a circle, doubling the aperture area increases the diameter by a factor of 1.414 (square root of 2) 
+* Therefore to change an aperture by one exposure stop, the f-number is changed by 1.414 
+* D is inversely proportional to N, thus a larger N will describe a smaller D 
+* Compared to an aperture of f/1.4, f/2 is an aperture of half the area (f/1.4*1.414) and therefore one stop smaller.
 
 However as shown [previously](#resolve-the-image), as the aperture increases each pixel will see more than one feature in the scene, causing the picture to be increasingly out of focus.  
 
 A lens can be used to bring parts of the scene back into focus. 
 
 <html><img src="../../images/camera-concepts/LensOnAperture.gif" width=100%></html>
+
+> **Note:** This is a simplification. There are many lenses in a modern camera system many of which are between the aperture and sensor. However, the described concepts are the same between simple and more complex systems.
 
 Lenses however can only focus light from a fixed distance in front of it, to a fixed distance behind it. Light coming from a different distance in front of it, will focus at a different distance behind it. When a lens is used to bring a feature into focus, features at different distances to the camera will be out of focus.
 
@@ -180,7 +184,7 @@ The smaller f/16 aperture image background is significantly more in focus.
 
 Depth of field can be used to highlight the subject of an image. It is easier to distinguish the M600 from the background when the background is out of focus. On the other hand, if the camera is being used to computationally map a scene with many features at different distances, it would be more appropriate to have the entire image in focus (smaller aperture, deeper depth of field).
 
-As an example, DJI's Zenmuse X5 has an aperture adjustable from f/1.7 (large) to f/16 (small). This is a range of 6 1/3 exposure stops.
+As an example, [DJI's Zenmuse X5](http://www.dji.com/zenmuse-x5) has an aperture adjustable from f/1.7 (large) to f/16 (small). This is a range of 6 1/3 exposure stops.
 
 ## Trade-off Between Aperture, Shutter, ISO
 
@@ -274,9 +278,6 @@ Calculating the difference in exposure for aperture, shutter and ISO for the sec
 </table>
 </html>
 
-
-
-
 ## Field of View and Focal Length
 
 The **field of view** defines the extent of a scene a camera can capture and is measured in degrees. A larger field of view sees a larger portion of the scene, while a smaller field of view sees a smaller (but more detailed) portion of the scene. A telephoto lens with high zoom factor is a lens with a narrow field of view.
@@ -291,6 +292,6 @@ Focal length is related to field of view based on sensor size. The diagram above
   
 <html><img src="../../images/camera-concepts/FocalLength.gif" width = 100%>
 
-As an example, DJI's Zenmuse X3 camera has a diagonal field of view of 94&deg;, which is equivalent to a 20mm focal length when using a 35mm sensor. Note, the X3 sensor is smaller than 35mm, and so the physical focal length is also smaller. 
+As an example, [DJI's Zenmuse X3](http://www.dji.com/inspire-1/camera#x3) camera has a diagonal field of view of 94&deg;, which is equivalent to a 20mm focal length when using a 35mm sensor. Note, the X3 sensor is smaller than 35mm, and so the physical focal length is also smaller. 
 
 A diagonal field of view can be deconstructed to its horizontal and vertical components by using the aspect ratio of the sensor. X3 has a 4000x3000 pixel sensor, and so the horizontal and vertical field of views are 84&deg; and 62&deg; respectively.

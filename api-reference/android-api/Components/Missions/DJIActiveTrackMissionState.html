@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -127,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -209,6 +217,14 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_Limits.html">Limits</a>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -240,6 +256,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -509,7 +531,7 @@
                     <ul class="sub-menu">
                             <dd><a href="DJIHotPointMission.html">HotpointMission</a>
                             </dd>
-                            <dd><a data-href="DJIHotpointMissionEvent.html" class="sub-toggle">HotpoinMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="DJIHotpointMissionEvent.html" class="sub-toggle">HotpointMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="DJIHotpointMissionState.html">HotpointMissionState</a>
                                       </dd>
@@ -610,7 +632,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ActiveTrackState UNKNOWN = <span class="keyword">new</span> ActiveTrackState(<span class="string">"UNKNOWN"</span>)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.activetrack</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">The state of the operator is unknown. It is the inital state when the  operator is just created.</font></p>
+<p><font color="#666">The state of the operator is unknown. It is the initial state when the  operator is just created.</font></p>
 </div>
 <div class="api-row" id="djiactivetrackmissionstate_disconnected"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djiactivetrackmissionstate_disconnected_inline">DISCONNECTED</a></div></div><div class="inline-doc" id="djiactivetrackmissionstate_disconnected_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">final </font>DISCONNECTED</h6></div>
@@ -684,20 +706,28 @@
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">The operator is executing an ActiveTrack mission in Splotlight mode or  Spotlight Pro mode. The target is found and camera is following the target.</font></p>
 </div>
+<div class="api-row" id="djiactivetrackmissionstate_quickshot"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djiactivetrackmissionstate_quickshot_inline">PERFORMING_QUICK_SHOT</a></div></div><div class="inline-doc" id="djiactivetrackmissionstate_quickshot_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">final </font>PERFORMING_QUICK_SHOT</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ActiveTrackState PERFORMING_QUICK_SHOT = <span class="keyword">new</span> ActiveTrackState(<span class="string">"PERFORMING_QUICK_SHOT"</span>)</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.activetrack</font></td></tr></table></html>
+<h5 id="description-v12">Description:</h5>
+<p><font color="#666">The operator is executing a QuickShot ActiveTrack mission.</font></p>
+</div>
 <div class="api-row" id="djiactivetrackmissionstate_findingtrackedtarget"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djiactivetrackmissionstate_findingtrackedtarget_inline">FINDING_TRACKED_TARGET</a></div></div><div class="inline-doc" id="djiactivetrackmissionstate_findingtrackedtarget_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">final </font>FINDING_TRACKED_TARGET</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ActiveTrackState FINDING_TRACKED_TARGET = <span class="keyword">new</span> ActiveTrackState(<span class="string">"FINDING_TRACKED_TARGET"</span>)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.activetrack</font></td></tr></table></html>
-<h5 id="description-v12">Description:</h5>
-<p><font color="#666">ActiveTrack is started but the target is lost. The vision system is detecting  the previous found target.</font></p>
+<h5 id="description-v13">Description:</h5>
+<p><font color="#666">ActiveTrack is started but the target is lost. The vision system is detecting  the previously found target.</font></p>
 </div>
 <div class="api-row" id="djiactivetrackmissionstate_idle"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djiactivetrackmissionstate_idle_inline">IDLE</a></div></div><div class="inline-doc" id="djiactivetrackmissionstate_idle_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">final </font>IDLE</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ActiveTrackState IDLE = <span class="keyword">new</span> ActiveTrackState(<span class="string">"IDLE"</span>)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.activetrack</font></td></tr></table></html>
-<h5 id="description-v13">Description:</h5>
+<h5 id="description-v14">Description:</h5>
 <p><font color="#666">The mission is idle.</font></p>
 </div>
 

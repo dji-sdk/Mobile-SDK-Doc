@@ -1,6 +1,6 @@
 ---
 title: Deploy
-date: 2016-06-24
+date: 2017-10-13
 keywords: [deploy, xcode configuration, MFI authorization]
 ---
 
@@ -22,6 +22,8 @@ A workaround for an App Store submission bug when archiving universal binaries i
 DJI's products that require an Apple Lightning connection to an iOS mobile device are MFi accessories. Applications that use MFi accessories need authorization from Apple to do so.
 
 Therefore, an application needs to go through the MFi Program Application process before being released on the App Store. This process requires communication between the developer, DJI and Apple and can take several weeks to complete if no challenges come up.
+
+After the application gets MFI authorization and is released on the App Store, if developer need to update the application, it's not necessary to go through the MFi Program Application process again if the **App Name** and **Bundle Identifier** of the application are not changed.
 
 #### How to Apply for the MFi Program
 
@@ -55,8 +57,13 @@ The PPID will appear in the **MFI PROGRAM** section as shown below:
 
 During the application submission process, enter the PPID in the **Notes** section of the App Review Information webpage:
 
-![graph](../images/application-development-workflow/reviewNotes.png)
+<img src="../images/application-development-workflow/reviewNotes.png" width=100%>
+
+> **Important**: Please don’t use different **App Name**, **App Version** or **Bundle Identifier** when you fill in the App Information page in iTunes Connect. Otherwise, Apple will not be able to find your MFi application info in DJI's MFI Product Plan Form list and may reject your application submission.
+
+<img src="../images/application-development-workflow/mfiInfoComparison.png" width=100%>
 
 ##### 6. Apple reviews the App to determine whether it can be published on the App Store
 
 The normal Apple review process proceeds.
+

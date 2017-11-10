@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.0
-date: 2017-03-28
+version: v4.3.2
+date: 2017-09-29
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -12,86 +12,29 @@ keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basi
 
 This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: **Take Photo** and **Record video**.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo).
 
 ## Preparation
-
-### Download the SDK
-
-You can download the latest Android SDK from here: <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">https://developer.dji.com/mobile-sdk/downloads</a>.
 
 ### Setup Android Development Environment
    
   Throughout this tutorial we will be using Android Studio 2.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
 
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
+
 ## Implementing the UI of Application
 
-In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the DJI Android SDK into your Android Studio project and activate your application. If you haven't read that previously, please take a look at it. Once you've done that, let's continue to create the project.
+### Importing Maven Dependency
 
-### Importing the Framework and Libraries
+Open Android Studio and select **File -> New -> New Project** to create a new project, named 'FPVDemo'. Enter the company domain and package name (Here we use "com.dji.FPVDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
 
- **1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'FPVDemo'. Enter the company domain and package name (Here we use "com.dji.FPVDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
- 
- **2**. Unzip the Android SDK package downloaded from <a href="https://developer.dji.com/mobile-sdk/downloads" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
- 
- ![importSDK](../../images/tutorials-and-samples/Android/FPVDemo/importsSDK.png)
- 
- **3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the following:
- 
-~~~java
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.1'
-
-    defaultConfig {
-        applicationId "com.dji.FPVDemo"
-        minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
-
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')
-}
-~~~
- 
- In the code above, we modify its dependencies by adding `compile project(':dJISDKLIB')` in the "dependencies" part at the bottom, and change the compileSdkVersion, buildToolsVersion number, etc. 
-  
- ![configureAndroidSDK](../../images/tutorials-and-samples/Android/FPVDemo/buildGradle.png)
- 
- Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
- 
- **4**. Let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
- 
- ![dependencies](../../images/tutorials-and-samples/Android/FPVDemo/dependencies.png)
- 
- **5**. Now, open the MainActivity.java file in `com.dji.FPVDemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
- 
-~~~java
-package com.dji.FPVDemo;
-
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import dji.sdk.sdkmanager.DJISDKManager;
-~~~
-
-  Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
+In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the Android SDK Maven Dependency and activate your application. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
 ### Building the Layouts of Activity
 
@@ -646,8 +589,17 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
     public void onCreate() {
         super.onCreate();
         mHandler = new Handler(Looper.getMainLooper());
-        //This is used to start SDK services and initiate SDK.
-        DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+
+        //Check the permissions before registering the application for android system 6.0 above.
+        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+
+                //This is used to start SDK services and initiate SDK.
+                DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+            } else {
+                Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+            }
     }
 
     /**
@@ -721,7 +673,7 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the DJISDKManager.
+1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
 2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
 3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
 
@@ -828,7 +780,7 @@ Now, let's open the "MainActivity.java" file and declare the `TAG` and `mReceive
 
 ~~~java
 private static final String TAG = MainActivity.class.getName();
-protected Camera.VideoDataCallback mReceivedVideoDataCallBack = null;
+protected VideoFeeder.VideoDataCallback mReceivedVideoDataCallBack = null;
 ~~~
 
 Then update the `onCreate()` method as shown below:
@@ -841,22 +793,19 @@ protected void onCreate(Bundle savedInstanceState) {
     initUI();
 
     // The callback for receiving the raw H264 video data for camera live view
-     mReceivedVideoDataCallBack = new Camera.VideoDataCallback() {
+    mReceivedVideoDataCallBack = new VideoFeeder.VideoDataCallback() {
 
         @Override
-        public void onReceive(byte[] bytes, int size) {
-            if(mCodecManager != null){
-                // Send the raw H264 video data to codec manager for decoding
-                mCodecManager.sendDataToDecoder(bytes, size);
-            }else {
-                Log.e(TAG, "mCodecManager is null");
+        public void onReceive(byte[] videoBuffer, int size) {
+            if (mCodecManager != null) {
+                mCodecManager.sendDataToDecoder(videoBuffer, size);
             }
         }
     };
 }
 ~~~
 
-In the code above, we initialize the `mReceivedVideoDataCallBack` variable using Camera's `VideoDataCallback()`. Inside the callback, we override its `onReceive()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
+In the code above, we initialize the `mReceivedVideoDataCallBack` variable using VideoFeeder's `VideoDataCallback()`. Inside the callback, we override its `onReceive()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
 
 Next, let's implement the `onProductChange()` method invoke it in the `onResume()` method as shown below: 
 
@@ -891,12 +840,8 @@ private void initPreviewer() {
         if (null != mVideoSurface) {
             mVideoSurface.setSurfaceTextureListener(this);
         }
-        if (!product.getModel().equals(Model.UnknownAircraft)) {
-            Camera camera = product.getCamera();
-            if (camera != null){
-                // Set the callback
-                camera.setVideoDataCallback(mReceivedVideoDataCallBack);
-            }
+        if (!product.getModel().equals(Model.UNKNOWN_AIRCRAFT)) {
+            VideoFeeder.getInstance().getPrimaryVideoFeed().setCallback(mReceivedVideoDataCallBack);
         }
     }
 }
@@ -905,12 +850,12 @@ private void uninitPreviewer() {
     Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null){
         // Reset the callback
-        FPVDemoApplication.getCameraInstance().setVideoDataCallback(null);
+            VideoFeeder.getInstance().getPrimaryVideoFeed().setCallback(null);
     }
 }
 ~~~
 
-In the `initPreviewer()` method, firstly, we check the product connection status and invoke the `setSurfaceTextureListener()` method of TextureView to set texture listener to MainActivity. Then get the Camera variable by invoking the `getCamera()` method of BaseProduct and set `mReceivedVideoDataCallBack` as its "VideoDataCallback". So once the camera is connected and receive video data, it will show on the `mVideoSurface` TextureView.
+In the `initPreviewer()` method, firstly, we check the product connection status and invoke the `setSurfaceTextureListener()` method of TextureView to set texture listener to MainActivity. Then check if `VideoFeeder` has video feeds and the video feed's size is larger than 0 and set the `mReceivedVideoDataCallBack` as its "callback". So once the camera is connected and receive video data, it will show on the `mVideoSurface` TextureView.
 
 Moreover, we implement the `uninitPreviewer()` method to reset Camera's "VideoDataCallback" to null.
 
@@ -1210,5 +1155,6 @@ Now, let's build and run the project and check the functions. Here we use Mavic 
 
 ### Summary
    
-   In this tutorial, you’ve learned how to use DJI Mobile SDK to show the FPV View from the aircraft's camera and control the camera of DJI's Aircraft to shoot photo and record video. These are the most basic and common features in a typical drone mobile app: **Capture** and **Record**. However, if you want to create a drone app which is more fancy, you still have a long way to go. More advanced features should be implemented, including previewing the photo and video in the SD Card, showing the OSD data of the aircraft and so on. Hope you enjoy this tutorial, and stay tuned for our next one!
+In this tutorial, you’ve learned how to use DJI Mobile SDK to show the FPV View from the aircraft's camera and control the camera of DJI's Aircraft to shoot photo and record video. These are the most basic and common features in a typical drone mobile app: **Capture** and **Record**. However, if you want to create a drone app which is more fancy, you still have a long way to go. More advanced features should be implemented, including previewing the photo and video in the SD Card, showing the OSD data of the aircraft and so on. Hope you enjoy this tutorial, and stay tuned for our next one!
+
    

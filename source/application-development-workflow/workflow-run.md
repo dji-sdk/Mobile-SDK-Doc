@@ -1,6 +1,6 @@
 ---
 title: Run Application
-date: 2017-2-23
+date: 2017-6-27
 keywords: [activate product, upgrade firmware, flight mode switch, connection configuration]
 ---
 
@@ -65,16 +65,16 @@ _Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3
   
 ### WiFi Connection Procedure
 
-_Phantom 3 Standard, Phantom 3 4K:_
+_Phantom 3 Standard, Phantom 3 4K, Spark:_
 
 1. Turn on the Remote Controller.  
 * Connect Mobile Device to the WiFi network created by the Remote Controller.
 * Turn on the Aircraft and wait until the Remote Controller has connected with the Aircraft.
 * Run Application on the Mobile Device.
   
-_Osmo:_
+_Osmo, Mavic Pro, Spark:_
 
-1. Turn on the Osmo.  
-* Connect Mobile Device to the WiFi network created by the Osmo.
+1. Turn on the product (Osmo or aircraft).  
+* Connect Mobile Device to the WiFi network created by the product.
 * Run Application on Mobile Device.
 

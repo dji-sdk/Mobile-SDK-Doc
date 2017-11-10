@@ -86,8 +86,8 @@ Several iOS and Android tutorials are provided as examples on how to use the SDK
 
 Full API descriptions are available for iOS and Android.
 
-* <a href="https://developer.dji.com/iframe/mobile-sdk-doc/ios/index.html" target="_blank">iOS API Reference</a>
-* <a href="https://developer.dji.com/iframe/mobile-sdk-doc/android/reference/packages.html" target="_blank">Android API Reference</a>
+* <a href="http://developer.dji.com/api-reference/ios-api/index.html" target="_blank">iOS API Reference</a>
+* <a href="http://developer.dji.com/api-reference/android-api/index.html" target="_blank">Android API Reference</a>
 
 ### FAQ
 

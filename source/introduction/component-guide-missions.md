@@ -1,7 +1,7 @@
 ---
 title: Missions
-date: 2017-03-07
-keywords: [mission manager, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission, custom mission]
+date: 2017-06-27
+keywords: [mission control, waypoint mission, hot point mission, follow me mission, activeTrack mission, tapFly mission, panorama mission]
 ---
 
 ## Introduction
@@ -10,11 +10,9 @@ Missions can be used to easily automate flight. There are many different mission
 
 Missions run from the mobile device can offer more complex or customizable behavior, however if the wireless link between remote controller and aircraft is lost then they can be interrupted. In comparison, missions run from the aircraft will be less customizable and be limited by aircraft memory, but be able to continue when there is a loss in the wireless link.
 
+## Mission Control
 
-## Mission Manager
-
-All missions are managed through the DJI Mobile SDK's Mission Manager. The Mission Manager provides a consistent execution experience for all missions and allows preparation, starting, pausing, resuming, downloading and ending of missions.
-
+Mission Control handles execution of missions. Either single missions can be run through dedicated mission operators, or a series of missions and actions can be run serially using the Timeline.
 
 ## Waypoint Mission
 
@@ -24,7 +22,7 @@ During the mission, the mission can be manually adjusted using the remote contro
 
 ![](../images/component-guide/waypoints.gif)
 
-A Waypoint Mission is uploaded to and executed by the aircraft, but is limited by the amount of storage in the flight controller. Accordingly only 99 waypoints can be executed per mission. Custom Mission can be used to easily queue waypoint missions, in applications that require more than 99 points.
+A Waypoint Mission is uploaded to and executed by the aircraft, but is limited by the amount of storage in the flight controller. Accordingly only 99 waypoints can be executed per mission.
 
 ### Hot Point Mission
 
@@ -75,7 +73,7 @@ There are three modes of the Active Track Mission:
 
 The TapFly mission flies the aircraft in the direction of a point on the live video stream that the user chooses. The mission is initialized with a position target from the live video stream. The 3D direction of the coordinate is calculated, and the aircraft proceeds to fly in that direction. The aircraft can automatically avoid obstacles when the scene is sufficiently illuminated (more than 300 lux but less than 10,000 lux). The aircraft stops flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass. 
 
-The Remote Controller yaw stick can be used to adjust the heading of the aircraft during mission execution, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
+The Remote Controller yaw stick can be used to adjust the heading of the aircraft during mission execution, which also adjusts the direction of flight to the new yaw. 
 
 TapFly is only supported on newer aircraft with vision systems.
 
@@ -92,20 +90,5 @@ For Phantom 4 Professional, there are three TapFly modes:
 The Panorama Mission rotates the camera 180 or 360 degrees while taking photos which can then be downloaded to render a panorama. In full circle mode, 8 photos are taken. In half circle mode, 5 photos are taken. Other commands cannot be sent to the camera until the mission is finished. The Panorama Mission does not support the image stitching feature, so the images must be stitched manually. All the images will be stored on the SD card.
 
 The Panorama Mission is only supported on OSMO. 
-
-### Custom Mission
-
-The Custom Mission serializes multiple missions or mission steps. It is an easy way to create complex, rich missions. Each mission step is uploaded to the aircraft at time of execution. Mission steps available are:
-
-* Waypoint Mission
-* Follow Me Mission
-* Hot Point Mission
-* Aircraft Take off
-* Goto Waypoint
-* Go Home
-* Shoot Photo
-* Record Video
-* Change Aircraft Yaw
-* Change Gimbal Attitude
 
 

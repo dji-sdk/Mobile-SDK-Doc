@@ -56,6 +56,8 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UI Library</a></li>
+            <li><a href="/api-reference/android-uilib-api/index.html">Android UI Library</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
     </div>
@@ -127,7 +129,13 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">IndividualUnlockZone</a>
+                            </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="../AppActivationManager/DJIAppActivationManager.html">AppActivationManager</a>
+                  </dd>
+                  <dd><a href="../UserAccountManager/DJIUserAccountManager.html">UserAccountManager</a>
                   </dd>
           </dl>
           <dl>
@@ -209,6 +217,14 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJILocationCoordinate2D.html">LocationCoordinate2D</a>
                             </dd>
+                            <dd><a data-href="../FlightController/DJIAirSenseSystemInformation.html" class="sub-toggle">AirSenseSystemInformation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../FlightController/DJIAirSenseAirplaneState.html">AirSenseAirplaneState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_Limits.html">Limits</a>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">Battery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -240,6 +256,12 @@
                                       <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
+                                      </dd>
+                                      <dd><a data-href="../Camera/DJIMediaManager_FetchMediaTaskScheduler.html" class="sub-toggle">FetchMediaTaskScheduler<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIFetchMediaTask.html">FetchMediaTask</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                               </ul>
                             </dd>
@@ -509,7 +531,7 @@
                     <ul class="sub-menu">
                             <dd><a href="../Missions/DJIHotPointMission.html">HotpointMission</a>
                             </dd>
-                            <dd><a data-href="../Missions/DJIHotpointMissionEvent.html" class="sub-toggle">HotpoinMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../Missions/DJIHotpointMissionEvent.html" class="sub-toggle">HotpointMissionEvent<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../Missions/DJIHotpointMissionState.html">HotpointMissionState</a>
                                       </dd>
@@ -599,7 +621,7 @@
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>GimbalKey</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GimbalKey</span> <span class="keyword">extends</span> <span class="title">DJIKey</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.key</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/KeyManager/DJIKey.html#djikey">DJIKey</a></code></font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.keysdk</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/KeyManager/DJIKey.html#djikey">DJIKey</a></code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666"><code><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey">GimbalKey</a></code> is an object providing access to Gimbal attributes.</font></p>
 <h5 id="class-members">Class Members:</h5>
@@ -607,7 +629,7 @@
 <div class="article"><h6><font color="#AAA">method </font>create</h6></div>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> GimbalKey <span class="title">create</span><span class="params">(@GimbalParamKey @NonNull String paramKey)</span></span></div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.key</font></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.keysdk</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Creates a Gimbal key.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
@@ -646,9 +668,7 @@
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getcontrollersmoothingonaxis">getControllerSmoothingFactor</a></code></font></p>
 <p></p></td></tr><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_movementSettingsState.html#djigimbal_movementsettingsstate_controllersmoothingpitch">getPitchControllerSmoothingFactor</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyreset_gimbal_inline"></a><p class="key_table_key_string key_table_key_row">RESET_GIMBAL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_resetgimbal">reset</a></code></font></p>
-<p></p></td><tr><td colspan="2"><a href="#gimbalkeyroll_test_result_inline"></a><p class="key_table_key_string key_table_key_row">ROLL_TEST_RESULT</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_balancetestresult">BalanceTestResult</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyroll_test_result_inline"></a><p class="key_table_key_string key_table_key_row">ROLL_TEST_RESULT</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_balancetestresult">BalanceTestResult</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_GimbalState.html#djigimbal_gimbalstate_rolltestresult">getRollBalanceTestResult</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_balancetestresult">BalanceTestResult</a></code></font></p>
@@ -658,12 +678,20 @@
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setcontrollerdeadbandonaxis">setControllerDeadband</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getcontrollerdeadbandonaxis">getControllerDeadband</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeystart_balance_test_inline"></a><p class="key_table_key_string key_table_key_row">START_BALANCE_TEST</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_startgimbalbalancetest">startBalanceTest</a></code></font></p>
-<p></p></td><tr><td colspan="2"><a href="#gimbalkeypitch_motor_control_gyro_filtering_factor_inline"></a><p class="key_table_key_string key_table_key_row">PITCH_MOTOR_CONTROL_GYRO_FILTERING_FACTOR</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyroll_motor_control_strength_inline"></a><p class="key_table_key_string key_table_key_row">ROLL_MOTOR_CONTROL_STRENGTH</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmotorcontrolstrengthonaxis">setMotorControlStrength</a></code></font></p>
+<p></p></td><tr><td></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getmotorcontrolstrengthonaxis">getMotorControlStrength</a></code></font></p>
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeypitch_motor_control_gyro_filtering_factor_inline"></a><p class="key_table_key_string key_table_key_row">PITCH_MOTOR_CONTROL_GYRO_FILTERING_FACTOR</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmotorcontrolgyrofilteringonaxis">setMotorControlGyroFilteringFactor</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getmotorcontrolgyrofilteringonaxis">getMotorControlGyroFilteringFactor</a></code></font></p>
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyyaw_smooth_track_acceleration_inline"></a><p class="key_table_key_string key_table_key_row">YAW_SMOOTH_TRACK_ACCELERATION</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setsmoothtrackaccelerationonaxis">setSmoothTrackAcceleration</a></code></font></p>
+<p></p></td><tr><td></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getsmoothtrackaccelerationonaxis">getSmoothTrackAcceleration</a></code></font></p>
+<p></p></td></tr><tr><td></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_movementSettingsState.html#djigimbal_movementsettingsstate_smoothtrackaccelerationyaw">getYawSmoothTrackAcceleration</a></code></font></p>
 <p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyroll_motor_control_gyro_filtering_factor_inline"></a><p class="key_table_key_string key_table_key_row">ROLL_MOTOR_CONTROL_GYRO_FILTERING_FACTOR</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmotorcontrolgyrofilteringonaxis">setMotorControlGyroFilteringFactor</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
@@ -712,13 +740,9 @@
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_configuremotorcontrolwithpreset">applyMotorControlPreset</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_motorcontrolpreset">MotorControlPreset</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyyaw_smooth_track_acceleration_inline"></a><p class="key_table_key_string key_table_key_row">YAW_SMOOTH_TRACK_ACCELERATION</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setsmoothtrackaccelerationonaxis">setSmoothTrackAcceleration</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getsmoothtrackaccelerationonaxis">getSmoothTrackAcceleration</a></code></font></p>
-<p></p></td></tr><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_movementSettingsState.html#djigimbal_movementsettingsstate_smoothtrackaccelerationyaw">getYawSmoothTrackAcceleration</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyyaw_controller_speed_coefficient_inline"></a><p class="key_table_key_string key_table_key_row">YAW_CONTROLLER_SPEED_COEFFICIENT</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeystart_balance_test_inline"></a><p class="key_table_key_string key_table_key_row">START_BALANCE_TEST</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_startgimbalbalancetest">startBalanceTest</a></code></font></p>
+<p></p></td><tr><td colspan="2"><a href="#gimbalkeyyaw_controller_speed_coefficient_inline"></a><p class="key_table_key_string key_table_key_row">YAW_CONTROLLER_SPEED_COEFFICIENT</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setcontrollerspeedonaxis">setControllerSpeedCoefficient</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getcontrollerspeedonaxis">getControllerSpeedCoefficient</a></code></font></p>
@@ -792,8 +816,8 @@
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmotorcontrolstiffnessonaxis">setMotorControlStiffness</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getmotorcontrolstiffnessonaxis">getMotorControlStiffness</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyis_attitude_reset_inline"></a><p class="key_table_key_string key_table_key_row">IS_ATTITUDE_RESET</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_GimbalState.html#djigimbal_gimbalstate_isattitudereset">isAttitudeReset</a></code></font></p>
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeycalibration_progress_inline"></a><p class="key_table_key_string key_table_key_row">CALIBRATION_PROGRESS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_GimbalState.html#djigimbal_gimbalstate_calibrationprogress">getCalibrationProgress</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#gimbalkeymovement_settings_profile_inline"></a><p class="key_table_key_string key_table_key_row">MOVEMENT_SETTINGS_PROFILE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_movementsettingsprofile">MovementSettingsProfile</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmovementsettingsprofile">setMovementSettingsProfile</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
@@ -832,11 +856,9 @@
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getcontrollerspeedonaxis">getControllerSpeedCoefficient</a></code></font></p>
 <p></p></td></tr><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_movementSettingsState.html#djigimbal_movementsettingsstate_controllerspeedpitch">getPitchControllerSpeedCoefficient</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyroll_motor_control_strength_inline"></a><p class="key_table_key_string key_table_key_row">ROLL_MOTOR_CONTROL_STRENGTH</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmotorcontrolstrengthonaxis">setMotorControlStrength</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getmotorcontrolstrengthonaxis">getMotorControlStrength</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyis_yaw_at_stop_inline"></a><p class="key_table_key_string key_table_key_row">IS_YAW_AT_STOP</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyreset_gimbal_inline"></a><p class="key_table_key_string key_table_key_row">RESET_GIMBAL</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_resetgimbal">reset</a></code></font></p>
+<p></p></td><tr><td colspan="2"><a href="#gimbalkeyis_yaw_at_stop_inline"></a><p class="key_table_key_string key_table_key_row">IS_YAW_AT_STOP</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_GimbalState.html#djigimbal_gimbalstate_isyawatstop">isYawAtStop</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#gimbalkeytoggle_selfie_inline"></a><p class="key_table_key_string key_table_key_row">TOGGLE_SELFIE</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">ACTION</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>-</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_togglegimbalselfie">toggleSelfie</a></code></font></p>
@@ -846,9 +868,7 @@
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setmotorcontrolstiffnessonaxis">setMotorControlStiffness</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getmotorcontrolstiffnessonaxis">getMotorControlStiffness</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeycalibration_progress_inline"></a><p class="key_table_key_string key_table_key_row">CALIBRATION_PROGRESS</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal_GimbalState.html#djigimbal_gimbalstate_calibrationprogress">getCalibrationProgress</a></code></font></p>
-<p></p></td><tr><td colspan="2"><a href="#gimbalkeyyaw_smooth_track_speed_inline"></a><p class="key_table_key_string key_table_key_row">YAW_SMOOTH_TRACK_SPEED</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#gimbalkeyis_attitude_reset_inline"></a><p class="key_table_key_string key_table_key_row">IS_ATTITUDE_RESET</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">PUSH</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">-</p></td><tr><td colspan="2"><a href="#gimbalkeyyaw_smooth_track_speed_inline"></a><p class="key_table_key_string key_table_key_row">YAW_SMOOTH_TRACK_SPEED</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">SET, GET</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Integer</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_setsmoothtrackspeedonaxis">setSmoothTrackSpeed</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_getsmoothtrackspeedonaxis">getSmoothTrackSpeed</a></code></font></p>

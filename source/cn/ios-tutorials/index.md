@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.0
-date: 2017-03-3
+version: v4.3.2
+date: 2017-10-17
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -12,7 +12,7 @@ keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tu
 
 This tutorial is designed for you to gain a basic understanding of the DJI Mobile SDK. It will implement the FPV view and two basic camera functionalities: **Take Photo** and **Record video**.
 
-You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo).
    
 We use Mavic Pro as an example to make this demo.
 
@@ -22,45 +22,32 @@ Now, let's create a new project in Xcode, choose **Single View Application** tem
 
 Once the project is created, let's delete the "ViewController.h" and "ViewController.m" files created by Xcode by default. Create a new ViewController named "DJICameraViewController". 
 
-Now, let's install the **DJISDK** in the Xcode project using Cocoapods and implement the SDK activation process in the "DJICameraViewController.m" file. If you are not familiar with the process of installing and activating DJI SDK, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
+Now, let's install the **DJISDK.framework** in the Xcode project using Cocoapods and implement the SDK activation process in the "DJICameraViewController.m" file. If you are not familiar with the process of installing and activating DJI SDK, please check the Github source code and this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
+
+## Application Activation and Aircraft Binding in China
+
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+
+ If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+
+ To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the First Person View
 
-### Install DJIVideoPreviewer using CocoaPods
+### Importing the VideoPreviewer
 
- **1**. **DJIVideoPreviewer** is an open source project to decode and render video data from DJI products. In the **DJIVideoPreviewer** project, we use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding. For the hardware video decoding, we provide a **DJIH264Decoder** decoding library. You can learn more in the [**DJIVideoPreviewer**]() Github Repository.
+ **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **H264VTDecode** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
+  
+ ![projectNavigator](../../images/tutorials-and-samples/iOS/FPVDemo/projectNavigator.png)
  
- **2**. Let's replace the content of the **Podfile** file with the followings:
-
- ~~~
-  # platform :ios, '9.0'
-
-  target 'FPVDemo' do
-    pod 'DJI-SDK-iOS', '~> 4.0’
-    pod 'DJIVideoPreviewer', '~> 1.0'
-  end
- ~~~
-
- Then run the following command in the project's root folder path using **Terminal** to install the **DJIVideoPreviewer**:
-
-~~~
-pod install
-~~~
+> Note: Please Make sure the **VideoPreviewer** folder is in the root folder of FPVDemo project like this:
+> 
+> ![frameworksFolderStruct](../../images/tutorials-and-samples/iOS/FPVDemo/frameworksFolderStruct.png)
  
- If you install it successfully, you should get the messages similar to the following:
-
-~~~
-Analyzing dependencies
-Downloading dependencies
-Installing DJI-SDK-iOS (4.0)
-Installing DJIVideoPreviewer
-Generating Pods project
-Integrating client project
-
-[!] Please close any current Xcode sessions and use `FPVDemo.xcworkspace` for this project from now on.
-Pod installation complete! There is 1 dependency from the Podfile and 1 total pod
-installed.
-~~~
+ **2**. Next, let's select the "FPVDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
+ 
+  ![addFrameworks](../../images/tutorials-and-samples/iOS/FPVDemo/addFrameworks.png)
+  ![addFrameworksResult](../../images/tutorials-and-samples/iOS/FPVDemo/addFrameworksResult.png)
   
 ### Working on the DJICameraViewController
    
@@ -72,13 +59,13 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
   
   ![Storyboard](../../images/tutorials-and-samples/iOS/FPVDemo/Storyboard.png)
   
-  Go to DJICameraViewController.m file and import the **DJISDK** and **VideoPreviewer** header files. Next implement two delegate protocols and set the IBOutlets and IBActions for the UI we just create in Main.storyboard as shown below:
+  Go to DJICameraViewController.m file and import the **DJISDK** and **VideoPreviewer** header files. Next implement four delegate protocols and set the IBOutlets and IBActions for the UI we just create in Main.storyboard as shown below:
   
 ~~~objc
 #import <DJISDK/DJISDK.h>
-#import <DJIVideoPreviewer/VideoPreviewer.h>
+#import <VideoPreviewer/VideoPreviewer.h>
 
-@interface DJICameraViewController ()<DJICameraDelegate, DJISDKManagerDelegate, DJIBaseProductDelegate>
+@interface DJICameraViewController ()<DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *changeWorkModeSegmentControl;
@@ -89,29 +76,51 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 - (IBAction)changeWorkModeAction:(id)sender;
 ~~~
 
- **2**. In the `viewDidAppear` method, set the `fpvPreviewView` instance variable as the view of **VideoPreviewer** to show the Video Stream and reset it to nil in the `viewWillDisappear` method:
- 
+**2.** Furthermore, let's create the `setupVideoPreviewer` and `resetVideoPreviewer` methods as shown below:
+
 ~~~objc
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+- (void)setupVideoPreviewer {
     [[VideoPreviewer instance] setView:self.fpvPreviewView];
-    [self registerApp];
+    DJIBaseProduct *product = [DJISDKManager product];
+    if ([product.model isEqual:DJIAircraftModelNameA3] ||
+        [product.model isEqual:DJIAircraftModelNameN3] ||
+        [product.model isEqual:DJIAircraftModelNameMatrice600] ||
+        [product.model isEqual:DJIAircraftModelNameMatrice600Pro]){
+        [[DJISDKManager videoFeeder].secondaryVideoFeed addListener:self withQueue:nil];
+
+    }else{
+        [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
+    }
+    [[VideoPreviewer instance] start];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[VideoPreviewer instance] setView:nil];   
+- (void)resetVideoPreview {
+    [[VideoPreviewer instance] unSetView];
+    DJIBaseProduct *product = [DJISDKManager product];
+    if ([product.model isEqual:DJIAircraftModelNameA3] ||
+        [product.model isEqual:DJIAircraftModelNameN3] ||
+        [product.model isEqual:DJIAircraftModelNameMatrice600] ||
+        [product.model isEqual:DJIAircraftModelNameMatrice600Pro]){
+        [[DJISDKManager videoFeeder].secondaryVideoFeed removeListener:self];
+    }else{
+        [[DJISDKManager videoFeeder].primaryVideoFeed removeListener:self];
+    }
 }
 ~~~
 
- **3**. Moreover, implement the "DJISDKManagerDelegate" and "DJIBaseProductDelegate" delegate methods to fetch DJICamera object and set its delegate to "self" as shown below:
-  
+In the `setupVideoPreviewer` method, we set the `fpvPreviewView` instance variable as the superview of the `MovieGLView` in the **VideoPreviewer** class to show the Video Stream first, then create a `DJIBaseProduct` object from the `DJISDKManager` and use an if statement to check its `model` property. 
+
+If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `addListener:withQueue:` method of `DJIVideoFeeder` class to add `DJICameraViewController` as the listener of the `secondaryVideoFeed` for video feed, otherwise, we add `DJICameraViewController` as the listener of the `primaryVideoFeed` instance for video feed. Lastly, we invoke the `start` method of `VideoPreviewer` instance to start the video decoding.
+
+Moreover, in the `resetVideoPreview` method, we invoke the `unSetView` method of `VideoPreviewer` instance to remove the `MovieGLView` of the **VideoPreviewer** class from the `fpvPreviewView` instance first. Then also check the current `product`'s model using an if statement. 
+
+If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `removeListener:` method of `DJIVideoFeeder` class to remove the `DJICameraViewController` listener from the `secondaryVideoFeed` for video feed, otherwise, we remove the `DJICameraViewController` listener from the `primaryVideoFeed` for video feed.
+
+**3.** Once you finished the above steps, let's implement the `DJISDKManagerDelegate` delegate methods and the `viewWillDisappear` method as shown below:
+
 ~~~objc
-
 - (DJICamera*) fetchCamera {
-
+    
     if (![DJISDKManager product]) {
         return nil;
     }
@@ -121,73 +130,59 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
     }else if ([[DJISDKManager product] isKindOfClass:[DJIHandheld class]]){
         return ((DJIHandheld *)[DJISDKManager product]).camera;
     }
-
+    
     return nil;
 }
 
 #pragma mark DJISDKManagerDelegate Method
-
--(void) sdkManagerProductDidChangeFrom:(DJIBaseProduct* _Nullable) oldProduct to:(DJIBaseProduct* _Nullable) newProduct
+- (void)productConnected:(DJIBaseProduct *)product
 {
-    if (newProduct) {
-        [newProduct setDelegate:self];
-        DJICamera* camera = [self fetchCamera];
+    if(product){
+        [product setDelegate:self];
+        DJICamera *camera = [self fetchCamera];
         if (camera != nil) {
             camera.delegate = self;
         }
+        [self setupVideoPreviewer];
     }
 }
 
-#pragma mark - DJIBaseProductDelegate Method
-
--(void) componentWithKey:(NSString *)key changedFrom:(DJIBaseComponent *)oldComponent to:(DJIBaseComponent *)newComponent {
-    
-    if ([key isEqualToString:DJICameraComponent] && newComponent != nil) {
-        __weak DJICamera* camera = [self fetchCamera];
-        if (camera) {
-            [camera setDelegate:self];
-        }
-    }
-}
-  
-~~~
-  
-  Firstly, we create the `- (DJICamera*) fetchCamera` method to fetch the updated DJICamera object. Before we get return the DJICamera object, we need to check if the product object of DJISDKManager is kind of **DJIAircraft** of **DJIHandheld** class. Since the camera component of the aircraft or handheld device may be changed or disconnected, we need to fetch the camera object everytime we want to use it to ensure we get the correct camera object. 
-  
-  Next, we invoke the `sdkManagerProductDidChangeFrom:to:` delegate method to get the `newProduct` and set the DJIICamera object's delegate here. This delegate method will invoke when the product connection status changes.
-  
-  Moverover, let's invoke the `componentWithKey:changedFrom:to:` delegate method to fetch the camera object and set its delegate too. Since the camera component of the aircraft may change to another type, we should invoke this delegate method to check the component changes too.
-
-**4**. Furthermore, invoke the `start` method of **VideoPreviewer** instance in the following DJISDKManagerDelegate method to start the video decoding when register app successfully:
- 
-~~~objc 
-- (void)appRegisterdWithError:(NSError *)error
+- (void)productDisconnected
 {
-    NSString* message = @"Register App Successed!";
-    if (error) {
-        message = @"Register App Failed! Please enter your App Key and check the network.";
-    }else
-    {
-        NSLog(@"registerAppSuccess");
-    
-        [DJISDKManager startConnectionToProduct];
-        [[VideoPreviewer instance] start];
+    DJICamera *camera = [self fetchCamera];
+    if (camera && camera.delegate == self) {
+        [camera setDelegate:nil];
     }
+    [self resetVideoPreview];
     
-    [self showAlertViewWithTitle:@"Register App" withMessage:message];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    DJICamera *camera = [self fetchCamera];
+    if (camera && camera.delegate == self) {
+        [camera setDelegate:nil];
+    }
+    [self resetVideoPreview];
 }
 ~~~
+
+Firstly, we create the `- (DJICamera*) fetchCamera` method to fetch the updated DJICamera object. Before we get the return DJICamera object, we need to check if the product object of DJISDKManager is kind of **DJIAircraft** of **DJIHandheld** class. Since the camera component of the aircraft or handheld device may be changed or disconnected, we need to fetch the camera object everytime we want to use it to ensure we get the correct camera object. 
+
+Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the `productConnected` delegate method. Lastly, reset the `camera` instance's delegate to nil and invoke the `resetVideoPreview` method to reset the videoPreviewer in the `productDisconnected` and `viewWillDisappear` methods.
         
-**5**. Lastly, let's implement the "DJICameraDelegate" method, as shown below:
+**4**. Lastly, let's implement the "DJIVideoFeedListener" and "DJICameraDelegate" delegate methods, as shown below:
   
 ~~~objc
 
-#pragma mark - DJICameraDelegate Method
+#pragma mark - DJIVideoFeedListener
 
--(void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size
-{
-    [[VideoPreviewer instance] push:videoBuffer length:(int)size];
+-(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
+    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
+
+#pragma mark - DJICameraDelegate
 
 -(void) camera:(DJICamera*)camera didUpdateSystemState:(DJICameraSystemState*)systemState
 {
@@ -195,9 +190,9 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 
 ~~~
 
- Here, we use the `-(void)camera:(DJICamera *)camera didReceiveVideoData:(uint8_t *)videoBuffer length:(size_t)size` method to get the live H264 video feed data and send them to the **VideoPreviewer** to decode.
+Here, we use the `-(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData` method to get the live H264 video feed data and send them to the **VideoPreviewer** to decode.
    
-  Moreover, the `-(void) camera:(DJICamera*)camera didUpdateSystemState:(DJICameraSystemState*)systemState` method is used to get the camera state from the camera on your aircraft. It will be invoked frequently, so you can update your user interface or camera settings accordingly here.
+Moreover, the `-(void) camera:(DJICamera*)camera didUpdateSystemState:(DJICameraSystemState*)systemState` method is used to get the camera state from the camera on your aircraft. It will be invoked frequently, so you can update your user interface or camera settings accordingly here.
 
 ## Connecting to the Aircraft or Handheld Device
 
@@ -235,7 +230,7 @@ Let's implement the `captureAction` IBAction method as shown below:
 
 In the code above, we firstly invoke the following method of DJICamera to set the shoot photo mode to `DJICameraShootPhotoModeSingle`:
 
-~~~
+~~~objc
 - (void)setShootPhotoMode:(DJICameraShootPhotoMode)mode withCompletion:(DJICompletionBlock)completion;
 ~~~
 
@@ -251,7 +246,7 @@ In the code above, we firstly invoke the following method of DJICamera to set th
   
 ### 1. Switching Camera Mode
 
-   Before we implementing the record function, we need to switch the camera work mode firstly.
+   Before we implement the record function, we need to switch the camera work mode firstly.
    
    Let's check the DJICameraMode enum in **DJICameraSettingsDef.h** file.
    
@@ -349,7 +344,7 @@ typedef NS_ENUM (NSUInteger, DJICameraMode){
             
         }
     }
-    
+
 }
 
 ~~~

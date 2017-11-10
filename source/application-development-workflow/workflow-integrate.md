@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-3-2
+date: 2017-10-17
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.0)
+    Installing DJI-SDK-iOS (4.3.2)
     Generating Pods project
     Integrating client project
 
@@ -65,6 +65,10 @@ Screenshots in this section are generated using Xcode 7.3.
    ![allowArbitraryLoads](../images/quick-start/iOSAllowArbitraryLoads.png)
    * Currently the DJI iOS SDK doesn't support **Bitcode** for iOS device, please modify the Build Settings to disable it.
    ![disableBitcode](../images/quick-start/disableBitcode.png)
+   * For Xcode project which uses Swift 3 above, please delete all the paths in **Header Search Paths** except `$(PODS_ROOT)/Headers/Public` in **Build Settings** to help fix the Swift compiler error.
+   ![headerSearchPathIssue](../images/application-development-workflow/headerSearchPathIssue_1.png)
+   > Note: The Swift compiler error looks like this: **Inclue of non-modular header inside framework module 'DJISDK'**.
+   >![headerSearchPathIssue2](../images/application-development-workflow/headerSearchPathIssue_2.png)
 
 ### Register Application
 
@@ -90,7 +94,7 @@ Screenshots in this section are generated using Xcode 7.3.
 ~~~objc
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     [self registerApp];
 }
 
@@ -128,7 +132,7 @@ Screenshots in this section are generated using Xcode 7.3.
 
 ### Run Import SDK Demo
 
-The **ImportSDKDemo** project can now be run. You can download the sample code of this project from <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode" target="_blank">Github</a>.
+The **ImportSDKDemo** project can now be run. You can download the sample code of this project from Github: <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode" target="_blank">Objective-C</a> | <a href="https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode-Swift" target="_blank">Swift</a>.
 
 As this application is only checking for registration and not interacting directly with a product, no product needs to be connected to the application for this to run. Therefore, the application can either be run on a mobile device (with or without a DJI product connected) or in the iOS simulator. The application will need internet connectivity to perform registration successfully.
 
@@ -170,65 +174,49 @@ A new application can be used to show how to integrate the DJI SDK into an Andro
       * Click **Finish** when done.
    ![AndroidCustomizeTheActivity](../images/quick-start/AndroidCustomizeTheActivity.png)
 
-### Import Module
+### Import Maven Dependency
 
-After unzipping the downloaded Android SDK package:
+  * Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. Press the "+" button at the bottom of the window and choose "Library Dependency".
+  <img src="../images/application-development-workflow/libraryDependency.png" width=85%>
 
-   * In the Android Studio menu bar select **File->New->Import Module**
-   ![AndroidNewModuleImport](../images/quick-start/AndroidNewModuleImport.png)
-   * Move to the next screen, and finish import.
-   ![AndroidImportNewModuleDependencies](../images/quick-start/AndroidImportNewModuleDependencies.png)
+  * Search for "dji-sdk" and select the latest version of DJI Android SDK and press "OK" to add the DJI Android SDK Maven Dependency to the project.
+  <img src="../images/application-development-workflow/chooseLibraryDependency.png" width=85%>
+
 
 ### Configure Gradle Script
 
   * In **Gradle Scripts** double click on **build.gradle (Module: app)**
-  ![AndroidConfigureGradleInitial](../images/quick-start/AndroidConfigureGradleInitial.png)
-  * Replace the script with:
+  ![AndroidConfigureGradleInitial](../images/application-development-workflow/AndroidConfigureGradleInitial.png)
+  * Add these lines in the `build.gradle(Module: app)` file:
 
 ~~~java
-apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
-
+    ...
     defaultConfig {
-        applicationId "com.dji.ImportSDKDemo"
-        minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        ...
+        // Enabling multidex support.
+        multiDexEnabled true
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+    ...
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
+    ...
     compile 'com.android.support:multidex:1.0.1'
-    compile project(':dJISDKLIB')
 }
 ~~~
 
 * The main changes should be:
-   * Add `compile project(':dJISDKLIB')` to the **dependencies**.
-   ![AndroidConfigureGradleAfterChange](../images/quick-start/AndroidConfigureGradleAfterChange.png)
+   * Add `multiDexEnabled true` to enable multidex support.
+   * Add `compile 'com.android.support:multidex:1.0.1'` to the **dependencies**.
+
+   ![AndroidConfigureGradleAfterChange](../images/application-development-workflow/AndroidConfigureGradleAfterChange.png)
    * Select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
-   * Right click on **app** module in the project navigator and go to **Open Module Settings**.
-   ![AndroidOpenModuleSettings](../images/quick-start/AndroidOpenModuleSettings.png)
-   * Select **app** module on the left, and **Dependencies** on the top tab to confirm "djiSDKLIB" appears in the list.
-   ![AndroidConfirmAppDependencies](../images/quick-start/AndroidConfirmAppDependencies.png)
 
 ### Implement App Registration and SDK Callbacks
 
 Double click on **MainActivity.java** in the **app** module.
-   ![AndroidImplementationMainActivity](../images/quick-start/AndroidImplementationMainActivity.png)
+   ![AndroidImplementationMainActivity](../images/application-development-workflow/AndroidImplementationMainActivity.png)
 To import additional Android and DJI SDK classes that will be needed for the registration demonstration, add the following after `import android.os.Bundle;`:
 
 ~~~java
@@ -256,12 +244,27 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getName();
     public static final String FLAG_CONNECTION_CHANGE = "dji_sdk_connection_change";
-    private static DJIBaseProduct mProduct;
+    private static BaseProduct mProduct;
     private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // When the compile and target version is higher than 22, please request the following permission at runtime to ensure the SDK works well.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
+                    Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
+                    Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
+                    Manifest.permission.READ_PHONE_STATE,
+            }
+            , 1);
+        }
+
         setContentView(R.layout.activity_main);
 
         //Initialize DJI SDK Manager
@@ -288,7 +291,7 @@ Add the DJISDKManager callback and implementations of `onGetRegisteredResult` an
 
                   @Override
                   public void run() {
-                      Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                      Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
                   }
               });
           } else {
@@ -364,14 +367,15 @@ private Runnable updateRunnable = new Runnable() {
 
 The application must be granted permissions to in order for the DJI SDK to operate.
 
-   * Double click on **AndroidManifest.xml** in the **app** module.
-   ![AndroidManifest](../images/quick-start/AndroidManifest.png)
-   * After `package=com.dji.ImportSDKDemo` and before `<application` insert:
+  * Double click on **AndroidManifest.xml** in the **app** module.
+   ![AndroidManifest](../images/application-development-workflow/AndroidManifest.png)
+  
+  * After `package=com.dji.ImportSDKDemo` and before `<application` insert:
 
-~~~objc
+~~~xml
 <!-- Permissions and features -->
-<uses-sdk />
-
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 <uses-permission android:name="android.permission.VIBRATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -394,6 +398,7 @@ The application must be granted permissions to in order for the DJI SDK to opera
 <uses-feature
     android:name="android.hardware.usb.accessory"
     android:required="true" />
+
 <!-- Permissions and features -->
 ~~~
 
@@ -401,22 +406,22 @@ Insert the following after `android:theme="@style/AppTheme">` and before `<activ
 
 ~~~xml
 <!-- DJI SDK -->
-    <uses-library android:name="com.android.future.usb.accessory" />
+<uses-library android:name="com.android.future.usb.accessory" />
+<meta-data
+    android:name="com.dji.sdk.API_KEY"
+    android:value="Please enter your App Key here." />
+<activity
+    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
+    android:theme="@android:style/Theme.Translucent" >
+    <intent-filter>
+        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+    </intent-filter>
     <meta-data
-        android:name="com.dji.sdk.API_KEY"
-        android:value="Please enter your App Key here." />
-    <activity
-        android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
-        android:theme="@android:style/Theme.Translucent" >
-        <intent-filter>
-            <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-        </intent-filter>
-        <meta-data
-            android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-            android:resource="@xml/accessory_filter" />
-    </activity>
-    <service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
-    </service>
+        android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+        android:resource="@xml/accessory_filter" />
+</activity>
+<service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
+</service>
 <!-- DJI SDK -->
 ~~~
 
@@ -430,4 +435,11 @@ As this application is only checking for registration and not interacting direct
 
 If the App Key was generated correctly and the Android simulator or mobile device has internet connectivity, then the following should be seen:
 
- ![AndroidRunSuccess](../images/quick-start/AndroidRunSuccess.png)
+<img src="../images/application-development-workflow/AndroidRunSuccess.png" width=30%>
+
+### FFmpeg License
+
+The DJI Android SDK is dynamically linked with unmodified libraries of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a>. The source code of these FFmpeg libraries, the compilation instructions, and the LGPL v2.1 license are provided in [Github](https://github.com/dji-sdk/FFmpeg).
+
+
+
