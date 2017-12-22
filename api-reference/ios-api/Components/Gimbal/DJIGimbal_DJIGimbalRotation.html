@@ -129,13 +129,15 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">DJIIndividualUnlockZone</a>
+                            <dd><a href="../FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html">DJICustomUnlockZone</a>
                             </dd>
                     </ul>
                   </dd>
                   <dd><a href="../AppActivationManager/DJIAppActivationManager.html">DJIAppActivationManager</a>
                   </dd>
                   <dd><a href="../UserAccountManager/DJIUserAccountManager.html">DJIUserAccountManager</a>
+                  </dd>
+                  <dd><a href="../LDMManager/DJILDMManager.html">DJILDMManager</a>
                   </dd>
           </dl>
           <dl>
@@ -263,6 +265,8 @@
                             </dd>
                             <dd><a href="../Camera/DJICamera_DJICameraWhiteBalanceInterface.html">DJICameraWhiteBalance</a>
                             </dd>
+                            <dd><a href="../Camera/DJICamera_DJICameraSSDClipFileNameInterface.html">DJICameraSSDClipFileName</a>
+                            </dd>
                             <dd><a href="../Camera/DJICamera_DJICameraVideoResolutionAndFrameRate.html">DJICameraVideoResolutionAndFrameRate</a>
                             </dd>
                     </ul>
@@ -312,6 +316,10 @@
                             <dd><a href="../RemoteController/DJIRemoteController_DJIRCMasterSlaveState.html">DJIRCMasterSlaveState</a>
                             </dd>
                             <dd><a href="../RemoteController/DJIRemoteController_DJIRCCredentials.html">DJIRCCredentials</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCButtonConfiguration.html">DJIRCButtonConfiguration</a>
+                            </dd>
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIMutableRCButtonConfiguration.html">DJIMutableRCButtonConfiguration</a>
                             </dd>
                             <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalMapping.html">DJIRCGimbalMapping</a>
                             </dd>
@@ -501,7 +509,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>, <span class="keyword">readonly</span>) <span class="built_in">NSNumber</span> *pitch</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalBaseTypes.h</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">The pitch property of a gimbal rotation operation, how much the gimbal rotates on the pitch axis.</font></p>
+<p><font color="#666">The pitch property of a gimbal rotation operation, how much the gimbal rotates on the pitch axis. When it is <code>nil</code>,  no operation will be applied to the pitch axis.</font></p>
 </div>
 <div class="api-row" id="djigimbal_djigimbalrotation_roll"><div class="api-col left">Roll Value</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_roll_inline">roll</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_roll_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>roll</h6></div>
@@ -509,7 +517,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>, <span class="keyword">readonly</span>) <span class="built_in">NSNumber</span> *roll</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalBaseTypes.h</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">The roll property of a gimbal rotation operation, how much the gimbal rotates on the roll axis.</font></p>
+<p><font color="#666">The roll property of a gimbal rotation operation, how much the gimbal rotates on the roll axis. When it is <code>nil</code>,  no operation will be applied to the roll axis.</font></p>
 </div>
 <div class="api-row" id="djigimbal_djigimbalrotation_yaw"><div class="api-col left">Yaw Value</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_yaw_inline">yaw</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_yaw_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>yaw</h6></div>
@@ -517,7 +525,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>, <span class="keyword">readonly</span>) <span class="built_in">NSNumber</span> *yaw</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbalBaseTypes.h</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">The yaw property of a gimbal rotation operation, how much the gimbal rotates on the yaw axis.</font></p>
+<p><font color="#666">The yaw property of a gimbal rotation operation, how much the gimbal rotates on the yaw axis. When the rotation mode is  <code><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation_djigimbalrotationmode_absoluteangle">DJIGimbalRotationModeAbsoluteAngle</a></code>, the yaw value is relative to the aircraft's heading.  When it is <code>nil</code>, no operation will be applied to the yaw axis.</font></p>
 </div>
 <div class="api-row" id="djigimbal_djigimbalrotation_time"><div class="api-col left">Time</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_time_inline">time</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_time_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>time</h6></div>
