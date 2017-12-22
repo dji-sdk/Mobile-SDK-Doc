@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2017-09-20
+date: 2017-12-22
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -159,7 +159,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Inspire 2</td>
-      <td>X4S, X5S</td>        
+      <td>X4S, X5S, X7</td>        
       <td> CineSSD, Focus* </td>
     </tr>
     <tr>
@@ -372,7 +372,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Inspire 1 Pro/Raw</td><td>X3, Z3, XT, X5, X5R</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Moveable</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Inspire 2</td><td>X4S, X5S</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Moveable</td><td>-</td><td>Focus, CineSSD</td></tr>
+<td>Inspire 2</td><td>X4S, X5S, X7</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Moveable</td><td>-</td><td>Focus, CineSSD</td></tr>
 <tr>
 <td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.1</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
 <tr>
@@ -850,6 +850,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse X5S</td><td>4/3"</td><td>20.8</td><td>5.2K</td><td>100-25600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
+<td>Zenmuse X7</td><td>APS-C</td><td>24</td><td>5.2K</td><td>100-25600</td><td>8-1/1000</td><td>8-1/8000</td></tr>
+<tr>
 <td>Zenmuse XT</td><td>NA</td><td>0.32</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Model</p></td><td>640 x 512</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Model</p></td><td>NA</td><td>-</td><td>NA</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
@@ -902,6 +904,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse X5S</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
 <tr>
+<td>Zenmuse X7</td><td>Yes</td><td>54</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>36</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>f/2.8-f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>0.2 - &#8734</td></tr>
+<tr>
 <td>Zenmuse XT</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Lens</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Fixed - Value Depends on Lens</p></td><td>NA</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>-</td><td>92-35</td><td>22-77</td><td>f/2.8 - f/5.2</td><td>0.5 - &#8734</td></tr>
@@ -953,6 +957,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Zenmuse X5R</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD, SSD</td><td>583</td></tr>
 <tr>
 <td>Zenmuse X5S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD and SD on aircraft</td><td>461</td></tr>
+<tr>
+<td>Zenmuse X7</td><td>+/- 300</td><td>roll, pitch, yaw</td><td>-125 to 40</td><td>CineSSD and SD on aircraft</td><td>628</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td></tr>
 <tr>
 <td>Zenmuse XT</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>270</td></tr>
 <tr>
