@@ -1,7 +1,7 @@
 ---
 title: Application Activation and Aircraft Binding
-version: v4.3.2
-date: 2017-10-17
+version: v4.4
+date: 2017-12-25
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ActivationAndBindingDemo
 keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, Bound, Activated, Real Name System]
 ---
@@ -65,19 +65,31 @@ Now, let's open the "ViewController.m" file, and create two IBOutlet properties 
 @end
 ~~~
 
-Next, replace the code in the `viewDidLoad` method with the followings:
+Next, replace the code in the `appRegisteredWithError` delegate method of `DJISDKManager` with the followings:
 
 ~~~objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#pragma mark DJISDKManager Delegate Method
+- (void)appRegisteredWithError:(NSError *)error
+{
+    NSString* message = @"Register App Successed!";
+    if (error) {
+        message = @"Register App Failed! Please enter your App Key in the plist file and check the network.";
+    }else
+    {
+        NSLog(@"registerAppSuccess");
 
-    [DJISDKManager appActivationManager].delegate = self;
-    self.activationState = [DJISDKManager appActivationManager].appActivationState;
-    self.aircraftBindingState = [DJISDKManager appActivationManager].aircraftBindingState;
+        [DJISDKManager startConnectionToProduct];
+
+        [DJISDKManager appActivationManager].delegate = self;
+        self.activationState = [DJISDKManager appActivationManager].appActivationState;
+        self.aircraftBindingState = [DJISDKManager appActivationManager].aircraftBindingState;
+    }
+    
+    ShowResult(@"%@", message);
 }
 ~~~
 
-In the code above, we firstly set the delegate of `DJIAppActivationManager` as **ViewController**. Then initialize the `activationState` and `aircraftBindingState` properties with the value of `appActivationState` and `aircraftBindingState` properties of `DJIAppActivationManager`.
+In the code above, if register app success, we invoke the `startConnectionToProduct` method of `DJISDKManager` to start a connection between the SDK and the DJI product. Next, set the delegate of `DJIAppActivationManager` as **ViewController** and then initialize the `activationState` and `aircraftBindingState` properties with the value of `appActivationState` and `aircraftBindingState` properties of `DJIAppActivationManager`.
 
 Furthermore, create the `updateUI` method as shown below to update the two UILabel properties' text value according to the values of `aircraftBindingState` and `activationState` properties, then invoke it in the `viewDidAppear:` method:
 

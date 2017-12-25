@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.3.2
-date: 2017-10-17
+version: v4.4
+date: 2017-12-25
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -211,7 +211,7 @@ Let's implement the `captureAction` IBAction method as shown below:
 ~~~objc
 - (IBAction)captureAction:(id)sender {
     
-    __weak DJICamera* camera = [self fetchCamera];
+    DJICamera* camera = [self fetchCamera];
     if (camera) {
         WeakRef(target);
         [camera setShootPhotoMode:DJICameraShootPhotoModeSingle withCompletion:^(NSError * _Nullable error) {
@@ -320,7 +320,7 @@ typedef NS_ENUM (NSUInteger, DJICameraMode){
 - (IBAction)changeWorkModeAction:(id)sender {
     
     UISegmentedControl *segmentControl = (UISegmentedControl *)sender;
-    __weak DJICamera* camera = [self fetchCamera];
+    DJICamera* camera = [self fetchCamera];
     
     if (camera) {
         WeakRef(target);
@@ -413,7 +413,7 @@ We can update the bool value for `isRecording` and `currentRecordTimeLabel`'s te
 ~~~objc
 - (IBAction)recordAction:(id)sender {
     
-    __weak DJICamera* camera = [self fetchCamera];
+    DJICamera* camera = [self fetchCamera];
     if (camera) {
         WeakRef(target);
         if (self.isRecording) {
