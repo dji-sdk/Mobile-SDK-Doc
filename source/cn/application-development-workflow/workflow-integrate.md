@@ -142,7 +142,7 @@ If the App Key was generated correctly and the iOS simulator or mobile device ha
 
 ## Android Studio Project Integration
 
-Screenshots in this section are generated using Android Studio 2.1.
+Screenshots in this section are generated using Android Studio 3.0.
 
 ### Create a New Application
 
