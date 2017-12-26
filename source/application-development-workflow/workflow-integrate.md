@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-10-17
+date: 2017-12-26
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.3.2)
+    Installing DJI-SDK-iOS (4.4)
     Generating Pods project
     Integrating client project
 
@@ -149,12 +149,14 @@ Screenshots in this section are generated using Android Studio 2.1.
 A new application can be used to show how to integrate the DJI SDK into an Android Studio project.
 
    * Open Android Studio and at the initial screen select **Start a new Android Studio project**
-   ![AndroidNewProjectSplashScreen](../images/quick-start/AndroidNewProjectSplashScreen.png)
+
+<img src="../images/application-development-workflow/AndroidNewProjectSplashScreen.png" width=85%>
 
    * In the **New Project** screen:
       * Set the **Application name** to "ImportSDKDemo".
       * Set the **Company Domain** and **Package name** to "com.dji.ImportSDKDemo".
-   ![AndroidConfigureNewProject](../images/quick-start/AndroidConfigureNewProject.png)
+
+<img src="../images/application-development-workflow/AndroidConfigureNewProject.png" width=85%>
 
 > **Note:** **Package name** is the identifying string required to [generate an App Key](../quick-start/index.html#Generate-an-App-Key).
 > The activity java, manifest xml and Gradle script code below assumes **Package name** is "com.dji.ImportSDKDemo"
@@ -162,61 +164,111 @@ A new application can be used to show how to integrate the DJI SDK into an Andro
    * In the **Target Android Devices** screen:
      - Select **Phone and Tablet** form factor.
      - Choose **API 19: Android 4.4 (KitKat)**.
-   ![AndroidSelectFormFactor](../images/quick-start/AndroidSelectFormFactor.png)
+
+<img src="../images/application-development-workflow/AndroidSelectFormFactor.png" width=85%>
 
    * In the **Add an Activity to Mobile** screen choose **Empty Activity**.
-   ![AndroidAddAnActivityToMobile](../images/quick-start/AndroidAddAnActivityToMobile.png)
 
-   * In the **Customize the Activity** screen:
+<img src="../images/application-development-workflow/AndroidAddAnActivityToMobile.png" width=85%>
+
+   * In the **Configure Activity** screen:
       * Set **Activity Name:** to "MainActivity".
       * Ensure **Generate Layout File** is checked.
       * Set **Layout Name:** to "activity_main".
       * Click **Finish** when done.
-   ![AndroidCustomizeTheActivity](../images/quick-start/AndroidCustomizeTheActivity.png)
 
-### Import Maven Dependency
-
-  * Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. Press the "+" button at the bottom of the window and choose "Library Dependency".
-  <img src="../images/application-development-workflow/libraryDependency.png" width=85%>
-
-  * Search for "dji-sdk" and select the latest version of DJI Android SDK and press "OK" to add the DJI Android SDK Maven Dependency to the project.
-  <img src="../images/application-development-workflow/chooseLibraryDependency.png" width=85%>
-
+<img src="../images/application-development-workflow/AndroidCustomizeTheActivity.png" width=85%>
 
 ### Configure Gradle Script
 
   * In **Gradle Scripts** double click on **build.gradle (Module: app)**
-  ![AndroidConfigureGradleInitial](../images/application-development-workflow/AndroidConfigureGradleInitial.png)
-  * Add these lines in the `build.gradle(Module: app)` file:
 
-~~~java
+  ![AndroidConfigureGradleInitial](../images/application-development-workflow/AndroidConfigureGradleInitial.png)
+
+  * Update the content with the following:
+
+~~~gradle
+apply plugin: 'com.android.application'
+
 android {
+
     ...
     defaultConfig {
         ...
-        // Enabling multidex support.
-        multiDexEnabled true
     }
+
     ...
+
+    packagingOptions{
+        doNotStrip "*/*/libdjivideo.so"
+        doNotStrip "*/*/libSDKRelativeJNI.so"
+        doNotStrip "*/*/libFlyForbid.so"
+        doNotStrip "*/*/libduml_vision_bokeh.so"
+        doNotStrip "*/*/libyuv2.so"
+        doNotStrip "*/*/libGroudStation.so"
+        doNotStrip "*/*/libFRCorkscrew.so"
+        doNotStrip "*/*/libUpgradeVerify.so"
+        doNotStrip "*/*/libFR.so"
+    }
 }
 
 dependencies {
-    ...
-    compile 'com.android.support:multidex:1.0.1'
+   ...
+    compile ('com.dji:dji-sdk:4.4.0')
+    provided ('com.dji:dji-sdk-provided:4.4.0')
 }
 ~~~
 
 * The main changes should be:
-   * Add `multiDexEnabled true` to enable multidex support.
-   * Add `compile 'com.android.support:multidex:1.0.1'` to the **dependencies**.
+
+   * Add the `packagingOptions` to prevent any unexpected crash of the application.
+   * Add the `compile` and `provided` dependencies to import the latest DJI Android SDK Maven dependency.
 
    ![AndroidConfigureGradleAfterChange](../images/application-development-workflow/AndroidConfigureGradleAfterChange.png)
    * Select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
 
+* Double Check Maven Dependency
+
+  * Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. You should see the latest DJI SDK compile and provided denpendencies are already imported.
+
+  <img src="../images/application-development-workflow/libraryDependency.png" width=85%>
+
 ### Implement App Registration and SDK Callbacks
 
+Right click on the `com.dji.importSDKDemo`, and select **New->Java Class** to create a new java class and name it as "MApplication".
+
+  ![createJaveClass](../images/application-development-workflow/createJavaClass.png)
+
+Open the **MApplication.java** file and replace the content with the following:
+
+~~~java
+package com.dji.importSDKDemo;
+
+import android.app.Application;
+import android.content.Context;
+
+import com.secneo.sdk.Helper;
+
+public class MApplication extends Application {
+
+    @Override
+    protected void attachBaseContext(Context paramContext) {
+        super.attachBaseContext(paramContext);
+        Helper.install(MApplication.this);
+    }
+
+}
+~~~
+
+Here we override the `attachBaseContext()` method to add the `Helper.install(MApplication.this);` line of code. 
+
+> **Note**: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failling to do so will result in unexpected crashes. 
+
+  ![AndroidImplementationMainActivity](../images/application-development-workflow/mApplication.png)
+
 Double click on **MainActivity.java** in the **app** module.
-   ![AndroidImplementationMainActivity](../images/application-development-workflow/AndroidImplementationMainActivity.png)
+  ![AndroidImplementationMainActivity](../images/application-development-workflow/AndroidImplementationMainActivity.png)
+
 To import additional Android and DJI SDK classes that will be needed for the registration demonstration, add the following after `import android.os.Bundle;`:
 
 ~~~java
@@ -402,7 +454,20 @@ The application must be granted permissions to in order for the DJI SDK to opera
 <!-- Permissions and features -->
 ~~~
 
-Insert the following after `android:theme="@style/AppTheme">` and before `<activity android:name=".MainActivity">`:
+  * Add the `android:name=".MApplication"` at the beginning of the `application` element:
+
+~~~xml
+<application
+    android:name=".MApplication"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme" >
+~~~
+
+  * Insert the following after `android:theme="@style/AppTheme">` and before `<activity android:name=".MainActivity">`:
 
 ~~~xml
 <!-- DJI SDK -->
