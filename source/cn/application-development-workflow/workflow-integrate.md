@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-12-26
+date: 2017-12-28
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -269,27 +269,13 @@ Here we override the `attachBaseContext()` method to add the `Helper.install(MAp
 Double click on **MainActivity.java** in the **app** module.
   ![AndroidImplementationMainActivity](../../images/application-development-workflow/AndroidImplementationMainActivity.png)
 
-To import additional Android and DJI SDK classes that will be needed for the registration demonstration, add the following after `import android.os.Bundle;`:
-
-~~~java
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.widget.Toast;
-
-import dji.common.error.DJIError;
-import dji.common.error.DJISDKError;
-import dji.sdk.base.BaseComponent;
-import dji.sdk.base.BaseProduct;
-import dji.sdk.sdkmanager.DJISDKManager;
-~~~
-
 The MainActivity class needs to register the application to get authorization to use the DJI Mobile SDK. It also needs to implement callback methods expected by the SDK.
 
-The MainActivity class will first be modified to include four class variables including `mProduct` which is the object that represents the DJI product connected to the mobile device. Additionally the `onCreate` method will be modified to instantiate the DJISDKManager.
+The MainActivity class will first be modified to include several class variables including `mProduct` which is the object that represents the DJI product connected to the mobile device. 
 
-Replace the MainActivity class with:
+Additionally the `onCreate` method will be modified to invoke the `checkAndRequestPermissions` method to check and request runtime permissions. Also, the `checkAndRequestPermissions` method will help to invoke the `startSDKRegistration()` method to register the application. Moreover, the override `onRequestPermissionsResult` method will help to check if the application has enough permission, if so, invoke the `startSDKRegistration()` method to register the application.
+
+Now, replace the MainActivity class with:
 
 ~~~java
 public class MainActivity extends AppCompatActivity {
@@ -299,85 +285,134 @@ public class MainActivity extends AppCompatActivity {
     private static BaseProduct mProduct;
     private Handler mHandler;
 
+    private static final String[] REQUIRED_PERMISSION_LIST = new String[]{
+            Manifest.permission.VIBRATE,
+            Manifest.permission.INTERNET,
+            Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.WAKE_LOCK,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.CHANGE_WIFI_STATE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.BLUETOOTH,
+            Manifest.permission.BLUETOOTH_ADMIN,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE,
+    };
+    private List<String> missingPermission = new ArrayList<>();
+    private AtomicBoolean isRegistrationInProgress = new AtomicBoolean(false);
+    private static final int REQUEST_PERMISSION_CODE = 12345;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // When the compile and target version is higher than 22, please request the following permission at runtime to ensure the SDK works well.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
-                    Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
-                    Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
-                    Manifest.permission.READ_PHONE_STATE,
-            }
-            , 1);
+            checkAndRequestPermissions();
         }
 
         setContentView(R.layout.activity_main);
 
         //Initialize DJI SDK Manager
         mHandler = new Handler(Looper.getMainLooper());
-        DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+
+    }
+
+    /**
+     * Checks if there is any missing permissions, and
+     * requests runtime permission if needed.
+     */
+    private void checkAndRequestPermissions() {
+        // Check for permissions
+        for (String eachPermission : REQUIRED_PERMISSION_LIST) {
+            if (ContextCompat.checkSelfPermission(this, eachPermission) != PackageManager.PERMISSION_GRANTED) {
+                missingPermission.add(eachPermission);
+            }
+        }
+        // Request for missing permissions
+        if (missingPermission.isEmpty()) {
+            startSDKRegistration();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            showToast("Need to grant the permissions!");
+            ActivityCompat.requestPermissions(this,
+                    missingPermission.toArray(new String[missingPermission.size()]),
+                    REQUEST_PERMISSION_CODE);
+        }
+
+    }
+
+    /**
+     * Result of runtime permission request
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Check for granted permission and remove from missing list
+        if (requestCode == REQUEST_PERMISSION_CODE) {
+            for (int i = grantResults.length - 1; i >= 0; i--) {
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    missingPermission.remove(permissions[i]);
+                }
+            }
+        }
+        // If there is enough permission, we will start the registration
+        if (missingPermission.isEmpty()) {
+            startSDKRegistration();
+        } else {
+            showToast("Missing permissions!!!");
+        }
     }
 }
 ~~~
 
- DJISDKManager has a callback that needs to process two methods for processing the application registration result, and for when the product connected to the mobile device is changed.
+The `registerApp()` method of `DJISDKManager` has a callback that needs to process two methods for processing the application registration result, and for when the product connected to the mobile device is changed.
 
-Add the DJISDKManager callback and implementations of `onGetRegisteredResult` and `onProductChanged`.
+Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()` and `onProductChange` methods of the `SDKManagerCallback`:
 
 ~~~java
-  private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
+private void startSDKRegistration() {
+    if (isRegistrationInProgress.compareAndSet(false, true)) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                showToast("registering, pls wait...");
+                DJISDKManager.getInstance().registerApp(MainActivity.this.getApplicationContext(), new DJISDKManager.SDKManagerCallback() {
+                    @Override
+                    public void onRegister(DJIError djiError) {
+                        if (djiError == DJISDKError.REGISTRATION_SUCCESS) {
+                            showToast("Register Success");
+                            DJISDKManager.getInstance().startConnectionToProduct();
+                        } else {
+                            showToast("Register sdk fails, please check the bundle id and network connection!");
+                        }
+                        Log.v(TAG, djiError.getDescription());
+                    }
 
-      @Override
-      public void onRegister(DJIError error) {
-          Log.d(TAG, error == null ? "success" : error.getDescription());
-          if(error == DJISDKError.REGISTRATION_SUCCESS) {
-              DJISDKManager.getInstance().startConnectionToProduct();
-              Handler handler = new Handler(Looper.getMainLooper());
-              handler.post(new Runnable() {
+                    @Override
+                    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
 
-                  @Override
-                  public void run() {
-                      Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                  }
-              });
-          } else {
-              Handler handler = new Handler(Looper.getMainLooper());
-              handler.post(new Runnable() {
+                        mProduct = newProduct;
+                        if(mProduct != null) {
+                            mProduct.setBaseProductListener(mDJIBaseProductListener);
+                        }
 
-                  @Override
-                  public void run() {
-                      Toast.makeText(getApplicationContext(), "register sdk failed, check if network is available", Toast.LENGTH_LONG).show();
-                  }
-              });
-
-          }
-          Log.e("TAG", error.toString());
-      }
-
-      @Override
-      public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-          mProduct = newProduct;
-          if(mProduct != null) {
-              mProduct.setBaseProductListener(mDJIBaseProductListener);
-          }
-
-          notifyStatusChange();
-      }
-  };
+                        notifyStatusChange();
+                    }
+                });
+            }
+        });
+    }
+}
 ~~~
 
-Finally methods for `DJIBaseProductListener`, `DJIComponentListener`, `notifyStatusChange` and `Runnable` need to be implemented :
+Finally methods for `BaseProductListener`, `ComponentListener`, `notifyStatusChange`, `Runnable` and `showToast` need to be implemented:
 
 ~~~java
 private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-
     @Override
     public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
         if(newComponent != null) {
@@ -385,21 +420,16 @@ private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduc
         }
         notifyStatusChange();
     }
-
     @Override
     public void onConnectivityChange(boolean isConnected) {
         notifyStatusChange();
     }
-
 };
-
 private BaseComponent.ComponentListener mDJIComponentListener = new BaseComponent.ComponentListener() {
-
     @Override
     public void onConnectivityChange(boolean isConnected) {
         notifyStatusChange();
     }
-
 };
 
 private void notifyStatusChange() {
@@ -415,6 +445,18 @@ private Runnable updateRunnable = new Runnable() {
         sendBroadcast(intent);
     }
 };
+
+private void showToast(final String toastMsg) {
+
+    Handler handler = new Handler(Looper.getMainLooper());
+    handler.post(new Runnable() {
+        @Override
+        public void run() {
+            Toast.makeText(getApplicationContext(), toastMsg, Toast.LENGTH_LONG).show();
+        }
+    });
+
+}
 ~~~
 
 The application must be granted permissions to in order for the DJI SDK to operate.
@@ -490,6 +532,20 @@ The application must be granted permissions to in order for the DJI SDK to opera
 <!-- DJI SDK -->
 ~~~
 
+  * Insert the `android:configChanges="orientation"` and `android:screenOrientation="portrait"` in the `activity` element as shown below to prevent the activity restarts when the screen orientation changes and also set the activity's screen orientation as portrait mode:
+
+~~~xml
+<activity android:name=".MainActivity"
+          android:configChanges="orientation"
+          android:screenOrientation="portrait">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+~~~
+
 [Generate an App Key](../quick-start/index.html#Generate-an-App-Key), and replace "Please enter your App Key here." with the App Key string.
 
 ### Run Import SDK Demo
@@ -505,4 +561,3 @@ If the App Key was generated correctly and the Android simulator or mobile devic
 ### FFmpeg License
 
 The DJI Android SDK is dynamically linked with unmodified libraries of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a>. The source code of these FFmpeg libraries, the compilation instructions, and the LGPL v2.1 license are provided in [Github](https://github.com/dji-sdk/FFmpeg).
-
