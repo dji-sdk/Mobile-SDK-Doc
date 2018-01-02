@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-12-28
+date: 2017-12-29
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -214,8 +214,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-sdk:4.4.0')
-    provided ('com.dji:dji-sdk-provided:4.4.0')
+    compile ('com.dji:dji-sdk:4.4.1')
+    provided ('com.dji:dji-sdk-provided:4.4.1')
 }
 ~~~
 
@@ -262,7 +262,7 @@ public class MApplication extends Application {
 
 Here we override the `attachBaseContext()` method to add the `Helper.install(MApplication.this);` line of code. 
 
-> **Note**: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failling to do so will result in unexpected crashes. 
+> **Note**: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failing to do so will result in unexpected crashes. 
 
   ![AndroidImplementationMainActivity](../../images/application-development-workflow/mApplication.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.3.2
-date: 2017-09-29
+version: v4.4.1
+date: 2018-1-2
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -18,7 +18,7 @@ You can download the tutorial's final sample project from this [Github Page](htt
 
 ### Setup Android Development Environment
    
-  Throughout this tutorial we will be using Android Studio 2.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
+  Throughout this tutorial we will be using Android Studio 3.0, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
 
 ## Application Activation and Aircraft Binding in China
 
@@ -38,7 +38,45 @@ In our previous tutorial [Importing and Activating DJI SDK in Android Studio Pro
 
 ### Building the Layouts of Activity
 
-#### 1. Creating FPVDemoApplication Class
+#### 1. Creating MApplication Class
+
+Right click on the `com.dji.FPVDemo`, and select **New->Java Class** to create a new java class and name it as "MApplication".
+
+Then, open the **MApplication.java** file and replace the content with the following:
+
+~~~java
+package com.dji.FPVDemo;
+
+import android.app.Application;
+import android.content.Context;
+
+import com.secneo.sdk.Helper;
+
+public class MApplication extends Application {
+
+    private FPVDemoApplication fpvDemoApplication;
+    @Override
+    protected void attachBaseContext(Context paramContext) {
+        super.attachBaseContext(paramContext);
+        Helper.install(MApplication.this);
+        if (fpvDemoApplication == null) {
+            fpvDemoApplication = new FPVDemoApplication();
+            fpvDemoApplication.setContext(this);
+        }
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        fpvDemoApplication.onCreate();
+    }
+
+}
+~~~
+
+Here we firstly override the `attachBaseContext()` method to invoke the `install()` method of `Helper` class to load the SDK classes before using any SDK functionality. Failing to do so will result in unexpected crashes. Next, override the `onCreate()` method to invoke the `onCreate()` method of `FPVDemoApplication`.
+
+#### 2. Creating FPVDemoApplication Class
 
 Right-click on the package `com.dji.FPVDemo` in the project navigator and choose **New -> Java Class**, Type in "FPVDemoApplication" in the Name field and select "Class" as Kind field content.
    
@@ -59,7 +97,7 @@ public class FPVDemoApplication extends Application{
 
 Here, we override the onCreate() method. We can do some settings when the application is created here.
 
-#### 2. Implementing MainActivity Class
+#### 3. Implementing MainActivity Class
 
 The MainActivity.java file is created by Android Studio by default. Let's replace the code of it with the following:
 
@@ -177,7 +215,7 @@ In the code shown above, we implement the following features:
 
 **3.** Override the `onClick()` method to implement the three Buttons' click actions.
 
-#### 3. Implementing the MainActivity Layout
+#### 4. Implementing the MainActivity Layout
 
 Open the **activity_main.xml** layout file and replace the code with the following:
 
@@ -261,7 +299,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
   
   Lastly, we create a TextView(id: timer) element to show the record video time.
   
-#### 4. Implementing ConnectionActivity Class
+#### 5. Implementing ConnectionActivity Class
 
   To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**. 
   
@@ -281,22 +319,6 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-       // When the compile and target version is higher than 22, please request the
-       // following permissions at runtime to ensure the
-       // SDK work well.
-       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-           ActivityCompat.requestPermissions(this,
-                   new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
-                           Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
-                           Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
-                           Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                           Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                           Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
-                           Manifest.permission.READ_PHONE_STATE,
-                   }
-                   , 1);
-       }
         
         setContentView(R.layout.activity_connection);
         initUI();
@@ -357,13 +379,13 @@ In the code shown above, we implement the following features:
 
 1. Create the layout UI elements variables, including two TextureViews `mTextConnectionStatus`, `mTextProduct`, and one Button `mBtnOpen`.
 
-2. In the onCreate() method, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23). Then invoke the `initUI()` methods to initialize the UI elements.
+2. In the onCreate() method, we invoke the `initUI()` methods to initialize the UI elements.
 
 3. Next, implement the `initUI()` method to initialize the three TextViews and the Button. Then invoke `setOnClickListener()` method of `mBtnOpen` and pass `this` as the param.
 
 4. Lastly, override the onClick() method to implement the Button's click action.
 
-#### 5. Implementing the ConnectionActivity Layout
+#### 6. Implementing the ConnectionActivity Layout
 
 Open the **activity_connection.xml** layout file and replace the code with the following:
 
@@ -440,7 +462,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
 
   In the xml file, we create four TextViews and one Button within a RelativeLayout. We use the TextView(id: text\_connection\_status) to show the product connection status and use the TextView(id:text\_product\_info) to show the connected product name. The Button(id: btn\_open) is used to open the **MainActivity**.
   
-#### 6. Configuring the Resource XMLs
+#### 7. Configuring the Resource XMLs
 
   Once you finish the above steps, let's copy all the images file from this Github sample project's **drawable** folder (**app->src->main->res->drawable**) to the same folder in your project.
   
@@ -495,11 +517,11 @@ Now, if you open the activity_main.xml file, and click on the **Design** tab on 
 
 - ConnectionActivity
 
-![ConnectionActivity](../../images/tutorials-and-samples/Android/FPVDemo/connectionActivityImage.png)
+<img src="../../images/tutorials-and-samples/Android/FPVDemo/connectionActivityImage.png" width=30%>
 
 - MainActivity
 
-![MainActivity](../../images/tutorials-and-samples/Android/FPVDemo/mainActivityImage.png)
+<img src="../../images/tutorials-and-samples/Android/FPVDemo/mainActivityImage.png" width=70%>
 
 For more details, please check the Github source code of this tutorial.
 
@@ -538,7 +560,19 @@ After you finish the above steps, let's register our application with the **App 
 
 Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
 
-Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
+Next, add the `android:name=".MApplication"` at the beginning of the `application` element:
+
+~~~xml
+<application
+    android:name=".MApplication"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+~~~
+
+Moreover, let's add the following elements as childs of element on top of the "ConnectionActivity" activity element as shown below:
 
 ~~~xml
 <!-- DJI SDK -->
@@ -569,6 +603,7 @@ Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as 
 
 ~~~xml
 <activity android:name=".ConnectionActivity"
+    android:configChanges="orientation"
     android:screenOrientation="portrait">
 
     <intent-filter>
@@ -585,28 +620,42 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
 **2.** After you finish the steps above, open the "FPVDemoApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
 
 ~~~java
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mHandler = new Handler(Looper.getMainLooper());
+@Override
+public void onCreate() {
+    super.onCreate();
+    mHandler = new Handler(Looper.getMainLooper());
+    mDJIComponentListener = new BaseComponent.ComponentListener() {
 
-        //Check the permissions before registering the application for android system 6.0 above.
-        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+        @Override
+        public void onConnectivityChange(boolean isConnected) {
+            notifyStatusChange();
+        }
 
-                //This is used to start SDK services and initiate SDK.
-                DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
-            } else {
-                Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+    };
+    mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
+
+        @Override
+        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
+
+            if(newComponent != null) {
+                newComponent.setComponentListener(mDJIComponentListener);
             }
-    }
+            notifyStatusChange();
+        }
+
+        @Override
+        public void onConnectivityChange(boolean isConnected) {
+
+            notifyStatusChange();
+        }
+
+    };
 
     /**
-     * When starting SDK services, an instance of interface DJISDKManager.SDKManagerCallback will be used to listen to 
+     * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
      * the SDK Registration result and the product changing.
      */
-    private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
+    mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
 
         //Listens to the SDK registration result
         @Override
@@ -652,45 +701,157 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
         }
     };
 
-    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
+    //Check the permissions before registering the application for android system 6.0 above.
+    int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    int permissionCheck2 = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_PHONE_STATE);
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
+        //This is used to start SDK services and initiate SDK.
+        DJISDKManager.getInstance().registerApp(getApplicationContext(), mDJISDKManagerCallback);
+        Toast.makeText(getApplicationContext(), "registering, pls wait...", Toast.LENGTH_LONG).show();
 
-        @Override
-        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-
-            if(newComponent != null) {
-                newComponent.setComponentListener(mDJIComponentListener);
-            }
-            notifyStatusChange();
-        }
-
-        @Override
-        public void onConnectivityChange(boolean isConnected) {
-
-            notifyStatusChange();
-        }
-    };
+    } else {
+        Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
+    }
+}
 ~~~
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
-2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
+1. We override the `onCreate()` method to initialize the `mHandler`, `mDJIComponentListener`, `mDJIBaseProductListener` and `mDJISDKManagerCallback` instance variables and implement their callback methods.
+
+2. For the two interface methods of `BaseProductListener`, we use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
+
+3. For the two interface methods of `SDKManagerCallback`. we use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+
+4. Check the permissions of `WRITE_EXTERNAL_STORAGE` and `READ_PHONE_STATE`, then invoke the `registerApp()` method of `DJISDKManager` to register the application.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
 ![registerSuccess](../../images/tutorials-and-samples/Android/FPVDemo/registerSuccess.png)
 
-> **Important:** Please check if the "armeabi-v7a", "arm64-v8a" and "x86" lib folders has been added to your jnLibs folder in **dJISDKLib** successfully before testing resgistering the app. 
-> 
-> ![armeabi](../../images/tutorials-and-samples/Android/FPVDemo/armeabi.png)
-> 
+> **Important:** Please initialize the DJI Android SDK class objects inside the `onCreate()` method after the SDK classes are loaded, failing to do so will result in unexpected crashes.
 
 For more details of registering your application, please check this tutorial: [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration).
 
 ## Working on the ConnectionActivity
 
-Once you finish the steps above, let's open the "ConnectionActivity.java" file and add the following code at the bottom of `onCreate()` method:
+Once you finish the steps above, let's open the "ConnectionActivity.java" file and create several variables for checking permission and registration above the `onCreate()` method:
+
+~~~java
+private static final String[] REQUIRED_PERMISSION_LIST = new String[]{
+        Manifest.permission.VIBRATE,
+        Manifest.permission.INTERNET,
+        Manifest.permission.ACCESS_WIFI_STATE,
+        Manifest.permission.WAKE_LOCK,
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.ACCESS_NETWORK_STATE,
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.CHANGE_WIFI_STATE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.BLUETOOTH,
+        Manifest.permission.BLUETOOTH_ADMIN,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.READ_PHONE_STATE,
+};
+private List<String> missingPermission = new ArrayList<>();
+private AtomicBoolean isRegistrationInProgress = new AtomicBoolean(false);
+private static final int REQUEST_PERMISSION_CODE = 12345;
+~~~
+
+Next, invoke the `checkAndRequestPermissions()` method in the `onCreate()` method and implement the following methods:
+
+~~~java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    checkAndRequestPermissions();
+    setContentView(R.layout.activity_connection);
+    initUI();
+}
+
+/**
+ * Checks if there is any missing permissions, and
+ * requests runtime permission if needed.
+ */
+private void checkAndRequestPermissions() {
+    // Check for permissions
+    for (String eachPermission : REQUIRED_PERMISSION_LIST) {
+        if (ContextCompat.checkSelfPermission(this, eachPermission) != PackageManager.PERMISSION_GRANTED) {
+            missingPermission.add(eachPermission);
+        }
+    }
+    // Request for missing permissions
+    if (!missingPermission.isEmpty() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        ActivityCompat.requestPermissions(this,
+                missingPermission.toArray(new String[missingPermission.size()]),
+                REQUEST_PERMISSION_CODE);
+    }
+
+}
+
+/**
+ * Result of runtime permission request
+ */
+@Override
+public void onRequestPermissionsResult(int requestCode,
+                                       @NonNull String[] permissions,
+                                       @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    // Check for granted permission and remove from missing list
+    if (requestCode == REQUEST_PERMISSION_CODE) {
+        for (int i = grantResults.length - 1; i >= 0; i--) {
+            if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                missingPermission.remove(permissions[i]);
+            }
+        }
+    }
+    // If there is enough permission, we will start the registration
+    if (missingPermission.isEmpty()) {
+        startSDKRegistration();
+    } else {
+        showToast("Missing permissions!!!");
+    }
+}
+
+private void startSDKRegistration() {
+    if (isRegistrationInProgress.compareAndSet(false, true)) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                showToast( "registering, pls wait...");
+                DJISDKManager.getInstance().registerApp(getApplicationContext(), new DJISDKManager.SDKManagerCallback() {
+                    @Override
+                    public void onRegister(DJIError djiError) {
+                        if (djiError == DJISDKError.REGISTRATION_SUCCESS) {
+                            DJILog.e("App registration", DJISDKError.REGISTRATION_SUCCESS.getDescription());
+                            DJISDKManager.getInstance().startConnectionToProduct();
+                            showToast("Register Success");
+                        } else {
+                            showToast( "Register sdk fails, check network is available");
+                        }
+                        Log.v(TAG, djiError.getDescription());
+                    }
+
+                    @Override
+                    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
+                        Log.d(TAG, String.format("onProductChanged oldProduct:%s, newProduct:%s", oldProduct, newProduct));
+                    }
+                });
+            }
+        });
+    }
+}
+~~~
+
+In the code shown above, we implement the following features:
+
+1. In the `onCreate()` method, we invoke the `checkAndRequestPermissions()` method to check if there is any missing permissions, and requests runtime permission if needed. Then invoke the `initUI()` methods to initialize the UI elements.
+
+2. Next, override the `onRequestPermissionsResult()` method to check the result of runtime permission request. And then invoke the `startSDKRegistration()` method to register the application.
+
+3. Furthermore, implement the `startSDKRegistration()` method and invoke the `registerApp()` method of `DJISDKManager` to register the application. If the registration is successful, invoke the `startConnectionToProduct()` method of `DJISDKManager` inside the `onRegister()` callback method to start the connection between SDK and the DJI Products.
+
+Once we finish the steps above, continue to add the code at the bottom of the `onCreate()` method:
 
 ~~~java
 // Register the broadcast receiver for receiving the device connection's changes.
@@ -699,7 +860,7 @@ filter.addAction(FPVDemoApplication.FLAG_CONNECTION_CHANGE);
 registerReceiver(mReceiver, filter);
 ~~~
 
-In the code above, we register the broadcast receiver for receiving the device connection's changes.
+Here, we register the broadcast receiver for receiving the device connection's changes.
 
 Next, add the following methods below the `initUI()` method:
 
@@ -754,7 +915,7 @@ In the code above, we implement the following features:
 
 3. In the `refreshSDKRelativeUI()` method, we check the BaseProduct's connection status by invoking `isConnected()` method. If the product is connected, we enable the `mBtnOpen` button, update the `mTextConnectionStatus`'s text content and update the `mTextProduct`'s content with product name. Otherwise, if the product is disconnected, we disable the `mBtnOpen` button and update the `mTextProduct` and `mTextConnectionStatus` textViews' content.
 
-Finally, let's implement the `onClick()` method of `mBtnOpen` button as shown below:
+Finally, let's implement the `onClick()` method of `mBtnOpen` button and the `showToast()` method as shown below:
 
 ~~~java
 @Override
@@ -770,6 +931,16 @@ public void onClick(View v) {
             break;
     }
 }
+
+private void showToast(final String toastMsg) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            Toast.makeText(getApplicationContext(), toastMsg, Toast.LENGTH_LONG).show();
+
+        }
+    });
+}   
 ~~~
 
 Here, we create an Intent object with the class of `MainActivity` and invoke the `startActivity()` method by passing `intent` object to start the MainActivity.
@@ -1097,7 +1268,7 @@ private void stopRecord(){
 }
 ~~~
 
-In the code above, we invoke the `startRecordVideo()` and `stopRecordVideo()` methods of Camera to implement the start record and stop record features. And show the result messages to our user by override the `onResult()` methods.
+In the code above, we invoke the `startRecordVideo()` and `stopRecordVideo()` methods of Camera to implement the start record and stop record features. And show the result messages to our user by overriding the `onResult()` methods.
 
 Lastly, when the video starts recording, we should show the recording time info to our users. So let's add the following code to the bottom of `onCreate()` method as follows:
 
@@ -1155,6 +1326,5 @@ Now, let's build and run the project and check the functions. Here we use Mavic 
 
 ### Summary
    
-In this tutorial, you’ve learned how to use DJI Mobile SDK to show the FPV View from the aircraft's camera and control the camera of DJI's Aircraft to shoot photo and record video. These are the most basic and common features in a typical drone mobile app: **Capture** and **Record**. However, if you want to create a drone app which is more fancy, you still have a long way to go. More advanced features should be implemented, including previewing the photo and video in the SD Card, showing the OSD data of the aircraft and so on. Hope you enjoy this tutorial, and stay tuned for our next one!
-
+   In this tutorial, you’ve learned how to use DJI Mobile SDK to show the FPV View from the aircraft's camera and control the camera of DJI's Aircraft to shoot photo and record video. These are the most basic and common features in a typical drone mobile app: **Capture** and **Record**. However, if you want to create a drone app which is more fancy, you still have a long way to go. More advanced features should be implemented, including previewing the photo and video in the SD Card, showing the OSD data of the aircraft and so on. Hope you enjoy this tutorial, and stay tuned for our next one!
    
