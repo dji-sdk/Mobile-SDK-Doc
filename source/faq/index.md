@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2017-03-07
+date: 2018-01-04
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
@@ -36,9 +36,9 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 * [How do I fix the Mission Error "Distance between two adjacent waypoints is too large." ?](#how-do-i-fix-the-mission-error-distance-between-two-adjacent-waypoints-is-too-large)
 * [How do I fix the Mission Error "The total distance of waypoints is too large." ?](#how-do-i-fix-the-mission-error-the-total-distance-of-waypoints-is-too-large)
 
-
 **Android**
 
+* [After upgrading to DJI Android SDK 4.4.1, my android project crashes with "java.lang.NoClassDefFoundError" error, how to fix it?](#after-upgrading-to-dji-android-sdk-4-4-1-my-android-project-crashes-with-java-lang-noclassdeffounderror-error-how-to-fix-it)
 * [How can I run the Android SDK Sample Code](#how-can-i-run-the-android-sdk-sample-code)
 * [How do I reset the default app behavior for a USB Accessory  (DJI Product) on Android devices?](#how-do-i-reset-the-default-app-behavior-for-a-usb-accessory-dji-product-on-android-devices)
 * [How do I reset the default app behavior for a USB Accessory  (DJI Product) on Samsung devices?](#how-do-i-reset-the-default-app-behavior-for-a-usb-accessory-dji-product-on-android-devices)
@@ -313,6 +313,16 @@ Generally the total distance couldn't be larger than **40km**, if that error occ
 ### How can I run the Android SDK Sample Code?
 
 The following tutorial can help here: [Run Android Sample Application](../quick-start/index.html#android-sample-app).
+
+### After upgrading to DJI Android SDK 4.4.1, my android project crashes with "java.lang.NoClassDefFoundError" error, how to fix it?
+
+Since in the Android SDK 4.4.1, some of the SDK classes now need to be loaded before using. Loading process is done by `Helper.install()`. Developer needs to call this method before using any SDK functionality. Failing to do so will result in unexpected crashes. 
+
+Please make sure you don't miss the following steps:
+
+1. In your project's build.gradle file, please add the `packagingOptions` to avoid unexpected crashes, and also add the `compile` and `provided` dependencies to to import the DJI Android SDK maven dependency as shown in this [Integrate SDK into Application](../application-development-workflow/workflow-integrate.html#configure-gradle-script) tutorial.
+
+2. Create a new `MApplication` class and invoke the `install()` method of `Helper` class to load the SDK classes before using any SDK functionality. Failing to do so will result in unexpected crashes. Also, you should initialize SDK class objects (Like `BaseProduct.BaseProductListener`, `BaseComponent.ComponentListener` and `DJISDKManager.SDKManagerCallback`) inside the `onCreate()` method. For more details, please check the [Creating a Camera Application](../android-tutorials/index.html#1-creating-mapplication-class) tutorial.
 
 ### How do I reset the default app behavior for a USB Accessory  (DJI Product) on Android devices?
 

@@ -108,7 +108,7 @@ Next, specify the permissions of your application needs, by adding **\<uses-perm
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 ~~~
 
-For more details of description on the permissions, please refer to <a href="http://lbs.amap.com/api/android-sdk/guide/project/" target="_blank">http://lbs.amap.com/api/android-sdk/guide/project/</a>.
+For more details of description on the permissions, please refer to <a href="http://lbs.amap.com/api/android-sdk/guide/create-project/dev-attention" target="_blank">http://lbs.amap.com/api/android-sdk/guide/create-project/dev-attention</a>.
 
 ### Importing the AMAP JAR Packages
 
