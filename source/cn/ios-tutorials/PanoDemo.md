@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
 version: v4.4
-date: 2017-12-26
+date: 2018-01-05
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -1439,10 +1439,11 @@ Replace the **StitchingViewController.mm** with the following code:
     [super viewDidLoad];
     
     __weak StitchingViewController *weakSelf = self;
-    
+    __weak NSMutableArray *weakImageArray = self.imageArray;
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         cv::Mat stitchMat;
-        if(![Stitching stitchImageWithArray:_imageArray andResult:stitchMat]) {
+        if(![Stitching stitchImageWithArray:weakImageArray andResult:stitchMat]) {
             [weakSelf showAlertWithTitle:@"Stitching" andMessage:@"Stitching failed"];
             return;
         }
@@ -1596,9 +1597,11 @@ The `bool checkBlackRow(const cv::Mat& roi, int y)` function checks whether the 
     [super viewDidLoad];
     
     __weak StitchingViewController *weakSelf = self;
+    __weak NSMutableArray *weakImageArray = self.imageArray;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         cv::Mat stitchMat;
-        if(![Stitching stitchImageWithArray:_imageArray andResult:stitchMat]) {
+        if(![Stitching stitchImageWithArray:weakImageArray andResult:stitchMat]) {
             [weakSelf showAlertWithTitle:@"Stitching" andMessage:@"Stitching failed"];
             return;
         }

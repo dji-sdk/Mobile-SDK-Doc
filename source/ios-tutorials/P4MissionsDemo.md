@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v4.4
-date: 2017-12-26
+date: 2018-01-05
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -1349,7 +1349,7 @@ Furthermore, let's create the following two methods:
   
   if (event.trackingState) {
       DJIActiveTrackTrackingState *state = event.trackingState;
-      CGRect rect = [DemoUtility rectFromStreamSpace:state.targetRect];
+      CGRect rect = [DemoUtility rectFromStreamSpace:state.targetRect withView:self.renderView];
       self.currentTrackingRect = rect;
       if (event.trackingState.state == DJIActiveTrackTargetStateWaitingForConfirmation) {
           self.isNeedConfirm = YES;
