@@ -184,13 +184,19 @@
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.ui.widget</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>DULFrameLayoutWidget implements View.OnTouchListener</code></font></td></tr></table></html>
 <h5 id="display">Display:</h5>
 <br style="clear:both">
-<p><font color="#666">Shows the selected target on top of the <code><a href="../Widgets/DULFPVWidget.html#dulfpvwidget">FPVWidget</a></code>. Has two modes with two different icons.</font></p>
+<p><font color="#666">Single tap will show the selected target on top of the <code><a href="../Widgets/DULFPVWidget.html#dulfpvwidget">FPVWidget</a></code>. <br>Has two modes with two different icons.</font></p>
 <ul>
 <li>Focus mode will have a green square icon.</li>
 <li>Meter mode will have a yellow circle icon.</li>
 </ul>
+<p>Press and hold will show the gimbal control.</p>
+<ul>
+<li>Small white dot will stay at where user first tap the screen to indicate the anchor point.</li>
+<li>Blue circle will follow user's drag. Together with the anchor point, this dictates the gimbal movement. <br></li>
+</ul>
+<p>When grid mode is turned on (using the <code><a href="../Widgets/CameraSettingAdvancedPanel.html#camerasettingadvancedpanel">CameraSettingAdvancedPanel</a></code>), this also shows the grid lines.</p>
 <h5 id="interaction">Interaction:</h5>
-<p><font color="#666">Tapping in focus mode will select that point as focus target point. Tapping in meter mode will select that point as exposure meter target point.</font></p>
+<p><font color="#666">Tapping in focus mode will select that point as focus target point. Tapping in meter mode will select that point as exposure meter target point. <br><br>Press and hold will activate gimbal control mode. Dragging gimbal control will move the gimbal accordingly.</font></p>
 <h5 id="usage">Usage:</h5>
 <p><font color="#666">Should be the same size and placed on top of <code><a href="../Widgets/FPVOverlayWidget.html#fpvoverlaywidget">FPVOverlayWidget</a></code>.</font></p>
 
