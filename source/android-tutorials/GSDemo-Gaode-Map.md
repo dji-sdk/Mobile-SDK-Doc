@@ -1,7 +1,7 @@
 ---
 title: Creating a MapView and Waypoint Application
-version: v4.3.2
-date: 2017-09-29
+version: v4.4.1
+date: 2018-01-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map
 keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 ---
@@ -25,7 +25,7 @@ You can download the latest Android SDK from here: <a href="https://developer.dj
 
 ### Setup Android Development Environment
    
-  Throughout this tutorial we will be using Android Studio 2.1, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
+  Throughout this tutorial we will be using Android Studio 3.0, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
 
 ## Application Activation and Aircraft Binding in China
 
@@ -148,30 +148,13 @@ You can check the [Integrate SDK into Application](../application-development-wo
  
 ### Building the Layouts of MainActivity
 
-#### 1. Creating DJIDemoApplication Class 
+#### 1. Working on the MApplication, DJIDemoApplication and ConnectionActivity
 
-   Right-click on the package `com.dji.GSDemo.GaodeMap` in the project navigator and choose **New -> Java Class**, Type in "DJIDemoApplication" in the Name field and select "Class" as Kind field content.
-   
-   Next, Replace the code of the "DJIDemoApplication.java" file with the following:
-   
-~~~java
-package com.dji.GSDemo.GaodeMap;
-import android.app.Application;
+Please check the [Creating an Camera Application](./index.html#1-creating-mapplication-class) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map) of this tutorial for the detailed implementations of `MApplication` and `DJIDemoApplication`.
 
-public class DJIDemoApplication extends Application{
+To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**. You can also check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial to learn how to implement the `ConnectionActivity` Class and Layout in this project.
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-}
-~~~
-
-   Here, we override the onCreate() method. We can do some settings when the application is created here.
-   
-#### 2. Creating the MainActivity
-
-##### Implementing the MainActivity Layout
+#### 2. Implementing the MainActivity Layout
 
 Open the **activity_main.xml** layout file and replace the code with the following:
 
@@ -304,9 +287,9 @@ This xml file will help to setup a textView to enter "Altitude" and create three
    
 ![MainActivity](../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/waypointConfig.png)
 
-##### Working on the MainActivity Class
+#### 3. Working on the MainActivity Class
 
-Let's come back to the MainActivity.java class, and replace the code with the following, remember to import the related classes as Android Studio suggested:
+Let's come back to the `MainActivity.java` class, and replace the code with the following, remember to import the related classes as Android Studio suggested:
 
 ~~~java
 public class MainActivity extends FragmentActivity implements View.OnClickListener, OnMapClickListener {
@@ -465,17 +448,13 @@ In the code shown above, we implement the following features:
 
 **4.** Implement the `showSettingDialog` method to show the **Waypoint Configuration** alert dialog and override the `onClick()` method to show the configuration dialog when press the **Config** button.
 
-##### Implementing ConnectionActivity Class
-
-  To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**. You can check this section in [Creating a Camera Application](index.html#4-implementing-connectionactivity-class) to learn how to implement the ConnectionActivity Class in this project.
-
 ### Registering your Application
 
 #### 1. Modifying AndroidManifest file
 
 After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
-**1.** Let's open the AndroidManifest.xml file and add the following elements to it:
+**1.** Let's open the "AndroidManifest.xml" file and add the following elements to it:
 
 ~~~xml
 <uses-feature
@@ -522,80 +501,15 @@ Then add the following elements above the **MainActivity** activity element:
 
 In the code above, we enter the **App Key** of the application in the value part of `android:name="com.dji.sdk.API_KEY"` attribute. For more details of the AndroidManifest.xml file, please check the Github source code of the demo project.
 
-#### 2. Implementing DJIDemoApplication Class
+#### 2. Implementing Registration in DJIDemoApplication and ConnectionActivity
 
-After you finish the steps above, open the DJIDemoApplication.java file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
-
-~~~java
-@Override
-public void onCreate() {
-    super.onCreate();
-    mHandler = new Handler(Looper.getMainLooper());
-
-    //Check the permissions before registering the application for android system 6.0 above.
-    int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-    int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
-
-            //This is used to start SDK services and initiate SDK.
-            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
-        } else {
-            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
-        }
-
-}
-    
-private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
-    @Override
-    public void onRegister(DJIError error) {
-        Log.d(TAG, error == null ? "Success" : error.getDescription());
-        if(error == DJISDKError.REGISTRATION_SUCCESS) {
-            DJISDKManager.getInstance().startConnectionToProduct();
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                }
-            });
-            Log.d(TAG, "Register success");
-        } else {
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "register sdk fails, check network is available", Toast.LENGTH_LONG).show();
-                }
-            });
-            Log.d(TAG, "Register failed");
-        }
-        Log.e(TAG, error == null ? "success" : error.getDescription());
-    }
-
-    @Override
-    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-            mProduct = newProduct;
-            if(mProduct != null) {
-                mProduct.setBaseProductListener(mDJIBaseProductListener);
-            }
-        notifyStatusChange();
-    }
-};
-~~~
-
-Here, we implement several features:
-  
-1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
-2. Implement the two interface methods of DJISDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+Since we have implemented the registration logics in the "DJIDemoApplication.java" and "ConnectionActivity.java" files previously, we don't explain the details here. 
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
 ![registerSuccess](../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/registerSuccess.png)
 
-> **Important:** Please check if the "armeabi-v7a", "arm64-v8a" and "x86" lib folders has been added to your jnLibs folder in **dJISDKLib** successfully before testing resgistering the app. 
-> 
-> ![armeabi](../images/tutorials-and-samples/Android/GSDemo-Gaode-Map/armeabi.png)
+For more details of the registration logics, please check the [Creating an Camera Application](./index.html#registering-the-application) tutorial.
 
 ## Implementing the Waypoint Mission
 

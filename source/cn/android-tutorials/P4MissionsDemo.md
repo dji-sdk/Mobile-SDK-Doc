@@ -1,12 +1,12 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.3.2
-date: 2017-09-29
+version: v4.4.1
+date: 2018-01-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions
 keywords: [Android Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
 
-In this tutorial, you will learn how to use the TapFly and ActiveTrack Missions of DJI Android SDK to create a cool application for Mavic Pro. Also, you will get familiar with `ActiveTrackOperator`, `TapFlyMissionOperator` and using the Simulator of DJI Assistant 2 for testing, which is convenient for you to test the missions indoor. We will use Android Studio 2.1.1 version for demo here. So let's get started!
+In this tutorial, you will learn how to use the TapFly and ActiveTrack Missions of DJI Android SDK to create a cool application for Mavic Pro. Also, you will get familiar with `ActiveTrackOperator`, `TapFlyMissionOperator` and using the Simulator of DJI Assistant 2 for testing, which is convenient for you to test the missions indoor. We will use Android Studio 3.0 version for demo here. So let's get started!
 
 You can download the tutorial's final sample code project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions).
    
@@ -50,26 +50,9 @@ In our previous tutorial [Importing and Activating DJI SDK in Android Studio Pro
 
 ### Building the Layouts of Activities
 
-#### 1. Creating DJIDemoApplication Class 
+#### 1. Implementing MApplication and DJIDemoApplication
 
-Right-click on the package `com.dji.p4MissionsDemo` in the project navigator and choose **New -> Java Class**, Type in "DJIDemoApplication" in the Name field and select "Class" as Kind field content.
-   
-Next, replace the code of the "DJIDemoApplication.java" file with the following:
-   
-~~~java
-package com.dji.p4MissionsDemo;
-import android.app.Application;
-
-public class DJIDemoApplication extends Application{
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-}
-~~~
-
-Here, we override the onCreate() method. We can do some settings when the application is created here.
+You can check the [Creating an Camera Application](./index.html#1-creating-mapplication-class) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions) of this tutorial for the detailed implementations of the `MApplication` and `DJIDemoApplication`. 
 
 #### 2. Implementing DemoBaseActivity Class
 
@@ -114,205 +97,7 @@ We will use this activity class as our base class later. More details of the imp
 
 ##### Working on the MainActivity Class
 
-Let's come back to the MainActivity.java class, and replace the code with the following, remember to import the related classes as Android Studio suggested:
-
-~~~java
-public class MainActivity extends DemoBaseActivity {
-    
-    public static final String TAG = MainActivity.class.getName();
-    
-    public String mString = null;
-    private BaseProduct mProduct;
-        
-    private ArrayList<DemoInfo> demos = new ArrayList<DemoInfo>();
-
-    private ListView mListView;
-    
-    private DemoListAdapter mDemoListAdapter = new DemoListAdapter();
-    
-    private TextView mFirmwareVersionView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // When the compile and target version is higher than 22, please request the
-        // following permissions at runtime to ensure the
-        // SDK work well.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
-                            Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
-                            Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
-                            Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
-                            Manifest.permission.READ_PHONE_STATE,
-                    }
-                    , 1);
-        }
-
-        setContentView(R.layout.activity_main);
-        
-        mConnectStatusTextView = (TextView) findViewById(R.id.ConnectStatusTextView);
-        
-        mListView = (ListView)findViewById(R.id.listView); 
-        mListView.setAdapter(mDemoListAdapter);
-        
-        mFirmwareVersionView = (TextView)findViewById(R.id.version_tv);
-                
-        loadDemoList();
-
-        mDemoListAdapter.notifyDataSetChanged();
-        
-        updateVersion();
-
-        if ((UserAccountManager.getInstance().getUserAccountState() == UserAccountState.NOT_LOGGED_IN)
-                || (UserAccountManager.getInstance().getUserAccountState() == UserAccountState.TOKEN_OUT_OF_DATE)
-                || (UserAccountManager.getInstance().getUserAccountState() == UserAccountState.INVALID_TOKEN)){
-            loginAccount();
-        }
-        
-    }    
-    
-    private void loadDemoList() {
-        mListView.setOnItemClickListener(new OnItemClickListener() {  
-            public void onItemClick(AdapterView<?> arg0, View v, int index, long arg3) {  
-                onListItemClick(index);
-            }
-        });
-        demos.clear();
-        demos.add(new DemoInfo(R.string.title_activity_tracking_test, R.string.demo_desc_tracking, TrackingTestActivity.class));
-        demos.add(new DemoInfo(R.string.title_activity_pointing_test, R.string.demo_desc_pointing, PointingTestActivity.class));
-    }
-    
-    private void onListItemClick(int index) {
-        Intent intent = null;
-        intent = new Intent(MainActivity.this, demos.get(index).demoClass);
-        this.startActivity(intent);
-    }
-    
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-    
-    public void onReturn(View view){
-        Log.d(TAG ,"onReturn");  
-        this.finish();
-    }
-
-    @SuppressLint("ViewHolder")
-    private class DemoListAdapter extends BaseAdapter {
-        public DemoListAdapter() {
-            super();
-        }
-
-        @Override
-        public View getView(int index, View convertView, ViewGroup parent) {
-            convertView = View.inflate(MainActivity.this, R.layout.demo_info_item, null);
-            TextView title = (TextView)convertView.findViewById(R.id.title);
-            TextView desc = (TextView)convertView.findViewById(R.id.desc);
-
-            title.setText(demos.get(index).title);
-            desc.setText(demos.get(index).desc);
-            return convertView;
-        }
-        @Override
-        public int getCount() {
-            return demos.size();
-        }
-        @Override
-        public Object getItem(int index) {
-            return  demos.get(index);
-        }
-
-        @Override
-        public long getItemId(int id) {
-            return id;
-        }
-    }
-    
-    private static class DemoInfo{
-        private final int title;
-        private final int desc;
-        private final Class<? extends android.app.Activity> demoClass;
-
-        public DemoInfo(int title , int desc,Class<? extends android.app.Activity> demoClass) {
-            this.title = title;
-            this.desc  = desc;
-            this.demoClass = demoClass;
-        }
-    }
-    
-    @Override
-    protected void onProductChange() {
-        super.onProductChange();
-        loadDemoList();
-        mDemoListAdapter.notifyDataSetChanged();
-        updateVersion();
-    }
-
-    private void setResultToToast(final String string) {
-        MainActivity.this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void loginAccount(){
-
-        UserAccountManager.getInstance().logIntoDJIUserAccount(this, new CommonCallbacks.CompletionCallbackWith<UserAccountState>() {
-            @Override
-            public void onSuccess(UserAccountState userAccountState) {
-                Log.d(TAG ,"Login Success");
-            }
-
-            @Override
-            public void onFailure(DJIError djiError) {
-                setResultToToast("Login Failed: " +  djiError.getDescription());
-            }
-        });
-    }
-
-    String version = null;
-
-    private void updateVersion() {
-
-        BaseProduct product = DJISDKManager.getInstance().getProduct();
-        if(product != null) {
-            version = product.getFirmwarePackageVersion();
-        }
-        
-        if(version == null) {
-            version = "N/A";
-        }
-        MainActivity.this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mFirmwareVersionView.setText("Firmware version: " + version);
-            }
-        });
-        
-    }
-}
-~~~
-
-In the code shown above, we mainly implement the following features:
-
-**1.** Create a ListView to show the "TapFly" and "ActiveTrack" activities' layouts, and a TextView to show the firmware version.
-
-**2.** In the `onCreate()` method, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23).
-
-**3.** Then create the `mListView` and invoke the `loadDemoList()` method to refresh the listView.
-
-**4.** Create a DemoInfo class to includes title, desc and demoClass content. Implement the `loadDemoList()` method to add listView data source and implement the `mListView`'s `setOnItemClickListener()` method. Then implement the `onListItemClick()` method by creating an Intent to launch the "TapFly" and "ActiveTrack" Activities from MainActivity.
-
-**5.** Create the DemoListAdapter class, which extends from the BaseAdapter class, override the `getView()` method to update the `title` and `desc` variables' text content. Also, override the `getCount()`, `getItem()` and `getItemId()` interface methods.
-
-**6.** Create the `loginAccount()` method to login to user's DJI account and activate the application. This method is invoked in the `onCreate()` method.
+For the implementation of the "MainActivity.java class, please check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions) of this tutorial.
 
 ##### Implementing the MainActivity Layout
 
@@ -769,7 +554,7 @@ We have gone through a long process to setup the UI of the application. Now, let
 
 After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
-**1.** Let's open the AndroidManifest.xml file and add the following elements above the **application** element:
+Now let's open the "AndroidManifest.xml" file and add the following elements above the **application** element:
 
 ~~~xml
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -798,7 +583,7 @@ After you finish the above steps, let's register our application with the **App 
         android:required="true" />
 
     <application
-        android:name=".DJIDemoApplication"
+        android:name=".MApplication"
         android:allowBackup="true"
         tools:replace="android:icon"
         android:icon="@drawable/ic_launcher"
@@ -830,73 +615,13 @@ Then add the following elements above the **MainActivity** activity element:
 <!-- DJI SDK -->
 ~~~
 
-In the code above, we enter the **App Key** of the application under the `android:name="com.dji.sdk.API_KEY"` attribute. For more details of the AndroidManifest.xml file, please check the Github source code of the demo project.
+In the code above, we enter the **App Key** of the application under the `android:name="com.dji.sdk.API_KEY"` attribute. For more details of the "AndroidManifest.xml" file, please check the Github source code of the demo project.
 
-**2.** After you finish the steps above, open the DJIDemoApplication.java file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
-
-~~~java
-@Override
-public void onCreate() {
-    super.onCreate();
-    mHandler = new Handler(Looper.getMainLooper());
-    DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
-}
-    
-private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
-
-    @Override
-    public void onRegister(DJIError error) {
-        Log.d(TAG, error == null ? "success" : error.getDescription());
-        if(error == DJISDKError.REGISTRATION_SUCCESS) {
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                }
-            });
-
-            DJISDKManager.getInstance().startConnectionToProduct();
-        } else {
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-                
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Register sdk fails, check network is available", Toast.LENGTH_LONG).show();
-                }
-            });
-            
-        }
-        Log.e("TAG", error.toString());
-    }
-
-    @Override
-    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-        mProduct = newProduct;
-        if(mProduct != null) {
-            mProduct.setBaseProductListener(mDJIBaseProductListener);
-        }
-        
-        notifyStatusChange();
-    }
-};
-~~~
-
-Here, we implement several features:
-  
-1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
-2. Implement the two methods of the DJISDKManagerCallback interface. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+Since we have implemented the registration logics in the "DJIDemoApplication.java" and "MainActivity.java" files previously, we don't explain the details here. 
 
 Now, let's build and run the project and install it in your Android device to test it. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
 
 ![registerSuccess](../../images/tutorials-and-samples/Android/Phantom4Missions/registerSuccess.png)
-
-> **Important:** Please check if the "armeabi-v7a", "arm64-v8a" and "x86" lib folders has been added to your jnLibs folder in **dJISDKLib** successfully before testing resgistering the app. 
-> 
-> ![armeabi](../../images/tutorials-and-samples/Android/Phantom4Missions/armeabi.png)
 
 ## Coordinate Transformations for Missions
 

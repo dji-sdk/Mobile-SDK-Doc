@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v4.3.2
-date: 2017-09-29
+version: v4.4.1
+date: 2018-01-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
@@ -35,8 +35,6 @@ Additionally, simulator initialization, monitoring and termination can be contro
 
 ## Implementing the UI of Application
 
-In the [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration) tutorial, you have learned how to import the DJI Android SDK into your Android Studio project and activate your application. If you haven't read that previously, please take a look at it. Once you've done that, let's continue to create the project.
-
 ### Importing Maven Dependency
 
 Open Android Studio and select **File -> New -> New Project** to create a new project, named "DJISimulatorDemo". Enter the company domain and package name (Here we use "com.dji.simulatorDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
@@ -45,31 +43,9 @@ In our previous tutorial [Importing and Activating DJI SDK in Android Studio Pro
 
 ### Building the Layouts of Activity
 
-#### 1. Creating DJISimulatorApplication Class
-
-Right-click on the package `com.dji.simulatorDemo` in the project navigator and choose **New -> Java Class**, Type in "DJISimulatorApplication" in the Name field and select "Class" as Kind field content.
-   
-Next, Replace the code of the "DJISimulatorApplication.java" file with the following:
-
-~~~java
-package com.dji.simulatorDemo;
-import android.app.Application;
-
-public class DJISimulatorApplication extends Application {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-}
-~~~
-
-Here, we override the onCreate() method. We can do some settings when the application is created here.
-
-#### 2. Implementing the Joystick Control
+#### 1. Implementing the Joystick Control
 
 In order to input some simulated data, like `pitch`, `roll`, `yaw` and `verticalThrottle`, you may need a joystick control. Let's work on the implementation of it.
-
 
 We implement the joystick control base on an open source Github project <a href="https://github.com/Ville-/OnScreenJoystick/tree/master/OnScreenJoystick/src/com/salamientertainment/view/onscreenjoystick" target="_blank"> OnScreenJoystick </a>. You can download the Github project to get the **OnScreenJoystick.java** and **OnScreenJoystickListener.java** files or get them from this tutorial's Github Sample project. Now, copy and paste these two java files to the folder of "com.dji.simulatorDemo" on the left navigator as shown below:
 
@@ -92,7 +68,7 @@ Next, copy and paste the **joystick.png** and **joystick_bg.png** files from thi
 
 ![joystickImages](../images/tutorials-and-samples/Android/SimulatorDemo/joystickImages.png)
 
-#### 3. Implementing the UI Elements in MainActivity Class
+#### 2. Implementing the UI Elements in MainActivity Class
 
 Now, let's open the MainActivity.java file and replace the code with the followings:
 
@@ -114,22 +90,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // When the compile and target version is higher than 22, please request the
-        // following permissions at runtime to ensure the
-        // SDK work well.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
-                            Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
-                            Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
-                            Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
-                            Manifest.permission.READ_PHONE_STATE,
-                    }
-                    , 1);
-        }
 
         setContentView(R.layout.activity_main);
         initUI();
@@ -231,7 +191,7 @@ In the code above, we implement the following features:
 
 **4.** Override the `onClick()` method to implement the four buttons' click actions.
 
-#### 4. Implementing the MainActivity Layout
+#### 3. Implementing the MainActivity Layout
 
 Open the **activity_main.xml** layout file and replace the code with the following:
 
@@ -367,7 +327,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
   
   Lastly, we create two OnScreenJoystick elements (id: directionJoystickRight) and (id:directionJoystickLeft) for joystick control.
   
-#### 5. Configuring the Resources
+#### 4. Configuring the Resources
 
   Once you finish the above steps, let's add some resources files to the **res** folder on the left navigator of Android Studio.
   
@@ -404,269 +364,21 @@ Open the **activity_main.xml** layout file and replace the code with the followi
 </style>
 ~~~
 
-### Registering the Application
+#### Implementing Registration in DJISimulatorApplication and MainActivity
 
-  Once you finish the above steps, let's register the application on DJI Developer Website and get the **App Key**. If you are not familiar with the App Key, please check [Generate an App Key](../quick-start/index.html#generate-an-app-key) for details.
+Once you finish the above steps, let's register the application on DJI Developer Website and get the **App Key**. If you are not familiar with the App Key, please check [Generate an App Key](../quick-start/index.html#generate-an-app-key) for details.
+
+Moreover, please check the [Creating an Camera Application](./index.html#registering-the-application) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo) of this tutorial for the detailed implementations of the `MApplication`, `DJISimulatorApplication` and `MainActivity`. 
   
-**1.** Open the AndroidManifest.xml file and add the following elements on top of the **application** element: 
-
-~~~xml
-<!-- SDK permission requirement -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <uses-feature
-        android:name="android.hardware.usb.host"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.usb.accessory"
-        android:required="true" />
-
-<!-- SDK requirement permission end -->
-~~~
-
-Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also we declare the camera and usb hardwares which is used by the application.
-
-Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
-
-~~~xml
-<!-- DJI SDK -->
-<meta-data
-    android:name="com.dji.sdk.API_KEY"
-    android:value="Please enter your APP Key here." />
-    
-<service android:name="dji.sdk.sdkmanager.DJIGlobalService" >
-</service>
-
-<activity
-    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
-    android:theme="@android:style/Theme.Translucent" >
-    <intent-filter>
-        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-    </intent-filter>
-
-    <meta-data
-     android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-        android:resource="@xml/accessory_filter" />
-</activity>
-
-<!-- DJI SDK -->
-~~~
-
-In the code above, you should substitude your **App Key** of the application for "Please enter your App Key here." in the **value** attribute under the `android:name="com.dji.sdk.API_KEY"` attribute.
-
-**2.** After you finish the steps above, open the "DJISimulatorApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
-
-~~~java
-@Override
-public void onCreate() {
-    super.onCreate();
-
-    mHandler = new Handler(Looper.getMainLooper());
-
-    //Check the permissions before registering the application for android system 6.0 above.
-    int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-    int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
-
-            //This is used to start SDK services and initiate SDK.
-            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
-        } else {
-            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
-        }
-}
-
-private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
-
-    @Override
-    public void onRegister(DJIError error) {
-
-        Handler handler = new Handler(Looper.getMainLooper());
-
-        if(error == DJISDKError.REGISTRATION_SUCCESS) {
-
-            handler.post(new Runnable() {
-
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(),
-                            R.string.success,
-                            Toast.LENGTH_LONG).show();
-                }
-            });
-
-            DJISDKManager.getInstance().startConnectionToProduct();
-        } else {
-            handler.post(new Runnable() {
-
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(),
-                            R.string.sdk_registration_message,
-                            Toast.LENGTH_LONG).show();
-                }
-            });
-
-        }
-        Log.v(TAG, error.getDescription());
-    }
-
-    @Override
-    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-        Log.v(TAG, String.format("onProductChanged oldProduct:%s, newProduct:%s", oldProduct, newProduct));
-        mProduct = newProduct;
-        if(mProduct != null) {
-            mProduct.setBaseProductListener(mDJIBaseProductListener);
-        }
-
-        notifyStatusChange();
-    }
-
-    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-
-        @Override
-        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-
-            if(newComponent != null) {
-                newComponent.setComponentListener(mDJIComponentListener);
-            }
-            Log.v(TAG, String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s", key, oldComponent, newComponent));
-
-            notifyStatusChange();
-        }
-
-        @Override
-        public void onConnectivityChange(boolean isConnected) {
-
-            Log.v(TAG, "onConnectivityChange: " + isConnected);
-
-            notifyStatusChange();
-        }
-
-    };
-~~~
-
-Here, we implement several features:
-  
-1. We override the `onCreate()` method to invoke the `registerApp()` method of `DJISDKManager` to register the application.
-2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
-
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "success" textView like the following screenshot when you register the app successfully.
 
 ![registerSuccess](../images/tutorials-and-samples/Android/SimulatorDemo/registerSuccess.png)
-
-> **Important:** Please check if the "armeabi-v7a", "arm64-v8a" and "x86" lib folders has been added to your jnLibs folder in **dJISDKLib** successfully before testing resgistering the app. 
-> 
-> ![armeabi](../images/tutorials-and-samples/Android/SimulatorDemo/armeabi.png)
-> 
-
-For more details of integrating and activating the SDK in Android Studio, please check: [Android Studio Project Integration](../application-development-workflow/workflow-integrate.html#android-studio-project-integration).
 
 ## Working on MainActivity class
 
 ### Update Product Connection Status
 
-Now, let's update the product connection status. Open the "MainActivity.java" file and add the following code at the bottom of `onCreate()` method:
-
-~~~java
-    IntentFilter filter = new IntentFilter();
-    filter.addAction(DJISimulatorApplication.FLAG_CONNECTION_CHANGE);
-    registerReceiver(mReceiver, filter);
-~~~
-
-The code above register the broadcast receiver for receiving the device connection's changes.
-
-Next, add the following four methods below `onCreate()` and override the `onResume()` and `onDestroy()` methods as shown below:
-
-~~~java
-protected BroadcastReceiver mReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            updateTitleBar();
-        }
-    };
-
-public void showToast(final String msg) {
-    runOnUiThread(new Runnable() {
-        public void run() {
-            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-        }
-    });
-}
-
-private void updateTitleBar() {
-    if(mConnectStatusTextView == null) return;
-    boolean ret = false;
-    BaseProduct product = DJISimulatorApplication.getProductInstance();
-    if (product != null) {
-        if(product.isConnected()) {
-            //The product is connected
-            mConnectStatusTextView.setText(DJISimulatorApplication.getProductInstance().getModel() + " Connected");
-            ret = true;
-        } else {
-            if(product instanceof Aircraft) {
-                Aircraft aircraft = (Aircraft)product;
-                if(aircraft.getRemoteController() != null && aircraft.getRemoteController().isConnected()) {
-                    // The product is not connected, but the remote controller is connected
-                    mConnectStatusTextView.setText("only RC Connected");
-                    ret = true;
-                }
-            }
-        }
-    }
-
-    if(!ret) {
-        // The product or the remote controller are not connected.
-        mConnectStatusTextView.setText("Disconnected");
-    }
-}
-
-@Override
-public void onResume() {
-    Log.e(TAG, "onResume");
-    super.onResume();
-    updateTitleBar();
-}
-
-@Override
-protected void onDestroy() {
-    Log.e(TAG, "onDestroy");
-    unregisterReceiver(mReceiver);
-
-    super.onDestroy();
-}
-    
-~~~
-
-As the code shown above, we implement the following features:
-
-**1.** Create a BroadcastReceiver object `mReceiver`, override its `onReceive()` method and invoke the `updateTitleBar()` method to update the `mConnectStatusTextView`'s content.
-
-**2.** Create the `showToast()` method to display the toast notification message to users.
-
-**3.** In the `updateTitleBar()` method, we first check if mConnectStatusTextView is null, then create a BaseProduct object by invoking the `getProductInstance()` method of DJISimulatorApplication. 
-
-Moreover, invoke the `isConnected()` method of BaseProduct to check if the product is connected, then invoke the `getModel()` method of BaseProduct to get the model name and show it in `mConnectStatusTextView`. If the product is not connected, cast the `product` object as Aircraft object, and check if the remoteController is not null and if it's connected, then update the `mConnectStatusTextView`'s text content. 
-
-Lastly, if the product or remote controller are not connected, then update the `mConnectStatusTextView`'s text with "Disconnected".
-
-**4.** We override the `onResume()` method to invoke the `updateTitleBar()` method to update `mConnectStatusTextView` when the activity start interacting with the user. Then override the `onDestroy()` method to unregister the BroadcastReceiver object.
+Please check the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo) of this tutorial for the detailed implementations.
 
 Now let's build and run the project and install it to your Android device. Then connect the demo application to your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details), if everything goes well, you should see the title textView content updates to "MavicPro Connected" as shown below:
 
@@ -1026,4 +738,3 @@ In this tutorial, you've learned how to use the DJISimulator feature to simulate
 This demo is a simple demonstration of using DJISimulator, to have a better user experience, you can create a 3D simulated environment using 3D game engine like <a href="https://unity3d.com" target="_blank"> Unity3D </a> to show the simulated data and aircraft flight behavious inside your mobile application (Like the Flight Simulator in DJI Go app)!  
 
 Furthermore, the DJISimulator allows for automated testing in continous integration environment(Like <a href="https://jenkins.io" target="_blank">Jenkins</a>), it would help your DJI-SDK based application testing process. Good luck, and hope you enjoyed this tutorial!
-

@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
-version: v4.3.2
-date: 2017-10-24
+version: v4.4.1
+date: 2018-01-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -34,10 +34,6 @@ Now, create a new project in Android Studio, open Android Studio and select **Fi
 Please check the [Getting Started with UI Library](../android-tutorials/UILibraryDemo.html#import-maven-dependency) tutorial to learned how to import the DJI Android UI Library Maven Dependency to your project. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
 ## Implementing the UI of Application
-
-### Working on the ConnectionActivity Layout
-
-Please check the [Creating an Camera Application](./index.html#5-implementing-the-connectionactivity-layout) tutorial for the detail implementations.
 
 ### Building the Default Layout using UI Library
 
@@ -82,6 +78,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -132,17 +129,18 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
             android:layout_height="22dp"/>
 
         <dji.ui.widget.WiFiSignalWidget
-            android:layout_width="22dp"
-            android:layout_height="20dp"/>
+            android:layout_width="32dp"
+            android:layout_height="25dp"/>
 
         <dji.ui.widget.BatteryWidget
-            android:layout_width="56dp"
-            android:layout_height="22dp"/>
+            android:layout_width="96dp"
+            android:layout_height="22dp"
+            custom:excludeView="singleVoltage"/>
 
         <dji.ui.widget.ConnectionWidget
-            android:layout_marginTop="5dp"
-            android:layout_width="22dp"
-            android:layout_height="22dp"/>
+            android:layout_marginTop="3dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -198,7 +196,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:layout_width="match_parent"
         android:background="@color/transparent"
         android:layout_height="20dp"/>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -213,7 +211,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
             android:layout_marginRight="12dp"/>
 
     </LinearLayout>
-    
+
     <!--Take off and return home buttons on left -->
     <LinearLayout
         android:layout_width="40dp"
@@ -263,7 +261,16 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:background="@color/transparent"
         android:gravity="center"
         android:visibility="invisible" />
-    
+
+    <Button
+        android:id="@+id/btn_mediaManager"
+        android:layout_width="38dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/CameraCapturePanel"
+        android:layout_below="@id/CameraCapturePanel"
+        android:background="@drawable/playback"
+        android:visibility="visible" />
+
     <!-- Pre-flight checklist panel -->
     <dji.ui.panel.PreFlightCheckListPanel
         android:id="@+id/PreflightCheckView"
@@ -272,26 +279,6 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:layout_below="@id/signal"
         android:visibility="gone"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:layout_alignParentBottom="true">
-
-        <Button
-            android:id="@+id/btn_mediaManager"
-            android:layout_width="38dp"
-            android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/CameraCapturePanel"
-            android:layout_below="@id/CameraCapturePanel"
-            android:layout_marginLeft="530dp"
-            android:background="@drawable/playback"
-            android:visibility="visible" />
-
-    </LinearLayout>
-    
 </RelativeLayout>
 ~~~
 
@@ -639,178 +626,7 @@ In the code above, we implement the following:
 
 After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
-**1.** Let's open the AndroidManifest.xml file and add the following elements on top of the **application** element:
-
-~~~xml
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-<uses-permission android:name="android.permission.VIBRATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-<uses-feature android:name="android.hardware.camera" />
-<uses-feature android:name="android.hardware.camera.autofocus" />
-<uses-feature
-    android:name="android.hardware.usb.host"
-    android:required="false" />
-<uses-feature
-    android:name="android.hardware.usb.accessory"
-    android:required="true" />
-~~~
-
-Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardwares which are used by the application.
-
-Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
-
-~~~xml
-<!-- DJI SDK -->
-<uses-library android:name="com.android.future.usb.accessory" />
-
-<meta-data
-    android:name="com.dji.sdk.API_KEY"
-    android:value="Please enter your APP Key here." />
-
-<activity
-    android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
-    android:theme="@android:style/Theme.Translucent">
-    <intent-filter>
-        <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-    </intent-filter>
-
-    <meta-data
-        android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-        android:resource="@xml/accessory_filter" />
-</activity>
-
-<service android:name="dji.sdk.sdkmanager.DJIGlobalService" />
-<!-- DJI SDK -->
-~~~
-
-In the code above, you should substitute your **App Key** of the application for "Please enter your App Key here." in the **value** attribute under the `android:name="com.dji.sdk.API_KEY"` attribute.
-
-Lastly, update the "MainActivity" and "ConnectionActivity" activity elements as shown below:
-
-~~~xml
-<activity
-    android:name=".ConnectionActivity"
-    android:screenOrientation="portrait">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
-<activity android:name=".DefaultLayoutActivity"
-    android:screenOrientation="landscape"></activity>
-<activity
-    android:name=".MainActivity"
-    android:screenOrientation="landscape"></activity>
-~~~
-
-In the code above, we add the attributes of "android:screenOrientation" to set "ConnectionActivity" as **portrait**, set "DefaultLayoutActivity" as **landscape** and set "MainActivity" as **landscape**.
-
-**2.** After you finish the steps above, open the "DemoApplication.java" file and replace the code with the same file in the Github Source Code, here we explain the important parts of it:
-
-~~~java
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mHandler = new Handler(Looper.getMainLooper());
-
-        //Check the permissions before registering the application for android system 6.0 above.
-        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
-            //This is used to start SDK services and initiate SDK.
-            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
-        } else {
-            Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    /**
-     * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
-     * the SDK Registration result and the product changing.
-     */
-
-    private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
-
-        //Listens to the SDK registration result
-        @Override
-        public void onRegister(DJIError error) {
-            if(error == DJISDKError.REGISTRATION_SUCCESS) {
-                DJISDKManager.getInstance().startConnectionToProduct();
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                    }
-                });
-            } else {
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Register sdk fails, check network is available", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-            }
-            Log.e("TAG", error.toString());
-        }
-
-        //Listens to the connected product changing, including two parts, component changing or product connection changing.
-        @Override
-        public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-            mProduct = newProduct;
-            if(mProduct != null) {
-                mProduct.setBaseProductListener(mDJIBaseProductListener);
-            }
-
-            notifyStatusChange();
-        }
-    };
-
-    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-
-        @Override
-        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-
-            if(newComponent != null) {
-                newComponent.setComponentListener(mDJIComponentListener);
-            }
-            notifyStatusChange();
-        }
-
-        @Override
-        public void onConnectivityChange(boolean isConnected) {
-
-            notifyStatusChange();
-        }
-
-    };
-~~~
-
-Here, we implement several features:
-  
-1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
-2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
-
-**3.** Lastly, open the "ConnectionActivity.java" file and replace the code with the same file in the Github Source Code.
+Moreover, please check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo) of this tutorial for the detailed implementations of the `MApplication`, `DemoApplication` and `ConnectionActivity` 
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 

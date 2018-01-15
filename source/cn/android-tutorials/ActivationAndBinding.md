@@ -1,7 +1,7 @@
 ---
 title: Application Activation and Aircraft Binding
-version: v4.3.2
-date: 2017-09-29
+version: v4.4.1
+date: 2018-01-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo
 keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, Bound, Activated, Real Name System]
 ---
@@ -35,9 +35,9 @@ This demo is build based on the [ImportSDKDemo](https://github.com/DJI-Mobile-SD
 
 ### Implementing the UI of Application
 
-#### Working on the ConnectionActivity
+#### Working on the MApplication, DemoApplication and ConnectionActivity
 
-Please check the [Creating an Camera Application](./index.html#4-implementing-connectionactivity-class) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo) of this tutorial for the detail implementations.
+Please check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo) of this tutorial for the detailed implementations.
 
 #### Working on the MainActivity Class
 
@@ -514,5 +514,3 @@ Congratulations! Now, your mobile application and aircraft can be used in China 
 ### Summary
 
 In this tutorial, you’ve learned how to use DJI Mobile SDK to activate the SDK mobile application and use DJI Go app to bind the aircraft to your DJI Acccount. The same steps can be used for activating application and binding aircraft in your application. Hope you enjoy this tutorial, and stay tuned for our next one!
-
-
