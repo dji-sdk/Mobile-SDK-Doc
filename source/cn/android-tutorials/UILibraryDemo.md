@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UI Library
-version: v4.3.2
-date: 2017-10-09
+version: v4.4.1
+date: 2018-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UILibraryDemo
 keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -39,43 +39,54 @@ For an in depth learning on DJI UI Library, please go to the [UI Library Introdu
 
 Now, open Android Studio and select **File -> New -> New Project** to create a new project, named "UILibraryDemo". Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
-### Import Maven Dependency
-
-Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. Press the "+" button at the bottom of the window and choose "Library Dependency".
-
-<img src="../../images/tutorials-and-samples/Android/UILibraryDemo/libraryDependency.png" width="700">
-
-After that, search for "dji-uilibrary" and select the latest version of DJI Android UI Library and press "OK" to add the DJI Android UI Library Maven Dependency to the project.
-
-<img src="../../images/tutorials-and-samples/Android/UILibraryDemo/chooseLibraryDependency.png" width="700">
-
 ### Configure Gradle Script
 
-Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and add the following code:
+Double click on the "build.gradle(Module: app)" in the project navigator to open it and add the following code:
 
-~~~java
+~~~gradle
+apply plugin: 'com.android.application'
+
 android {
+
     ...
     defaultConfig {
         ...
-        // Enabling multidex support.
-        multiDexEnabled true
     }
+
     ...
+
+    packagingOptions{
+        doNotStrip "*/*/libdjivideo.so"
+        doNotStrip "*/*/libSDKRelativeJNI.so"
+        doNotStrip "*/*/libFlyForbid.so"
+        doNotStrip "*/*/libduml_vision_bokeh.so"
+        doNotStrip "*/*/libyuv2.so"
+        doNotStrip "*/*/libGroudStation.so"
+        doNotStrip "*/*/libFRCorkscrew.so"
+        doNotStrip "*/*/libUpgradeVerify.so"
+        doNotStrip "*/*/libFR.so"
+    }
 }
 
 dependencies {
-    ...
-    compile 'com.android.support:multidex:1.0.1'
+   ...
+    compile ('com.dji:dji-uilibrary:4.4.1')
+    provided ('com.dji:dji-sdk-provided:4.4.1')
 }
 ~~~
 
 In the code above, we implement the following features:
 
-1. Add `multiDexEnabled true` to enable multidex support.
-2. Add `compile 'com.android.support:multidex:1.0.1'` at the bottom of **dependencies** to add the necessary **multidex** and **recyclerview** library.
+1. Add the `packagingOptions` to prevent any unexpected crash of the application.
+2. Add the `compile` and `provided` dependencies to import the latest DJI Android UILibrary and SDK Maven dependency.
 
 Once you finished the steps above, select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
+
+### Double Check Maven Dependency
+
+Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. You should see the latest DJI Android UILibrary compile and sdk provided dependencies are already imported.
+
+  <img src="../../images/tutorials-and-samples/Android/UILibraryDemo/libraryDependency.png" width=85%>
 
 ## Application Activation and Aircraft Binding in China
 
@@ -365,9 +376,44 @@ With the help of DJI UI Library, it's simple and straightforward to implement th
 
 Now let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
-### Implementing DemoApplication Class
+### Implementing MApplication and DemoApplication
 
-Right click on the 'com.dji.uilibrarydemo' module in the project navigator and select "New -> Java Class" to create a new file, enter "DemoApplication" as the **Name**. Then replace the code with the same file in this tutorial's Github sample project, here we explain the important parts of it:
+Right click on the 'com.dji.uilibrarydemo' module in the project navigator and select "New -> Java Class" to create a new file, enter "MApplication" as the **Name**. Then replace the code with the following:
+
+~~~java
+package com.dji.uilibrarydemo;
+
+import android.app.Application;
+import android.content.Context;
+
+import com.secneo.sdk.Helper;
+
+public class MApplication extends Application {
+
+    private DemoApplication demoApplication;
+    @Override
+    protected void attachBaseContext(Context paramContext) {
+        super.attachBaseContext(paramContext);
+        Helper.install(MApplication.this);
+        if (demoApplication == null) {
+            demoApplication = new DemoApplication();
+            demoApplication.setContext(this);
+        }
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        demoApplication.onCreate();
+    }
+}
+~~~
+
+Here, we override the `attachBaseContext()` method to add the `Helper.install(MApplication.this);` line of code. Also, override the `onCreate()` method to invoke the same `onCreate()` method of `DemoApplication` class.
+
+> Note: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failing to do so will result in unexpected crashes.
+
+Once we finished the steps above, let's continue to create the `DemoApplication` class, and replace the code with the same file in this tutorial's [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-UILibraryDemo), here we explain the important part of it:
 
 ~~~java
 @Override
@@ -376,89 +422,103 @@ Right click on the 'com.dji.uilibrarydemo' module in the project navigator and s
         mHandler = new Handler(Looper.getMainLooper());
 
         //Check the permissions before registering the application for android system 6.0 above.
-        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permissionCheck2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE);
+        int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_PHONE_STATE);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || (permissionCheck == 0 && permissionCheck2 == 0)) {
 
             //This is used to start SDK services and initiate SDK.
-            DJISDKManager.getInstance().registerApp(this, mDJISDKManagerCallback);
+            DJISDKManager.getInstance().registerApp(getApplicationContext(), mDJISDKManagerCallback);
         } else {
             Toast.makeText(getApplicationContext(), "Please check if the permission is granted.", Toast.LENGTH_LONG).show();
         }
 
+        /**
+         * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
+         * the SDK Registration result and the product changing.
+         */
+        mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
+
+            //Listens to the SDK registration result
+            @Override
+            public void onRegister(DJIError error) {
+                if(error == DJISDKError.REGISTRATION_SUCCESS) {
+                    DJISDKManager.getInstance().startConnectionToProduct();
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    loginAccount();
+
+                } else {
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Register Failed, check network is available", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+                Log.e("TAG", error.toString());
+            }
+
+            //Listens to the connected product changing, including two parts, component changing or product connection changing.
+            @Override
+            public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
+
+                mProduct = newProduct;
+                if(mProduct != null) {
+                    mProduct.setBaseProductListener(mDJIBaseProductListener);
+                }
+
+                notifyStatusChange();
+            }
+        };
+
+        mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
+
+            @Override
+            public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
+
+                if(newComponent != null) {
+                    newComponent.setComponentListener(mDJIComponentListener);
+                }
+                notifyStatusChange();
+            }
+
+            @Override
+            public void onConnectivityChange(boolean isConnected) {
+
+                notifyStatusChange();
+            }
+
+        };
+
+        mDJIComponentListener = new BaseComponent.ComponentListener() {
+
+            @Override
+            public void onConnectivityChange(boolean isConnected) {
+                notifyStatusChange();
+            }
+
+        };
+
     }
-
-    /**
-     * When starting SDK services, an instance of interface DJISDKManager.SDKManagerCallback will be used to listen to 
-     * the SDK Registration result and the product changing.
-     */
-    private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
-
-        //Listens to the SDK registration result
-        @Override
-        public void onRegister(DJIError error) {
-            if(error == DJISDKError.REGISTRATION_SUCCESS) {
-                DJISDKManager.getInstance().startConnectionToProduct();
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-            } else {
-
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Register Failed, check network is available", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-            }
-            Log.e("TAG", error.toString());
-        }
-
-        //Listens to the connected product changing, including two parts, component changing or product connection changing.
-        @Override
-        public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-            mProduct = newProduct;
-            if(mProduct != null) {
-                mProduct.setBaseProductListener(mDJIBaseProductListener);
-            }
-
-            notifyStatusChange();
-        }
-    };
-
-    private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-
-        @Override
-        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-
-            if(newComponent != null) {
-                newComponent.setComponentListener(mDJIComponentListener);
-            }
-            notifyStatusChange();
-        }
-
-        @Override
-        public void onConnectivityChange(boolean isConnected) {
-
-            notifyStatusChange();
-        }
-    };
 ~~~
 
 Here, we implement several features:
-  
-1. We override the `onCreate()` method to initialize DJISDKManager and register the application.
-2. Implement the two interface methods of `SDKManagerCallback`. You can use the `onRegister()` method to check the Application registration status and show text message to inform users. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-3. Implement the two interface methods of `BaseProductListener`. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
+
+1. We override the `onCreate()` method to check the permissions and invoke the `registerApp()` method of `DJISDKManager` to register the application first.
+
+2. Initialize the `SDKManagerCallback` variable and implement its two interface methods. You can use the `onRegister()` method to check the Application registration status and show text message to inform users. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
+
+3. Initialize the `BaseProductListener` and `ComponentListener` variables and implement the interface methods of them. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product and component connectivity changes.
+
+Please initialize the DJI Android SDK class variables inside the `onCreate()` method of `DemoApplication` class after the `MApplication` class is created, which finished loading the SDK classes by invoking the `Helper.install()`.
 
 For more details, please check this tutorial's Github Sample project.
 
@@ -496,7 +556,19 @@ Once you finished the steps above, let's open the "AndroidManifest.xml" file and
 
 Here, we request permissions that the application must be granted in order for it to register DJI SDK correctly. Also, we declare the camera and USB hardware which are used by the application.
 
-Moreover, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
+Moreover, add the `android:name=".MApplication"` at the beginning of the `application` element:
+
+~~~xml
+<application
+    android:name=".MApplication"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+~~~
+
+Furthermore, let's add the following elements as childs of element on top of the "MainActivity" activity element as shown below:
 
 ~~~xml
 <!-- DJI SDK -->
@@ -568,7 +640,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-}
+
 ~~~
 
  In the `onCreate()` method, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23). 

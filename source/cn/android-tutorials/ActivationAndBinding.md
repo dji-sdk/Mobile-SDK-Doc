@@ -37,7 +37,7 @@ This demo is build based on the [ImportSDKDemo](https://github.com/DJI-Mobile-SD
 
 #### Working on the MApplication, DemoApplication and ConnectionActivity
 
-Please check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo) of this tutorial for the detailed implementations.
+Please check the [Creating an Camera Application](./index.html#1-creating-mapplication-class) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo) of this tutorial for the detailed implementations.
 
 #### Working on the MainActivity Class
 
