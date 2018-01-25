@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
-version: v4.3.2
-date: 2017-10-17
+version: v4.4
+date: 2018-1-25
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo
 keywords: [iOS GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
@@ -50,9 +50,7 @@ Drag and drop another ViewController object from the Object Library to the right
 
 Furthermore, put a **Map View** at the bottom of the ViewController and adjust its size as the ViewController view's size. 
 
-Then drag and drop 7 UIButton objects and place them on the upper left side, named them as "Login", "Logout", "Unlock", "GetUnlock", "Start Simulator", "Stop Simulator" and "EnableGEO". Moreover, drag and drop two UILabels and place them on the right of the 7 UIButton objects, set the text of them as "LoginState" and "Unknown FlyZone Status". Lastly, drag and drop a UITableView under the two UILabels and set its data source and delegate to **DJIGeoDemoViewController**.
-
-For more detail configurations of the storyboard, please check the Github sample project. If everything goes well, you should see the following screenshot:
+Then drag and drop 7 UIButton objects and place them on the upper left side, named them as "Login", "Logout", "Unlock", "GetUnlock", "Start Simulator", "Stop Simulator" and "EnableGEO". Moreover, drag and drop two UILabels and place them on the right of the 7 UIButton objects, set the text of them as "LoginState" and "Unknown FlyZone Status". Furthermore, drag and drop a UITableView under the two UILabels and set its data source and delegate to **DJIGeoDemoViewController**. Lastly, drag and drop a Picker View and two UIButtons, then place them inside a new UIView at the bottom. For more detail configurations of the storyboard, please check the Github sample project. If everything goes well, you should see the following screenshot:
 
 ![](../images/tutorials-and-samples/iOS/GEODemo/GEODemoStoryboard.png)
 
@@ -924,113 +922,6 @@ In the code above, we implement the following features:
 
 ### Implementing GEO System Features
 
-#### Enable GEO System
-
-Before using the GEO System feature, we should enable the GEO system first. Let's declare the `isGEOSystemEnabled` property in the class extension part first and implement the `setEnableGEOButtonText` and `onEnableGEOButtonClicked:` methods as shown below:
-
-~~~objc
-@property (nonatomic, readwrite) BOOL isGEOSystemEnabled;
-~~~
-
-~~~objc
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    DJIAircraft* aircraft = [DemoUtility fetchAircraft];
-    if (aircraft != nil) {
-        [aircraft.flightController.simulator setFlyZoneLimitationEnabled:YES withCompletion:^(NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"setFlyZoneLimitationEnabled failed");
-            }else
-            {
-                NSLog(@"setFlyZoneLimitationEnabled success");
-            }
-        }];
-    }
-            
-    WeakRef(target);
-    
-    [[DJISDKManager flyZoneManager] getGEOSystemEnabled:^(BOOL enabled, NSError * _Nullable error) {
-        
-        WeakReturn(target);
-        if (error) {
-            ShowResult(@"Get GEOEnable Status Error:%@", error.description);
-        } else {
-            [target setEnableGEOButtonText:enabled];
-        }
-    }];
-    
-    self.updateLoginStateTimer = [NSTimer scheduledTimerWithTimeInterval:4.0f target:self selector:@selector(onUpdateLoginState) userInfo:nil repeats:YES];
-}
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    DJIAircraft* aircraft = [DemoUtility fetchAircraft];
-    
-    [aircraft.flightController.simulator setFlyZoneLimitationEnabled:NO withCompletion:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"setFlyZoneLimitationEnabled failed");
-        }else
-        {
-            NSLog(@"setFlyZoneLimitationEnabled success");
-        }
-    }];
-
-    if (self.updateLoginStateTimer)
-        self.updateLoginStateTimer = nil;
-    if (self.updateFlyZoneDataTimer)
-        self.updateFlyZoneDataTimer = nil;
-}
-
-- (void)setEnableGEOButtonText:(BOOL)enabled
-{
-    self.isGEOSystemEnabled = enabled;
-    
-    if (enabled) {
-        [self.enableGEOButton setTitle:@"DisableGEO" forState:UIControlStateNormal];
-    } else {
-        [self.enableGEOButton setTitle:@"EnableGEO" forState:UIControlStateNormal];
-    }
-}
-
-- (IBAction)onEnableGEOButtonClicked:(id)sender
-{
-    WeakRef(target);
-    [[DJISDKManager flyZoneManager] setGEOSystemEnabled:!self.isGEOSystemEnabled withCompletion:^(NSError * _Nullable error) {
-        WeakReturn(target);
-
-        if (error) {
-            ShowResult(@"Set GEO Enable status error:%@", error.description);
-        } else {
-        
-            [[DJISDKManager flyZoneManager] getGEOSystemEnabled:^(BOOL enabled, NSError * _Nullable error) {
-                if (error) {
-                    ShowResult(@"Get GEOEnable Status Error:%@", error.description);
-                } else {
-                    ShowResult(@"Current GEO status is %@", enabled ? @"On" : @"Off");
-                    [target setEnableGEOButtonText:enabled];
-                }
-            }];
-        }
-    }];
-}
-~~~
-
-In the code above, we implement the following features:
-
-1. In the `viewWillAppear` method, we firstly fetch the **DJIAircraft** object, and invoke the `setFlyZoneLimitationEnabled:withCompletion:` method of **DJISimulator** to enable the fly zone system in the simulator. Here, if we want to use the fly zone system in DJISimulator, we should enable it first. By default, the fly zone system is disabled in the simulator, rebooting the aircraft is required to make the setting take effect.
-
-2. Then invoke the `getGEOSystemEnabled:` method of **DJIFlyZoneManager** to check if the GEO system is enabled or not and update the `enableGEOButton` button's title.
-
-3. In the `viewWillDisappear:` method, we invoke the `setFlyZoneLimitationEnabled:withCompletion:` method of DJISimualtor to disable the fly zone system in the simulator.
-
-4. In the `setEnableGEOButtonText:` method, we update the `enableGEOButton`'s title and the `isGEOSystemEnabled` property based on the value of `enabled` parameter.
-
-5. In the `onEnableGEOButtonClicked:` method, we invoke the `setGEOSystemEnabled:withCompletion:` method of **DJIFlyZoneManager** with the parameter of `isGEOSystemEnabled` property to enable or disable GEO System. If it works successfully without error, we may invoke the `getGEOSystemEnabled:` method of **DJIFlyZoneManager** to update the title of `enableGEOButton`.
-
 #### Update Fly Zone Info and Aircraft Location
 
 If you want to unlock a fly zone, you may need to get the fly zone's ID first. Now let's update the fly zone info and update the aircraft's location when simulated coordinate data changes.
@@ -1188,22 +1079,23 @@ Lastly, let's implement the delegate methods of **UITableViewDelegate** and **UI
     return cell;
 }
 
-- (NSString*)getFlyZoneCategoryString:(DJIFlyZoneGEOCategory)category
+- (NSString*)getFlyZoneCategoryString:(DJIFlyZoneCategory)category
 {
     switch (category) {
-        case DJIFlyZoneGEOCategoryWarning:
+        case DJIFlyZoneCategoryWarning:
             return @"Waring";
-        case DJIFlyZoneGEOCategoryRestricted:
+        case DJIFlyZoneCategoryRestricted:
             return @"Restricted";
-        case DJIFlyZoneGEOCategoryAuthorization:
+        case DJIFlyZoneCategoryAuthorization:
             return @"Authorization";
-        case DJIFlyZoneGEOCategoryEnhancedWarning:
+        case DJIFlyZoneCategoryEnhancedWarning:
             return @"EnhancedWarning";
         default:
             break;
     }
     return @"Unknown";
 }
+
 
 - (NSString*)formatSubFlyZoneInformtionString:(NSArray<DJISubFlyZoneInformation *> *)subFlyZoneInformations
 {
@@ -1380,6 +1272,141 @@ In the code above, we create a UIAlertController with the message of "Input ID",
   
 Furthermore, add the three UIAlertAction objects to the `alertController` and present it. Lastly, in the `onGetUnlockButtonClicked` method, we invoke the `getUnlockedFlyZonesWithCompletion` method of DJIFlyZoneManager to get the unlocked fly zones and show an alert view to inform the user. 
 
+#### Enable Unlocked Fly Zone
+
+After unlocking the fly zone, let's continue to implement the feature of enabling the unlocked fly zone. This is useful if the aircraft is shared between users.
+
+Create and add the following properties in the class extension part as shown below:
+
+~~~objc
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIView *pickerContainerView;
+@property (nonatomic, strong) NSMutableArray<DJIFlyZoneInformation *> * unlockedFlyZoneInfos;
+@property (nonatomic, strong) DJIFlyZoneInformation *selectedFlyZoneInfo;
+@property (nonatomic) BOOL isUnlockEnable;
+~~~
+
+In the code above, we create IBOutlet properties to link the UI elements in the storyboard. Also create the `unlockedFlyZoneInfos` array property to store the unlocked `DJIFlyZoneInformation` object. Moreover, create the `selectedFlyZoneInfo` property to store the selected `DJIFlyZoneInformation` object. Lastly, create the `isUnlockEnable` bool property to store the fly zone enable unlocked state.
+
+Once you finished the steps above, let's continue to implement the following methods:
+
+~~~objc
+- (void)viewDidLoad
+{
+    ...
+    [self.pickerContainerView setHidden:YES];
+}
+
+- (void)initUI
+{
+    ...
+    self.unlockedFlyZoneInfos = [[NSMutableArray alloc] init];
+}
+~~~
+
+Here, we hide the `pickerContainerView` in the `viewDidLoad` method first and initialize the `unlockedFlyZoneInfos` property in the `initUI` method.
+
+Next, add the following code in the `onGetUnlockButtonClicked` method to add unlocked `DJIFlyZoneInformation` objects in the `unlockedFlyZoneInfos` array:
+
+~~~objc
+if ([target.unlockedFlyZoneInfos count] > 0) {
+    [target.unlockedFlyZoneInfos removeAllObjects];
+}
+[target.unlockedFlyZoneInfos addObjectsFromArray:infos];
+~~~
+
+Lastly, implement the following methods:
+
+~~~objc
+- (IBAction)enableUnlocking:(id)sender {
+    
+    [self.pickerContainerView setHidden:NO];
+    [self.pickerView reloadAllComponents];
+}
+
+- (IBAction)conformButtonAction:(id)sender {
+
+    if (self.selectedFlyZoneInfo) {
+        [self.selectedFlyZoneInfo setUnlockingEnabled:self.isUnlockEnable withCompletion:^(NSError * _Nullable error) {
+            
+            if (error) {
+                ShowResult(@"Set unlocking enabled failed %@", error.description);
+            }else
+            {
+                ShowResult(@"Set unlocking enabled success");
+            }
+        }];
+    }
+    
+}
+
+- (IBAction)cancelButtonAction:(id)sender {
+    
+    [self.pickerContainerView setHidden:YES];
+}
+
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    NSInteger rowNum = 0;
+    
+    if (component == 0) {
+        rowNum = [self.unlockedFlyZoneInfos count];
+    } else if (component == 1){
+        rowNum = 2;
+    }
+    return rowNum;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    NSString *title = @"";
+    
+    if (component == 0) {
+      
+        DJIFlyZoneInformation *infoObject = [self.unlockedFlyZoneInfos objectAtIndex:row];
+        title = [NSString stringWithFormat:@"%lu", (unsigned long)infoObject.flyZoneID];
+        
+    } else if (component == 1) {
+        
+        if (row == 0) {
+            title = @"YES";
+        } else {
+            title = @"NO";
+        }
+    }
+    
+    return title;
+}
+
+#pragma mark - UIPickerViewDelegate
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    if (component == 0) {
+        if ([self.unlockedFlyZoneInfos count] > row) {
+            self.selectedFlyZoneInfo = [self.unlockedFlyZoneInfos objectAtIndex:row];
+        }
+    } else if (component == 1) {
+        self.isUnlockEnable = [pickerView selectedRowInComponent:1] == 0 ? YES: NO;
+    }
+}
+~~~
+
+In the code above, we implement the following feature:
+
+1. In the `enableUnlocking:` method, show the `pickerContainerView` and reload the components of the `pickerView` when the button is pressed.
+
+2. In the `conformButtonAction` method, invoke the `setUnlockingEnabled:withCompletion:` method of `DJIFlyZoneInformation` to enable the unlocked fly zone.
+
+3. In the `cancelButtonAction:` method, hide the `pickerContainerView` when the cancel button is pressed.
+
+4. Implement the delegate methods of `UIPickerViewDataSource` and `UIPickerViewDelegate` define the data source and select row behaviour of the `pickerView`.
+
 ## Running the Sample Code 
 
 We have gone through a long way so far, now, let's build and run the project, connect the demo application to your Mavic Pro (Please check the [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
@@ -1467,15 +1494,11 @@ You can press the **GetUnlock** button to get the fly zone you have unlocked bef
 
 ![getUnlockFlyZones](../images/tutorials-and-samples/iOS/GEODemo/getUnlockFlyZones.png)
 
-### Enable and Disable GEO
+### Enable Unlocked Fly Zone
 
-You can press the **EnableGEO** button to enable or disable the GEO System.
+You can press the **Enable Unlocking** button to enable the unlocked fly zone as shown below. This is useful if the aircraft is shared between users.
 
-By default, if the GEO system is available at the aircraft's location, GEO system will be enabled. The setting is NOT settable when the aircraft is in the air. The setting will take effect only when the aircraft lands.
-
-When GEO system is disabled, the aircraft reverts back to the previous NFZ (No Fly Zone) system.
-
-Lastly, please restart the aircraft to make the settings become effective. 
+![enableUnlockedFlyZones](../images/tutorials-and-samples/iOS/GEODemo/enableUnlock.gif)
 
 ## Summary
 
