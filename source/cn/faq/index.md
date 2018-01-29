@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2018-01-04
+date: 2018-01-29
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
@@ -22,6 +22,7 @@ keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, u
 * [How can I update my DJI Aircraft or OSMO's firmware?](#how-can-i-update-my-dji-aircraft-or-osmo-s-firmware)
 * [How can I Unlock Travel Mode for Inspire 1?](#how-can-i-unlock-travel-mode-for-inspire-1)
 * [How do I link the Remote Controller to an aircraft?](#how-do-i-link-the-remote-controller-to-an-aircraft)
+* [Does DJI products use WGS84 or NAD83 as the coordinate system?](#does-dji-products-use-wgs84-or-nad83-as-the-coordinate-system)
 
 **General SDK**
 
@@ -177,6 +178,10 @@ emitted.
  
 >**Note:** The remote controller will un-link itself from an aircraft if a new remote controller is linked to the same aircraft.
  
+### Does DJI products use WGS84 or NAD83 as the coordinate system?
+
+DJI products use **WGS84** as the coordinate system.
+
 ## General SDK
 
 ### Does the DJI Mobile SDK give access to all the functionality in the DJI GO App?
