@@ -14,7 +14,7 @@ In this tutorial, you will learn how to use the `FlyZoneManager` and `FlyZoneInf
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo).
 
-We use Mavic Pro as an example to make this demo. Let's get started!
+We use Phantom 4 as an example to make this demo. Let's get started!
 
 ## Introduction
 
