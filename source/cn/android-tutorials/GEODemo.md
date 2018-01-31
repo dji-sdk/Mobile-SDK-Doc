@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
-version: v4.3.2
-date: 2017-09-29
+version: v4.4.1
+date: 2018-01-31
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo
 keywords: [Android GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
@@ -32,77 +32,12 @@ The [Geospatial Environment Online (GEO) system](http://www.dji.com/flysafe/geo-
 
 In the [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration) tutorial, you have learned how to import the DJI Android SDK into your Android Studio project and activate your application. If you haven't read that previously, please take a look at it. Once you've done that, let's continue to create the project.
 
-### Importing SDK Library
+### Importing Maven Dependency
 
-**1**. Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJIGEODemo'. Enter the company domain and package name (Here we use "com.dji.geodemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Google Maps Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
- 
-**2**. Unzip the Android SDK package downloaded from <a href="http://developer.dji.com/mobile-sdk/downloads/" target="_blank">DJI Developer Website</a>. Go to **File -> New -> Import Module**, enter the "API Library" folder location of the downloaded Android SDK package in the "Source directory" field. A "dJISDKLib" name will show in the "Module name" field. Press Next and Finish button to finish the settings.
-  
-**3**. Next, double click on the "build.gradle(Module: app)" in the project navigator to open it and replace the content with the followings:
- 
-~~~java
-apply plugin: 'com.android.application'
+Open Android Studio and select **File -> New -> New Project** to create a new project, named 'DJIGEODemo'. Enter the company domain and package name (Here we use "com.dji.geodemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", Press "Finish" to create the project.
 
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+In our previous tutorial [Importing and Activating DJI SDK in Android Studio Project](../application-development-workflow/workflow-integrate.html#Android-Studio-Project-Integration), you have learned how to import the Android SDK Maven Dependency and activate your application. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
-    defaultConfig {
-        applicationId "com.dji.geodemo"
-        minSdkVersion 19
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
-        //Enabling multidex support
-        multiDexEnabled true //Mention in the doc
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    //Mention in the doc
-    dexOptions {
-        incremental = true;
-        preDexLibraries = false
-        javaMaxHeapSize "4g" // 2g should be also OK
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile project(':dJISDKLIB')
-    compile 'com.android.support:multidex:1.0.1'
-
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.google.android.gms:play-services:9.2.0'
-    compile 'com.google.android.gms:play-services-ads:9.2.0'
-    compile 'com.google.android.gms:play-services-auth:9.2.0'
-    compile 'com.google.android.gms:play-services-gcm:9.2.0'
-}
-~~~
- 
-  Here, we modify its dependencies by adding `compile project(':dJISDKLIB')` in the "dependencies" part at the bottom, and change the **compileSdkVersion**, **buildToolsVersion** number. Moreover, we add the Multidex support to avoid the 64K limit with Gradle here.
-  
- ![configureAndroidSDK](../../images/tutorials-and-samples/Android/GEODemo/buildGradle.png)
- 
- Then, select the **Tools -> Android -> Sync Project with Gradle Files** on the top bar and wait for Gradle project sync finish.
- 
- **4**. Let's right click on the 'app' module in the project navigator and click "Open Module Settings" to open the Project Structure window. Navigate to the "Dependencies" tab, you should find the "dJISDKLIB" appear in the list. Your SDK environmental setup should be ready now!
- 
- ![dependencies](../../images/tutorials-and-samples/Android/GEODemo/dependencies.png)
- 
- **5**. Now, open the MainActivity.java file in `com.dji.geodemo` package and add `import dji.sdk.sdkmanager.DJISDKManager;` at the bottom of the import classes section as shown below:
- 
-~~~java
-package com.dji.geodemo;
-import dji.sdk.sdkmanager.DJISDKManager;
-~~~
-
-  Wait for a few seconds and check if the words turn red, if they remain gray color, it means you can use DJI Android SDK in your project successfully now.
-  
 ### Configurating Google Maps API Key
 
 Since we create this demo project using "Google Maps Activity" of Android Studio, the Google Play Services is set up automatically for you. You can now start using the Google Maps Android APIs to develop your app.
@@ -121,36 +56,11 @@ Now build and run the project and install it on an Android device(We use Nexus 5
 
 ### Building the Layouts of Activity
 
-#### 1. Creating GEODemoApplication Class 
+#### 1. Implementing MApplication and GEODemoApplication
 
-   Right-click on the package `com.dji.geodemo` in the project navigator and choose **New -> Java Class**, Type in "DJIDemoApplication" in the Name field and select "Class" as Kind field content.
-   
-   Next, Replace the code of the "DJIDemoApplication.java" file with the following:
-   
-~~~java
-package com.dji.geodemo;
+You can check the [Creating an Camera Application](./index.html#1-creating-mapplication-class) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-GEODemo) of this tutorial for the detailed implementations of the `MApplication` and `GEODemoApplication`. 
 
-import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
-
-public class GEODemoApplication extends Application {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    protected void attachBaseContext(Context base){
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
-}
-~~~
-
-  Here, we override the `onCreate()` method. and implement the `attachBaseContext()` method to install the multiDex. We can do some settings when the application is created here.
-  
-#### 2. Creating the ConnectionActivity
+#### 2. Implementing the ConnectionActivity
 
 ##### Implementing UI Elements in ConnectionActivity Class
 
@@ -479,16 +389,6 @@ Open the **activity_main.xml** layout file and replace the code with the followi
                     style="@style/left_button_list_button"
                     android:text="@string/geo_update_location" />
 
-                <Button
-                    android:id="@+id/geo_set_geo_enabled_btn"
-                    style="@style/left_button_list_button"
-                    android:text="@string/geo_set_geo_enabled"/>
-
-                <Button
-                    android:id="@+id/geo_get_geo_enabled_btn"
-                    style="@style/left_button_list_button"
-                    android:text="@string/geo_get_geo_enabled"/>
-
             </LinearLayout>
         </ScrollView>
 
@@ -524,7 +424,7 @@ In the xml file, we implement the following UIs:
   
 1. Create a RelativeLayout to add a back button and a TextView  to show the SDK connection status on the top.
 
-2. Then create a RelativeLayout and add a scrollView on the left side with eight Buttons from top to bottom: "Login", "Logout", "Unlock NFZs", "Get Unlock NFZs", "Get Surrounding NFZ", "Update Location" and "Set GEO Enabled" and "Get GEO Enabled", place them vertically.
+2. Then create a RelativeLayout and add a scrollView on the left side with eight Buttons from top to bottom: "Login", "Logout", "Unlock NFZs", "Get Unlock NFZs", "Get Surrounding NFZ" and "Update Location", place them vertically.
 
 3. Lastly, on the right side, we add a TextView to show the login status and a scrollView with a textView inside to show the fly zone infos.
 
@@ -545,7 +445,7 @@ Next, open the styles.xml file in the "values" folder and add the following code
     </style>
 ~~~
 
-Furthermore, create a xml file named "dimens.xml" inside the "values" folder and replace the code with the followings:
+Furthermore, create an xml file named "dimens.xml" inside the "values" folder and replace the code with the followings:
 
 ~~~xml
 <resources>
@@ -598,11 +498,8 @@ Lastly, open the "strings.xml" file and replace the code with the followings:
     <string name="geo_get_unlock_nfzs">Get Unlock NFZs</string>
     <string name="geo_login">Login</string>
     <string name="geo_logout">Logout</string>
-    <string name="enabled_geo">Enabled GEO</string>
     <string name="start_simulator">Start Simulator</string>
     <string name="stop_simulator">Stop Simulator</string>
-    <string name="geo_set_geo_enabled">Set GEO Enabled</string>
-    <string name="geo_get_geo_enabled">Get GEO Enabled</string>
     <string name="geo_update_location">Update Location</string>>
 
 </resources>
@@ -629,8 +526,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private Button btnUnlock;
     private Button btnGetUnlock;
     private Button btnGetSurroundNFZ;
-    private Button btnSetEnableGeoSystem;
-    private Button btnGetEnableGeoSystem;
     private Button btnUpdateLocation;
 
     private TextView loginStatusTv;
@@ -658,8 +553,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         btnUnlock = (Button) findViewById(R.id.geo_unlock_nfzs_btn);
         btnGetUnlock = (Button) findViewById(R.id.geo_get_unlock_nfzs_btn);
         btnGetSurroundNFZ = (Button) findViewById(R.id.geo_get_surrounding_nfz_btn);
-        btnSetEnableGeoSystem = (Button) findViewById(R.id.geo_set_geo_enabled_btn);
-        btnGetEnableGeoSystem = (Button) findViewById(R.id.geo_get_geo_enabled_btn);
         btnUpdateLocation = (Button) findViewById(R.id.geo_update_location_btn);
 
         loginStatusTv = (TextView) findViewById(R.id.login_status);
@@ -672,8 +565,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         btnUnlock.setOnClickListener(this);
         btnGetUnlock.setOnClickListener(this);
         btnGetSurroundNFZ.setOnClickListener(this);
-        btnSetEnableGeoSystem.setOnClickListener(this);
-        btnGetEnableGeoSystem.setOnClickListener(this);
         btnUpdateLocation.setOnClickListener(this);
     }
 
@@ -698,11 +589,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.geo_update_location_btn:
                 break;
 
-            case R.id.geo_set_geo_enabled_btn:
-                break;
-
-            case R.id.geo_get_geo_enabled_btn:
-                break;
         }
     }
 
@@ -737,45 +623,6 @@ In the code above, we implement the following features:
 
 **4.** Lastly, we override the `onMapReady()` method to initialize the `mMap`. Then add a marker of Palo Alto, California here for example. So when the Google map is loaded, you will see a red pin tag on Palo Alto, California.
 
-##### Configuring AndroidManifest
-
-Lastly, let's open the AndroidManifest.xml file and update the **\<application>** element content as shown below:
-
-~~~xml
-<application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <activity android:name=".ConnectionActivity"
-            android:screenOrientation="portrait">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="landscape"></activity>
-</application>
-~~~
-
-For more details, please check the tutorial's Github Sample Project.
-
 We have gone through a long process to setup the UI of the application. Now, let's build and run the project and install it in your Android device to test it. Here we use Nexus 5 for testing. When the application is launched, press the **Open** button in the ConnectionActivity to open the MainActivity view, then you should see the following screenshot:
 
 ![p4MissionsUIDemo](../../images/tutorials-and-samples/Android/GEODemo/mainActivityUI.png)
@@ -789,36 +636,36 @@ After you finish the above steps, let's register our application with the **App 
 Let's open the AndroidManifest.xml file and add the following elements on top of `<application>` element:
 
 ~~~xml
-<!-- SDK permission requirement -->
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-<uses-permission android:name="android.permission.WRITE_SETTINGS" />
-<uses-permission android:name="android.permission.VIBRATE" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- SDK permission requirement -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-<uses-feature
-    android:name="android.hardware.usb.host"
-    android:required="false"/>
-<uses-feature
-    android:name="android.hardware.usb.accessory"
-    android:required="true"/>
-<uses-feature
-    android:glEsVersion="0x00020000"
-    android:required="true" />
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.accessory"
+        android:required="true" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
-<!-- SDK requirement permission end -->
+    <!-- SDK requirement permission end -->
 ~~~
 
 In the code above, we specify the permissions of your application needs by adding **\<uses-permission>** elements as children of the **\<manifest>** element.
@@ -832,28 +679,29 @@ For more details of description on the permissions, refer to <a href="https://de
 Furthermore, let's replace the **\<application>** element with the followings:
 
 ~~~xml
+<!-- SDK requirement permission end -->
 <application
-    android:name=".GEODemoApplication"
+    android:name="com.dji.geodemo.MApplication"
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-        
+
     <!-- DJI SDK -->
-        
+
     <uses-library android:name="com.android.future.usb.accessory" />
-        
+
     <meta-data
         android:name="com.dji.sdk.API_KEY"
-        android:value="Please enter your App Key here" />
+        android:value="Please enter your App Key here." />
     <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="@string/google_maps_key" />
     <meta-data
         android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
-        
+
     <activity
         android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
         android:screenOrientation="landscape"
@@ -861,20 +709,17 @@ Furthermore, let's replace the **\<application>** element with the followings:
         <intent-filter>
             <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
         </intent-filter>
-        
+
         <meta-data
             android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
             android:resource="@xml/accessory_filter" />
     </activity>
-        
-    <service android:name="dji.sdk.sdkmanager.DJIGlobalService" />
-    <service android:name="dji.internal.geofeature.flyforbid.FlyforbidUpdateService" />
-        
+
     <!-- DJI SDK -->
-        
+
     <activity android:name=".ConnectionActivity"
         android:screenOrientation="portrait">
-        
+
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -887,180 +732,13 @@ Furthermore, let's replace the **\<application>** element with the followings:
 
 Please enter the **App Key** of the application in the value part of `android:name="com.dji.sdk.API_KEY"` attribute. For more details of the AndroidManifest.xml file, please check this tutorial's Github source code of the demo project.
 
-#### 2. Implementing GEODemoApplication Class
+#### 2. Working on the GEODemoApplication and ConnectionAcitity
 
-After you finish the steps above, open the GEODemoApplication.java file and replace the code in the same file in the tutorial's Github Source Code, here we explain the important parts of it:
-
-~~~java
-@Override
-public void onCreate() {
-    super.onCreate();
-    mHandler = new Handler(Looper.getMainLooper());
-
-    /**
-     * handles SDK Registration using the API_KEY
-     */
-    DJISDKManager.getInstance().initSDKManager(this, mDJISDKManagerCallback);
-}
-
-/**
- * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
- * the SDK Registration result and the product changing.
- */
-private DJISDKManager.SDKManagerCallback mDJISDKManagerCallback = new DJISDKManager.SDKManagerCallback() {
-
-    //Listens to the SDK registration result
-    @Override
-    public void onRegister(DJIError error) {
-        if(error == DJISDKError.REGISTRATION_SUCCESS) {
-            DJISDKManager.getInstance().startConnectionToProduct();
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_LONG).show();
-                }
-            });
-        } else {
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), "register sdk fails, check network is available", Toast.LENGTH_LONG).show();
-                }
-            });
-
-        }
-        Log.e("TAG", error.toString());
-    }
-
-    //Listens to the connected product changing, including two parts, component changing or product connection changing.
-    @Override
-    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-        mProduct = newProduct;
-        if(mProduct != null) {
-            mProduct.setBaseProductListener(mDJIBaseProductListener);
-        }
-
-        notifyStatusChange();
-    }
-};
-~~~
-
-Here, we implement several features:
-  
-1. We override the `onCreate()` method to invoke the `registerApp()` method of DJISDKManager to register the application.
-2. Implement the two interface methods of SDKManagerCallback. You can use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-
-#### 3. Request Permissions in ConnectionActivity
-
-Now, let's open the ConnectionActivity.java file and update the `onCreate()` method as shown below:
-
-~~~java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // When the compile and target version is higher than 22, please request the
-    // following permissions at runtime to ensure the
-    // SDK work well.
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE,
-                        Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE,
-                        Manifest.permission.WAKE_LOCK, Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.CHANGE_WIFI_STATE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
-                        Manifest.permission.READ_PHONE_STATE,
-                }
-                , 1);
-    }
-
-    setContentView(R.layout.activity_connection);
-    initUI();
-}
-~~~
-
-In the code above, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23). 
+For the implementation of the registration logics in the "GEODemoApplication.java" and "ConnectionAcitity.java" files, we don't explain the details here. Please check this tutorial's Github source code.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
 ![registerSuccess](../../images/tutorials-and-samples/Android/GEODemo/registerSuccess.png)
-
-## Implementing the ConnectionActivity
-
-Once you finish the steps above, let's continue to work on the "ConnectionActivity.java" file and add the following code at the bottom of `onCreate()` method:
-
-~~~java
-// Register the broadcast receiver for receiving the device connection's changes.
-IntentFilter filter = new IntentFilter();
-filter.addAction(GEODemoApplication.FLAG_CONNECTION_CHANGE);
-registerReceiver(mReceiver, filter);
-~~~
-
-In the code above, we register the broadcast receiver for receiving the device connection's changes.
-
-Next, add the following code at the bottom of `initUI()` method to disable the `mBtnOpen` button to prevent entering the MainActivity view if the application does not connect to the DJI Product successfully:
-
-~~~java
-mBtnOpen.setEnabled(false);
-~~~
-
-Furthermore, add the following methods below the `initUI()` method:
-
-~~~java
-protected BroadcastReceiver mReceiver = new BroadcastReceiver() {
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        refreshSDKRelativeUI();
-    }
-};
-
-@Override
-protected void onDestroy() {
-    Log.e(TAG, "onDestroy");
-    unregisterReceiver(mReceiver);
-    super.onDestroy();
-}
-
-private void refreshSDKRelativeUI() {
-    BaseProduct mProduct = GEODemoApplication.getProductInstance();
-
-    if (null != mProduct && mProduct.isConnected()) {
-        Log.v(TAG, "refreshSDK: True");
-        mBtnOpen.setEnabled(true);
-
-        String str = mProduct instanceof Aircraft ? "Aircraft" : "HandHeld";
-        mTextConnectionStatus.setText("Status: " + str + " connected");
-
-        if (null != mProduct.getModel()) {
-            mTextProduct.setText("" + mProduct.getModel().getDisplayName());
-        } else {
-            mTextProduct.setText(R.string.product_information);
-        }
-
-    } else {
-        Log.v(TAG, "refreshSDK: False");
-        mBtnOpen.setEnabled(false);
-
-        mTextProduct.setText(R.string.product_information);
-        mTextConnectionStatus.setText(R.string.connection_loose);
-    }
-}
-    
-~~~
-
-In the code above, we implement the following features:
-
-1. Create the "BroadcastReceiver" and override its `onReceive()` method to invoke the `refreshSDKRelativeUI()` method to refresh the UI elements.
-
-2. We override the `onDestroy()` method and invoke the `unregisterReceiver()` method by passing the `mReceiver` variable to unregister the broadcast receiver.
-
-3. In the `refreshSDKRelativeUI()` method, we check the BaseProduct's connection status by invoking `isConnected()` method. If the product is connected, we enable the `mBtnOpen` button, update the `mTextConnectionStatus`'s text content and update the `mTextProduct`'s content with product name. Otherwise, if the product is disconnected, we disable the `mBtnOpen` button and update the `mTextProduct` and `mTextConnectionStatus` textViews' content.
 
 ## Implementing GEO Features in MainActivity
 
@@ -1192,11 +870,6 @@ public void onClick(View v) {
         case R.id.geo_update_location_btn:
             break;
 
-        case R.id.geo_set_geo_enabled_btn:
-            break;
-
-        case R.id.geo_get_geo_enabled_btn:
-            break;
     }
 }
 ~~~
@@ -1204,79 +877,6 @@ public void onClick(View v) {
 In the code above, we invoke the `logIntoDJIUserAccount()` method of **UserAccountManager** to present a login view for the user to login. When login success, we update the `loginStatusTv`'s text content with the user account status. Similarly, invoke the `logoutOfDJIUserAccount()` method of **UserAccountManager** to log out the user account.
 
 ### Working on GEO System Features
-
-#### Enable GEO System
-
-Before using the GEO System feature, we should enable the GEO system first. Let's implement the `onClick()` method for `btnSetEnableGeoSystem` and `btnGetEnableGeoSystem` buttons as shown below:
-
-~~~java
-case R.id.geo_set_geo_enabled_btn:
-
-    final AlertDialog.Builder setGEObuilder = new AlertDialog.Builder(this);
-    setGEObuilder.setTitle("Set GEO Enable");
-    setGEObuilder.setItems(new CharSequence[]
-                    {"Enable", "Disable", "Cancel"},
-            new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    // The 'which' argument contains the index position
-                    // of the selected item
-                    switch (which) {
-                        case 0:
-                            DJISDKManager.getInstance().getFlyZoneManager().setGEOSystemEnabled(true, new CommonCallbacks.CompletionCallback() {
-                                @Override
-                                public void onResult(DJIError djiError) {
-                                    if (null == djiError) {
-                                        showToast("set GEO Enabled Success");
-                                    } else {
-                                        showToast(djiError.getDescription());
-                                    }
-                                }
-                            });
-                            break;
-                        case 1:
-
-                            DJISDKManager.getInstance().getFlyZoneManager().setGEOSystemEnabled(false,
-                                    new CommonCallbacks.CompletionCallback() {
-                                        @Override
-                                        public void onResult(DJIError error) {
-                                            if (null == error) {
-                                                showToast("set GEO Disable Success");
-                                            } else {
-                                                showToast(error.getDescription());
-                                            }
-                                        }
-                                    });
-
-                            break;
-                        case 2:
-                            dialog.dismiss();
-                            break;
-                    }
-                }
-            });
-
-    setGEObuilder.show();
-    break;
-
-case R.id.geo_get_geo_enabled_btn:
-    DJISDKManager.getInstance().getFlyZoneManager().getGEOSystemEnabled(new CommonCallbacks.CompletionCallbackWith<Boolean>() {
-
-        @Override
-        public void onSuccess(Boolean aBoolean) {
-            showToast("GEO System Enable");
-        }
-
-        @Override
-        public void onFailure(DJIError error) {
-            showToast(error.getDescription());
-        }
-    });
-    break;
-~~~
-
-In the code above, we first present an "AlertDialog" with three buttons: "Enable", "Disable" and "Cancel". When user select "Enable" button, we will invoke the `setGEOSystemEnabled()` method of **FlyZoneManager** and pass `true` as the parameter to enable GEO System feature. Similarly, if select "Disable", pass `false` as the parameter to disable GEO System feature.
-
-Moreover, we invoke the `getGEOSystemEnabled()` method of **FlyZoneManager** to check if the GEO System feature is available.
 
 #### Update Fly Zone Info and Aircraft Location
 
@@ -1757,17 +1357,15 @@ We have gone through a long way so far, now, let's build and run the project, co
 
 **1.** Login your verified DJI account, if it's a new account, you need to complete the verification process.
 
-**2.** Press **SET GEO ENABLED** button and select "enable" to enable the GEO system and restart the aircraft.
+**2.** Open the Simulator of DJI Assistant 2 or DJI PC Simulator and enter the coordinate data (37.4613697, -122.1237315) (Near Palo Alto Airport) to start simulating the aircraft's coordinate to the authorization area.
 
-**3.** Open the Simulator of DJI Assistant 2 or DJI PC Simulator and enter the coordinate data (37.4613697, -122.1237315) (Near Palo Alto Airport) to start simulating the aircraft's coordinate to the authorization area.
+**3.** Press **UPDATE LOCATION** and **GET SURROUNDING NFZ** buttons to update the aircraft location on the map and update the fly zone information around the aircraft on the right textView. 
 
-**4.** Press **UPDATE LOCATION** and **GET SURROUNDING NFZ** buttons to update the aircraft location on the map and update the fly zone information around the aircraft on the right textView. 
+**4.** Get the authorization fly zone ID you want to unlock from the textView, the category of it should be **Authorization**.
 
-**5.** Get the authorization fly zone ID you want to unlock from the textView, the category of it should be **Authorization**.
+**5.** Press **UNLOCK NFZS** button and enter the fly zone ID to unlock it.
 
-**6.** Press **UNLOCK NFZS** button and enter the fly zone ID to unlock it.
-
-**7.** If you unlock the fly zone successfully, you can press the **GET SURROUNDING NFZ** button to refresh the fly zone infos on the right textView, you may notice that one of the yellow circle will disappear in the map. And you can take off the aircraft in the simulator now.
+**6.** If you unlock the fly zone successfully, you can press the **GET SURROUNDING NFZ** button to refresh the fly zone infos on the right textView, you may notice that one of the yellow circle will disappear in the map. And you can take off the aircraft in the simulator now.
 
 > Note: Limited Simulation Area
 > 
@@ -1840,14 +1438,6 @@ You can press the **GET SURROUNDING NFZ** button to get the fly zone you have un
 
 ![getUnlockFlyZones](../../images/tutorials-and-samples/Android/GEODemo/getUnlockFlyZones.png)
 
-### Enable and Disable GEO
-
-You can press the **SET GEO ENABLED** button to enable or disable the GEO System.
-
-By default, if the GEO system is available at the aircraft's location, GEO system will be enabled. The setting is NOT settable when the aircraft is in the air. The setting will take effect only when the aircraft lands.
-
-When GEO system is disabled, the aircraft reverts back to the previous NFZ (No Fly Zone) system.
-
 Lastly, please restart the aircraft to make the settings become effective. 
 
 ## Summary
@@ -1855,3 +1445,4 @@ Lastly, please restart the aircraft to make the settings become effective.
 In this tutorial, you've learned how to use the `FlyZoneManager` and `FlyZoneInformation` of DJI Mobile SDK to get the fly zone information, how to unlock authorization fly zones and how to add aircraft annotation and draw fly zone circle overlays on the map view to represent the fly zones. Moreover, you've learned how to use the DJISimulator to simulate the aircraft's coordinate and test the GEO System feature indoor without flying outside.
 
 Hope this tutorial can help you integrate the GEO System feature in your DJI SDK based Application. Good luck, and hope you enjoyed this tutorial!
+
