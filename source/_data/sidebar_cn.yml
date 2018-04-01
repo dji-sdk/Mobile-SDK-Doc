@@ -11,8 +11,8 @@
       title: "Mobile SDK Introduction"
       path: "/cn/introduction/mobile_sdk_introduction.html"
     - 
-      title: "UI Library Introduction"
-      path: "/cn/introduction/ui_library_introduction.html"
+      title: "UX SDK Introduction"
+      path: "/cn/introduction/ux_sdk_introduction.html"
     -
       title: "SDK Architectural Overview"
       path: "/cn/introduction/sdk_architectural_overview.html"
@@ -87,8 +87,8 @@
       title: "Application Activation and Aircraft Binding"
       path: "/cn/ios-tutorials/ActivationAndBinding.html"
     - 
-      title: "Getting Started with UI Library"
-      path: "/cn/ios-tutorials/UILibraryDemo.html"
+      title: "Getting Started with UX SDK"
+      path: "/cn/ios-tutorials/UXSDKDemo.html"
     -
       title: "Camera Application"
       path: "/cn/ios-tutorials/index.html"
@@ -126,8 +126,8 @@
       title: "Application Activation and Aircraft Binding"
       path: "/cn/android-tutorials/ActivationAndBinding.html"
     - 
-      title: "Getting Started with UI Library"
-      path: "/cn/android-tutorials/UILibraryDemo.html"
+      title: "Getting Started with UX SDK"
+      path: "/cn/android-tutorials/UXSDKDemo.html"
     -
       title: "Camera Application"
       path: "/cn/android-tutorials/index.html"

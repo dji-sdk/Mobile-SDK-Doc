@@ -1,7 +1,7 @@
 ---
-title: UI Library Introduction
-date: 2017-05-11
-keywords: [ui library introduction, UI Library, widget, panel, default layout, asset swap, widget customization, panel customization]
+title: UX SDK Introduction
+date: 2018-04-01
+keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 
 Many applications that control DJI products using the DJI Mobile SDK share similar core functionalities. They will typically:
@@ -13,17 +13,17 @@ Many applications that control DJI products using the DJI Mobile SDK share simil
 
 To make an application, a developer typically has to provide this set of core functionalities before adding some unique ones.
 
-The DJI UI Library provides UI elements that have these core functionalities, hence can be used to speed up development time. In fact, by using the default UI Library, an application can be created with no additional lines of code. It looks like:
+The DJI UX SDK provides UI elements that have these core functionalities, hence can be used to speed up development time. In fact, by using the default UX SDK, an application can be created with no additional lines of code. It looks like:
 
 ![DefaultScreen](../../images/product-introduction/defaultScreen.png)
 
-Developers can pick and choose which parts of the UI Library they want to include, exclude and customize. 
+Developers can pick and choose which parts of the UX SDK they want to include, exclude and customize. 
 
-UI Library is available in the DJI Mobile SDK v4.0 and later. 
+UX SDK is available in the DJI Mobile SDK v4.0 and later. 
 
 ## Concepts Overview
 
-UI Library has three main UI categories:
+UX SDK has three main UI categories:
 
 * **Widget**: An independent UI element that gives state or simple control (e.g.  battery indicator, or automatic take-off button)
 * **Collection**: (iOS only) An organized collection of widgets that are related to each other (e.g. camera exposure state)
@@ -31,11 +31,11 @@ UI Library has three main UI categories:
 
 All UI elements can simply be included in an application without extra maintenance. They are already tied to the DJI Mobile SDK, and will start updating themselves after instantiation.
 
-The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UI Library API reference has the complete list of UI elements available.
+The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UX SDK API reference has the complete list of UI elements available.
 
 ## Widget
 
-A widget is the simplest component of the UI Library. It typically represents a simple state element or gives a simple control. Some examples of widgets include:
+A widget is the simplest component of the UX SDK. It typically represents a simple state element or gives a simple control. Some examples of widgets include:
 <html>
 <table class="table-pictures">
 <tbody>
@@ -47,10 +47,10 @@ A widget is the simplest component of the UI Library. It typically represents a 
   </tr>
 
   <tr>
-    <td align="center"><img src="../../images/ui-library-introduction/battery.png"></td>
-    <td align="center"><img src="../../images/ui-library-introduction/flyingMode.png"></td>
-    <td align="center"><img src="../../images/ui-library-introduction/videoSignal.png"></td>
-    <td align="center"><img src="../../images/ui-library-introduction/returnHome.png"></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/battery.png"></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/flyingMode.png"></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/videoSignal.png"></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/returnHome.png"></td>
   </tr>
 </tbody>
 </table>
@@ -119,7 +119,7 @@ Widget collections are used in iOS Only. Example of widget collections include:
   </tr>
 
   <tr>
-    <td align="center"><img src="../../images/ui-library-introduction/statusBarWidgetCollections.png" width=90%></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/statusBarWidgetCollections.png" width=90%></td>
   </tr>
 </tbody>
 </table>
@@ -142,9 +142,9 @@ Examples of panels include:
   </tr>
 
   <tr>
-    <td align="center"><img src="../../images/ui-library-introduction/cameraSettingsPanel.png" width=90%></td>
-    <td align="center"><img src="../../images/ui-library-introduction/exposureSettingsPanel.png" width=90%></td>
-    <td align="center"><img src="../../images/ui-library-introduction/preflightChecklistPanel.png" width=90%></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/cameraSettingsPanel.png" width=90%></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/exposureSettingsPanel.png" width=90%></td>
+    <td align="center"><img src="../../images/ux-sdk-introduction/preflightChecklistPanel.png" width=90%></td>
   </tr>
 
 </table>
@@ -156,13 +156,13 @@ Due to the complexity of panels, customization is not currently provided.
 
 ## Samples & Tutorials
 
-Sample projects are provided for the DJI UI Library:
+Sample projects are provided for the DJI UX SDK:
 
-- [iOS UI Library Github Sample](https://github.com/dji-sdk/Mobile-UILibrary-iOS)
+- [iOS UX SDK Github Sample](https://github.com/dji-sdk/Mobile-UXSDK-iOS)
 
-- [Android UI Library Github Sample](https://github.com/dji-sdk/Mobile-UILibrary-Android)
+- [Android UX SDK Github Sample](https://github.com/dji-sdk/Mobile-UXSDK-Android)
 
-<!-- An iOS UI Library tutorial is provided as an example on how to use the iOS UI Library.
+<!-- An iOS UX SDK tutorial is provided as an example on how to use the iOS UX SDK.
 
-- [Creating a Simplified DJI Go app using DJI Mobile UI Library](TODO)
+- [Creating a Simplified DJI Go app using DJI Mobile UX SDk](TODO)
   -->

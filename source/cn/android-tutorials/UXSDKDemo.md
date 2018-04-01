@@ -1,9 +1,9 @@
 ---
-title: Getting Started with DJI UI Library
-version: v4.4.1
-date: 2018-01-16
-github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UILibraryDemo
-keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
+title: Getting Started with DJI UX SDK
+version: v4.5
+date: 2018-04-01
+github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo
+keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
 ---
 
@@ -11,21 +11,21 @@ keywords: [UI Library, Default Layout, playback, preview photos and videos, down
 
 ---
 
-In this tutorial, you will learn how to use DJI Android UI Library and DJI Android SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. By the end of this tutorial you will have an app that you can use to show the camera FPV view, check aircraft status, shoot photos, record videos and so on.
+In this tutorial, you will learn how to use DJI Android UX SDK and DJI Android SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. By the end of this tutorial you will have an app that you can use to show the camera FPV view, check aircraft status, shoot photos, record videos and so on.
 
-You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-UILibraryDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo).
 
 We use Mavic Pro and Nexus 5 as an example to make this demo. For more details of customizing the layouts for iPhone devices, please check the tutorial's Github Sample Project. Let's get started!
 
 ## Introduction
 
-DJI UI Library is a visual library consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in Android. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
+DJI UX SDK is a visual sdk consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in Android. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
 
-Additionally, with the ease of use, UILibrary let you focus more on business and application logic. 
+Additionally, with the ease of use, UX SDK let you focus more on business and application logic. 
 
-As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
+As DJI UX SDK is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
 
-For an in depth learning on DJI UI Library, please go to the [UI Library Introduction](../introduction/ui_library_introduction.html).
+For an in depth learning on DJI UX SDK, please go to the [UX SDK Introduction](../introduction/ux_sdk_introduction.html).
 
 ## Application Activation and Aircraft Binding in China
 
@@ -35,9 +35,9 @@ For an in depth learning on DJI UI Library, please go to the [UI Library Introdu
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Importing DJI UI Library
+## Importing DJI UX SDK
 
-Now, open Android Studio and select **File -> New -> New Project** to create a new project, named "UILibraryDemo". Enter the company domain and package name (Here we use "com.dji.uilibrarydemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
+Now, open Android Studio and select **File -> New -> New Project** to create a new project, named "UXSDKDemo". Enter the company domain and package name (Here we use "com.dji.uxsdkdemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
 ### Configure Gradle Script
 
@@ -78,15 +78,15 @@ dependencies {
 In the code above, we implement the following features:
 
 1. Add the `packagingOptions` to prevent any unexpected crash of the application.
-2. Add the `compile` and `provided` dependencies to import the latest DJI Android UILibrary and SDK Maven dependency.
+2. Add the `compile` and `provided` dependencies to import the latest DJI Android UX SDK and SDK Maven dependency.
 
 Once you finished the steps above, select **Tools -> Android -> Sync Project with Gradle Files** and wait for Gradle project sync to finish.
 
 ### Double Check Maven Dependency
 
-Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. You should see the latest DJI Android UILibrary compile and sdk provided dependencies are already imported.
+Select **File->Project Structure** in the Android Studio menu to open the "Project Structure" window. Then select the "app" module and click the **Dependencies** tab. You should see the latest DJI Android UX SDK compile and sdk provided dependencies are already imported.
 
-  <img src="../images/tutorials-and-samples/Android/UILibraryDemo/libraryDependency.png" width=85%>
+  <img src="../../images/tutorials-and-samples/Android/UXSDKDemo/libraryDependency.png" width=85%>
 
 ## Application Activation and Aircraft Binding in China
 
@@ -96,7 +96,7 @@ Select **File->Project Structure** in the Android Studio menu to open the "Proje
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Building the Default Layout using UI Library
+## Building the Default Layout using UX SDK
 
 Now, let's continue to open the "activity_main.xml" file, and replace the code with the following:
 
@@ -306,43 +306,43 @@ In the xml file above, we implement the following UIs:
 
 1. Firstly, we add the `dji.ui.widget.FPVWidget` and `dji.ui.widget.FPVOverlayWidget` elements to show the first person view (FPV).
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/fpvView.png" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/fpvView.png" width="600">
 
 2. Next, on top of the screen, we create a **LinearLayout** to group the top status bar widgets, like `PreFlightStatusWidget`, `FlightModeWidget`, `GPSSignalWidget`, `RemoteControlSignalWidget`, etc. 
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/topBar.png" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/topBar.png" width="600">
 
 3. Moreover, we create another **LinearLayout** to group the camera configurations and config widgets below the status bar widgets, like `AutoExposureLockWidget`, `FocusExposureSwitchWidget`, `CameraConfigISOWidget`, `CameraConfigStorageWidget`, etc. Also we add the `dji.ui.widget.RemainingFlightTimeWidget` element to show the remaining flight time widget below the top status bar widgets too.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/cameraParams.png" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/cameraParams.png" width="600">
 
 4. Below the top status bar, we add a `RemainingFlightTimeWidget` to show the remaining flight time.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/remainingFlightTime.png" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/remainingFlightTime.png" width="600">
 
 5. At the bottom of the screen, we add another **LinearLayout** to group the `DashboardWidget`. It includes the circular `CompassWidget`, the `DistanceHomeWidget`, the `HorizontalVelocityWidget`, the `DistanceRCWidget`, the `VerticalVelocityWidget` and the `AltitudeWidget` as shown below:
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/dashboard.png" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/dashboard.png" width="600">
 
 6. On the left side of the screen, we add a **LinearLayout** to group the `TakeOffWidget` and `ReturnHomeWidget` which will be shown as two buttons.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/takeOff_backHome.png" width="60">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/takeOff_backHome.png" width="60">
 
 7. On the right side of the screen, we add the `dji.ui.widget.controls.CameraControlsWidget` element to create a `CameraControlsWidget` to show the camera control widget. Tapping the Menu button on top will toggle between show and hide `CameraSettingAdvancedPanel`. Tapping the switch button in the middle will toggle camera mode between **shoot photo** and **record video**. Tapping the bottom button will toggle between show and hide `CameraSettingExposurePanel`.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/cameraControlWidget.png" width="60">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/cameraControlWidget.png" width="60">
 
 8. To add the `CameraSettingExposurePanel`, we add the `dji.ui.panel.CameraSettingExposurePanel` element and configure its attributes.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/exposurePanel.png" width="200">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/exposurePanel.png" width="200">
 
 9. To add the `CameraSettingAdvancedPanel`, we add the `dji.ui.panel.CameraSettingAdvancedPanel` element and configure its attributes.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/advancedPanel.png" width="200">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/advancedPanel.png" width="200">
 
 10. Lastly, we add the `dji.ui.panel.PreFlightCheckListPanel` element to create the `PreFlightCheckListPanel`. When user press on the `PreFlightStatusWidget`, it will show up below the top status bar.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/checklistPanel.png" width="400">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/checklistPanel.png" width="400">
 
 Once you finished the steps above, open the "colors.xml" file and replace the content with the following:
 
@@ -370,7 +370,7 @@ Moreover, let's open the "styles.xml" file and replace the content with the foll
 </resources>
 ~~~
 
-With the help of DJI UI Library, it's simple and straightforward to implement the standard DJI Go UIs and functionalities in your own application. 
+With the help of DJI UX SDK, it's simple and straightforward to implement the standard DJI Go UIs and functionalities in your own application. 
 
 ## Application Registration
 
@@ -378,10 +378,10 @@ Now let's register our application with the **App Key** you apply from DJI Devel
 
 ### Implementing MApplication and DemoApplication
 
-Right click on the 'com.dji.uilibrarydemo' module in the project navigator and select "New -> Java Class" to create a new file, enter "MApplication" as the **Name**. Then replace the code with the following:
+Right click on the 'com.dji.uxsdkdemo' module in the project navigator and select "New -> Java Class" to create a new file, enter "MApplication" as the **Name**. Then replace the code with the following:
 
 ~~~java
-package com.dji.uilibrarydemo;
+package com.dji.uxsdkdemo;
 
 import android.app.Application;
 import android.content.Context;
@@ -413,7 +413,7 @@ Here, we override the `attachBaseContext()` method to add the `Helper.install(MA
 
 > Note: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failing to do so will result in unexpected crashes.
 
-Once we finished the steps above, let's continue to create the `DemoApplication` class, and replace the code with the same file in this tutorial's [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-UILibraryDemo), here we explain the important part of it:
+Once we finished the steps above, let's continue to create the `DemoApplication` class, and replace the code with the same file in this tutorial's [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo), here we explain the important part of it:
 
 ~~~java
 @Override
@@ -640,24 +640,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-}
 ~~~
 
  In the `onCreate()` method, we request several permissions at runtime to ensure the SDK works well when the compile and target SDK version is higher than 22(Like Android Marshmallow 6.0 device and API 23). 
 
 Now, let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/registerSuccess.png" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/registerSuccess.png" width="600">
 
 ## Connecting to the Aircraft and Run the Project
 
-Now, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and try the mini-DJI Go features of UILibrary based on what we've finished of the application so far!
+Now, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and try the mini-DJI Go features of UX SDK based on what we've finished of the application so far!
   
-If you can see the live video feed and test the features like this, congratulations! Using the DJI UI Library is that easy.
+If you can see the live video feed and test the features like this, congratulations! Using the DJI UX SDK is that easy.
 
-<img src="../images/tutorials-and-samples/Android/UILibraryDemo/connectToAircraft.gif" width="600">
+<img src="../../images/tutorials-and-samples/Android/UXSDKDemo/connectToAircraft.gif" width="600">
 
 ### Summary
 
-In this tutorial, you have learned how to use the DJI Android UI Library and DJI Android SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. Hope you enjoy it!
+In this tutorial, you have learned how to use the DJI Android UX SDK and DJI Android SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. Hope you enjoy it!
 

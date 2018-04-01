@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
-version: v4.4.1
-date: 2018-01-15
+version: v4.5
+date: 2018-04-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -13,7 +13,7 @@ keywords: [Android mediaManager demo, mediaManager application, media download, 
 
 In this tutorial, you will learn how to use the `MediaManager` to interact with the file system on the SD card of the aircraft's camera. By the end of this tutorial, you will have an app that you can use to preview photos, play videos, download or delete files and so on.
 
-In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI Android UI Library, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
+In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI Android UX SDK, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo).
 
@@ -27,15 +27,15 @@ We use Mavic Pro and Nexus 5 as an example to make this demo. For more details o
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Importing UI Library Maven Dependency
+## Importing UX SDK Maven Dependency
 
 Now, create a new project in Android Studio, open Android Studio and select **File -> New -> New Project** to create a new project, named 'MediaManagerDemo'. Enter the company domain and package name (Here we use "com.dji.mediaManagerDemo") you want and press Next. Set the minimum SDK version as `API 19: Android 4.4 (KitKat)` for "Phone and Tablet" and press Next. Then select "Empty Activity" and press Next. Lastly, leave the Activity Name as "MainActivity", and the Layout Name as "activity_main", press "Finish" to create the project.
 
-Please check the [Getting Started with UI Library](../android-tutorials/UILibraryDemo.html#import-maven-dependency) tutorial to learned how to import the DJI Android UI Library Maven Dependency to your project. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
+Please check the [Getting Started with UX SDK](../android-tutorials/UXSDKDemo.html#import-maven-dependency) tutorial to learned how to import the DJI Android UX SDK Maven Dependency to your project. If you haven't read that previously, please take a look at it and implement the related features. Once you've done that, continue to implement the next features.
 
 ## Implementing the UI of Application
 
-### Building the Default Layout using UI Library
+### Building the Default Layout using UX SDK
 
 Now, create a new Empty Activity class with the name of "DefaultLayoutActivity" in the `com.dji.mediaManagerDemo` package. Replace the code with the following, remember to import the related classes as Android Studio suggested:
 
@@ -282,7 +282,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
 </RelativeLayout>
 ~~~
 
-In the xml file above, we implement the UI Library's default layout. For more details, please check the [Getting Started with UI Library](http://developer.dji.com/mobile-sdk/documentation/android-tutorials/UILibraryDemo.html#building-the-default-layout-using-ui-library) tutorial.
+In the xml file above, we implement the UX SDK's default layout. For more details, please check the [Getting Started with UX SDK](http://developer.dji.com/mobile-sdk/documentation/android-tutorials/UXSDKDemo.html#building-the-default-layout-using-ui-library) tutorial.
 
 Once you finished the steps above, open the "color.xml" file and replace the content with the following:
 

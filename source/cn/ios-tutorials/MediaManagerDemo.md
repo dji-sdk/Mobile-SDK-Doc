@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
-version: v4.4
-date: 2017-12-25
+version: v4.5
+date: 2018-04-01
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -13,7 +13,7 @@ keywords: [iOS mediaManager demo, mediaManager application, media download, down
 
 In this tutorial, you will learn how to use the `DJIMediaManager` to interact with the file system on the SD card of the aircraft's camera. By the end of this tutorial, you will have an app that you can use to preview photos, play videos, download or delete files and so on.
 
-In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI iOS UI Library, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
+In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI iOS UX SDK, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-MediaManagerDemo).
 
@@ -29,11 +29,11 @@ We use Mavic Pro and iPad Air as an example to make this demo. For more details 
 
 ## Implementing DJI Go Style Default Layout
 
-### Importing DJI SDK and UILibrary with CocoaPods
+### Importing DJI SDK and UX SDK with CocoaPods
 
-To create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "MediaManagerDemo" in the **Product Name** field and keep the other default settings. Once the project is created, import the DJI SDK and DJI UI Library.
+To create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "MediaManagerDemo" in the **Product Name** field and keep the other default settings. Once the project is created, import the DJI SDK and DJI UX SDK.
 
-You can check [Getting Started with DJI UI Library](./UILibraryDemo.html#importing-dji-sdk-and-uilibrary-with-cocoapods) tutorial to learn how to import the **DJISDK.framework** and **UILibrary.framework** into your Xcode project.
+You can check [Getting Started with DJI UX SDK](./UXSDKDemo.html#importing-dji-sdk-and-uxsdk-with-cocoapods) tutorial to learn how to import the **DJISDK.framework** and **UILibrary.framework** into your Xcode project.
 
 ### Importing the VideoPreviewer
 
@@ -41,7 +41,7 @@ You can check [Creating a Camera Application](./index.html) tutorial to learn ho
 
 ### Working on the MainViewController and DefaultlayoutViewController
 
-You can check this tutorial's Github Sample Code to learn how to implement the **MainViewController** to do SDK registration and update UIs and show alert views to inform users when DJI product is connected and disconnected. Also, you can learn how to implement shooting photos and recording videos functionalities with standard DJI Go UIs by using **DULDefaultLayoutViewController** of DJI UI Library from the [Getting Started with DJI UI Library](./UILibraryDemo.html#working-on-the-mainviewcontroller-and-defaultlayoutviewcontroller) tutorial.
+You can check this tutorial's Github Sample Code to learn how to implement the **MainViewController** to do SDK registration and update UIs and show alert views to inform users when DJI product is connected and disconnected. Also, you can learn how to implement shooting photos and recording videos functionalities with standard DJI Go UIs by using **DULDefaultLayoutViewController** of DJI UX SDK from the [Getting Started with DJI UX SDK](./UXSDKDemo.html#working-on-the-mainviewcontroller-and-defaultlayoutviewcontroller) tutorial.
 
 If everything goes well, you can see the live video feed and test the shoot photo and record video features like this:
 

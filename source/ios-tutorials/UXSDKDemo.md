@@ -1,9 +1,9 @@
 ---
-title: Getting Started with DJI UI Library
-version: v4.4
-date: 2017-12-26
-github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UILibraryDemo
-keywords: [UI Library, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
+title: Getting Started with DJI UX SDK
+version: v4.5
+date: 2018-04-01
+github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo
+keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
 ---
 
@@ -11,21 +11,21 @@ keywords: [UI Library, Default Layout, playback, preview photos and videos, down
 
 ---
 
-In this tutorial, you will learn how to use DJI iOS UI Library and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. By the end of this tutorial you will have an app that you can use to show the camera FPV view, check aircraft status, shoot photos, record videos and so on.
+In this tutorial, you will learn how to use DJI iOS UX SDK and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. By the end of this tutorial you will have an app that you can use to show the camera FPV view, check aircraft status, shoot photos, record videos and so on.
 
-You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UILibraryDemo).
+You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo).
 
 We use Mavic Pro and iPad Air as an example to make this demo. Let's get started!
 
 ## Introduction
 
-DJI UI Library is a visual framework consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in iOS. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
+DJI UX SDK is a visual framework consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in iOS. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
 
-Additionally, with the ease of use, UILibrary let you focus more on business and application logic. 
+Additionally, with the ease of use, UX SDK let you focus more on business and application logic. 
 
-As DJI UI Library is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
+As DJI UX SDK is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
 
-For an in depth learning on DJI UI Library, please go to the [UI Library Introduction](../introduction/ui_library_introduction.html).
+For an in depth learning on DJI UX SDK, please go to the [UX SDK Introduction](../introduction/ux_sdk_introduction.html).
 
 ## Application Activation and Aircraft Binding in China
 
@@ -35,9 +35,9 @@ For an in depth learning on DJI UI Library, please go to the [UI Library Introdu
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Importing DJI SDK and UILibrary with CocoaPods
+## Importing DJI SDK and UX SDK with CocoaPods
 
-Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "UILibraryDemo" in the **Product Name** field and keep the other default settings.
+Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "UXSDKDemo" in the **Product Name** field and keep the other default settings.
 
 Once the project is created, let's download and import the **DJISDK.framework** and **UILibrary.framework** using CocoaPods to it. In Finder, navigate to the root folder of the project, and create a **Podfile**. To learn more about Cocoapods, please check [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
 
@@ -47,8 +47,8 @@ Then replace the content of the **Podfile** with the followings:
 # platform :ios, '9.0'
 
 target 'UILibraryDemo' do
-  pod 'DJI-SDK-iOS', '~> 4.4'
-  pod 'DJI-UILibrary-iOS', '~> 4.4'
+  pod 'DJI-SDK-iOS', '~> 4.5'
+  pod 'DJI-UXSDK-iOS', '~> 4.5'
 end
 
 ~~~
@@ -64,8 +64,8 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (4.4)
-Installing DJI-UILibrary-iOS (4.4)
+Installing DJI-SDK-iOS (4.5)
+Installing DJI-UXSDK-iOS (4.5)
 Generating Pods project
 Integrating client project
 
@@ -99,7 +99,7 @@ Pod installation complete! There are 2 dependencies from the Podfile and 2 total
 
 ## Implementing the DULDefaultLayoutViewController
 
-After you finish the steps above, let's try to implement the standard DJI Go UIs and functionalities using DJI UI Library with very few steps.
+After you finish the steps above, let's try to implement the standard DJI Go UIs and functionalities using DJI UX SDK with very few steps.
 
 #### Working on the Storyboard
 
@@ -107,7 +107,7 @@ Now, let's open the `UILibraryDemo.xcworkspace` file in Xcode and delete the **V
 
 Once you finish the steps above, let's open the "Main.storyboard". Set the existing View Controller's "Class" value as **DefaultLayoutViewController** as shown below:
 
-![](../images/tutorials-and-samples/iOS/UILibraryDemo/defaultLayoutViewController.png)
+![](../images/tutorials-and-samples/iOS/UXSDKDemo/defaultLayoutViewController.png)
 
 For more details of the storyboard settings, please check the tutorial's Github Sample Project.
 
@@ -123,7 +123,7 @@ Next, let's open the **DefaultLayoutViewController.h** file and import the **DJI
 @end
 ~~~
 
-The **DULDefaultLayoutViewController** is a viewController designed around 5 child view controllers, and it's a fully functioning mini-DJI Go. It uses all the elements of the UILibrary to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
+The **DULDefaultLayoutViewController** is a viewController designed around 5 child view controllers, and it's a fully functioning mini-DJI Go. It uses all the elements of the UX SDK to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
 
 ## Application Registration
 
@@ -184,13 +184,13 @@ In the code above, we have implemented the following logics:
 
 ## Connecting to the Aircraft and Run the Project
 
-Now, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and try the mini-DJI Go features of UILibrary based on what we've finished of the application so far!
+Now, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and try the mini-DJI Go features of UX SDK based on what we've finished of the application so far!
   
-If you can see the live video feed and test the features like this, congratulations! Using the DJI UI Library is that easy.
+If you can see the live video feed and test the features like this, congratulations! Using the DJI UX SDK is that easy.
 
-![freeform](../images/tutorials-and-samples/iOS/UILibraryDemo/playVideo.gif)
+![freeform](../images/tutorials-and-samples/iOS/UXSDKDemo/playVideo.gif)
 
 ### Summary
 
-In this tutorial, you have learned how to use the DJI iOS UI Library and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. Hope you enjoy it!
+In this tutorial, you have learned how to use the DJI iOS UX SDK and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. Hope you enjoy it!
 
