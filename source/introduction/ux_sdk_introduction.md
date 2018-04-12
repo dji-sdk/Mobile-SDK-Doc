@@ -1,6 +1,6 @@
 ---
 title: UX SDK Introduction
-date: 2018-04-01
+date: 2018-04-12
 keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 

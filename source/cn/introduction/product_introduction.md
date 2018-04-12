@@ -8,7 +8,7 @@ DJI produces small, highly capable, remotely controlled aircraft as well as hand
 
 ### Aircraft
 
-DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic Pro, Phantom series, Inspire series, Matrice 200 series, Matrice 100 and Matrice 600.
+DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic Air, Mavic Pro, Phantom series, Inspire series, Matrice 200 series, Matrice 100 and Matrice 600.
 
 One of the key features of DJI aircraft is the camera's ability to stay horizontal no matter how the aircraft is flying. The camera is mounted on a gimbal, which actively compensates for any aircraft rotation, producing clear, beautiful images and videos.
 
