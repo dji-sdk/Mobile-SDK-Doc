@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
 version: v4.5
-date: 2018-04-01
+date: 2018-04-12
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -39,14 +39,14 @@ For an in depth learning on DJI UX SDK, please go to the [UX SDK Introduction](.
 
 Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "UXSDKDemo" in the **Product Name** field and keep the other default settings.
 
-Once the project is created, let's download and import the **DJISDK.framework** and **UILibrary.framework** using CocoaPods to it. In Finder, navigate to the root folder of the project, and create a **Podfile**. To learn more about Cocoapods, please check [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+Once the project is created, let's download and import the **DJISDK.framework** and **DJIUXSDK.framework** using CocoaPods to it. In Finder, navigate to the root folder of the project, and create a **Podfile**. To learn more about Cocoapods, please check [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
 
 Then replace the content of the **Podfile** with the followings:
 
 ~~~
 # platform :ios, '9.0'
 
-target 'UILibraryDemo' do
+target 'UXSDKDemo' do
   pod 'DJI-SDK-iOS', '~> 4.5'
   pod 'DJI-UXSDK-iOS', '~> 4.5'
 end
@@ -69,7 +69,7 @@ Installing DJI-UXSDK-iOS (4.5)
 Generating Pods project
 Integrating client project
 
-[!] Please close any current Xcode sessions and use `UILibraryDemo.xcworkspace` for this project from now on.
+[!] Please close any current Xcode sessions and use `UXSDKDemo.xcworkspace` for this project from now on.
 Sending stats
 Pod installation complete! There are 2 dependencies from the Podfile and 2 total pods installed.
 ~~~
@@ -97,13 +97,13 @@ Pod installation complete! There are 2 dependencies from the Podfile and 2 total
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Implementing the DULDefaultLayoutViewController
+## Implementing the DUXDefaultLayoutViewcontroller
 
 After you finish the steps above, let's try to implement the standard DJI Go UIs and functionalities using DJI UX SDK with very few steps.
 
 #### Working on the Storyboard
 
-Now, let's open the `UILibraryDemo.xcworkspace` file in Xcode and delete the **ViewController** class which is created by Xcode by default. Then create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "DefaultLayoutViewController". 
+Now, let's open the `UXSDKDemo.xcworkspace` file in Xcode and delete the **ViewController** class which is created by Xcode by default. Then create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "DefaultLayoutViewController". 
 
 Once you finish the steps above, let's open the "Main.storyboard". Set the existing View Controller's "Class" value as **DefaultLayoutViewController** as shown below:
 
@@ -113,17 +113,17 @@ For more details of the storyboard settings, please check the tutorial's Github 
 
 #### Working on the Header File
 
-Next, let's open the **DefaultLayoutViewController.h** file and import the **DJIUILibrary** header file and change the subclass to `DULDefaultLayoutViewController` as shown below:
+Next, let's open the **DefaultLayoutViewController.h** file and import the **DJIUXSDK** header file and change the subclass to `DUXDefaultLayoutViewcontroller` as shown below:
 
 ~~~objc
-#import <DJIUILibrary/DJIUILibrary.h>
+#import <DJIUXSDK/DJIUXSDK.h>
 
-@interface DefaultLayoutViewController : DULDefaultLayoutViewController
+@interface DefaultLayoutViewController : DUXDefaultLayoutViewcontroller
 
 @end
 ~~~
 
-The **DULDefaultLayoutViewController** is a viewController designed around 5 child view controllers, and it's a fully functioning mini-DJI Go. It uses all the elements of the UX SDK to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
+The **DUXDefaultLayoutViewcontroller** is a viewController designed around 5 child view controllers, and it's a fully functioning mini-DJI Go. It uses all the elements of the UX SDK to give you the foundation of your app. It includes status bar, take off, go home, camera actions buttons and camera settings, OSD dashboard, FPV live vide feed view, etc. The default layout is easily changeable and configurable.
 
 ## Application Registration
 

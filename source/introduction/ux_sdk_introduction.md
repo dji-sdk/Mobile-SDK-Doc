@@ -66,9 +66,9 @@ Swapping the asset keeps the widget's behavior and logic, but changes its look.
 
 ##### iOS
 
-  1. Open the **DJIUILibrary.framework**
-  2. Replace assets in the "DJIUILibrary.framework/Assets/"" directory
-  3. Replace the orignal **DJIUILibrary.framework** file in the Xcode project
+  1. Open the **DJIUXSDK.framework**
+  2. Replace assets in the "DJIUXSDK.framework/Assets/"" directory
+  3. Replace the orignal **DJIUXSDK.framework** file in the Xcode project
 
 > Note: The image assets are required to be of the same names and pixel dimensions as the original ones.
 
