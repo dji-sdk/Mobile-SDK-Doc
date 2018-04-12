@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2017-12-22
+date: 2018-04-12
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -106,8 +106,13 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
   </thead>
   <tbody>
+	  <tr>
+      <td rowspan="18">Aircraft</th>
+      <td>Mavic Air</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
     <tr>
-      <td rowspan="17">Aircraft</th>
       <td>Spark</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -193,7 +198,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> DRTK, Ronin MX, Focus* </td>
     </tr>
     <tr>
-      <td rowspan="3">Handheld Device</th>
+      <td rowspan="4">Handheld Device</th>
       <td>Osmo</td>
       <td>X3, X5, X5R, Z3</td>        
       <td> — </td>
@@ -205,6 +210,11 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
        <td>Osmo Mobile</td>
+      <td> — </td>        
+      <td> — </td>
+    </tr>
+    <tr>
+       <td>Osmo Mobile 2</td>
       <td> — </td>        
       <td> — </td>
     </tr>
@@ -324,6 +334,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 600 Professional</td><td>18-40*</td><td>18</td><td>5</td><td>3</td><td>2500</td><td>6</td><td>9500</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 6x TB47S Batteries</p></td><td>1133</td></tr>
 <tr>
+<td>Mavic Air</td><td>21</td><td>19</td><td>4</td><td>3</td><td>5000</td><td>4</td><td>430</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>213</td></tr>
+<tr>
 <td>Mavic Pro</td><td>27</td><td>18</td><td>5</td><td>3</td><td>5000</td><td>4</td><td>743</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>335</td></tr>
 <tr>
 <td>Phantom 3 4K</td><td>25</td><td>16</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>1280</td><td>350</td></tr>
@@ -386,6 +398,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 600 Professional</td><td>X3, Z3, X5, X5R, XT, Custom with Ronin MX, Z30</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
 <tr>
+<td>Mavic Air</td><td>Fixed</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<tr>
 <td>Mavic Pro</td><td>Fixed</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 3 4K</td><td>Fixed</td><td>-</td><td>1.2 / 0.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
@@ -438,6 +452,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Matrice 600</td><td>-</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Matrice 600 Professional</td><td>-</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Mavic Air</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-12m, 0.5-10m, 0.1-8m</p></td><td>Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Mavic Pro</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
@@ -818,6 +834,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <th><p>Shutter Speed</br><font color="#BBBBBB" size=1 style="font-weight:bold">s</p></th>
 </tr>
 <tr>
+<td>Mavic Air</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-3200</td><td>-</td><td>8-1/8000</td></tr>
+<tr>
 <td>Mavic Pro</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
 <td>Osmo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
@@ -872,6 +890,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <th><p>Focus</br><font color="#BBBBBB" size=1 style="font-weight:bold">m</p></th>
 </tr>
 <tr>
+<td>Mavic Air</td><td>-</td><td>85</td><td>35</td><td>f/2.8</td><td>0.5 - &#8734</td></tr>
+<tr>
 <td>Mavic Pro</td><td>-</td><td>78.8</td><td>28</td><td>f/2.2</td><td>0.5 - &#8734</td></tr>
 <tr>
 <td>Osmo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
@@ -925,6 +945,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <th><p>Storage Media</p></th>
 <th><p>Mass</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">With Gimbal</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
 </tr>
+<tr>
+<td>Mavic Air</td><td>-</td><td>roll, pitch, yaw</td><td>-100 to 22</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
 <tr>
 <td>Mavic Pro</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
@@ -1014,6 +1036,8 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <td>Matrice 600 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI, SDI</td><td>Any</td></tr>
 <tr>
 <td>Mavic Pro</td><td>Optional</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<tr>
+<td>Mavic Air</td><td>Optional</td><td>USB</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Phantom 3 4K</td><td>Required</td><td>WiFi</td><td>WiFi, Aux</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
 <tr>
