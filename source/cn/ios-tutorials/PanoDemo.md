@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
-version: v4.4
-date: 2018-01-05
+version: v4.5
+date: 2018-04-11
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -1037,7 +1037,7 @@ Next, let's implement the `loadMediaListsForMediaDownloadMode` method as shown b
     [self.downloadProgressAlert setMessage:[NSString stringWithFormat:@"Loading..."]];
 
     weakSelf(target);
-    [camera.mediaManager refreshFileListWithCompletion:^(NSError * _Nullable error) {
+    [camera.mediaManager refreshFileListOfStorageLocation:DJICameraStorageLocationSDCard withCompletion:^(NSError * _Nullable error) {
         weakReturn(target);
         if (error) {
             [target.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
@@ -1051,7 +1051,7 @@ Next, let's implement the `loadMediaListsForMediaDownloadMode` method as shown b
 }
 ~~~
 
-In the code above, we invoke the `refreshFileListWithCompletion:` method of `DJIMediaManager` to refresh the file list from the SD card. If there is no error, invoke the `downloadPhotosForMediaDownloadMode` method to download photos.
+In the code above, we invoke the `refreshFileListOfStorageLocation:` method of `DJIMediaManager` to refresh the file list from the SD card. If there is no error, invoke the `downloadPhotosForMediaDownloadMode` method to download photos.
 
 Once you finish the steps above, let's implement the `downloadPhotosForMediaDownloadMode` method as shown below to download photos:
 
@@ -1062,7 +1062,7 @@ Once you finish the steps above, let's implement the `downloadPhotosForMediaDown
     self.imageArray=[NSMutableArray new];
 
     DJICamera *camera = [self fetchCamera];
-    NSArray<DJIMediaFile *> *files = [camera.mediaManager fileListSnapshot];
+    NSArray<DJIMediaFile *> *files = [camera.mediaManager sdCardFileListSnapshot];
     if (files.count < PHOTO_NUMBER) {
         [self.downloadProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
         self.downloadProgressAlert = nil;
@@ -1122,7 +1122,7 @@ Once you finish the steps above, let's implement the `downloadPhotosForMediaDown
 
 In the code above, we implement the following features:
 
-1. Firstly, we initialize an NSMutableArray `imageArray`, which will be used to stored the downloaded images. And then invoke the `fileListSnapshot` method of `DJIMediaManager` to get the current `DJIMediaFile` file list, and store them in the `files` array object. After that, we check if the current media files' count is less than `PHOTO_NUMBER`, which is the photo count to create a panorama. If so, inform the user that not enough photos are taken using a UIAlertView and return.
+1. Firstly, we initialize an NSMutableArray `imageArray`, which will be used to stored the downloaded images. And then invoke the `sdCardFileListSnapshot` method of `DJIMediaManager` to get the current `DJIMediaFile` file list, and store them in the `files` array object. After that, we check if the current media files' count is less than `PHOTO_NUMBER`, which is the photo count to create a panorama. If so, inform the user that not enough photos are taken using a UIAlertView and return.
 
 2. Moreover, we invoke the `resumeWithCompletion:` method to resume the `DJIFetchMediaTaskScheduler` and inform the user that resume file task scheduler failed using a UIAlertView. 
 

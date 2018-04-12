@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
 version: v4.5
-date: 2018-04-01
+date: 2018-04-11
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -300,19 +300,18 @@ Next, create two new methods: `loadMediaList` and `updateMediaList:` and invoke 
 -(void) loadMediaList
 {
     [self.loadingIndicator setHidden:NO];
-    if (self.mediaManager.fileListState == DJIMediaFileListStateSyncing ||
-             self.mediaManager.fileListState == DJIMediaFileListStateDeleting) {
+    if (self.mediaManager.sdCardFileListState == DJIMediaFileListStateSyncing || self.mediaManager.sdCardFileListState == DJIMediaFileListStateDeleting) {
         NSLog(@"Media Manager is busy. ");
     }else {
         WeakRef(target);
-        [self.mediaManager refreshFileListWithCompletion:^(NSError * _Nullable error) {
+        [self.mediaManager refreshFileListOfStorageLocation:DJICameraStorageLocationSDCard withCompletion:^(NSError * _Nullable error) {
             WeakReturn(target);
             if (error) {
                 ShowResult(@"Fetch Media File List Failed: %@", error.localizedDescription);
             }
             else {
                 NSLog(@"Fetch Media File List Success.");
-                NSArray *mediaFileList = [target.mediaManager fileListSnapshot];
+                NSArray *mediaFileList = [target.mediaManager sdCardFileListSnapshot];
                 [target updateMediaList:mediaFileList];
             }
             [target.loadingIndicator setHidden:YES];
@@ -346,7 +345,7 @@ Next, create two new methods: `loadMediaList` and `updateMediaList:` and invoke 
 
 The code above implements:
 
-1. In the `loadMediaList` method, we firstly show the `loadingIndicator` and check the `fileListState` enum value of the `DJIMediaManager`. If the value is `DJIMediaFileListStateSyncing` or `DJIMediaFileListStateDeleting`, we show an NSLog to inform users that the media manager is busy. For other values, we invoke the `refreshFileListWithCompletion:` method of the `DJIMediaManager` to refresh the file list from the SD card. In the completion block, if there is no error, we should get a copy of the current file list by invoking the `fileListSnapshot` method of `DJIMediaManager` and initialize the `mediaFileList` variable. Then invoke the `updateMediaList:` method and pass the `mediaFileList`. Lastly, hide the `loadingIndicator` since the operation of refreshing the file list has finished.
+1. In the `loadMediaList` method, we firstly show the `loadingIndicator` and check the `fileListState` enum value of the `DJIMediaManager`. If the value is `DJIMediaFileListStateSyncing` or `DJIMediaFileListStateDeleting`, we show an NSLog to inform users that the media manager is busy. For other values, we invoke the `refreshFileListOfStorageLocation:` method of the `DJIMediaManager` to refresh the file list from the SD card. In the completion block, if there is no error, we should get a copy of the current file list by invoking the `fileListSnapshot` method of `DJIMediaManager` and initialize the `mediaFileList` variable. Then invoke the `updateMediaList:` method and pass the `mediaFileList`. Lastly, hide the `loadingIndicator` since the operation of refreshing the file list has finished.
 
 2. In the `updateMediaList:` method, we firstly remove all the objects in the `mediaList` array and add new objects to it from the `mediaList` array. Next, create a `mediaTaskScheduler` variable and assign it with the `taskScheduler` property of `DJIMediaManager`. Then, assign `NO` to the `suspendAfterSingleFetchTaskFailure` property of `DJIFetchMediaTaskScheduler` to prevent from suspending the scheduler when an error occurs during the execution. Moreover, invoke the `resumeWithCompletion` method of `DJIFetchMediaTaskScheduler` to resume the scheduler, which will execute tasks in the queue sequentially.
 
