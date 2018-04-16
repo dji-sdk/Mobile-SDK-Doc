@@ -209,13 +209,14 @@ android {
         doNotStrip "*/*/libFRCorkscrew.so"
         doNotStrip "*/*/libUpgradeVerify.so"
         doNotStrip "*/*/libFR.so"
+        exclude 'META-INF/rxjava.properties'
     }
 }
 
 dependencies {
    ...
-    compile ('com.dji:dji-sdk:4.4.1')
-    provided ('com.dji:dji-sdk-provided:4.4.1')
+    compile ('com.dji:dji-sdk:4.5')
+    provided ('com.dji:dji-sdk-provided:4.5')
 }
 ~~~
 

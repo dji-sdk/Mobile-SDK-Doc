@@ -209,6 +209,7 @@ android {
         doNotStrip "*/*/libFRCorkscrew.so"
         doNotStrip "*/*/libUpgradeVerify.so"
         doNotStrip "*/*/libFR.so"
+        exclude 'META-INF/rxjava.properties'
     }
 }
 

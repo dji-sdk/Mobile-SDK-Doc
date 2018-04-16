@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.4.1
-date: 2018-01-15
+version: v4.5
+date: 2018-04-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions
 keywords: [Android Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -975,7 +975,7 @@ protected void onCreate(Bundle savedInstanceState) {
     getTapFlyOperator().addListener(new TapFlyMissionOperatorListener() {
         @Override
         public void onUpdate(@Nullable TapFlyMissionEvent aggregation) {
-            TapFlyExecutionState executionState = aggregation.getProgressState();
+            TapFlyExecutionState executionState = aggregation.getExecutionState();
             if (executionState != null){
                 showPointByTapFlyPoint(executionState.getImageLocation(), mRstPointIv);
             }
@@ -988,7 +988,7 @@ protected void onCreate(Bundle savedInstanceState) {
             Utils.addLineToSB(sb, "PreviousState: ", previousState);
             Utils.addLineToSB(sb, "Error:", errorInformation);
 
-            TapFlyExecutionState progressState = aggregation.getProgressState();
+            TapFlyExecutionState progressState = aggregation.getExecutionState();
 
             if (progressState != null) {
                 Utils.addLineToSB(sb, "Heading: ", progressState.getRelativeHeading());

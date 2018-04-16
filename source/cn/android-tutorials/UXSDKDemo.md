@@ -65,6 +65,7 @@ android {
         doNotStrip "*/*/libFRCorkscrew.so"
         doNotStrip "*/*/libUpgradeVerify.so"
         doNotStrip "*/*/libFR.so"
+        exclude 'META-INF/rxjava.properties'
     }
 }
 
@@ -104,23 +105,26 @@ Now, let's continue to open the "activity_main.xml" file, and replace the code w
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_blue"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <!--1-->
     <!-- Widget to see first person view (FPV) -->
-    <dji.ui.widget.FPVWidget
+    <dji.ux.widget.FPVWidget
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <dji.ui.widget.FPVOverlayWidget
+    <dji.ux.widget.FPVOverlayWidget
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <!--2-->
+    <dji.ux.workflow.CompassCalibratingWorkFlow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <!-- Widgets in top status bar -->
     <LinearLayout
         android:id="@+id/signal"
@@ -129,102 +133,109 @@ Now, let's continue to open the "activity_main.xml" file, and replace the code w
         android:background="@color/dark_gray"
         android:orientation="horizontal">
 
-        <dji.ui.widget.PreFlightStatusWidget
-            android:id="@+id/status"
+        <dji.ux.widget.PreFlightStatusWidget
             android:layout_width="238dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.FlightModeWidget
+        <dji.ux.widget.FlightModeWidget
             android:layout_width="103dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.GPSSignalWidget
+        <dji.ux.widget.GPSSignalWidget
             android:layout_width="44dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.VisionWidget
+        <dji.ux.widget.VisionWidget
             android:layout_width="22dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.RemoteControlSignalWidget
+        <dji.ux.widget.RemoteControlSignalWidget
             android:layout_width="38dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.VideoSignalWidget
+        <dji.ux.widget.VideoSignalWidget
             android:layout_width="38dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.WiFiSignalWidget
+        <dji.ux.widget.WiFiSignalWidget
             android:layout_width="22dp"
             android:layout_height="20dp"/>
 
-        <dji.ui.widget.BatteryWidget
-            android:layout_width="56dp"
-            android:layout_height="22dp"/>
+        <dji.ux.widget.BatteryWidget
+            android:layout_width="96dp"
+            android:layout_height="22dp"
+            custom:excludeView="singleVoltage"/>
 
-        <dji.ui.widget.ConnectionWidget
-            android:layout_marginTop="5dp"
-            android:layout_width="22dp"
-            android:layout_height="22dp"/>
+        <dji.ux.widget.ConnectionWidget
+            android:layout_marginTop="3dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"/>
     </LinearLayout>
 
-    <!--3-->
+
     <LinearLayout
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/signal"
         android:layout_centerHorizontal="true"
-        android:layout_margin="12dp"
+        android:layout_marginTop="20dp"
         android:background="@color/dark_gray"
         android:orientation="horizontal">
 
-        <dji.ui.widget.AutoExposureLockWidget
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.AutoExposureLockWidget
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.FocusExposureSwitchWidget
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.FocusExposureSwitchWidget
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.FocusModeWidget
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.FocusModeWidget
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.config.CameraConfigISOWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.config.CameraConfigISOAndEIWidget
+            android:layout_width="60dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.config.CameraConfigShutterWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.config.CameraConfigShutterWidget
+            android:layout_width="60dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.config.CameraConfigApertureWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.config.CameraConfigApertureWidget
+            android:layout_width="60dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.config.CameraConfigEVWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.config.CameraConfigEVWidget
+            android:layout_width="60dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.config.CameraConfigWBWidget
-            android:layout_width="50dp"
-            android:layout_height="25dp"/>
+        <dji.ux.widget.config.CameraConfigWBWidget
+            android:layout_width="70dp"
+            android:layout_height="30dp"/>
 
-        <dji.ui.widget.CameraConfigStorageWidget
-            android:layout_width="108dp"
-            android:layout_height="25dp"/>
-
-    <!--4-->
+        <dji.ux.widget.config.CameraConfigStorageWidget
+            android:layout_width="130dp"
+            android:layout_height="30dp"/>
     </LinearLayout>
-    <dji.ui.widget.RemainingFlightTimeWidget
+
+    <dji.ux.widget.ManualFocusWidget
+        android:layout_below="@id/camera"
+        android:layout_alignLeft="@id/camera"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="42dp"
+        android:layout_height="218dp"
+        tools:ignore="RtlHardcoded"/>
+
+    <dji.ux.widget.RemainingFlightTimeWidget
         android:layout_alignParentTop="true"
         android:layout_marginTop="18dp"
         android:layout_width="match_parent"
         android:background="@color/transparent"
         android:layout_height="20dp"/>
 
-    <!--5-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -232,15 +243,16 @@ Now, let's continue to open the "activity_main.xml" file, and replace the code w
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <dji.ui.widget.dashboard.DashboardWidget
+        <dji.ux.widget.dashboard.DashboardWidget
             android:id="@+id/Compass"
             android:layout_width="405dp"
             android:layout_height="91dp"
-            android:layout_marginRight="12dp"/>
+            android:layout_marginRight="12dp"
+            tools:ignore="RtlHardcoded"/>
 
     </LinearLayout>
 
-    <!--6-->
+
     <!--Take off and return home buttons on left -->
     <LinearLayout
         android:layout_width="40dp"
@@ -249,54 +261,53 @@ Now, let's continue to open the "activity_main.xml" file, and replace the code w
         android:layout_marginStart="12dp"
         android:orientation="vertical">
 
-        <dji.ui.widget.TakeOffWidget
+        <dji.ux.widget.TakeOffWidget
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginBottom="12dp"/>
 
-        <dji.ui.widget.ReturnHomeWidget
+        <dji.ux.widget.ReturnHomeWidget
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="12dp"/>
     </LinearLayout>
 
-    <!--7-->
-    <dji.ui.widget.controls.CameraControlsWidget
+
+    <dji.ux.widget.controls.CameraControlsWidget
         android:id="@+id/CameraCapturePanel"
         android:layout_alignParentRight="true"
         android:layout_below="@id/camera"
         android:layout_width="50dp"
-        android:layout_height="213dp"/>
+        android:layout_height="213dp"
+        tools:ignore="RtlHardcoded"/>
 
-    <!--8-->
-    <dji.ui.panel.CameraSettingExposurePanel
-        android:id="@+id/CameraExposureMode"
+
+    <dji.ux.panel.CameraSettingExposurePanel
         android:layout_width="180dp"
         android:layout_below="@id/camera"
         android:layout_toLeftOf="@+id/CameraCapturePanel"
         android:background="@color/transparent"
         android:gravity="center"
         android:layout_height="263dp"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        tools:ignore="RtlHardcoded"/>
 
-    <!--9-->
-    <dji.ui.panel.CameraSettingAdvancedPanel
-        android:id="@+id/CameraAdvancedSetting"
+    <dji.ux.panel.CameraSettingAdvancedPanel
         android:layout_width="180dp"
         android:layout_height="263dp"
         android:layout_below="@id/camera"
         android:layout_toLeftOf="@+id/CameraCapturePanel"
         android:background="@color/transparent"
         android:gravity="center"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        tools:ignore="RtlHardcoded"/>
 
-    <!--10-->
     <!-- Pre-flight checklist panel -->
-    <dji.ui.panel.PreFlightCheckListPanel
-        android:id="@+id/PreflightCheckView"
+    <dji.ux.panel.PreFlightCheckListPanel
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/signal"
+        custom:excludeItem="aircraftBatteryTemperature|ESCStatus"
         android:visibility="gone"/>
 
 </RelativeLayout>

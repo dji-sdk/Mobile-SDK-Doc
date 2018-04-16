@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
 version: v4.5
-date: 2018-04-01
+date: 2018-04-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -87,11 +87,11 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
     tools:context=".MainActivity">
 
     <!-- Widget to see first person view (FPV) -->
-    <dji.ui.widget.FPVWidget
+    <dji.ux.widget.FPVWidget
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <dji.ui.widget.FPVOverlayWidget
+    <dji.ux.widget.FPVOverlayWidget
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -103,41 +103,41 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:background="@color/dark_gray"
         android:orientation="horizontal">
 
-        <dji.ui.widget.PreFlightStatusWidget
+        <dji.ux.widget.PreFlightStatusWidget
             android:id="@+id/status"
             android:layout_width="238dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.FlightModeWidget
+        <dji.ux.widget.FlightModeWidget
             android:layout_width="103dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.GPSSignalWidget
+        <dji.ux.widget.GPSSignalWidget
             android:layout_width="44dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.VisionWidget
+        <dji.ux.widget.VisionWidget
             android:layout_width="22dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.RemoteControlSignalWidget
+        <dji.ux.widget.RemoteControlSignalWidget
             android:layout_width="38dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.VideoSignalWidget
+        <dji.ux.widget.VideoSignalWidget
             android:layout_width="38dp"
             android:layout_height="22dp"/>
 
-        <dji.ui.widget.WiFiSignalWidget
+        <dji.ux.widget.WiFiSignalWidget
             android:layout_width="32dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.BatteryWidget
+        <dji.ux.widget.BatteryWidget
             android:layout_width="96dp"
             android:layout_height="22dp"
             custom:excludeView="singleVoltage"/>
 
-        <dji.ui.widget.ConnectionWidget
+        <dji.ux.widget.ConnectionWidget
             android:layout_marginTop="3dp"
             android:layout_width="18dp"
             android:layout_height="18dp"/>
@@ -153,44 +153,44 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:background="@color/dark_gray"
         android:orientation="horizontal">
 
-        <dji.ui.widget.AutoExposureLockWidget
+        <dji.ux.widget.AutoExposureLockWidget
             android:layout_width="25dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.FocusExposureSwitchWidget
+        <dji.ux.widget.FocusExposureSwitchWidget
             android:layout_width="25dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.FocusModeWidget
+        <dji.ux.widget.FocusModeWidget
             android:layout_width="25dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.config.CameraConfigISOWidget
+        <dji.ux.widget.config.CameraConfigISOAndEIWidget
             android:layout_width="50dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.config.CameraConfigShutterWidget
+        <dji.ux.widget.config.CameraConfigShutterWidget
             android:layout_width="50dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.config.CameraConfigApertureWidget
+        <dji.ux.widget.config.CameraConfigApertureWidget
             android:layout_width="50dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.config.CameraConfigEVWidget
+        <dji.ux.widget.config.CameraConfigEVWidget
             android:layout_width="50dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.config.CameraConfigWBWidget
+        <dji.ux.widget.config.CameraConfigWBWidget
             android:layout_width="50dp"
             android:layout_height="25dp"/>
 
-        <dji.ui.widget.CameraConfigStorageWidget
+        <dji.ux.widget.config.CameraConfigStorageWidget
             android:layout_width="108dp"
             android:layout_height="25dp"/>
 
     </LinearLayout>
-    <dji.ui.widget.RemainingFlightTimeWidget
+    <dji.ux.widget.RemainingFlightTimeWidget
         android:layout_alignParentTop="true"
         android:layout_marginTop="18dp"
         android:layout_width="match_parent"
@@ -204,7 +204,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <dji.ui.widget.dashboard.DashboardWidget
+        <dji.ux.widget.dashboard.DashboardWidget
             android:id="@+id/Compass"
             android:layout_width="405dp"
             android:layout_height="91dp"
@@ -220,19 +220,19 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:layout_marginStart="12dp"
         android:orientation="vertical">
 
-        <dji.ui.widget.TakeOffWidget
+        <dji.ux.widget.TakeOffWidget
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginBottom="12dp"/>
 
-        <dji.ui.widget.ReturnHomeWidget
+        <dji.ux.widget.ReturnHomeWidget
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="12dp"/>
     </LinearLayout>
 
 
-    <dji.ui.widget.controls.CameraControlsWidget
+    <dji.ux.widget.controls.CameraControlsWidget
         android:id="@+id/CameraCapturePanel"
         android:layout_width="50dp"
         android:layout_height="213dp"
@@ -240,7 +240,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:layout_below="@id/camera" />
 
 
-    <dji.ui.panel.CameraSettingExposurePanel
+    <dji.ux.panel.CameraSettingExposurePanel
         android:id="@+id/CameraExposureMode"
         android:layout_width="180dp"
         android:layout_height="263dp"
@@ -251,7 +251,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:gravity="center"
         android:visibility="invisible" />
 
-    <dji.ui.panel.CameraSettingAdvancedPanel
+    <dji.ux.panel.CameraSettingAdvancedPanel
         android:id="@+id/CameraAdvancedSetting"
         android:layout_width="180dp"
         android:layout_height="263dp"
@@ -272,7 +272,7 @@ Next, continue to open the "activity_default_layout.xml" file, and replace the c
         android:visibility="visible" />
 
     <!-- Pre-flight checklist panel -->
-    <dji.ui.panel.PreFlightCheckListPanel
+    <dji.ux.panel.PreFlightCheckListPanel
         android:id="@+id/PreflightCheckView"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
@@ -414,7 +414,7 @@ Once you finished the steps above, let's open the "activity_main.xml" file, and 
         android:textSize="11sp" />
 
     <!-- Widget to see first person view (FPV) -->
-    <dji.ui.widget.FPVWidget
+    <dji.ux.widget.FPVWidget
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/play_btn"
@@ -768,10 +768,11 @@ private void getFileList() {
         if ((currentFileListState == MediaManager.FileListState.SYNCING) || (currentFileListState == MediaManager.FileListState.DELETING)){
             DJILog.e(TAG, "Media Manager is busy.");
         }else{
-            mMediaManager.refreshFileList(new CommonCallbacks.CompletionCallback() {
+
+            mMediaManager.refreshFileListOfStorageLocation(SettingsDefinitions.StorageLocation.SDCARD, new CommonCallbacks.CompletionCallback() {
                 @Override
-                public void onResult(DJIError error) {
-                    if (null == error) {
+                public void onResult(DJIError djiError) {
+                    if (null == djiError) {
                         hideProgressDialog();
 
                         //Reset data
@@ -781,7 +782,7 @@ private void getFileList() {
                             lastClickView = null;
                         }
 
-                        mediaFileList = mMediaManager.getFileListSnapshot();
+                        mediaFileList = mMediaManager.getSDCardFileListSnapshot();
                         Collections.sort(mediaFileList, new Comparator<MediaFile>() {
                             @Override
                             public int compare(MediaFile lhs, MediaFile rhs) {
@@ -861,7 +862,7 @@ private FetchMediaTask.Callback taskCallback = new FetchMediaTask.Callback() {
                 });
             }
         } else {
-            DJILog.e(TAG, "Fetch Media Task Failed" + error.getDescription());
+            DJILog.e(TAG, "Fetch Media Task Failed" + djiError.getDescription());
         }
     }
 };
@@ -870,11 +871,11 @@ private FetchMediaTask.Callback taskCallback = new FetchMediaTask.Callback() {
 
 In the code above, we implement the following features:
 
-1. In the `getFileList()` method, we fetch the latest `mMediaManager` object and check if it's not null. Then check the value of the `currentFileListState` variable. If the state is neither `SYNCING` nor `DELETING`, invoke the `refreshFileList()` method of `MediaManager` to refresh the file list from the SD card. 
+1. In the `getFileList()` method, we fetch the latest `mMediaManager` object and check if it's not null. Then check the value of the `currentFileListState` variable. If the state is neither `SYNCING` nor `DELETING`, invoke the `refreshFileListOfStorageLocation()` method of `MediaManager` to refresh the file list from the SD card. 
 
 2. In the `onResult()` callback method, if there is no error, then check if the `currentFileListState` value is not equal to `MediaManager.FileListState.INCOMPLETE` and reset the `mediaFileList` list, the `lastClickViewIndex` and the `lastClickView` variables. 
 
-3. Invoke the `getFileListSnapshot()` method of `MediaManager` to get the current file list and store it in the `mediaFileList` variable.
+3. Invoke the `getSDCardFileListSnapshot()` method of `MediaManager` to get the current file list and store it in the `mediaFileList` variable.
 
 4. Sort the media files in the `mediaFileList` based on the created time. Then invoke the `resume()` method of `FetchMediaTaskScheduler` to resume the scheduler and invoke the `getThumbnails()` and `getPreviews()` methods in the `onResult()` callback method. If there is an error, invoke the `hideProgressDialog()` method to hide the progress dialog. 
 

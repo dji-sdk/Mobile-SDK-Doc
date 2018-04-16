@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.4.1
-date: 2018-1-2
+version: v4.5
+date: 2018-4-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -492,7 +492,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
     <string name="disconnected">Disconnected</string>
     <string name="product_information">Product Information</string>
     <string name="connection_loose">Status: No Product Connected</string>
-    <string name="sdk_version">DJI SDK Version: 3.3</string>
+    <string name="sdk_version">DJI SDK Version: 4.5</string>
 
 </resources>
 ~~~

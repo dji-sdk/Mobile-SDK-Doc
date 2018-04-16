@@ -1,7 +1,7 @@
 ---
 title: Application Activation and Aircraft Binding
-version: v4.4.1
-date: 2018-01-15
+version: v4.5
+date: 2018-04-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-ActivationAndBindingDemo
 keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, Bound, Activated, Real Name System]
 ---
@@ -265,7 +265,7 @@ Moreover, open the "strings.xml" file and replace the content with the following
     <string name="disconnected">Disconnected</string>
     <string name="product_information">Product Information</string>
     <string name="connection_loose">Status: No Product Connected</string>
-    <string name="sdk_version">DJI SDK Version: 4.1.1</string>
+    <string name="sdk_version">DJI SDK Version: 4.5</string>
 </resources>
 ~~~
 

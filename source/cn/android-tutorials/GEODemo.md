@@ -261,7 +261,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
     <string name="disconnected">Disconnected</string>
     <string name="product_information">Product Information</string>
     <string name="connection_loose">Status: No Product Connected</string>
-    <string name="sdk_version">DJI SDK Version: 3.3</string>
+    <string name="sdk_version">DJI SDK Version: 4.5</string>
 
 </resources>
 ~~~
@@ -478,7 +478,7 @@ Lastly, open the "strings.xml" file and replace the code with the followings:
     <string name="disconnected">Disconnected</string>
     <string name="product_information">Product Information</string>
     <string name="connection_loose">Status: No Product Connected</string>
-    <string name="sdk_version">DJI SDK Version: 3.3</string>
+    <string name="sdk_version">DJI SDK Version: 4.5</string>
 
     <!-- GEO with map testing activity-->
     <string name="title_activity_geo_with_map_testing">GeoWithMapTestingActivity</string>

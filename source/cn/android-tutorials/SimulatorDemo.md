@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v4.4.1
-date: 2018-01-15
+version: v4.5
+date: 2018-04-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-SimulatorDemo
 ---
 
