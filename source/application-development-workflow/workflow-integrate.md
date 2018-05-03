@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2017-12-29
+date: 2018-05-03
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -30,7 +30,7 @@ Screenshots in this section are generated using Xcode 7.3.
     # platform :ios, '9.0'
 
     target 'ImportSDKDemo' do
-    pod 'DJI-SDK-iOS', '~> 4.0’
+    pod 'DJI-SDK-iOS', '~> 4.5.1’
     end
    ~~~
 
@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.4)
+    Installing DJI-SDK-iOS (4.5.1)
     Generating Pods project
     Integrating client project
 
