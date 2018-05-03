@@ -1,7 +1,7 @@
 ---
 title: Importing and Activating DJI SDK in Xcode Project
-version: v4.5
-date: 2018-04-11
+version: v4.5.1
+date: 2018-05-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ImportAndActivateSDKInXcode
 keywords: [import and activate SDK, Xcode]
 ---

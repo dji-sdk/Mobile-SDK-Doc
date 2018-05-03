@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.5
-date: 2018-4-16
+version: v4.5.1
+date: 2018-05-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -314,6 +314,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
 
     private TextView mTextConnectionStatus;
     private TextView mTextProduct;
+    private TextView mVersionTv;
     private Button mBtnOpen;
 
     @Override
@@ -356,6 +357,10 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
     private void initUI() {
         mTextConnectionStatus = (TextView) findViewById(R.id.text_connection_status);
         mTextProduct = (TextView) findViewById(R.id.text_product_info);
+
+        mVersionTv = (TextView) findViewById(R.id.textView2);
+        mVersionTv.setText(getResources().getString(R.string.sdk_version, DJISDKManager.getInstance().getSDKVersion()));
+
         mBtnOpen = (Button) findViewById(R.id.btn_open);
         mBtnOpen.setOnClickListener(this);
         mBtnOpen.setEnabled(false);
@@ -377,7 +382,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
   
 In the code shown above, we implement the following features:
 
-1. Create the layout UI elements variables, including two TextureViews `mTextConnectionStatus`, `mTextProduct`, and one Button `mBtnOpen`.
+1. Create the layout UI elements variables, including three TextureViews `mTextConnectionStatus`, `mTextProduct`, `mVersionTv` and one Button `mBtnOpen`.
 
 2. In the onCreate() method, we invoke the `initUI()` methods to initialize the UI elements.
 
@@ -492,7 +497,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
     <string name="disconnected">Disconnected</string>
     <string name="product_information">Product Information</string>
     <string name="connection_loose">Status: No Product Connected</string>
-    <string name="sdk_version">DJI SDK Version: 4.5</string>
+    <string name="sdk_version">DJI SDK Version: %1$s</string>
 
 </resources>
 ~~~
