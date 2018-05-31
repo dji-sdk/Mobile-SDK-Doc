@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2017-6-27
+date: 2018-05-15
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
@@ -117,7 +117,7 @@ First connect the Windows PC to the aircraft using USB and turn on the aircraft.
 Start **DJI PC Simulator** to configure and initialize the aircraft simulator. Set latitude and longitude for simulation. 
  ![Config](../../images/application-development-workflow/simulator_config.png)
 
->**Note:** The aircraft will not take off if the latitude and longitude is too close to or inside a <a href="http://flysafe.dji.com/no-fly" target="_blank"> No Fly Zone </a>.
+>**Note:** The aircraft will not take off if the latitude and longitude is too close to or inside a <a href="http://flysafe.dji.com/no-fly" target="_blank"> GEO Zone </a>.
 >
  
 If the aircraft is on and connected to the PC, then the serial number should be displayed in the **SN:** text view.

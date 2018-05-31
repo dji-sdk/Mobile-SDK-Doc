@@ -1,6 +1,6 @@
 ---
 title: Flight Controller
-date: 2017-06-27
+date: 2018-05-15
 keywords: [flight controller, motor control, flight control, flight orientation, course lock, home lock, aircraft heading, flight limitation, GEO, compass, IMU, RTK, DRTK, Vision System, Obstacle Avoidance, Intelligent Flight Assistant, landing gear, transport mode, battery threshold, Smart RTH, Failsafe RTH, Low Battery RTH, virtual stick, roll pitch control mode, yaw control mode, vertical throttle control mode]
 ---
 
@@ -14,7 +14,7 @@ The flight controller is responsible for:
 * Aircraft state information such as attitude, position, speed
 * Sensor sub components such as compasses, IMUs, and positioning systems.
 * Aircraft sub components such as the landing gear
-* Flight limitation systems such as No Fly Zones and the GEO System
+* Flight limitation systems such as GEO Zones and the GEO System
 * Aircraft flight simulation for testing and debugging
 
 A general description of fundamental flight control concepts can be found [here](./flightController_concepts.html).

@@ -1,7 +1,7 @@
 ---
 title: DJI GEO System Tutorial
 version: v4.4
-date: 2018-1-25
+date: 2018-05-30
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-GEODemo
 keywords: [iOS GEODemo, GEO System, Fly Zone, Unlock, Authorization Fly Zone, NFZ]
 ---
@@ -829,7 +829,7 @@ In the code above, we implement the following features:
 
 ### Working on DJISimulator Feature
 
-With the help of **DJISimulator**, you can simulate the coordinate data of the aircraft to some No Fly Zone areas for testing without actually flying the aircraft. 
+With the help of **DJISimulator**, you can simulate the coordinate data of the aircraft to some GEO Zone areas for testing without actually flying the aircraft. 
 
 Moreover, you can also use the **DJISimulator** to control the aircraft in a simulated environment based on the virtual stick input, this would be helpful when you are testing if the authorization fly zone is unlocked successfully by trying to take off the aircraft.
 

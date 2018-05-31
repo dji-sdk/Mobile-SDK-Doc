@@ -1,7 +1,7 @@
 ---
 title: Android Video Stream Decoding Sample
-version: v4.4.1
-date: 2018-01-30
+version: v4.5.1
+date: 2018-05-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-VideoStreamDecodingSample
 keywords: [video stream decoding, MediaCodec, FFmpeg, video frame parsing, hardware decoding, YUV]
 ---
