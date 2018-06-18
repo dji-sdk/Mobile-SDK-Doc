@@ -30,7 +30,7 @@ Screenshots in this section are generated using Xcode 7.3.
     # platform :ios, '9.0'
 
     target 'ImportSDKDemo' do
-    pod 'DJI-SDK-iOS', '~> 4.5.1’
+    pod 'DJI-SDK-iOS', '~> 4.5.3’
     end
    ~~~
 
@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.5.1)
+    Installing DJI-SDK-iOS (4.5.3)
     Generating Pods project
     Integrating client project
 

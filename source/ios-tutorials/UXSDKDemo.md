@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
-version: v4.5.2
-date: 2018-05-31
+version: v4.5.3
+date: 2018-06-18
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -47,7 +47,7 @@ Then replace the content of the **Podfile** with the followings:
 # platform :ios, '9.0'
 
 target 'UXSDKDemo' do
-  pod 'DJI-SDK-iOS', '~> 4.5.1'
+  pod 'DJI-SDK-iOS', '~> 4.5.3'
   pod 'DJI-UXSDK-iOS', '~> 4.5.1'
 end
 

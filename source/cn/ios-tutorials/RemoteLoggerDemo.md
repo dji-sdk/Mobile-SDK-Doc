@@ -1,7 +1,7 @@
 ---
 title: DJI Remote Logger Tutorial
-version: v4.5.2
-date: 2018-05-31
+version: v4.5.3
+date: 2018-06-18
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIRemoteLoggerDemo
 keywords: [iOS remote logger demo, DJI Remote Logger, remote logging, debug]
 ---
