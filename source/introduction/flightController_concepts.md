@@ -46,13 +46,13 @@ Combined with **throttle**, rotating the aircraft in pitch, roll and yaw orients
 
 The above diagram shows the aircraft from the side. Pitch measures an object's rotation about the lateral (Y, pitch) axis. Adjusting the pitch will tilt the aircraft forwards or backwards.
 
-To pitch forward, the back propellors spin faster and have more thrust than the front propellors. The flight controller automatically balances the thrust on each propellor and so the DJI Mobile SDK simply provides APIs to adjust the velocity along the X axis, or the pitch angle and throttle.
+To pitch forward, the back propellors spin faster and have more thrust than the front propellors. The flight controller automatically balances the thrust on each propellor and so the DJI Mobile SDK simply provides APIs to adjust the pitch angle and throttle.
 
 ### Roll
 
 ![](../images/flightController-concepts/rollAxisGif.gif)
 
-The above diagram shows the aircraft from the front. Roll measures an object's rotation about the longitudinal (X, roll) axis. Adjusting the roll will tilt the aircraft left or right.
+The above diagram shows the aircraft from the back. Roll measures an object's rotation about the longitudinal (X, roll) axis. Adjusting the roll will tilt the aircraft left or right.
 
 To roll left, the right propellors spin faster and have more thrust than the left propellors. The DJI Mobile SDK provides APIs to adjust the roll angle and velocity to achieve movement.
 
