@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2018-04-12
+date: 2018-06-30
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -107,7 +107,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
   </thead>
   <tbody>
 	  <tr>
-      <td rowspan="18">Aircraft</th>
+      <td rowspan="19">Aircraft</th>
       <td>Mavic Air</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -134,6 +134,11 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
      <tr>
       <td>Phantom 4 Professional</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
+     <tr>
+      <td>Phantom 4 Professional V2</td>
       <td>Fixed</td>        
       <td> — </td>
     </tr>
@@ -174,17 +179,17 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Matrice 200</td>
-      <td>X4S, X5S, XT, Z30</td>        
+      <td>X4S, X5S, XT, XT2, Z30</td>        
       <td> Focus </td>
     </tr>
     <tr>
       <td>Matrice 210</td>
-      <td>X4S, X5S, XT, Z30</td>        
+      <td>X4S, X5S, XT, XT2, Z30</td>        
       <td> Focus </td>
     </tr>
     <tr>
       <td>Matrice 210 RTK</td>
-      <td>X4S, X5S, XT, Z30</td>        
+      <td>X4S, X5S, XT, XT2, Z30</td>        
       <td> Focus </td>
     </tr>
     <tr>
@@ -194,7 +199,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
     <tr>
       <td>Matrice 600 Pro</td>
-      <td>X3, X5, X5R, XT, Z3, Z30</td>        
+      <td>X3, X5, X5R, XT, XT2, Z3, Z30</td>        
       <td> DRTK, Ronin MX, Focus* </td>
     </tr>
     <tr>
@@ -352,6 +357,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Phantom 4 Professional</td><td>30</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1388</td><td>350</td></tr>
 <tr>
+<td>Phantom 4 Professional V2</td><td>30</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1375</td><td>350</td></tr>
+<tr>
 <td>Spark</td><td>16</td><td>13.9</td><td>3</td><td>3</td><td>4000</td><td>4</td><td>300</td><td>170</td></tr>
 </tbody></table></html>
 
@@ -388,15 +395,15 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.1</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
 <tr>
-<td>Matrice 200</td><td>X4S, X5S, Z30, XT</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
+<td>Matrice 200</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
 <tr>
-<td>Matrice 210</td><td>X4S, X5S, Z30, XT</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>2</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
+<td>Matrice 210</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>2</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
 <tr>
-<td>Matrice 210 RTK</td><td>X4S, X5S, Z30, XT</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>2</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
+<td>Matrice 210 RTK</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>2</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
 <tr>
 <td>Matrice 600</td><td>X3, Z3, X5, X5R, XT, Custom with Ronin MX</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
 <tr>
-<td>Matrice 600 Professional</td><td>X3, Z3, X5, X5R, XT, Custom with Ronin MX, Z30</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
+<td>Matrice 600 Professional</td><td>X3, Z3, X5, X5R, XT, XT2, Custom with Ronin MX, Z30</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
 <tr>
 <td>Mavic Air</td><td>Fixed</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
@@ -415,6 +422,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Phantom 4 Advanced</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 4 Professional</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Phantom 4 Professional v2</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Spark</td><td>Fixed</td><td>-</td><td>2 / 0.5</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1 without RC</p></td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 </tbody></table></html>
@@ -470,6 +479,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Phantom 4 Advanced</td><td>Front, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Phantom 4 Professional</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Phantom 4 Professional v2</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Spark</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-5m</p></td><td>-</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
 </tbody></table></html>
@@ -856,6 +867,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4 Professional</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
 <tr>
+<td>Phantom 4 Professional v2</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
+<tr>
 <td>Spark</td><td>1/2.3"</td><td>12</td><td>FHD</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">1920 x 1080</p></td><td>100-1600</td><td>-</td><td>2-1/8000</td></tr>
 <tr>
 <td>Zenmuse X3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
@@ -871,6 +884,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Zenmuse X7</td><td>APS-C</td><td>24</td><td>5.2K</td><td>100-25600</td><td>8-1/1000</td><td>8-1/8000</td></tr>
 <tr>
 <td>Zenmuse XT</td><td>NA</td><td>0.32</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Model</p></td><td>640 x 512</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Model</p></td><td>NA</td><td>-</td><td>NA</td></tr>
+<tr>
+<td>Zenmuse XT 2</td><td>1/1.7"</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>12</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>4K</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>NA</td><td>-</td><td>NA</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
@@ -912,6 +927,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4 Professional</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
 <tr>
+<td>Phantom 4 Professional v2</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
+<tr>
 <td>Spark</td><td>-</td><td>81.9</td><td>25</td><td>f/2.6</td><td>2 - &#8734</td></tr>
 <tr>
 <td>Zenmuse X3</td><td>-</td><td>94</td><td>20</td><td>f/2.8</td><td>&#8734</td></tr>
@@ -927,6 +944,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Zenmuse X7</td><td>Yes</td><td>54</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>36</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>f/2.8-f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>0.2 - &#8734</td></tr>
 <tr>
 <td>Zenmuse XT</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Lens</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Fixed - Value Depends on Lens</p></td><td>NA</td></tr>
+<tr>
+<td>Zenmuse XT 2</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Lens</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Fixed - Value Depends on Lens</p></td><td>NA</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>-</td><td>92-35</td><td>22-77</td><td>f/2.8 - f/5.2</td><td>0.5 - &#8734</td></tr>
 <tr>
@@ -968,6 +987,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4 Professional</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
+<td>Phantom 4 Professional v2</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<tr>
 <td>Spark</td><td>-</td><td>roll, pitch</td><td>-85 to 0</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Zenmuse X3</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>247</td></tr>
@@ -983,6 +1004,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Zenmuse X7</td><td>+/- 300</td><td>roll, pitch, yaw</td><td>-125 to 40</td><td>CineSSD and SD on aircraft</td><td>628</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td></tr>
 <tr>
 <td>Zenmuse XT</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>270</td></tr>
+<tr>
+<td>Zenmuse XT 2</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>262</td></tr>
 <tr>
@@ -1052,6 +1075,8 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <td>Phantom 4 Advanced</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Phantom 4 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<tr>
+<td>Phantom 4 Professional v2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Spark</td><td>Optional</td><td>WiFi</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 </tbody></table></html>
