@@ -4,6 +4,8 @@ nav:
   onboard_sdk: "Onboard SDK"
   guidance_sdk: "Guidance SDK"
   payload_sdk: "Payload SDK"
+  ux_sdk: "UX SDK"
+  windows_sdk: "Windows SDK"
   mobile-sdk: "Mobile SDK"
   onboard-sdk: "Onboard SDK"
   guidance-sdk: "Guidance SDK"
@@ -17,6 +19,8 @@ nav:
   forum: "Forum"
   github: "GitHub"
   stackoverflow: "Stack Overflow"
+  youtube: "YouTube"
+  twitter: "Twitter"
   login: "Login"
   register: "Register"
   logout: "Logout"
@@ -25,7 +29,7 @@ nav:
   dji_store: "DJI Online Store"
   contact_us: "Contact Us"
   contact_us_bd: "Business Cooperation"
-  copyright: "Copyright © 2017 DJI All Rights Reserved"
+  copyright: "Copyright © 2018 DJI All Rights Reserved"
 
 sub_nav:
   overview: Overview
@@ -40,8 +44,8 @@ sub_nav:
   android_uilib: Android UI Library
 
 policies:
-  privacy: Privacy
-  terms: Terms
+  privacy: Privacy Policy
+  terms: Terms of Use
 
 doc:
   search_holder: 'Search Documentation'
