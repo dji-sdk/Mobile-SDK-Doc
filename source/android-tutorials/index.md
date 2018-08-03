@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.5.1
-date: 2018-05-03
+version: v4.6
+date: 2018-08-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -629,32 +629,6 @@ In the code above, we add the attributes of "android:screenOrientation" to set "
 public void onCreate() {
     super.onCreate();
     mHandler = new Handler(Looper.getMainLooper());
-    mDJIComponentListener = new BaseComponent.ComponentListener() {
-
-        @Override
-        public void onConnectivityChange(boolean isConnected) {
-            notifyStatusChange();
-        }
-
-    };
-    mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-
-        @Override
-        public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-
-            if(newComponent != null) {
-                newComponent.setComponentListener(mDJIComponentListener);
-            }
-            notifyStatusChange();
-        }
-
-        @Override
-        public void onConnectivityChange(boolean isConnected) {
-
-            notifyStatusChange();
-        }
-
-    };
 
     /**
      * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
@@ -693,16 +667,37 @@ public void onCreate() {
             Log.e("TAG", error.toString());
         }
 
-        //Listens to the connected product changing, including two parts, component changing or product connection changing.
         @Override
-        public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
+        public void onProductDisconnect() {
+            Log.d("TAG", "onProductDisconnect");
+            notifyStatusChange();
+        }
+        @Override
+        public void onProductConnect(BaseProduct baseProduct) {
+            Log.d("TAG", String.format("onProductConnect newProduct:%s", baseProduct));
+            notifyStatusChange();
 
-            mProduct = newProduct;
-            if(mProduct != null) {
-                mProduct.setBaseProductListener(mDJIBaseProductListener);
+        }
+        @Override
+        public void onComponentChange(BaseProduct.ComponentKey componentKey, BaseComponent oldComponent,
+                                      BaseComponent newComponent) {
+            if (newComponent != null) {
+                newComponent.setComponentListener(new BaseComponent.ComponentListener() {
+
+                    @Override
+                    public void onConnectivityChange(boolean isConnected) {
+                        Log.d("TAG", "onComponentConnectivityChanged: " + isConnected);
+                        notifyStatusChange();
+                    }
+                });
             }
 
-            notifyStatusChange();
+            Log.d("TAG",
+                    String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s",
+                            componentKey,
+                            oldComponent,
+                            newComponent));
+
         }
     };
 
@@ -722,13 +717,11 @@ public void onCreate() {
 
 Here, we implement several features:
   
-1. We override the `onCreate()` method to initialize the `mHandler`, `mDJIComponentListener`, `mDJIBaseProductListener` and `mDJISDKManagerCallback` instance variables and implement their callback methods.
+1. We override the `onCreate()` method to initialize the `mHandler` and `mDJISDKManagerCallback` instance variables and implement their callback methods.
 
-2. For the two interface methods of `BaseProductListener`, we use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product connectivity changes.
+2. For the four interface methods of `SDKManagerCallback`. we use the `onRegister()` method to check the Application registration status and show text message here. When the product is connected or disconnected, the `onProductConnect()` and `onProductDisconnect()` methods will be invoked. Moreover, we use the `onComponentChange()` method to check the component changes and invoke the `notifyStatusChange()` method to notify the changes.
 
-3. For the two interface methods of `SDKManagerCallback`. we use the `onRegister()` method to check the Application registration status and show text message here. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-
-4. Check the permissions of `WRITE_EXTERNAL_STORAGE` and `READ_PHONE_STATE`, then invoke the `registerApp()` method of `DJISDKManager` to register the application.
+3. Check the permissions of `WRITE_EXTERNAL_STORAGE` and `READ_PHONE_STATE`, then invoke the `registerApp()` method of `DJISDKManager` to register the application.
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
@@ -838,8 +831,36 @@ private void startSDKRegistration() {
                     }
 
                     @Override
-                    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-                        Log.d(TAG, String.format("onProductChanged oldProduct:%s, newProduct:%s", oldProduct, newProduct));
+                    public void onProductDisconnect() {
+                        Log.d(TAG, "onProductDisconnect");
+                        showToast("Product Disconnected");
+
+                    }
+                    @Override
+                    public void onProductConnect(BaseProduct baseProduct) {
+                        Log.d(TAG, String.format("onProductConnect newProduct:%s", baseProduct));
+                        showToast("Product Connected");
+
+                    }
+                    @Override
+                    public void onComponentChange(BaseProduct.ComponentKey componentKey, BaseComponent oldComponent,
+                                                  BaseComponent newComponent) {
+
+                        if (newComponent != null) {
+                            newComponent.setComponentListener(new BaseComponent.ComponentListener() {
+
+                                @Override
+                                public void onConnectivityChange(boolean isConnected) {
+                                    Log.d(TAG, "onComponentConnectivityChanged: " + isConnected);
+                                }
+                            });
+                        }
+                        Log.d(TAG,
+                                String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s",
+                                        componentKey,
+                                        oldComponent,
+                                        newComponent));
+
                     }
                 });
             }

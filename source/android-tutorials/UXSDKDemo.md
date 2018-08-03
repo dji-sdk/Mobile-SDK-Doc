@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
-version: v4.5.1
-date: 2018-05-03
+version: v4.6
+date: 2018-08-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -65,14 +65,24 @@ android {
         doNotStrip "*/*/libFRCorkscrew.so"
         doNotStrip "*/*/libUpgradeVerify.so"
         doNotStrip "*/*/libFR.so"
+
+        pickFirst 'lib/*/libstlport_shared.so'
+        pickFirst 'lib/*/libRoadLineRebuildAPI.so'
+        pickFirst 'lib/*/libGNaviUtils.so'
+        pickFirst 'lib/*/libGNaviMapex.so'
+        pickFirst 'lib/*/libGNaviData.so'
+        pickFirst 'lib/*/libGNaviMap.so'
+        pickFirst 'lib/*/libGNaviSearch.so'
+
+        exclude '/lib/armeabi-v7a/libChineseFontPkg.so'
         exclude 'META-INF/rxjava.properties'
     }
 }
 
 dependencies {
    ...
-    compile ('com.dji:dji-uxsdk:4.5.1')
-    provided ('com.dji:dji-sdk-provided:4.5.1')
+    compile ('com.dji:dji-uxsdk:4.6')
+    provided ('com.dji:dji-sdk-provided:4.6')
 }
 ~~~
 
@@ -477,47 +487,39 @@ Once we finished the steps above, let's continue to create the `DemoApplication`
                 Log.e("TAG", error.toString());
             }
 
-            //Listens to the connected product changing, including two parts, component changing or product connection changing.
             @Override
-            public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
+            public void onProductDisconnect() {
+                Log.d("TAG", "onProductDisconnect");
+                notifyStatusChange();
+            }
+            @Override
+            public void onProductConnect(BaseProduct baseProduct) {
+                Log.d("TAG", String.format("onProductConnect newProduct:%s", baseProduct));
+                notifyStatusChange();
 
-                mProduct = newProduct;
-                if(mProduct != null) {
-                    mProduct.setBaseProductListener(mDJIBaseProductListener);
+            }
+            @Override
+            public void onComponentChange(BaseProduct.ComponentKey componentKey, BaseComponent oldComponent,
+                                          BaseComponent newComponent) {
+                if (newComponent != null) {
+                    newComponent.setComponentListener(new BaseComponent.ComponentListener() {
+
+                        @Override
+                        public void onConnectivityChange(boolean isConnected) {
+                            Log.d("TAG", "onComponentConnectivityChanged: " + isConnected);
+                            notifyStatusChange();
+                        }
+                    });
                 }
 
-                notifyStatusChange();
+                Log.d("TAG",
+                        String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s",
+                                componentKey,
+                                oldComponent,
+                                newComponent));
+
             }
         };
-
-        mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-
-            @Override
-            public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-
-                if(newComponent != null) {
-                    newComponent.setComponentListener(mDJIComponentListener);
-                }
-                notifyStatusChange();
-            }
-
-            @Override
-            public void onConnectivityChange(boolean isConnected) {
-
-                notifyStatusChange();
-            }
-
-        };
-
-        mDJIComponentListener = new BaseComponent.ComponentListener() {
-
-            @Override
-            public void onConnectivityChange(boolean isConnected) {
-                notifyStatusChange();
-            }
-
-        };
-
     }
 ~~~
 
@@ -525,9 +527,7 @@ Here, we implement several features:
 
 1. We override the `onCreate()` method to check the permissions and invoke the `registerApp()` method of `DJISDKManager` to register the application first.
 
-2. Initialize the `SDKManagerCallback` variable and implement its two interface methods. You can use the `onRegister()` method to check the Application registration status and show text message to inform users. Using the `onProductChange()` method, we can check the product connection status and invoke the `notifyStatusChange()` method to notify status changes.
-
-3. Initialize the `BaseProductListener` and `ComponentListener` variables and implement the interface methods of them. You can use the `onComponentChange()` method to check the product component change status and invoke the `notifyStatusChange()` method to notify status changes. Also, you can use the `onConnectivityChange()` method to notify the product and component connectivity changes.
+2. Initialize the `SDKManagerCallback` variable and implement its two interface methods. You can use the `onRegister()` method to check the Application registration status and show text message to inform users. When the product is connected or disconnected, the `onProductConnect()` and `onProductDisconnect()` methods will be invoked. Moreover, we use the `onComponentChange()` method to check the component changes and invoke the `notifyStatusChange()` method to notify the changes.
 
 Please initialize the DJI Android SDK class variables inside the `onCreate()` method of `DemoApplication` class after the `MApplication` class is created, which finished loading the SDK classes by invoking the `Helper.install()`.
 

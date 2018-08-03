@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2018-05-03
+date: 2018-08-03
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -372,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
 
 The `registerApp()` method of `DJISDKManager` has a callback that needs to process two methods for processing the application registration result, and for when the product connected to the mobile device is changed.
 
-Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()` and `onProductChange` methods of the `SDKManagerCallback`:
+Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()`, `onProductDisconnect()`, `onProductConnect()` and `onComponentChange()` methods of the `SDKManagerCallback`:
 
 ~~~java
 private void startSDKRegistration() {
@@ -394,14 +394,39 @@ private void startSDKRegistration() {
                     }
 
                     @Override
-                    public void onProductChange(BaseProduct oldProduct, BaseProduct newProduct) {
-
-                        mProduct = newProduct;
-                        if(mProduct != null) {
-                            mProduct.setBaseProductListener(mDJIBaseProductListener);
-                        }
-
+                    public void onProductDisconnect() {
+                        Log.d(TAG, "onProductDisconnect");
+                        showToast("Product Disconnected");
                         notifyStatusChange();
+
+                    }
+                    @Override
+                    public void onProductConnect(BaseProduct baseProduct) {
+                        Log.d(TAG, String.format("onProductConnect newProduct:%s", baseProduct));
+                        showToast("Product Connected");
+                        notifyStatusChange();
+
+                    }
+                    @Override
+                    public void onComponentChange(BaseProduct.ComponentKey componentKey, BaseComponent oldComponent,
+                                                  BaseComponent newComponent) {
+
+                        if (newComponent != null) {
+                            newComponent.setComponentListener(new BaseComponent.ComponentListener() {
+
+                                @Override
+                                public void onConnectivityChange(boolean isConnected) {
+                                    Log.d(TAG, "onComponentConnectivityChanged: " + isConnected);
+                                    notifyStatusChange();
+                                }
+                            });
+                        }
+                        Log.d(TAG,
+                                String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s",
+                                        componentKey,
+                                        oldComponent,
+                                        newComponent));
+
                     }
                 });
             }
@@ -410,29 +435,9 @@ private void startSDKRegistration() {
 }
 ~~~
 
-Finally methods for `BaseProductListener`, `ComponentListener`, `notifyStatusChange`, `Runnable` and `showToast` need to be implemented:
+Finally methods for `notifyStatusChange`, `Runnable` and `showToast` need to be implemented:
 
 ~~~java
-private BaseProduct.BaseProductListener mDJIBaseProductListener = new BaseProduct.BaseProductListener() {
-    @Override
-    public void onComponentChange(BaseProduct.ComponentKey key, BaseComponent oldComponent, BaseComponent newComponent) {
-        if(newComponent != null) {
-            newComponent.setComponentListener(mDJIComponentListener);
-        }
-        notifyStatusChange();
-    }
-    @Override
-    public void onConnectivityChange(boolean isConnected) {
-        notifyStatusChange();
-    }
-};
-private BaseComponent.ComponentListener mDJIComponentListener = new BaseComponent.ComponentListener() {
-    @Override
-    public void onConnectivityChange(boolean isConnected) {
-        notifyStatusChange();
-    }
-};
-
 private void notifyStatusChange() {
     mHandler.removeCallbacks(updateRunnable);
     mHandler.postDelayed(updateRunnable, 500);
