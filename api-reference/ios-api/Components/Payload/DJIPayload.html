@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
 <head>
   <meta charset="utf-8">
@@ -41,7 +41,7 @@
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
-            <li><a href="/api-reference/ios-uilib-api/index.html">iOS UX SDK</a></li>
+            <li><a href="/api-reference/ios-uilib-api/index.html">IOS UX SDK</a></li>
             <li><a href="/api-reference/android-uilib-api/index.html">Android UX SDK</a></li>
           </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="/mobile-sdk/support">Support</a>
       </nav>
@@ -236,6 +236,10 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../FlightController/DJIFlightController_DJIFlightControllerLEDsSettings.html">DJIFlightControllerLEDsSettings</a>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_DJIMutableFlightControllerLEDsSettings.html">DJIMutableFlightControllerLEDsSettings</a>
+                            </dd>
                     </ul>
                   </dd>
                   <dd><a data-href="../Battery/DJIBattery.html" class="sub-toggle">DJIBattery<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -287,6 +291,8 @@
                             <dd><a href="../Camera/DJICamera_DJICameraWhiteBalanceInterface.html">DJICameraWhiteBalance</a>
                             </dd>
                             <dd><a href="../Camera/DJICamera_DJICameraSSDClipFileNameInterface.html">DJICameraSSDClipFileName</a>
+                            </dd>
+                            <dd><a href="../Camera/DJICamera_DJICameraOriginalPhotoSettings.html">DJICameraOriginalPhotoSettings</a>
                             </dd>
                             <dd><a href="../Camera/DJICamera_DJICameraVideoResolutionAndFrameRate.html">DJICameraVideoResolutionAndFrameRate</a>
                             </dd>
@@ -556,7 +562,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)configureWidgetValue:(<span class="built_in">NSUInteger</span>)value type:(DJIPayloadWidgetType)type index:(<span class="built_in">NSUInteger</span>)index withCompletion:(DJICompletionBlock)completion</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIPayload.h</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Set the value for a widget of the payload device. Different widget types requires different  value: <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_input">DJIPayloadWidgetTypeInput</a></code>, the input should be an unsigned 32-bit  integer <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_switch">DJIPayloadWidgetTypeSwitch</a></code>, the input should be value  of <code>DJIPayload_SwitchState</code> <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_range">DJIPayloadWidgetTypeRange</a></code>, the input should  be a integer from value 0 to 100 <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_list">DJIPayloadWidgetTypeList</a></code>, the input should  be a integer not larger than list size minus one. <br> Widget with  type <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_button">DJIPayloadWidgetTypeButton</a></code> is not configurable.</font></p>
+<p><font color="#666">Set the value for a widget of the payload device. Different widget types requires different  value: <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_input">DJIPayloadWidgetTypeInput</a></code>, the input should be an unsigned 32-bit  integer <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_switch">DJIPayloadWidgetTypeSwitch</a></code>, the input should be value  of <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_switchstate">DJIPayloadSwitchState</a></code> <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_range">DJIPayloadWidgetTypeRange</a></code>, the input should  be a integer from value 0 to 100 <br> - for <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_list">DJIPayloadWidgetTypeList</a></code>, the input should  be a integer not larger than list size minus one. <br> Widget with  type <code><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype_button">DJIPayloadWidgetTypeButton</a></code> is not configurable.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">NSUInteger <font color="#000">value</font></font></td><td><font color="#666"><i>The value to configure.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Payload/DJIPayload_PayloadWidget.html#djipayload_payloadwidget_widgettype">DJIPayloadWidgetType</a> <font color="#000">type</font></font></td><td><font color="#666"><i>Type of the widget to configure.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">NSUInteger <font color="#000">index</font></font></td><td><font color="#666"><i>Index of the widget to configure.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>Completion block to receive the execution result.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djipayload_setswitchstate"><div class="api-col left">Switch State</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djipayload_setswitchstate_inline">setSwitchState:index:withCompletion</a></div></div><div class="inline-doc" id="djipayload_setswitchstate_inline" <blockquote="">
