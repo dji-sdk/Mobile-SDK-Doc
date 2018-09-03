@@ -1,6 +1,6 @@
 ---
 title: Deploy
-date: 2017-10-13
+date: 2018-09-03
 keywords: [deploy, xcode configuration, MFI authorization]
 ---
 
@@ -31,29 +31,35 @@ After the application gets MFI authorization and is released on the App Store, i
 
 The picture above shows the six steps for applying for the MFi Program.
 
-##### 1. Developer Submits the MFi Program Application Form to DJI
+##### 1. Developer Upgrades to Pro Membership
+
+Please visit the [Developer Center](https://developer.dji.com/user/membership/) to upgrade your membership. Only **Pro** membership developers can access to MFi applications. For the details of **DJI Developer Website Membership System**, please check [here](https://developer.dji.com/policies/membership/).
+
+![proMembership](../../images/application-development-workflow/pro_membership.png)
+
+##### 2. Developer Submits the MFi Program Application Form to DJI
 
 Login into the **User Center** at <a href="http://developer.dji.com" target="_blank"> http://developer.dji.com </a> and complete the MFi Program Application Form for the specific application to be released.
 
 ![graph](../../images/application-development-workflow/MFiApplicationForm.png)
 
-##### 2. DJI Submits App Information to Apple for Review
+##### 3. DJI Submits App Information to Apple for Review
 
 After receiving the application form, DJI will record the application information and send to Apple for review.
 
 ![mfiReviewing](../../images/application-development-workflow/mfiReviewing.png)
 
-##### 3. Apple Approves/Rejects the MFi Application
+##### 4. Apple Approves/Rejects the MFi Application
 
 It may take several business days for Apple to finish the review process if no challenges come up. Once approved, a MFi PPID (Product Plan Identification) will be provided by Apple. 
 
-##### 4. DJI Provides PPID to Developer
+##### 5. DJI Provides PPID to Developer
 
 The PPID will appear in the **MFI PROGRAM** section as shown below: 
 
 ![mfiApprove](../../images/application-development-workflow/mfiApprove.png)
 
-##### 5. Developer Submits the App to Apple for Final Review
+##### 6. Developer Submits the App to Apple for Final Review
 
 During the application submission process, enter the PPID in the **Notes** section of the App Review Information webpage:
 
@@ -63,7 +69,7 @@ During the application submission process, enter the PPID in the **Notes** secti
 
 <img src="../../images/application-development-workflow/mfiInfoComparison.png" width=100%>
 
-##### 6. Apple reviews the App to determine whether it can be published on the App Store
+##### 7. Apple reviews the App to determine whether it can be published on the App Store
 
 The normal Apple review process proceeds.
 
