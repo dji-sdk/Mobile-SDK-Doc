@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.6.1
-date: 2018-07-05
+version: v4.7
+date: 2018-09-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -34,20 +34,29 @@ Now, let's install the **DJISDK.framework** in the Xcode project using Cocoapods
 
 ## Implementing the First Person View
 
-### Importing the VideoPreviewer
+### Importing the DJIWidget
 
- **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **H264VTDecode** decoding library. You can find them in the **VideoPreviewer** folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/VideoPreviewer" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **VideoPreviewer** folder to your Xcode project's "Frameworks" folder and then add the "VideoPreviewer.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
+ **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **H264VTDecode** decoding library. You can find them in the `DJIWidget/DJIWidget/VideoPreviewer` folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/DJIWidget" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **DJIWidget** folder to your Xcode project's root folder and then add the "DJIWidget.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
   
  ![projectNavigator](../images/tutorials-and-samples/iOS/FPVDemo/projectNavigator.png)
  
-> Note: Please Make sure the **VideoPreviewer** folder is in the root folder of FPVDemo project like this:
+> Note: Please Make sure the **DJIWidget** folder is in the root folder of FPVDemo project like this:
 > 
 > ![frameworksFolderStruct](../images/tutorials-and-samples/iOS/FPVDemo/frameworksFolderStruct.png)
  
- **2**. Next, let's select the "FPVDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "VideoPreviewer.framework" as shown below:
+ **2**. Next, let's select the "FPVDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "DJIWidget.framework" as shown below:
  
   ![addFrameworks](../images/tutorials-and-samples/iOS/FPVDemo/addFrameworks.png)
+
+ **3**. Furthermore, use the same way and select "Add Other..." to add the "FFmpeg.framework" too:
+
+  ![addFFmpeg](../images/tutorials-and-samples/iOS/FPVDemo/addFFMPEG_Framework.png)
+
   ![addFrameworksResult](../images/tutorials-and-samples/iOS/FPVDemo/addFrameworksResult.png)
+
+**4.** Lastly, update the **Framework Search Paths** in the Xcode's "Build Settings" for `FFmpeg` as shown below:
+
+  ![addFrameworksResult](../images/tutorials-and-samples/iOS/FPVDemo/frameworkPath.png)
   
 ### Working on the DJICameraViewController
    
@@ -59,11 +68,11 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
   
   ![Storyboard](../images/tutorials-and-samples/iOS/FPVDemo/Storyboard.png)
   
-  Go to DJICameraViewController.m file and import the **DJISDK** and **VideoPreviewer** header files. Next implement four delegate protocols and set the IBOutlets and IBActions for the UI we just create in Main.storyboard as shown below:
+  Go to "DJICameraViewController.m" file and import the **DJISDK** and **DJIVideoPreviewer** header files. Next implement four delegate protocols and set the IBOutlets and IBActions for the UI we just create in Main.storyboard as shown below:
   
 ~~~objc
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIWidget/DJIVideoPreviewer.h>
 
 @interface DJICameraViewController ()<DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate>
 
@@ -80,7 +89,7 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 
 ~~~objc
 - (void)setupVideoPreviewer {
-    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    [[DJIVideoPreviewer instance] setView:self.fpvPreviewView];
     DJIBaseProduct *product = [DJISDKManager product];
     if ([product.model isEqual:DJIAircraftModelNameA3] ||
         [product.model isEqual:DJIAircraftModelNameN3] ||
@@ -91,11 +100,11 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
     }else{
         [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
     }
-    [[VideoPreviewer instance] start];
+    [[DJIVideoPreviewer instance] start];
 }
 
 - (void)resetVideoPreview {
-    [[VideoPreviewer instance] unSetView];
+    [[DJIVideoPreviewer instance] unSetView];
     DJIBaseProduct *product = [DJISDKManager product];
     if ([product.model isEqual:DJIAircraftModelNameA3] ||
         [product.model isEqual:DJIAircraftModelNameN3] ||
@@ -108,11 +117,11 @@ Add a UIView inside the View Controller. Then, add two UIButtons and one UISegme
 }
 ~~~
 
-In the `setupVideoPreviewer` method, we set the `fpvPreviewView` instance variable as the superview of the `MovieGLView` in the **VideoPreviewer** class to show the Video Stream first, then create a `DJIBaseProduct` object from the `DJISDKManager` and use an if statement to check its `model` property. 
+In the `setupVideoPreviewer` method, we set the `fpvPreviewView` instance variable as the superview of the `MovieGLView` in the **DJIVideoPreviewer** class to show the Video Stream first, then create a `DJIBaseProduct` object from the `DJISDKManager` and use an if statement to check its `model` property. 
 
-If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `addListener:withQueue:` method of `DJIVideoFeeder` class to add `DJICameraViewController` as the listener of the `secondaryVideoFeed` for video feed, otherwise, we add `DJICameraViewController` as the listener of the `primaryVideoFeed` instance for video feed. Lastly, we invoke the `start` method of `VideoPreviewer` instance to start the video decoding.
+If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `addListener:withQueue:` method of `DJIVideoFeeder` class to add `DJICameraViewController` as the listener of the `secondaryVideoFeed` for video feed, otherwise, we add `DJICameraViewController` as the listener of the `primaryVideoFeed` instance for video feed. Lastly, we invoke the `start` method of `DJIVideoPreviewer` instance to start the video decoding.
 
-Moreover, in the `resetVideoPreview` method, we invoke the `unSetView` method of `VideoPreviewer` instance to remove the `MovieGLView` of the **VideoPreviewer** class from the `fpvPreviewView` instance first. Then also check the current `product`'s model using an if statement. 
+Moreover, in the `resetVideoPreview` method, we invoke the `unSetView` method of `DJIVideoPreviewer` instance to remove the `MovieGLView` of the `DJIVideoPreviewer` class from the `fpvPreviewView` instance first. Then also check the current `product`'s model using an if statement. 
 
 If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we invoke the `removeListener:` method of `DJIVideoFeeder` class to remove the `DJICameraViewController` listener from the `secondaryVideoFeed` for video feed, otherwise, we remove the `DJICameraViewController` listener from the `primaryVideoFeed` for video feed.
 
@@ -170,7 +179,7 @@ If the product is **A3**, **N3**, **Matrice 600** or **Matrice 600 Pro**, we inv
 
 Firstly, we create the `- (DJICamera*) fetchCamera` method to fetch the updated DJICamera object. Before we get the return DJICamera object, we need to check if the product object of DJISDKManager is kind of **DJIAircraft** of **DJIHandheld** class. Since the camera component of the aircraft or handheld device may be changed or disconnected, we need to fetch the camera object everytime we want to use it to ensure we get the correct camera object. 
 
-Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the `productConnected` delegate method. Lastly, reset the `camera` instance's delegate to nil and invoke the `resetVideoPreview` method to reset the videoPreviewer in the `productDisconnected` and `viewWillDisappear` methods.
+Then invoke the `setupVideoPreviewer` method to setup the DJIVideoPreviewer in the `productConnected` delegate method. Lastly, reset the `camera` instance's delegate to nil and invoke the `resetVideoPreview` method to reset the videoPreviewer in the `productDisconnected` and `viewWillDisappear` methods.
         
 **4**. Lastly, let's implement the "DJIVideoFeedListener" and "DJICameraDelegate" delegate methods, as shown below:
   
@@ -179,7 +188,7 @@ Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the 
 #pragma mark - DJIVideoFeedListener
 
 -(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
-    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
+    [[DJIVideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
 
 #pragma mark - DJICameraDelegate
@@ -190,7 +199,7 @@ Then invoke the `setupVideoPreviewer` method to setup the VideoPreviewer in the 
 
 ~~~
 
-Here, we use the `-(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData` method to get the live H264 video feed data and send them to the **VideoPreviewer** to decode.
+Here, we use the `-(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData` method to get the live H264 video feed data and send them to the **DJIVideoPreviewer** to decode.
    
 Moreover, the `-(void) camera:(DJICamera*)camera didUpdateSystemState:(DJICameraSystemState*)systemState` method is used to get the camera state from the camera on your aircraft. It will be invoked frequently, so you can update your user interface or camera settings accordingly here.
 

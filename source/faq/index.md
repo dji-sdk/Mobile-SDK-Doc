@@ -416,8 +416,8 @@ Remember to do a clean test:
 
 We have a temporary way to enable bitcode in the <a href="https://github.com/dji-sdk/Mobile-SDK-iOS" target="_blank">iOS Sample Project</a>:
 
-1. Enable bitcode for both demo project and VideoPreviewer project. 
-2. Remove "Other Linker Flags" in VideoPreviewer. 
+1. Enable bitcode for both demo project and DJIWidget project. 
+2. Remove "Other Linker Flags" in DJIWidget. 
 
 Then you can compile the demo with bitcode enabled to your mobile device. However, there will be error when compiling the demo with this setting to the iPhone simulator. So if you want to debug your application on the iPhone simulator, please use the original setting. We will keep looking for a better way to do this.
 

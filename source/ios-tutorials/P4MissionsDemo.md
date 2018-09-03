@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.6.1
-date: 2018-07-05
+version: v4.7
+date: 2018-09-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -40,9 +40,9 @@ Once the project is created, let's delete the **ViewController.h** and **ViewCon
 
 Next, let's import the **DJISDK.framework** to the project and implement the registration process in the **RootViewController**. If you are not familiar with the process of importing and activating DJI SDK, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
 
-### Importing the VideoPreviewer
+### Importing the DJIWidget
 
-You can check the [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **VideoPreviewer** into your Xcode project.
+You can check the [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ## Application Activation and Aircraft Binding in China
 
@@ -196,7 +196,7 @@ For more details of the UI customization, please check the Github source code of
 ~~~objc
 #import <Foundation/Foundation.h>
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIWidget/DJIVideoPreviewer.h>
 
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 #define weakReturn(__TARGET__) if(__TARGET__==nil)return;
@@ -238,14 +238,14 @@ extern void ShowResult(NSString *format, ...);
 @end
 ~~~
 
-It firstly imports the DJISDK and VideoPreviewer header files, then defines several methods to do the mission coordinate transformations.
+It firstly imports the DJISDK and DJIVideoPreviewer header files, then defines several methods to do the mission coordinate transformations.
 
 Moreover, here are the coordinate transformations class methods' implementations:
 
 ~~~objc
 + (CGPoint) pointToStreamSpace:(CGPoint)point withView:(UIView *)view
 {
-    VideoPreviewer* previewer = [VideoPreviewer instance];
+    DJIVideoPreviewer* previewer = [DJIVideoPreviewer instance];
     CGRect videoFrame = [previewer frame];
     CGPoint videoPoint = [previewer convertPoint:point toVideoViewFromView:view];
     CGPoint normalized = CGPointMake(videoPoint.x/videoFrame.size.width, videoPoint.y/videoFrame.size.height);
@@ -253,7 +253,7 @@ Moreover, here are the coordinate transformations class methods' implementations
 }
 
 + (CGPoint) pointFromStreamSpace:(CGPoint)point{
-    VideoPreviewer* previewer = [VideoPreviewer instance];
+    DJIVideoPreviewer* previewer = [DJIVideoPreviewer instance];
     CGRect videoFrame = [previewer frame];
     CGPoint videoPoint = CGPointMake(point.x*videoFrame.size.width,
                                      point.y*videoFrame.size.height);
@@ -261,20 +261,20 @@ Moreover, here are the coordinate transformations class methods' implementations
 }
 
 + (CGPoint) pointFromStreamSpace:(CGPoint)point withView:(UIView *)view{
-    VideoPreviewer* previewer = [VideoPreviewer instance];
+    DJIVideoPreviewer* previewer = [DJIVideoPreviewer instance];
     CGRect videoFrame = [previewer frame];
     CGPoint videoPoint = CGPointMake(point.x*videoFrame.size.width, point.y*videoFrame.size.height);
     return [previewer convertPoint:videoPoint fromVideoViewToView:view];
 }
 
 + (CGSize) sizeToStreamSpace:(CGSize)size{
-    VideoPreviewer* previewer = [VideoPreviewer instance];
+    DJIVideoPreviewer* previewer = [DJIVideoPreviewer instance];
     CGRect videoFrame = [previewer frame];
     return CGSizeMake(size.width/videoFrame.size.width, size.height/videoFrame.size.height);
 }
 
 + (CGSize) sizeFromStreamSpace:(CGSize)size{
-    VideoPreviewer* previewer = [VideoPreviewer instance];
+    DJIVideoPreviewer* previewer = [DJIVideoPreviewer instance];
     CGRect videoFrame = [previewer frame];
     return CGSizeMake(size.width*videoFrame.size.width, size.height*videoFrame.size.height);
 }
@@ -407,27 +407,27 @@ In the code above, we implement the `updatePoint:` and `updatePoint:andColor:` m
 
 @end
 ~~~
-Then, invoke the `start` instance method of VideoPreviewer, set its view as `fpvView` property object and invoke the `addListener` method of `DJIVideoFeeder` to add `TapFlyViewController` as the listener. We should also set DJICamera's delegate as TapFlyViewController in the `viewWillAppear` method as shown below:
+Then, invoke the `start` instance method of DJIVideoPreviewer, set its view as `fpvView` property object and invoke the `addListener` method of `DJIVideoFeeder` to add `TapFlyViewController` as the listener. We should also set DJICamera's delegate as TapFlyViewController in the `viewWillAppear` method as shown below:
 
 ~~~objc
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
-    [[VideoPreviewer instance] setView:self.fpvView];
+    [[DJIVideoPreviewer instance] setView:self.fpvView];
     [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
-    [[VideoPreviewer instance] start];
+    [[DJIVideoPreviewer instance] start];
 }
 ~~~
 
-Remember to invoke the `unSetView` method of VideoPreviewer and set its view to nil in the `viewWillDisappear` method to remove the previous glView. Also, invoke the `removeListener` method of `DJIVideoFeeder` to remove the listener:
+Remember to invoke the `unSetView` method of DJIVideoPreviewer and set its view to nil in the `viewWillDisappear` method to remove the previous glView. Also, invoke the `removeListener` method of `DJIVideoFeeder` to remove the listener:
 
 ~~~objc
 -(void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
 
-    [[VideoPreviewer instance] unSetView];
+    [[DJIVideoPreviewer instance] unSetView];
     [[DJISDKManager videoFeeder].primaryVideoFeed removeListener:self];
 }
 ~~~
@@ -438,7 +438,7 @@ Finally, let's implement the DJIVideoFeedListener's delegate method to show the 
 #pragma mark - DJIVideoFeedListener
 
 -(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
-    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
+    [[DJIVideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
 ~~~
 
@@ -1022,26 +1022,26 @@ Here, we implement the four event-handling methods for touches to track user's m
 @end
 ~~~
 
-Then, in the `viewWillAppear:` method, invoke the `start` instance method of VideoPreviewer, set its view as `fpvView` property object and invoke the `addListener` method of `DJIVideoFeeder` to add `ActiveTrackViewController` as the listener. We should also set DJICamera's delegate as ActiveTrackViewController as shown below:
+Then, in the `viewWillAppear:` method, invoke the `start` instance method of DJIVideoPreviewer, set its view as `fpvView` property object and invoke the `addListener` method of `DJIVideoFeeder` to add `ActiveTrackViewController` as the listener. We should also set DJICamera's delegate as ActiveTrackViewController as shown below:
 
 ~~~objc
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
-    [[VideoPreviewer instance] setView:self.fpvView];
+    [[DJIVideoPreviewer instance] setView:self.fpvView];
     [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
-    [[VideoPreviewer instance] start];
+    [[DJIVideoPreviewer instance] start];
 }
 ~~~
 
-Remember to invoke the `unSetView` method of VideoPreviewer and set its view to nil in the `viewWillDisappear` method to remove the previous glView. Also, invoke the `removeListener` method of `DJIVideoFeeder` to remove the listener:
+Remember to invoke the `unSetView` method of DJIVideoPreviewer and set its view to nil in the `viewWillDisappear` method to remove the previous glView. Also, invoke the `removeListener` method of `DJIVideoFeeder` to remove the listener:
 
 ~~~objc
 -(void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[VideoPreviewer instance] unSetView];
+    [[DJIVideoPreviewer instance] unSetView];
     [[DJISDKManager videoFeeder].primaryVideoFeed removeListener:self];
 }
 ~~~
@@ -1051,7 +1051,7 @@ Lastly, let's implement the DJIVideoFeedListener's delegate method to show the l
 ~~~objc
 #pragma mark - DJIVideoFeedListener
 -(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
-    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
+    [[DJIVideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
 ~~~
 

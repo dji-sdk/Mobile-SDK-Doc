@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
-version: v4.6.1
-date: 2018-07-05
+version: v4.7
+date: 2018-09-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -23,7 +23,7 @@ DJI UX SDK is a visual framework consisting of UI Elements. It helps you simplif
 
 Additionally, with the ease of use, UX SDK let you focus more on business and application logic. 
 
-As DJI UX SDK is built on top of DJI Mobile SDK and VideoPreviewer, you need to use it with them together in your application development.
+As DJI UX SDK is built on top of DJI Mobile SDK and DJIWidget, you need to use it with them together in your application development.
 
 For an in depth learning on DJI UX SDK, please go to the [UX SDK Introduction](../introduction/ux_sdk_introduction.html).
 
@@ -47,8 +47,8 @@ Then replace the content of the **Podfile** with the followings:
 # platform :ios, '9.0'
 
 target 'UXSDKDemo' do
-  pod 'DJI-SDK-iOS', '~> 4.6.1'
-  pod 'DJI-UXSDK-iOS', '~> 4.6'
+  pod 'DJI-SDK-iOS', '~> 4.7'
+  pod 'DJI-UXSDK-iOS', '~> 4.7'
 end
 
 ~~~
@@ -81,9 +81,9 @@ Pod installation complete! There are 2 dependencies from the Podfile and 2 total
  pod install
 ~~~
 
-## Importing VideoPreviewer
+## Importing DJIWidget
 
- You can check our previous tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **VideoPreviewer** into your Xcode project.
+ You can check our previous tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ## Configure Build Settings
 

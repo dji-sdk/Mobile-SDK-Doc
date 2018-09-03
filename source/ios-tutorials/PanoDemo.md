@@ -1,7 +1,7 @@
 ---
 title: Creating a Panorama Application
-version: v4.6.1
-date: 2018-07-05
+version: v4.7
+date: 2018-09-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PanoramaDemo
 keywords: [iOS Panorama demo, OpenCV, panorama application]
 ---
@@ -32,7 +32,7 @@ You can download the tutorial's final sample project from this [Github Page](htt
 
 Once the project is created, let's import the **DJISDK.framework** to the project. If you are not familiar with the process of importing DJI SDK using Cocoapods, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) 
 
-For importing the VideoPreviewer to the project, you can check our previous tutorial [Creating a Camera Application](./index.html#Implementing-the-First-Person-View) to learn how to download and import the **VideoPreviewer** into your Xcode project.
+For importing the DJIWidget to the project, you can check our previous tutorial [Creating a Camera Application](./index.html#Implementing-the-First-Person-View) to learn how to download and import the **DJIWidget** into your Xcode project.
 
 **2.** In the **Main.storyboard**, add a new View Controller called **CaptureViewController** and set it as the root View Controller for the new View Controller you just added in **Main.storyboard**:
 
@@ -48,12 +48,12 @@ For importing the VideoPreviewer to the project, you can check our previous tuto
 @end
 ~~~
 
-Import the **DJISDK** and **VideoPreviewer** header files to **CaptureViewController.m**. Then implement two delegate protocols as shown below:
+Import the **DJISDK** and **DJIVideoPreviewer** header files to **CaptureViewController.m**. Then implement two delegate protocols as shown below:
     
 ~~~objc
 #import "CaptureViewController.h"
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIWidget/DJIVideoPreviewer.h>
 
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 #define weakReturn(__TARGET__) if(__TARGET__==nil)return;
@@ -62,14 +62,14 @@ Import the **DJISDK** and **VideoPreviewer** header files to **CaptureViewContro
 
 ~~~
  
-**4**. In the **viewDidLoad** method, set **fpvPreviewView** instance as a view of **VideoPreviewer** to show the Video Stream, then invoke the **registerApp** method to register the app:
+**4**. In the **viewDidLoad** method, set **fpvPreviewView** instance as a view of **DJIVideoPreviewer** to show the Video Stream, then invoke the **registerApp** method to register the app:
  
 ~~~objc
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"Panorama Demo";
-    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    [[DJIVideoPreviewer instance] setView:self.fpvPreviewView];
     [self registerApp];
 
 }
@@ -112,7 +112,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
         
         [DJISDKManager startConnectionToProduct];
         [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
-        [[VideoPreviewer instance] start];
+        [[DJIVideoPreviewer instance] start];
     }
     
     [self showAlertViewWithTitle:@"Register App" withMessage:message];
@@ -138,7 +138,7 @@ Also, implement the DJISDKManagerDelegate methods to do initial setup after regi
   
 #pragma mark - DJIVideoFeedListener
 -(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
-    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
+    [[DJIVideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
 
 ~~~
@@ -555,7 +555,7 @@ Moreover, initialize the **aircraftLocation** property in the ViewDidLoad method
     
     self.title = @"Panorama Demo";
     self.aircraftLocation = kCLLocationCoordinate2DInvalid;
-    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    [[DJIVideoPreviewer instance] setView:self.fpvPreviewView];
     [self registerApp];
 
 }

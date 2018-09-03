@@ -81,8 +81,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-uxsdk:4.6')
-    provided ('com.dji:dji-sdk-provided:4.6')
+    compile ('com.dji:dji-uxsdk:4.7')
+    provided ('com.dji:dji-sdk-provided:4.7')
 }
 ~~~
 

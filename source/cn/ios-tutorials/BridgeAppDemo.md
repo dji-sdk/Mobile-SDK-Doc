@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
-version: v4.6.1
-date: 2018-07-05
+version: v4.7
+date: 2018-09-03
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---
@@ -63,9 +63,9 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Importing the VideoPreviewer
+## Importing the DJIWidget
 
- You can check this tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **VideoPreviewer** into your Xcode project.
+ You can check this tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ## Implement the Live Video View
 
@@ -77,11 +77,11 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
   
   ![Storyboard](../../images/tutorials-and-samples/iOS/BridgeAppDemo/mainStoryboard.png)
   
-  Go to **DJICameraViewController.m** file and import the **DJISDK** and **VideoPreviewer** header files. Then create a **DJICamera** property and implement several delegate protocols as below:
+  Go to **DJICameraViewController.m** file and import the **DJISDK** and **DJIVideoPreviewer** header files. Then create a **DJICamera** property and implement several delegate protocols as below:
   
 ~~~objc
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIWidget/DJIVideoPreviewer.h>
 
 #define WeakRef(__obj) __weak typeof(self) __obj = self
 #define WeakReturn(__obj) if(__obj ==nil)return;
@@ -143,20 +143,20 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 
  The delegate method above is called when SDK detects a product. Then invoke the `fetchCamera` method to fetch the updated DJICamera object.
   
- Moreover, in the viewWillAppear method, set "fpvPreviewView" instance as a View of VideoPreviewer to show the Video Stream and reset it to nil in the viewWillDisappear method:
+ Moreover, in the viewWillAppear method, set "fpvPreviewView" instance as a View of DJIVideoPreviewer to show the Video Stream and reset it to nil in the viewWillDisappear method:
  
 ~~~objc
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    [[DJIVideoPreviewer instance] setView:self.fpvPreviewView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[VideoPreviewer instance] setView:nil];
+    [[DJIVideoPreviewer instance] setView:nil];
     [[DJISDKManager videoFeeder].primaryVideoFeed removeListener:self];
 }
 ~~~
@@ -167,11 +167,11 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 #pragma mark - DJIVideoFeedListener
 
 -(void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData {
-    [[VideoPreviewer instance] push:videoBuffer length:(int)size];
+    [[DJIVideoPreviewer instance] push:videoBuffer length:(int)size];
 }
 ~~~
 
-  The `videoFeed:didUpdateVideoData:` method is used to send the video stream to **VideoPreviewer** to decode.
+  The `videoFeed:didUpdateVideoData:` method is used to send the video stream to **DJIVideoPreviewer** to decode.
  
 ## Enter Debug Mode
 
@@ -186,7 +186,7 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    [[DJIVideoPreviewer instance] setView:self.fpvPreviewView];
     [self registerApp];    
 }
 ~~~
@@ -206,14 +206,14 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
         NSLog(@"registerAppSuccess");
         [DJISDKManager enableBridgeModeWithBridgeAppIP:@"Please type in Debug ID of the DJI Bridge app here"];
         [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
-        [[VideoPreviewer instance] start];
+        [[DJIVideoPreviewer instance] start];
     }
     
     [self showAlertViewWithTitle:@"Register App" withMessage:message];
 }
 ~~~
 
-The delegate method above gets called when the app is registered. If the registration is successful, we can call the `enableBridgeModeWithBridgeAppIP:` class method of **DJISDKManager** to enter debug mode of the SDK by passing the **bridgeAppIP** parameter, which you can get from **the Bridge App**. Then add the listener for the `primaryVideoFeed` of `videoFeeder` in **DJISDKManager** and call the start method of the VideoPreviewer class to start video decoding.
+The delegate method above gets called when the app is registered. If the registration is successful, we can call the `enableBridgeModeWithBridgeAppIP:` class method of **DJISDKManager** to enter debug mode of the SDK by passing the **bridgeAppIP** parameter, which you can get from **the Bridge App**. Then add the listener for the `primaryVideoFeed` of `videoFeeder` in **DJISDKManager** and call the start method of the DJIVideoPreviewer class to start video decoding.
 
 **3**. Build and Run the project in Xcode. If everything is OK, you will see a "Register App Successed!" alert once the application loads. 
   
@@ -387,7 +387,7 @@ Once you finish it, let's implement the **captureAction**, **recordAction** and 
 ~~~objc
 #import "DJICameraViewController.h"
 #import <DJISDK/DJISDK.h>
-#import <VideoPreviewer/VideoPreviewer.h>
+#import <DJIWidget/DJIVideoPreviewer.h>
 
 #define ENABLE_DEBUG_MODE 0
 
@@ -413,7 +413,7 @@ Once you finish it, let's implement the **captureAction**, **recordAction** and 
         [DJISDKManager startConnectionToProduct];
 #endif
         [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
-        [[VideoPreviewer instance] start];
+        [[DJIVideoPreviewer instance] start];
         
     }
     
