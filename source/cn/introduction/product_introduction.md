@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2018-06-30
+date: 2018-09-04
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -107,7 +107,17 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
   </thead>
   <tbody>
     <tr>
-      <td rowspan="19">Aircraft</th>
+      <td rowspan="21">Aircraft</th>
+      <td>Mavic 2 Pro</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
+    <tr>
+      <td>Mavic 2 Zoom</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
+    <tr>
       <td>Mavic Air</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -343,6 +353,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Mavic Pro</td><td>27</td><td>18</td><td>5</td><td>3</td><td>5000</td><td>4</td><td>743</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>335</td></tr>
 <tr>
+<td>Mavic 2 Pro</td><td>31</td><td>32</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>907</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>31</td><td>32</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>905</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<tr>
 <td>Phantom 3 4K</td><td>25</td><td>16</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>1280</td><td>350</td></tr>
 <tr>
 <td>Phantom 3 Advanced</td><td>23</td><td>16</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>1280</td><td>350</td></tr>
@@ -409,6 +423,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Mavic Pro</td><td>Fixed</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
+<td>Mavic 2 Pro</td><td>Fixed</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>Fixed</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<tr>
 <td>Phantom 3 4K</td><td>Fixed</td><td>-</td><td>1.2 / 0.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 3 Advanced</td><td>Fixed</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
@@ -423,7 +441,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Phantom 4 Professional</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 4 Professional v2</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Spark</td><td>Fixed</td><td>-</td><td>2 / 0.5</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1 without RC</p></td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 </tbody></table></html>
@@ -465,6 +483,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Mavic Air</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-12m, 0.5-10m, 0.1-8m</p></td><td>Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Mavic Pro</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Mavic 2 Pro</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Phantom 3 4K</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
@@ -849,6 +871,10 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Mavic Pro</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
+<td>Mavic 2 Pro</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>-</td><td>8-1/8000</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-3200</td><td>-</td><td>8-1/8000</td></tr>
+<tr>
 <td>Osmo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Osmo +</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
@@ -904,6 +930,10 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <th><p>Aperture</p></th>
 <th><p>Focus</br><font color="#BBBBBB" size=1 style="font-weight:bold">m</p></th>
 </tr>
+<tr>
+<td>Mavic 2 Pro</td><td>-</td><td>77</td><td>35</td><td>f/2.8–f/11</td><td>1 - &#8734</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>-</td><td>83</td><td>24-48mm</td><td> f/2.8(24mm)–f/3.8(48mm)</td><td>0.5 - &#8734</td></tr>
 <tr>
 <td>Mavic Air</td><td>-</td><td>85</td><td>35</td><td>f/2.8</td><td>0.5 - &#8734</td></tr>
 <tr>
@@ -964,6 +994,10 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <th><p>Storage Media</p></th>
 <th><p>Mass</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">With Gimbal</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
 </tr>
+<tr>
+<td>Mavic 2 Pro</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
 <tr>
 <td>Mavic Air</td><td>-</td><td>roll, pitch, yaw</td><td>-100 to 22</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
 <tr>
@@ -1057,6 +1091,10 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <td>Matrice 600</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI, SDI</td><td>Any</td></tr>
 <tr>
 <td>Matrice 600 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI, SDI</td><td>Any</td></tr>
+<tr>
+<td>Mavic 2 Pro</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<tr>
+<td>Mavic 2 Zoom</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Mavic Pro</td><td>Optional</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
