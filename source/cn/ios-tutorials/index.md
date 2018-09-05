@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.7
-date: 2018-09-03
+version: v4.7.1
+date: 2018-09-05
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
