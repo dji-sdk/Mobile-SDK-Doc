@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
 version: v4.7.1
-date: 2018-09-05
+date: 2018-09-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -37,7 +37,7 @@ You can check [Getting Started with DJI UX SDK](./UXSDKDemo.html#importing-dji-s
 
 ### Importing the DJIWidget
 
-You can check [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
+You can check [Creating a Camera Application](./index.html#importing-the-djiwidget) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ### Working on the MainViewController and DefaultlayoutViewController
 

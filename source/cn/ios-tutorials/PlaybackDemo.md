@@ -1,7 +1,7 @@
 ---
 title: Creating a Photo and Video Playback Application
 version: v4.7.1
-date: 2018-09-05
+date: 2018-09-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS playback demo, playback application, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -13,7 +13,7 @@ keywords: [iOS playback demo, playback application, preview photos and videos, d
 
 In this tutorial, you will learn how to use DJI Mobile SDK to access the media resources in the SD card of the aircraft's camera. By the end of this tutorial you will have an app that you can use to preview photos, play videos, download or delete files and so on.
 
-In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI iOS UX SDK, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
+In order for our app to manage photos and videos, however, it must first be able to take and record them. Fortunately, by using DJI iOS SDK SDK, you can implement shooting photos and recording videos functionalities easily with standard DJI Go UIs.
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo).
 
@@ -37,7 +37,7 @@ You can check [Getting Started with DJI UX SDK](./UXSDKDemo.html#importing-dji-s
 
 ### Importing the DJIWidget
 
-You can check [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
+You can check [Creating a Camera Application](./index.html#importing-the-djiwidget) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
  
 ### Working on the MainViewController and DefaultlayoutViewController
   

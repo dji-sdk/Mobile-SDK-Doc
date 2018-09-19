@@ -1,7 +1,7 @@
 ---
 title: DJI Bridge App Tutorial
 version: v4.7.1
-date: 2018-09-05
+date: 2018-09-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/DJIBridgeAppDemo
 keywords: [DJI Bridge App demo, remote debugging]
 ---
@@ -65,7 +65,7 @@ Once the project is created, let's import the **DJISDK.framework** to it. If you
 
 ## Importing the DJIWidget
 
- You can check this tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **DJIWidget** into your Xcode project.
+ You can check this tutorial [Creating a Camera Application](./index.html#importing-the-djiwidget) to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ## Implement the Live Video View
 

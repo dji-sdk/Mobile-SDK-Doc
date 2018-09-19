@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
 version: v4.7.1
-date: 2018-09-05
+date: 2018-09-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -42,7 +42,7 @@ Next, let's import the **DJISDK.framework** to the project and implement the reg
 
 ### Importing the DJIWidget
 
-You can check the [Creating a Camera Application](./index.html) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
+You can check the [Creating a Camera Application](./index.html#importing-the-djiwidget) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ## Application Activation and Aircraft Binding in China
 

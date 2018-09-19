@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
 version: v4.7.1
-date: 2018-09-05
+date: 2018-09-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -35,7 +35,7 @@ For an in depth learning on DJI UX SDK, please go to the [UX SDK Introduction](.
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
-## Importing DJI SDK and UX SDK with CocoaPods
+## Importing DJI SDK, UX SDK and DJIWidget with CocoaPods
 
 Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "UXSDKDemo" in the **Product Name** field and keep the other default settings.
 
@@ -49,6 +49,7 @@ Then replace the content of the **Podfile** with the followings:
 target 'UXSDKDemo' do
   pod 'DJI-SDK-iOS', '~> 4.7'
   pod 'DJI-UXSDK-iOS', '~> 4.7'
+  pod 'DJIWidget', '~> 1.0'
 end
 
 ~~~
@@ -66,6 +67,7 @@ Analyzing dependencies
 Downloading dependencies
 Installing DJI-SDK-iOS (4.7)
 Installing DJI-UXSDK-iOS (4.7)
+Installing DJIWidget (1.0)
 Generating Pods project
 Integrating client project
 
@@ -80,10 +82,6 @@ Pod installation complete! There are 2 dependencies from the Podfile and 2 total
  pod repo update
  pod install
 ~~~
-
-## Importing DJIWidget
-
- You can check our previous tutorial [Creating a Camera Application](./index.html) to learn how to download and import the **DJIWidget** into your Xcode project.
 
 ## Configure Build Settings
 

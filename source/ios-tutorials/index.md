@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
 version: v4.7.1
-date: 2018-09-05
+date: 2018-09-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -36,27 +36,27 @@ Now, let's install the **DJISDK.framework** in the Xcode project using Cocoapods
 
 ### Importing the DJIWidget
 
- **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **H264VTDecode** decoding library. You can find them in the `DJIWidget/DJIWidget/VideoPreviewer` folder, which you can download it from <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/tree/master/Sample%20Code/DJIWidget" target="_blank">DJI iOS SDK Github Repository</a>. Download and copy the entire **DJIWidget** folder to your Xcode project's root folder and then add the "DJIWidget.xcodeproj" to the "Frameworks" folder in Xcode project navigator, as shown below:
-  
- ![projectNavigator](../images/tutorials-and-samples/iOS/FPVDemo/projectNavigator.png)
- 
-> Note: Please Make sure the **DJIWidget** folder is in the root folder of FPVDemo project like this:
-> 
-> ![frameworksFolderStruct](../images/tutorials-and-samples/iOS/FPVDemo/frameworksFolderStruct.png)
- 
- **2**. Next, let's select the "FPVDemo" target and open the "General" tab. In the "Embedded Binaries" section, press "+" button to add the "DJIWidget.framework" as shown below:
- 
-  ![addFrameworks](../images/tutorials-and-samples/iOS/FPVDemo/addFrameworks.png)
+  **1**. We use the **FFMPEG** decoding library (found at <a href="http://ffmpeg.org" target="_blank">http://ffmpeg.org</a>) to do software video decoding here. For the hardware video decoding, we provide a **H264VTDecode** decoding library. You can find them in the `DJIWidget/DJIWidget/VideoPreviewer` folder, which you can download it from <a href="https://github.com/dji-sdk/DJIWidget/tree/master/DJIWidget/VideoPreviewer" target="_blank">DJIWidget Github Repository</a>. 
 
- **3**. Furthermore, use the same way and select "Add Other..." to add the "FFmpeg.framework" too:
+  DJIWidget is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-  ![addFFmpeg](../images/tutorials-and-samples/iOS/FPVDemo/addFFMPEG_Framework.png)
+  ```
+  pod 'DJIWidget', '~> 1.0'
+  ```
 
-  ![addFrameworksResult](../images/tutorials-and-samples/iOS/FPVDemo/addFrameworksResult.png)
-
-**4.** Lastly, update the **Framework Search Paths** in the Xcode's "Build Settings" for `FFmpeg` as shown below:
-
-  ![addFrameworksResult](../images/tutorials-and-samples/iOS/FPVDemo/frameworkPath.png)
+  > **Note:**
+  > 
+  > **1.** Remember to remove the `use_frameworks!` in the pod file in case the project cannot find the DJIWidget's header files.
+  > 
+  > **2.** In order to use the Objective-C header files of the DJIWidget in the swift project, create a new header file in the project and add the following code to add the DJIWidget's header files:
+  > 
+  > ~~~
+   #import <DJIWidget/DJIVideoPreviewer.h>
+    ~~~
+  > 
+  > **3.** Go to Project -> TARGETS -> Build Settings -> Search “bri” -> Double click "Objective-C Bridging Header" -> Drag the "Header.h" file to the pop-up window to set the path.
+  > 
+  > ![](../images/tutorials-and-samples/iOS/FPVDemo/bridgeHeader.png)
   
 ### Working on the DJICameraViewController
    
