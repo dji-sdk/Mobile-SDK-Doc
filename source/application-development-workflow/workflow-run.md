@@ -1,6 +1,6 @@
 ---
 title: Run Application
-date: 2017-6-27
+date: 2018-09-21
 keywords: [activate product, upgrade firmware, flight mode switch, connection configuration]
 ---
 
@@ -15,6 +15,38 @@ Generally, all batteries of a product should be charged before running an applic
 ### Activate Product
 
 Any new product will need to be activated through **DJI GO** before being used for the first time. **DJI GO** is available on the <a href="https://itunes.apple.com/en/app/dji-pilot/id943780750?mt=8" target="_blank">iOS App Store</a> and <a href="https://play.google.com/store/apps/details?id=dji.pilot&hl=en" target="_blank"> Google Store</a> and can be used to activate a product.
+
+### Redirect to DJI Go Apps
+
+If SDK applications need to redirect to **DJI Go Apps** to do actions like activate DJI Products, you can use the following code to implement it:
+
+#### iOS
+
+- Redirect to DJI Go 4 App : Use URL scheme `"djiVideoNew://"`
+
+- Redirect to DJI Go App : Use URL scheme `"djiVideo://"`
+
+#### Android:
+
+- Redirect to DJI Go 4 App: 
+
+~~~java
+Intent launchIntent = getPackageManager().getLaunchIntentForPackage("dji.go.v4");
+if (launchIntent != null) { //null pointer check in case package name was not found
+    startActivity(launchIntent); 
+}
+~~~
+
+- Redirect to DJI Go App: 
+
+~~~java
+Intent launchIntent = getPackageManager().getLaunchIntentForPackage("dji.pilot");
+if (launchIntent != null) { //null pointer check in case package name was not found
+    startActivity(launchIntent);
+}
+~~~
+
+For more details, please check the Github Sample Code: [iOS SDK Github Sample](https://github.com/dji-sdk/Mobile-SDK-iOS/blob/master/Sample%20Code/ObjcSampleCode/DJISdkDemo/Demo/AppRedirectGoViewController.m), [Android SDK Github Sample](https://github.com/dji-sdk/Mobile-SDK-Android/blob/master/Sample%20Code/app/src/main/java/com/dji/sdk/sample/internal/view/StartRedirectGoAcitivityView.java).
 
 ### Upgrade Product Firmware
 
