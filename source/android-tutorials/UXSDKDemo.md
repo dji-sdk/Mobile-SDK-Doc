@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
 version: v4.7.1
-date: 2018-09-05
+date: 2018-10-19
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -81,8 +81,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-uxsdk:4.7')
-    provided ('com.dji:dji-sdk-provided:4.7')
+    compile ('com.dji:dji-uxsdk:4.7.1')
+    provided ('com.dji:dji-sdk-provided:4.7.1')
 }
 ~~~
 
