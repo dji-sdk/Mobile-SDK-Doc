@@ -352,6 +352,8 @@
                   </dd>
                   <dd><a data-href="../RemoteController/DJIRemoteController.html" class="sub-toggle">DJIRemoteController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
+                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalMapping.html">DJIRCGimbalMapping</a>
+                            </dd>
                             <dd><a href="../RemoteController/DJIRemoteController_DJIRCAircraftMapping.html">DJIRCAircraftMapping</a>
                             </dd>
                             <dd><a href="../RemoteController/DJIRemoteController_RCCustomButtonTagParam.html">DJIRCCustomButtonTags</a>
@@ -365,8 +367,6 @@
                             <dd><a href="../RemoteController/DJIRemoteController_DJIRCButtonConfiguration.html">DJIRCButtonConfiguration</a>
                             </dd>
                             <dd><a href="../RemoteController/DJIRemoteController_DJIMutableRCButtonConfiguration.html">DJIMutableRCButtonConfiguration</a>
-                            </dd>
-                            <dd><a href="../RemoteController/DJIRemoteController_DJIRCGimbalMapping.html">DJIRCGimbalMapping</a>
                             </dd>
                     </ul>
                   </dd>
@@ -604,11 +604,9 @@
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getbatterypairstatus">getPairingStateWithCompletion</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_djibatterypairstatus">DJIBatteryPairingState</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamlevel2cellvoltagethreshold_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamLevel2CellVoltageThreshold</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Get, Set</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>NSUInteger</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_setlevel2cellvoltagethreshold">setLevel2CellVoltageThreshold:withCompletion</a></code></font></p>
-<p></p></td><tr><td></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getlevel2cellvoltagethreshold">getLevel2CellVoltageThresholdWithCompletion</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamisinsinglebatterymode_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamIsInSingleBatteryMode</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Push</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamcellvoltages_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamCellVoltages</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Push</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>NSArray<nsnumber></nsnumber></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getcellvoltages">getCellVoltagesWithCompletion</a></code></font></p>
+<p></p></td><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamisinsinglebatterymode_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamIsInSingleBatteryMode</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Push</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>Boolean</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery_BatteryState.html#djibattery_batterystate_isinsinglebatterymode">isInSingleBatteryMode</a></code></font></p>
 <p></p></td><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamlatestwarningrecord_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamLatestWarningRecord</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Push</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code><a href="../../Components/Battery/DJIBattery_WarningRecord.html#djibattery_warningrecord">DJIBatteryWarningRecord</a></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getlatestwarningrecord">getLatestWarningRecordWithCompletion</a></code></font></p>
@@ -632,9 +630,11 @@
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_numberofcells">numberOfCells</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_setnumberofcells">setNumberOfCells:withCompletion</a></code></font></p>
-<p></p></td></tr><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamcellvoltages_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamCellVoltages</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Push</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>NSArray<nsnumber></nsnumber></code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
-</p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getcellvoltages">getCellVoltagesWithCompletion</a></code></font></p>
-<p></p></td><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamlevel1cellvoltagethreshold_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamLevel1CellVoltageThreshold</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Get, Set</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>NSUInteger</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+<p></p></td></tr><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamlevel2cellvoltagethreshold_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamLevel2CellVoltageThreshold</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Get, Set</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>NSUInteger</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_setlevel2cellvoltagethreshold">setLevel2CellVoltageThreshold:withCompletion</a></code></font></p>
+<p></p></td><tr><td></td><td><p class="key_table_type_string">
+</p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getlevel2cellvoltagethreshold">getLevel2CellVoltageThresholdWithCompletion</a></code></font></p>
+<p></p></td></tr><tr><td colspan="2"><a href="#djibatterykey_djibatteryparamlevel1cellvoltagethreshold_key"></a><p class="key_table_key_string key_table_key_row">DJIBatteryParamLevel1CellVoltageThreshold</p></td></tr><td><p class="key_table_title_string">Access:</p></td><td><p class="key_table_type_string">Get, Set</p></td><tr class="key_table_doc_row"><td><p class="key_table_title_string">Type:</p></td><td><p class="key_table_type_string"><code>NSUInteger</code></p></td></tr><td><p class="key_table_title_string">API:</p></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_setlevel1cellvoltagethreshold">setLevel1CellVoltageThreshold:withCompletion</a></code></font></p>
 <p></p></td><tr><td></td><td><p class="key_table_type_string">
 </p><p><font color="#666"><code><a href="../../Components/Battery/DJIBattery.html#djibattery_getlevel1cellvoltagethreshold">getLevel1CellVoltageThresholdWithCompletion</a></code></font></p>
