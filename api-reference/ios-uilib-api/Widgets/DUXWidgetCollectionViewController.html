@@ -72,6 +72,8 @@
           <dl>
             <dt>Default Layout
             </dt>
+                  <dd><a href="DUXAccessLockerWidget.html">DUXAccessLockerWidget</a>
+                  </dd>
                   <dd><a href="DUXDefaultLayoutView.html">DUXDefaultLayoutView</a>
                   </dd>
                   <dd><a data-href="DUXDefaultLayoutViewController.html" class="sub-toggle">DUXDefaultLayoutViewController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -93,6 +95,20 @@
                             <dd><a href="DUXFPVInteractionController.html">DUXFPVInteractionController</a>
                             </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="DUXSpeakerSettingsViewController.html">DUXSpeakerViewController</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightSettingsViewController.html">DUXSpotlightSettingsViewController</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Widgets
+            </dt>
+                  <dd><a href="DUXBeaconWidget.html">DUXBeaconWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpeakerWidget.html">DUXSpeakerWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightWidget.html">DUXSpotlightWidget</a>
                   </dd>
           </dl>
           <dl>
@@ -174,6 +190,8 @@
                   </dd>
                   <dd><a href="DUXRecordVideoTimeWidget.html">DUXRecordVideoTimeWidget</a>
                   </dd>
+                  <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
+                  </dd>
                   <dd><a data-href="DUXWidget.html" class="sub-toggle">DUXWidget<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DUXFocusModeWidget.html">DUXFocusModeWidget</a>
@@ -181,8 +199,6 @@
                             <dd><a href="DUXFocusTargetWidget.html">DUXFocusTargetWidget</a>
                             </dd>
                             <dd><a href="DUXManualFocusAdjustmentWidget.html">DUXManualFocusAdjustmentWidget</a>
-                            </dd>
-                            <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
                             </dd>
                     </ul>
                   </dd>
@@ -193,8 +209,6 @@
                   <dd><a href="DUXWiFiSignalWidget.html">DUXWifiSignalWidget</a>
                   </dd>
                   <dd><a href="DUXRadarWidget.html">DUXRadarWidget</a>
-                  </dd>
-                  <dd><a href="DUXVisualizerWidget.html">DUXVisualizerWidget</a>
                   </dd>
                   <dd><a href="DUXHistogramWidget.html">DUXHistogramWidget</a>
                   </dd>
@@ -354,7 +368,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)insertWidget:(<span class="keyword">nonnull</span> <span class="built_in">UIView</span> &lt;DUXWidgetProtocol&gt; *)widget withEdgeInset:(<span class="built_in">UIEdgeInsets</span>)edgeInset atIndex:(<span class="built_in">NSUInteger</span>)destinationIndex</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXWidgetCollectionViewController.h</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">insert the passed widgets at the given index and applies the edge inset.</font></p>
+<p><font color="#666">Insert the passed widgets at the given index and applies the edge inset.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nonnull UIView &lt;<a href="../Widgets/DUXWidget.html#duxwidgetprotocol">DUXWidgetProtocol</a>&gt; * <font color="#000">widget</font></font></td><td><font color="#666"><i>The widget item being inserted inside the view.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">UIEdgeInsets <font color="#000">edgeInset</font></font></td><td><font color="#666"><i>The edge inset of the widget item being inserted.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">NSUInteger <font color="#000">destinationIndex</font></font></td><td><font color="#666"><i>The desired index of the widget being inserted.</i></font></td></tr></table></html></div>
 <div class="api-row" id="duxwidgetcollectionviewcontroller_movewidgettoindex"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#duxwidgetcollectionviewcontroller_movewidgettoindex_inline">moveWidget:toIndex</a></div></div><div class="inline-doc" id="duxwidgetcollectionviewcontroller_movewidgettoindex_inline" <blockquote="">
@@ -363,7 +377,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)moveWidget:(<span class="keyword">nonnull</span> <span class="built_in">UIView</span> &lt;DUXWidgetProtocol&gt; *)widget toIndex:(<span class="built_in">NSUInteger</span>)destinationIndex</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXWidgetCollectionViewController.h</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">moves the widget to another index.</font></p>
+<p><font color="#666">Moves the widget to another index.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nonnull UIView &lt;<a href="../Widgets/DUXWidget.html#duxwidgetprotocol">DUXWidgetProtocol</a>&gt; * <font color="#000">widget</font></font></td><td><font color="#666"><i>The widget item being moved.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">NSUInteger <font color="#000">destinationIndex</font></font></td><td><font color="#666"><i>The desired new index of the widget item.</i></font></td></tr></table></html></div>
 <div class="api-row" id="duxwidgetcollectionviewcontrollerprotocol"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">protocol</div><div class="api-col right"><a class="trigger" href="#duxwidgetcollectionviewcontrollerprotocol_inline">DUXWidgetCollectionViewControllerProtocol</a></div></div><div class="inline-doc" id="duxwidgetcollectionviewcontrollerprotocol_inline" <blockquote="">

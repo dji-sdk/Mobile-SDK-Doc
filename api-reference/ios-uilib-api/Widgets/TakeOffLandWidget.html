@@ -72,6 +72,8 @@
           <dl>
             <dt>Default Layout
             </dt>
+                  <dd><a href="DUXAccessLockerWidget.html">DUXAccessLockerWidget</a>
+                  </dd>
                   <dd><a href="DUXDefaultLayoutView.html">DUXDefaultLayoutView</a>
                   </dd>
                   <dd><a data-href="DUXDefaultLayoutViewController.html" class="sub-toggle">DUXDefaultLayoutViewController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -93,6 +95,20 @@
                             <dd><a href="DUXFPVInteractionController.html">DUXFPVInteractionController</a>
                             </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="DUXSpeakerSettingsViewController.html">DUXSpeakerViewController</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightSettingsViewController.html">DUXSpotlightSettingsViewController</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Widgets
+            </dt>
+                  <dd><a href="DUXBeaconWidget.html">DUXBeaconWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpeakerWidget.html">DUXSpeakerWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightWidget.html">DUXSpotlightWidget</a>
                   </dd>
           </dl>
           <dl>
@@ -174,6 +190,8 @@
                   </dd>
                   <dd><a href="DUXRecordVideoTimeWidget.html">DUXRecordVideoTimeWidget</a>
                   </dd>
+                  <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
+                  </dd>
                   <dd><a data-href="DUXWidget.html" class="sub-toggle">DUXWidget<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DUXFocusModeWidget.html">DUXFocusModeWidget</a>
@@ -181,8 +199,6 @@
                             <dd><a href="DUXFocusTargetWidget.html">DUXFocusTargetWidget</a>
                             </dd>
                             <dd><a href="DUXManualFocusAdjustmentWidget.html">DUXManualFocusAdjustmentWidget</a>
-                            </dd>
-                            <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
                             </dd>
                     </ul>
                   </dd>
@@ -193,8 +209,6 @@
                   <dd><a href="DUXWiFiSignalWidget.html">DUXWifiSignalWidget</a>
                   </dd>
                   <dd><a href="DUXRadarWidget.html">DUXRadarWidget</a>
-                  </dd>
-                  <dd><a href="DUXVisualizerWidget.html">DUXVisualizerWidget</a>
                   </dd>
                   <dd><a href="DUXHistogramWidget.html">DUXHistogramWidget</a>
                   </dd>
@@ -311,15 +325,15 @@ to cancel landing.</li>
 <h5 id="usage">Usage:</h5>
 <p><font color="#666">Preferred Aspect Ratio: 1:1</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="takeofflandwidget_aircraftflyingstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#takeofflandwidget_aircraftflyingstate_inline">DUXAircraftTakeOffLandingState</a></div></div><div class="inline-doc" id="takeofflandwidget_aircraftflyingstate_inline" <blockquote="">
+<div class="api-row" id="takeofflandwidget_state"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#takeofflandwidget_state_inline">DUXAircraftTakeOffLandingState</a></div></div><div class="inline-doc" id="takeofflandwidget_state_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">enum </font>DUXAircraftTakeOffLandingState</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, DUXAircraftTakeOffLandingState)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXTakeOffWidget.h</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">Flying state of the aircraft</font></p>
+<p><font color="#666">Current state of the takeoff widget.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#takeofflandwidget_aircraftflyingstate_flying_inline"></a>DUXAircraftTakeOffLandingStateFlying</font></td><td><font color="#666">Aircraft is currently flying.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#takeofflandwidget_aircraftflyingstate_landing_inline"></a>DUXAircraftTakeOffLandingStateLanding</font></td><td><font color="#666">Aircraft is currently in the process of landing.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#takeofflandwidget_aircraftflyingstate_landed_inline"></a>DUXAircraftTakeOffLandingStateLanded</font></td><td><font color="#666">Aircraft is not flying.</font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#takeofflandwidget_state_cancel_inline"></a>DUXAircraftTakeOffLandingStateCancel</font></td><td><font color="#666">Take off or landing is currently in progress and tapping the red cancel icon will  cause the action in progress to be cancelled.</font></td></tr></table></html></div>
 <div class="api-row" id="takeofflandwidget_aircraftstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#takeofflandwidget_aircraftstate_inline">aircraftState</a></div></div><div class="inline-doc" id="takeofflandwidget_aircraftstate_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>aircraftState</h6></div>
 
@@ -328,7 +342,7 @@ to cancel landing.</li>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">The current flying state of the aircraft used to determine which image to use with the widget.</font></p>
 <h5 id="see-also">See Also:</h5>
-<p><font color="#666"><code><a href="../Widgets/TakeOffLandWidget.html#takeofflandwidget_aircraftflyingstate">DUXAircraftTakeOffLandingState</a></code></font></p>
+<p><font color="#666"><code><a href="../Widgets/TakeOffLandWidget.html#takeofflandwidget_state">DUXAircraftTakeOffLandingState</a></code></font></p>
 </div>
 
         </div>

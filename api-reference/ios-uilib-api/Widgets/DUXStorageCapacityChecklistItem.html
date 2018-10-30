@@ -72,6 +72,8 @@
           <dl>
             <dt>Default Layout
             </dt>
+                  <dd><a href="DUXAccessLockerWidget.html">DUXAccessLockerWidget</a>
+                  </dd>
                   <dd><a href="DUXDefaultLayoutView.html">DUXDefaultLayoutView</a>
                   </dd>
                   <dd><a data-href="DUXDefaultLayoutViewController.html" class="sub-toggle">DUXDefaultLayoutViewController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -93,6 +95,20 @@
                             <dd><a href="DUXFPVInteractionController.html">DUXFPVInteractionController</a>
                             </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="DUXSpeakerSettingsViewController.html">DUXSpeakerViewController</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightSettingsViewController.html">DUXSpotlightSettingsViewController</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Widgets
+            </dt>
+                  <dd><a href="DUXBeaconWidget.html">DUXBeaconWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpeakerWidget.html">DUXSpeakerWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightWidget.html">DUXSpotlightWidget</a>
                   </dd>
           </dl>
           <dl>
@@ -174,6 +190,8 @@
                   </dd>
                   <dd><a href="DUXRecordVideoTimeWidget.html">DUXRecordVideoTimeWidget</a>
                   </dd>
+                  <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
+                  </dd>
                   <dd><a data-href="DUXWidget.html" class="sub-toggle">DUXWidget<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DUXFocusModeWidget.html">DUXFocusModeWidget</a>
@@ -181,8 +199,6 @@
                             <dd><a href="DUXFocusTargetWidget.html">DUXFocusTargetWidget</a>
                             </dd>
                             <dd><a href="DUXManualFocusAdjustmentWidget.html">DUXManualFocusAdjustmentWidget</a>
-                            </dd>
-                            <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
                             </dd>
                     </ul>
                   </dd>
@@ -193,8 +209,6 @@
                   <dd><a href="DUXWiFiSignalWidget.html">DUXWifiSignalWidget</a>
                   </dd>
                   <dd><a href="DUXRadarWidget.html">DUXRadarWidget</a>
-                  </dd>
-                  <dd><a href="DUXVisualizerWidget.html">DUXVisualizerWidget</a>
                   </dd>
                   <dd><a href="DUXHistogramWidget.html">DUXHistogramWidget</a>
                   </dd>
@@ -297,6 +311,74 @@
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../Widgets/DUXPreflightChecklistItem.html#duxpreflightchecklistitem">DUXPreflightChecklistItem</a></code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">Preflight checklist item that reports the storage remaining for photo and video capture. This item will always report ready to fly.</font></p>
+<h5 id="class-members">Class Members:</h5>
+<div class="api-row" id="duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_inline">DUXStorageCapacityComprehensiveState</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">enum </font>DUXStorageCapacityComprehensiveState</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, DUXStorageCapacityComprehensiveState)</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v2">Description:</h5>
+<p><font color="#666">An enum that returns the comprehensive state of the storage capacity.</font></p>
+<h5 id="enum-members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_unknown_inline"></a>DUXStorageCapacityComprehensiveStateUnknown</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state is unknown.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_normal_inline"></a>DUXStorageCapacityComprehensiveStateNormal</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state is normal with no warnings or errors.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_slow_inline"></a>DUXStorageCapacityComprehensiveStateSlow</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state is too slow.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_busy_inline"></a>DUXStorageCapacityComprehensiveStateBusy</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state is busy with either saving, formatting, initializing or recovering files.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_warning_inline"></a>DUXStorageCapacityComprehensiveStateWarning</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state is a warning such as format recommended, recovering files, or writing slowly.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_error_inline"></a>DUXStorageCapacityComprehensiveStateError</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state is an error such as invalid, read only, invalid file system, or no remaining file indices.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate_allowformatting_inline"></a>DUXStorageCapacityComprehensiveStateAllowFormatting</font></td><td><font color="#666">Enum value that is returned when the storage capacity comprehensive state should allow formatting such as when storage is full or needs formatting.</font></td></tr></table></html></div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_sdspaceleftinmb"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_sdspaceleftinmb_inline">sdSpaceLeftInMB</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_sdspaceleftinmb_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>sdSpaceLeftInMB</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> sdSpaceLeftInMB</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v3">Description:</h5>
+<p><font color="#666">The space (MB) left in the SD card.</font></p>
+</div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_ssdspaceleftinmb"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_ssdspaceleftinmb_inline">ssdSpaceLeftInMB</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_ssdspaceleftinmb_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>ssdSpaceLeftInMB</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> ssdSpaceLeftInMB</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v4">Description:</h5>
+<p><font color="#666">The space (MB) left in the solid state drive.</font></p>
+</div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_internalstoragespaceleftinmb"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_internalstoragespaceleftinmb_inline">internalStorageSpaceLeftInMB</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_internalstoragespaceleftinmb_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>internalStorageSpaceLeftInMB</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> internalStorageSpaceLeftInMB</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v5">Description:</h5>
+<p><font color="#666">The space (MB) left in the internal storage.</font></p>
+</div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_preferredcameraindex"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_preferredcameraindex_inline">preferredCameraIndex</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_preferredcameraindex_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>preferredCameraIndex</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSUInteger</span> preferredCameraIndex</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v6">Description:</h5>
+<p><font color="#666">The camera index the checklist item refers to.</font></p>
+</div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_preferredcamerastoragelocation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_preferredcamerastoragelocation_inline">preferredCameraStorageLocation</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_preferredcamerastoragelocation_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>preferredCameraStorageLocation</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) DJICameraStorageLocation preferredCameraStorageLocation</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v7">Description:</h5>
+<p><font color="#666">The storage location the checklist item refers to if available.</font></p>
+</div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_currentcamerastoragelocation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_currentcamerastoragelocation_inline">currentCameraStorageLocation</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_currentcamerastoragelocation_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>currentCameraStorageLocation</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) DJICameraStorageLocation currentCameraStorageLocation</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v8">Description:</h5>
+<p><font color="#666">The current camera storage location.</font></p>
+</div>
+<div class="api-row" id="duxstoragecapacitychecklistitem_comprehensivestate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxstoragecapacitychecklistitem_comprehensivestate_inline">comprehensiveState</a></div></div><div class="inline-doc" id="duxstoragecapacitychecklistitem_comprehensivestate_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>comprehensiveState</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DUXStorageCapacityComprehensiveState comprehensiveState</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXStorageCapacityChecklistItem.h</font></td></tr></table></html>
+<h5 id="description-v9">Description:</h5>
+<p><font color="#666">The enum value for the comprehensive state of the storage location.</font></p>
+<h5 id="see-also">See Also:</h5>
+<p><font color="#666"><code><a href="../Widgets/DUXStorageCapacityChecklistItem.html#duxstoragecapacitychecklistitem_duxstoragecapacitycomprehensivestate">DUXStorageCapacityComprehensiveState</a></code></font></p>
+</div>
 
         </div>
       </div>

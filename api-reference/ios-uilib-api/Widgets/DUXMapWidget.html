@@ -72,6 +72,8 @@
           <dl>
             <dt>Default Layout
             </dt>
+                  <dd><a href="DUXAccessLockerWidget.html">DUXAccessLockerWidget</a>
+                  </dd>
                   <dd><a href="DUXDefaultLayoutView.html">DUXDefaultLayoutView</a>
                   </dd>
                   <dd><a data-href="DUXDefaultLayoutViewController.html" class="sub-toggle">DUXDefaultLayoutViewController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -93,6 +95,20 @@
                             <dd><a href="DUXFPVInteractionController.html">DUXFPVInteractionController</a>
                             </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="DUXSpeakerSettingsViewController.html">DUXSpeakerViewController</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightSettingsViewController.html">DUXSpotlightSettingsViewController</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Widgets
+            </dt>
+                  <dd><a href="DUXBeaconWidget.html">DUXBeaconWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpeakerWidget.html">DUXSpeakerWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightWidget.html">DUXSpotlightWidget</a>
                   </dd>
           </dl>
           <dl>
@@ -174,6 +190,8 @@
                   </dd>
                   <dd><a href="DUXRecordVideoTimeWidget.html">DUXRecordVideoTimeWidget</a>
                   </dd>
+                  <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
+                  </dd>
                   <dd><a data-href="DUXWidget.html" class="sub-toggle">DUXWidget<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DUXFocusModeWidget.html">DUXFocusModeWidget</a>
@@ -181,8 +199,6 @@
                             <dd><a href="DUXFocusTargetWidget.html">DUXFocusTargetWidget</a>
                             </dd>
                             <dd><a href="DUXManualFocusAdjustmentWidget.html">DUXManualFocusAdjustmentWidget</a>
-                            </dd>
-                            <dd><a href="DUXExposureFocusSwitchWidget.html">DUXExposureFocusSwitchWidget</a>
                             </dd>
                     </ul>
                   </dd>
@@ -193,8 +209,6 @@
                   <dd><a href="DUXWiFiSignalWidget.html">DUXWifiSignalWidget</a>
                   </dd>
                   <dd><a href="DUXRadarWidget.html">DUXRadarWidget</a>
-                  </dd>
-                  <dd><a href="DUXVisualizerWidget.html">DUXVisualizerWidget</a>
                   </dd>
                   <dd><a href="DUXHistogramWidget.html">DUXHistogramWidget</a>
                   </dd>
@@ -301,12 +315,20 @@
 <h5 id="usage">Usage:</h5>
 <p><font color="#666">Preferred Aspect Ratio: 1:1</font></p>
 <h5 id="class-members">Class Members:</h5>
+<div class="api-row" id="duxmapwidget_clearflightpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_clearflightpath_inline">clearCurrentFlightPath</a></div></div><div class="inline-doc" id="duxmapwidget_clearflightpath_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">method </font>clearCurrentFlightPath</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)clearCurrentFlightPath</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
+<h5 id="description">Description:</h5>
+<p><font color="#666">Clears the flight path up to the current location. The flight path is removed even if it is hidden.</font></p>
+</div>
 <div class="api-row" id="duxmapwidget_setflyzonecolor"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_setflyzonecolor_inline">setFlyZoneOverlayColor:forFlyZoneCategory</a></div></div><div class="inline-doc" id="duxmapwidget_setflyzonecolor_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>setFlyZoneOverlayColor:forFlyZoneCategory</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setFlyZoneOverlayColor:(<span class="keyword">nullable</span> <span class="built_in">UIColor</span> *)color</div><div class="line">            forFlyZoneCategory:(DJIFlyZoneCategory)category</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
+<h5 id="description-v2">Description:</h5>
 <p><font color="#666">Change the rendered color for a given fly zone category.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">nullable UIColor * <font color="#000">color</font></font></td><td><font color="#666"><i>The desired color.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">DJIFlyZoneCategory <font color="#000">category</font></font></td><td><font color="#666"><i>The fly zone category for which the color would apply.</i></font></td></tr></table></html></div>
@@ -315,65 +337,74 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setFlyZoneOverlayAlpha:(<span class="built_in">CGFloat</span>)alpha</div><div class="line">            forFlyZoneCategory:(DJIFlyZoneCategory)category</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
+<h5 id="description-v3">Description:</h5>
 <p><font color="#666">Change the rendered alpha for a given fly zone category.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">CGFloat <font color="#000">alpha</font></font></td><td><font color="#666"><i>The desired alpha.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">DJIFlyZoneCategory <font color="#000">category</font></font></td><td><font color="#666"><i>The fly zone category for which the alpha would apply.</i></font></td></tr></table></html></div>
-<div class="api-row" id="duxmapwidget_mapannotationtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_mapannotationtype_inline">DUXMapAnnotationType</a></div></div><div class="inline-doc" id="duxmapwidget_mapannotationtype_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">enum </font>DUXMapAnnotationType</h6></div>
+<div class="api-row" id="duxmapwidget_istaptounlockenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_istaptounlockenabled_inline">tapToUnlockEnabled</a></div></div><div class="inline-doc" id="duxmapwidget_istaptounlockenabled_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>tapToUnlockEnabled</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, DUXMapAnnotationType)</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">An enum about different annotations on the map.</font></p>
-<h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypeaircraft_inline"></a>DUXMapAnnotationTypeAircraft</font></td><td><font color="#666">Annotation of the aircraft currently on the map.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypehome_inline"></a>DUXMapAnnotationTypeHome</font></td><td><font color="#666">Annotation of the home location currently on the map.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypeeligibleflyzones_inline"></a>DUXMapAnnotationTypeEligibleFlyZones</font></td><td><font color="#666">Annotation of a self-unlock fly zone that can be unlocked, currently on the map. Only visible when DUXMapWidget_tapToUnlockEnabled is set to <code>TRUE</code>.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypeunlockedflyzones_inline"></a>DUXMapAnnotationTypeUnlockedFlyZones</font></td><td><font color="#666">Annotation of a self-unlock fly zone that is unlocked currently. Only visible when DUXMapWidget_tapToUnlockEnabled is set to <code>TRUE</code>.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypecustomunlockedflyzones_inline"></a>DUXMapAnnotationTypeCustomUnlockedFlyZones</font></td><td><font color="#666">Annotation of a custom unlock fly zone. Only visible when DUXMapWidget_tapToUnlockEnabled is set to <code>TRUE</code>.</font></td></tr></table></html></div>
-<div class="api-row" id="duxmapwidget_mapview"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_mapview_inline">mapView</a></div></div><div class="inline-doc" id="duxmapwidget_mapview_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">property </font>mapView</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">MKMapView</span> *mapView</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> tapToUnlockEnabled</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Standard iOS Map for manipulating general settings.</font></p>
+<p><font color="#666">Gets whether tap to unlock is enabled.</font></p>
 </div>
-<div class="api-row" id="duxmapwidget_showdirectiontohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_showdirectiontohome_inline">showDirectionToHome</a></div></div><div class="inline-doc" id="duxmapwidget_showdirectiontohome_inline" <blockquote="">
+<div class="api-row" id="duxmapwidget_isdirectiontohomevisible"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_isdirectiontohomevisible_inline">showDirectionToHome</a></div></div><div class="inline-doc" id="duxmapwidget_isdirectiontohomevisible_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>showDirectionToHome</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> showDirectionToHome</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Defaults to <code>NO</code>. A Boolean value indicating whether the map displays a line showing the direction to home.</font></p>
+<p><font color="#666">Defaults to <code>NO</code>. A Boolean value indicating whether the map displays a line showing
+the direction to home.</font></p>
+</div>
+<div class="api-row" id="duxmapwidget_isflightpathvisible"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_isflightpathvisible_inline">showFlightPath</a></div></div><div class="inline-doc" id="duxmapwidget_isflightpathvisible_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>showFlightPath</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> showFlightPath</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
+<h5 id="description-v6">Description:</h5>
+<p><font color="#666"><code>YES</code> if the flight path is visible. The default value is <code>NO</code></font></p>
+</div>
+<div class="api-row" id="duxmapwidget_ishomevisible"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_ishomevisible_inline">showHomeAnnotation</a></div></div><div class="inline-doc" id="duxmapwidget_ishomevisible_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>showHomeAnnotation</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> showHomeAnnotation</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
+<h5 id="description-v7">Description:</h5>
+<p><font color="#666"><code>YES</code> if the map displays the home point of the aircraft. The default value of this property is <code>YES</code>.</font></p>
+</div>
+<div class="api-row" id="duxmapwidget_mapannotationtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_mapannotationtype_inline">DUXMapAnnotationType</a></div></div><div class="inline-doc" id="duxmapwidget_mapannotationtype_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">enum </font>DUXMapAnnotationType</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, DUXMapAnnotationType)</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
+<h5 id="description-v8">Description:</h5>
+<p><font color="#666">An enum about different annotations on the map.</font></p>
+<h5 id="enum-members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypeaircraft_inline"></a>DUXMapAnnotationTypeAircraft</font></td><td><font color="#666">Annotation of the aircraft currently on the map.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypehome_inline"></a>DUXMapAnnotationTypeHome</font></td><td><font color="#666">Annotation of the home location currently on the map.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypeeligibleflyzones_inline"></a>DUXMapAnnotationTypeEligibleFlyZones</font></td><td><font color="#666">Annotation of a self-unlock fly zone that can be unlocked, currently on the map. Only visible when DUXMapWidget_tapToUnlockEnabled is set to <code>YES</code>.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypeunlockedflyzones_inline"></a>DUXMapAnnotationTypeUnlockedFlyZones</font></td><td><font color="#666">Annotation of a self-unlock fly zone that is unlocked currently. Only visible when DUXMapWidget_tapToUnlockEnabled is set to <code>YES</code>.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxmapwidget_duxmapannotationtypecustomunlockedflyzones_inline"></a>DUXMapAnnotationTypeCustomUnlockedFlyZones</font></td><td><font color="#666">Annotation of a custom unlock fly zone. Only visible when DUXMapWidget_tapToUnlockEnabled is set to <code>YES</code>.</font></td></tr></table></html></div>
+<div class="api-row" id="duxmapwidget_mapview"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_mapview_inline">mapView</a></div></div><div class="inline-doc" id="duxmapwidget_mapview_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">property </font>mapView</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">MKMapView</span> *mapView</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
+<h5 id="description-v9">Description:</h5>
+<p><font color="#666">Standard iOS Map for manipulating general settings.</font></p>
 </div>
 <div class="api-row" id="duxmapwidget_ismapcameralockedonaircraft"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_ismapcameralockedonaircraft_inline">isMapCameraLockedOnAircraft</a></div></div><div class="inline-doc" id="duxmapwidget_ismapcameralockedonaircraft_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>isMapCameraLockedOnAircraft</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> isMapCameraLockedOnAircraft</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
+<h5 id="description-v10">Description:</h5>
 <p><font color="#666">Defaults to <code>NO</code>. A Boolean value that determines whether the map locks the camera view on the aircraft.</font></p>
-</div>
-<div class="api-row" id="duxmapwidget_showflightpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_showflightpath_inline">showFlightPath</a></div></div><div class="inline-doc" id="duxmapwidget_showflightpath_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">property </font>showFlightPath</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> showFlightPath</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">Defaults to <code>NO</code>. A Boolean value indicating whether the map displays a line of aircraft's flight path.</font></p>
-</div>
-<div class="api-row" id="duxmapwidget_showhomeannotation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_showhomeannotation_inline">showHomeAnnotation</a></div></div><div class="inline-doc" id="duxmapwidget_showhomeannotation_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">property </font>showHomeAnnotation</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> showHomeAnnotation</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v8">Description:</h5>
-<p><font color="#666">A Boolean value indicating whether the map displays the home annotation. The default value of this property is true.</font></p>
 </div>
 <div class="api-row" id="duxmapwidget_changeannotation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_changeannotation_inline">changeAnnotation:withImage</a></div></div><div class="inline-doc" id="duxmapwidget_changeannotation_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">method </font>changeAnnotation:withImage</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)changeAnnotation:(DUXMapAnnotationType)annotationType withImage:(<span class="built_in">UIImage</span> *)image DEPRECATED_ATTRIBUTE</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v9">Description:</h5>
+<h5 id="description-v11">Description:</h5>
 <p><font color="#666">Replaces current annotation type with given image. The default image for all annotation types are set.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../Widgets/DUXMapWidget.html#duxmapwidget_mapannotationtype">DUXMapAnnotationType</a> <font color="#000">annotationType</font></font></td><td><font color="#666"><i>An enum value of <code><a href="../Widgets/DUXMapWidget.html#duxmapwidget_mapannotationtype">DUXMapAnnotationType</a></code>.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">UIImage * <font color="#000">image</font></font></td><td><font color="#666"><i>Image used to represent the annotation.</i></font></td></tr></table></html></div>
@@ -382,35 +413,19 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)changeAnnotationOfType:(DUXMapAnnotationType)annotationType toCustomImage:(<span class="keyword">nonnull</span> <span class="built_in">UIImage</span> *)image withCenterOffset:(<span class="built_in">CGPoint</span>)centerOffset</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v10">Description:</h5>
+<h5 id="description-v12">Description:</h5>
 <p><font color="#666">Change the annotation type of the map widget.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../Widgets/DUXMapWidget.html#duxmapwidget_mapannotationtype">DUXMapAnnotationType</a> <font color="#000">annotationType</font></font></td><td><font color="#666"><i>An enum value of <code><a href="../Widgets/DUXMapWidget.html#duxmapwidget_mapannotationtype">DUXMapAnnotationType</a></code>.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">nonnull UIImage * <font color="#000">image</font></font></td><td><font color="#666"><i>Image used to represent the annotation.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">CGPoint <font color="#000">centerOffset</font></font></td><td><font color="#666"><i>A CGPoint struct for the center offset.</i></font></td></tr></table></html></div>
-<div class="api-row" id="duxmapwidget_clearcurrentflightpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_clearcurrentflightpath_inline">clearCurrentFlightPath</a></div></div><div class="inline-doc" id="duxmapwidget_clearcurrentflightpath_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">method </font>clearCurrentFlightPath</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)clearCurrentFlightPath</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v11">Description:</h5>
-<p><font color="#666">Removes the current flight path generated, regardless of being hidden.</font></p>
-</div>
 <div class="api-row" id="duxmapwidget_visibleflyzones"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_visibleflyzones_inline">visibleFlyZones</a></div></div><div class="inline-doc" id="duxmapwidget_visibleflyzones_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">property </font>visibleFlyZones</h6></div>
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) DUXMapVisibleFlyZones visibleFlyZones</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v12">Description:</h5>
+<h5 id="description-v13">Description:</h5>
 <p><font color="#666">Sets the types of fly zones to be displayed on the map. Set to <code>DUXMapWidget_DUXMapVisibleFlyZonesNone</code> to hide all fly zone types.</font></p>
 <h5 id="see-also">See Also:</h5>
 <p><font color="#666"><code><a href="../Widgets/DUXMapWidget.html#duxmapwidget_duxmapvisibleflyzones">DUXMapVisibleFlyZones</a></code></font></p>
-</div>
-<div class="api-row" id="duxmapwidget_taptounlockenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_taptounlockenabled_inline">tapToUnlockEnabled</a></div></div><div class="inline-doc" id="duxmapwidget_taptounlockenabled_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">property </font>tapToUnlockEnabled</h6></div>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> tapToUnlockEnabled</div></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXMapWidget.h</font></td></tr></table></html>
-<h5 id="description-v13">Description:</h5>
-<p><font color="#666">A boolean value indicating if tapping to unlock select fly zones is enabled.  If this option is enabled, you MUST use <code><a href="../Widgets/DUXMapViewController.html#duxmapviewcontroller">DUXMapViewController</a></code> to present the widget via view controller containment.</font></p>
 </div>
 <div class="api-row" id="duxmapwidget_duxmapvisibleflyzones"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">NS_OPTIONS</div><div class="api-col right"><a class="trigger" href="#duxmapwidget_duxmapvisibleflyzones_inline">DUXMapVisibleFlyZones</a></div></div><div class="inline-doc" id="duxmapwidget_duxmapvisibleflyzones_inline" <blockquote="">
 <div class="article"><h6><font color="#AAA">NS_OPTIONS </font>DUXMapVisibleFlyZones</h6></div>

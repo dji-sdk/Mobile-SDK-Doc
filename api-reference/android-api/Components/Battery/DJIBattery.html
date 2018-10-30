@@ -104,6 +104,8 @@
                                       </dd>
                                       <dd><a href="../KeyManager/DJIAirLinkKey.html">AirLinkKey</a>
                                       </dd>
+                                      <dd><a href="../KeyManager/DJIAccessoryKey.html">AccessoryAggregationKey</a>
+                                      </dd>
                               </ul>
                             </dd>
                     </ul>
@@ -220,6 +222,14 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a data-href="../Simulator/DJIAccessLocker.html" class="sub-toggle">AccessLocker<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../Simulator/DJIAccessLocker_DJIAccessLockerFormattingState.html">FormattingState</a>
+                                      </dd>
+                                      <dd><a href="../Simulator/DJIAccessLocker_DJIAccessLockerUserAccountInfo.html">UserAccountInfo</a>
+                                      </dd>
+                              </ul>
+                            </dd>
                             <dd><a data-href="../Simulator/DJISimulator.html" class="sub-toggle">Simulator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../Simulator/DJISimulator_DJISimulatorInitializationData.html">InitializationData</a>
@@ -280,7 +290,11 @@
                             </dd>
                             <dd><a data-href="../Camera/DJIMediaManager.html" class="sub-toggle">MediaManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
-                                      <dd><a href="../Camera/DJIMediaManager_DJIMedia.html">MediaFile</a>
+                                      <dd><a data-href="../Camera/DJIMediaManager_DJIMedia.html" class="sub-toggle">MediaFile<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="../Camera/DJIMediaManager_DJIMedia_DJIMediaFile.html">AudioMediaFile</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                                       <dd><a href="../Camera/DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">VideoPlaybackState</a>
                                       </dd>
@@ -321,6 +335,8 @@
                             <dd><a href="../Camera/DJICamera_DJICameraSSDClipFileNameInterface.html">SSDClipFileName</a>
                             </dd>
                             <dd><a href="../Camera/DJICamera_DJICameraOriginalPhotoSettings.html">OriginalPhotoSettings</a>
+                            </dd>
+                            <dd><a href="../Camera/DJICamera_DJICameraWatermarkSettings.html">WatermarkSettings</a>
                             </dd>
                             <dd><a href="../Camera/DJICamera_DJICameraFocusAssistantSettings.html">FocusAssistantSettings</a>
                             </dd>
@@ -461,6 +477,28 @@
                   <dd><a data-href="../Payload/DJIPayload.html" class="sub-toggle">Payload<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="../Payload/DJIPayload_PayloadWidget.html">PayloadWidget</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../AccessoryAggregation/DJIAccessoryAggregation.html" class="sub-toggle">AccessoryAggregation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a data-href="../AccessoryAggregation/DJIAccessoryAggregation_DJISpotlight.html" class="sub-toggle">Spotlight<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../AccessoryAggregation/DJIAccessoryAggregation_DJISpotlight_DJISpotlightState.html">SpotlightState</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../AccessoryAggregation/DJIAccessoryAggregation_DJIBeacon.html">Beacon</a>
+                            </dd>
+                            <dd><a data-href="../AccessoryAggregation/DJIAccessoryAggregation_DJISpeaker.html" class="sub-toggle">Speaker<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                              <ul class="sub-menu">
+                                      <dd><a href="../AccessoryAggregation/DJIAccessoryAggregation_DJISpeaker_DJISpeakerState.html">SpeakerState</a>
+                                      </dd>
+                                      <dd><a href="../AccessoryAggregation/DJIAccessoryAggregation_DJISpeaker_DJIAudioFileInfo.html">AudioFileInfo</a>
+                                      </dd>
+                              </ul>
+                            </dd>
+                            <dd><a href="../AccessoryAggregation/DJIAccessoryAggregation_AggregationState.html">AccessoryAggregationState</a>
                             </dd>
                     </ul>
                   </dd>
@@ -657,6 +695,10 @@
                             <dd><a href="../SDKError/DJIError_DataProtectionError.html">DataProtectionError</a>
                             </dd>
                             <dd><a href="../SDKError/DJIError_DJISDKFlightHubError.html">DJIFlightHubError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIAccessoryAggregationError.html">DJIAccessoryAggregationError</a>
+                            </dd>
+                            <dd><a href="../SDKError/DJIError_DJIAccessLockerError.html">DJIAccessLockerError</a>
                             </dd>
                             <dd><a href="../SDKError/DJIError_DJISDKError.html">DJISDKError</a>
                             </dd>
@@ -909,6 +951,17 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatterypairstatus_unpaired_inline"></a>UNPAIRED</font></td><td><font color="#666">The batteries didn't match; they're not paired.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatterypairstatus_paired_inline"></a>PAIRED</font></td><td><font color="#666">Batteries are paired.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatterypairstatus_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Can't get the pair state or the batteries.</font></td></tr></table></html>
 <h5 id="class-members-v3">Class Members:</h5>
 </div>
+<div class="api-row" id="djibattery_djibatteryselfheatingstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djibattery_djibatteryselfheatingstate_inline">SelfHeatingState</a></div></div><div class="inline-doc" id="djibattery_djibatteryselfheatingstate_inline" <blockquote="">
+<div class="article"><h6><font color="#AAA">enum </font>SelfHeatingState</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> SelfHeatingState</div></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr></table></html>
+<h5 id="description-v24">Description:</h5>
+<p><font color="#666">Provides the self-heating state for the battery. When the temperature of the  battery is below a threshold, it will warm up automatically. For Mavic 2 Enterprise,  the self-heating is triggered when the temperature is lower than 6 Celsius degrees. When the  temperature reaches 8 Celsius degrees, the battery will start to preserve the temperature and  maintain it between 6 Celsius degrees and 8 Celsius degrees.</font></p>
+<h5 id="enum-members-v3">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatteryselfheatingstate_idle_inline"></a>IDLE</font></td><td><font color="#666">The auto heating feature is idle.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatteryselfheatingstate_warmingup_inline"></a>WARMING_UP</font></td><td><font color="#666">The battery is warming itself up automatically.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatteryselfheatingstate_preserving_inline"></a>PRESERVING</font></td><td><font color="#666">The battery is preserving its temperature. For Mavic 2 Enterprise,  the temperature will be maintained between 6 Celsius degrees and 8 Celsius degrees.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_djibatteryselfheatingstate_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Unknown.</font></td></tr></table></html>
+<h5 id="class-members-v4">Class Members:</h5>
+</div>
 <html><p><br></p></html>
 <h5 id="related">Related:</h5>
 <div class="api-row" id="djibattery_batteryconnectionstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djibattery_batteryconnectionstate_inline">ConnectionState</a></div></div><div class="inline-doc" id="djibattery_batteryconnectionstate_inline" <blockquote="">
@@ -916,11 +969,11 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EXClassNullAway</span></div><div class="line"> <span class="keyword">enum</span> ConnectionState</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.battery</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIBatteryKey.html#batterykey_connection_state_key">BatteryKey.CONNECTION_STATE</a></font></td></tr></table></html>
-<h5 id="description-v24">Description:</h5>
+<h5 id="description-v25">Description:</h5>
 <p><font color="#666">Battery connection status. 0 means NORMAL, 1 means INVALID, and 2 means EXCEPTION in communication.</font></p>
-<h5 id="enum-members-v3">Enum Members:</h5>
+<h5 id="enum-members-v4">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_batteryconnectionstate_normal_inline"></a>NORMAL</font></td><td><font color="#666">Normal.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_batteryconnectionstate_invalid_inline"></a>INVALID</font></td><td><font color="#666">Invalid.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_batteryconnectionstate_exception_inline"></a>EXCEPTION</font></td><td><font color="#666">Exception.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djibattery_batteryconnectionstate_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Unknown.</font></td></tr></table></html>
-<h5 id="class-members-v4">Class Members:</h5>
+<h5 id="class-members-v5">Class Members:</h5>
 </div>
 <h5 id="inherited-methods">Inherited Methods:</h5>
 <div class="api-row" id="djibasecomponent_setdjicomponentlistener"><div class="api-col left">dji.sdk.base.BaseComponent</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djibasecomponent_setdjicomponentlistener_inline">setComponentListener</a></div></div><div class="inline-doc" id="djibasecomponent_setdjicomponentlistener_inline" <blockquote="">
@@ -928,7 +981,7 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setComponentListener</span><span class="params">(ComponentListener listener)</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.base</font></td></tr></table></html>
-<h5 id="description-v25">Description:</h5>
+<h5 id="description-v26">Description:</h5>
 <p><font color="#666">Sets the listener for the DJI component.</font></p>
 <h5 id="input-parameters-v19">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/BaseComponent/DJIBaseComponent.html#djibasecomponent_djicomponentlistenerinterface">ComponentListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The callback of <code><a href="../../Components/BaseComponent/DJIBaseComponent.html#djibasecomponent_djicomponentlistenerinterface">ComponentListener</a></code>.</i></font></td></tr></table></html></div>
@@ -937,7 +990,7 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getIndex</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.base</font></td></tr></table></html>
-<h5 id="description-v26">Description:</h5>
+<h5 id="description-v27">Description:</h5>
 <p><font color="#666">Returns the component index. Index is zero based. A component will have an index greater than zero when there  are multiple components of the same type on the DJI product, and one of the components already has the index 0.  For instance, M210 can have two gimbal mounted cameras, and will therefore have two gimbal components with indices  0 and 1, and two camera components with indices 0 and 1. For Matrice 600, there are printed numbers on the battery  boxes. The <code><a href="../../Components/Battery/DJIBattery.html#djibattery">Battery</a></code> component instance with index 0 corresponds to battery compartment number 1. For Inspire 2  and M200 series, <code><a href="../../Components/Battery/DJIBattery.html#djibattery">Battery</a></code> with index 0 corresponds to the battery on the port (left hand) side of the aircraft.  For M210 and M210 RTK, <code><a href="../../Components/Camera/DJICamera.html#djicamera">Camera</a></code> and <code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal">Gimbal</a></code> with index 0 corresponds to the camera and gimbal on the port  (left hand) side of the aircraft.</font></p>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>An int value of index.</i></font></td></tr></table></html></div>
@@ -946,7 +999,7 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.base</font></td></tr></table></html>
-<h5 id="description-v27">Description:</h5>
+<h5 id="description-v28">Description:</h5>
 <p><font color="#666"><code>true</code> if the component is connected.</font></p>
 <h5 id="return-v4">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code> if the component is connected.</i></font></td></tr></table></html></div>
@@ -955,7 +1008,7 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getSerialNumber</span><span class="params">(@NonNull CompletionCallbackWith&lt;String&gt; callback)</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.base</font></td></tr></table></html>
-<h5 id="description-v28">Description:</h5>
+<h5 id="description-v29">Description:</h5>
 <p><font color="#666">Gets the serial number of the component. Depending on the component, this serial number might not match the serial number found  on the physical component.</font></p>
 <h5 id="input-parameters-v20">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks_completioncallbackwith_interface">CompletionCallbackWith</a>&lt;String&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the value returned.</i></font></td></tr></table></html></div>
@@ -964,7 +1017,7 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFirmwareVersion</span><span class="params">(@NonNull CompletionCallbackWith&lt;String&gt; callback)</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.base</font></td></tr></table></html>
-<h5 id="description-v29">Description:</h5>
+<h5 id="description-v30">Description:</h5>
 <p><font color="#666">Returns the firmware version of the component. Each component will  have a different firmware version, the combination of which will  form the package firmware version <code><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_getfirmwarepackageversion">getFirmwarePackageVersion</a></code> found in <code><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct">BaseProduct</a></code>.</font></p>
 <h5 id="input-parameters-v21">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks_completioncallbackwith_interface">CompletionCallbackWith</a>&lt;String&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the value(s) returned.</i></font></td></tr></table></html></div>

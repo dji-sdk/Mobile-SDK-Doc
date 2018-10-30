@@ -72,6 +72,8 @@
           <dl>
             <dt>Default Layout
             </dt>
+                  <dd><a href="DUXAccessLockerWidget.html">DUXAccessLockerWidget</a>
+                  </dd>
                   <dd><a href="DUXDefaultLayoutView.html">DUXDefaultLayoutView</a>
                   </dd>
                   <dd><a data-href="DUXDefaultLayoutViewController.html" class="sub-toggle">DUXDefaultLayoutViewController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -93,6 +95,20 @@
                             <dd><a href="DUXFPVInteractionController.html">DUXFPVInteractionController</a>
                             </dd>
                     </ul>
+                  </dd>
+                  <dd><a href="DUXSpeakerSettingsViewController.html">DUXSpeakerViewController</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightSettingsViewController.html">DUXSpotlightSettingsViewController</a>
+                  </dd>
+          </dl>
+          <dl>
+            <dt>Widgets
+            </dt>
+                  <dd><a href="DUXBeaconWidget.html">DUXBeaconWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpeakerWidget.html">DUXSpeakerWidget</a>
+                  </dd>
+                  <dd><a href="DUXSpotlightWidget.html">DUXSpotlightWidget</a>
                   </dd>
           </dl>
           <dl>
@@ -174,6 +190,8 @@
                   </dd>
                   <dd><a href="DUXRecordVideoTimeWidget.html">DUXRecordVideoTimeWidget</a>
                   </dd>
+                  <dd><a href="" class="active">DUXExposureFocusSwitchWidget</a>
+                  </dd>
                   <dd><a data-href="DUXWidget.html" class="sub-toggle">DUXWidget<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DUXFocusModeWidget.html">DUXFocusModeWidget</a>
@@ -181,8 +199,6 @@
                             <dd><a href="DUXFocusTargetWidget.html">DUXFocusTargetWidget</a>
                             </dd>
                             <dd><a href="DUXManualFocusAdjustmentWidget.html">DUXManualFocusAdjustmentWidget</a>
-                            </dd>
-                            <dd><a href="" class="active">DUXExposureFocusSwitchWidget</a>
                             </dd>
                     </ul>
                   </dd>
@@ -193,8 +209,6 @@
                   <dd><a href="DUXWiFiSignalWidget.html">DUXWifiSignalWidget</a>
                   </dd>
                   <dd><a href="DUXRadarWidget.html">DUXRadarWidget</a>
-                  </dd>
-                  <dd><a href="DUXVisualizerWidget.html">DUXVisualizerWidget</a>
                   </dd>
                   <dd><a href="DUXHistogramWidget.html">DUXHistogramWidget</a>
                   </dd>
@@ -295,8 +309,7 @@
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>DUXExposureFocusSwitchWidget</h1></div>
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DUXExposureFocusSwitchWidget</span> : <span class="title">DUXWidget</span></span></div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXExposureFocusSwitchWidget.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../Widgets/DUXWidget.html#duxwidget">DUXWidget</a></code></font></td></tr></table></html>
-<h5 id="display">Display:</h5>
-<br style="clear:both">
+<h5 id="description">Description:</h5>
 <p><font color="#666">Action widget that allows switching between between Exposure and Focus controls when touching. Not supported on Spark.</font></p>
 <h5 id="usage">Usage:</h5>
 <p><font color="#666">Preferred Aspect Ratio: 35:35</font></p>
@@ -306,7 +319,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, DUXExposureFocusSwitchMode)</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXExposureFocusSwitchWidget.h</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
+<h5 id="description-v2">Description:</h5>
 <p><font color="#666">The two modes that the switch can be in.  Also the 2 values that can be sent by the notification.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#duxexposurefocusswitchwidget_duxexposurefocusswitchmode_exposuremode_inline"></a>DUXExposureMode</font></td><td><font color="#666">Exposure mode.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#duxexposurefocusswitchwidget_duxexposurefocusswitchmode_focusmode_inline"></a>DUXFocusMode</font></td><td><font color="#666">Focus mode.</font></td></tr></table></html></div>
@@ -315,7 +328,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> DUXExposureFocusSwitchMode switchMode</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXExposureFocusSwitchWidget.h</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
+<h5 id="description-v3">Description:</h5>
 <p><font color="#666">The current state of the switch.</font></p>
 <h5 id="see-also">See Also:</h5>
 <p><font color="#666"><code><a href="../Widgets/DUXExposureFocusSwitchWidget.html#duxexposurefocusswitchwidget_duxexposurefocusswitchmode">DUXExposureFocusSwitchMode</a></code></font></p>
@@ -325,7 +338,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> DUXExposureFocusSwitchModeChangedNotification</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXExposureFocusSwitchWidget.h</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
+<h5 id="description-v4">Description:</h5>
 <p><font color="#666">This is the name of the NSNotification that is posted everytime the switch changes state.</font></p>
 </div>
 <div class="api-row" id="duxexposurefocusswitchwidget_switchmodedictionarykey"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">const</div><div class="api-col right"><a class="trigger" href="#duxexposurefocusswitchwidget_switchmodedictionarykey_inline">DUXExposureFocusSwitchModeKey</a></div></div><div class="inline-doc" id="duxexposurefocusswitchwidget_switchmodedictionarykey_inline" <blockquote="">
@@ -333,7 +346,7 @@
 
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> DUXExposureFocusSwitchModeKey</div></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DUXExposureFocusSwitchWidget.h</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
+<h5 id="description-v5">Description:</h5>
 <p><font color="#666">Use this as the key for the dictionary that is sent with the notification to get the switch state.</font></p>
 </div>
 
