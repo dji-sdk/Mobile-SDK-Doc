@@ -1,7 +1,7 @@
 ---
 title: DJI Simulator Tutorial
-version: v4.7.1
-date: 2018-09-05
+version: v4.8
+date: 2018-10-30
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 keywords: [iOS simulator demo, VirtualStick, virtual stick]
 ---
