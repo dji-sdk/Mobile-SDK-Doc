@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.7.1
-date: 2018-09-05
+version: v4.8
+date: 2018-10-30
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -973,11 +973,11 @@ Here, we create an Intent object with the class of `MainActivity` and invoke the
 
 ## Implementing the First Person View
 
-Now, let's open the "MainActivity.java" file and declare the `TAG` and `mReceivedVideoDataCallBack` variables as shown below:
+Now, let's open the "MainActivity.java" file and declare the `TAG` and `mReceivedVideoDataListener` variables as shown below:
 
 ~~~java
 private static final String TAG = MainActivity.class.getName();
-protected VideoFeeder.VideoDataCallback mReceivedVideoDataCallBack = null;
+protected VideoFeeder.VideoDataListener mReceivedVideoDataListener = null;
 ~~~
 
 Then update the `onCreate()` method as shown below:
@@ -990,7 +990,7 @@ protected void onCreate(Bundle savedInstanceState) {
     initUI();
 
     // The callback for receiving the raw H264 video data for camera live view
-    mReceivedVideoDataCallBack = new VideoFeeder.VideoDataCallback() {
+    mReceivedVideoDataListener = new VideoFeeder.VideoDataListener() {
 
         @Override
         public void onReceive(byte[] videoBuffer, int size) {
@@ -1002,7 +1002,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ~~~
 
-In the code above, we initialize the `mReceivedVideoDataCallBack` variable using VideoFeeder's `VideoDataCallback()`. Inside the callback, we override its `onReceive()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
+In the code above, we initialize the `mReceivedVideoDataListener` variable using VideoFeeder's `VideoDataListener()`. Inside the callback, we override its `onReceive()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
 
 Next, let's implement the `onProductChange()` method invoke it in the `onResume()` method as shown below: 
 
@@ -1038,7 +1038,7 @@ private void initPreviewer() {
             mVideoSurface.setSurfaceTextureListener(this);
         }
         if (!product.getModel().equals(Model.UNKNOWN_AIRCRAFT)) {
-            VideoFeeder.getInstance().getPrimaryVideoFeed().setCallback(mReceivedVideoDataCallBack);
+            VideoFeeder.getInstance().getPrimaryVideoFeed().addVideoDataListener(mReceivedVideoDataListener);
         }
     }
 }
@@ -1047,14 +1047,14 @@ private void uninitPreviewer() {
     Camera camera = FPVDemoApplication.getCameraInstance();
     if (camera != null){
         // Reset the callback
-            VideoFeeder.getInstance().getPrimaryVideoFeed().setCallback(null);
+            VideoFeeder.getInstance().getPrimaryVideoFeed().addVideoDataListener(null);
     }
 }
 ~~~
 
-In the `initPreviewer()` method, firstly, we check the product connection status and invoke the `setSurfaceTextureListener()` method of TextureView to set texture listener to MainActivity. Then check if `VideoFeeder` has video feeds and the video feed's size is larger than 0 and set the `mReceivedVideoDataCallBack` as its "callback". So once the camera is connected and receive video data, it will show on the `mVideoSurface` TextureView.
+In the `initPreviewer()` method, firstly, we check the product connection status and invoke the `setSurfaceTextureListener()` method of TextureView to set texture listener to MainActivity. Then check if `VideoFeeder` has video feeds and the video feed's size is larger than 0 and set the `mReceivedVideoDataListener` as its "listener". So once the camera is connected and receive video data, it will show on the `mVideoSurface` TextureView.
 
-Moreover, we implement the `uninitPreviewer()` method to reset Camera's "VideoDataCallback" to null.
+Moreover, we implement the `uninitPreviewer()` method to reset Camera's "VideoDataListener" to null.
 
 Now, let's override the four SurfaceTextureListener interface methods as shown below:
 

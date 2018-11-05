@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.7.1
-date: 2018-09-05
+version: v4.8
+date: 2018-10-30
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-Phantom4Missions
 keywords: [Android Phantom 4 Mission, TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -701,7 +701,7 @@ Before we implement the TapFly Mission, we should update the DemoBaseActivity.ja
 
 ~~~java
 private static final String TAG = MainActivity.class.getName();
-protected VideoFeeder.VideoDataCallback mReceivedVideoDataCallBack = null;
+protected VideoFeeder.VideoDataListener mReceivedVideoDataListener = null;
 protected DJICodecManager mCodecManager = null;
 private BaseProduct mProduct;
 
@@ -728,7 +728,7 @@ protected void onCreate(Bundle savedInstanceState) {
     }
 
     // The callback for receiving the raw H264 video data for camera live view
-    mReceivedVideoDataCallBack = new VideoFeeder.VideoDataCallback() {
+    mReceivedVideoDataListener = new VideoFeeder.VideoDataListener() {
 
         @Override
         public void onReceive(byte[] videoBuffer, int size) {
@@ -741,9 +741,9 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ~~~
 
-Here we declare a TextureView(`mVideoSurface` object) to show the live video stream data. We use the `video_previewer_surface` id from its layout xml file to create the object. This id should be the same as PointingTestActivity and TrackingTestActivity's layout settings. Then create the callback variable `mReceivedVideoDataCallBack` to implement the DJICamera's interface methods for receiving video data.
+Here we declare a TextureView(`mVideoSurface` object) to show the live video stream data. We use the `video_previewer_surface` id from its layout xml file to create the object. This id should be the same as PointingTestActivity and TrackingTestActivity's layout settings. Then create the callback variable `mReceivedVideoDataListener` to implement the DJICamera's interface methods for receiving video data.
  
-Moreover, we implement the `initPreviewer()` method as shown below to check product connection status and set the `mReceivedVideoDataCallBack` as the callback of VideoFeeder:
+Moreover, we implement the `initPreviewer()` method as shown below to check product connection status and set the `mReceivedVideoDataListener` as the listener of VideoFeeder:
  
 ~~~java
 private void initPreviewer() {
@@ -761,7 +761,7 @@ private void initPreviewer() {
         }
 
         if (!mProduct.getModel().equals(Model.UNKNOWN_AIRCRAFT)) {
-            VideoFeeder.getInstance().getPrimaryVideoFeed().setCallback(mReceivedVideoDataCallBack);
+            VideoFeeder.getInstance().getPrimaryVideoFeed().addVideoDataListener(mReceivedVideoDataListener);
         }
     }
 }
