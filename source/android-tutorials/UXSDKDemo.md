@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
-version: v4.7.1
-date: 2018-10-19
+version: v4.8
+date: 2018-11-05
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -81,8 +81,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-uxsdk:4.7.1')
-    provided ('com.dji:dji-sdk-provided:4.7.1')
+    compile ('com.dji:dji-uxsdk:4.8')
+    provided ('com.dji:dji-sdk-provided:4.8')
 }
 ~~~
 
@@ -317,7 +317,7 @@ Now, let's continue to open the "activity_main.xml" file, and replace the code w
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/signal"
-        custom:excludeItem="aircraftBatteryTemperature|ESCStatus"
+        custom:excludeItem="ESCStatus"
         android:visibility="gone"/>
 
 </RelativeLayout>
