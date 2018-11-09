@@ -139,7 +139,7 @@ th {
     }
   }
   > tbody {
-    > tr:nth-child(21), tr:nth-child(25) {
+    > tr:nth-child(22), tr:nth-child(26) {
       border-bottom: 1px solid $table-border-color;
     }
   }
@@ -162,9 +162,9 @@ th {
     > tr {
       > th,
       > td {
-        padding-top: 5px; 
+        padding-top: 5px;
         margin-top: 1px;
-        padding-bottom: 5px; 
+        padding-bottom: 5px;
         margin-bottom: 1px;
         border: 0px solid $table-border-color;
       }
@@ -214,9 +214,9 @@ th {
     > tr {
       > th,
       > td {
-        padding-top: 5px; 
+        padding-top: 5px;
         margin-top: 1px;
-        padding-bottom: 5px; 
+        padding-bottom: 5px;
         margin-bottom: 1px;
         border: 0px solid $table-border-color;
       }
@@ -242,8 +242,8 @@ th {
       > td {
         font-size: 120%;
         font-weight: bold;
-        padding-top: 5px; 
-        padding-bottom: 1px; 
+        padding-top: 5px;
+        padding-bottom: 1px;
       }
       > td:nth-child(1), td:nth-child(2), td:nth-child(3),td:nth-child(4) {
         border-right: 1px solid $table-border-color;
@@ -256,7 +256,7 @@ th {
     }
     > tr:nth-child(2) {
       > td {
-        padding-top: 2px; 
+        padding-top: 2px;
         font-weight: bold;
         border-right: 0px solid $table-border-color;
         background-color: rgb(237,237,237);
@@ -271,7 +271,7 @@ th {
         border-top: 1px solid $table-border-color;
       }
       > td:first-child {
-       border-top: 0px solid $table-border-color; 
+       border-top: 0px solid $table-border-color;
       }
     }
 }
@@ -292,9 +292,9 @@ th {
     > tr {
       > th,
       > td {
-        padding-top: 5px; 
+        padding-top: 5px;
         margin-top: 1px;
-        padding-bottom: 5px; 
+        padding-bottom: 5px;
         margin-bottom: 1px;
         border: 0px solid $table-border-color;
       }
@@ -320,8 +320,8 @@ th {
       > td {
         font-size: 120%;
         font-weight: bold;
-        padding-top: 5px; 
-        padding-bottom: 1px; 
+        padding-top: 5px;
+        padding-bottom: 1px;
       }
       > td:nth-child(1), td:nth-child(2), td:nth-child(3),td:nth-child(4) {
         border-right: 1px solid $table-border-color;
@@ -334,7 +334,7 @@ th {
     }
     > tr:nth-child(2) {
       > td {
-        padding-top: 2px; 
+        padding-top: 2px;
         font-weight: bold;
         border-right: 0px solid $table-border-color;
         background-color: rgb(237,237,237);
@@ -349,7 +349,7 @@ th {
         border-top: 1px solid $table-border-color;
       }
       > td:first-child {
-       border-top: 0px solid $table-border-color; 
+       border-top: 0px solid $table-border-color;
       }
     }
     > tr:nth-child(6),tr:nth-child(11) {
@@ -376,9 +376,9 @@ th {
     > tr {
       > th,
       > td {
-        padding-top: 5px; 
+        padding-top: 5px;
         margin-top: 1px;
-        padding-bottom: 5px; 
+        padding-bottom: 5px;
         margin-bottom: 1px;
         border: 0px solid $table-border-color;
       }
@@ -404,8 +404,8 @@ th {
       > td {
         font-size: 120%;
         font-weight: bold;
-        padding-top: 5px; 
-        padding-bottom: 1px; 
+        padding-top: 5px;
+        padding-bottom: 1px;
       }
       > td:nth-child(1), td:nth-child(2), td:nth-child(3),td:nth-child(4) {
         border-right: 1px solid $table-border-color;
@@ -418,7 +418,7 @@ th {
     }
     > tr:nth-child(2) {
       > td {
-        padding-top: 2px; 
+        padding-top: 2px;
         font-weight: bold;
         border-right: 0px solid $table-border-color;
         background-color: rgb(237,237,237);
@@ -433,7 +433,7 @@ th {
         border-top: 1px solid $table-border-color;
       }
       > td:first-child {
-       border-top: 0px solid $table-border-color; 
+       border-top: 0px solid $table-border-color;
       }
     }
 }
