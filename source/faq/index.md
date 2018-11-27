@@ -1,6 +1,6 @@
 ---
 title: DJI Mobile SDK FAQ
-date: 2018-01-29
+date: 2018-11-27
 keywords: [FAQ, stackOverFlow, Github Issues, registration fail, sd card data, unlock travel mode, link button, reset default app, cocoapods, enable bitcode, support swift, external accessory protocol]
 ---
 
@@ -87,16 +87,6 @@ You can use the following methods to get help:
 
   Post questions in StackOverFlow with DJI SDK tag: <a href="http://stackoverflow.com/questions/tagged/dji-sdk" target="_blank">dji-sdk</a>
 
-- DJI SDK Forum
-
-  <a href="http://forum.dev.dji.com/forum-90-1.html" target="_blank">http://forum.dev.dji.com/forum-90-1.html</a>
-
-- Github Issues
-  
-  <a href="https://github.com/dji-sdk/Mobile-SDK-iOS/issues" target="_blank">iOS Github Issues</a>
-
-  <a href="https://github.com/dji-sdk/Mobile-SDK-Android/issues" target="_blank">Android Github Issues</a>
-  
 - Send Email
 
   If you prefer email, please send to <dev@dji.com> for help.
@@ -115,7 +105,7 @@ The following two links from the documentation can help here:
 The first time the application is initialized after installation, it connects to a DJI Server to verify it's authorized to use the DJI Mobile SDK by sending the Application Key. This process is called registration. Reasons for why it might fail include:
 
 * Application needs internet connectivity the first time it is run after installation (successful registration is locally cached, so internet connectivity is not required after the first initialization).
-* App key is incorrect. Check in the <a href="https://developer.dji.com/user/apps/#all" target="_blank"> User Center </a> to confirm the application key, or [create](../quick-start/index.html#generate-an-app-key) one if it hasn't been created yet.
+* App key is incorrect. Check in the <a href="https://developer.dji.com/user/apps/#all" target="_blank"> Developer Center </a> to confirm the application key, or [create](../quick-start/index.html#generate-an-app-key) one if it hasn't been created yet.
 * Bundle Identifier (iOS) or Package Name (Android) isn't the same as the one associated with the App Key. See how to [create](../quick-start/index.html#generate-an-app-key) an application key and associate it with the correct application identifier.
 * If you are using iOS 10, please check [here](#application-registration-fail-in-ios-10-how-to-fix-it) to enable "Data Protection" in your Xcode project.
 
