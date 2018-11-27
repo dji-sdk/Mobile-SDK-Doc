@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "co": "^4.6.0",
-    "hexo": "^3.2.0",
+    "hexo": "~3.2.0",
     "hexo-renderer-markdown-it": "^3.4.1",
     "hexo-renderer-sass": "^0.2.0",
     "hexo-server": "^0.2.0",
