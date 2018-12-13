@@ -1,6 +1,6 @@
 ---
 title: Testing, Profiling & Debugging
-date: 2018-05-15
+date: 2018-12-13
 keywords: [aircraft simulator, DJI PC Simulator, DJI Assistant 2, continuous integration simulation, DJISimulator, wireless bridge app, remote logging]
 ---
 
@@ -18,7 +18,7 @@ This allows both manual and automated flights to be simulated without actually f
 
 DJI provides tools for Windows and Mac which can be used to initialize the simulator, and visualize the aircraft behavior based on the state information provided by the simulator:
 
-* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used for newer aircraft like Spark, Mavic Pro, Phantom 4 series, Inspire 2 and Matrice series.
+* **DJI Assistant 2** (<a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Windows </a> or <a href="http://www.dji.com/phantom-4/info#downloads" target="_blank"> Mac </a>) is used for newer aircraft like Spark, Mavic Pro, Phantom 4 series and Matrice series.
 * **DJI PC Simulator** ( <a href="https://s3.amazonaws.com/djisdk/ios_sdk/DJI_PC_Simulator_Installer_And_User_Manual_V1.0_en.zip" target="_blank"> Windows </a> only) is used for Phantom 3 series, Inspire 1 series of aircraft.
 
 Additionally, simulator initialization, monitoring and termination can be controlled directly through the SDK allowing for application development in continuous integration environments.
