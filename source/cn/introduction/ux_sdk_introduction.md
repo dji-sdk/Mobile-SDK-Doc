@@ -1,6 +1,6 @@
 ---
 title: UX SDK Introduction
-date: 2018-04-12
+date: 2018-12-25
 keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 
@@ -58,34 +58,7 @@ A widget is the simplest component of the UX SDK. It typically represents a simp
 
 ### Customization
 
-Widgets can be customized by either swapping the asset, or subclassing the widget.
-
-#### Asset Swap
-
-Swapping the asset keeps the widget's behavior and logic, but changes its look.
-
-##### iOS
-
-  1. Open the **DJIUXSDK.framework**
-  2. Replace assets in the "DJIUXSDK.framework/Assets/"" directory
-  3. Replace the orignal **DJIUXSDK.framework** file in the Xcode project
-
-> Note: The image assets are required to be of the same names and pixel dimensions as the original ones.
-
-##### Android
-
-  1. Rename AAR file to have a zip extension
-  2. Unzip AAR file
-  3. Replace assets in the following directories:
-    - res/drawable
-    - res/drawable-hdpi-v4
-    - res/drawable-mdpi-v4
-    - res/drawable-xhdpi-v4
-    - res/drawable-xxhdpi-v4
-    - res/drawable-xxxhdpi-v4
-  4. Zip file and rename to replace the original AAR file 
-
-> Note: The image assets are required to be of the same pixel dimensions as the original ones.
+Widgets can be customized by subclassing the widget.
 
 #### Subclassing
 
