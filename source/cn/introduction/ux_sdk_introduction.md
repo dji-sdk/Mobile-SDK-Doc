@@ -1,6 +1,6 @@
 ---
 title: UX SDK Introduction
-date: 2018-12-25
+date: 2018-12-27
 keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 
@@ -58,7 +58,40 @@ A widget is the simplest component of the UX SDK. It typically represents a simp
 
 ### Customization
 
-Widgets can be customized by subclassing the widget.
+Widgets can be customized by either swapping the asset, or subclassing the widget.
+
+#### Asset Swap
+
+Swapping the asset keeps the widget's behavior and logic, but changes its look.
+
+Your asset needs to be sized and named the same as the exising asset or it will not be displayed correctly by the framework. If UXSDK is not able to find the asset it is expecting, it will draw a small orange square around the center of where the asset will be to help with visibility.
+
+##### iOS
+
+  1. Download framework Xcode asset catalog (.xcassets) files [here](https://github.com/dji-sdk/Mobile-UXSDK-iOS/tree/master/customize-uxsdk-assets)
+  2. Remove the image files you'd like to replace from asset catalog files. Please DO NOT remove any other files, including the contents.json.
+  3. Add the image files you'd like to use. Make sure they have the same name, @2x/@3x, are in the same location, and the same size as the original files.
+  4. Run the asset-swap.sh script in the asset catalog file directory. The script will output an Assets.car file into the folder it was executed inside of.
+  5. Replace the Assets.car file inside DJIUXSDK.framework with the newly generated Assets.car file.
+  6. You may need to clear DerivedData and reset your device in order for these changes to take effect.
+UXSDK will automatically pick up and use your custom image file.
+
+> Note: The image files are required to have the same name, size, @2x/@3x as the original files they are replacing. **The framework may not draw images correctly if there are any differences.**
+
+<!-- ##### Android
+
+  1. Rename AAR file to have a zip extension
+  2. Unzip AAR file
+  3. Replace assets in the following directories:
+    - res/drawable
+    - res/drawable-hdpi-v4
+    - res/drawable-mdpi-v4
+    - res/drawable-xhdpi-v4
+    - res/drawable-xxhdpi-v4
+    - res/drawable-xxxhdpi-v4
+  4. Zip file and rename to replace the original AAR file 
+
+> Note: The image assets are required to be of the same pixel dimensions as the original ones. -->
 
 #### Subclassing
 
