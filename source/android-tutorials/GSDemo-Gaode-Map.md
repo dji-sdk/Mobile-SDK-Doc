@@ -6,7 +6,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-GSDemo-Gaode-Map
 keywords: [Android GSDemo, Gaode Map, waypoint mission demo]
 ---
 
-*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI forum. Please feel free to send us Github pull request and help us fix any issues.*
+*If you come across any mistakes or bugs in this tutorial, please let us know by sending emails to dev@dji.com. Please feel free to send us Github pull request and help us fix any issues.*
 
 ---
 

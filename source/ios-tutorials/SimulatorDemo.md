@@ -6,7 +6,7 @@ github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-SimulatorDemo
 keywords: [iOS simulator demo, VirtualStick, virtual stick]
 ---
 
-*If you come across any mistakes or bugs in this tutorial, please let us know using a Github issue, a post on the DJI Forum. Please feel free to send us Github pull request and help us fix any issues.*
+*If you come across any mistakes or bugs in this tutorial, please let us know by sending emails to dev@dji.com. Please feel free to send us Github pull request and help us fix any issues.*
 
 ---
 
