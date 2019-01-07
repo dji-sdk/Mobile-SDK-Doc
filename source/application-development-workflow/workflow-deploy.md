@@ -39,7 +39,7 @@ Please visit the [Developer Center](https://developer.dji.com/user/membership/) 
 
 ##### 2. Developer Submits the MFi Program Application Form to DJI
 
-Login into the **User Center** at <a href="http://developer.dji.com" target="_blank"> http://developer.dji.com </a> and complete the MFi Program Application Form for the specific application to be released.
+Login into the **Developer Center** at <a href="http://developer.dji.com" target="_blank"> http://developer.dji.com </a> and complete the MFi Program Application Form for the specific application to be released.
 
 ![graph](../images/application-development-workflow/MFiApplicationForm.png)
 

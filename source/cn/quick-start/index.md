@@ -20,7 +20,7 @@ Every application needs a unique App Key to initialize the SDK.
 
 To create an App Key for an application:
 
-Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="_blank">User Center</a>
+Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="_blank">Developer Center</a>
 
 *    Select the "Apps" tab on the left.
 *    Select the "Create App" button on the right.
@@ -30,7 +30,7 @@ Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="
     * For Android, the package identifier is the <a href="http://developer.dji.com/en/user/mobile-sdk/android-configuration/" target="_blank">Package Name</a>.
 
 * An application activation email will be sent to complete App Key generation.
-* The App Key will appear in the user center, and can be copied and pasted into the application.
+* The App Key will appear in the developer center, and can be copied and pasted into the application.
 
 ## iOS Sample App
 
