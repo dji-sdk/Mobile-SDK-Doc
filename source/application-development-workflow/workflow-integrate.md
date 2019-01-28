@@ -215,8 +215,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-sdk:4.8.1')
-    provided ('com.dji:dji-sdk-provided:4.8.1')
+    compile ('com.dji:dji-sdk:4.9')
+    provided ('com.dji:dji-sdk-provided:4.9')
 }
 ~~~
 
