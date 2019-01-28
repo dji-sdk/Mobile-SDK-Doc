@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2018-11-09
+date: 2019-01-28
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -106,8 +106,13 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
   </thead>
   <tbody>
-   <tr>
-      <td rowspan="22">Aircraft</th>
+    <tr>
+      <td rowspan="24">Aircraft</th>
+      <td>Mavic 2 Enterprise Dual</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
+    <tr>
       <td>Mavic 2 Enterprise</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -154,6 +159,11 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
      <tr>
       <td>Phantom 4 Professional V2</td>
+      <td>Fixed</td>        
+      <td> — </td>
+    </tr>
+    <tr>
+      <td>Phantom 4 RTK</td>
       <td>Fixed</td>        
       <td> — </td>
     </tr>
@@ -364,6 +374,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Mavic 2 Enterprise</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>905</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
 <tr>
+<td>Mavic 2 Enterprise Dual</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>899</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<tr>
 <td>Phantom 3 4K</td><td>25</td><td>16</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>1280</td><td>350</td></tr>
 <tr>
 <td>Phantom 3 Advanced</td><td>23</td><td>16</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>1280</td><td>350</td></tr>
@@ -379,6 +391,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Phantom 4 Professional</td><td>30</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1388</td><td>350</td></tr>
 <tr>
 <td>Phantom 4 Professional V2</td><td>30</td><td>20</td><td>6</td><td>4</td><td>6000</td><td>4</td><td>1375</td><td>350</td></tr>
+<tr>
+<td>Phantom 4 RTK</td><td>30</td><td>16</td><td>6</td><td>3</td><td>6000</td><td>4</td><td>1391</td><td>350</td></tr>
 <tr>
 <td>Spark</td><td>16</td><td>13.9</td><td>3</td><td>3</td><td>4000</td><td>4</td><td>300</td><td>170</td></tr>
 </tbody></table></html>
@@ -436,6 +450,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Mavic 2 Enterprise</td><td>Fixed</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>M2E SPOTLIGHT, M2E BEACON, M2E SPEAKER</td></tr>
 <tr>
+<td>Mavic 2 Enterprise Dual</td><td>Fixed</td><td>-</td><td>8 / 5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>M2E SPOTLIGHT, M2E BEACON, M2E SPEAKER</td></tr>
+<tr>
 <td>Phantom 3 4K</td><td>Fixed</td><td>-</td><td>1.2 / 0.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 3 Advanced</td><td>Fixed</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
@@ -451,6 +467,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Phantom 4 Professional</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 4 Professional v2</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Phantom 4 RTK</td><td>Fixed</td><td>-</td><td>7 / 5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Spark</td><td>Fixed</td><td>-</td><td>2 / 0.5</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1 without RC</p></td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
 </tbody></table></html>
@@ -499,6 +517,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Mavic 2 Enterprise</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
+<td>Mavic 2 Enterprise Dual</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
 <td>Phantom 3 4K</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Phantom 3 Advanced</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
@@ -514,6 +534,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Phantom 4 Professional</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Phantom 4 Professional V2</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Phantom 4 RTK</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Spark</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-5m</p></td><td>-</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
 </tbody></table></html>
@@ -888,6 +910,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Mavic 2 Enterprise</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-3200</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
+<td>Mavic 2 Enterprise Dual</td><td>Visual 1/2.3"<br>Thermal Uncooled VOx Microbolometer</td><td>Visual 12</td><td>Visual 4K<br>Thermal 640×360</td><td>Visual 100-3200</td><td>-</td><td>-</td></tr>
+<tr>
 <td>Osmo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Osmo +</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
@@ -902,11 +926,13 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 Advanced</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
+<td>Phantom 4 Advanced</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 Professional</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
+<td>Phantom 4 Professional</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
+<td>Phantom 4 Professional V2</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
+<tr>
+<td>Phantom 4 RTK</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
 <tr>
 <td>Spark</td><td>1/2.3"</td><td>12</td><td>FHD</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">1920 x 1080</p></td><td>100-1600</td><td>-</td><td>2-1/8000</td></tr>
 <tr>
@@ -946,9 +972,11 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Mavic 2 Pro</td><td>-</td><td>77</td><td>35</td><td>f/2.8–f/11</td><td>1 - &#8734</td></tr>
 <tr>
-<td>Mavic 2 Zoom</td><td>-</td><td>83</td><td>24-48mm</td><td> f/2.8(24mm)–f/3.8(48mm)</td><td>0.5 - &#8734</td></tr>
+<td>Mavic 2 Zoom</td><td>-</td><td>83</td><td>24-48</td><td> f/2.8(24mm)–f/3.8(48mm)</td><td>0.5 - &#8734</td></tr>
 <tr>
-<td>Mavic 2 Enterprise</td><td>-</td><td>82.6</td><td>24-48mm</td><td> f/2.8(24mm)–f/3.8(48mm)</td><td>0.5 - &#8734</td></tr>
+<td>Mavic 2 Enterprise</td><td>-</td><td>82.6</td><td>24-48</td><td> f/2.8(24mm)–f/3.8(48mm)</td><td>0.5 - &#8734</td></tr>
+<tr>
+<td>Mavic 2 Enterprise Dual</td><td>-</td><td>Visual 85</td><td>Visual 24</td><td>Visual f/2.8(24mm)<br>Thermal f/1.1</td><td>Visual 0.5 - &#8734</td></tr>
 <tr>
 <td>Mavic Air</td><td>-</td><td>85</td><td>35</td><td>f/2.8</td><td>0.5 - &#8734</td></tr>
 <tr>
@@ -973,6 +1001,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Phantom 4 Professional</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
 <tr>
 <td>Phantom 4 Professional V2</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
+<tr>
+<td>Phantom 4 RTK</td><td>-</td><td>84</td><td>24</td><td>f/2.8 - f/11</td><td>1 - &#8734</td></tr>
 <tr>
 <td>Spark</td><td>-</td><td>81.9</td><td>25</td><td>f/2.6</td><td>2 - &#8734</td></tr>
 <tr>
@@ -1016,6 +1046,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Mavic 2 Enterprise</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
 <tr>
+<td>Mavic 2 Enterprise Dual</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<tr>
 <td>Mavic Air</td><td>-</td><td>roll, pitch, yaw</td><td>-100 to 22</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
 <tr>
 <td>Mavic Pro</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
@@ -1039,6 +1071,8 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <td>Phantom 4 Professional</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Phantom 4 Professional V2</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<tr>
+<td>Phantom 4 RTK</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Spark</td><td>-</td><td>roll, pitch</td><td>-85 to 0</td><td>Micro SD</td><td>-</td></tr>
 <tr>
@@ -1115,6 +1149,8 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <tr>
 <td>Mavic 2 Enterprise</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
+<td>Mavic 2 Enterprise Dual</td><td>Required (Without Built-In screen)</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<tr>
 <td>Mavic Pro</td><td>Optional</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Mavic Air</td><td>Optional</td><td>USB</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
@@ -1135,6 +1171,7 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <tr>
 <td>Phantom 4 Professional V2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
+<td>Phantom 4 RTK</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<tr>
 <td>Spark</td><td>Optional</td><td>WiFi</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 </tbody></table></html>
-

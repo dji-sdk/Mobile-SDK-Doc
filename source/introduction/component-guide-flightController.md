@@ -295,7 +295,7 @@ Virtual stick commands to move the aircraft horizontally can either be set with 
 
 ### Yaw Control Mode
 
-Yaw can be changed by either angle or velocity. Yaw settings are independent of the coordinate system. Positive yaw velocity will always rotate clockwise, and yaw angle is always relative to North.
+Can be set to Angular Velocity Mode or Angle Mode. In Angular Velocity mode the yaw argument specifies the speed of rotation, in degrees/second, and yaw is affected by the coordinate system being used. When Yaw Control Mode is set to Angle Mode, value will be interpreted as an angle in the Ground Coordinate System. Please make sure that you select the right coordinate system.
 
 ### Vertical Throttle Control Mode: 
 
