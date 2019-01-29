@@ -1,7 +1,7 @@
 ---
 title: Application Activation and Aircraft Binding
-version: v4.9
-date: 2019-01-28
+version: v4.9.1
+date: 2019-01-29
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ActivationAndBindingDemo
 keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, Bound, Activated, Real Name System]
 ---
