@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
-version: v4.8.1
-date: 2018-11-20
+version: v4.9
+date: 2019-01-30
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -770,6 +770,7 @@ private void getFileList() {
         }else{
 
             mMediaManager.refreshFileListOfStorageLocation(SettingsDefinitions.StorageLocation.SDCARD, new CommonCallbacks.CompletionCallback() {
+
                 @Override
                 public void onResult(DJIError djiError) {
                     if (null == djiError) {
@@ -799,13 +800,12 @@ private void getFileList() {
                             public void onResult(DJIError error) {
                                 if (error == null) {
                                     getThumbnails();
-                                    getPreviews();
                                 }
                             }
                         });
                     } else {
                         hideProgressDialog();
-                        setResultToToast("Get Media File List Failed:" + error.getDescription());
+                        setResultToToast("Get Media File List Failed:" + djiError.getDescription());
                     }
                 }
             });
@@ -818,11 +818,6 @@ private void getThumbnailByIndex(final int index) {
     scheduler.moveTaskToEnd(task);
 }
 
-private void getPreviewByIndex(final int index) {
-    FetchMediaTask task = new FetchMediaTask(mediaFileList.get(index), FetchMediaTaskContent.PREVIEW, taskCallback);
-    scheduler.moveTaskToEnd(task);
-}
-
 private void getThumbnails() {
     if (mediaFileList.size() <= 0) {
         setResultToToast("No File info for downloading thumbnails");
@@ -830,16 +825,6 @@ private void getThumbnails() {
     }
     for (int i = 0; i < mediaFileList.size(); i++) {
         getThumbnailByIndex(i);
-    }
-}
-
-private void getPreviews() {
-    if (mediaFileList.size() <= 0) {
-        setResultToToast("No File info for downloading previews");
-        return;
-    }
-    for (int i = 0; i < mediaFileList.size(); i++) {
-        getPreviewByIndex(i);
     }
 }
 
@@ -862,7 +847,7 @@ private FetchMediaTask.Callback taskCallback = new FetchMediaTask.Callback() {
                 });
             }
         } else {
-            DJILog.e(TAG, "Fetch Media Task Failed" + djiError.getDescription());
+            DJILog.e(TAG, "Fetch Media Task Failed" + error.getDescription());
         }
     }
 };
@@ -877,11 +862,11 @@ In the code above, we implement the following features:
 
 3. Invoke the `getSDCardFileListSnapshot()` method of `MediaManager` to get the current file list and store it in the `mediaFileList` variable.
 
-4. Sort the media files in the `mediaFileList` based on the created time. Then invoke the `resume()` method of `FetchMediaTaskScheduler` to resume the scheduler and invoke the `getThumbnails()` and `getPreviews()` methods in the `onResult()` callback method. If there is an error, invoke the `hideProgressDialog()` method to hide the progress dialog. 
+4. Sort the media files in the `mediaFileList` based on the created time. Then invoke the `resume()` method of `FetchMediaTaskScheduler` to resume the scheduler and invoke the `getThumbnails()` method in the `onResult()` callback method. If there is an error, invoke the `hideProgressDialog()` method to hide the progress dialog. 
 
-5. Next, create the `getThumbnailByIndex()` and `getPreviewByIndex()` methods to initialize the `FetchMediaTask` tasks for `FetchMediaTaskContent.THUMBNAIL` and `FetchMediaTaskContent.PREVIEW`, and then move the tasks to the end of `FetchMediaTaskScheduler`.
+5. Next, create the `getThumbnailByIndex()` method to initialize the `FetchMediaTask` tasks for `FetchMediaTaskContent.THUMBNAIL`, and then move the tasks to the end of `FetchMediaTaskScheduler`.
 
-6. After that, create the `getThumbnails()` and `getPreviews()` methods to go through the files in the `mediaFileList` and invoke the `getThumbnailByIndex()` and `getPreviewByIndex()` methods to initialize the `FetchMediaTask` tasks.
+6. After that, create the `getThumbnails()` method to go through the files in the `mediaFileList` and invoke the `getThumbnailByIndex()` method to initialize the `FetchMediaTask` tasks.
 
 7. Lastly, initialize the `taskCallback` variable and implement the `onUpdate()` callback method. If there is no error, check the value of the `option` variable. If the value is equal to either `FetchMediaTaskContent.PREVIEW` or `FetchMediaTaskContent.THUMBNAIL`, invoke the `notifyDataSetChanged()` method of the `FileListAdapter` in the UI thread to update the `listView`.
 
@@ -1062,17 +1047,49 @@ private View.OnClickListener itemViewOnClickListener = new View.OnClickListener(
 private View.OnClickListener ImgOnClickListener = new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
-        MediaFile selectedMedia = (MediaFile )v.getTag();
-        final Bitmap previewImage = selectedMedia.getPreview();
-        runOnUiThread(new Runnable() {
-            public void run() {
-                mDisplayImageView.setVisibility(View.VISIBLE);
-                mDisplayImageView.setImageBitmap(previewImage);
-            }
-        });
+        MediaFile selectedMedia = (MediaFile) v.getTag();
+        if (selectedMedia != null && mMediaManager != null) {
+            addMediaTask(selectedMedia);
+        }
     }
 };
+
+private void addMediaTask(final MediaFile mediaFile) {
+    final FetchMediaTaskScheduler scheduler = mMediaManager.getScheduler();
+    final FetchMediaTask task =
+            new FetchMediaTask(mediaFile, FetchMediaTaskContent.PREVIEW, new FetchMediaTask.Callback() {
+                @Override
+                public void onUpdate(final MediaFile mediaFile, FetchMediaTaskContent fetchMediaTaskContent, DJIError error) {
+                    if (null == error) {
+                        if (mediaFile.getPreview() != null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    final Bitmap previewBitmap = mediaFile.getPreview();
+                                    mDisplayImageView.setVisibility(View.VISIBLE);
+                                    mDisplayImageView.setImageBitmap(previewBitmap);
+                                }
+                            });
+                        } else {
+                            setResultToToast("null bitmap!");
+                        }
+                    } else {
+                        setResultToToast("fetch preview image failed: " + error.getDescription());
+                    }
+                }
+            });
+
+    scheduler.resume(new CommonCallbacks.CompletionCallback() {
+        @Override
+        public void onResult(DJIError error) {
+            if (error == null) {
+                scheduler.moveTaskToNext(task);
+            } else {
+                setResultToToast("resume scheduler failed: " + error.getDescription());
+            }
+        }
+    });
+}
 ~~~
 
 The code above implements:
@@ -1087,7 +1104,9 @@ The code above implements:
 
 5. Furthermore, if the current `ItemHolder` is selected, invoke the `setSelected()` method of its `itemView` variable and pass `true` to it. Then, invoke the `setOnClickListener()` method and pass the `itemViewOnClickListener` variable to register the callback to be invoked when the `itemView` is clicked.
 
-6. Next, initialize the `itemViewOnClickListener` and `ImgOnClickListener` variables and override their `onClick()` methods. When the `itemView` is clicked, update the value of `lastClickViewIndex` and the selected state of `lastClickView`. When the `thumbnail_img` is clicked, create the `selectedMedia` variable by invoking the `getTag()` method of the selected `thumbnail_img` and then invoke the `getPreview()` method of `MediaFile` to fetch the Preview image and store it in the `previewImage` variable. Lastly, show the `mDisplayImageView` and set the `previewImage` as the content of it. 
+6. Next, initialize the `itemViewOnClickListener` and `ImgOnClickListener` variables and override their `onClick()` methods. When the `itemView` is clicked, update the value of `lastClickViewIndex` and the selected state of `lastClickView`. When the `thumbnail_img` is clicked, create the `selectedMedia` variable by invoking the `getTag()` method of the selected `thumbnail_img` and then check if the `selectedMedia` and `mMediaManager` variables are null. If not, invode the `addMediaTask()` method and pass the `selectedMedia` variable to get the preview image.
+
+7. Lastly, implement the `addMediaTask()` method to fetch the `MediaFile` and show its preview image in the `mDisplayImageView` variable. In the `onUpdate()` callback method, invoke the `getPreview()` method of `MediaFile` to get the preview image.
 
 For more details of the implementation, please check the sample code of this tutorial on Github.
 
