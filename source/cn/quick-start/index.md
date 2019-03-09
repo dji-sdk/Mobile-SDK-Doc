@@ -27,7 +27,7 @@ Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="
 * Enter the name, platform, package identifier, category and description of the application.
 
     * For iOS, the package identifier is the <a href="http://developer.dji.com/en/user/apps/ios-configuration" target="_blank">Bundle Identifier</a>.
-    * For Android, the package identifier is the <a href="http://developer.dji.com/en/user/mobile-sdk/android-configuration/" target="_blank">Package Name</a>.
+    * For Android, the package identifier is the <a href="http://developer.dji.com/en/user/apps/android-configuration/" target="_blank">Package Name</a>.
 
 * An application activation email will be sent to complete App Key generation.
 * The App Key will appear in the developer center, and can be copied and pasted into the application.
