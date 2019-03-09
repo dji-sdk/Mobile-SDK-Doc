@@ -26,7 +26,7 @@ Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="
 *    Select the "Create App" button on the right.
 * Enter the name, platform, package identifier, category and description of the application.
 
-    * For iOS, the package identifier is the <a href="http://developer.dji.com/en/user/mobile-sdk/ios-configuration" target="_blank">Bundle Identifier</a>.
+    * For iOS, the package identifier is the <a href="http://developer.dji.com/en/user/apps/ios-configuration" target="_blank">Bundle Identifier</a>.
     * For Android, the package identifier is the <a href="http://developer.dji.com/en/user/mobile-sdk/android-configuration/" target="_blank">Package Name</a>.
 
 * An application activation email will be sent to complete App Key generation.
@@ -86,7 +86,7 @@ installed.
 
 Navigate to the **ObjcSampleCode** folder and open the **DJISdkDemo.xcworkspace** project in Xcode.
 
-* Change the <a href="http://developer.dji.com/en/user/mobile-sdk/ios-configuration" target="_blank">Bundle Identifier</a> to a unique identifier and use it to generate an [App Key](#generate-an-app-key).
+* Change the <a href="http://developer.dji.com/en/user/apps/ios-configuration" target="_blank">Bundle Identifier</a> to a unique identifier and use it to generate an [App Key](#generate-an-app-key).
 
 * Paste the generated App Key string into the `DJISDKAppKey` string value of the **info.plist** file of the Xcode project:
 
@@ -96,7 +96,7 @@ Navigate to the **ObjcSampleCode** folder and open the **DJISdkDemo.xcworkspace*
 
 Navigate to the **DJISDKSwiftDemo** folder and open the **DJISDKSwiftDemo.xcodeproj** project in Xcode.
 
-* Change the <a href="http://developer.dji.com/en/user/mobile-sdk/ios-configuration" target="_blank">Bundle Identifier</a> to a unique identifier and use it to generate an [App Key](#generate-an-app-key).
+* Change the <a href="http://developer.dji.com/en/user/apps/ios-configuration" target="_blank">Bundle Identifier</a> to a unique identifier and use it to generate an [App Key](#generate-an-app-key).
 
 * Paste the generated App Key string into the `DJISDKAppKey` string value of the **info.plist** file of the Xcode project the same as the Objective C App Key Setup.
 
