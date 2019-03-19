@@ -23,9 +23,9 @@ nav#site-header.site-header.navbar
             = __('nav.windows_sdk')
       ul.nav.navbar-nav.navbar-right.nav-user(v-cloak="", v-show="!loggedIn")
         li
-          a(href=url('login'))= __('nav.login')
+          a(href="https://account.dji.com/login?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US")= __('nav.login')
         li
-          a.head-cta(href=url('register'))= __('nav.register')
+          a.head-cta(href="https://account.dji.com/register?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US")= __('nav.register')
       ul.nav.navbar-nav.navbar-right.nav-user(v-cloak="", v-show="loggedIn")
         li.hovedown
           a.hovedown-toggle(href="javascript:void(0);")

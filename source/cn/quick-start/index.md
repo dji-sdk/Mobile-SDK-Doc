@@ -8,7 +8,7 @@ To have a better experience of learning how to get started with the DJI iOS Mobi
 
 ## Register as a DJI Developer
 
-Register for a DJI Developer account here: <a href="http://developer.dji.com/register" target="_blank">http://developer.dji.com/register</a>.
+Register for a DJI Developer account <a href="https://account.dji.com/register?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US" target="_blank">here</a>.
 
 During the registration process, email information and a credit card or phone number will need to be supplied to verify registration. Any credit card information given will only be used for verification and will not be charged.
 
@@ -40,7 +40,7 @@ Download or clone the iOS Sample Github Project from: <a href="https://github.co
 
 The sample code includes both an Objective C sample project and a Swift Sample project.
 
-The sample project is integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) - after you have downloaded the project please follow the the below steps to install DJISDK.framework using CocoaPods: 
+The sample project is integrated with [DJI iOS SDK CocoaPods](https://cocoapods.org/pods/DJI-SDK-iOS) - after you have downloaded the project please follow the the below steps to install DJISDK.framework using CocoaPods:
 
 **1.** Install CocoaPods
 
@@ -76,7 +76,7 @@ installed.
 ~~~
 
 > **Note**: If you saw "Unable to satisfy the following requirements" issue during pod install, please run the following commands to update your pod repo and install the pod again:
-> 
+>
 ~~~
  pod repo update
  pod install
@@ -102,7 +102,7 @@ Navigate to the **DJISDKSwiftDemo** folder and open the **DJISDKSwiftDemo.xcodep
 
 ## Android Sample App
 
-The SDK doesn't need to be downloaded to run the Android sample application as it's already included in the project. 
+The SDK doesn't need to be downloaded to run the Android sample application as it's already included in the project.
 
 ### Android Sample Code Setup
 
@@ -139,14 +139,14 @@ Turn on the Remote Controller.
 * Connect iOS/Android Mobile Device to the Remote Controller using a **Lightning** (iOS) or **USB** (Android) cable.
 * Run Sample App on the Mobile Device.
 
-> **Notes:** 
-> 
+> **Notes:**
+>
 > If you are using an Android Device, please make sure your DJI Remote Controller supports <a href="https://source.android.com/devices/accessories/protocol.html" target="_blank">AOA</a> before you test the Sample app. You can upgrade your DJI Remote Controller to the latest firmware and check if there is a dialog pops up when you connect the app to it like this:
 >
 > ![dialog](../../images/quick-start/android_dialog.png)
 >
 > To learn how to change the default app for USB accessory, please check these two FAQs: [Android Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Android-devices), [Samsung Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Samsung-devices).
-> 
+>
 
 #### WiFi Connection Procedure
 
@@ -164,4 +164,3 @@ Turn on the product (Osmo or aircraft).
 
 * Connect Mobile Device to the WiFi network created by the product.
 * Run Sample App on Mobile Device.
-
