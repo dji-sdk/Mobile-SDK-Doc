@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.9.1
-date: 2019-01-29
+version: v4.10
+date: 2019-05-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -753,7 +753,7 @@ Finally, let's implement the `onStopMissionButtonAction:` IBAction method to sto
     
     weakSelf(target);
     
-    [[self missionOperator] stopMissionWtihCompletion:^(NSError * _Nullable error) {
+    [[self missionOperator] stopMissionWithCompletion:^(NSError * _Nullable error) {
         ShowResult(@"Stop Mission:%@", error.localizedDescription);
         if (!error) {
             weakReturn(target);

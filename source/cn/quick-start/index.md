@@ -65,7 +65,7 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (4.9)
+Installing DJI-SDK-iOS (4.10)
 Installing DJIWidget (1.5)
 Generating Pods project
 Integrating client project
