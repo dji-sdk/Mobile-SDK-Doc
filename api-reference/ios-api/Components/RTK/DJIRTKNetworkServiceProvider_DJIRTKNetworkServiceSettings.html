@@ -20,8 +20,8 @@
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
         <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
-          <li><a href="https://account.dji.com/login?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US">Login</a></li>
-          <li><a href="https://account.dji.com/register?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US" class="head-cta">Register</a></li>
+          <li><a href="https://account.dji.com/login?appId=dji_sdk&amp;backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&amp;locale=en_US">Login</a></li>
+          <li><a href="https://account.dji.com/register?appId=dji_sdk&amp;backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&amp;locale=en_US" class="head-cta">Register</a></li>
         </ul>
         <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
@@ -103,6 +103,8 @@
                                       <dd><a href="../KeyManager/DJIAirLinkKey.html">DJIAirLinkKey</a>
                                       </dd>
                                       <dd><a href="../KeyManager/DJIAccessoryKey.html">DJIAccessoryKey</a>
+                                      </dd>
+                                      <dd><a href="../KeyManager/DJIRTKBaseStationKey.html">DJIRTKBaseStationKey</a>
                                       </dd>
                               </ul>
                             </dd>
@@ -188,7 +190,9 @@
             </dt>
                   <dd><a data-href="../FlightController/DJIFlightController.html" class="sub-toggle">DJIFlightController<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
-                            <dd><a href="../FlightController/DJIFlightController_DJIFlightControllerCurrectState.html">DJIFlightControllerState</a>
+                            <dd><a href="../FlightController/DJIFlightController_DJIFlightControllerCurrentState.html">DJIFlightControllerState</a>
+                            </dd>
+                            <dd><a href="../FlightController/DJIFlightController_DJIGravityCenterState.html">DJIGravityCenterState</a>
                             </dd>
                             <dd><a data-href="../Compass/DJICompass.html" class="sub-toggle">DJICompass<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
@@ -204,13 +208,15 @@
                                         <ul class="sub-menu">
                                                 <dd><a href="DJIRTKNetworkServiceProvider_DJIRTKNetworkServiceState.html">DJIRTKNetworkServiceState</a>
                                                 </dd>
+                                                <dd><a href="DJIRTKNetworkServiceProvider_DJIRTKNetworkServicePlan.html">DJIRTKNetworkServicePlan</a>
+                                                </dd>
+                                                <dd><a href="DJIRTKNetworkServiceProvider_DJIRTKNetworkServicePlansState.html">DJIRTKNetworkServicePlansState</a>
+                                                </dd>
                                                 <dd><a href="" class="active">DJIRTKNetworkServiceSettings</a>
                                                 </dd>
                                                 <dd><a href="DJIRTKNetworkServiceProvider_DJIMutableRTKNetworkServiceSettings.html">DJIMutableRTKNetworkServiceSettings</a>
                                                 </dd>
                                         </ul>
-                                      </dd>
-                                      <dd><a href="DJIRTK_DJIRTKGroundSystemBatteryState.html">DJIRTKBaseStationBatteryState</a>
                                       </dd>
                                       <dd><a href="DJIRTK_DJIRTKReceiverInfo.html">DJIRTKReceiverInfo</a>
                                       </dd>
@@ -431,6 +437,14 @@
                               </ul>
                             </dd>
                             <dd><a href="../AccessoryAggregation/DJIAccessoryAggregation_AggregationState.html">DJIAccessoryAggregationState</a>
+                            </dd>
+                    </ul>
+                  </dd>
+                  <dd><a data-href="../RTKBaseStation/DJIRTKBaseStation.html" class="sub-toggle">DJIRTKBaseStation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                    <ul class="sub-menu">
+                            <dd><a href="../RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html">DJIRTKBaseStationBatteryState</a>
+                            </dd>
+                            <dd><a href="../RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationState.html">DJIRTKBaseStationState</a>
                             </dd>
                     </ul>
                   </dd>
