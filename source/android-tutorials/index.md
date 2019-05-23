@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.9
-date: 2019-01-31
+version: v4.10
+date: 2019-05-15
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -699,6 +699,10 @@ public void onCreate() {
                             newComponent));
 
         }
+        @Override
+        public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
+
+        }
     };
 
     //Check the permissions before registering the application for android system 6.0 above.
@@ -860,6 +864,10 @@ private void startSDKRegistration() {
                                         componentKey,
                                         oldComponent,
                                         newComponent));
+
+                    }
+                    @Override
+                    public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
 
                     }
                 });

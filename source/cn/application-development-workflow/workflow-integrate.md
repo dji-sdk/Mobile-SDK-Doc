@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2019-01-29
+date: 2019-05-15
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -215,8 +215,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-sdk:4.9')
-    provided ('com.dji:dji-sdk-provided:4.9')
+    compile ('com.dji:dji-sdk:4.10')
+    provided ('com.dji:dji-sdk-provided:4.10')
 }
 ~~~
 
@@ -372,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
 
 The `registerApp()` method of `DJISDKManager` has a callback that needs to process two methods for processing the application registration result, and for when the product connected to the mobile device is changed.
 
-Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()`, `onProductDisconnect()`, `onProductConnect()` and `onComponentChange()` methods of the `SDKManagerCallback`:
+Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()`, `onProductDisconnect()`, `onProductConnect()`, `onComponentChange()` and `onInitProcess()` methods of the `SDKManagerCallback`:
 
 ~~~java
 private void startSDKRegistration() {
@@ -426,6 +426,10 @@ private void startSDKRegistration() {
                                         componentKey,
                                         oldComponent,
                                         newComponent));
+
+                    }
+                    @Override
+                    public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
 
                     }
                 });
