@@ -1,6 +1,6 @@
 ---
 title: Camera Exposure
-date: 2016-06-24
+date: 2016-06-25
 keywords: [exposure, aperture, shutter, shutter speed, ISO, focal length, depth of field, field of view]
 ---
 
