@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2019-01-28
+date: 2019-06-28
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -107,7 +107,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
   </thead>
   <tbody>
 	  <tr>
-      <td rowspan="24">Aircraft</th>
+      <td rowspan="27">Aircraft</th>
       <td>Mavic 2 Enterprise Dual</td>
       <td>Fixed</td>        
       <td> — </td>
@@ -201,6 +201,21 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td>Matrice 100</td>
       <td>X3, X5, X5R, XT, Z3, Z30</td>        
       <td> N1 Video Encoder, Focus* </td>
+    </tr>
+    <tr>
+      <td>Matrice 200 V2</td>
+      <td>X4S, X5S, XT, XT2, X7, Z30</td>        
+      <td> — </td>
+    </tr>
+    <tr>
+      <td>Matrice 210 V2</td>
+      <td>X4S, X5S, XT, XT2, X7, Z30</td>        
+      <td> — </td>
+    </tr>
+    <tr>
+      <td>Matrice 210 RTK V2</td>
+      <td>X4S, X5S, XT, XT2, X7, Z30</td>        
+      <td> — </td>
     </tr>
     <tr>
       <td>Matrice 200</td>
@@ -354,6 +369,12 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>16-40*</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2355</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With TB47 Battery</p></td><td>650</td></tr>
 <tr>
+<td>Matrice 200 V2</td><td>24-38*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4690</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
+<tr>
+<td>Matrice 210 V2</td><td>24-34*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
+<tr>
+<td>Matrice 210 RTK V2</td><td>24-33*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4910</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
+<tr>
 <td>Matrice 200</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB50 batteries</p></td><td>716</td></tr>
 <tr>
 <td>Matrice 210</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB50 batteries</p></td><td>716</td></tr>
@@ -428,7 +449,13 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Inspire 2</td><td>X4S, X5S, X7</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Moveable</td><td>-</td><td>Focus, CineSSD</td></tr>
 <tr>
-<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.1</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
+<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
+<tr>
+<td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>1</td><td>Fixed</td><td>1450</br></td><td>-</td></tr>
+<tr>
+<td>Matrice 210 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>2</td><td>Fixed</td><td>1340</br></td><td>-</td></tr>
+<tr>
+<td>Matrice 210 RTK V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>2</td><td>Fixed</td><td>1230</br></td><td>-</td></tr>
 <tr>
 <td>Matrice 200</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
 <tr>
@@ -496,6 +523,12 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Inspire 2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Matrice 100</td><td>With Guidance</td><td>-</td><td>With Guidance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Matrice 200 V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Matrice 210 V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr>
+<td>Matrice 210 RTK V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Matrice 200</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
