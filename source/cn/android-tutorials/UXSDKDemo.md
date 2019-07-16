@@ -1,7 +1,7 @@
 ---
 title: Getting Started with DJI UX SDK
 version: v4.10
-date: 2019-05-31
+date: 2019-07-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-UXSDKDemo
 keywords: [UX SDK, Default Layout, playback, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -65,16 +65,9 @@ android {
         doNotStrip "*/*/libFRCorkscrew.so"
         doNotStrip "*/*/libUpgradeVerify.so"
         doNotStrip "*/*/libFR.so"
-
-        pickFirst 'lib/*/libstlport_shared.so'
-        pickFirst 'lib/*/libRoadLineRebuildAPI.so'
-        pickFirst 'lib/*/libGNaviUtils.so'
-        pickFirst 'lib/*/libGNaviMapex.so'
-        pickFirst 'lib/*/libGNaviData.so'
-        pickFirst 'lib/*/libGNaviMap.so'
-        pickFirst 'lib/*/libGNaviSearch.so'
-
-        exclude '/lib/armeabi-v7a/libChineseFontPkg.so'
+        doNotStrip "*/*/libDJIFlySafeCore.so"
+        doNotStrip "*/*/libdjifs_jni.so"
+        doNotStrip "*/*/libsfjni.so"
         exclude 'META-INF/rxjava.properties'
     }
 }

@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2019-05-15
+date: 2019-07-16
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -209,6 +209,9 @@ android {
         doNotStrip "*/*/libFRCorkscrew.so"
         doNotStrip "*/*/libUpgradeVerify.so"
         doNotStrip "*/*/libFR.so"
+        doNotStrip "*/*/libDJIFlySafeCore.so"
+        doNotStrip "*/*/libdjifs_jni.so"
+        doNotStrip "*/*/libsfjni.so"
         exclude 'META-INF/rxjava.properties'
     }
 }
