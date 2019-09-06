@@ -125,7 +125,7 @@ The **DUXDefaultLayoutViewcontroller** is a viewController designed around 5 chi
 
 ## Application Registration
 
-Lastly, let's implement the application registration feature. Open the **DefaultLayoutViewController.m** file and implement the `DJISDKManagerDelegate` protocol as shown below:
+Last, let's implement the application registration feature. Open the **DefaultLayoutViewController.m** file and implement the `DJISDKManagerDelegate` protocol as shown below:
 
 ~~~objc
 #import "DefaultLayoutViewController.h"
@@ -135,7 +135,7 @@ Lastly, let's implement the application registration feature. Open the **Default
 @end
 ~~~
 
-Furthermore, replace the @implementation part of **DefaultLayoutViewController** with the followings:
+Now, add to the @implementation part of **DefaultLayoutViewController** with the following code:
 
 ~~~objc
 @implementation DefaultLayoutViewController
@@ -174,11 +174,11 @@ Furthermore, replace the @implementation part of **DefaultLayoutViewController**
 }
 ~~~
 
-In the code above, we have implemented the following logics:
+In the code above, we have implemented the following logic:
 
-1. In the `viewDidLoad` method, we invoke the `registerAppWithDelegate` method of `DJISDKManager` to make the application connect to a DJI Server through the Internet to verify the App Key and set the `DJISDKManagerDelegate` to `DefaultLayoutViewController`. For more details of registering the application, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#register-application) for details.
+1. In the `viewDidLoad` method, we invoked the `registerAppWithDelegate` method of `DJISDKManager` to make the application connect to a DJI Server through the Internet. Doing this, verified the App Key and set the `DJISDKManagerDelegate` to `DefaultLayoutViewController`. For more details on registering the application, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#register-application).
 
-2. Implement the delegate method `- (void)appRegisteredWithError:(NSError *)error` of **DJISDKManagerDelegate** to connect the application to DJI Product by invoking the `startConnectionToProduct` method of **DJISDKManager** when register successfully, if register failed, show an alert view and disable the `connectButton`.
+2. Implemented the delegate method `- (void)appRegisteredWithError:(NSError *)error` of **DJISDKManagerDelegate** to connect the application to a DJI Product by invoking the `startConnectionToProduct` method of **DJISDKManager** when registered successfully. If register fails, show an alert view and disable the `connectButton`.
 
 ## Connecting to the Aircraft and Run the Project
 
