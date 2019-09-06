@@ -11,37 +11,29 @@ keywords: [UX SDK, Default Layout, playback, preview photos and videos, download
 
 ---
 
-In this tutorial, you will learn how to use DJI iOS UX SDK and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. By the end of this tutorial you will have an app that you can use to show the camera FPV view, check aircraft status, shoot photos, record videos and so on.
+In this tutorial, you will learn how to use DJI iOS UX SDK and DJI iOS Mobile SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. By the end of this tutorial you will have an app that you can use to show the camera FPV view, check aircraft status, shoot photos, record videos and so on.
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-UXSDKDemo).
 
-We use Mavic Pro and iPad Air as an example to make this demo. Let's get started!
+We used Mavic Pro and iPad Air as an example to make this demo. Let's get started!
 
 ## Introduction
 
 DJI UX SDK is a visual framework consisting of UI Elements. It helps you simplify the creation of DJI Mobile SDK based apps in iOS. With similar design to DJI Go,UI Elements allow you to create consistent UX between your apps and DJI apps.
 
-Additionally, with the ease of use, UX SDK let you focus more on business and application logic. 
+In addition, with the ease of use that the UX SDK provides, it frees developers to focus more on business and application logic. 
 
 As DJI UX SDK is built on top of DJI Mobile SDK and DJIWidget, you need to use it with them together in your application development.
 
-For an in depth learning on DJI UX SDK, please go to the [UX SDK Introduction](../introduction/ux_sdk_introduction.html).
-
-## Application Activation and Aircraft Binding in China
-
- For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
-
- If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
-
- To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
+For an more in depth understanding of the DJI UX SDK, please go to the [UX SDK Introduction](../introduction/ux_sdk_introduction.html).
 
 ## Importing DJI SDK, UX SDK and DJIWidget with CocoaPods
 
-Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "UXSDKDemo" in the **Product Name** field and keep the other default settings.
+Now, let's create a new project in Xcode: Choose the **Single View Application** template, press "Next" and enter "UXSDKDemo" in the **Product Name** field (keep the other default settings).
 
 Once the project is created, let's download and import the **DJISDK.framework** and **DJIUXSDK.framework** using CocoaPods to it. In Finder, navigate to the root folder of the project, and create a **Podfile**. To learn more about Cocoapods, please check [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
 
-Then replace the content of the **Podfile** with the followings:
+Replace the content of the **Podfile** with the following:
 
 ~~~
 # platform :ios, '9.0'
@@ -60,7 +52,7 @@ Next, run the following command in the path of the project's root folder:
 pod install
 ~~~
 
-If you install it successfully, you should get the messages similar to the followings:
+If you installed it successfully, you should get a message similar to the following:
 
 ~~~
 Analyzing dependencies
@@ -89,19 +81,19 @@ Pod installation complete! There are 2 dependencies from the Podfile and 2 total
 
 ## Application Activation and Aircraft Binding in China
 
- For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+ For DJI SDK mobile applications used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
 
- If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
+ If an application is not activated, the aircraft will not bind (if required). Or if a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled and flight will be limited to a zone of 100m diameter and 30m height to ensure that the aircraft stays within line of sight.
 
  To learn how to implement this feature, please check this tutorial [Application Activation and Aircraft Binding](./ActivationAndBinding.html).
 
 ## Implementing the DUXDefaultLayoutViewcontroller
 
-After you finish the steps above, let's try to implement the standard DJI Go UIs and functionalities using DJI UX SDK with very few steps.
+After you finish the steps above, let's try to implement standard DJI Go UIs and functionalities with DJI's UX SDK functionalities, by just going through a very few simple steps.
 
 #### Working on the Storyboard
 
-Now, let's open the `UXSDKDemo.xcworkspace` file in Xcode and delete the **ViewController** class which is created by Xcode by default. Then create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "DefaultLayoutViewController". 
+Open the `UXSDKDemo.xcworkspace` file in Xcode and delete the **ViewController** class created by Xcode by default. Then create a new file, choose the "Cocoa Touch Class" template, choose **UIViewController** as its subclass and name it "DefaultLayoutViewController". 
 
 Once you finish the steps above, let's open the "Main.storyboard". Set the existing View Controller's "Class" value as **DefaultLayoutViewController** as shown below:
 
