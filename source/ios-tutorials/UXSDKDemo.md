@@ -95,11 +95,11 @@ After you finish the steps above, let's try to implement standard DJI Go UIs and
 
 Open the `UXSDKDemo.xcworkspace` file in Xcode and delete the **ViewController** class that Xcode created by default. Then create a new file, pick the "Cocoa Touch Class" template, choose **UIViewController** as its subclass and name it "DefaultLayoutViewController". 
 
-Once you finish the steps above, let's open the "Main.storyboard" and set the existing View Controller's "Class" value as **DefaultLayoutViewController** as shown below:
+Once you finish the steps above, let's open the "Main.storyboard" and set the existing View Controller's "Class" value to **DefaultLayoutViewController** as shown below:
 
 ![](../images/tutorials-and-samples/iOS/UXSDKDemo/defaultLayoutViewController.png)
 
-For more details of the storyboard settings, please check the tutorial's Github Sample Project.
+For more details on the storyboard settings, please check the tutorial's Github Sample Project.
 
 #### Working on the Header File
 
@@ -170,17 +170,17 @@ In the code above, we have implemented the following logic:
 
 1. In the `viewDidLoad` method, we invoked the `registerAppWithDelegate` method of `DJISDKManager` to make the application connect to a DJI Server through the internet. Doing this, verified the App Key and set the `DJISDKManagerDelegate` to `DefaultLayoutViewController`. For more details on registering the application, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#register-application).
 
-2. Implemented the delegate method `- (void)appRegisteredWithError:(NSError *)error` of **DJISDKManagerDelegate** to connect the application to a DJI Product by invoking the `startConnectionToProduct` method of **DJISDKManager** when registered successfully. If register fails, show an alert view and disable the `connectButton`.
+2. Implemented the delegate method `- (void)appRegisteredWithError:(NSError *)error` of **DJISDKManagerDelegate** to connect the application to a DJI Product by invoking the `startConnectionToProduct` method of **DJISDKManager** when registered successfully. If registration failed, showed an alert view and disabled the `connectButton`.
 
 ## Connecting to the Aircraft and Run the Project
 
 Now, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and try the mini-DJI Go features we built so far using the UX SDK!
   
-If you can see the live video feed and are able to test the features like this, then congratulations! Using the DJI UX SDK is that easy.
+If you can see the live video feed and are able to test the features like in the video below, then congratulations! Using the DJI UX SDK is that easy.
 
 ![freeform](../images/tutorials-and-samples/iOS/UXSDKDemo/playVideo.gif)
 
 ### Summary
 
-In this tutorial, you have learned how to use the DJI iOS UX SDK and DJI iOS SDK to create a fully functioning mini-DJI Go app easily, with standard DJI Go UIs and functionalities. Hope you enjoy it!
+In this tutorial, you have learned how to easily use the DJI iOS UX SDK and DJI iOS Mobile SDK to create a fully functioning mini-DJI Go app, with standard DJI Go UIs and functionalities. Hope you enjoy it!
 
