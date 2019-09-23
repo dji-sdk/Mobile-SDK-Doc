@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.10
-date: 2019-05-15
+version: v4.11
+date: 2019-09-23
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-FPVDemo
 keywords: [iOS FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -41,7 +41,7 @@ Now, let's install the **DJISDK.framework** in the Xcode project using Cocoapods
   DJIWidget is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
   ```
-  pod 'DJIWidget', '~> 1.5'
+  pod 'DJIWidget', '~> 1.6.1'
   ```
 
   > Note: Remember to add `use_frameworks!` in the pod file to use DJIWidget as a dynamic framework in Swift project.

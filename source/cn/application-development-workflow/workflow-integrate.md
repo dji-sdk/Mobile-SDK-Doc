@@ -30,7 +30,7 @@ Screenshots in this section are generated using Xcode 7.3.
     # platform :ios, '9.0'
 
     target 'ImportSDKDemo' do
-    pod 'DJI-SDK-iOS', '~> 4.10’
+    pod 'DJI-SDK-iOS', '~> 4.11’
     end
    ~~~
 
@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.10)
+    Installing DJI-SDK-iOS (4.11)
     Generating Pods project
     Integrating client project
 
@@ -218,8 +218,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-sdk:4.10')
-    provided ('com.dji:dji-sdk-provided:4.10')
+    compile ('com.dji:dji-sdk:4.11')
+    provided ('com.dji:dji-sdk-provided:4.11')
 }
 ~~~
 

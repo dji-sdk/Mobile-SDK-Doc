@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2019-03-04
+date: 2019-09-23
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
@@ -65,8 +65,8 @@ If you install it successfully, you should get the messages similar to the follo
 ~~~
 Analyzing dependencies
 Downloading dependencies
-Installing DJI-SDK-iOS (4.10)
-Installing DJIWidget (1.5)
+Installing DJI-SDK-iOS (4.11)
+Installing DJIWidget (1.6.1)
 Generating Pods project
 Integrating client project
 
