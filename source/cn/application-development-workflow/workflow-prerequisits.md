@@ -1,6 +1,6 @@
 ---
 title: Prerequisites
-date: 2018-01-08
+date: 2019-10-29
 keywords: [prerequisites]
 ---
 
@@ -20,7 +20,7 @@ Several general and platform specific prerequisites are required to develop an a
 ### iOS
 
   - Xcode 7.0+ or higher
-  - Deployment target of iOS 8.1 or higher
+  - Deployment target of iOS 9.0 or higher
   - iOS Developer account
   - Device support
       - iPhone 5s or later
