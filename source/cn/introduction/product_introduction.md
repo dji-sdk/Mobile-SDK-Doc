@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2019-07-15
+date: 2019-11-08
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -1210,9 +1210,9 @@ Remote Controllers using WiFi to connect to a mobile device, will act as a WiFi 
 <tr>
 <td>Phantom 4 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4 Professional V2</td><td>Required</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 4 RTK</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4 RTK</td><td>Required</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
 <td>Spark</td><td>Optional</td><td>WiFi</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 </tbody></table></html>
