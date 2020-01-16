@@ -1,7 +1,7 @@
 ---
 title: Creating a Photo and Video Playback Application
-version: v4.11
-date: 2019-09-23
+version: v4.11.1
+date: 2020-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-PlaybackDemo
 keywords: [iOS playback demo, playback application, preview photos and videos, download photos and videos, delete photos and videos]
 
@@ -21,7 +21,7 @@ We use Phantom 4 and iPad Air as an example to make this demo. For more details 
 
 ## Application Activation and Aircraft Binding in China
 
- For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account.
 
  If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
 
@@ -31,16 +31,16 @@ We use Phantom 4 and iPad Air as an example to make this demo. For more details 
 
 ### Importing DJI SDK and UX SDK with CocoaPods
 
-Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "PlaybackDemo" in the **Product Name** field and keep the other default settings. Once the project is created, let's import the DJI SDK and DJI UX SDK. 
+Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "PlaybackDemo" in the **Product Name** field and keep the other default settings. Once the project is created, let's import the DJI SDK and DJI UX SDK.
 
 You can check [Getting Started with DJI UX SDK](./UXSDKDemo.html#importing-dji-sdk-and-uxsdk-with-cocoapods) tutorial to learn how to import the **DJISDK.framework** and **DJIUXSDK.framework** into your Xcode project.
 
 ### Importing the DJIWidget
 
 You can check [Creating a Camera Application](./index.html#importing-the-djiwidget) tutorial to learn how to download and import the **DJIWidget** into your Xcode project.
- 
+
 ### Working on the MainViewController and DefaultlayoutViewController
-  
+
 You can check this tutorial's Github Sample Code to learn how to implement the **MainViewController** to do SDK registration and update UIs and show alert views to inform users when DJI product is connected and disconnected. Also, you can learn how to implement shooting photos and recording videos functionalities with standard DJI Go UIs by using **DUXDefaultLayoutViewcontroller** of DJI UX SDK from the [Getting Started with DJI UX SDK](./UXSDKDemo.html#working-on-the-mainviewcontroller-and-defaultlayoutviewcontroller) tutorial.
 
 If everything goes well, you can see the live video feed and test the shoot photo and record video features like this:
@@ -51,11 +51,11 @@ Congratulations! Let's move forward.
 
 ## Implementing Playback Features
 
-In order to preview, edit or download the photos or videos files from the DJICamera, you need to use the `DJIPlaybackManager` or `DJIMediaManager` of DJICamera. Here, we use `DJIPlaybackManager` to demonstrate how to implement it. 
+In order to preview, edit or download the photos or videos files from the DJICamera, you need to use the `DJIPlaybackManager` or `DJIMediaManager` of DJICamera. Here, we use `DJIPlaybackManager` to demonstrate how to implement it.
 
 ## Switching to Playback Mode
 
-Now, let's create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "PlaybackViewController". We will use it to implement the camera playback features. 
+Now, let's create a new file, choose the "Cocoa Touch Class" template and choose **UIViewController** as its subclass, name it as "PlaybackViewController". We will use it to implement the camera playback features.
 
 Next, open the **Main.storyboard** file and drag and drop a new "View Controller" object from the Object Library and set its "Class" value as **PlaybackViewController**. Moreover, drag and drop a new "Container View" object in the **PlaybackViewController** and set its ViewController's "Class" value as **DUXFPVViewController**, which contains a `DUXFPVView` and will show the live video feed directly. Furthermore, drag and drop a UIButton on the upper left corner and edit its text to "Back".
 
@@ -81,7 +81,7 @@ Once you finish the above steps, let's open the "DefaultLayoutViewController.m" 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self.playbackBtn setImage:[UIImage imageNamed:@"playback_icon_iPad"] forState:UIControlStateNormal];
 
 }
@@ -109,7 +109,7 @@ Next, open the "PlaybackViewController.m" file and replace the content with the 
 {
     [super viewWillAppear:animated];
     DJICamera *camera = [DemoUtility fetchCamera];
-    
+
     if (camera != nil) {
         [camera setMode:DJICameraModePlayback withCompletion:^(NSError * _Nullable error) {
             if (error) {
@@ -122,7 +122,7 @@ Next, open the "PlaybackViewController.m" file and replace the content with the 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+
     DJICamera *camera = [DemoUtility fetchCamera];
     [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
         if (error) {
@@ -134,7 +134,7 @@ Next, open the "PlaybackViewController.m" file and replace the content with the 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -172,7 +172,7 @@ Open the **PlaybackViewController.m** file, implement the `DJICameraDelegate` an
 
 - (void)initData
 {
-    
+
     self.swipeLeftGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftGestureAction:)];
     self.swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
     self.swipeRightGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightGestureAction:)];
@@ -186,7 +186,7 @@ Open the **PlaybackViewController.m** file, implement the `DJICameraDelegate` an
 
 Implement the gesture action selector methods:
 
-~~~objc 
+~~~objc
 - (void)swipeLeftGestureAction:(UISwipeGestureRecognizer *)gesture
 {
      __weak DJICamera* camera = [DemoUtility fetchCamera];
@@ -205,15 +205,15 @@ The above code uses the `goToNextSinglePreviewPage` and `goToPreviousSinglePrevi
 Open the **Main.storyboard**, drag a UIView object and position it on top of the viewController, then drag a UIButton to the view you just added as a subview and named "Stop". Next, drag a UIButton object to the center of the viewController, set its image as "playVideo"(You can get this image file from the project source code, in the Images.xcassets folder).
 
  ![playbackButtons](../images/tutorials-and-samples/iOS/PlaybackDemo/playbackButtons.png)
- 
+
  Here we hide the **Stop** and the **playVideo** buttons. Now let's go to **PlaybackViewController.m** file and create IBOutlets and IBActions for the newly added UIs:
- 
+
 ~~~objc
 @property (nonatomic, strong) IBOutlet UIView* playbackBtnsView;
 @property (weak, nonatomic) IBOutlet UIButton *playVideoBtn;
 
 - (IBAction)playVideoBtnAction:(id)sender;
-- (IBAction)stopVideoBtnAction:(id)sender; 
+- (IBAction)stopVideoBtnAction:(id)sender;
 ~~~
 
 Moreover, before implementing the IBAction methods, we'll add two new properties of the DJICameraSystemState class and the DJICameraPlaybackState class and named them as `cameraSystemState` and `cameraPlaybackState` respectively in the class extension as shown below:
@@ -230,7 +230,7 @@ These properties are used to save the current camera system state and the playba
 {
     [super viewWillAppear:animated];
     DJICamera *camera = [DemoUtility fetchCamera];
-    
+
     if (camera != nil) {
         [camera setMode:DJICameraModePlayback withCompletion:^(NSError * _Nullable error) {
             if (error) {
@@ -240,24 +240,24 @@ These properties are used to save the current camera system state and the playba
         camera.delegate = self;
         camera.playbackManager.delegate = self;
     }
-    
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+
     DJICamera *camera = [DemoUtility fetchCamera];
     [camera setMode:DJICameraModeShootPhoto withCompletion:^(NSError * _Nullable error) {
         if (error) {
             ShowResult(@"Set CameraWorkModeShootPhoto Failed, %@", error.description);
         }
     }];
-    
+
     if (camera && camera.delegate == self) {
         [camera setDelegate:nil];
     }
-    
+
     if (camera && camera.playbackManager.delegate == self) {
         [camera.playbackManager setDelegate:nil];
     }
@@ -270,11 +270,11 @@ Next update the `cameraSystemState` property value and hide the `playbackBtnsVie
 -(void) camera:(DJICamera*)camera didUpdateSystemState:(DJICameraSystemState*)systemState
 {
     self.cameraSystemState = systemState; //Update camera system state
-    
+
     //Update playbackBtnsView state
     BOOL isPlayback = (systemState.mode == DJICameraModePlayback) || (systemState.mode == DJICameraModeMediaDownload);
     self.playbackBtnsView.hidden = !isPlayback;
-    
+
 }
 ~~~
 
@@ -377,28 +377,28 @@ typedef NS_ENUM (uint8_t, DJICameraPlaybackMode){
 };
 ~~~
 
-As shown in the code above, we can preview files in two ways: **Single Preview** and **Multiple Preview**. We can also play videos, delete photos and videos and even download them. 
+As shown in the code above, we can preview files in two ways: **Single Preview** and **Multiple Preview**. We can also play videos, delete photos and videos and even download them.
 
 We will learn how to preview multiple files here. Here is what **Multiple Preview** looks like:
 
  ![multiplePreview](../images/tutorials-and-samples/iOS/PlaybackDemo/multiplePreview.png)
- 
+
 You can preview at most eight files at the same time. Since the preview images are shown in the `fpvPreviewView`, you cannot interact with them yet. Let's add buttons and swipe gestures to interact with them.
 
 First, we will create a new file named "DJIPlaybackMultiSelectViewController", which will be a subclass of UIViewController. Make sure the check box for **Also create XIB file** is selected when creating the file. Then open the "DJIPlaybackMultiSelectViewController.xib" file and, under the **Size** dropdown in the **Simulated Metrics** section, set its size to **Freeform** . In the view section, change the width to "1024" and height to "768". Take a look at the changes made below:
 
   ![freeform](../images/tutorials-and-samples/iOS/PlaybackDemo/freeform.png)
   ![changeSize](../images/tutorials-and-samples/iOS/PlaybackDemo/changeSize.png)
-  
+
 Then drag a **UIView** object to the viewController as subview and set its name to "Buttons View". Next set its frame as follows:
 
   ![buttonsViewFrame](../images/tutorials-and-samples/iOS/PlaybackDemo/buttonsViewFrame.png)
-  
+
 Moreover, drag eight **UIButton** objects to the "Buttons View" as subviews and position them as follows(You can check the demo project's **DJIPlaybackMultiSelectViewController_iPad.xib** file to get the details on how to setup these buttons's frame):
 
   ![buttonsView](../images/tutorials-and-samples/iOS/PlaybackDemo/buttonsView.png)
 
-These buttons represent eight media files when you are in the **Multiple Preview Mode**. Pressing any of these buttons will enter **Single Preview Mode**. 
+These buttons represent eight media files when you are in the **Multiple Preview Mode**. Pressing any of these buttons will enter **Single Preview Mode**.
 
 Now let's open the **DJIPlaybackMultiSelectViewController.h** file and create two block properties as follows:
 
@@ -453,7 +453,7 @@ Init the swipe gestures properties in the viewDidLoad method and implement the a
     self.swipeUpGesture.direction = UISwipeGestureRecognizerDirectionUp;
     self.swipeDownGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDownGestureAction:)];
     self.swipeDownGesture.direction = UISwipeGestureRecognizerDirectionDown;
-    
+
     [self.view addGestureRecognizer:self.swipeLeftGesture];
     [self.view addGestureRecognizer:self.swipeRightGesture];
     [self.view addGestureRecognizer:self.swipeUpGesture];
@@ -549,7 +549,7 @@ Next, implement the IBAction methods for the eight UIButtons as follows:
 
 We invoke the `selectItemBtnAction` block inside the IBAction methods with related button index. The index starts from 0 here because the file index counted in Playback Multiple Preview Mode starts from 0.
 
-Now, go back to "PlaybackViewController.m" file. Since we have added the swipe left and swipe right gestures in the "DJIPlaybackMultiSelectViewController.m" file, let's delete the `swipeLeftGesture` and `swipeRightGesture` properties and their related codes in the "PlaybackViewController.m" file to refactor the code structure. 
+Now, go back to "PlaybackViewController.m" file. Since we have added the swipe left and swipe right gestures in the "DJIPlaybackMultiSelectViewController.m" file, let's delete the `swipeLeftGesture` and `swipeRightGesture` properties and their related codes in the "PlaybackViewController.m" file to refactor the code structure.
 
 Then import the "DJIPlaybackMultiSelectViewController.h" header file and create a property of **DJIPlaybackMultiSelectViewController** named `playbackMultiSelectVC`. Next, we create a new method named `initPlaybackMultiSelectVC` and implement it in the `viewDidLoad` method:
 
@@ -567,10 +567,10 @@ Then import the "DJIPlaybackMultiSelectViewController.h" header file and create 
     self.playbackMultiSelectVC = [[DJIPlaybackMultiSelectViewController alloc] initWithNibName:@"DJIPlaybackMultiSelectViewController" bundle:[NSBundle mainBundle]];
     [self.playbackMultiSelectVC.view setFrame:self.view.frame];
     [self.view insertSubview:self.playbackMultiSelectVC.view aboveSubview:self.fpvPreviewView];
-    
+
     WeakRef(target);
     [self.playbackMultiSelectVC setSelectItemBtnAction:^(int index) {
-    
+
         WeakReturn(target);
         __weak DJICamera* camera = [DemoUtility fetchCamera];
         if (target.cameraPlaybackState.playbackMode == DJICameraPlaybackModeMultipleFilesPreview) {
@@ -579,22 +579,22 @@ Then import the "DJIPlaybackMultiSelectViewController.h" header file and create 
             [camera.playbackManager toggleFileSelectionAtIndex:index];
         }
     }];
-    
+
     [self.playbackMultiSelectVC setSwipeGestureAction:^(UISwipeGestureRecognizerDirection direction) {
-        
+
         WeakReturn(target);
         __weak DJICamera* camera = [DemoUtility fetchCamera];
 
         if (target.cameraPlaybackState.playbackMode == DJICameraPlaybackModeSingleFilePreview) {
-            
+
             if (direction == UISwipeGestureRecognizerDirectionLeft) {
                 [camera.playbackManager goToNextSinglePreviewPage];
             }else if (direction == UISwipeGestureRecognizerDirectionRight){
                 [camera.playbackManager goToPreviousSinglePreviewPage];
             }
-            
+
         }else if(target.cameraPlaybackState.playbackMode == DJICameraPlaybackModeMultipleFilesPreview){
-            
+
             if (direction == UISwipeGestureRecognizerDirectionUp) {
                 [camera.playbackManager goToNextMultiplePreviewPage];
             }else if (direction == UISwipeGestureRecognizerDirectionDown){
@@ -605,7 +605,7 @@ Then import the "DJIPlaybackMultiSelectViewController.h" header file and create 
 }
 ~~~
 
-So in the `initPlaybackMultiSelectVC` method, we init the `playbackMultiSelectVC` property first, and then we invoke the **selectItemBtnAction** block's setter method and implement the `toggleFileSelectionAtIndex` method of the **DJICamera**'s playbackManager with selected index. This way, we can switch to Single Preview Mode from Multiple Preview Mode. 
+So in the `initPlaybackMultiSelectVC` method, we init the `playbackMultiSelectVC` property first, and then we invoke the **selectItemBtnAction** block's setter method and implement the `toggleFileSelectionAtIndex` method of the **DJICamera**'s playbackManager with selected index. This way, we can switch to Single Preview Mode from Multiple Preview Mode.
 
 Furthermore, we invoke the `swipeGestureAction` block's setter method and implement the preview files feature based on the **UISwipeGestureRecognizerDirection** value.
 
@@ -620,7 +620,7 @@ Finally, create an IBAction method named `multiPreviewButtonClicked` and link it
 
     __weak DJICamera *camera = [DemoUtility fetchCamera];
     [camera.playbackManager enterMultiplePreviewMode];
-    
+
 }
 ~~~
 
@@ -686,7 +686,7 @@ Moreover, update the `selectBtn` and `selectAllBtn` buttons' hidden values in th
         if (!self.playVideoBtn.hidden) {
             [self.playVideoBtn setHidden:YES];
         }
-    
+
         }else if (playbackState.fileType == DJICameraPlaybackFileTypeVIDEO) //Video Type    {
             if (self.playVideoBtn.hidden) {
                 [self.playVideoBtn setHidden:NO];
@@ -712,7 +712,7 @@ Moreover, update the `selectBtn` and `selectAllBtn` buttons' hidden values in th
         [self.selectBtn setTitle:@"Cancel" forState:UIControlStateNormal];
         [self.selectAllBtn setHidden:NO];
         [self.playVideoBtn setHidden:YES];
-        
+
      }   
 }
 
@@ -751,7 +751,7 @@ Create the following three methods to **show**, **dismiss** and **update** the a
     if (self.statusAlertView) {
         [self.statusAlertView setTitle:title];
         [self.statusAlertView setMessage:message];
-        
+
         if (dismiss) {
             [self performSelector:@selector(dismissStatusAlertView) withObject:nil afterDelay:2.0];
         }
@@ -775,11 +775,11 @@ Furthermore, implement the `showAlertViewWithTitle:message:okActionHandler:cance
 }
 
 - (IBAction)deleteButtonAction:(id)sender {
-    
+
     self.selectedFileCount = self.cameraPlaybackState.selectedFileCount;
-    
+
     if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeMultipleFilesEdit) {
-        
+
         if (self.selectedFileCount == 0) {
             [self showStatusAlertView];
             [self updateStatusAlertContentWithTitle:@"Please select files to delete!" message:@"" shouldDismissAfterDelay:YES];
@@ -802,20 +802,20 @@ Furthermore, implement the `showAlertViewWithTitle:message:okActionHandler:cance
                 [target.selectBtn setTitle:@"Select" forState:UIControlStateNormal];
             } cancelActionhandler:nil];
         }
-        
+
     }else if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeSingleFilePreview){
-        
+
         WeakRef(target);
         [self showAlertViewWithTitle:@"Delete The Current File?" message:nil okActionHandler:^(UIAlertAction *action) {
             WeakReturn(target);
             DJICamera* camera = [DemoUtility fetchCamera];
             [camera.playbackManager deleteCurrentPreviewFile];
             [target.selectBtn setTitle:@"Select" forState:UIControlStateNormal];
-            
+
         } cancelActionhandler:nil];
-        
+
     }
-    
+
 }
 ~~~
 
@@ -899,11 +899,11 @@ So let's create three new methods here to set up the `updateImageDownloadTimer`:
 - (void)updateDownloadProgress:(NSTimer *)updatedTimer
 {
     if (self.downloadImageError) {
-        
+
         [self stopTimer];
         [self.selectBtn setTitle:@"Select" forState:UIControlStateNormal];
         [self updateStatusAlertContentWithTitle:@"Download Error" message:[NSString stringWithFormat:@"%@", self.downloadImageError] shouldDismissAfterDelay:YES];
-        
+
     }
     else
     {
@@ -911,7 +911,7 @@ So let's create three new methods here to set up the `updateImageDownloadTimer`:
         NSString *message = [NSString stringWithFormat:@"FileName:%@, FileSize:%0.1fKB, Downloaded:%0.1fKB", self.targetFileName, self.totalFileSize / 1024.0, self.currentDownloadSize / 1024.0];
         [self updateStatusAlertContentWithTitle:title message:message shouldDismissAfterDelay:NO];
     }
-    
+
 }
 
 - (void)startUpdateTimer
@@ -941,7 +941,7 @@ Next, create a new method name `resetDownloadData` to reset all the download rel
     self.totalFileSize = 0;
     self.currentDownloadSize = 0;
     self.downloadedFileCount = 0;
-    
+
     [self.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]];
 }
 ~~~
@@ -951,11 +951,11 @@ Furthermore, implement the `downloadButtonAction` method and improve the UIAlert
 ~~~objc
 
 - (IBAction)downloadButtonAction:(id)sender {
-    
+
     self.selectedFileCount = self.cameraPlaybackState.selectedFileCount;
-    
+
     if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeMultipleFilesEdit) {
-        
+
         if (self.selectedFileCount == 0) {
             [self showStatusAlertView];
             [self updateStatusAlertContentWithTitle:@"Please select files to Download!" message:@"" shouldDismissAfterDelay:YES];
@@ -976,21 +976,21 @@ Furthermore, implement the `downloadButtonAction` method and improve the UIAlert
                 [target downloadFiles];
             } cancelActionhandler:nil];
         }
-        
+
     }else if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeSingleFilePreview){
-        
+
         WeakRef(target);
         [self showAlertViewWithTitle:@"Download The Current File?" message:nil okActionHandler:^(UIAlertAction *action) {
             WeakReturn(target);
             [target downloadFiles];
         } cancelActionhandler:nil];
     }
-    
+
 }
 
 ~~~
 
-In `downloadButtonAction` method, we update the `statusAlertView`'s title and message. And create two new **UIAlertController**s to ask users for permission to download files based on the `cameraPlaybackState`'s `playbackMode` value. Also, in the action handler method, we invoke the `downloadFiles` method once the **OK** button of the alertView is pressed. 
+In `downloadButtonAction` method, we update the `statusAlertView`'s title and message. And create two new **UIAlertController**s to ask users for permission to download files based on the `cameraPlaybackState`'s `playbackMode` value. Also, in the action handler method, we invoke the `downloadFiles` method once the **OK** button of the alertView is pressed.
 
 Lastly, implement the `downloadFiles` method as shown below:
 
@@ -1001,53 +1001,53 @@ Lastly, implement the `downloadFiles` method as shown below:
     if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeSingleFilePreview) {
         self.selectedFileCount = 1;
     }
-    
+
     WeakRef(target);
     DJICamera *camera = [DemoUtility fetchCamera];
-    
+
     [camera.playbackManager downloadSelectedFilesWithPreparation:^(NSString * _Nullable fileName, DJIDownloadFileType fileType, NSUInteger fileSize, BOOL * _Nonnull skip) {
-        
+
         WeakReturn(target);
         [target startUpdateTimer];
         target.totalFileSize = (long)fileSize;
         target.targetFileName = fileName;
-        
+
         [target showStatusAlertView];
         NSString *title = [NSString stringWithFormat:@"Download (%d/%d)", target.downloadedFileCount + 1, target.selectedFileCount];
         NSString *message = [NSString stringWithFormat:@"FileName:%@, FileSize:%0.1fKB, Downloaded:0.0KB", fileName, target.totalFileSize / 1024.0];
         [target updateStatusAlertContentWithTitle:title message:message shouldDismissAfterDelay:NO];
-        
+
     } process:^(NSData * _Nullable data, NSError * _Nullable error) {
-        
+
         WeakReturn(target);
-        
+
         /**
          *  Important: Don't update Download Progress UI here, it will slow down the download file speed.
          */
-        
+
         if (data) {
             [target.downloadedImageData appendData:data];
             target.currentDownloadSize += data.length;
         }
         target.downloadImageError = error;
-        
+
     } fileCompletion:^{
-        
+
         WeakReturn(target);
         NSLog(@"Completed Download");
         target.downloadedFileCount++;
-        
+
         [target.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]]; //Reset DownloadedImageData when download one file finished
         target.currentDownloadSize = 0.0f; //Reset currentDownloadSize when download one file finished
-        
+
         NSString *title = [NSString stringWithFormat:@"Download (%d/%d)", target.downloadedFileCount, target.selectedFileCount];
         [target updateStatusAlertContentWithTitle:title message:@"Completed" shouldDismissAfterDelay:YES];
-        
+
     } overallCompletion:^(NSError * _Nullable error) {
-        
+
         NSLog(@"DownloadFiles Error %@", error.description);
     }];
-    
+
 }
 ~~~
 
@@ -1064,7 +1064,7 @@ In the first block prepareBlock, we call the `startUpdateTimer` method to start 
 
 In the second block dataBlock, we append the `downloadedImageData` with the downloaded image data and update the `currentDownloadSize` and `downloadImageError` variables' values.
 
-In the third block completion, we increase the `downloadedFileCount` variable. We then create an UIImage object with `downloadedImageData`. Next, we reset downloadedImageData's data and currentDownloadSize's value. Moreover, we update `statusAlertView` with the image download info. 
+In the third block completion, we increase the `downloadedFileCount` variable. We then create an UIImage object with `downloadedImageData`. Next, we reset downloadedImageData's data and currentDownloadSize's value. Moreover, we update `statusAlertView` with the image download info.
 
 ### 2. Saving Downloaded Photos to Photo Album
 
@@ -1085,7 +1085,7 @@ To do this, we will create a new property of NSMutableArray class and name it "d
     self.totalFileSize = 0;
     self.currentDownloadSize = 0;
     self.downloadedFileCount = 0;
-    
+
     [self.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]];
     [self.downloadedImageArray removeAllObjects];
 }
@@ -1118,16 +1118,16 @@ Once that's done, invoke the `resetDownloadData` method on top of the `downloadF
         if (self.downloadedImageArray)
         {
             [self saveDownloadImage];
-            
+
             if (self.downloadedImageArray.count == 0)
             {
                 [self showStatusAlertView];
                 [self updateStatusAlertContentWithTitle:@"Stored to Photos Album" message:@"" shouldDismissAfterDelay:YES];
             }
-            
+
         }       
     }
-    
+
 }
 ~~~
 
@@ -1140,22 +1140,22 @@ At the end, add the downloaded image object to `downloadedImageArray`, and call 
 ~~~objc
 
 fileCompletion:^{
-        
+
         WeakReturn(target);
         NSLog(@"Completed Download");
         target.downloadedFileCount++;
-        
+
         UIImage *downloadImage = [[UIImage alloc] initWithData:target.downloadedImageData];
         if (downloadImage) {
             [target.downloadedImageArray addObject:downloadImage];
         }
-        
+
         [target.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]]; //Reset DownloadedImageData when download one file finished
         target.currentDownloadSize = 0.0f; //Reset currentDownloadSize when download one file finished
-        
+
         NSString *title = [NSString stringWithFormat:@"Download (%d/%d)", target.downloadedFileCount, target.selectedFileCount];
         [target updateStatusAlertContentWithTitle:title message:@"Completed" shouldDismissAfterDelay:YES];
-        
+
         if (target.downloadedFileCount == target.selectedFileCount) { //Downloaded all the selected files
             [target stopTimer];
             [target.selectBtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -1163,10 +1163,10 @@ fileCompletion:^{
         }
 
     } overallCompletion:^(NSError * _Nullable error) {
-        
+
         NSLog(@"DownloadFiles Error %@", error.description);
     }];
-    
+
 ~~~
 
 Let's build and run the project. Try to download photos in Single Preview Mode and Multiple Preview Mode. Once it's finished, go to the Photo Album to check if the downloaded photos exist:
@@ -1182,4 +1182,3 @@ Let's build and run the project. Try to download photos in Single Preview Mode a
 ### Summary
 
 In this tutorial, you have learned how to use DJI iOS SDK to preview photos and videos in Single Preview Mode and Multiple Preview Mode, how to enter multiple edit mode and select files for deleting. You also learned how to download and save photos to the iOS Photo Album. Hope you enjoy it!
-   

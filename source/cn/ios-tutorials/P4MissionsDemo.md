@@ -1,7 +1,7 @@
 ---
 title: Creating a TapFly and ActiveTrack Missions Application
-version: v4.11
-date: 2019-09-23
+version: v4.11.1
+date: 2020-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions
 keywords: [TapFly mission demo, ActiveTrack mission demo]
 ---
@@ -9,16 +9,16 @@ keywords: [TapFly mission demo, ActiveTrack mission demo]
 In this tutorial, you will learn how to use the TapFly and ActiveTrack Missions of DJI iOS SDK to create a cool application for DJI Mavic Pro. Also, you will get familiar with `DJITapFlyMissionOperator`, `DJIActiveTrackMissionOperator` and using the Simulator of DJI Assistant 2 for testing, which is convenient for you to test the missions indoor. So let's get started!
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/iOS-Phantom4Missions).
-   
+
 ## Introduction
-   
-The TapFly and ActiveTrack missions bring you a more autonomous flying experience. They are originally supported by Phantom 4, now they are also supported by Mavic Pro, Phantom 4 Pro, Phantom 4 Advanced, Spark, M200 and Inspire 2. 
-    
+
+The TapFly and ActiveTrack missions bring you a more autonomous flying experience. They are originally supported by Phantom 4, now they are also supported by Mavic Pro, Phantom 4 Pro, Phantom 4 Advanced, Spark, M200 and Inspire 2.
+
 ### TapFly Mission
 
-Given a coordinate in the live video stream (which can come from a user tap), the aircraft will calculate and fly towards the coordinate's direction in the real world. During a flight, the aircraft will automatically detect and avoid obstacles. Also, the aircraft will stop flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass. 
+Given a coordinate in the live video stream (which can come from a user tap), the aircraft will calculate and fly towards the coordinate's direction in the real world. During a flight, the aircraft will automatically detect and avoid obstacles. Also, the aircraft will stop flying in the direction if it reaches its radius limitation, the mission is stopped, the user pulls back on the pitch stick or if it comes to an obstacle it cannot bypass.
 
-During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw. 
+During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw.
 
 Here is a <a href="https://www.djivideos.com/watch/1230a9a3-2985-4262-9cc4-6ce09c765028" target="_blank"> video </a> for you to get the first impression of the TapFly Mission.
 
@@ -36,7 +36,7 @@ Here is a <a href="https://www.djivideos.com/watch/b90658c6-2dbe-4993-93e6-1a146
 
 Now, let's create a new project in Xcode, choose **Single View Application** template for your project and press "Next", then enter "P4Missions" in the **Product Name** field and keep the other default settings.
 
-Once the project is created, let's delete the **ViewController.h** and **ViewController.m** files, which are created by Xcode when you create the project. Then create a UIViewController named **RootViewController** and set the class of original ViewController object to "RootViewController" and make the ViewController embed in a Navigation Controller and set it as the Storyboard Entry Point in **Main.storyboard**. 
+Once the project is created, let's delete the **ViewController.h** and **ViewController.m** files, which are created by Xcode when you create the project. Then create a UIViewController named **RootViewController** and set the class of original ViewController object to "RootViewController" and make the ViewController embed in a Navigation Controller and set it as the Storyboard Entry Point in **Main.storyboard**.
 
 Next, let's import the **DJISDK.framework** to the project and implement the registration process in the **RootViewController**. If you are not familiar with the process of importing and activating DJI SDK, please check this tutorial: [Importing and Activating DJI SDK in Xcode Project](../application-development-workflow/workflow-integrate.html#Xcode-Project-Integration) for details.
 
@@ -46,7 +46,7 @@ You can check the [Creating a Camera Application](./index.html#importing-the-dji
 
 ## Application Activation and Aircraft Binding in China
 
- For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account.
 
  If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
 
@@ -68,7 +68,7 @@ Now, let's check the screenshot of the current storyboard UI:
 
 ![storyboardUI](../../images/tutorials-and-samples/iOS/Phantom4Missions/storyboardUI.png)
 
-It looks pretty simple and clear, this will be the workflow of our demo application. 
+It looks pretty simple and clear, this will be the workflow of our demo application.
 
 ## Coordinate Transformations for Missions
 
@@ -121,18 +121,18 @@ Next, let's check the **DJIActiveTrackMission.h** file, you may see the followin
 @property (nonatomic, readonly) CGRect targetRect;
 ~~~
 
-**1.** The `targetRect` property in the `DJIActiveTrackMission` interface is a bounding box for the target. The rectangle is normalized to [0,1] where (0,0) is 
-the top left of the video preview and (1,1) is the bottom right. 
+**1.** The `targetRect` property in the `DJIActiveTrackMission` interface is a bounding box for the target. The rectangle is normalized to [0,1] where (0,0) is
+the top left of the video preview and (1,1) is the bottom right.
 
 The `size` parameter of `CGRect` can be set to 0 to initialize the mission with a point instead of a rectangle. If the mission is initialized with a point, the vision system will try to recognize the object around the point and return the  representative rect in the status delegate.
 
 **2.** Another `targetRect` property in the `DJIActiveTrackTrackingState` interface is a rectangle in the live video view image that represents the target being tracked. The rectangle is normalized to [0,1] where (0,0) is the top left of the video preview and (1,1) is the bottom right.
-   
+
 Here is a diagram to show the coordinate transformation of the ActiveTrack mission:
 
 ![tapFlyMissionCoordinate](../../images/tutorials-and-samples/iOS/Phantom4Missions/activeTrackMissionCoordinates.png)
 
-As the diagram shown above, you can see the process of transformation. 
+As the diagram shown above, you can see the process of transformation.
 
 - The two `targetRect` properties shown above belongs to the **Video Stream Coordinate System**.
 
@@ -326,7 +326,7 @@ Now let's go to PointingTouchView.h file and replace it with the following codes
 @end
 ~~~
 
-Here, we create two methods to update the touching point and its color. 
+Here, we create two methods to update the touching point and its color.
 
 Next, go to the PointingTouchView.m file and replace it with the following codes:
 
@@ -346,7 +346,7 @@ Next, go to the PointingTouchView.m file and replace it with the following codes
 -(void) awakeFromNib
 {
     [super awakeFromNib];
-    
+
     self.point = INVALID_POINT;
     self.fillColor = [[UIColor greenColor] colorWithAlphaComponent:0.5];
 }
@@ -356,7 +356,7 @@ Next, go to the PointingTouchView.m file and replace it with the following codes
     if (CGPointEqualToPoint(self.point, point)) {
         return;
     }
-    
+
     self.point = point;
     [self setNeedsDisplay];
 }
@@ -366,7 +366,7 @@ Next, go to the PointingTouchView.m file and replace it with the following codes
     if (CGPointEqualToPoint(self.point, point) && [self.fillColor isEqual:color]) {
         return;
     }
-    
+
     self.point = point;
     self.fillColor = color;
     [self setNeedsDisplay];
@@ -389,12 +389,12 @@ Next, go to the PointingTouchView.m file and replace it with the following codes
 @end
 ~~~
 
-In the code above, we implement the `updatePoint:` and `updatePoint:andColor:` methods to update the `point` and `fillColor` instance variables. Moreover, we implement the `-(void)drawRect:(CGRect)rect` method to draw a circle and fill it with color for the touching point on the PointingTouchView. 
+In the code above, we implement the `updatePoint:` and `updatePoint:andColor:` methods to update the `point` and `fillColor` instance variables. Moreover, we implement the `-(void)drawRect:(CGRect)rect` method to draw a circle and fill it with color for the touching point on the PointingTouchView.
 
 ### Implementing the TapFlyViewController
 
 #### Showing Live Video Stream
-   
+
    In order to show the live video stream in the TapFlyViewController, we should import the following headers and implement the protocols of `DJIVideoFeedListener` firstly:
 
 ~~~objc
@@ -447,7 +447,7 @@ Finally, let's implement the DJIVideoFeedListener's delegate method to show the 
 ##### Setup UITapGestureRecognizer
 
    If we want to recognize the user's tap gesture on the screen, we need to create a UITapGestureRecognizer instance object in the `viewDidLoad` method and implement its action selector method as shown below:
-   
+
 ~~~objc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -463,13 +463,13 @@ Finally, let's implement the DJIVideoFeedListener's delegate method to show the 
 {
     CGPoint point = [recognizer locationInView:self.touchView];
     [self.touchView updatePoint:point andColor:[[UIColor greenColor] colorWithAlphaComponent:0.5]];
-    
+
     point = [DemoUtility pointToStreamSpace:point withView:self.touchView];
     [self startTapFlyMissionWithPoint:point];
 }
 ~~~
 
-In the `onScreenTouched:` method, we firstly get the CGPoint of touch event by invoking the `locationInView:` method of UIGestureRecognizer. Then we invoke the `updatePoint:andColor:` method of PointingTouchView to draw the point with green color on the screen. 
+In the `onScreenTouched:` method, we firstly get the CGPoint of touch event by invoking the `locationInView:` method of UIGestureRecognizer. Then we invoke the `updatePoint:andColor:` method of PointingTouchView to draw the point with green color on the screen.
 
 Lastly, we call the `pointToStreamSpace:withView:` method of DemoUtility to transform the touch point to a Video Stream Coordinate CGPoint object and pass it to the `startTapFlyMissionWithPoint:` method to configure the TapFly mission. We will implement this method later.
 
@@ -535,7 +535,7 @@ Now, let's implement the above settings in source code. Create the `isMissionRun
     self.speed = speed;
     self.speedLabel.text = [NSString stringWithFormat:@"%0.1fm/s", speed];
     if (self.isMissionRunning) {
-        
+
         weakSelf(target);
         [[self missionOperator] setAutoFlightSpeed:self.speed withCompletion:^(NSError * _Nullable error) {
             weakReturn(target);
@@ -564,7 +564,7 @@ Now, let's implement the above settings in source code. Create the `isMissionRun
 
 In the code above, we implement the following things:
 
-1. First, we create the `missionOperator` method to fetch the `DJITapFlyMissionOperator` object from `DJIMissionControl`. 
+1. First, we create the `missionOperator` method to fetch the `DJITapFlyMissionOperator` object from `DJIMissionControl`.
 
 2. Next, in the `isExecutingState:` method, we check the enum values of the `DJITapFlyMissionState` and return a BOOL value. Moreover, in the `isMissionRunning` method, we fetch the `currentState` object from the `DJITapFlyMissionOperator`, invoke the `isExecutingState` method and return a BOOL value to identify if the TapFlyMission is executing.
 
@@ -614,7 +614,7 @@ Let's continue to implement the `onStartMissionButtonAction:` IBAction method as
 -(IBAction) onStartMissionButtonAction:(UIButton*)sender
 {
     weakSelf(target);
-    
+
     [[self missionOperator] startMission:self.tapFlyMission withCompletion:^(NSError * _Nullable error) {
         ShowResult(@"Start Mission:%@", error.localizedDescription);
         weakReturn(target);
@@ -633,7 +633,7 @@ Here, we invoke the `startMission:withCompletion:` method of `DJITapFlyMissionOp
 
 ##### Add Listener to Receive Mission Events
 
-During the TapFly mission execution, we can add a listener to receive the mission events for status infos. You can use this status infos to inform users or update the UI interface. 
+During the TapFly mission execution, we can add a listener to receive the mission events for status infos. You can use this status infos to inform users or update the UI interface.
 
 Now, let's import the `DJIScrollView` class and xib files to the project, create the following properties in the class extension:
 
@@ -646,7 +646,7 @@ Now, let's import the `DJIScrollView` class and xib files to the project, create
 
 Here, we create the `statusView` to show the tap fly mission status infos, and create the `logString` to store the log infos.
 
-Next, let's add the following code at the bottom of the `viewDidLoad` method: 
+Next, let's add the following code at the bottom of the `viewDidLoad` method:
 
 ~~~objc
 self.statusView = [DJIScrollView viewWithViewController:self];
@@ -665,7 +665,7 @@ Furthermore, let's create the following two methods:
 
 ~~~objc
 -(void)didReceiveEvent:(DJITapFlyMissionEvent *)event {
-    
+
     if ([self isExecutingState:event.currentState]) {
         [self shouldShowStartMissionButton:NO];
     }
@@ -673,7 +673,7 @@ Furthermore, let's create the following two methods:
         [self.touchView updatePoint:INVALID_POINT];
         [self hideMissionControlButton];
     }
-    
+
     if ([self isExecutingState:event.previousState] &&
         ![self isExecutingState:event.currentState]) {
         if (event.error) {
@@ -683,11 +683,11 @@ Furthermore, let's create the following two methods:
             ShowResult(@"Mission Stopped without error. ");
         }
     }
-    
+
     NSMutableString* logString = [[NSMutableString alloc] init];
     [logString appendFormat:@"Previous State:%@\n", [DemoUtility stringFromTapFlyState:event.previousState]];
     [logString appendFormat:@"Current State:%@\n", [DemoUtility stringFromTapFlyState:event.currentState]];
-    
+
     if (event.executionState) {
         DJITapFlyExecutionState* status = event.executionState;
         CGPoint point = status.imageLocation;
@@ -695,7 +695,7 @@ Furthermore, let's create the following two methods:
         if (CGPointEqualToPoint(point, CGPointZero)) {
             point = INVALID_POINT;
         }
-        
+
         UIColor *color = [UIColor greenColor];
         if (event.currentState == DJITapFlyMissionStateExecuting) {
             color = [[UIColor greenColor] colorWithAlphaComponent:0.5];
@@ -710,7 +710,7 @@ Furthermore, let's create the following two methods:
         else {
             color = [[UIColor grayColor] colorWithAlphaComponent:0.5];
         }
-        
+
         [self.touchView updatePoint:point andColor:color];
         [logString appendFormat:@"Speed:%f\n", event.executionState.speed],
         [logString appendFormat:@"ByPass Direction:%@\n", [DemoUtility stringFromByPassDirection:event.executionState.bypassDirection]];
@@ -721,7 +721,7 @@ Furthermore, let's create the following two methods:
         [logString appendFormat:@"View Point:{%f, %f}\n", point.x, point.y];
         [logString appendFormat:@"Heading:%f", event.executionState.relativeHeading];
     }
-    
+
     if (event.error) {
         self.previousError = event.error;
     }
@@ -739,9 +739,9 @@ The `didReceiveEvent:` method is a bit more complicated. Let's explain it step b
 
 1. We invoke the `isExecutingState:` method to check if the TapFly mission is either "Resetting", "Paused" or "Executing", if so, we show the `stopMissionBtn`, otherwise, we reset the `point` property in the `PointingTouchView` and hide both the `startMissionBtn` and `stopMissionBtn`. Next, check if the TapFly mission is stopped and show alert view to inform users with errors if they exist.
 
-2. Furthermore, check if the `executionState` exists, then get the image point from the video feed and invoke the `pointFromStreamSpace:` method of `DemoUtility` to convert it to the iOS UIView coordinate system. Then with the `point` object, we can update the circle's position and color drawing on the screen based on the `executionState`. 
+2. Furthermore, check if the `executionState` exists, then get the image point from the video feed and invoke the `pointFromStreamSpace:` method of `DemoUtility` to convert it to the iOS UIView coordinate system. Then with the `point` object, we can update the circle's position and color drawing on the screen based on the `executionState`.
 
-3. Store the TapFly execution state infos into the `logString` and show it in the `statusView`. 
+3. Store the TapFly execution state infos into the `logString` and show it in the `statusView`.
 
 ##### Stop Mission
 
@@ -750,9 +750,9 @@ Finally, let's implement the `onStopMissionButtonAction:` IBAction method to sto
 ~~~objc
 -(IBAction) onStopMissionButtonAction:(UIButton*)sender
 {
-    
+
     weakSelf(target);
-    
+
     [[self missionOperator] stopMissionWithCompletion:^(NSError * _Nullable error) {
         ShowResult(@"Stop Mission:%@", error.localizedDescription);
         if (!error) {
@@ -776,7 +776,7 @@ In order to show the status log, let's implement the `showStatusButtonAction:` I
 }
 ~~~
 
-For more implementation details of the TapFlyViewController file, please check the Github source code. 
+For more implementation details of the TapFlyViewController file, please check the Github source code.
 
 Now let's build and run the project, if everything goes well, you should be able to use the TapFly mission now.
 
@@ -879,7 +879,7 @@ Let's go to TrackingRenderView.h file and replace it with the following codes:
 
 You can see a few things are happening here:
 
-**1.** Firstly, we create two TrackingRenderViewDelegate methods, they are used to track your single touch event and drawing rectangle touch event. 
+**1.** Firstly, we create two TrackingRenderViewDelegate methods, they are used to track your single touch event and drawing rectangle touch event.
 
 **2.** We use the `trackingRect` property to store the updated tracking CGRect of moveing subject and draw it on the TrackingRenderView. The `isDottedLine` BOOL value is used for drawing dotted line. The `text` NSString property is used to store and draw text on the TrackingRenderView.
 
@@ -949,7 +949,7 @@ Next, let's come to the TrackingRenderView.m file and replace it with the follow
     if (CGRectEqualToRect(rect, self.trackingRect)) {
         return;
     }
-    
+
     self.fillColor = fillColor;
     self.trackingRect = rect;
     [self setNeedsDisplay];
@@ -971,14 +971,14 @@ Next, let's come to the TrackingRenderView.m file and replace it with the follow
     if (CGRectEqualToRect(self.trackingRect, CGRectNull)) {
         return;
     }
-    
+
     CGContextRef context = UIGraphicsGetCurrentContext();
     UIColor* strokeColor = [UIColor grayColor];
     CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
     UIColor* fillColor = self.fillColor;
     CGContextSetFillColorWithColor(context, fillColor.CGColor); //Fill Color
     CGContextSetLineWidth(context, 1.8); //Width of line
-    
+
     if (self.isDottedLine) {
         CGFloat lenghts[] = {10, 10};
         CGContextSetLineDash(context, 0, lenghts, 2);
@@ -986,7 +986,7 @@ Next, let's come to the TrackingRenderView.m file and replace it with the follow
 
     CGContextAddRect(context, self.trackingRect);
     CGContextDrawPath(context, kCGPathFillStroke);
-    
+
     if (self.text) {
         CGFloat origin_x = self.trackingRect.origin.x + 0.5*self.trackingRect.size.width - 0.5* TEXT_RECT_WIDTH;
         CGFloat origin_y = self.trackingRect.origin.y + 0.5*self.trackingRect.size.height - 0.5* TEXT_RECT_HEIGHT;
@@ -1008,7 +1008,7 @@ Here, we implement the four event-handling methods for touches to track user's m
 ### Implementing the ActiveTrackViewController
 
 #### Showing Live Video Stream
-   
+
    In order to show the live video stream of Mavic Pro's camera on the app, let's come to ActiveTrackViewController.m file and implement its class extension part firstly. Import the following headers and implement the protocols of `DJIVideoFeedListener` and `TrackingRenderViewDelegate`:
 
 ~~~objc
@@ -1071,7 +1071,7 @@ Now let's implement the `onGestureEnabledSwitchValueChanged:` IBAction method as
 
 ~~~objc
 - (IBAction)onGestureEnabledSwitchValueChanged:(UISwitch*)sender {
-  
+
     weakSelf(target);
     [[self missionOperator] setGestureModeEnabled:sender.isOn withCompletion:^(NSError * _Nullable error) {
         weakReturn(target);
@@ -1082,11 +1082,11 @@ Now let's implement the `onGestureEnabledSwitchValueChanged:` IBAction method as
             [target updateGestureEnabled];
         }
     }];
-    
+
 }
 
 -(void)updateGestureEnabled {
-    
+
     self.gestureSwitch.on = [[self missionOperator] isGestureModeEnabled];
 }
 ~~~
@@ -1112,7 +1112,7 @@ Here, let's implement the `onRetreatEnabledSwitchValueChanged:` IBAction method 
             [target updateRetreatEnabled];
         }
     }];
-    
+
 }
 
 -(void)updateRetreatEnabled {
@@ -1136,14 +1136,14 @@ Let's implement the `onSetRecommendedConfigurationClicked:` IBAction method as s
 
 ~~~objc
 - (IBAction)onSetRecommendedConfigurationClicked:(id)sender {
-    
+
     [[self missionOperator] setRecommendedConfigurationWithCompletion:^(NSError * _Nullable error) {
         if (error) {
             ShowResult(@"Set Recommended Camera and Gimbal Configuration Failed: %@", error.localizedDescription);
         }else{
             ShowResult(@"Set Recommended Camera and Gimbal Configuration Success.");
         }
-        
+
     }];
 }
 ~~~
@@ -1153,27 +1153,27 @@ Here, we can invoke the `setRecommendedConfigurationWithCompletion:` method of `
 ##### Start the Mission
 
 **1.** The ActiveTrack Mission can track both moving subjects and humans.
-  
+
 - Track Moving Subjects
 
 For moving subjests, you need to provide a CGRect struct of tracking rectangle to the DJIActiveTrackMission object's `rect` property.
-  
+
 ~~~objc
 DJIActiveTrackMission* mission = [[DJIActiveTrackMission alloc] init];
 mission.targetRect = CGRectMake(10, 20, 50, 100);   
 ~~~
-  
+
 - Track Humans
 
 For humans, you can either provide a CGRect struct of tracking rectangle or a CGRect struct with just CGPoint. Like you can tap on the human on your iPhone's screen.
-  
+
 ~~~objc
 DJIActiveTrackMission* mission = [[DJIActiveTrackMission alloc] init];
 mission.targetRect = CGRectMake(10, 20, 0, 0);   
 ~~~
-  
+
 **2.** Now, let's set the TrackingRenderView's delegate as ActiveTrackViewController in the `viewDidLoad` method and implement the delegate methods as shown below:
-  
+
 ~~~objc
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -1193,7 +1193,7 @@ mission.targetRect = CGRectMake(10, 20, 0, 0);
     if (self.isTrackingMissionRunning && !self.isNeedConfirm) {
         return;
     }
-    
+
     if (self.isNeedConfirm) {
         CGRect largeRect = CGRectInset(self.currentTrackingRect, -10, -10);
         if (CGRectContainsPoint(largeRect, point)) {
@@ -1230,7 +1230,7 @@ mission.targetRect = CGRectMake(10, 20, 0, 0);
             }
 
         }];
-        
+
     }
 }
 
@@ -1247,10 +1247,10 @@ mission.targetRect = CGRectMake(10, 20, 0, 0);
     }
 }
 ~~~
-  
+
 The `renderViewDidTouchAtPoint:` delegate method get invoked when you do single touch on the screen, there are two situations for it:
-  
-- If you draw a tracking rectangle on a moving subject, and the vision system need to confirm it, you can touch the rectangle and invoke the `acceptConfirmationWithCompletion:` method of the `DJIActiveTrackMissionOperator`, if you want to cancel the tracking, you can touch outside the rectangle, and invoke the `stopMissionWithCompletion:` method. 
+
+- If you draw a tracking rectangle on a moving subject, and the vision system need to confirm it, you can touch the rectangle and invoke the `acceptConfirmationWithCompletion:` method of the `DJIActiveTrackMissionOperator`, if you want to cancel the tracking, you can touch outside the rectangle, and invoke the `stopMissionWithCompletion:` method.
 
 - If you want to track a human, you can touch the human on the screen. By doing that, you will get a CGPoint from the delegate method and invoke the DemoUtility's `pointToStreamSpace:withView:` method to transform the touch CGPoint to a Video Stream Coordinate CGPoint object. Then pass it to the `targetRect` property of `DJIActiveTrackMissionOperator` and invoke the following method of DJIActiveTrackMissionOperator to start the ActiveTrack mission:
 
@@ -1259,9 +1259,9 @@ The `renderViewDidTouchAtPoint:` delegate method get invoked when you do single 
 ~~~
 
 Moreover, the `renderViewDidMoveToPoint:fromPoint:isFinished:` delegate method get invoked when user try to draw a rectangle on the screen to track moving subject. You can get the startPoint and endPoint from the delegate method and invoke the DemoUtility's `rectWithPoint:andPoint:` method to convert them to a CGRect object. When you finish drawing the rectangle, invoke the `startMissionWithRect:` method to start the mission.  
-   
+
 Furthermore, let's implement the `startMissionWithRect:` method here:
-   
+
 ~~~objc
 -(void) startMissionWithRect:(CGRect)rect
 {
@@ -1269,7 +1269,7 @@ Furthermore, let's implement the `startMissionWithRect:` method here:
     DJIActiveTrackMission* trackMission = [[DJIActiveTrackMission alloc] init];
     trackMission.targetRect = normalizedRect;
     trackMission.mode = DJIActiveTrackModeTrace;
-    
+
     weakSelf(target);
     [[self missionOperator] startMission:trackMission withCompletion:^(NSError * _Nullable error) {
         if (error) {
@@ -1295,7 +1295,7 @@ When the vision system is not sure if the tracking rectangle is around the user'
 
 ~~~objc
 - (IBAction)onAcceptButtonClicked:(id)sender {
-    
+
     [[self missionOperator] acceptConfirmationWithCompletion:^(NSError * _Nullable error) {
         if (error) {
             ShowResult(@"Accept Confirmation Failed: %@", error.description);
@@ -1308,17 +1308,17 @@ If you want to stop the aircraft from following the target, and ask for user's c
 
 ~~~objc
 - (IBAction)onRejectButtonClicked:(id)sender {
-   
+
     [[self missionOperator] stopAircraftFollowingWithCompletion:^(NSError * _Nullable error) {
             ShowResult(@"Stop Aircraft Following Failed: %@", error.description);
     }];
-    
+
 }
 ~~~
 
 ##### Add Listener to Receive Mission Events
 
-When the active track mission is executing, we can add a listener to receive the mission events for status infos. You can use this status infos to inform users or update the UI interface. Now, let's add the following code at the bottom of the `viewDidLoad` method: 
+When the active track mission is executing, we can add a listener to receive the mission events for status infos. You can use this status infos to inform users or update the UI interface. Now, let's add the following code at the bottom of the `viewDidLoad` method:
 
 ~~~objc
 self.statusView = [DJIScrollView viewWithViewController:self];
@@ -1346,7 +1346,7 @@ Furthermore, let's create the following two methods:
           ShowResult(@"Mission Interrupted: %@", event.error.description);
       }
   }
-  
+
   if (event.trackingState) {
       DJIActiveTrackTrackingState *state = event.trackingState;
       CGRect rect = [DemoUtility rectFromStreamSpace:state.targetRect withView:self.renderView];
@@ -1387,7 +1387,7 @@ Furthermore, let's create the following two methods:
       self.isNeedConfirm = NO;
       [self.renderView updateRect:CGRectNull fillColor:nil];
   }
-  
+
   NSMutableString* logString = [[NSMutableString alloc] init];
   [logString appendFormat:@"From State:%@\n", [DemoUtility stringFromActiveTrackState:prevState]];
   [logString appendFormat:@"To State:%@\n", [DemoUtility stringFromActiveTrackState:curState]];
@@ -1396,10 +1396,10 @@ Furthermore, let's create the following two methods:
   [logString appendFormat:@"Error:%@\n", event.error.localizedDescription];
   [logString appendFormat:@"PersistentError:%@", [self missionOperator].persistentError.localizedDescription];
   [logString appendFormat:@"QuickMoive Progress:%tu", event.trackingState.progress];
-  
+
   [self.statusView writeStatus:logString];
   [self updateButtons];
-    
+
 }
 ~~~
 
@@ -1407,12 +1407,12 @@ In the code above, we implement the following features:
 
 1. We get the `previousState` and `currentState` properties from the received `DJIActiveTrackMissionEvent`, then use them to check if the mission is interrupted and shows alert view to inform users with related errors.
 
-2. Next, we get the `targetRect` in the live video feed from `DJIActiveTrackTrackingState` object and invoke the `rectFromStreamSpace:` method to transform it to the tracking rectangle (A CGRect object) of UIView Coordinate System. If the target state is `DJIActiveTrackTargetStateWaitingForConfirmation`, we show the "?" text to inform users to confirm the tracking subject. 
+2. Next, we get the `targetRect` in the live video feed from `DJIActiveTrackTrackingState` object and invoke the `rectFromStreamSpace:` method to transform it to the tracking rectangle (A CGRect object) of UIView Coordinate System. If the target state is `DJIActiveTrackTargetStateWaitingForConfirmation`, we show the "?" text to inform users to confirm the tracking subject.
 
 3. Moreover, use different color to represent different `DJIActiveTrackTargetState` and invoke the `updateRect:fillColor:` method of `TrackingRenderView` to update the TrackingRenderView's rectangle drawing and filling color.
 
 4. Lastly, we store different mission state infos in the `logString` object and show them in the `statusView`.
-   
+
 ##### Stop Mission
 
 Finally, let's implement the `stopMissionWithCompletion:` method of `DJIActiveTrackMissionOperator` to stop the ActiveTrack Mission. Update content of the `onStopButtonClicked:` IBAction method as shown below:
@@ -1437,9 +1437,9 @@ In order to show the status log, let's implement the `showStatusButtonAction:` I
 }
 ~~~
 
-For more implementation details of the ActiveTrackViewController.m file, please check the Github source code. 
+For more implementation details of the ActiveTrackViewController.m file, please check the Github source code.
 
-Now let's build and run the project, if everything goes well, you should be able to use the ActiveTrack mission of Mavic Pro now. 
+Now let's build and run the project, if everything goes well, you should be able to use the ActiveTrack mission of Mavic Pro now.
 
 >**Important**: Remember to switch the remote controller to **P** mode before you test the ActiveTrack mission.
 
@@ -1451,7 +1451,7 @@ In the animation, you can see there is a person standing there, you can touch th
 
 After the confirmation, the ActiveTrack mission starts. The person walks around and the green rectangle will follow it to track its movement. This means that Mavic Pro is now tracking you automatically!
 
-You can press the **R** button to stop the aircraft from following you and ask for your confirmation again. Also, press the **S** button if you want to stop the ActiveTrack mission. 
+You can press the **R** button to stop the aircraft from following you and ask for your confirmation again. Also, press the **S** button if you want to stop the ActiveTrack mission.
 
 Moreover, if you switch on the **GestureEnabled** switcher at the bottom of the screen, you will enable the gesture mode of Mavic Pro. Raise your arms in a **V**, Mavic Pro will recognize you and start to track you automatically.
 
@@ -1459,7 +1459,7 @@ Lastly, you can try to switch on the **RetreatEnabled** switcher at the bottom r
 
 ### Using the DJI Assistant 2 for Mission Testing
 
-Since most of our developers don't have a perfect testing environment, like a big indoor space, wide backyard, etc. If we need to go outdoors and bring our laptop to debug and test our application everytime, it's time consuming and not efficient. 
+Since most of our developers don't have a perfect testing environment, like a big indoor space, wide backyard, etc. If we need to go outdoors and bring our laptop to debug and test our application everytime, it's time consuming and not efficient.
 
 Luckily, we have a new DJI Assistant 2 (Includes the 3D Simulator) for you to test the mission easily on your Mac. The simulator creates a virtual 3D environment from flight data transmitted to the Mac.
 
@@ -1467,10 +1467,10 @@ You can check the [Using DJI Assistant 2 Simulator](../application-development-w
 
 Now you can connect your iPhone which is running the demo application to the remote controller, and start to test the **TapFly** and **ActiveTrack** missions on the simulator of the DJI Assistant 2.  
 
-Moreover, another good news is you can use the DJI Bridge App to test the application directly on the iOS Simulator! If you are not familiar with the DJI Bridge App, please check the [DJI Bridge App Tutorial](./BridgeAppDemo.html). 
-   
+Moreover, another good news is you can use the DJI Bridge App to test the application directly on the iOS Simulator! If you are not familiar with the DJI Bridge App, please check the [DJI Bridge App Tutorial](./BridgeAppDemo.html).
+
 Let's go to RootViewController.m file and add a Macro on top of the class extension part as shown below:
-   
+
 ~~~objc
 #define ENTER_DEBUG_MODE 0
 
@@ -1481,7 +1481,7 @@ Let's go to RootViewController.m file and add a Macro on top of the class extens
 ~~~
 
 Then modify the DJISDKManagerDelegate method as shown below:
-  
+
 ~~~objc
 - (void)appRegisteredWithError:(NSError *)error
 {
@@ -1503,20 +1503,20 @@ Then modify the DJISDKManagerDelegate method as shown below:
 }
 ~~~
 
-Now, make sure your Mac and your iPhone(Running DJI Bridge App) connect to the same WiFi network, pass the **Debug ID** on the DJI Bridge App to the `enableBridgeModeWithBridgeAppIP:` method. Build and run the app on the iOS Simulator with Xcode, control the remote controller to take off the aircraft in the simulator. You can start to test the **TapFly** and **ActiveTrack** mission directly on your Mac now! 
-  
+Now, make sure your Mac and your iPhone(Running DJI Bridge App) connect to the same WiFi network, pass the **Debug ID** on the DJI Bridge App to the `enableBridgeModeWithBridgeAppIP:` method. Build and run the app on the iOS Simulator with Xcode, control the remote controller to take off the aircraft in the simulator. You can start to test the **TapFly** and **ActiveTrack** mission directly on your Mac now!
+
 Here are two screenshots of testing the two missions on your Mac:
-  
+
   - TapFly Mission Test
-  
+
 ![setupButton](../../images/tutorials-and-samples/iOS/Phantom4Missions/tapFlyTest.png)
-  
+
   - AciveTrack Mission Test
 
 ![setupButton](../../images/tutorials-and-samples/iOS/Phantom4Missions/activeTrackTest.png)
 
 ### Summary
 
-Congratulations! You've finished the demo project and implement the two cool **TapFly** and **ActiveTrack** missions using DJI Mobile SDK. It's easy and straightforward. You've learned how to use the `DJITapFlyMission`, `DJIActiveTrackMission`, `DJITapFlyMissionOperator` and `DJIActiveTrackMissionOperator` to implement the features. Also, you know how to setup and use the simulator of DJI Assistant 2 and DJI Bridge App to test the two missions on your Mac easily. 
+Congratulations! You've finished the demo project and implement the two cool **TapFly** and **ActiveTrack** missions using DJI Mobile SDK. It's easy and straightforward. You've learned how to use the `DJITapFlyMission`, `DJIActiveTrackMission`, `DJITapFlyMissionOperator` and `DJIActiveTrackMissionOperator` to implement the features. Also, you know how to setup and use the simulator of DJI Assistant 2 and DJI Bridge App to test the two missions on your Mac easily.
 
 But, In order to make a cool **TapFly** and **ActiveTrack** mission application, you still have a long way to go. You can add more necessary features like showing the battery percentage, GPS signal quality, add a checklist like DJI Go app to check the aircraft status before flying, etc. Good luck and hope you enjoy this tutorial!

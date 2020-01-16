@@ -1,7 +1,7 @@
 ---
 title: Application Activation and Aircraft Binding
-version: v4.11
-date: 2019-09-23
+version: v4.11.1
+date: 2020-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/iOS-ActivationAndBindingDemo
 keywords: [Application Activation, Aircraft Binding, Link Mobile Phone Number, Bound, Activated, Real Name System]
 ---
@@ -13,7 +13,7 @@ You can download the tutorial's final sample project from this [Github Page](htt
 
 ## Introduction
 
-DJI aircraft firmware requires mobile applications that control DJI aircraft to be activated with the user's DJI account, if that application is being used in China. This will ensure operators use the correct set of geospatial information and flight functions for their aircrafts, as determined by their geographical location and user profile. 
+DJI aircraft firmware requires mobile applications that control DJI aircraft to be activated with the user's DJI account, if that application is being used in China. This will ensure operators use the correct set of geospatial information and flight functions for their aircrafts, as determined by their geographical location and user profile.
 
 To summarise the activation system:
 
@@ -25,7 +25,7 @@ To summarise the activation system:
 
 - Outside of China, the SDK will automatically activate the application without requiring the user to log in.
 
-- Additionally, users in China are required to bind their aircraft to their user account in DJI Go / DJI Go 4. This is required only once. If an application is not activated, the aircraft is not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be **disabled**, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight. 
+- Additionally, users in China are required to bind their aircraft to their user account in DJI Go / DJI Go 4. This is required only once. If an application is not activated, the aircraft is not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be **disabled**, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
 
 ## Application Activation
 
@@ -37,7 +37,7 @@ Next, let's open the "Main.storyboard", drag and drop 5 UILabel objects and 2 UI
 
 ![](../images/tutorials-and-samples/iOS/ActivationAndBinding/storyboard.png)
 
-For more detailed configurations of the storyboard, please check the tutorial's Github sample project. 
+For more detailed configurations of the storyboard, please check the tutorial's Github sample project.
 
 ### Registering the Application
 
@@ -84,7 +84,7 @@ Next, replace the code in the `appRegisteredWithError` delegate method of `DJISD
         self.activationState = [DJISDKManager appActivationManager].appActivationState;
         self.aircraftBindingState = [DJISDKManager appActivationManager].aircraftBindingState;
     }
-    
+
     ShowResult(@"%@", message);
 }
 ~~~
@@ -118,7 +118,7 @@ Furthermore, create the `updateUI` method as shown below to update the two UILab
             self.bindingStateLabel.text = @"App Activation is not supported. ";
             break;
     }
-    
+
     switch (self.activationState) {
         case DJIAppActivationStateLoginRequired:
             self.appActivationLabel.text = @"Login is required to activate.";
@@ -190,7 +190,7 @@ In order to activate the application, we need to login to a DJI user account. No
 }
 ~~~
 
-In the `onLoginClick:` IBAction method, we invoke the `logIntoDJIUserAccountWithAuthorizationRequired` method of `DJIUserAccountManager` to login to the DJI User Account and show alert views to inform users. 
+In the `onLoginClick:` IBAction method, we invoke the `logIntoDJIUserAccountWithAuthorizationRequired` method of `DJIUserAccountManager` to login to the DJI User Account and show alert views to inform users.
 
 Similarly, in the `onLogoutClick:` IBAction method, we invoke the `logOutOfDJIUserAccountWithCompletion:` method of `DJIUserAccountManager` to logout DJI User Account and show alert views to inform users.
 
@@ -227,4 +227,3 @@ Congratulations! Now, your mobile application and aircraft can be used in China 
 ### Summary
 
 In this tutorial, you have learned how to use DJI Mobile SDK to activate the SDK mobile application and use DJI Go app to bind the aircraft to your DJI Acccount. The same steps can be used for activating a application and binding a aircraft in your application. We hope you enjoyed this tutorial, and look forward to seeing you again!
-

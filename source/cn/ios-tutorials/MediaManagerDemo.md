@@ -1,7 +1,7 @@
 ---
 title: Creating a Media Manager Application
-version: v4.11
-date: 2019-09-23
+version: v4.11.1
+date: 2020-01-16
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo
 keywords: [Android mediaManager demo, mediaManager application, media download, download photos and videos, delete photos and videos]
 
@@ -70,7 +70,7 @@ public class DefaultLayoutActivity extends AppCompatActivity implements View.OnC
 }
 ~~~
 
-In the code above, we create a Button variable `mMediaManagerBtn` and initialize it in the `onCreate()` method. Moreover, implement the `onClick()` method of the Button and invoke `startActivity()` method to start the `MainActivity`. 
+In the code above, we create a Button variable `mMediaManagerBtn` and initialize it in the `onCreate()` method. Moreover, implement the `onClick()` method of the Button and invoke `startActivity()` method to start the `MainActivity`.
 
 Next, continue to open the "activity_default_layout.xml" file, and replace the code with the following:
 
@@ -486,8 +486,8 @@ Once you finished the steps above, let's open the "activity_main.xml" file, and 
 In the xml above, we define the following UI elements:
 
 1. Create 10 **Button**s with the names of "BACK", "DELETE", "RELOAD", "DOWNLOAD", "STATUS", "PLAY", "RESUME", "PAUSE", "STOP" and "MOVETO" on the upper left corner.
-2. Create a **FPVWidget** widget below the Buttons to show the live camera video stream. 
-3. Create an **ImageView** to show the downloaded photo and overlay it over the **FPVWidget**. 
+2. Create a **FPVWidget** widget below the Buttons to show the live camera video stream.
+3. Create an **ImageView** to show the downloaded photo and overlay it over the **FPVWidget**.
 4. Create a **RecyclerView** on the right side to show the info of media files list.
 5. Lastly, create a **ScrollView** with a **TextView** to show the video playback state info.
 
@@ -626,7 +626,7 @@ In the code above, we implement the following:
 
 After you finish the above steps, let's register our application with the **App Key** you apply from DJI Developer Website. If you are not familiar with the App Key, please check the [Get Started](../quick-start/index.html).
 
-Moreover, please check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo) of this tutorial for the detailed implementations of the `MApplication`, `DemoApplication` and `ConnectionActivity` 
+Moreover, please check the [Creating an Camera Application](./index.html#working-on-the-connectionactivity) tutorial and the [sample project](https://github.com/DJI-Mobile-SDK-Tutorials/Android-MediaManagerDemo) of this tutorial for the detailed implementations of the `MApplication`, `DemoApplication` and `ConnectionActivity`
 
 Now let's build and run the project and install it to your Android device. If everything goes well, you should see the "Register Success" textView like the following screenshot when you register the app successfully.
 
@@ -649,7 +649,7 @@ private int lastClickViewIndex =-1;
 private View lastClickView;
 ~~~
 
-In the code above, we create variables for the `FileListAdapter`, `List<MediaFile>`, `MediaManager`, `FetchMediaTaskScheduler` and so on. 
+In the code above, we create variables for the `FileListAdapter`, `List<MediaFile>`, `MediaManager`, `FetchMediaTaskScheduler` and so on.
 
 Next, improve the `onDestroy()` method with the following:
 
@@ -676,7 +676,7 @@ protected void onDestroy() {
 Here, we implement the following:
 
 1. Invoke the `setMode()` method of `Camera` and set camera mode as `SHOOT_PHOTO` mode and show toast if there is any error in the completion callback.
-2. Then invoke the `clear()` method of `List<MediaFile>` to reset the `mediaFileList`. 
+2. Then invoke the `clear()` method of `List<MediaFile>` to reset the `mediaFileList`.
 
 Moveover, add the following code in the `initUI()` method:
 
@@ -748,9 +748,9 @@ private void initMediaManager() {
 
 In the code above, we implement the following features:
 
-1. Firslty, initialize the `updateFileListStateListener` and update the value of `currentFileListState` variable inside the `onFileListStateChange` callback method. 
+1. Firslty, initialize the `updateFileListStateListener` and update the value of `currentFileListState` variable inside the `onFileListStateChange` callback method.
 
-2. Next, in the `initMediaManager()` method, check if the product is connected, if not, reset the `mediaFileList` and invoke the `notifyDataSetChanged()` method of `FileListAdapter` to update the `listView`. 
+2. Next, in the `initMediaManager()` method, check if the product is connected, if not, reset the `mediaFileList` and invoke the `notifyDataSetChanged()` method of `FileListAdapter` to update the `listView`.
 
 3. If the product is connected, initialize the `mMediaManager` by invoking the `getMediaManager()` method of `Camera`.
 
@@ -856,13 +856,13 @@ private FetchMediaTask.Callback taskCallback = new FetchMediaTask.Callback() {
 
 In the code above, we implement the following features:
 
-1. In the `getFileList()` method, we fetch the latest `mMediaManager` object and check if it's not null. Then check the value of the `currentFileListState` variable. If the state is neither `SYNCING` nor `DELETING`, invoke the `refreshFileListOfStorageLocation()` method of `MediaManager` to refresh the file list from the SD card. 
+1. In the `getFileList()` method, we fetch the latest `mMediaManager` object and check if it's not null. Then check the value of the `currentFileListState` variable. If the state is neither `SYNCING` nor `DELETING`, invoke the `refreshFileListOfStorageLocation()` method of `MediaManager` to refresh the file list from the SD card.
 
-2. In the `onResult()` callback method, if there is no error, then check if the `currentFileListState` value is not equal to `MediaManager.FileListState.INCOMPLETE` and reset the `mediaFileList` list, the `lastClickViewIndex` and the `lastClickView` variables. 
+2. In the `onResult()` callback method, if there is no error, then check if the `currentFileListState` value is not equal to `MediaManager.FileListState.INCOMPLETE` and reset the `mediaFileList` list, the `lastClickViewIndex` and the `lastClickView` variables.
 
 3. Invoke the `getSDCardFileListSnapshot()` method of `MediaManager` to get the current file list and store it in the `mediaFileList` variable.
 
-4. Sort the media files in the `mediaFileList` based on the created time. Then invoke the `resume()` method of `FetchMediaTaskScheduler` to resume the scheduler and invoke the `getThumbnails()` method in the `onResult()` callback method. If there is an error, invoke the `hideProgressDialog()` method to hide the progress dialog. 
+4. Sort the media files in the `mediaFileList` based on the created time. Then invoke the `resume()` method of `FetchMediaTaskScheduler` to resume the scheduler and invoke the `getThumbnails()` method in the `onResult()` callback method. If there is an error, invoke the `hideProgressDialog()` method to hide the progress dialog.
 
 5. Next, create the `getThumbnailByIndex()` method to initialize the `FetchMediaTask` tasks for `FetchMediaTaskContent.THUMBNAIL`, and then move the tasks to the end of `FetchMediaTaskScheduler`.
 
@@ -1096,11 +1096,11 @@ The code above implements:
 
 1. Define the `ItemHolder` class, which extends from the `RecyclerView.ViewHolder`. Inside the class, define one `ImageView` and four `TextView`s and initialize them by invoking the `findViewById()` method.
 
-2. Define the `FileListAdapter` class and extend it from `RecyclerView.Adapter<ItemHolder>`. In this class, Override the `getItemCount()` method and return the size of the `mediaFileList`. 
+2. Define the `FileListAdapter` class and extend it from `RecyclerView.Adapter<ItemHolder>`. In this class, Override the `getItemCount()` method and return the size of the `mediaFileList`.
 
 3. Moreover, in the `onCreateViewHolder` method, we define the layout of the `ItemHolder` in `listView` using the "media_info_item.xml" file.
 
-4. In the `onBindViewHolder` method, get the `mediaFile` variable from the `mediaFileList` by using the `index` value. Then update the infos of the `ItemHolder` with this `mediaFile`, like `file_name`, `file_type`, `thumbnail_img`, etc. Set the `mediaFile` as the tag of `thumbnail_img` and set the tag of `itemView` as the `index` value. We will use them later. Also, invoke the `setOnClickListener()` method of `ImageView` to register the callback to be invoked when the `thumbnail_img` is clicked. 
+4. In the `onBindViewHolder` method, get the `mediaFile` variable from the `mediaFileList` by using the `index` value. Then update the infos of the `ItemHolder` with this `mediaFile`, like `file_name`, `file_type`, `thumbnail_img`, etc. Set the `mediaFile` as the tag of `thumbnail_img` and set the tag of `itemView` as the `index` value. We will use them later. Also, invoke the `setOnClickListener()` method of `ImageView` to register the callback to be invoked when the `thumbnail_img` is clicked.
 
 5. Furthermore, if the current `ItemHolder` is selected, invoke the `setSelected()` method of its `itemView` variable and pass `true` to it. Then, invoke the `setOnClickListener()` method and pass the `itemViewOnClickListener` variable to register the callback to be invoked when the `itemView` is clicked.
 
@@ -1110,9 +1110,9 @@ The code above implements:
 
 For more details of the implementation, please check the sample code of this tutorial on Github.
 
-So far, we have finished implementing refreshing the media file list, and show them in the RecyclerView `listView`. Also, you can select a specific media file and preview the image. 
+So far, we have finished implementing refreshing the media file list, and show them in the RecyclerView `listView`. Also, you can select a specific media file and preview the image.
 
-Now, build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation: 
+Now, build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation:
 
 <img src="../../images/tutorials-and-samples/Android/MediaManagerDemo/refreshFiles.gif" width=80%>
 
@@ -1258,7 +1258,7 @@ In the code above, we implement the following features:
 
 2. Invoke the `fetchFileData()` method of `MediaFile` to fetch the media files' full resolution data from the SD card. In the `onFailure()` method, invoke the `HideDownloadProgressDialog()` method to hide the `mDownloadDialog`, also reset the value of the `currentProgress` variable to -1.
 
-3. In the `onRateUpdate()` method, we calculate the current download progress and save it to the `tmpProgress` variable. Then update the `mDownloadDialog` and `currentProgress` based on this variable. In the `onStart()` method, reset the `currentProgress` variable and invoke the `ShowDownloadProgressDialog()` method to show the `mDownloadDialog`. 
+3. In the `onRateUpdate()` method, we calculate the current download progress and save it to the `tmpProgress` variable. Then update the `mDownloadDialog` and `currentProgress` based on this variable. In the `onStart()` method, reset the `currentProgress` variable and invoke the `ShowDownloadProgressDialog()` method to show the `mDownloadDialog`.
 
 4. In the `onSuccess()` method, invoke the `HideDownloadProgressDialog()` method to hide the `mDownloadDialog` and reset the `currentProgress` variable.
 
@@ -1283,7 +1283,7 @@ case R.id.download_btn: {
 
 For more details of the implementation, please check the sample code of this tutorial on Github.
 
-Now, we can test the features we have implemented so far. Build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation: 
+Now, we can test the features we have implemented so far. Build and run the project and install it to your Android device. If everything goes well, you should see something similar to the following gif animation:
 
 <img src="../../images/tutorials-and-samples/Android/MediaManagerDemo/editFiles.gif" width=80%>
 
@@ -1434,9 +1434,9 @@ private void moveToPosition(){
 
 Here, we implement the following features:
 
-1. In the `playVideo()` method, we firstly hide the `mDisplayImageView` image view. Then initialize the `selectedMediaFile` variable and check if the media type is either `MOV` or `MP4`. If so, invoke the `playVideoMediaFile()` method of `MediaManager` and pass the `selectedMediaFile` variable as the param to start the video playback. In the completion block, override the `onResult()` method to show toast message to inform users if there is any error. 
+1. In the `playVideo()` method, we firstly hide the `mDisplayImageView` image view. Then initialize the `selectedMediaFile` variable and check if the media type is either `MOV` or `MP4`. If so, invoke the `playVideoMediaFile()` method of `MediaManager` and pass the `selectedMediaFile` variable as the param to start the video playback. In the completion block, override the `onResult()` method to show toast message to inform users if there is any error.
 
-2. In the `moveToPosition()` method, we firstly create the `promptsView` from the layout of `prompt_input_position`. Then initialize the `alertDialogBuilder` and set its view as `promptsView`. After that, initialize the `userInput` variable from the `promptsView`. Invoke the `setCancelable()` method to set dialog as not cancelable. Also invoke the `setPositiveButton()` method to set a listener to be invoked when the positive button of the dialog is pressed. Moreover, override the `onClick()` method and invoke the `moveToPosition()` method of `MediaManager` to skip to the new position in seconds from the start of the video. 
+2. In the `moveToPosition()` method, we firstly create the `promptsView` from the layout of `prompt_input_position`. Then initialize the `alertDialogBuilder` and set its view as `promptsView`. After that, initialize the `userInput` variable from the `promptsView`. Invoke the `setCancelable()` method to set dialog as not cancelable. Also invoke the `setPositiveButton()` method to set a listener to be invoked when the positive button of the dialog is pressed. Moreover, override the `onClick()` method and invoke the `moveToPosition()` method of `MediaManager` to skip to the new position in seconds from the start of the video.
 
 Furthermore, create a new XML Layout file and name it as "prompt_input_position.xml" in the **layout** folder, replace the code with the following:
 
@@ -1537,7 +1537,7 @@ In the code above, we implement the following features:
 
 1. In the case of `status_btn` button, invoke the `isOpened()` method of the `mPushDrawerSd` variable to check if it's open, if so, invoke the `animateClose()` method of it to close the drawer with an animation. Otherwise, invoke the `animateOpen()` method of it to open the drawer with an animation.
 
-2. In the case of `play_btn` button, invoke the `playVideo()` method to start the video playback. 
+2. In the case of `play_btn` button, invoke the `playVideo()` method to start the video playback.
 
 3. In the case of `resume_btn` button, invoke the `resume()` method of `MediaManager` to resume the paused video and override the `onResult()` method and show toast message to inform user if there is any error.
 
@@ -1545,9 +1545,9 @@ In the code above, we implement the following features:
 
 5. In the case of `stop_btn` button, invoke the `stop()` method of `MediaManager` to stop the playing video and override the `onResult()` method and show toast message to inform user if there is any error.
 
-6. Lastly, for the case of `moveTo_btn` button, invoke the `moveToPosition()` method to skip to the new position in seconds from the start of the video. 
+6. Lastly, for the case of `moveTo_btn` button, invoke the `moveToPosition()` method to skip to the new position in seconds from the start of the video.
 
-We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far. 
+We have gone through a long way in this tutorial, now let's build and run the project, connect the demo application to  your Mavic Pro (Please check [Run Application](../application-development-workflow/workflow-run.html) for more details) and check all the features we have implemented so far.
 
 If everything goes well, you should see something similar to the following gif animations like this:
 
@@ -1556,4 +1556,3 @@ If everything goes well, you should see something similar to the following gif a
 ### Summary
 
 In this tutorial, you have learned how to use `MediaManager` to preview photos, play videos, download or delete files, you also learn how to get and show the video playback status info. By using the `MediaManager`, the users can get the metadata for all the multimedia files, and has access to each individual multimedia file. Hope you enjoy it!
-
