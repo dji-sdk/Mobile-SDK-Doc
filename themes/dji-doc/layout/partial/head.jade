@@ -1,7 +1,7 @@
 nav#site-header.site-header.navbar
   .container
     .navbar-header
-      a.logo(href=url(''))
+      a.logo(href=url('/'))
         img(src="/images/dji-logo@2x.png")
         | Developer
     #header-navbar.collapse.navbar-collapse
@@ -32,6 +32,6 @@ nav#site-header.site-header.navbar
             i.fa.fa-user
           ul.hovedown-menu.hovedown-menu-right
             li
-              a(href=url('user'))= __('nav.user')
+              a(href=url('/user'))= __('nav.user')
             li
               a(href="javascript:void(0);", v-on="click: logout")= __('nav.logout')

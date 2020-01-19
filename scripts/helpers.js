@@ -7,7 +7,7 @@ var host = process.env.HOST || ''
 hexo.extend.helper.register('url', function(path) {
   var newPath = path || ''
   if (this.page.lang != 'en') {
-    newPath = this.page.lang + '/' + path.replace(/^\//, '')
+    newPath = '/' + this.page.lang + '/' + path.replace(/^\//, '')
   }
   var newUrl = url.resolve(host, newPath)
   return newUrl
