@@ -1,6 +1,6 @@
 ---
 title: UX SDK Introduction
-date: 2018-12-27
+date: 2020-01-22
 keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 
@@ -17,9 +17,9 @@ The DJI UX SDK provides UI elements that have these core functionalities, hence 
 
 ![DefaultScreen](../images/product-introduction/defaultScreen.png)
 
-Developers can pick and choose which parts of the UX SDK they want to include, exclude and customize. 
+Developers can pick and choose which parts of the UX SDK they want to include, exclude and customize.
 
-UX SDK is available in the DJI Mobile SDK v4.0 and later. 
+UX SDK is available in the DJI Mobile SDK v4.0 and later.
 
 ## Concepts Overview
 
@@ -89,7 +89,7 @@ UXSDK will automatically pick up and use your custom image file.
     - res/drawable-xhdpi-v4
     - res/drawable-xxhdpi-v4
     - res/drawable-xxxhdpi-v4
-  4. Zip file and rename to replace the original AAR file 
+  4. Zip file and rename to replace the original AAR file
 
 > Note: The image assets are required to be of the same pixel dimensions as the original ones. -->
 
@@ -100,7 +100,7 @@ UXSDK will automatically pick up and use your custom image file.
   Widgets can be subclassed to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data it is using as properties. Please refer to the [API documentation](http://developer.dji.com/api-reference/ios-uilib-api/Widgets/AutoExposureLockWidget.html) for more details.
 
 ##### Android
-  
+
   In Android, subclassing can completely change the behavior and the look of Widgets. The steps are:
 
   1. Override `void initView(Context var1, AttributeSet var2, int var3)` and inflate/initialize the custom layout. Remember, **do not call** `super.initView()`.
@@ -133,7 +133,7 @@ Widget collections are used in iOS Only. Example of widget collections include:
 
 ## Panels
 
-Panels are more complex elements with rich information and control, such as settings menus or the pre-flight checklist. 
+Panels are more complex elements with rich information and control, such as settings menus or the pre-flight checklist.
 
 Examples of panels include:
 
@@ -172,3 +172,9 @@ Sample projects are provided for the DJI UX SDK:
 
 - [Creating a Simplified DJI Go app using DJI Mobile UX SDK](TODO)
   -->
+
+## UX SDK 5.0 Public Beta (Github)
+
+- [iOS UX SDK Public Beta](https://github.com/dji-sdk/Mobile-UXSDK-Beta-iOS)
+
+- [Android UX SDK Public Beta](https://github.com/dji-sdk/Mobile-UXSDK-Beta-Android)

@@ -6,7 +6,7 @@ keywords: [single, burst, HDR, AEB, Interval, Timelapse, video resolution, frame
 
 ## Introduction
 
-The camera captures photos and videos. Many different modes of operation, resolutions, frame rates, exposure settings, picture settings and file types can be selected. Cameras have local storage to hold the media which will typically be an SD card, and in some cases an SSD (solid state drive). 
+The camera captures photos and videos. Many different modes of operation, resolutions, frame rates, exposure settings, picture settings and file types can be selected. Cameras have local storage to hold the media which will typically be an SD card, and in some cases an SSD (solid state drive).
 
 This guide covers the large array of settings, modes and functionality provided by DJI cameras. A more general description of camera concepts can be found [here](./camera_concepts.html).
 
@@ -24,7 +24,7 @@ The camera can only operate in one mode at any one time. For example, media down
 
 ##### Still Image Capture Modes
 
-There are several ways to capture a still image with DJI cameras. 
+There are several ways to capture a still image with DJI cameras.
 
 * **Single**: Takes a single picture every time the `shootPhoto` command is given.
 * **Burst**: Takes a small burst of photos every time the `shootPhoto` command is given. This can be useful for capturing action scenes.
@@ -42,7 +42,7 @@ After a still image is captured, some cameras can be configured to display the c
 
 ##### Video Resolution and Frame Rate
 
-DJI Cameras typically support video resolutions of 1280x720 (720p), 1920x1080 (1080p), 2704x1520, 3840x2160 and 4096x2160 (4K). 
+DJI Cameras typically support video resolutions of 1280x720 (720p), 1920x1080 (1080p), 2704x1520, 3840x2160 and 4096x2160 (4K).
 
 Resolution will determine the maximum frame rate able to be captured. The combinations of resolution and frame rate can be queried directly in the SDK, but typically choosing 4K resolution will limit the frame rate to 24/25 fps. Some cameras support up to 120 fps, but only at 1080p resolutions.
 
@@ -112,7 +112,7 @@ The trade-off between capturing RAW and compressed images is:
 For still images, DIJ cameras typically support JPEG (compressed) and DNG (RAW) image formats. Cameras can also capture in JPEG + RAW, saving two images for each shot.
 
 For video, only the Zenmuse X5 RAW and X5S supports capturing raw video. RAW video files have a high data rate and large file size and therefore can only be captured onto a solid state drive (SSD). All cameras support compressed formats MP4 (MPEG – 4 AVC) and MOV (H.264).
- 
+
 ## Exposure Options
 
 Getting the exposure right is important to capture a great, recognizable picture. Under exposed (too dark) or over exposed (too light) pictures will lack detail of the subject. The concepts behind exposure, aperture, shutter, ISO, stops, field of view and depth of field are described and compared in detail in [Camera Concepts](./camera_concepts.html).
@@ -125,10 +125,10 @@ The shutter speed should not be set slower than the video frame rate when the ca
 
 ##### ISO
 
-ISO relates to the amount of amplification applied to each pixel. Higher ISO will increase amplification and therefore exposure, but will also increase noise in the picture. Higher ISO is effectively making the camera more sensitive to light, and is useful when trying to capture darker scenes. 
+ISO relates to the amount of amplification applied to each pixel. Higher ISO will increase amplification and therefore exposure, but will also increase noise in the picture. Higher ISO is effectively making the camera more sensitive to light, and is useful when trying to capture darker scenes.
 
 Different DJI cameras have different ISO ranges. The Zenmuse X5 has an ISO range of 100-25600.
-  
+
 ##### Aperture
 
 The camera aperture controls how large the **window** the sensor can see the world through. Increasing the aperture will increase the amount of light incident on the camera, and therefore increase the exposure. It will also make the depth of field shallower. A shallower depth of field will mean that features at different distances to the camera will be more out of focus. This can create a great effect if trying to highlight the subject (in focus foreground, blurred background), but can be challenging if trying to capture both the foreground and background in focus.
@@ -152,7 +152,7 @@ Camera Concepts contains a [description](./camera_concepts.html#trade-off-betwee
 
 In the Program, Aperture Priority and Shutter Priority exposure modes, the exposure compensation value changes the exposure target the camera is using to calculate correct exposure and is set by the user. This can be used to capture darker or lighter images.
 
-In the Manual exposure mode, this value is reported from the camera and reports how much the exposure needs to be compensated for to get to what the camera thinks is the correct exposure. 
+In the Manual exposure mode, this value is reported from the camera and reports how much the exposure needs to be compensated for to get to what the camera thinks is the correct exposure.
 
 ##### AE (Auto Exposure) Metering
 
@@ -190,7 +190,7 @@ The sharpness of an image is dependent on many factors including the shutter spe
 
 A picture can be further sharpened or softened using high and low pass filters on the image. Sharpening the image will highlight changes in brightness, and emphasize details. Sharpening will therefore also increase the noise as noise is seen as small changes in brightness.
 
-In comparison, softening an image will reduce changes in brightness, reduce noise, but also make finer details harder to see. 
+In comparison, softening an image will reduce changes in brightness, reduce noise, but also make finer details harder to see.
 
 DJI cameras offer three sharpness settings: **Standard**, **Hard** and **Soft**.
 
@@ -210,7 +210,7 @@ Hue and saturation can be seen on a color wheel.
 
 The outside of the color wheel has complete color saturation, and is the hue. The center of the color wheel is grey, and is no saturation.
 
-Camera hue and saturation can both be adjusted. Adjusting the hue of an image will adjust the tint. Adjusting the saturation will make the image more or less grey. Images with high saturation can be very vivid, but also look false. 
+Camera hue and saturation can both be adjusted. Adjusting the hue of an image will adjust the tint. Adjusting the saturation will make the image more or less grey. Images with high saturation can be very vivid, but also look false.
 
 ##### Digital Filter
 
@@ -237,23 +237,21 @@ For some lenses, the minimum focus ring value (which corresponds with infinity f
 This focus ring value can be tied to the serial number of the camera for future reference.
 
 ## Live Video Feed
- 
-Developers can get live H.264 video data from Camera using the Mobile SDK. The H.264 is a video coding format that is currently one of the most commonly used formats for compression, and distribution of video content. 
+
+Developers can get live H.264 video data from Camera using the Mobile SDK. The H.264 is a video coding format that is currently one of the most commonly used formats for compression, and distribution of video content.
 
 Even though most cameras can capture in 1080p or 4K, the live video stream is typically 720p to conserve wireless bandwidth. The live video stream is highly dependent on the quality of the wireless link. Wireless systems are complex, with many variables contributing to overall quality, however generally as the transmission distance increases, or obstacles start to occlude the signal, video quality can deteriorate rapidly.
 
 ## Broadcast Mode
 
-For Inspire 2, a new Broadcast Mode for TV broadcasters has been created, allowing videos to be streamed from the Inspire 2 in broadcast standard 720p60 (NTSC) or 1080i50 (PAL). Once connected to broadcasting equipment, footage can be sent live on-air without signal conversion. 
+For Inspire 2, a new Broadcast Mode for TV broadcasters has been created, allowing videos to be streamed from the Inspire 2 in broadcast standard 720p60 (NTSC) or 1080i50 (PAL). Once connected to broadcasting equipment, footage can be sent live on-air without signal conversion.
 
 In this camera mode, videos can be recorded. Still photos can also be taken only when video is recording. The only way to exit broadcast mode is to change modes to **Video capture**.
-
-It is only supported by Inspire 2.
 
 ## Playback Manager
 
 DJI cameras support a media playback mode. The live video stream is replaced with a media preview stream. Commands can be sent to the camera to:
- 
+
 * View single previews or as pages of smaller thumbnails
 * Navigate single and page previews
 * Select and deselect files
@@ -268,7 +266,7 @@ By using the media manager, metadata for all the multimedia files can be read, a
 
 During media download, the live video feed is paused so all wireless bandwidth can be dedicated to transferring files.
 
-## Media 
+## Media
 
 ##### Storage
 
@@ -280,9 +278,8 @@ The Inspire 2 (X5S and X4S) uses on aircraft SSD and SD storage instead of on ca
 
 ##### File Index
 
-There are two file index modes for storing media: **Reset** and **Sequence**. 
+There are two file index modes for storing media: **Reset** and **Sequence**.
 
 **Reset mode**: The camera will reset the newest file's index to be one larger than the largest number of photos taken on the SD card.
 
-**Sequence mode**, the camera will set the newest file's index to the larger of either the maximum number of photos taken on the SD card or the camera. 
-
+**Sequence mode**, the camera will set the newest file's index to the larger of either the maximum number of photos taken on the SD card or the camera.

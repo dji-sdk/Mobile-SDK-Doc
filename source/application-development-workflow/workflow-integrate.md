@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2019-07-16
+date: 2020-01-22
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
@@ -30,7 +30,7 @@ Screenshots in this section are generated using Xcode 7.3.
     # platform :ios, '9.0'
 
     target 'ImportSDKDemo' do
-    pod 'DJI-SDK-iOS', '~> 4.11’
+    pod 'DJI-SDK-iOS', '~> 4.11.1’
     end
    ~~~
 
@@ -45,7 +45,7 @@ Screenshots in this section are generated using Xcode 7.3.
    ~~~
     Analyzing dependencies
     Downloading dependencies
-    Installing DJI-SDK-iOS (4.11)
+    Installing DJI-SDK-iOS (4.11.1)
     Generating Pods project
     Integrating client project
 
@@ -63,8 +63,6 @@ Screenshots in this section are generated using Xcode 7.3.
    ![supportedExternalAccessoryProtocols](../images/quick-start/iOSSupportedExternalAccessories.png)
    * Since iOS 9, App Transport Security has blocked cleartext HTTP (http://) resource loading. The "App Transport Security Settings" key must be added and "Allow Arbitrary Loads" must be set to "YES".
    ![allowArbitraryLoads](../images/quick-start/iOSAllowArbitraryLoads.png)
-   * Currently the DJI iOS SDK doesn't support **Bitcode** for iOS device, please modify the Build Settings to disable it.
-   ![disableBitcode](../images/quick-start/disableBitcode.png)
    * For Xcode project which uses Swift 3 above, please delete all the paths in **Header Search Paths** except `$(PODS_ROOT)/Headers/Public` in **Build Settings** to help fix the Swift compiler error.
    ![headerSearchPathIssue](../images/application-development-workflow/headerSearchPathIssue_1.png)
    > Note: The Swift compiler error looks like this: **Inclue of non-modular header inside framework module 'DJISDK'**.
@@ -117,7 +115,7 @@ Screenshots in this section are generated using Xcode 7.3.
     {
         NSLog(@"registerAppSuccess");
     }
-    
+
     [self showAlertViewWithTitle:@"Register App" withMessage:message];
 }
 
@@ -218,8 +216,8 @@ android {
 
 dependencies {
    ...
-    compile ('com.dji:dji-sdk:4.11')
-    provided ('com.dji:dji-sdk-provided:4.11')
+    compile ('com.dji:dji-sdk:4.11.1')
+    provided ('com.dji:dji-sdk-provided:4.11.1')
 }
 ~~~
 
@@ -264,9 +262,9 @@ public class MApplication extends Application {
 }
 ~~~
 
-Here we override the `attachBaseContext()` method to add the `Helper.install(MApplication.this);` line of code. 
+Here we override the `attachBaseContext()` method to add the `Helper.install(MApplication.this);` line of code.
 
-> **Note**: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failing to do so will result in unexpected crashes. 
+> **Note**: Since some of SDK classes now need to be loaded before using, the loading process is done by `Helper.install()`. Developer needs to invoke this method before using any SDK functionality. Failing to do so will result in unexpected crashes.
 
   ![AndroidImplementationMainActivity](../images/application-development-workflow/mApplication.png)
 
@@ -275,7 +273,7 @@ Double click on **MainActivity.java** in the **app** module.
 
 The MainActivity class needs to register the application to get authorization to use the DJI Mobile SDK. It also needs to implement callback methods expected by the SDK.
 
-The MainActivity class will first be modified to include several class variables including `mProduct` which is the object that represents the DJI product connected to the mobile device. 
+The MainActivity class will first be modified to include several class variables including `mProduct` which is the object that represents the DJI product connected to the mobile device.
 
 Additionally the `onCreate` method will be modified to invoke the `checkAndRequestPermissions` method to check and request runtime permissions. Also, the `checkAndRequestPermissions` method will help to invoke the `startSDKRegistration()` method to register the application. Moreover, the override `onRequestPermissionsResult` method will help to check if the application has enough permission, if so, invoke the `startSDKRegistration()` method to register the application.
 
@@ -476,7 +474,7 @@ The application must be granted permissions to in order for the DJI SDK to opera
 
   * Double click on **AndroidManifest.xml** in the **app** module.
    ![AndroidManifest](../images/application-development-workflow/AndroidManifest.png)
-  
+
   * After `package=com.dji.ImportSDKDemo` and before `<application` insert:
 
 ~~~xml
@@ -574,6 +572,3 @@ If the App Key was generated correctly and the Android simulator or mobile devic
 ### FFmpeg License
 
 The DJI Android SDK is dynamically linked with unmodified libraries of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a>. The source code of these FFmpeg libraries, the compilation instructions, and the LGPL v2.1 license are provided in [Github](https://github.com/dji-sdk/FFmpeg).
-
-
-

@@ -1,6 +1,6 @@
 ---
 title: Run Sample Application
-date: 2020-01-16
+date: 2019-05-15
 keywords: [quick start, generate app key, bundle id, app key, register, run sample code, run sample application, Objective C, Swift, USB connection procedure, WiFi connection procedure]
 ---
 
@@ -11,8 +11,6 @@ To have a better experience of learning how to get started with the DJI iOS Mobi
 Register for a DJI Developer account <a href="https://account.dji.com/register?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US" target="_blank">here</a>.
 
 During the registration process, email information and a credit card or phone number will need to be supplied to verify registration. Any credit card information given will only be used for verification and will not be charged.
-
-This guide assumes Xcode version 7.3 above and Android Studio version 2.1.1.
 
 ## Generate an App Key
 
@@ -26,8 +24,8 @@ Go to the DJI developer <a href="http://developer.dji.com/en/user/apps" target="
 *    Select the "Create App" button on the right.
 * Enter the name, platform, package identifier, category and description of the application.
 
-    * For iOS, the package identifier is the <a href="http://developer.dji.com/en/user/apps/ios-configuration" target="_blank">Bundle Identifier</a>.
-    * For Android, the package identifier is the <a href="http://developer.dji.com/en/user/apps/android-configuration/" target="_blank">Package Name</a>.
+    * For iOS, the package identifier is the **Bundle Identifier**.
+    * For Android, the package identifier is the **Package Name**.
 
 * An application activation email will be sent to complete App Key generation.
 * The App Key will appear in the developer center, and can be copied and pasted into the application.

@@ -6,15 +6,15 @@ keywords: [activate product, upgrade firmware, flight mode switch, connection co
 
 ## Prepare Product
 
-The user manual for each product should be reviewed to understand the full product setup (visit <a href="http://www.dji.com" target="_blank">http://www.dji.com</a> and navigate to the downloads page for each product). This section details some of the key points to remember. 
+The user manual for each product should be reviewed to understand the full product setup (visit <a href="http://www.dji.com" target="_blank">http://www.dji.com</a> and navigate to the downloads page for each product). This section details some of the key points to remember.
 
 ### Charge Batteries
 
 Generally, all batteries of a product should be charged before running an application for best experience. This can include aircraft batteries, remote controller batteries, handheld gimbal batteries, and aircraft mounted gimbal batteries (for the Ronin MX). When a battery is too low, an aircraft may return home or land early in the application, or might not take off at all.
-            
+
 ### Activate Product
 
-Any new product will need to be activated through **DJI GO** before being used for the first time. **DJI GO** is available on the <a href="https://itunes.apple.com/en/app/dji-pilot/id943780750?mt=8" target="_blank">iOS App Store</a> and <a href="https://play.google.com/store/apps/details?id=dji.pilot&hl=en" target="_blank"> Google Store</a> and can be used to activate a product.
+Any new product will need to be activated through **DJI GO**/**DJI GO 4** before being used for the first time. **DJI GO 4** is available on the <a href="https://apps.apple.com/us/app/dji-go/id943780750" target="_blank">iOS App Store</a> and <a href="https://play.google.com/store/apps/details?id=dji.go.v4&hl=en" target="_blank"> Google Store</a> and can be used to activate a product.
 
 ### Redirect to DJI Go Apps
 
@@ -28,16 +28,16 @@ If SDK applications need to redirect to **DJI Go Apps** to do actions like activ
 
 #### Android:
 
-- Redirect to DJI Go 4 App: 
+- Redirect to DJI Go 4 App:
 
 ~~~java
 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("dji.go.v4");
 if (launchIntent != null) { //null pointer check in case package name was not found
-    startActivity(launchIntent); 
+    startActivity(launchIntent);
 }
 ~~~
 
-- Redirect to DJI Go App: 
+- Redirect to DJI Go App:
 
 ~~~java
 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("dji.pilot");
@@ -81,20 +81,20 @@ There are several ways to initialize all products and run an application. An exa
 
 _Mavic Pro, Phantom 4, Phantom 4 Professional, Phantom 3 Professional, Phantom 3 Advanced, Inspire series, Matrice Series:_
 
- 1. Turn on the Remote Controller. 
+ 1. Turn on the Remote Controller.
  * Turn on the Aircraft and wait until the Remote Controller has connected with the Aircraft.
  * Connect iOS/Android Mobile Device to the Remote Controller using a **Lightning** (iOS) or **USB** (Android) cable.
  * Run Application on the Mobile Device.
-   
-> **Note:** 
-> 
+
+> **Note:**
+>
 > If using an Android device, the DJI Remote Controller needs to support <a href="https://source.android.com/devices/accessories/protocol.html" target="_blank"> AOA </a>. All recent versions of the firmware support AOA. AOA is supported if when the Sample Application connects with the Android device, a dialog similar to that below appears:
-> 
+>
 >  ![dialog](../../images/application-development-workflow/android_dialog.png)
-> 
+>
 > To learn how to change the default app for USB accessory, please check these two FAQs: [Android Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Android-devices), [Samsung Device](../faq/index.html#How-do-I-reset-the-default-app-behavior-for-a-USB-Accessory-DJI-Product-on-Samsung-devices).
-> 
-  
+>
+
 ### WiFi Connection Procedure
 
 _Phantom 3 Standard, Phantom 3 4K, Spark:_
@@ -103,7 +103,7 @@ _Phantom 3 Standard, Phantom 3 4K, Spark:_
 * Connect Mobile Device to the WiFi network created by the Remote Controller.
 * Turn on the Aircraft and wait until the Remote Controller has connected with the Aircraft.
 * Run Application on the Mobile Device.
-  
+
 _Osmo, Mavic Pro, Spark:_
 
 1. Turn on the product (Osmo or aircraft).  

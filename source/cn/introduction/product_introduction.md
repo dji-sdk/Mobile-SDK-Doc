@@ -1,16 +1,16 @@
 ---
 title: Hardware Introduction
-date: 2019-11-08
+date: 2020-01-22
 keywords: [component, propellor, sensor, product comparison]
 ---
 
-DJI produces highly capable, remotely controlled aircraft, hand held cameras and stabilizers that are designed for both consumer and commercial applications. The products are widely accessible in both ease of use and affordability while still maintaining a quality and feature set unmatched in the industry.
+DJI produces small, highly capable, remotely controlled aircraft as well as hand held cameras and stabilizers perfect for both consumer and commercial applications. The products are very accessible being easy to use and affordable, and have a quality and feature set unmatched in the industry.
 
 ### Aircraft
 
-DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Spark, Mavic Air, Mavic Pro, Phantom series, Inspire series, Matrice 200 series, Matrice 100 and Matrice 600.
+DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic 2 Series, Mavic 2 Enterprise, Mavic Air, Mavic Pro, Phantom series, Inspire series, Matrice 200 V2 series, Matrice 100 and Matrice 600.
 
-One of the key features of DJI aircraft is the camera's ability to stay horizontal regardless of the aircrafts's orientation. The camera is mounted on a gimbal, which actively compensates for any aircraft rotation, producing clear, beautiful images and videos.
+One of the key features of DJI aircraft is the camera's ability to stay horizontal no matter how the aircraft is flying. The camera is mounted on a gimbal, which actively compensates for any aircraft rotation, producing clear, beautiful images and videos.
 
 There are many DJI aircraft to choose from that provide a range of features, performance, size and price. Specific metrics developers and users should be aware of when they consider an aircraft include:
 
@@ -27,21 +27,21 @@ There are many DJI aircraft to choose from that provide a range of features, per
 
 ### Handheld Camera
 
-DJI's handheld camera Osmo series allows users to take smooth, professional videos while the user is moving, by integrating DJI's aircraft camera stabilization gimbal technology onto an easy to carry handle.
+DJI's handheld camera Osmo series allows users to take smooth, professional videos when the user is moving by integrating DJI's aircraft camera stabilization gimbal technology onto an easy to carry handle.
 
 ### Stand Alone Components
 
-Two components of the aircraft (flight controller and wireless link) can be used on DJI airframes and third party airframes. Some of these components have limited DJI Mobile SDK support.
+Two components of the aircraft (flight controller, wireless link) can be used on DJI or third party airframes. Some of these components are supported to a limited degree in the DJI Mobile SDK.
 
 ### Accessories
 
-DJI aircraft and handheld cameras are compatible with a number of DJI accessories like: DJI Focus, D-RTK, Cendence and more. Some of these accessories are supported by the DJI Mobile SDK. 
+DJI aircraft and handheld cameras are compatible with a number of DJI accessories. Some of these accessories are also supported by the DJI Mobile SDK, meaning the mobile device will be able to interact with the accessory to some degree.
 
 ## Components
 
-Before doing a detailed product comparison it is useful to understand the basic components of a product and their functions.
+Before doing a detailed product comparison it is useful to understand the components of a product and their function.
 
-All products comprise of component modules that provide an important feature or function. An introduction to common components can be found below, with more details here [Component Guide](./component-guide-flightController.html).
+All products comprise component modules that provide an important feature or function. An introduction to typical components is below with more details in the [Component Guide](./component-guide-flightController.html).
 
 ![ComponentsAircraft](../../images/product-introduction/ComponentsAircraft.png)
 
@@ -51,7 +51,7 @@ Motor mounted propellors provide vertical thrust. The vertical thrust can be adj
 
 #### Sensors
 
-DJI aircraft have a large number of sensors that include but are not limited to: accelerometers, gyroscopes, compasses, barometers, ultrasonic sensors, cameras and satellite positioning systems. These sensors are used to determine the current state of the aircraft, predict it's future state and evaluate the environment around it.
+DJI aircraft have a large number of sensors including accelerometers, gyroscopes, compasses, barometers, ultrasonic sensors, cameras and satellite positioning systems. These sensors are used to determine the current and predict the future state of the aircraft and the environment around it.
 
 #### Flight Controller
 
@@ -59,15 +59,15 @@ The Flight Controller is an onboard computer that couples control information fr
 
 #### Camera
 
-The camera can record image and video data locally, transfer it wirelessly to an Android or iOS mobile device or provide an option to live steam video. Camera exposure and settings are highly customizable allowing capture of the perfect shot.
+The camera can record image and video data locally or transfer it wirelessly to an Android or iOS mobile device. Wireless transfer includes the option of a live video stream from the camera. Camera exposure and settings are highly customizable allowing capture of the perfect shot.
 
 #### Gimbal
 
-The gimbal holds and rotates the camera around three axes. The rotation can be used to control the direction of the camera and provide stabilization when the aircraft is not horizontal. The gimbal is mounted on a damped plate, that offers stabilization from lateral vibrations and rotational movement.
+The gimbal holds the camera and can rotate it around three axes. The rotation can be used to both control the direction the camera points, and provide rotational stabilization when the aircraft is not horizontal. The gimbal is mounted on a damped plate, meaning the camera is both stabilized from lateral vibrations and rotational movement.
 
 #### Vision Obstacle Avoidance & Positioning
 
-Advanced sensors help the aircraft perceive the world around it. Stereo cameras are used to detect obstacles near the product. Downward facing cameras and ultrasonic sensors are used to determine relative ground position that provide accurate velocity estimates and can offer stable hover positions in GPS denied environments (like indoors).
+Advanced sensors help the aircraft perceive the world around it. Stereo cameras are used to detect obstacles near the product. Downward facing cameras and ultrasonic sensors are used to determine relative ground position providing accurate velocity estimates and stable hover position in GPS denied environments (like indoors).
 
 #### Smart Battery
 
@@ -75,17 +75,17 @@ Smart batteries provide the energy required to run the system. Together with the
 
 #### Remote Controller
 
-The remote controller provides control sticks, buttons, and wheels that give control of the aircraft flight, camera and gimbal. The remote controller maintains a wireless link with the aircraft, with some products having up to a 3 mi range when in ideal environments. The **Flight Mode Switch** on the remote controller can be used to switch between manual and automated flight.
+The remote controller provides control sticks, buttons, and wheels that give control of the aircraft flight, camera and gimbal. The remote controller maintains a wireless link with the aircraft with some products having up to a 5km range in ideal environments. The **Flight Mode Switch** on the remote controller can be used to switch between manual and automated flight.
 
 ![ComponentsRemoteController](../../images/product-introduction/ComponentsRemoteController.png)
 
 #### Mobile Device
 
-An Android or iOS device can be connected to the remote controller through either USB or WiFi, to give an augmented flight experience showing the live camera feed and aircraft state information. Using the Mobile SDK, a mobile device can also be used to control the aircraft.
+An Android or iOS device can be connected to the remote controller through either USB or WiFi to give an augmented flight experience showing the live camera feed, and showing aircraft state information. Using the Mobile SDK, the mobile device can also be used to control the aircraft.
 
 #### Handheld Controller
 
-The handheld controller provides a joystick and buttons that control the camera and gimbal. The handheld controller connects to the mobile device through a WiFi access point inside the handle.
+The handheld controller provides a joystick and buttons for that give control of the camera and gimbal. The handheld controller connects to the mobile device through a WiFi access point inside the handle.
 
 ![ComponentsHandheld](../../images/product-introduction/ComponentsHandheld.png)
 
@@ -106,7 +106,7 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
     </tr>
   </thead>
   <tbody>
-    <tr>
+	  <tr>
       <td rowspan="27">Aircraft</th>
       <td>Mavic 2 Enterprise Dual</td>
       <td>Fixed</td>        
@@ -298,22 +298,21 @@ Some defining product features that distinguish aircraft series are:
 
 * Small and portable
 * Easy to use
-* Phantom 4 and Mavic Pro include:
+* Phantom 4 and Mavic Pro includes:
     * Built in obstacle avoidance
-    * Advanced vision features, like tracking a pre-selected moving target.
+    * Advanced vision features like being able to track a moving target selected by the user.
     * A **sport flight mode** for a more dynamic flying experience
-* Mavic Pro Also:
-    * Can be controlled with either a remote controller or directly from a mobile device.
+* Mavic Pro also:
+    * Can either be controlled with a remote controller, or directly from a mobile device.
     * Has a small and portable remote controller.
 
 ### Spark
-* Ultra-small 
-* Lowest cost
+* Ultra-small, lowest cost
 * Easiest to use
 * Gesture controls
 * Built in obstacle avoidance
-* Can be controlled with either a remote controller or directly from a mobile device
-* No support for waypoint missions
+* Can either be controlled with a remote controller, or directly from a mobile device
+* Doesn't support waypoint missions
 * Supports 1080p resolution (other products support up to 4K)
 
 ### Inspire
@@ -321,30 +320,27 @@ Some defining product features that distinguish aircraft series are:
 * Swappable cameras
 * Cameras with larger sensors, aperture and focus control
 * Thermal camera available
-* Gimbal can yaw camera completely (640&deg;)
-* Landing gear can retract from the camera's field of vision
+* Gimbal can rotate camera completely through the horizontal (640&deg;)
+* Landing gear can raise out of the camera's field of view
  ![InspireRaised](../../images/product-introduction/inspire_landingGearRaised.gif)
 * Remote controller has embedded GPS
-* Inspire 2 also has:
+* Inspire 2 also:
     * Optional onboard SSD storage
     * Optional Remote Controller GPS Accessory
     * Upward facing obstacle avoidance
-    * Additional first person view (FPV) camera
-
+    * Additional in first person view (FPV) camera
 
 ### Matrice
 
 * Industrial and developer platform
-* Highly customizable
-* Support a payload of up to 13 lbs
+* Highly customizable, with up to 6 kg payloads supported
 * Payloads can communicate with the flight controller directly through a serial port and the DJI Onboard SDK
 * Mechanical mounting features
-* Can use the same cameras from the Inspire series
+* Can use same cameras as Inspire series
 * Additional accessories including
 
     * <a href="http://www.dji.com/product/matrice600" target="_blank"> DRTK </a> - cm precision positioning
-    * <a href="http://www.dji.com/product/guidance" target="_blank"> Guidance </a> - 5 direction stereo camera and ultrasonic sensor module
-    * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - Gimbal that can support custom payloads up to 10 lbs
+    * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - Gimbal that can support custom payloads up to 4.5 kg
 
 Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft and features.
 
@@ -424,10 +420,10 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 > Note:
 >
 > 1. See **Payload & Flight Time** table for more information
-> 2. Inspire vs Inspire Pro differences:
->  - Inspire 1 Pro more powerful propulsion to lift heavier loads
->  - Inspire 1 Pro comes with a gimbal mounting bracket to support the X5 and X5R
->  - Inspire 1 Pro comes with the X5 as its default configuration
+> 2. Difference between Inspire vs Inspire Pro:
+>  - Inspire 1 Pro has more powerful propulsion making it able to lift heavier loads
+>  - Inspire 1 Pro comes with a gimbal mounting bracket able to support the X5 and X5R
+>  - Inspire 1 Pro comes with the X5 as default configuration
 >
 
 <html><table class="table-aircraft-comparison">
@@ -451,7 +447,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Inspire 2</td><td>X4S, X5S, X7</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Moveable</td><td>-</td><td>Focus, CineSSD</td></tr>
 <tr>
-<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
+<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Manifold, Focus</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>1</td><td>Fixed</td><td>1450</br></td><td>-</td></tr>
 <tr>
@@ -577,7 +573,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 
 
 > Note: For mission descriptions, see [Missions](./component-guide-missions.html) in **Guides**.
-> 
+>
 
 
 ### Flight Time
@@ -586,9 +582,9 @@ Product flight time is determined by total aircraft mass and the available store
 
 #### Battery Energy Density
 
-DJI provides two series of batteries for the Inspire and Matrice product lines. The TB47 series is the default 99 Wh battery that comes with all aircraft. The TB48 series is a 130 Wh battery. While the TB48 battery has a 10-15% higher energy density, it can be less practical since batteries of >100 Wh often have transport restrictions.
+DJI provides two series of batteries for the Inspire and Matrice product lines. The TB47 series is the default 99 Wh battery that comes with all aircraft. The TB48 series is a 130 Wh battery. While the TB48 battery has a 10-15% higher energy density, it is less practical as batteries >100 Wh often have transport restrictions.
 
-Using a battery with a higher energy density will always translate to longer flight time, if all else is kept constant. However, as the TB48 battery is a little heavier than the TB47 battery, it is important to note that its use will restrict the maximum custom payload capacity. This is particularly noticeable on the Matrice series, when using more than one battery.
+Using a battery with a higher energy density will always translate to longer flight time if all else is kept constant. However, as the TB48 battery is a little heavier than the TB47 battery, it is important to remember that its use will restrict the maximum custom payload. This is particularly noticeable on the Matrice series of products when using more than one battery.
 
 #### Using More Batteries
 
@@ -713,7 +709,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="11">
     Matrice 100
-    <p><font size="1">Max Take-off Mass: 3600g</br>Compatible with XT, X3, X5, X5R, Guidance, Manifold</p>
+    <p><font size="1">Max Take-off Mass: 3600g</br>Compatible with XT, X3, X5, X5R, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>TB47D</td>        
@@ -872,7 +868,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="4">
     Matrice 600
-    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Guidance, Ronin MX, DRTK, Manifold</p>
+    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Ronin MX, DRTK, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>6x TB47S</td>        
@@ -918,9 +914,9 @@ To help understand the potential functionality and flight time of different airc
 
 ### Camera
 
-DJI provides a dynamic range of cameras and camera configurations. For the Phantom and Mavic lines, the cameras are fixed to the product. For the Inspire and Matrice lines of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT, Z30, X4S, X5S) however they are not compatible with all the available cameras. The [Products and Accessories](#supported-products) table at the top of the page details the combinations of camera and aircraft compatibility.
+DJI provides several camera configurations. For the Phantom and Mavic lines of products, the cameras are fixed to the product. For the Inspire and Matrice lines of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT, Z30, X4S, X5S) however not all cameras are compatible with all Inspire and Matrice aircraft. The [Products and Accessories](#supported-products) table at the top of the page details the combinations of camera and aircraft compatibility.
 
-The Zenmuse XT is a thermal camera which makes it's specifications difficult to compare directly to other cameras, however it is still included in the comparison for it's mass for payload calculation. More details on the specifications of the Zenmuse XT can be found <a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank"> here </a>.
+The Zenmuse XT is a thermal camera. It's specifications are difficult to compare directly to other cameras, however it is included in the comparison for it's mass for payload calculation. More details on the specifications of the Zenmuse XT can be found <a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank"> here </a>.
 
 <html><table class="table-aircraft-comparison">
 <thead><tr><th colspan="9">Camera Comparison: <b>Sensor</th></tr></thead>
@@ -1140,11 +1136,11 @@ Remote controllers will differ in:
 
 * How they connect to a mobile device
 * What wireless technology they use to connect with the aircraft
-* Whether they have built-in GPS 
+* Whether they have GPS built-in
 * If they can output secondary video
-* If they can be used in a dual master/slave configuration (one RC controls the aircraft while the other RC controls the gimbal and camera)
+* If they can be used in a dual configuration (one flys the aircraft while the other controls the gimbal and camera)
 
-Remote Controllers using WiFi to connect to a mobile device, will act as a WiFi access point and need to be joined in the mobile device's network settings.
+Remote Controllers that use WiFi to connect to the mobile device will act as a WiFi access point and will need to be joined.
 
 <html><table class="table-aircraft-comparison">
 <thead><tr><th colspan="9"><b>Remote Controller Comparison</th></tr></thead>

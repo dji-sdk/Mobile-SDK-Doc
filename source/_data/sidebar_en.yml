@@ -10,7 +10,7 @@
     -
       title: "Mobile SDK Introduction"
       path: "/introduction/mobile_sdk_introduction.html"
-    - 
+    -
       title: "UX SDK Introduction"
       path: "/introduction/ux_sdk_introduction.html"
     -
@@ -23,7 +23,28 @@
       title: "Run Sample Application"
       path: "/quick-start/index.html"
 -
-  title: "CONCEPTS TO UNDERSTAND"
+  title: "DEVELOPMENT WORKFLOW"
+  list:
+    -
+      title: "Prerequisites"
+      path: "/application-development-workflow/workflow-prerequisits.html"
+    -
+      title: "Register as DJI Developer & Download SDK"
+      path: "/application-development-workflow/workflow-register.html"
+    -
+      title: "Integrate SDK into Application"
+      path: "/application-development-workflow/workflow-integrate.html"
+    -
+      title: "Run Application"
+      path: "/application-development-workflow/workflow-run.html"
+    -
+      title: "Testing, Profiling & Debugging"
+      path: "/application-development-workflow/workflow-testing.html"
+    -
+      title: "Deploy"
+      path: "/application-development-workflow/workflow-deploy.html"
+-
+  title: "CONCEPTS & Guides"
   list:
     -
       title: "Flight Control"
@@ -31,10 +52,6 @@
     -
       title: "Camera Exposure"
       path: "/introduction/camera_concepts.html"
--
-  title: "GUIDES"
-
-  list:
     -
       title: "Flight Controller"
       path: "/introduction/component-guide-flightController.html"
@@ -60,36 +77,12 @@
       title: "SDK Manager"
       path: "/introduction/sdk-guide-sdkmanager.html"
 -
-  title: "DEVELOPMENT WORKFLOW"
-  list:
-    -
-      title: "Prerequisites"
-      path: "/application-development-workflow/workflow-prerequisits.html"
-    -
-      title: "Register as DJI Developer & Download SDK"
-      path: "/application-development-workflow/workflow-register.html"
-    #-
-    #  title: "Download SDK"
-    #  path: "/application-development-workflow/workflow-download.html"
-    -
-      title: "Integrate SDK into Application"
-      path: "/application-development-workflow/workflow-integrate.html"
-    -
-      title: "Run Application"
-      path: "/application-development-workflow/workflow-run.html"
-    -
-      title: "Testing, Profiling & Debugging"
-      path: "/application-development-workflow/workflow-testing.html"
-    -
-      title: "Deploy"
-      path: "/application-development-workflow/workflow-deploy.html"
--
   title: "IOS TUTORIALS"
   list:
-    - 
+    -
       title: "Application Activation and Aircraft Binding"
       path: "/ios-tutorials/ActivationAndBinding.html"
-    - 
+    -
       title: "Getting Started with UX SDK"
       path: "/ios-tutorials/UXSDKDemo.html"
     -
@@ -125,10 +118,10 @@
 -
   title: "ANDROID TUTORIALS"
   list:
-    - 
+    -
       title: "Application Activation and Aircraft Binding"
       path: "/android-tutorials/ActivationAndBinding.html"
-    - 
+    -
       title: "Getting Started with UX SDK"
       path: "/android-tutorials/UXSDKDemo.html"
     -
@@ -152,14 +145,9 @@
     -
       title: "GEO System Application"
       path: "/android-tutorials/GEODemo.html"
-
--
-  title: "Sample Code"
-  list:
     -
       title: "Android Video Stream Decoding Sample"
       path: "/sample-code/index.html"
-
 -
   title: "Support"
   list:

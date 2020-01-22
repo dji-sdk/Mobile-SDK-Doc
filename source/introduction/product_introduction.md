@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2019-11-08
+date: 2020-01-22
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -8,7 +8,7 @@ DJI produces small, highly capable, remotely controlled aircraft as well as hand
 
 ### Aircraft
 
-DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic Air, Mavic Pro, Phantom series, Inspire series, Matrice 200 series, Matrice 100 and Matrice 600.
+DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic 2 Series, Mavic 2 Enterprise, Mavic Air, Mavic Pro, Phantom series, Inspire series, Matrice 200 V2 series, Matrice 100 and Matrice 600.
 
 One of the key features of DJI aircraft is the camera's ability to stay horizontal no matter how the aircraft is flying. The camera is mounted on a gimbal, which actively compensates for any aircraft rotation, producing clear, beautiful images and videos.
 
@@ -330,7 +330,6 @@ Some defining product features that distinguish aircraft series are:
     * Upward facing obstacle avoidance
     * Additional in first person view (FPV) camera
 
-
 ### Matrice
 
 * Industrial and developer platform
@@ -341,7 +340,6 @@ Some defining product features that distinguish aircraft series are:
 * Additional accessories including
 
     * <a href="http://www.dji.com/product/matrice600" target="_blank"> DRTK </a> - cm precision positioning
-    * <a href="http://www.dji.com/product/guidance" target="_blank"> Guidance </a> - 5 direction stereo camera and ultrasonic sensor module
     * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - Gimbal that can support custom payloads up to 4.5 kg
 
 Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft and features.
@@ -449,7 +447,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Inspire 2</td><td>X4S, X5S, X7</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Moveable</td><td>-</td><td>Focus, CineSSD</td></tr>
 <tr>
-<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
+<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Manifold, Focus</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>1</td><td>Fixed</td><td>1450</br></td><td>-</td></tr>
 <tr>
@@ -575,7 +573,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 
 
 > Note: For mission descriptions, see [Missions](./component-guide-missions.html) in **Guides**.
-> 
+>
 
 
 ### Flight Time
@@ -711,7 +709,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="11">
     Matrice 100
-    <p><font size="1">Max Take-off Mass: 3600g</br>Compatible with XT, X3, X5, X5R, Guidance, Manifold</p>
+    <p><font size="1">Max Take-off Mass: 3600g</br>Compatible with XT, X3, X5, X5R, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>TB47D</td>        
@@ -870,7 +868,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="4">
     Matrice 600
-    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Guidance, Ronin MX, DRTK, Manifold</p>
+    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Ronin MX, DRTK, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>6x TB47S</td>        
@@ -1214,4 +1212,3 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <tr>
 <td>Spark</td><td>Optional</td><td>WiFi</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 </tbody></table></html>
-
