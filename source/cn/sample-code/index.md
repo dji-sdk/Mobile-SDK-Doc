@@ -1,7 +1,7 @@
 ---
 title: Android Video Stream Decoding Sample
-version: v4.11
-date: 2019-09-23
+version: v4.11.1
+date: 2020-01-22
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-VideoStreamDecodingSample
 keywords: [video stream decoding, MediaCodec, FFmpeg, video frame parsing, hardware decoding, YUV]
 ---
@@ -10,7 +10,7 @@ keywords: [video stream decoding, MediaCodec, FFmpeg, video frame parsing, hardw
 
 ---
 
-This sample code demonstrates how to use [FFmpeg](https://ffmpeg.org) for video frame parsing and to use the `MediaCodec` for hardware decoding. It will help to parse video frames and decode the raw video stream data from DJI Camera and output the [YUV](https://en.wikipedia.org/wiki/YUV) data. 
+This sample code demonstrates how to use [FFmpeg](https://ffmpeg.org) for video frame parsing and to use the `MediaCodec` for hardware decoding. It will help to parse video frames and decode the raw video stream data from DJI Camera and output the [YUV](https://en.wikipedia.org/wiki/YUV) data.
 
 You can download the tutorial's final sample project from this [Github Page](https://github.com/DJI-Mobile-SDK-Tutorials/Android-VideoStreamDecodingSample).
 
@@ -20,16 +20,16 @@ When you open this project in Android Studio, you may see that there are four ja
 
 ### DJIVideoStreamDecoder.java
 
-   This class is a helper class for hardware decoding, it manages tasks including raw data frame parsing, inserting i-frame, using `MediaCodec` for decoding, etc. 
-   
+   This class is a helper class for hardware decoding, it manages tasks including raw data frame parsing, inserting i-frame, using `MediaCodec` for decoding, etc.
+
    Here are the steps for you to learn how to use this class:
-   
+
 1. Initialize and set the instance as a listener of NativeDataListener to receive the frame data.
 
 2. Send the raw data from camera to ffmpeg for frame parsing.
- 
+
 3. Get the parsed frame data from ffmpeg parsing frame callback and cache the parsed framed data into the frameQueue.
- 
+
 4. Initialize the MediaCodec as a decoder and then check whether there is any i-frame in the MediaCodec. If not, get the default i-frame from sdk resource and insert it at the head of frameQueue. Then dequeue the framed data from the frameQueue and feed it(which is Byte buffer) into the MediaCodec.
 
 5. Get the output byte buffer from MediaCodec, if a surface(Video Previewing View) is configured in the MediaCodec, the output byte buffer is only need to be released. If not, the output yuv data should invoke the callback and pass it out to external listener, it should also be released too.
@@ -47,5 +47,5 @@ When you open this project in Android Studio, you may see that there are four ja
 ### MainActivity.java
 
   It's an Activity class to implement the features of the sample project, like implementing the UI elements, init a SurfaceView to preview the live stream data, save buffer data into a JPEG image file, etc.
-  
+
 For more details, please check the sample project's source code.
