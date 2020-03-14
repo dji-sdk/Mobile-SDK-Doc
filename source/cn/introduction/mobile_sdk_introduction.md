@@ -1,6 +1,6 @@
 ---
-title: Mobile SDK Introduction
-date: 2018-09-04
+title: Mobile SDK 简介
+date: 2020-03-14
 keywords: [sdk introduction, Kinetic Energy, Share Space, Highly Asynchronous]
 ---
 

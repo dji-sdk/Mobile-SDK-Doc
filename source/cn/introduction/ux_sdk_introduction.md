@@ -1,6 +1,6 @@
 ---
 title: UX SDK 简介
-date: 2020-01-22
+date: 2020-03-14
 keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 硬件介绍
-date: 2019-11-08
+date: 2020-03-14
 keywords: [component, propellor, sensor, product comparison]
 ---
 
