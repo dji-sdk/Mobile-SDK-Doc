@@ -1,49 +1,50 @@
 ---
-title: UX SDK Introduction
+title: UX SDK 简介
 date: 2020-01-22
 keywords: [UX SDK introduction, UX SDK, widget, panel, default layout, asset swap, widget customization, panel customization]
 ---
 
-Many applications that control DJI products using the DJI Mobile SDK share similar core functionalities. They will typically:
+许多使用DJI Mobile SDK来控制DJI产品的应用程序都具有相似的核心功能。它们通常有：
 
-* Show a live view of the camera feed
-* Show product state (aircraft telemetry, battery level, signal strength, etc.)
-* Allow the user to review and change product settings
-* Have basic functionalities such as automatic take off, land, go home.
+* 显示摄像机的实时图传画面
+* 显示产品状态信息（飞行器遥测，电池电量，信号强度等）
+* 允许用户查看和更改产品设置
+* 具有自动起飞，降落，返航等基本功能。
 
-To make an application, a developer typically has to provide this set of core functionalities before adding some unique ones.
+为了开发应用程序，开发者通常不得不在实现一些独特的应用功能之前，重复开发提供这些通用核心功能模块。
 
-The DJI UX SDK provides UI elements that have these core functionalities, hence can be used to speed up development time. In fact, by using the default UX SDK, an application can be created with no additional lines of code. It looks like:
+DJI UX SDK提供了具有这些核心功能的UI组件，因此可以加快开发者的开发时间。实际上，如果使用默认的UX SDK组件，开发者可以在不添加额外代码行的情况下，快速创建出类似以下应用程序效果：
 
 ![DefaultScreen](../../images/product-introduction/defaultScreen.png)
 
-Developers can pick and choose which parts of the UX SDK they want to include, exclude and customize.
+开发人员可以自由地选择要加入，剔除或者自定义的UX SDK部分。
 
-UX SDK is available in the DJI Mobile SDK v4.0 and later.
+UX SDK目前支持DJI Mobile SDK v4.0及更高版本。
 
-## Concepts Overview
+## 概念概述
 
-UX SDK has three main UI categories:
+UX SDK具有三种主要的UI类型：
 
-* **Widget**: An independent UI element that gives state or simple control (e.g.  battery indicator, or automatic take-off button)
-* **Collection**: (iOS only) An organized collection of widgets that are related to each other (e.g. camera exposure state)
-* **Panel**: Complex menus and settings views with rich UI elements (e.g. camera settings)
+* **部件** : 独立的UI元素，可提供状态信息或简单的控制（例如电池电量信息或自动起飞按钮）
+* **部件集合** :（仅适用于iOS）彼此相关的小部件的有组织的集合（例如，相机曝光状态）
+* **面板** : 具有丰富UI元素（例如相机设置）的复杂菜单和设置视图
 
-All UI elements can simply be included in an application without extra maintenance. They are already tied to the DJI Mobile SDK, and will start updating themselves after instantiation.
+所有UI元素无需额外维护就可以简单地在应用程序中实现出来。这些UI元素已经和DJI Mobile SDK绑定在了一起，并且在实例化后更新相关信息。
 
-The [Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) and [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UX SDK API reference has the complete list of UI elements available.
+[Android](http://developer.dji.com/api-reference/android-uilib-api/index.html) 和 [iOS](http://developer.dji.com/api-reference/ios-uilib-api/index.html) UX SDK 的API文档中包含了可用UI元素的完整列表。
 
-## Widget
+## 部件
 
-A widget is the simplest component of the UX SDK. It typically represents a simple state element or gives a simple control. Some examples of widgets include:
+部件是UX SDK中最简单的组件。它通常代表一个简单的状态元素或提供一个简单的控件。一些部件的示例如下所示:
+
 <html>
 <table class="table-pictures">
 <tbody>
   <tr valign="top">
-    <td><font style="font-weight:bold" align="center"><p>Aircraft Battery Percentage </p></td>
-    <td><font style="font-weight:bold" align="center"><p>Flight Mode </p></td>
-    <td><font style="font-weight:bold" align="center"><p>Video Signal Strength </p></td>
-    <td><font style="font-weight:bold" align="center"><p>Return to Home Button </p></td>
+    <td><font style="font-weight:bold" align="center"><p>无人机电池百分比</p></td>
+    <td><font style="font-weight:bold" align="center"><p>飞行模式</p></td>
+    <td><font style="font-weight:bold" align="center"><p>图传信号强度</p></td>
+    <td><font style="font-weight:bold" align="center"><p>返航按钮</p></td>
   </tr>
 
   <tr>
@@ -56,72 +57,73 @@ A widget is the simplest component of the UX SDK. It typically represents a simp
 </table>
 </html>
 
-### Customization
+### 部件自定义
 
-Widgets can be customized by either swapping the asset, or subclassing the widget.
+可以通过替换资源或子类化部件来定制部件。
 
-#### Asset Swap
+#### 替换资源
 
-Swapping the asset keeps the widget's behavior and logic, but changes its look.
+替换资源可保留部件的行为和逻辑不变，但会改变其外观。
 
-Your asset needs to be sized and named the same as the exising asset or it will not be displayed correctly by the framework. If UXSDK is not able to find the asset it is expecting, it will draw a small orange square around the center of where the asset will be to help with visibility.
+您资源尺寸大小和名称必须与现有资源相同，否则UX SDK将无法正确展示出来。如果UXSDK找不到所需的资源，它将在资源的中心位置附近绘制一个小的橙色正方形，以帮助提高可见性。
 
 ##### iOS
 
-  1. Download framework Xcode asset catalog (.xcassets) files [here](https://github.com/dji-sdk/Mobile-UXSDK-iOS/tree/master/customize-uxsdk-assets)
-  2. Remove the image files you'd like to replace from asset catalog files. Please DO NOT remove any other files, including the contents.json.
-  3. Add the image files you'd like to use. Make sure they have the same name, @2x/@3x, are in the same location, and the same size as the original files.
-  4. Run the asset-swap.sh script in the asset catalog file directory. The script will output an Assets.car file into the folder it was executed inside of.
-  5. Replace the Assets.car file inside DJIUXSDK.framework with the newly generated Assets.car file.
-  6. You may need to clear DerivedData and reset your device in order for these changes to take effect.
-UXSDK will automatically pick up and use your custom image file.
+  1.在[此处](https://github.com/dji-sdk/Mobile-UXSDK-iOS/tree/master/customize-uxsdk-assets) 下载Xcode的asset资源目录（.xcassets）文件
+  2.从资源目录文件中删除您要替换的图像文件。请不要删除其他任何文件，包括contents.json。
+  3.添加您要使用的图像文件。确保它们具有与原始文件相同的名称 @2x/@3x，位于相同的位置，并且具有相同的大小。
+  4.在资源目录文件目录中运行asset-swap.sh脚本。该脚本会输出一个Assets.car文件到执行脚本的文件夹中。
+  5.用新生成的Assets.car文件替换DJIUXSDK.framework中的Assets.car文件。
+  6.您可能需要清空DerivedData文件夹并重置设备，以使这些更改生效。
 
-> Note: The image files are required to have the same name, size, @2x/@3x as the original files they are replacing. **The framework may not draw images correctly if there are any differences.**
+  UX SDK将自动获取并使用您的自定义图片文件。
+
+> 注意: 图像文件必须与要替换的原始文件保持相同的名称，大小，@ 2x/@ 3x。 **如果有任何差异, UX SDK可能无法正确绘制出图像。**
 
 <!-- ##### Android
 
-  1. Rename AAR file to have a zip extension
-  2. Unzip AAR file
-  3. Replace assets in the following directories:
+  1. 重命名AAR文件，带zip后缀
+  2. 解压AAR文件
+  3. 替换以下目录中的资源:
     - res/drawable
     - res/drawable-hdpi-v4
     - res/drawable-mdpi-v4
     - res/drawable-xhdpi-v4
     - res/drawable-xxhdpi-v4
     - res/drawable-xxxhdpi-v4
-  4. Zip file and rename to replace the original AAR file
+  4. 压缩该文件，并重命名，替换掉原来的AAR文件
+-->
 
-> Note: The image assets are required to be of the same pixel dimensions as the original ones. -->
-
-#### Subclassing
+#### 子类化
 
 ##### iOS
 
-  Widgets can be subclassed to override initialize and view update methods to customize the look. For easy customization, each widget exposes the underlying data it is using as properties. Please refer to the [API documentation](http://developer.dji.com/api-reference/ios-uilib-api/Widgets/AutoExposureLockWidget.html) for more details.
+可以将部件进行子类化，以重写initialize和view update方法进行外观自定义。为了易于定制，每个部件都会将正在使用的基础数据以属性参数的形式公开。
+有关更多详细信息，请参考[API 文档](http://developer.dji.com/api-reference/ios-uilib-api/Widgets/AutoExposureLockWidget.html).
 
 ##### Android
 
-  In Android, subclassing can completely change the behavior and the look of Widgets. The steps are:
+在Android中，子类化可以完全改变部件的行为和外观。步骤如下：
 
-  1. Override `void initView(Context var1, AttributeSet var2, int var3)` and inflate/initialize the custom layout. Remember, **do not call** `super.initView()`.
+1.重写`void initView（Context var1，AttributeSet var2，int var3）`并充气/初始化自定义布局。请记住，不要调用 `super.initView()`方法。
 
-  2. To get updated with information changes, override methods with the name following the `onXXXChange` pattern (for example, the `onBatteryPercentageChange(int percentage)` in `BatteryWidget`). This method will be called every time battery percentage changes. Overriding this method will give you the integer value of battery percentage. Remember, **do not call** `super.initView()`.              
+2.要获取有关信息更改的更新，请重写命名为 ”onXXXChange” 模式的方法（例如，`BatteryWidget` 中的 `onBatteryPercentageChange(int percentage)` 方法）。每当电池百分比变化时，都会调用此方法。重写此方法将为您提供电池百分比的integer整数值。请记住，**不要调用** `super.initView()` 方法。
 
-  3. To perform actions, use methods that follow the naming pattern `performXXXAction`.
+3.要执行动作，请使用命名为`performXXXAction`模式的方法。
 
-## Collection
+## 部件集合
 
-A widget collection groups multiple, often related widgets together in an organized way. It controls the layout of the widgets relative to each other.
+部件集合以组织的方式将多个相关的部件组合在一起。它控制部件彼此之间的布局。
 
-Collections can also be created and used to organize pre-existing widgets.
+开发者也可以创建部件集合，并用于组织已存在的部件。
 
-Widget collections are used in iOS Only. Example of widget collections include:
+部件集合目前仅在iOS中使用。一些部件集合的示例如下所示：
 
 <html>
 <table class="table-pictures">
 <tbody>
   <tr valign="top">
-    <td><font style="font-weight:bold" align="center"><p>Status Bar Widget Collection </p></td>
+    <td><font style="font-weight:bold" align="center"><p>状态信息栏部件集合</p></td>
   </tr>
 
   <tr>
@@ -131,20 +133,20 @@ Widget collections are used in iOS Only. Example of widget collections include:
 </table>
 </html>
 
-## Panels
+## 面板
 
-Panels are more complex elements with rich information and control, such as settings menus or the pre-flight checklist.
+面板是具有丰富信息和控制能力的更复杂元素集合，例如设置菜单或飞行器状态列表。
 
-Examples of panels include:
+面板的示例如下：
 
 <html>
 
 <table class="table-pictures">
 
   <tr valign="top">
-    <td><font style="font-weight:bold" align="center"><p>Camera Settings Panel </p></td>
-    <td><font style="font-weight:bold" align="center"><p>Camera Exposure Settings Panel </p></td>
-    <td><font style="font-weight:bold" align="center"><p>Preflight Checklist </p></td>
+    <td><font style="font-weight:bold" align="center"><p>相机设置面板</p></td>
+    <td><font style="font-weight:bold" align="center"><p>相机曝光设置面板</p></td>
+    <td><font style="font-weight:bold" align="center"><p>飞行器状态列表</p></td>
   </tr>
 
   <tr>
@@ -156,17 +158,17 @@ Examples of panels include:
 </table>
 </html>
 
-### Customization
+### 面板自定义
 
-Due to the complexity of panels, customization is not currently provided.
+由于面板的复杂性，目前不提供自定义功能。
 
-## Samples & Tutorials
+## 示例代码 & 教程
 
-Sample projects are provided for the DJI UX SDK:
+DJI UX SDK提供了以下示例代码工程:
 
-- [iOS UX SDK Github Sample](https://github.com/dji-sdk/Mobile-UXSDK-iOS)
+- [iOS UX SDK Github 示例代码](https://github.com/dji-sdk/Mobile-UXSDK-iOS)
 
-- [Android UX SDK Github Sample](https://github.com/dji-sdk/Mobile-UXSDK-Android)
+- [Android UX SDK Github 示例代码](https://github.com/dji-sdk/Mobile-UXSDK-Android)
 
 <!-- An iOS UX SDK tutorial is provided as an example on how to use the iOS UX SDK.
 

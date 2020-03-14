@@ -1,190 +1,190 @@
 ---
-title: Hardware Introduction
-date: 2020-01-22
+title: 硬件介绍
+date: 2019-11-08
 keywords: [component, propellor, sensor, product comparison]
 ---
 
-DJI produces small, highly capable, remotely controlled aircraft as well as hand held cameras and stabilizers perfect for both consumer and commercial applications. The products are very accessible being easy to use and affordable, and have a quality and feature set unmatched in the industry.
+DJI不仅制造小型，高性能的可遥控飞行器，还制造手持摄像机和云台增稳设备，非常适合消费和商业级应用。这些产品易于操控使用，用户体验良好，并且价格适中，具有行业内无与伦比的高品质和强大功能。
 
-### Aircraft
+### 飞行器
 
-DJI has a range of multi-rotor aircraft that can be automated with the Mobile SDK including the Mavic 2 Series, Mavic 2 Enterprise, Mavic Air, Mavic Pro, Phantom series, Inspire series, Matrice 200 V2 series, Matrice 100 and Matrice 600.
+DJI拥有一系列可通过Mobile SDK实现自动化控制的多旋翼飞行器，包括Mavic 2 系列，Phantom 4系列， Mavic Pro，Mavic Air，Inspire系列，Matrice 200 v2系列，Matrice 200系列，Matrice 600 和 Matrice 100。
 
-One of the key features of DJI aircraft is the camera's ability to stay horizontal no matter how the aircraft is flying. The camera is mounted on a gimbal, which actively compensates for any aircraft rotation, producing clear, beautiful images and videos.
+DJI飞行器的其中一个核心功能是无论飞行器以何种姿态飞行，相机都能保持水平。相机安装在云台上，云台主要通过传感器感知机身的动作，通过三轴电机驱动让相机保持原来的位置，抵消机身晃动或者震动的影响，从而可以拍摄出清晰的照片和无抖动的视频。
 
-There are many DJI aircraft to choose from that provide a range of features, performance, size and price. Specific metrics developers and users should be aware of when they consider an aircraft include:
+DJI提供了多款飞行器给开发者选择，它们都具备不同的功能，性能，尺寸和价格。开发人员和用户在考虑飞行器时应注意以下几点指标：
 
-* Flight time
-* Size and weight
-* Camera specifications (image quality and movement control)
-* Swappable cameras
-* Obstacle avoidance
-* Customizable payloads
-* Maximum service ceiling
-* Available accessories
-* Remote controller features
-* Price
+* 飞行续航时间
+* 尺寸和重量
+* 相机参数（照片质量和参数设置）
+* 可替换的相机
+* 避障功能
+* 可定制化的负载设备
+* 最大的飞行高度
+* 支持的配件设备
+* 遥控器的功能
+* 价格
 
-### Handheld Camera
+### 手持相机
 
-DJI's handheld camera Osmo series allows users to take smooth, professional videos when the user is moving by integrating DJI's aircraft camera stabilization gimbal technology onto an easy to carry handle.
+DJI的手持相机OSMO系列产品通过将DJI飞行器的云台增稳技术集成到易于携带的手持设备上，让用户可以拍摄出流程，专业的视频。
 
-### Stand Alone Components
+### 独立组件
 
-Two components of the aircraft (flight controller, wireless link) can be used on DJI or third party airframes. Some of these components are supported to a limited degree in the DJI Mobile SDK.
+飞行器上的的两个组件（飞行控制器，无线链路）可用于DJI产品或第三方飞行器的机身上。其中的某些组件在DJI Mobile SDK中可以获得有限的支持。
 
-### Accessories
+### 配件
 
-DJI aircraft and handheld cameras are compatible with a number of DJI accessories. Some of these accessories are also supported by the DJI Mobile SDK, meaning the mobile device will be able to interact with the accessory to some degree.
+DJI飞行器和手持相机与许多DJI配件兼容。DJI Mobile SDK也支持其中一些配件，这意味着移动设备能够在一定程度上和配件进行交互。
 
-## Components
+## 产品组件
 
-Before doing a detailed product comparison it is useful to understand the components of a product and their function.
+在进行详细的产品比较之前，我们先了解下产品组件及其功能会很有帮助。
 
-All products comprise component modules that provide an important feature or function. An introduction to typical components is below with more details in the [Component Guide](./component-guide-flightController.html).
+所有产品均包含提供重要功能或者特性的组件模块。 以下是一些典型组件的介绍，您可以在[产品组件介绍](./component-guide-flightController.html)中获得更多详细信息。
 
 ![ComponentsAircraft](../../images/product-introduction/ComponentsAircraft.png)
 
-#### Propulsion
+#### 推进力
 
-Motor mounted propellors provide vertical thrust. The vertical thrust can be adjusted at each motor to allow the aircraft to hover, rotate, ascend, descend or fly horizontally.
+电机上安装的螺旋桨为飞行器提供垂直推力。通过电子调速器，每个电机可以调节垂直推力，让飞行器能够水平悬停，旋转，上升，下降或者水平飞行。
 
-#### Sensors
+#### 传感器
 
-DJI aircraft have a large number of sensors including accelerometers, gyroscopes, compasses, barometers, ultrasonic sensors, cameras and satellite positioning systems. These sensors are used to determine the current and predict the future state of the aircraft and the environment around it.
+DJI 飞行器上安装有大量的传感器，包括加速计，陀螺仪，指南针，气压计，超声波传感器，相机和卫星定位系统。这些传感器用于确定飞行器当前的状态，并可以预测飞行器及其周围环境的未来状态变化。
 
-#### Flight Controller
+#### 飞行控制器
 
-The Flight Controller is an onboard computer that couples control information from the pilot with sensor information to adjust the thrust at each propellor and fly the aircraft as desired.
+飞行控制器是一台机载计算机，它将操控者的控制信息与传感器信息相结合，以调节每个螺旋桨的推力，控制飞行器飞行。
 
-#### Camera
+#### 相机
 
-The camera can record image and video data locally or transfer it wirelessly to an Android or iOS mobile device. Wireless transfer includes the option of a live video stream from the camera. Camera exposure and settings are highly customizable allowing capture of the perfect shot.
+相机可以在本地记录图像和视频数据，也可以将其无线传输到Android或者iOS移动设备上。无线传输包括来自摄像机的实时视频流。相机的曝光，快门，ISO等参数也可以进行自定义设置，让拍摄完美照片成为可能。
 
-#### Gimbal
+#### 云台
 
-The gimbal holds the camera and can rotate it around three axes. The rotation can be used to both control the direction the camera points, and provide rotational stabilization when the aircraft is not horizontal. The gimbal is mounted on a damped plate, meaning the camera is both stabilized from lateral vibrations and rotational movement.
+云台将相机固定住，让它可以围绕三个轴旋转。旋转可用于控制相机指向的方向，并在飞行器不水平时提供旋转增稳。另外，云台是安装在减震板上的，这样相机就不会受到横向振动和旋转运动的影响了。
 
-#### Vision Obstacle Avoidance & Positioning
+#### 视觉避障和定位
 
-Advanced sensors help the aircraft perceive the world around it. Stereo cameras are used to detect obstacles near the product. Downward facing cameras and ultrasonic sensors are used to determine relative ground position providing accurate velocity estimates and stable hover position in GPS denied environments (like indoors).
+先进的传感器可以帮助飞行器感知周围的现实环境。前视视觉系统用于检测飞行器附近的障碍物。下视视觉系统和超声波传感器用于确定相对地面的位置，从而在无GPS环境（如室内）中提供精确的速度估算和稳定的悬停位置。
 
-#### Smart Battery
+#### 智能电池
 
-Smart batteries provide the energy required to run the system. Together with the flight controller, the smart battery can estimate remaining flight time and provide warnings when low battery thresholds are crossed. Batteries are easily swapped between flights, extending product use considerably.
+智能电池为飞行器提供运行系统所需的能量。与飞行控制器一起，智能电池可以评估剩余的飞行时间，并在低电量时，提供警告提示。另外，电池的拆卸很简单，可以很方便地在两次飞行任务之间进行更换，大大延长了产品的使用时间。
 
-#### Remote Controller
+#### 遥控器
 
-The remote controller provides control sticks, buttons, and wheels that give control of the aircraft flight, camera and gimbal. The remote controller maintains a wireless link with the aircraft with some products having up to a 5km range in ideal environments. The **Flight Mode Switch** on the remote controller can be used to switch between manual and automated flight.
+遥控器提供控制手柄，按钮和拨轮，以操控飞行器的飞行，相机和云台。遥控器与飞行器保持无线连接，在理想环境下，部分产品的控制距离可达5公里以上。遥控器上的**飞行模式开关**可用于在手动和自动飞行模式之间切换。
 
 ![ComponentsRemoteController](../../images/product-introduction/ComponentsRemoteController.png)
 
-#### Mobile Device
+#### 移动设备
 
-An Android or iOS device can be connected to the remote controller through either USB or WiFi to give an augmented flight experience showing the live camera feed, and showing aircraft state information. Using the Mobile SDK, the mobile device can also be used to control the aircraft.
+使用USB或WiFi，可以将Android或iOS设备连接到遥控器上，以提供更好的飞行体验，如显示实时视频图传并展示飞行器的状态信息。使用Mobile SDK，移动设备还可以用来控制飞行器飞行。
 
-#### Handheld Controller
+#### 手持控制器
 
-The handheld controller provides a joystick and buttons for that give control of the camera and gimbal. The handheld controller connects to the mobile device through a WiFi access point inside the handle.
+手持控制器提供操纵杆和按钮，用于控制相机和云台。手持控制器还可以通过手柄内的WiFi接入点连接到移动设备上。
 
 ![ComponentsHandheld](../../images/product-introduction/ComponentsHandheld.png)
 
-## Supported Products
+## 支持的产品
 
-Below is a table listing the aircraft, handheld cameras and stand alone components supported by the DJI Mobile SDK.
+以下表格列出了DJI Mobile SDK支持的飞行器，手持相机和独立组件设备。
 
 <html><table class="table-product-accessories">
   <thead>
     <tr>
-      <th colspan="4">Products and Accessories</th>
+      <th colspan="4">产品和组件</th>
     </tr>
     <tr>
-      <th>Category</th>
-      <th>Product</th>
-      <th>Cameras</th>
-      <th>SDK Supported Accessories</th>
+      <th>分类</th>
+      <th>产品</th>
+      <th>相机</th>
+      <th>SDK支持的组件</th>
     </tr>
   </thead>
   <tbody>
 	  <tr>
-      <td rowspan="27">Aircraft</th>
+      <td rowspan="27">飞行器</th>
       <td>Mavic 2 Enterprise Dual</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Mavic 2 Enterprise</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Mavic 2 Pro</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Mavic 2 Zoom</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Mavic Air</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Spark</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Mavic Pro</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 4</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 4 Advanced</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
      <tr>
       <td>Phantom 4 Professional</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
      <tr>
       <td>Phantom 4 Professional V2</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 4 RTK</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 3 Professional</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 3 4K</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 3 Advanced</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Phantom 3 Standard</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
@@ -243,14 +243,14 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> DRTK, Ronin MX, Focus* </td>
     </tr>
     <tr>
-      <td rowspan="4">Handheld Device</th>
+      <td rowspan="4">手持设备</th>
       <td>Osmo</td>
       <td>X3, X5, X5R, Z3</td>        
       <td> — </td>
     </tr>
     <tr>
       <td>Osmo Pro</td>
-      <td>Fixed</td>        
+      <td>固定</td>        
       <td> — </td>
     </tr>
     <tr>
@@ -264,136 +264,137 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> — </td>
     </tr>
     <tr>
-      <td rowspan="3">Components</th>
-      <td>Lightbridge 2 with A2</td>
+      <td rowspan="3">组件</th>
+      <td>Lightbridge 2 搭配 A2</td>
       <td> — </td>        
       <td> — </td>
     </tr>
       <tr>
-      <td>Lightbridge 2 with A3</td>
+      <td>Lightbridge 2 搭配 A3</td>
       <td> X3, X5, X5R, XT, Z3, Z30 </td>        
       <td> DRTK, Ronin MX, Focus* </td>
     </tr>
     </tr>
       <tr>
-      <td>Lightbridge 2 with N3</td>
+      <td>Lightbridge 2 搭配 N3</td>
       <td> X3, X5, X5R, XT, Z3, Z30 </td>        
       <td> DRTK, Ronin MX, Focus* </td>
     </tr>
   </tbody>
 </table></html>
 
-> Note: DJI Focus is only compatible with DJI cameras.
+> Note: DJI Focus 仅与DJI相机兼容。
 
-Detailed specifications are listed on each product's webpage **specs** section at <a href="http://www.dji.com" target="_blank">www.dji.com</a>.
+详细规格参数列在每个产品的网页**技术参数**部分，您可以查看以下网址 <a href="http://www.dji.com" target="_blank">www.dji.com</a>.
 
-## Product Comparison
+## 产品对比
 
-### Aircraft Comparison
+### 飞行器对比
 
-Some defining product features that distinguish aircraft series are:
+一些可以区分飞行器系列产品特性的功能包括：
 
+### Phantom 和 Mavic Pro 机型
 
-### Phantom and Mavic Pro
-
-* Small and portable
-* Easy to use
-* Phantom 4 and Mavic Pro includes:
-    * Built in obstacle avoidance
-    * Advanced vision features like being able to track a moving target selected by the user.
-    * A **sport flight mode** for a more dynamic flying experience
-* Mavic Pro also:
-    * Can either be controlled with a remote controller, or directly from a mobile device.
-    * Has a small and portable remote controller.
+* 小巧便携
+* 易于使用
+* Phantom 4 和 Mavic Pro包含以下功能：
+    * 内置避障
+    * 高级视觉功能，例如能够跟踪用户选择的移动目标
+    * **运动档飞行模式**，带来更加有动感的飞行体验
+* Mavic Pro 还包含以下功能：
+    * 可以通过遥控器或直接使用移动设备进行控制
+    * 有一个小型便携式遥控器
 
 ### Spark
-* Ultra-small, lowest cost
-* Easiest to use
-* Gesture controls
-* Built in obstacle avoidance
-* Can either be controlled with a remote controller, or directly from a mobile device
-* Doesn't support waypoint missions
-* Supports 1080p resolution (other products support up to 4K)
+
+* 体积超小，成本很低
+* 很容易使用
+* 手势控制
+* 内置避障
+* 可以通过遥控器或直接使用移动设备进行控制
+* 不支持航点任务
+* 支持1080p视频分辨率（其他产品支持高达4K的分辨率）
 
 ### Inspire
 
-* Swappable cameras
-* Cameras with larger sensors, aperture and focus control
-* Thermal camera available
-* Gimbal can rotate camera completely through the horizontal (640&deg;)
-* Landing gear can raise out of the camera's field of view
+* 可更换相机
+* 相机具有更大传感器，光圈和对焦控制
+* 提供热成像相机
+* 云台可以使相机完全水平旋转（640&deg;）
+* 起落架可以升起，不遮挡相机的视野
  ![InspireRaised](../../images/product-introduction/inspire_landingGearRaised.gif)
-* Remote controller has embedded GPS
-* Inspire 2 also:
-    * Optional onboard SSD storage
-    * Optional Remote Controller GPS Accessory
-    * Upward facing obstacle avoidance
-    * Additional in first person view (FPV) camera
+* 遥控器内置GPS
+* Inspire 2还具有：
+    * 可选的机载SSD存储
+    * 可选的遥控器GPS配件
+    * 上视避障
+    * 第一人称视角（FPV）相机
 
 ### Matrice
 
-* Industrial and developer platform
-* Highly customizable, with up to 6 kg payloads supported
-* Payloads can communicate with the flight controller directly through a serial port and the DJI Onboard SDK
-* Mechanical mounting features
-* Can use same cameras as Inspire series
-* Additional accessories including
+* 行业与开发者平台
+* 高度可定制，最多支持6公斤有效负载
+* 有效负载可以直接通过串行端口和DJI Onboard SDK与飞行控制器通信
+* 机械安装功能
+* 可以使用和Inspire系列相同的相机
+* 其他配件包括
 
-    * <a href="http://www.dji.com/product/matrice600" target="_blank"> DRTK </a> - cm precision positioning
-    * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - Gimbal that can support custom payloads up to 4.5 kg
+    * <a href="http://www.dji.com/product/matrice600" target="_blank"> DRTK </a> - 厘米级精度定位
+    * <a href="http://www.dji.com/product/guidance" target="_blank"> Guidance </a> - 5向立体相机和超声波传感器模块
+    * <a href="http://www.dji.com/product/ronin-mx" target="_blank"> Ronin MX </a> - 云台可支持高达4.5公斤的自定义有效负载
 
-Aircraft comparison can be difficult due to the large selection of products, features and functionality. Three summarized aircraft comparison tables are below to introduce the differences in aircraft and features.
+由于产品，特性和功能的选择范围很大，对飞行器进行比较选择会很困难。以下提供三个汇总的飞行器比较表，介绍各飞行器和功能上的差异。
 
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="10">Aircraft Comparison: <b>Aircraft</th></tr></thead>
+<thead><tr><th colspan="10">飞行器比较: <b>飞行器</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th width = 10%><p>Max Flight Time</br><font color="#BBBBBB" size=1 style="font-weight:bold">min</p></th>
-<th><p>Max Speed</br><font color="#BBBBBB" size=1 style="font-weight:bold">m/s</p></th>
-<th><p>Max Ascent Speed</br><font color="#BBBBBB" size=1 style="font-weight:bold">m/s</p></th>
-<th><p>Max Descent Speed</br><font color="#BBBBBB" size=1 style="font-weight:bold">m/s</p></th>
-<th><p>Max Service Ceiling</br><font color="#BBBBBB" size=1 style="font-weight:bold">m</p></th>
-<th><p>Propellors</p></th>
-<th width = 10%><p>Mass</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
-<th width = 15%><p>Max dimension</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">Without propellors</br><font color="#BBBBBB" size=1 style="font-weight:bold">mm</p></th>
+<th width = 20%><p>产品</p></th>
+<th width = 10%><p>最大飞行时间</br><font color="#BBBBBB" size=1 style="font-weight:bold">min</p></th>
+<th><p>最大飞行速度</br><font color="#BBBBBB" size=1 style="font-weight:bold">m/s</p></th>
+<th><p>最大上升速度</br><font color="#BBBBBB" size=1 style="font-weight:bold">m/s</p></th>
+<th><p>最大下降速度</br><font color="#BBBBBB" size=1 style="font-weight:bold">m/s</p></th>
+<th><p>最大起飞高度</br><font color="#BBBBBB" size=1 style="font-weight:bold">m</p></th>
+<th><p>桨叶</p></th>
+<th width = 10%><p>质量</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
+<th width = 15%><p>最大尺寸</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">不含桨叶</br><font color="#BBBBBB" size=1 style="font-weight:bold">mm</p></th>
 </tr>
 <tr>
-<td>Inspire 1</td><td>18</td><td>22</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2935</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With X3 Camera</p></td><td>581</td></tr>
+<td>Inspire 1</td><td>18</td><td>22</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2935</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 X3相机</p></td><td>581</td></tr>
 <tr>
-<td>Inspire 1 Pro/Raw</td><td>15</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>3396</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With X5 Camera</p></td><td>581</td></tr>
+<td>Inspire 1 Pro/Raw</td><td>15</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>3396</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 X5相机</p></td><td>581</td></tr>
 <tr>
-<td>Inspire 2</td><td>27</td><td>26</td><td>6</td><td>9</td><td>2500</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">5000 with special propellors</p></td><td>4</td><td>3543</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x batteries, X4S Camera</p></td><td>605</td></tr>
+<td>Inspire 2</td><td>27</td><td>26</td><td>6</td><td>9</td><td>2500</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">5000 搭配特殊桨叶</p></td><td>4</td><td>3543</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x 电池, X4S 相机</p></td><td>605</td></tr>
 <tr>
-<td>Matrice 100</td><td>16-40*</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2355</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With TB47 Battery</p></td><td>650</td></tr>
+<td>Matrice 100</td><td>16-40*</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2355</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 TB47 电池</p></td><td>650</td></tr>
 <tr>
-<td>Matrice 200 V2</td><td>24-38*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4690</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
+<td>Matrice 200 V2</td><td>24-38*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4690</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB5S 电池</p></td><td>722</td></tr>
 <tr>
-<td>Matrice 210 V2</td><td>24-34*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
+<td>Matrice 210 V2</td><td>24-34*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB5S 电池</p></td><td>722</td></tr>
 <tr>
-<td>Matrice 210 RTK V2</td><td>24-33*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4910</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
+<td>Matrice 210 RTK V2</td><td>24-33*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4910</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB5S 电池</p></td><td>722</td></tr>
 <tr>
-<td>Matrice 200</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB50 batteries</p></td><td>716</td></tr>
+<td>Matrice 200</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB50 电池</p></td><td>716</td></tr>
 <tr>
-<td>Matrice 210</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB50 batteries</p></td><td>716</td></tr>
+<td>Matrice 210</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB50 电池</p></td><td>716</td></tr>
 <tr>
-<td>Matrice 210 RTK</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB50 batteries</p></td><td>716</td></tr>
+<td>Matrice 210 RTK</td><td>13-38*</td><td>23</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>3800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB50 电池</p></td><td>716</td></tr>
 <tr>
-<td>Matrice 600</td><td>18-40*</td><td>18</td><td>5</td><td>3</td><td>2500</td><td>6</td><td>9100</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 6x TB47 Batteries</p></td><td>1133</td></tr>
+<td>Matrice 600</td><td>18-40*</td><td>18</td><td>5</td><td>3</td><td>2500</td><td>6</td><td>9100</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 6x TB47 电池</p></td><td>1133</td></tr>
 <tr>
-<td>Matrice 600 Professional</td><td>18-40*</td><td>18</td><td>5</td><td>3</td><td>2500</td><td>6</td><td>9500</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 6x TB47S Batteries</p></td><td>1133</td></tr>
+<td>Matrice 600 Professional</td><td>18-40*</td><td>18</td><td>5</td><td>3</td><td>2500</td><td>6</td><td>9500</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 6x TB47S 电池</p></td><td>1133</td></tr>
 <tr>
-<td>Mavic Air</td><td>21</td><td>19</td><td>4</td><td>3</td><td>5000</td><td>4</td><td>430</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>213</td></tr>
+<td>Mavic Air</td><td>21</td><td>19</td><td>4</td><td>3</td><td>5000</td><td>4</td><td>430</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配云台保护罩</p></td><td>213</td></tr>
 <tr>
-<td>Mavic Pro</td><td>27</td><td>18</td><td>5</td><td>3</td><td>5000</td><td>4</td><td>743</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>335</td></tr>
+<td>Mavic Pro</td><td>27</td><td>18</td><td>5</td><td>3</td><td>5000</td><td>4</td><td>743</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配云台保护罩</p></td><td>335</td></tr>
 <tr>
-<td>Mavic 2 Pro</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>907</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<td>Mavic 2 Pro</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>907</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配云台保护罩</p></td><td>354</td></tr>
 <tr>
-<td>Mavic 2 Zoom</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>905</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<td>Mavic 2 Zoom</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>905</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配云台保护罩</p></td><td>354</td></tr>
 <tr>
-<td>Mavic 2 Enterprise</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>905</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<td>Mavic 2 Enterprise</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>905</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配云台保护罩</p></td><td>354</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>899</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With gimbal cover</p></td><td>354</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>31</td><td>20</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>899</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配云台保护罩</p></td><td>354</td></tr>
 <tr>
 <td>Phantom 3 4K</td><td>25</td><td>16</td><td>5</td><td>3</td><td>6000</td><td>4</td><td>1280</td><td>350</td></tr>
 <tr>
@@ -416,222 +417,218 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Spark</td><td>16</td><td>13.9</td><td>3</td><td>3</td><td>4000</td><td>4</td><td>300</td><td>170</td></tr>
 </tbody></table></html>
 
-
-> Note:
+> 注意：
 >
-> 1. See **Payload & Flight Time** table for more information
-> 2. Difference between Inspire vs Inspire Pro:
->  - Inspire 1 Pro has more powerful propulsion making it able to lift heavier loads
->  - Inspire 1 Pro comes with a gimbal mounting bracket able to support the X5 and X5R
->  - Inspire 1 Pro comes with the X5 as default configuration
+> 1. 更多信息，请参考 “负载和飞行时间” 表
+> 2. Inspire与Inspire Pro机型之间的区别：
+>  - Inspire 1 Pro具有更强大的推进力，使其能够举起更重的负载
+>  - Inspire 1 Pro带有一个云台安装支架，支持安X5和X5R相机
+>  - Inspire 1 Pro随附X5相机作为默认配件
 >
 
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="9">Aircraft Comparison: <b>Features</th></tr></thead>
+<thead><tr><th colspan="9">飞行器对比: <b>特性</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th><p>Camera</p></th>
-<th><p>FPV Camera</p></th>
-<th><p>Wireless Range</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">US / EU</br><font color="#BBBBBB" size=1 style="font-weight:bold">km</p></th>
-<th><p>Batteries</p></th>
-<th><p>Gimbals</p></th>
-<th><p>Landing Gear</p></th>
-<th><p>Custom Payload</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
-<th><p>Compatible Accessories</p></th>
+<th width = 20%><p>产品</p></th>
+<th><p>相机</p></th>
+<th><p>FPV 相机</p></th>
+<th><p>无线距离</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">US / EU</br><font color="#BBBBBB" size=1 style="font-weight:bold">km</p></th>
+<th><p>电池</p></th>
+<th><p>云台</p></th>
+<th><p>起落架</p></th>
+<th><p>自定义负载</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
+<th><p>兼容配件</p></th>
 </tr>
 <tr>
-<td>Inspire 1</td><td>X3, Z3, XT</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Moveable</td><td>-</td><td>Focus</td></tr>
+<td>Inspire 1</td><td>X3, Z3, XT</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>可移动</td><td>-</td><td>Focus</td></tr>
 <tr>
-<td>Inspire 1 Pro/Raw</td><td>X3, Z3, XT, X5, X5R</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Moveable</td><td>-</td><td>-</td></tr>
+<td>Inspire 1 Pro/Raw</td><td>X3, Z3, XT, X5, X5R</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>可移动</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Inspire 2</td><td>X4S, X5S, X7</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Moveable</td><td>-</td><td>Focus, CineSSD</td></tr>
+<td>Inspire 2</td><td>X4S, X5S, X7</td><td>有</td><td>7 / 3.5</td><td>2</td><td>1</td><td>可移动</td><td>-</td><td>Focus, CineSSD</td></tr>
 <tr>
-<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Manifold, Focus</td></tr>
+<td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>固定</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
 <tr>
-<td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>1</td><td>Fixed</td><td>1450</br></td><td>-</td></tr>
+<td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>有</td><td>8 / 5</td><td>2</td><td>1</td><td>固定</td><td>1450</br></td><td>-</td></tr>
 <tr>
-<td>Matrice 210 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>2</td><td>Fixed</td><td>1340</br></td><td>-</td></tr>
+<td>Matrice 210 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>有</td><td>8 / 5</td><td>2</td><td>2</td><td>固定</td><td>1340</br></td><td>-</td></tr>
 <tr>
-<td>Matrice 210 RTK V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>2</td><td>Fixed</td><td>1230</br></td><td>-</td></tr>
+<td>Matrice 210 RTK V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>有</td><td>8 / 5</td><td>2</td><td>2</td><td>固定</td><td>1230</br></td><td>-</td></tr>
 <tr>
-<td>Matrice 200</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>1</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
+<td>Matrice 200</td><td>X4S, X5S, Z30, XT, XT2</td><td>有</td><td>7 / 3.5</td><td>2</td><td>1</td><td>固定</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于电池型号</p></td><td>Focus</td></tr>
 <tr>
-<td>Matrice 210</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>2</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
+<td>Matrice 210</td><td>X4S, X5S, Z30, XT, XT2</td><td>有</td><td>7 / 3.5</td><td>2</td><td>2</td><td>固定</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于电池型号</p></td><td>Focus</td></tr>
 <tr>
-<td>Matrice 210 RTK</td><td>X4S, X5S, Z30, XT, XT2</td><td>Yes</td><td>7 / 3.5</td><td>2</td><td>2</td><td>Fixed</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>Focus</td></tr>
+<td>Matrice 210 RTK</td><td>X4S, X5S, Z30, XT, XT2</td><td>有</td><td>7 / 3.5</td><td>2</td><td>2</td><td>固定</td><td>1601-2340</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于电池型号</p></td><td>Focus</td></tr>
 <tr>
-<td>Matrice 600</td><td>X3, Z3, X5, X5R, XT, Custom with Ronin MX</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
+<td>Matrice 600</td><td>X3, Z3, X5, X5R, XT, 可以和Ronin MX搭配</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>可移动</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
 <tr>
-<td>Matrice 600 Professional</td><td>X3, Z3, X5, X5R, XT, XT2, Custom with Ronin MX, Z30</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>Moveable</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
+<td>Matrice 600 Professional</td><td>X3, Z3, X5, X5R, XT, XT2, 可以和Ronin MX搭配, Z30</td><td>-</td><td>5 / 3.1</td><td>6</td><td>1</td><td>可移动</td><td>6000</td><td>Manifold, DRTK, Ronin MX</td></tr>
 <tr>
-<td>Mavic Air</td><td>Fixed</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Mavic Air</td><td>固定</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Mavic Pro</td><td>Fixed</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Mavic Pro</td><td>固定</td><td>-</td><td>7 / 4</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Mavic 2 Pro</td><td>Fixed</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Mavic 2 Pro</td><td>固定</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Mavic 2 Zoom</td><td>Fixed</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Mavic 2 Zoom</td><td>固定</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Mavic 2 Enterprise</td><td>Fixed</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>M2E SPOTLIGHT, M2E BEACON, M2E SPEAKER</td></tr>
+<td>Mavic 2 Enterprise</td><td>固定</td><td>-</td><td>8 / 4</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>M2E SPOTLIGHT, M2E BEACON, M2E SPEAKER</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>Fixed</td><td>-</td><td>8 / 5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>M2E SPOTLIGHT, M2E BEACON, M2E SPEAKER</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>固定</td><td>-</td><td>8 / 5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>M2E SPOTLIGHT, M2E BEACON, M2E SPEAKER</td></tr>
 <tr>
-<td>Phantom 3 4K</td><td>Fixed</td><td>-</td><td>1.2 / 0.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 4K</td><td>固定</td><td>-</td><td>1.2 / 0.5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Advanced</td><td>Fixed</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 Advanced</td><td>固定</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Professional</td><td>Fixed</td><td>-</td><td>1 / 0.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 Professional</td><td>固定</td><td>-</td><td>1 / 0.5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Standard</td><td>Fixed</td><td>-</td><td>1 / 0.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 Standard</td><td>固定</td><td>-</td><td>1 / 0.5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4</td><td>Fixed</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 4</td><td>固定</td><td>-</td><td>5 / 3.1</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Advanced</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 4 Advanced</td><td>固定</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Professional</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 4 Professional</td><td>固定</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Professional v2</td><td>Fixed</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 4 Professional v2</td><td>固定</td><td>-</td><td>7 / 3.5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 RTK</td><td>Fixed</td><td>-</td><td>7 / 5</td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Phantom 4 RTK</td><td>固定</td><td>-</td><td>7 / 5</td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Spark</td><td>Fixed</td><td>-</td><td>2 / 0.5</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1 without RC</p></td><td>1</td><td>1</td><td>Fixed</td><td>-</td><td>-</td></tr>
+<td>Spark</td><td>固定</td><td>-</td><td>2 / 0.5</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1 不带遥控器</p></td><td>1</td><td>1</td><td>固定</td><td>-</td><td>-</td></tr>
 </tbody></table></html>
 
-
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="9">Aircraft Comparison: <b>Vision System and Missions</th></tr></thead>
+<thead><tr><th colspan="9">飞行器对比: <b>视觉系统和智能任务</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th><p>Obstacle Avoidance</p></th>
-<th><p>Infrared Sensing</p></th>
-<th><p>Vision Positioning</p></th>
-<th><p>Waypoint</p></th>
-<th><p>Hotpoint</p></th>
+<th width = 20%><p>产品</p></th>
+<th><p>避障</p></th>
+<th><p>红外感知</p></th>
+<th><p>视觉定位</p></th>
+<th><p>航点任务</p></th>
+<th><p>热点环绕</p></th>
 <th><p>Follow Me</p></th>
-<th><p>ActiveTrack</p></th>
-<th><p>Tap Fly</p></th>
+<th><p>智能跟随</p></th>
+<th><p>指点飞行</p></th>
 </tr>
 <tr>
-<td>Inspire 1</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Inspire 1</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Inspire 1 Pro/Raw</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Inspire 1 Pro/Raw</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Inspire 2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Inspire 2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Matrice 100</td><td>With Guidance</td><td>-</td><td>With Guidance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Matrice 100</td><td>搭配 Guidance</td><td>-</td><td>搭配 Guidance</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Matrice 200 V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
+<td>Matrice 200 V2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
-<td>Matrice 210 V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
+<td>Matrice 210 V2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
-<td>Matrice 210 RTK V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
+<td>Matrice 210 RTK V2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
-<td>Matrice 200</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Matrice 200</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Matrice 210</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Matrice 210</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Matrice 210 RTK</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Matrice 210 RTK</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Matrice 600</td><td>-</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Matrice 600</td><td>-</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Matrice 600 Professional</td><td>-</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Matrice 600 Professional</td><td>-</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Mavic Air</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-12m, 0.5-10m, 0.1-8m</p></td><td>Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Mavic Air</td><td>前置, 后置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-12m, 0.5-10m, 0.1-8m</p></td><td>Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8 m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Mavic Pro</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Mavic Pro</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Mavic 2 Pro</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Mavic 2 Pro</td><td>前置, 后置, 下置, 侧面</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>上置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Mavic 2 Zoom</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Mavic 2 Zoom</td><td>前置, 后置, 下置, 侧面</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>上置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Mavic 2 Enterprise</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Mavic 2 Enterprise</td><td>前置, 后置, 下置, 侧面</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>上置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>Front, Rear, Bottom, Sides</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>Up, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>前置, 后置, 下置, 侧面</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.5-20m, 0.5-16m, 0.5-11m, 0.5-10m</p></td><td>上置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.1-8m, 0.5-11m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Phantom 3 4K</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 4K</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Advanced</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 Advanced</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Professional</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 Professional</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Standard</td><td>-</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<td>Phantom 3 Standard</td><td>-</td><td>-</td><td>-</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Phantom 4</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-15m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Phantom 4</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-15m</p></td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Phantom 4 Advanced</td><td>Front, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Phantom 4 Advanced</td><td>前置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>-</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Phantom 4 Professional</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Phantom 4 Professional</td><td>前置, 后置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>左侧，右侧</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<td>Phantom 4 Professional V2</td><td>前置, 后置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>左侧，右侧</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
-<td>Phantom 4 RTK</td><td>Front, Rear, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>Left, Right</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+<td>Phantom 4 RTK</td><td>前置, 后置, 下置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30 m</p></td><td>左侧，右侧</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-7 m</p></td><td>有</td><td>有</td><td>没有</td><td>没有</td><td>没有</td><td>没有</td></tr>
 <tr>
-<td>Spark</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-5m</p></td><td>-</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+<td>Spark</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.2-5m</p></td><td>-</td><td>有</td><td>没有</td><td>没有</td><td>没有</td><td>有</td><td>有</td></tr>
 </tbody></table></html>
 
-
-> Note: For mission descriptions, see [Missions](./component-guide-missions.html) in **Guides**.
+> 注意: 有关智能任务的说明，请参考 **产品组件介绍** 中的 [任务](./component-guide-missions.html).
 >
 
+### 飞行时间
 
-### Flight Time
+产品飞行时间取决于飞行器的总质量以及可用的电池能量。可用能量取决于电池数量，电池能量密度和推进系统可支持的最大质量。
 
-Product flight time is determined by total aircraft mass and the available stored (battery) energy on the aircraft. The available energy is determined by the number of batteries, the battery energy density and the maximum mass the propulsion system can support.
+#### 电池能量密度
 
-#### Battery Energy Density
+DJI为 Inspire和 Matrice产品线提供了两个系列的电池。TB47系列是所有飞行器随附的默认99 Wh电池。 TB48系列是130 Wh电池。尽管TB48有更高的10-15％电池能量密度，但实用性较差，因为> 100 Wh的电池通常有运输限制。
 
-DJI provides two series of batteries for the Inspire and Matrice product lines. The TB47 series is the default 99 Wh battery that comes with all aircraft. The TB48 series is a 130 Wh battery. While the TB48 battery has a 10-15% higher energy density, it is less practical as batteries >100 Wh often have transport restrictions.
+假设其他所有条件保持不变，使用具有较高能量密度的电池将可以转换为更长的飞行时间。但是，由于TB48电池比TB47电池重一些，请务必记住，使用它会限制最大的自定义有效负载。Matrice系列产品在使用多块电池时尤其明显。
 
-Using a battery with a higher energy density will always translate to longer flight time if all else is kept constant. However, as the TB48 battery is a little heavier than the TB47 battery, it is important to remember that its use will restrict the maximum custom payload. This is particularly noticeable on the Matrice series of products when using more than one battery.
+#### 使用更多电池
 
-#### Using More Batteries
+增加产品上的电池数量将会：
 
-Increasing the number of batteries on a product will:
+* 增加飞行可用能量（增加飞行时间）
+* 增加飞行器质量，因此：
+     * 减少飞行时间
+     * 减少额外的有效负载
 
-* Increase the available energy for flight (increasing flight time)
-* Increase the aircraft mass and therefore:
-     * Decrease flight time
-     * Decrease the allowable additional payload
+#### 飞行时间对比
 
-#### Flight Time Comparison
-
-To help understand the potential functionality and flight time of different aircraft configurations, a detailed summary of payload and flight times is below:
+为了帮助理解不同飞行器配置的潜在功能和飞行时间，以下表格提供了有效负载和飞行时间的详细摘要：
 
 <html><table class="table-flight-time" id="t03">
  <thead>
   <tr>
-    <th colspan="9">Payload & Flight Time</th>
+    <th colspan="9">负载 & 飞行时间</th>
   </tr>
   <tr>
-    <td width=20%>Product</td>
-    <td width=10%>Camera</td>
-    <td width=10%>Battery Configuration</td>
-    <td width=10%>Aircraft Mass</td>
-    <td width=10%>Battery Mass</td>
-    <td width=10%>Camera Mass</td>
-    <td width=10%>Payload</td>
-    <td width=10%>Take-off Mass</td>
-    <td width=10%>Max Flight Time (Approx.)</td>
+    <td width=20%>产品</td>
+    <td width=10%>相机</td>
+    <td width=10%>电池配置</td>
+    <td width=10%>飞行器质量</td>
+    <td width=10%>电池质量</td>
+    <td width=10%>相机质量</td>
+    <td width=10%>负载</td>
+    <td width=10%>起飞质量</td>
+    <td width=10%>最大飞行时间 (大约.)</td>
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td></td>
-    <td><p><font size=1 color="#BBBBBB">grams</p></td>
-    <td><p><font size=1 color="#BBBBBB">grams</p></td>
-    <td><p><font size=1 color="#BBBBBB">grams</p></td>
-    <td><p><font size=1 color="#BBBBBB">grams</p></td>
-    <td><p><font size=1 color="#BBBBBB">grams</p></td>
-    <td><p><font size=1 color="#BBBBBB">min</p></td>
+    <td><p><font size=1 color="#BBBBBB">克</p></td>
+    <td><p><font size=1 color="#BBBBBB">克</p></td>
+    <td><p><font size=1 color="#BBBBBB">克</p></td>
+    <td><p><font size=1 color="#BBBBBB">克</p></td>
+    <td><p><font size=1 color="#BBBBBB">克</p></td>
+    <td><p><font size=1 color="#BBBBBB">分钟</p></td>
   </tr>
  </thead>
  <tbody>
   <tr>
     <td rowspan="3">
     Inspire 1
-    <p><font size="1">Max Take-off Mass: 3000g </br>Compatible with XT, X3</p>
+    <p><font size="1">最大起飞质量: 3000g </br>配备 XT, X3</p>
     </td>
     <td >X3</td>
     <td>TB47</td>        
@@ -665,7 +662,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="4">
     Inspire 1 Pro/Raw
-    <p><font size="1">Max Take-off Mass: 3500g</br>Compatible with XT, X3, X5, X5R</p>
+    <p><font size="1">最大起飞质量: 3500g</br>配备 XT, X3, X5, X5R</p>
     </td>
     <td>X5</td>
     <td>TB47</td>        
@@ -709,7 +706,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="11">
     Matrice 100
-    <p><font size="1">Max Take-off Mass: 3600g</br>Compatible with XT, X3, X5, X5R, Manifold</p>
+    <p><font size="1">最大起飞质量: 3600g</br>配备 XT, X3, X5, X5R, Guidance, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>TB47D</td>        
@@ -823,7 +820,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="4">
     Matrice 200
-    <p><font size="1">Max Take-off Mass: 6140g</br>Compatible with XT, X4S, X5S, Z3</p>
+    <p><font size="1">最大起飞质量: 6140g</br>配备 XT, X4S, X5S, Z3</p>
     </td>
     <td align= "center">-</td>
     <td>2x TB50</td>        
@@ -868,7 +865,7 @@ To help understand the potential functionality and flight time of different airc
   <tr>
     <td rowspan="4">
     Matrice 600
-    <p><font size="1">Max Take-off Mass: 15100g</br>Compatible with XT, X3, X5, X5R, Ronin MX, DRTK, Manifold</p>
+    <p><font size="1">最大起飞质量: 15100g</br>配备 XT, X3, X5, X5R, Guidance, Ronin MX, DRTK, Manifold</p>
     </td>
     <td align= "center">-</td>
     <td>6x TB47S</td>        
@@ -912,23 +909,23 @@ To help understand the potential functionality and flight time of different airc
  </tbody>
 </table></html>
 
-### Camera
+### 相机
 
-DJI provides several camera configurations. For the Phantom and Mavic lines of products, the cameras are fixed to the product. For the Inspire and Matrice lines of products, cameras can be interchanged (Zenmuse X3, X5, X5R, Z3, XT, Z30, X4S, X5S) however not all cameras are compatible with all Inspire and Matrice aircraft. The [Products and Accessories](#supported-products) table at the top of the page details the combinations of camera and aircraft compatibility.
+DJI提供了几种相机配置。对于 Phantom和 Mavic系列产品，相机是固定在产品上的。对于 Inspire和 Matrice系列产品，支持更换相机（禅思 X3，X5，X5R，Z3，XT，Z30，X4S，X5S），但是并非所有相机都与所有Inspire和 Matrice系列机型兼容。本文上面提到的 **产品和组件** 表详细介绍了相机和飞行器的兼容性组合。
 
-The Zenmuse XT is a thermal camera. It's specifications are difficult to compare directly to other cameras, however it is included in the comparison for it's mass for payload calculation. More details on the specifications of the Zenmuse XT can be found <a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank"> here </a>.
+禅思 XT是一台热成像相机。有关禅思 XT相机规格的更多详细信息，请参考<a href="http://www.dji.com/product/zenmuse-xt/info#specs" target="_blank">此处</a>。
 
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="9">Camera Comparison: <b>Sensor</th></tr></thead>
+<thead><tr><th colspan="9">相机对比: <b>传感器</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th><p>Sensor Size</p></th>
-<th><p>Image Pixels</br><font color="#BBBBBB" size=1 style="font-weight:bold">Megapixels</p></th>
-<th><p>Max Video Resolution</p></th>
-<th><p>ISO</p></th>
-<th><p>Mechanical Shutter</p></th>
-<th><p>Shutter Speed</br><font color="#BBBBBB" size=1 style="font-weight:bold">s</p></th>
+<th width = 20%><p>产品</p></th>
+<th><p>传感器尺寸</p></th>
+<th><p>图片像素</br><font color="#BBBBBB" size=1 style="font-weight:bold">百万像素</p></th>
+<th><p>最大视频分辨率</p></th>
+<th><p>感光度</p></th>
+<th><p>机械快门</p></th>
+<th><p>快门速度</br><font color="#BBBBBB" size=1 style="font-weight:bold">秒</p></th>
 </tr>
 <tr>
 <td>Mavic Air</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-3200</td><td>-</td><td>8-1/8000</td></tr>
@@ -941,7 +938,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Mavic 2 Enterprise</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-3200</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>Visual 1/2.3"<br>Thermal Uncooled VOx Microbolometer</td><td>Visual 12</td><td>Visual 4K<br>Thermal 640×360</td><td>Visual 100-3200</td><td>-</td><td>-</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>可见光 1/2.3"<br>红外 非制冷氧化钒微测辐射热计</td><td>可见光 12</td><td>可见光 4K<br>红外 640×360</td><td>可见光 100-3200</td><td>-</td><td>-</td></tr>
 <tr>
 <td>Osmo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr>
@@ -957,19 +954,19 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Phantom 4</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 Advanced</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
+<td>Phantom 4 Advanced</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>有</td><td>机械快门 8-1/2000<br>电子快门 8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 Professional</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
+<td>Phantom 4 Professional</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>有</td><td>机械快门 8-1/2000<br>电子快门 8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
+<td>Phantom 4 Professional V2</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>有</td><td>机械快门 8-1/2000<br>电子快门 8-1/8000</td></tr>
 <tr>
-<td>Phantom 4 RTK</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 8-1/8000</td></tr>
+<td>Phantom 4 RTK</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>有</td><td>机械快门 8-1/2000<br>电子快门 8-1/8000</td></tr>
 <tr>
 <td>Spark</td><td>1/2.3"</td><td>12</td><td>FHD</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">1920 x 1080</p></td><td>100-1600</td><td>-</td><td>2-1/8000</td></tr>
 <tr>
 <td>Zenmuse X3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
-<td>Zenmuse X4S</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>Yes</td><td>Mechanical 8-1/2000<br>Electronic 1/2000-1/8000</td></tr>
+<td>Zenmuse X4S</td><td>1"</td><td>20</td><td>4K</td><td>100-12800</td><td>有</td><td>机械快门 8-1/2000<br>电子快门 1/2000-1/8000</td></tr>
 <tr>
 <td>Zenmuse X5</td><td>4/3"</td><td>16</td><td>4K</td><td>100-25600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
@@ -979,26 +976,25 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse X7</td><td>APS-C</td><td>24</td><td>5.2K</td><td>100-25600</td><td>8-1/1000</td><td>8-1/8000</td></tr>
 <tr>
-<td>Zenmuse XT</td><td>NA</td><td>0.32</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Model</p></td><td>640 x 512</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Model</p></td><td>NA</td><td>-</td><td>NA</td></tr>
+<td>Zenmuse XT</td><td>NA</td><td>0.32</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于型号</p></td><td>640 x 512</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于型号</p></td><td>NA</td><td>-</td><td>NA</td></tr>
 <tr>
-<td>Zenmuse XT 2</td><td>1/1.7"</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>12</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>4K</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>NA</td><td>-</td><td>NA</td></tr>
+<td>Zenmuse XT 2</td><td>1/1.7"</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">可见光相机</p></td><td>12</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">可见光相机</p></td><td>4K</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">可见光相机</p></td><td>NA</td><td>-</td><td>NA</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
 <td>Zenmuse Z30</td><td>1/2.3"</td><td>2.13</td><td>1080p</td><td>1600</td><td>-</td><td>1-1/6000</td></tr>
 </tbody></table></html>
 
-
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="9">Camera Comparison: <b>Lens</th></tr></thead>
+<thead><tr><th colspan="9">相机对比: <b>镜头</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th><p>Swappable Lens</p></th>
-<th><p>FOV</br><font color="#BBBBBB" size=1 style="font-weight:bold">degrees</p></th>
-<th><p>Focal Length</p></th>
-<th><p>Aperture</p></th>
-<th><p>Focus</br><font color="#BBBBBB" size=1 style="font-weight:bold">m</p></th>
+<th width = 20%><p>产品</p></th>
+<th><p>可更换镜头</p></th>
+<th><p>FOV</br><font color="#BBBBBB" size=1 style="font-weight:bold">度</p></th>
+<th><p>焦距</p></th>
+<th><p>光圈</p></th>
+<th><p>对焦点</br><font color="#BBBBBB" size=1 style="font-weight:bold">米</p></th>
 </tr>
 <tr>
 <td>Mavic 2 Pro</td><td>-</td><td>77</td><td>35</td><td>f/2.8–f/11</td><td>1 - &#8734</td></tr>
@@ -1007,7 +1003,7 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Mavic 2 Enterprise</td><td>-</td><td>82.6</td><td>24-48</td><td> f/2.8(24mm)–f/3.8(48mm)</td><td>0.5 - &#8734</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>-</td><td>Visual 85</td><td>Visual 24</td><td>Visual f/2.8(24mm)<br>Thermal f/1.1</td><td>Visual 0.5 - &#8734</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>-</td><td>可见光 85</td><td>可见光 24</td><td>可见光 f/2.8(24mm)<br>红外 f/1.1</td><td>可见光 0.5 - &#8734</td></tr>
 <tr>
 <td>Mavic Air</td><td>-</td><td>85</td><td>35</td><td>f/2.8</td><td>0.5 - &#8734</td></tr>
 <tr>
@@ -1041,174 +1037,171 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse X4S</td><td>-</td><td>84</td><td>24</td><td>f/2.8-f/11</td><td>1-&#8734</td></tr>
 <tr>
-<td>Zenmuse X5</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
+<td>Zenmuse X5</td><td>有</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>0.2 - &#8734</td></tr>
 <tr>
-<td>Zenmuse X5R</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
+<td>Zenmuse X5R</td><td>有</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>0.2 - &#8734</td></tr>
 <tr>
-<td>Zenmuse X5S</td><td>Yes</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Standard Lens</p></td><td>0.2 - &#8734</td></tr>
+<td>Zenmuse X5S</td><td>有</td><td>72</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>30</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>f/1.7 - f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">标准镜头</p></td><td>0.2 - &#8734</td></tr>
 <tr>
-<td>Zenmuse X7</td><td>Yes</td><td>54</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>36</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>f/2.8-f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>0.2 - &#8734</td></tr>
+<td>Zenmuse X7</td><td>有</td><td>54</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>36</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>f/2.8-f/16</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td><td>0.2 - &#8734</td></tr>
 <tr>
-<td>Zenmuse XT</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Lens</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Fixed - Value Depends on Lens</p></td><td>NA</td></tr>
+<td>Zenmuse XT</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于镜头</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">固定 - 数值取决于镜头</p></td><td>NA</td></tr>
 <tr>
-<td>Zenmuse XT 2</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Depending on Lens</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Fixed - Value Depends on Lens</p></td><td>NA</td></tr>
+<td>Zenmuse XT 2</td><td>-</td><td>13-90</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于镜头</p></td><td>NA</td><td>f/1.25 - f/1.4</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">固定 - 数值取决于镜头</p></td><td>NA</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>-</td><td>92-35</td><td>22-77</td><td>f/2.8 - f/5.2</td><td>0.5 - &#8734</td></tr>
 <tr>
-<td>Zenmuse Z30</td><td>-</td><td>63.7-2.3</td><td>22-77</td><td>f/1.6 (Wide) - f/4.7 (Tele)</td><td>0.1 - &#8734 (Wide)<br>1.2 to &#8734 (Tele)</td></tr>
+<td>Zenmuse Z30</td><td>-</td><td>63.7-2.3</td><td>22-77</td><td>f/1.6 (广角) - f/4.7 (长焦)</td><td>0.1 - &#8734 (广角)<br>1.2 to &#8734 (长焦)</td></tr>
 </tbody></table></html>
 
-
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="9">Camera Comparison: <b>Gimbal, Media and Mass</th></tr></thead>
+<thead><tr><th colspan="9">相机对比: <b>云台, 存储介质 和 质量</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th><p>Controllable Gimbal Pan</br><font color="#BBBBBB" size=1 style="font-weight:bold">degrees</p></th>
-<th><p>Stabilization</p></th>
-<th><p>Controllable Gimbal Tilt</br><font color="#BBBBBB" size=1 style="font-weight:bold">degrees</p></th>
-<th><p>Storage Media</p></th>
-<th><p>Mass</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">With Gimbal</br><font color="#BBBBBB" size=1 style="font-weight:bold">g</p></th>
+<th width = 20%><p>产品</p></th>
+<th><p>可控云台 俯仰</br><font color="#BBBBBB" size=1 style="font-weight:bold">度</p></th>
+<th><p>增稳轴</p></th>
+<th><p>可控云台 偏航</br><font color="#BBBBBB" size=1 style="font-weight:bold">度</p></th>
+<th><p>存储介质</p></th>
+<th><p>质量</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">配置云台</br><font color="#BBBBBB" size=1 style="font-weight:bold">克</p></th>
 </tr>
 <tr>
-<td>Mavic 2 Pro</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<td>Mavic 2 Pro</td><td>+/-75</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡和飞行器内部存储器</td><td>-</td></tr>
 <tr>
-<td>Mavic 2 Zoom</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<td>Mavic 2 Zoom</td><td>+/-75</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡和飞行器内部存储器</td><td>-</td></tr>
 <tr>
-<td>Mavic 2 Enterprise</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<td>Mavic 2 Enterprise</td><td>+/-75</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡和飞行器内部存储器</td><td>-</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>+/-75</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>+/-75</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡和飞行器内部存储器</td><td>-</td></tr>
 <tr>
-<td>Mavic Air</td><td>-</td><td>roll, pitch, yaw</td><td>-100 to 22</td><td>Micro SD and Internal Storage on aircraft</td><td>-</td></tr>
+<td>Mavic Air</td><td>-</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-100 to 22</td><td>SD存储卡和飞行器内部存储器</td><td>-</td></tr>
 <tr>
-<td>Mavic Pro</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Mavic Pro</td><td>-</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
 <td>Osmo</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Osmo +</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>262</td></tr>
+<td>Osmo +</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>262</td></tr>
 <tr>
-<td>Phantom 3 4K</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 3 4K</td><td>-</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Advanced</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 3 Advanced</td><td>-</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Professional</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 3 Professional</td><td>-</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 3 Standard</td><td>-</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 3 Standard</td><td>-</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 4</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 4</td><td>+/- 15</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Advanced</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 4 Advanced</td><td>+/- 15</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Professional</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 4 Professional</td><td>+/- 15</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 4 Professional V2</td><td>+/- 15</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Phantom 4 RTK</td><td>+/- 15</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Phantom 4 RTK</td><td>+/- 15</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Spark</td><td>-</td><td>roll, pitch</td><td>-85 to 0</td><td>Micro SD</td><td>-</td></tr>
+<td>Spark</td><td>-</td><td>横滚轴, 俯仰轴</td><td>-85 to 0</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Zenmuse X3</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>247</td></tr>
+<td>Zenmuse X3</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>247</td></tr>
 <tr>
-<td>Zenmuse X4S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD and SD on aircraft</td><td>253</td></tr>
+<td>Zenmuse X4S</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>CineSSD 和 SD存储卡</td><td>253</td></tr>
 <tr>
-<td>Zenmuse X5</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>526</td></tr>
+<td>Zenmuse X5</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>526</td></tr>
 <tr>
-<td>Zenmuse X5R</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD, SSD</td><td>583</td></tr>
+<td>Zenmuse X5R</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡, SSD</td><td>583</td></tr>
 <tr>
-<td>Zenmuse X5S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>CineSSD and SD on aircraft</td><td>461</td></tr>
+<td>Zenmuse X5S</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>CineSSD 和 SD存储卡</td><td>461</td></tr>
 <tr>
-<td>Zenmuse X7</td><td>+/- 300</td><td>roll, pitch, yaw</td><td>-125 to 40</td><td>CineSSD and SD on aircraft</td><td>628</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td></tr>
+<td>Zenmuse X7</td><td>+/- 300</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-125 to 40</td><td>CineSSD 和 SD存储卡</td><td>628</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">DL 24mm F2.8 LS ASPH</p></td></tr>
 <tr>
-<td>Zenmuse XT</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>270</td></tr>
+<td>Zenmuse XT</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>270</td></tr>
 <tr>
-<td>Zenmuse XT 2</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
+<td>Zenmuse XT 2</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
-<td>Zenmuse Z3</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>262</td></tr>
+<td>Zenmuse Z3</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>262</td></tr>
 <tr>
-<td>Zenmuse Z30</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>556</td></tr>
+<td>Zenmuse Z30</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>556</td></tr>
 </tbody></table></html>
 
+### 遥控器
 
+遥控器有以下几方面的不同点:
 
-### Remote Controller
+* 如何连接到移动设备
+* 使用什么无线技术与飞机连接
+* 是否内置GPS
+* 是否可以输出第二路视频流
+* 是否可以在双控配置中使用（一个人控制无人机，另一个人控制云台和相机）
 
-Remote controllers will differ in:
-
-* How they connect to a mobile device
-* What wireless technology they use to connect with the aircraft
-* Whether they have GPS built-in
-* If they can output secondary video
-* If they can be used in a dual configuration (one flys the aircraft while the other controls the gimbal and camera)
-
-Remote Controllers that use WiFi to connect to the mobile device will act as a WiFi access point and will need to be joined.
+使用WiFi连接到移动设备的遥控器将充当WiFi接入点，并且需要授权允许才能加入。
 
 <html><table class="table-aircraft-comparison">
-<thead><tr><th colspan="9"><b>Remote Controller Comparison</th></tr></thead>
+<thead><tr><th colspan="9"><b>遥控器对比</th></tr></thead>
 <tbody>
 <tr>
-<th width = 20%><p>Product</p></th>
-<th><p>Remote Controller</p></th>
-<th><p>Connectivity to Mobile Device</p></th>
-<th><p>Connectivity to Aircraft</p></th>
-<th><p>Supports Dual RC</p></th>
-<th><p>Built-in GPS</p></th>
-<th><p>Secondary Video Output</p></th>
-<th><p>Flight Mode Switch</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">To use SDK</p></th>
+<th width = 20%><p>产品</p></th>
+<th><p>遥控器</p></th>
+<th><p>连接移动设备的方式</p></th>
+<th><p>连接飞机的方式</p></th>
+<th><p>支持双遥控器</p></th>
+<th><p>内置GPS</p></th>
+<th><p>第二路视频流输出</p></th>
+<th><p>飞行模式切换</br><font color="#BBBBBB" size=1.7 style="font-weight:normal">使用SDK</p></th>
 </tr>
 <tr>
-<td>Inspire 1</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI</td><td>F</td></tr>
+<td>Inspire 1</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>是</td><td>Mini HDMI</td><td>F</td></tr>
 <tr>
-<td>Inspire 1 Pro/Raw</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI</td><td>F</td></tr>
+<td>Inspire 1 Pro/Raw</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>是</td><td>Mini HDMI</td><td>F</td></tr>
 <tr>
-<td>Inspire 2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Inspire 2</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 100</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI</td><td>F</td></tr>
+<td>Matrice 100</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>是</td><td>Mini HDMI</td><td>F</td></tr>
 <tr>
-<td>Matrice 200 V2</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Matrice 200 V2</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 210 V2</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Matrice 210 V2</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 210 RTK V2</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Matrice 210 RTK V2</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 200</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Matrice 200</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 210</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Matrice 210</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 210 RTK</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
+<td>Matrice 210 RTK</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
-<td>Matrice 600</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI, SDI</td><td>Any</td></tr>
+<td>Matrice 600</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>是</td><td>Mini HDMI, SDI</td><td>所有模式</td></tr>
 <tr>
-<td>Matrice 600 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI, SDI</td><td>Any</td></tr>
+<td>Matrice 600 Professional</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>是</td><td>Mini HDMI, SDI</td><td>所有模式</td></tr>
 <tr>
-<td>Mavic 2 Pro</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Mavic 2 Pro</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Mavic 2 Zoom</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Mavic 2 Zoom</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Mavic 2 Enterprise</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Mavic 2 Enterprise</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Mavic 2 Enterprise Dual</td><td>Required (Without Built-In screen)</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Mavic 2 Enterprise Dual</td><td>需要 (不搭配内置屏幕)</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Mavic Pro</td><td>Optional</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Mavic Pro</td><td>可选</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Mavic Air</td><td>Optional</td><td>USB</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Mavic Air</td><td>可选</td><td>USB</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 3 4K</td><td>Required</td><td>WiFi</td><td>WiFi, Aux</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
+<td>Phantom 3 4K</td><td>需要</td><td>WiFi</td><td>WiFi, Aux</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
 <tr>
-<td>Phantom 3 Advanced</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
+<td>Phantom 3 Advanced</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
 <tr>
-<td>Phantom 3 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
+<td>Phantom 3 Professional</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
 <tr>
-<td>Phantom 3 Standard</td><td>Required</td><td>WiFi</td><td>WiFi, Aux</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
+<td>Phantom 3 Standard</td><td>需要</td><td>WiFi</td><td>WiFi, Aux</td><td>-</td><td>-</td><td>-</td><td>F</td></tr>
 <tr>
-<td>Phantom 4</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 4 Advanced</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4 Advanced</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 4 Professional</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4 Professional</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 4 Professional V2</td><td>Required</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4 Professional V2</td><td>需要</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Phantom 4 RTK</td><td>Required</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Phantom 4 RTK</td><td>需要</td><td>USB</td><td>OcuSync</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 <tr>
-<td>Spark</td><td>Optional</td><td>WiFi</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
+<td>Spark</td><td>可选</td><td>WiFi</td><td>WiFi</td><td>-</td><td>-</td><td>-</td><td>P</td></tr>
 </tbody></table></html>

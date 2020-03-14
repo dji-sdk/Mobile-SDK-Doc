@@ -1,156 +1,157 @@
 -
-  title: "INTRODUCTION"
+  title: "概览"
   list:
     -
-      title: "Documentation Introduction"
+      title: "文档结构介绍"
       path: "/cn/introduction/index.html"
     -
-      title: "Hardware Introduction"
+      title: "硬件介绍"
       path: "/cn/introduction/product_introduction.html"
     -
-      title: "Mobile SDK Introduction"
+      title: "Mobile SDK 简介"
       path: "/cn/introduction/mobile_sdk_introduction.html"
     -
-      title: "UX SDK Introduction"
+      title: "UX SDK 简介"
       path: "/cn/introduction/ux_sdk_introduction.html"
     -
-      title: "SDK Architectural Overview"
+      title: "SDK 架构体系概述"
       path: "/cn/introduction/sdk_architectural_overview.html"
 -
-  title: "Get Started Immediately"
+  title: "马上开始构建应用"
   list:
     -
-      title: "Run Sample Application"
+      title: "运行示例代码"
       path: "/cn/quick-start/index.html"
 -
-  title: "DEVELOPMENT WORKFLOW"
+  title: "开发流程指引"
   list:
     -
-      title: "Prerequisites"
+      title: "前期准备"
       path: "/cn/application-development-workflow/workflow-prerequisits.html"
     -
-      title: "Register as DJI Developer & Download SDK"
+      title: "注册成为开发者 & 下载SDK"
       path: "/cn/application-development-workflow/workflow-register.html"
     -
-      title: "Integrate SDK into Application"
+      title: "将SDK集成到您的项目工程中"
       path: "/cn/application-development-workflow/workflow-integrate.html"
     -
-      title: "Run Application"
+      title: "运行应用程序"
       path: "/cn/application-development-workflow/workflow-run.html"
     -
-      title: "Testing, Profiling & Debugging"
+      title: "测试, 分析和调试"
       path: "/cn/application-development-workflow/workflow-testing.html"
     -
-      title: "Deploy"
+      title: "发布部署"
       path: "/cn/application-development-workflow/workflow-deploy.html"
 -
-  title: "CONCEPTS & Guides"
+  title: "基本概念与组件介绍"
   list:
     -
-      title: "Flight Control"
+      title: "飞行控制"
       path: "/cn/introduction/flightController_concepts.html"
     -
-      title: "Camera Exposure"
+      title: "相机曝光原理"
       path: "/cn/introduction/camera_concepts.html"
     -
-      title: "Flight Controller"
+      title: "飞行控制器"
       path: "/cn/introduction/component-guide-flightController.html"
     -
-      title: "Camera"
+      title: "相机"
       path: "/cn/introduction/component-guide-camera.html"
     -
-      title: "Gimbal"
+      title: "云台"
       path: "/cn/introduction/component-guide-gimbal.html"
     -
       title: "AirLink"
       path: "/cn/introduction/component-guide-airlink.html"
     -
-      title: "Remote Controller"
+      title: "遥控器"
       path: "/cn/introduction/component-guide-remotecontroller.html"
     -
-      title: "Smart Battery"
+      title: "智能电池"
       path: "/cn/introduction/component-guide-battery.html"
     -
-      title: "Missions"
+      title: "智能任务"
       path: "/cn/introduction/component-guide-missions.html"
     -
       title: "SDK Manager"
       path: "/cn/introduction/sdk-guide-sdkmanager.html"
 -
-  title: "IOS TUTORIALS"
+  title: "iOS平台开发教程"
   list:
     -
-      title: "Application Activation and Aircraft Binding"
+      title: "应用程序激活与飞机绑定"
       path: "/cn/ios-tutorials/ActivationAndBinding.html"
     -
-      title: "Getting Started with UX SDK"
+      title: "快速入门UX SDK开发"
       path: "/cn/ios-tutorials/UXSDKDemo.html"
     -
-      title: "Camera Application"
+      title: "拍照录像功能实现"
       path: "/cn/ios-tutorials/index.html"
     -
-      title: "Photo and Video Playback  Application"
+      title: "照片视频回放功能实现"
       path: "/cn/ios-tutorials/PlaybackDemo.html"
     -
-      title: "Media Manager Application"
+      title: "Media Manager功能实现"
       path: "/cn/ios-tutorials/MediaManagerDemo.html"
     -
-      title: "MapView and Waypoint Application"
+      title: "地图与航点任务功能实现"
       path: "/cn/ios-tutorials/GSDemo.html"
     -
-      title: "Panorama Application"
+      title: "全景应用功能实现"
       path: "/cn/ios-tutorials/PanoDemo.html"
     -
-      title: "TapFly and ActiveTrack Application"
+      title: "指点飞行与主动跟随功能实现"
       path: "/cn/ios-tutorials/P4MissionsDemo.html"
     -
-      title: "Simulator Application"
+      title: "Simulator模拟器功能实现"
       path: "/cn/ios-tutorials/SimulatorDemo.html"
     -
-      title: "GEO System Application"
+      title: "GEO地理围栏系统介绍与功能实现"
       path: "/cn/ios-tutorials/GEODemo.html"
     -
-      title: "Using the Bridge App"
+      title: "DJI Bridge调试应用介绍"
       path: "/cn/ios-tutorials/BridgeAppDemo.html"
     -
-      title: "Using the Remote Logger"
+      title: "远程调试工具介绍"
       path: "/cn/ios-tutorials/RemoteLoggerDemo.html"
 -
-  title: "ANDROID TUTORIALS"
+  title: "Android平台开发教程"
   list:
     -
-      title: "Application Activation and Aircraft Binding"
+      title: "应用程序激活与飞机绑定"
       path: "/cn/android-tutorials/ActivationAndBinding.html"
     -
-      title: "Getting Started with UX SDK"
+      title: "快速入门UX SDK开发"
       path: "/cn/android-tutorials/UXSDKDemo.html"
     -
-      title: "Camera Application"
+      title: "拍照录像功能实现"
       path: "/cn/android-tutorials/index.html"
     -
-      title: "Media Manager Application"
+      title: "Media Manager功能实现"
       path: "/cn/android-tutorials/MediaManagerDemo.html"
     -
-      title: "MapView and Waypoint Application (GaodeMap)"
+      title: "地图与航点任务功能实现 (高德地图)"
       path: "/cn/android-tutorials/GSDemo-Gaode-Map.html"
     -
-      title: "MapView and Waypoint Application (GoogleMap)"
+      title: "地图与航点任务功能实现 (谷歌地图)"
       path: "/cn/android-tutorials/GSDemo-Google-Map.html"
     -
-      title: "TapFly and ActiveTrack Application"
+      title: "指点飞行与主动跟随功能实现"
       path: "/cn/android-tutorials/P4MissionsDemo.html"
     -
-      title: "Simulator Application"
+      title: "Simulator模拟器功能实现"
       path: "/cn/android-tutorials/SimulatorDemo.html"
     -
-      title: "GEO System Application"
+      title: "GEO地理围栏系统介绍与功能实现"
       path: "/cn/android-tutorials/GEODemo.html"
     -
-      title: "Android Video Stream Decoding Sample"
+      title: "Android 视频解码Sample介绍"
       path: "/cn/sample-code/index.html"
+
 -
-  title: "Support"
+  title: "技术支持"
   list:
      -
-       title: "FAQ"
+       title: "常见问题"
        path: "/cn/faq/index.html"
