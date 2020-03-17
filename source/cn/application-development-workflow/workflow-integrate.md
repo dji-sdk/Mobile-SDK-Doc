@@ -1,6 +1,6 @@
 ---
 title: Integrate SDK into Application
-date: 2020-01-22
+date: 2020-03-17
 keywords: [Xcode project integration, import SDK, import framework,  android studio integration]
 ---
 
