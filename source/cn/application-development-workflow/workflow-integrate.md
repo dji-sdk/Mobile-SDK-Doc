@@ -373,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
 
 The `registerApp()` method of `DJISDKManager` has a callback that needs to process two methods for processing the application registration result, and for when the product connected to the mobile device is changed.
 
-Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()`, `onProductDisconnect()`, `onProductConnect()`, `onComponentChange()` and `onInitProcess()` methods of the `SDKManagerCallback`:
+Continue to add the `startSDKRegistration()` method as shown below and implement the `onRegister()`, `onProductDisconnect()`, `onProductConnect()`, `onComponentChange()`, `onInitProcess()` and `onDatabaseDownloadProgress()` methods of the `SDKManagerCallback`:
 
 ~~~java
 private void startSDKRegistration() {
@@ -431,6 +431,11 @@ private void startSDKRegistration() {
                     }
                     @Override
                     public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
+
+                    }
+
+                    @Override
+                    public void onDatabaseDownloadProgress(long l, long l1) {
 
                     }
                 });

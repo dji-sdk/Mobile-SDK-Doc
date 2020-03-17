@@ -703,6 +703,11 @@ public void onCreate() {
         public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
 
         }
+        
+        @Override
+        public void onDatabaseDownloadProgress(long l, long l1) {
+
+        }
     };
 
     //Check the permissions before registering the application for android system 6.0 above.
@@ -868,6 +873,11 @@ private void startSDKRegistration() {
                     }
                     @Override
                     public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
+
+                    }
+
+                    @Override
+                    public void onDatabaseDownloadProgress(long l, long l1) {
 
                     }
                 });
