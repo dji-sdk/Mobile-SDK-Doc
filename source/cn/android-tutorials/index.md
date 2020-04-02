@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.11.1
-date: 2020-03-17
+version: v4.11.2
+date: 2020-03-20
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
