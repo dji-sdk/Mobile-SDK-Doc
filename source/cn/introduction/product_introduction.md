@@ -1,6 +1,6 @@
 ---
 title: 硬件介绍
-date: 2020-03-14
+date: 2020-05-23
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -203,6 +203,11 @@ DJI 飞行器上安装有大量的传感器，包括加速计，陀螺仪，指�
       <td> N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
+      <td>Matrice 300 RTK</td>
+      <td>XTS, XT2, Z30, H20, H20T</td>        
+      <td> - </td>
+    </tr>
+    <tr>
       <td>Matrice 200 V2</td>
       <td>X4S, X5S, XT, XT2, X7, Z30</td>        
       <td> — </td>
@@ -368,6 +373,8 @@ DJI 飞行器上安装有大量的传感器，包括加速计，陀螺仪，指�
 <tr>
 <td>Matrice 100</td><td>16-40*</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2355</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 TB47 电池</p></td><td>650</td></tr>
 <tr>
+<td>Matrice 300 RTK</td><td>55</td><td>23</td><td>6</td><td>5</td><td>7000</td><td>4</td><td>6300</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB60 电池</p></td><td>810</td></tr>
+<tr>
 <td>Matrice 200 V2</td><td>24-38*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4690</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB5S 电池</p></td><td>722</td></tr>
 <tr>
 <td>Matrice 210 V2</td><td>24-34*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">搭配 2x TB5S 电池</p></td><td>722</td></tr>
@@ -449,6 +456,8 @@ DJI 飞行器上安装有大量的传感器，包括加速计，陀螺仪，指�
 <tr>
 <td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>固定</td><td>1000</td><td>Guidance, Manifold, Focus</td></tr>
 <tr>
+<td>Matrice 300 RTK</td><td>XTS, XT2, Z30, H20, H20T</td><td>有</td><td>15 / 8</td><td>2</td><td>3</td><td>固定</td><td>2700</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">取决于电池型号</p></td><td>-</td></tr>
+<tr>
 <td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>有</td><td>8 / 5</td><td>2</td><td>1</td><td>固定</td><td>1450</br></td><td>-</td></tr>
 <tr>
 <td>Matrice 210 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>有</td><td>8 / 5</td><td>2</td><td>2</td><td>固定</td><td>1340</br></td><td>-</td></tr>
@@ -520,6 +529,8 @@ DJI 飞行器上安装有大量的传感器，包括加速计，陀螺仪，指�
 <td>Inspire 2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
 <tr>
 <td>Matrice 100</td><td>搭配 Guidance</td><td>-</td><td>搭配 Guidance</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Matrice 300 RTK</td><td>前置,后置,侧面 / 下置, 上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-40m/0.6-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
@@ -983,6 +994,10 @@ DJI提供了几种相机配置。对于 Phantom和 Mavic系列产品，相机是
 <td>Zenmuse Z3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
 <td>Zenmuse Z30</td><td>1/2.3"</td><td>2.13</td><td>1080p</td><td>1600</td><td>-</td><td>1-1/6000</td></tr>
+<tr>
+<td>Zenmuse H20</td><td>广角 1/2.3", 变焦 1/1.7"</td><td>Wide 12, 变焦 20</td><td>广角 1080p, 变焦 4K</td><td>100-25600</td><td>-</td><td>1-1/8000</td></tr>
+<tr>
+<td>Zenmuse H20T</td><td>广角 1/2.3", 变焦 1/1.7", 红外 非制冷氧化钒微测辐射热计</td><td>广角 12, 变焦 20</td><td>广角 1080p, 变焦 4K, 红外 512p</td><td>100-25600(广角 & 变焦)</td><td>-</td><td>1-1/8000(广角 & 变焦)</td></tr>
 </tbody></table></html>
 
 <html><table class="table-aircraft-comparison">
@@ -1052,6 +1067,10 @@ DJI提供了几种相机配置。对于 Phantom和 Mavic系列产品，相机是
 <td>Zenmuse Z3</td><td>-</td><td>92-35</td><td>22-77</td><td>f/2.8 - f/5.2</td><td>0.5 - &#8734</td></tr>
 <tr>
 <td>Zenmuse Z30</td><td>-</td><td>63.7-2.3</td><td>22-77</td><td>f/1.6 (广角) - f/4.7 (长焦)</td><td>0.1 - &#8734 (广角)<br>1.2 to &#8734 (长焦)</td></tr>
+<tr>
+<td>Zenmuse H20</td><td>-</td><td>广角 82.9, 变焦 66.6-4</td><td>广角 24, 变焦 31.7-556.2</td><td>广角 f/2.8, 变焦 f/2.8-f/11</td><td>广角: 1 - &#8734, 变焦: 1 - &#8734(广角), 8 - &#8734(长焦)</td></tr>
+<tr>
+<td>Zenmuse H20T</td><td>-</td><td>广角 82.9, 变焦 66.6-4, 红外 40.6</td><td>广角 24, 变焦 31.7-556.2, 红外 58</td><td>广角 f/2.8, 变焦 f/2.8-f/11, 红外 f/1.0</td><td>广角: 1 - &#8734, 变焦: 1 - &#8734(广角), 8 - &#8734(长焦), 变焦: 5 - &#8734</td></tr>
 </tbody></table></html>
 
 <html><table class="table-aircraft-comparison">
@@ -1116,11 +1135,17 @@ DJI提供了几种相机配置。对于 Phantom和 Mavic系列产品，相机是
 <tr>
 <td>Zenmuse XT</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>270</td></tr>
 <tr>
+<td>Zenmuse XT S</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-120 to 30</td><td>SD存储卡</td><td>387</td></tr>
+<tr>
 <td>Zenmuse XT 2</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>-</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>262</td></tr>
 <tr>
 <td>Zenmuse Z30</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-90 to 30</td><td>SD存储卡</td><td>556</td></tr>
+<tr>
+<td>Zenmuse H20</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-120 to 30</td><td>SD存储卡</td><td>678</td></tr>
+<tr>
+<td>Zenmuse H20T</td><td>+/- 320</td><td>横滚轴, 俯仰轴，偏航轴</td><td>-120 to 30</td><td>SD存储卡</td><td>828</td></tr>
 </tbody></table></html>
 
 ### 遥控器
@@ -1156,6 +1181,8 @@ DJI提供了几种相机配置。对于 Phantom和 Mavic系列产品，相机是
 <td>Inspire 2</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
 <td>Matrice 100</td><td>需要</td><td>USB</td><td>Lightbridge</td><td>是</td><td>是</td><td>Mini HDMI</td><td>F</td></tr>
+<tr>
+<td>Matrice 300 RTK</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>需要</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>

@@ -1,6 +1,6 @@
 ---
 title: Hardware Introduction
-date: 2020-01-22
+date: 2020-05-23
 keywords: [component, propellor, sensor, product comparison]
 ---
 
@@ -203,6 +203,11 @@ Below is a table listing the aircraft, handheld cameras and stand alone componen
       <td> N1 Video Encoder, Focus* </td>
     </tr>
     <tr>
+      <td>Matrice 300 RTK</td>
+      <td>XTS, XT2, Z30, H20, H20T</td>        
+      <td> - </td>
+    </tr>
+    <tr>
       <td>Matrice 200 V2</td>
       <td>X4S, X5S, XT, XT2, X7, Z30</td>        
       <td> — </td>
@@ -367,6 +372,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>16-40*</td><td>18</td><td>5</td><td>4</td><td>4500</td><td>4</td><td>2355</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With TB47 Battery</p></td><td>650</td></tr>
 <tr>
+<td>Matrice 300 RTK</td><td>55</td><td>23</td><td>6</td><td>5</td><td>7000</td><td>4</td><td>6300</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB60 batteries</p></td><td>810</td></tr>
+<tr>
 <td>Matrice 200 V2</td><td>24-38*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4690</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
 <tr>
 <td>Matrice 210 V2</td><td>24-34*</td><td>22.5</td><td>5</td><td>3</td><td>3000</td><td>4</td><td>4800</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">With 2x TB5S batteries</p></td><td>722</td></tr>
@@ -449,6 +456,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>X3, Z3, X5, X5R, XT, Z30</td><td>-</td><td>5 / 3.5</td><td>1-2</td><td>1</td><td>Fixed</td><td>1000</td><td>Manifold, Focus</td></tr>
 <tr>
+<td>Matrice 300 RTK</td><td>XTS, XT2, Z30, H20, H20T</td><td>Yes</td><td>15 / 8</td><td>2</td><td>3</td><td>Fixed</td><td>2700</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Battery Dependant</p></td><td>-</td></tr>
+<tr>
 <td>Matrice 200 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>1</td><td>Fixed</td><td>1450</br></td><td>-</td></tr>
 <tr>
 <td>Matrice 210 V2</td><td>X4S, X5S, Z30, XT, X7, XT2</td><td>Yes</td><td>8 / 5</td><td>2</td><td>2</td><td>Fixed</td><td>1340</br></td><td>-</td></tr>
@@ -521,6 +530,8 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <td>Inspire 2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr>
 <td>Matrice 100</td><td>With Guidance</td><td>-</td><td>With Guidance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+<tr>
+<td>Matrice 300 RTK</td><td>Front, Rear, Sides / Top, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-40m / 0.6-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
 <tr>
@@ -983,11 +994,16 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse XT 2</td><td>1/1.7"</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>12</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>4K</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">Visual Camera</p></td><td>NA</td><td>-</td><td>NA</td></tr>
 <tr>
+<td>Zenmuse XT S</td><td>Uncooled VOx Microbolometer</td><td>0.32</td><td>640×512</td><td>NA</td><td>-</td><td>NA</td></tr>
+<tr>
 <td>Zenmuse Z3</td><td>1/2.3"</td><td>12</td><td>4K</td><td>100-1600</td><td>-</td><td>8-1/8000</td></tr>
 <tr>
 <td>Zenmuse Z30</td><td>1/2.3"</td><td>2.13</td><td>1080p</td><td>1600</td><td>-</td><td>1-1/6000</td></tr>
+<tr>
+<td>Zenmuse H20</td><td>Wide 1/2.3", Zoom 1/1.7"</td><td>Wide 12, Zoom 20</td><td>Wide 1080p, Zoom 4K</td><td>100-25600</td><td>-</td><td>1-1/8000</td></tr>
+<tr>
+<td>Zenmuse H20T</td><td>Wide 1/2.3", Zoom 1/1.7", Thermal Uncooled VOx Microbolometer</td><td>Wide 12, Zoom 20</td><td>Wide 1080p, Zoom 4K, Thermal 512p</td><td>100-25600(Wide & Zoom)</td><td>-</td><td>1-1/8000(Wide & Zoom)</td></tr>
 </tbody></table></html>
-
 
 <html><table class="table-aircraft-comparison">
 <thead><tr><th colspan="9">Camera Comparison: <b>Lens</th></tr></thead>
@@ -1055,7 +1071,11 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse Z3</td><td>-</td><td>92-35</td><td>22-77</td><td>f/2.8 - f/5.2</td><td>0.5 - &#8734</td></tr>
 <tr>
-<td>Zenmuse Z30</td><td>-</td><td>63.7-2.3</td><td>22-77</td><td>f/1.6 (Wide) - f/4.7 (Tele)</td><td>0.1 - &#8734 (Wide)<br>1.2 to &#8734 (Tele)</td></tr>
+<td>Zenmuse Z30</td><td>-</td><td>63.7-2.3</td><td> - </td><td>f/1.6 (Wide) - f/4.7 (Tele)</td><td>0.1 - &#8734 (Wide)<br>1.2 to &#8734 (Tele)</td></tr>
+<tr>
+<td>Zenmuse H20</td><td>-</td><td>Wide 82.9, Zoom 66.6-4</td><td>Wide 24, Zoom 31.7-556.2</td><td>Wide f/2.8, Zoom f/2.8-f/11</td><td>Wide: 1 - &#8734, Zoom: 1 - &#8734(wide), 8 - &#8734(telephoto)</td></tr>
+<tr>
+<td>Zenmuse H20T</td><td>-</td><td>Wide 82.9, Zoom 66.6-4, Thermal 40.6</td><td>Wide 24, Zoom 31.7-556.2, Thermal 58</td><td>Wide f/2.8, Zoom f/2.8-f/11, Thermal f/1.0</td><td>Wide: 1 - &#8734, Zoom: 1 - &#8734(wide), 8 - &#8734(telephoto), Thermal: 5 - &#8734</td></tr>
 </tbody></table></html>
 
 
@@ -1121,11 +1141,17 @@ The Zenmuse XT is a thermal camera. It's specifications are difficult to compare
 <tr>
 <td>Zenmuse XT</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>270</td></tr>
 <tr>
+<td>Zenmuse XT S</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-120 to 30</td><td>Micro SD</td><td>387</td></tr>
+<tr>
 <td>Zenmuse XT 2</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>-</td></tr>
 <tr>
 <td>Zenmuse Z3</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>262</td></tr>
 <tr>
 <td>Zenmuse Z30</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-90 to 30</td><td>Micro SD</td><td>556</td></tr>
+<tr>
+<td>Zenmuse H20</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-120 to 30</td><td>Micro SD</td><td>678</td></tr>
+<tr>
+<td>Zenmuse H20T</td><td>+/- 320</td><td>roll, pitch, yaw</td><td>-120 to 30</td><td>Micro SD</td><td>828</td></tr>
 </tbody></table></html>
 
 
@@ -1163,6 +1189,8 @@ Remote Controllers that use WiFi to connect to the mobile device will act as a W
 <td>Inspire 2</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
 <td>Matrice 100</td><td>Required</td><td>USB</td><td>Lightbridge</td><td>Yes</td><td>Yes</td><td>Mini HDMI</td><td>F</td></tr>
+<tr>
+<td>Matrice 300 RTK</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>Required</td><td>USB</td><td>OcuSync 2</td><td>-</td><td>-</td><td>Mini HDMI</td><td>P</td></tr>
 <tr>
