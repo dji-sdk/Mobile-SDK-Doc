@@ -531,7 +531,7 @@ Aircraft comparison can be difficult due to the large selection of products, fea
 <tr>
 <td>Matrice 100</td><td>With Guidance</td><td>-</td><td>With Guidance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Matrice 300 RTK</td><td>Front, Rear, Sides / Top, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-40m / 0.6-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
+<td>Matrice 300 RTK</td><td>Front, Rear, Sides / Top, Bottom</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-40m / 0.6-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td><td>No</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>Front</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>Yes</td><td>Yes</td><td>No</td><td>-</td><td>-</td><td>No</td></tr>
 <tr>

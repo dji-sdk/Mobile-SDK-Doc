@@ -530,7 +530,7 @@ DJI 飞行器上安装有大量的传感器，包括加速计，陀螺仪，指�
 <tr>
 <td>Matrice 100</td><td>搭配 Guidance</td><td>-</td><td>搭配 Guidance</td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td></tr>
 <tr>
-<td>Matrice 300 RTK</td><td>前置,后置,侧面 / 下置, 上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-40m/0.6-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
+<td>Matrice 300 RTK</td><td>前置,后置,侧面 / 下置, 上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-40m/0.6-30m</p></td><td>上置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
 <td>Matrice 200 V2</td><td>前置</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0.7-30m</p></td><td>Top</br><p style="line-height:90%"><font color="#BBBBBB" size=1 style="font-weight:normal">0-5m</p></td><td>有</td><td>有</td><td>没有</td><td>-</td><td>-</td><td>没有</td></tr>
 <tr>
