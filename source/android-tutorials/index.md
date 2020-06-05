@@ -1,7 +1,7 @@
 ---
 title: Creating a Camera Application
-version: v4.11.2
-date: 2020-03-20
+version: v4.12
+date: 2020-05-10
 github: https://github.com/DJI-Mobile-SDK-Tutorials/Android-FPVDemo
 keywords: [Android FPVDemo, capture, shoot photo, take photo, record video, basic tutorial]
 ---
@@ -17,12 +17,12 @@ You can download the tutorial's final sample project from this [Github Page](htt
 ## Preparation
 
 ### Setup Android Development Environment
-   
+
   Throughout this tutorial we will be using Android Studio 3.0, which you can download from here: <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.
 
 ## Application Activation and Aircraft Binding in China
 
- For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account. 
+ For DJI SDK mobile application used in China, it's required to activate the application and bind the aircraft to the user's DJI account.
 
  If an application is not activated, the aircraft not bound (if required), or a legacy version of the SDK (< 4.1) is being used, all **camera live streams** will be disabled, and flight will be limited to a zone of 100m diameter and 30m height to ensure the aircraft stays within line of sight.
 
@@ -79,9 +79,9 @@ Here we firstly override the `attachBaseContext()` method to invoke the `install
 #### 2. Creating FPVDemoApplication Class
 
 Right-click on the package `com.dji.FPVDemo` in the project navigator and choose **New -> Java Class**, Type in "FPVDemoApplication" in the Name field and select "Class" as Kind field content.
-   
+
 Next, Replace the code of the "FPVDemoApplication.java" file with the following:
-   
+
 ~~~java
 package com.dji.FPVDemo;
 import android.app.Application;
@@ -112,7 +112,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         setContentView(R.layout.activity_main);
         initUI();
     }
@@ -167,11 +167,11 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         mRecordBtn = (ToggleButton) findViewById(R.id.btn_record);
         mShootPhotoModeBtn = (Button) findViewById(R.id.btn_shoot_photo_mode);
         mRecordVideoModeBtn = (Button) findViewById(R.id.btn_record_video_mode);
-        
+
         if (null != mVideoSurface) {
             mVideoSurface.setSurfaceTextureListener(this);
         }
-        
+
         mCaptureBtn.setOnClickListener(this);
         mRecordBtn.setOnClickListener(this);
         mShootPhotoModeBtn.setOnClickListener(this);
@@ -182,7 +182,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         mRecordBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            
+
            }
         });
     }
@@ -203,7 +203,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
                 break;
         }
     }
-    
+
 }
 ~~~
 
@@ -225,7 +225,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    
+
     <TextureView
         android:id="@+id/video_previewer_surface"
         android:layout_width="match_parent"
@@ -233,8 +233,8 @@ Open the **activity_main.xml** layout file and replace the code with the followi
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/linearLayout" />
-    
-     <LinearLayout 
+
+     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
@@ -246,7 +246,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
         android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:text="Capture" 
+        android:text="Capture"
         android:textSize="12sp"/>
 
     <ToggleButton
@@ -260,7 +260,7 @@ Open the **activity_main.xml** layout file and replace the code with the followi
         android:layout_gravity="center_vertical"
         android:textSize="12dp"
         android:checked="false" />
-     
+
     <Button
         android:id="@+id/btn_shoot_photo_mode"
         android:layout_width="0dp"
@@ -296,15 +296,15 @@ Open the **activity_main.xml** layout file and replace the code with the followi
 ~~~
 
   In the xml file, we create a TextureView(id: video_previewer_surface) element to show the live video stream from the camera. Moreover, we implement a LinearLayout element to create the "Capture" Button(id: btn_capture), "Record" ToggleButton(id: btn_record), "Shoot Photo Mode" Button(id: btn_shoot_photo_mode) and "Record Video Mode" Button(id: btn_record_video_mode).
-  
+
   Lastly, we create a TextView(id: timer) element to show the record video time.
-  
+
 #### 5. Implementing ConnectionActivity Class
 
-  To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**. 
-  
+  To improve the user experience, we had better create an activity to show the connection status between the DJI Product and the SDK, once it's connected, the user can press the **OPEN** button to enter the **MainActivity**.
+
   Now let's Right-click on the package `com.dji.FPVDemo` in the project navigator and choose **New -> Activity -> Basic Activity**, Type in "ConnectionActivity" in the "Activity Name" field and press "Finish" button.
-   
+
   Next, replace the code of the "ConnectionActivity.java" file with the following:
 
 ~~~java
@@ -320,7 +320,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         setContentView(R.layout.activity_connection);
         initUI();
     }
@@ -379,7 +379,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
 
 }
 ~~~
-  
+
 In the code shown above, we implement the following features:
 
 1. Create the layout UI elements variables, including three TextureViews `mTextConnectionStatus`, `mTextProduct`, `mVersionTv` and one Button `mBtnOpen`.
@@ -466,15 +466,15 @@ Open the **activity_connection.xml** layout file and replace the code with the f
 ~~~
 
   In the xml file, we create four TextViews and one Button within a RelativeLayout. We use the TextView(id: text\_connection\_status) to show the product connection status and use the TextView(id:text\_product\_info) to show the connected product name. The Button(id: btn\_open) is used to open the **MainActivity**.
-  
+
 #### 7. Configuring the Resource XMLs
 
   Once you finish the above steps, let's copy all the images file from this Github sample project's **drawable** folder (**app->src->main->res->drawable**) to the same folder in your project.
-  
+
   ![imageFiles](../images/tutorials-and-samples/Android/FPVDemo/imageFiles.png)
-  
+
   Moreover, open the "colors.xml" file and update the content as shown below:
-  
+
 ~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -487,7 +487,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
 ~~~
 
   Furthermore, open the "strings.xml" file and replace the content with the followings:
-  
+
 ~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -503,7 +503,7 @@ Open the **activity_connection.xml** layout file and replace the code with the f
 ~~~
 
   Lastly, open the "styles.xml" file and replace the content with the followings:
-  
+
 ~~~xml
 <resources>
 
@@ -703,7 +703,7 @@ public void onCreate() {
         public void onInitProcess(DJISDKInitEvent djisdkInitEvent, int i) {
 
         }
-        
+
         @Override
         public void onDatabaseDownloadProgress(long l, long l1) {
 
@@ -725,7 +725,7 @@ public void onCreate() {
 ~~~
 
 Here, we implement several features:
-  
+
 1. We override the `onCreate()` method to initialize the `mHandler` and `mDJISDKManagerCallback` instance variables and implement their callback methods.
 
 2. For the four interface methods of `SDKManagerCallback`. we use the `onRegister()` method to check the Application registration status and show text message here. When the product is connected or disconnected, the `onProductConnect()` and `onProductDisconnect()` methods will be invoked. Moreover, we use the `onComponentChange()` method to check the component changes and invoke the `notifyStatusChange()` method to notify the changes.
@@ -948,7 +948,7 @@ private void refreshSDKRelativeUI() {
         mTextConnectionStatus.setText(R.string.connection_loose);
     }
 }
-    
+
 ~~~
 
 In the code above, we implement the following features:
@@ -1022,7 +1022,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 In the code above, we initialize the `mReceivedVideoDataListener` variable using VideoFeeder's `VideoDataListener()`. Inside the callback, we override its `onReceive()` method to get the raw H264 video data and send them to `mCodecManager` for decoding.  
 
-Next, let's implement the `onProductChange()` method invoke it in the `onResume()` method as shown below: 
+Next, let's implement the `onProductChange()` method invoke it in the `onResume()` method as shown below:
 
 ~~~java
 protected void onProductChange() {
@@ -1113,7 +1113,7 @@ For more detail implementations, please check the Github source code of this tut
 ## Connecting to the Aircraft or Handheld Device
 
 After you finish the steps above, please check this [Connect Mobile Device and Run Application](../application-development-workflow/workflow-run.html#connect-mobile-device-and-run-application) guide to run the application and view the live video stream from your DJI product's camera based on what we've finished of the application so far!
-  
+
 ## Enjoying the First Person View
 
 If you can see the live video stream in the application, congratulations! Let's move forward.
@@ -1363,12 +1363,11 @@ Here, we implement the `setSystemStateCallback()` of Camera and override the `on
 For more details, please check the Github source code of this tutorial.
 
 Now, let's build and run the project and check the functions. Here we use Mavic Pro as an example. You can try to play with the **Capture**, **Record** and **Switch Camera WorkMode** functions, here is a gif animation to demo these three functions:
-   
+
   ![demoAni](../images/tutorials-and-samples/Android/FPVDemo/demoAni.gif)
-   
-  Congratulations! Your Aerial FPV android app is complete, you can now use this app to control the camera of your DJI Product now. 
+
+  Congratulations! Your Aerial FPV android app is complete, you can now use this app to control the camera of your DJI Product now.
 
 ### Summary
-   
+
    In this tutorial, you’ve learned how to use DJI Mobile SDK to show the FPV View from the aircraft's camera and control the camera of DJI's Aircraft to shoot photo and record video. These are the most basic and common features in a typical drone mobile app: **Capture** and **Record**. However, if you want to create a drone app which is more fancy, you still have a long way to go. More advanced features should be implemented, including previewing the photo and video in the SD Card, showing the OSD data of the aircraft and so on. Hope you enjoy this tutorial, and stay tuned for our next one!
-   
