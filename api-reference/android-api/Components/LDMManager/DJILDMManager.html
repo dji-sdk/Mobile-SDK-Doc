@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -182,7 +178,7 @@
                   </dd>
                   <dd><a href="../DataProtectionManager/DJIDataProtectionManager.html">DataProtectionManager</a>
                   </dd>
-                  <dd><a data-href="" class="sub-toggle">LDMManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                  <dd><a data-href class="sub-toggle">LDMManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DJILDMManager_LDMCallbackInterface.html">LDMCallback</a>
                             </dd>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,74 +1348,68 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>LDMManager</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>LDMManager</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LDMManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">Local Data Mode (LDM) manager. When Local Data Mode is enabled, the SDK's access to the internet is restricted. Only application registration (confirming the app key is valid) will be unrestricted. All other SDK services will be restricted. When the SDK's internet access is restricted, all SDK services that require an internet connection will not be available or able to update. For instance, the Fly Zone manager will not be able to update the fly zone data base, retrieve the latest TFRs (temporary flight restrictions) or unlock fly zones. LDM is therefore most appropriate for users that have very stringent data requirements, and are able to accommodate this restricted functionality.  When Local Data Mode is enabled,  the UTMISSManager will not report flight dynamic data to the UTMISS server.</p>
+<p><font color="#666">Local Data Mode (LDM) manager. When Local Data Mode is enabled, the SDK's access to the internet is restricted. Only application registration (confirming the app key is valid) will be unrestricted. All other SDK services will be restricted. When the SDK's internet access is restricted, all SDK services that require an internet connection will not be available or able to update. For instance, the Fly Zone manager will not be able to update the fly zone data base, retrieve the latest TFRs (temporary flight restrictions) or unlock fly zones. LDM is therefore most appropriate for users that have very stringent data requirements, and are able to accommodate this restricted functionality.  When Local Data Mode is enabled,  the UTMISSManager will not report flight dynamic data to the UTMISS server.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djildmmanager_isldmsupported"><div class="api-col left">Check LDM Support</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_isldmsupported_inline">isLDMSupported</a></div></div><div class="inline-doc" id="djildmmanager_isldmsupported_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isLDMSupported</h6></div>
-</blockquote>
+<div class="api-row" id="djildmmanager_isldmsupported"><div class="api-col left">Check LDM Support</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_isldmsupported_inline">isLDMSupported</a></div></div><div class="inline-doc" id="djildmmanager_isldmsupported_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isLDMSupported</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isLDMSupported</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666"><code>true</code> if LDM is supported in the current context. The SDK locally uses GPS location and MCC (mobile country code) to determine the country of operation. If LDM is not enabled and the internet is accessible, the IP address is also used to determine the country of operation. The default value is <code>true</code> after the first installation.</p>
+<p><font color="#666"><code>true</code> if LDM is supported in the current context. The SDK locally uses GPS location and MCC (mobile country code) to determine the country  of operation. If LDM is not enabled and the internet is accessible, the IP address is also  used to determine the country of operation. The default value is <code>true</code> after the first installation.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A bool value to check if LDM is supported.</i></td></tr></table></html></div>
-<div class="api-row" id="djildmmanager_isldmenabled"><div class="api-col left">Check LDM Enabled</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_isldmenabled_inline">isLDMEnabled</a></div></div><div class="inline-doc" id="djildmmanager_isldmenabled_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isLDMEnabled</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A bool value to check if LDM is supported.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djildmmanager_isldmenabled"><div class="api-col left">Check LDM Enabled</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_isldmenabled_inline">isLDMEnabled</a></div></div><div class="inline-doc" id="djildmmanager_isldmenabled_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isLDMEnabled</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isLDMEnabled</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666"><code>true</code> if LDM is already enabled.</p>
+<p><font color="#666"><code>true</code> if LDM is already enabled.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value to check if LDM is enabled.</i></td></tr></table></html></div>
-<div class="api-row" id="djildmmanager_getldmsupported"><div class="api-col left">Get LDM Supported</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_getldmsupported_inline">getLDMSupported</a></div></div><div class="inline-doc" id="djildmmanager_getldmsupported_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getLDMSupported</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value to check if LDM is enabled.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djildmmanager_getldmsupported"><div class="api-col left">Get LDM Supported</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_getldmsupported_inline">getLDMSupported</a></div></div><div class="inline-doc" id="djildmmanager_getldmsupported_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getLDMSupported</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getLDMSupported</span><span class="params">(CommonCallbacks.CompletionCallbackWith&lt;Boolean&gt; callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666"><code>true</code> if LDM is supported. The SDK will get whether your app supports LDM from the remote server.</p>
+<p><font color="#666"><code>true</code> if LDM is supported. The SDK will get whether your app supports LDM from the remote server.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWith&lt;Boolean&gt; <font color="#000">callback</td><td><font color="#666"><i>The execution callback.</i></td></tr></table></html></div>
-<div class="api-row" id="djildmmanager_enableldm"><div class="api-col left">Enable LDM</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_enableldm_inline">enableLDM</a></div></div><div class="inline-doc" id="djildmmanager_enableldm_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>enableLDM</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWith&lt;Boolean&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djildmmanager_enableldm"><div class="api-col left">Enable LDM</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_enableldm_inline">enableLDM</a></div></div><div class="inline-doc" id="djildmmanager_enableldm_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>enableLDM</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">enableLDM</span><span class="params">(CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Enables LDM. Can only be enabled if <code><a href="../../Components/LDMManager/DJILDMManager.html#djildmmanager_isldmsupported">isLDMSupported</a></code> is <code>true</code>. Please call <code><a href="../../Components/LDMManager/DJILDMManager.html#djildmmanager_getldmsupported">getLDMSupported</a></code> methods firstly. Call this method before calling the other methods of SDK (including <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_registerapp">registerApp</a></code>) to restrict the internet access of SDK (SDK registration is unrestricted).</p>
+<p><font color="#666">Enables LDM. Can only be enabled if <code><a href="../../Components/LDMManager/DJILDMManager.html#djildmmanager_isldmsupported">isLDMSupported</a></code> is <code>true</code>. Please call <code><a href="../../Components/LDMManager/DJILDMManager.html#djildmmanager_getldmsupported">getLDMSupported</a></code> methods firstly.  Call this method before calling the other methods of SDK (including <code><a href="../../Components/SDKManager/DJISDKManager.html#djisdkmanager_registerapp">registerApp</a></code>) to restrict the internet access  of SDK (SDK registration is unrestricted).</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The execution callback.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback.</i></font></td></tr></table></html>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable     void</td><td><font color="#666"><i>The error occurred. NULL if LDM is enabled successfully.</i></td></tr></table></html></div>
-<div class="api-row" id="djildmmanager_disableldm"><div class="api-col left">Disable LDM</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_disableldm_inline">disableLDM</a></div></div><div class="inline-doc" id="djildmmanager_disableldm_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>disableLDM</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable     void</font></td><td><font color="#666"><i>The error occurred. NULL if LDM is enabled successfully.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djildmmanager_disableldm"><div class="api-col left">Disable LDM</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_disableldm_inline">disableLDM</a></div></div><div class="inline-doc" id="djildmmanager_disableldm_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>disableLDM</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">disableLDM</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Disables LDM.</p>
+<p><font color="#666">Disables LDM.</font></p>
 </div>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djildmmanager_setcallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_setcallback_inline">setCallback</a></div></div><div class="inline-doc" id="djildmmanager_setcallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setCallback</h6></div>
-</blockquote>
+<div class="api-row" id="djildmmanager_setcallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djildmmanager_setcallback_inline">setCallback</a></div></div><div class="inline-doc" id="djildmmanager_setcallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setCallback</span><span class="params">(LDMCallback ldmCallback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.sdkmanager</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.sdkmanager</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">Sets the LDM callback.</p>
+<p><font color="#666">Sets the LDM callback.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/LDMManager/DJILDMManager_LDMCallbackInterface.html#djildmmanager_ldmcallbackinterface">LDMCallback</a> <font color="#000">ldmCallback</td><td><font color="#666"><i>The execution callback with the returned value.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/LDMManager/DJILDMManager_LDMCallbackInterface.html#djildmmanager_ldmcallbackinterface">LDMCallback</a> <font color="#000">ldmCallback</font></font></td><td><font color="#666"><i>The execution callback with the returned value.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djildmmanager_ldmcallbackinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/LDMManager/DJILDMManager_LDMCallbackInterface.html">LDMCallback</a></div></div>
 
         </div>

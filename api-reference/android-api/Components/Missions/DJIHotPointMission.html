@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1190,7 +1188,7 @@
                   </dd>
                   <dd><a data-href="DJIHotpointMissionOperator.html" class="sub-toggle">HotpointMissionOperator<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
-                            <dd><a href="" class="active">HotpointMission</a>
+                            <dd><a href class="active">HotpointMission</a>
                             </dd>
                             <dd><a href="DJIHotpointMissionOperatorListener.html">HotpointMissionOperatorListener</a>
                             </dd>
@@ -1351,192 +1349,192 @@
       </div>
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>HotpointMission</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EXClassNullAway</span></div><div class="line"> <span class="class"><span class="keyword">class</span> <span class="title">HotpointMission</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">HotpointMission</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">This class represents a Hotpoint mission. In a Hotpoint mission, the aircraft will repeatedly fly circles of a constant radius around a specified point called a Hot Point. The user can control the aircraft to fly around the Hotpoint with a specific radius and altitude. During execution, the user can also use the physical remote controller to modify its radius and speed. It is not supported by Mavic Pro when using WiFi connection. It is not supported by Spark.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djihotpointmission_hotpoint"><div class="api-col left">Coordinate</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_hotpoint_inline">setHotpoint</a></div></div><div class="inline-doc" id="djihotpointmission_hotpoint_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_hotpoint"><div class="api-col left">Coordinate</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_hotpoint_inline">setHotpoint</a></div></div><div class="inline-doc" id="djihotpointmission_hotpoint_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setHotpoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setHotpoint</span><span class="params">(LocationCoordinate2D hotpoint)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setHotpoint</span><span class="params">(LocationCoordinate2D hotpoint)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Sets the coordinate of the hotpoint.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a> <font color="#000">hotpoint</font></font></td><td><font color="#666"><i>A LocationCoordinate2D object of hotpoint.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_gethotpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_gethotpoint_inline">getHotpoint</a></div></div><div class="inline-doc" id="djihotpointmission_gethotpoint_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_gethotpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_gethotpoint_inline">getHotpoint</a></div></div><div class="inline-doc" id="djihotpointmission_gethotpoint_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getHotpoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">LocationCoordinate2D <span class="title">getHotpoint</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LocationCoordinate2D <span class="title">getHotpoint</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Gets the coordinate of the hotpoint.</font></p>
 <h5 id="return">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></font></td><td><font color="#666"><i>A object of <code><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></code>.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_startpoint"><div class="api-col left">Start Point</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_startpoint_inline">setStartPoint</a></div></div><div class="inline-doc" id="djihotpointmission_startpoint_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_startpoint"><div class="api-col left">Start Point</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_startpoint_inline">setStartPoint</a></div></div><div class="inline-doc" id="djihotpointmission_startpoint_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setStartPoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStartPoint</span><span class="params">(HotpointStartPoint startPoint)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStartPoint</span><span class="params">(HotpointStartPoint startPoint)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Set aircraft's initial point on the circular flight path when starting the hotpoint  mission.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointstartpoint">HotpointStartPoint</a> <font color="#000">startPoint</font></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointstartpoint">HotpointStartPoint</a></code>.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_getstartpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getstartpoint_inline">getStartPoint</a></div></div><div class="inline-doc" id="djihotpointmission_getstartpoint_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_getstartpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getstartpoint_inline">getStartPoint</a></div></div><div class="inline-doc" id="djihotpointmission_getstartpoint_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getStartPoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">HotpointStartPoint <span class="title">getStartPoint</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">HotpointStartPoint <span class="title">getStartPoint</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Get aircraft's initial point on the circular flight path when starting the hotpoint  mission.</font></p>
 <h5 id="return-v2">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointstartpoint">HotpointStartPoint</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointstartpoint">HotpointStartPoint</a></code>.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_heading"><div class="api-col left">Heading</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_heading_inline">setHeading</a></div></div><div class="inline-doc" id="djihotpointmission_heading_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_heading"><div class="api-col left">Heading</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_heading_inline">setHeading</a></div></div><div class="inline-doc" id="djihotpointmission_heading_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setHeading</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setHeading</span><span class="params">(HotpointHeading heading)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setHeading</span><span class="params">(HotpointHeading heading)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Aircraft's heading while flying around the hotpoint. It can be pointed toward or  away from the hotpoint, forward or backward along its flight route, or can be  manually controlled by the remote controller.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointheading">HotpointHeading</a> <font color="#000">heading</font></font></td><td><font color="#666"><i>Aircraft heading.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_getheading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getheading_inline">getHeading</a></div></div><div class="inline-doc" id="djihotpointmission_getheading_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_getheading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getheading_inline">getHeading</a></div></div><div class="inline-doc" id="djihotpointmission_getheading_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getHeading</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">HotpointHeading <span class="title">getHeading</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">HotpointHeading <span class="title">getHeading</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Get the aircraft's heading while flying around the hotpoint. It can be pointed toward or  away from the hotpoint, forward or backward along its flight route, and can be  controlled by the remote controller.</font></p>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointheading">HotpointHeading</a></font></td><td><font color="#666"><i>Aircraft heading.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_altitude"><div class="api-col left">Altitude</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_altitude_inline">setAltitude</a></div></div><div class="inline-doc" id="djihotpointmission_altitude_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_altitude"><div class="api-col left">Altitude</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_altitude_inline">setAltitude</a></div></div><div class="inline-doc" id="djihotpointmission_altitude_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setAltitude</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAltitude</span><span class="params">(<span class="keyword">double</span> altitude)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAltitude</span><span class="params">(<span class="keyword">double</span> altitude)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Sets the altitude of the hotpoint orbit with a range [5,500] meters.  The altitude is relative to the ground altitude from which the aircraft took off.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double <font color="#000">altitude</font></font></td><td><font color="#666"><i>A double value of altitude to set.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_getaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getaltitude_inline">getAltitude</a></div></div><div class="inline-doc" id="djihotpointmission_getaltitude_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_getaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getaltitude_inline">getAltitude</a></div></div><div class="inline-doc" id="djihotpointmission_getaltitude_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getAltitude</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">getAltitude</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getAltitude</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">Gets the altitude of the hotpoint orbit with a range [5,500] meters.  The altitude is relative to the ground altitude from which the aircraft took off.</font></p>
 <h5 id="return-v4">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>A double value of altitude.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_radius"><div class="api-col left">Radius</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_radius_inline">setRadius</a></div></div><div class="inline-doc" id="djihotpointmission_radius_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_radius"><div class="api-col left">Radius</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_radius_inline">setRadius</a></div></div><div class="inline-doc" id="djihotpointmission_radius_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setRadius</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setRadius</span><span class="params">(<span class="keyword">double</span> radius)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setRadius</span><span class="params">(<span class="keyword">double</span> radius)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">Sets the circular flight path radius with which the aircraft will fly around the  hotpoint. The value of this property should be in the range  of [<code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointminradius">MIN_RADIUS</a></code>, <code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointmaxradius">MAX_RADIUS</a></code>] meters.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double <font color="#000">radius</font></font></td><td><font color="#666"><i>A double value of radius to set.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_getradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getradius_inline">getRadius</a></div></div><div class="inline-doc" id="djihotpointmission_getradius_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_getradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getradius_inline">getRadius</a></div></div><div class="inline-doc" id="djihotpointmission_getradius_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getRadius</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">getRadius</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getRadius</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">Gets the circular flight path radius with which the aircraft will fly around the  hotpoint. The value of this property should be in the range  of [<code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointminradius">MIN_RADIUS</a></code>, <code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointmaxradius">MAX_RADIUS</a></code>] meters.</font></p>
 <h5 id="return-v5">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>A double value of radius.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_angularvelocity"><div class="api-col left">Angular Velocity</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_angularvelocity_inline">setAngularVelocity</a></div></div><div class="inline-doc" id="djihotpointmission_angularvelocity_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_angularvelocity"><div class="api-col left">Angular Velocity</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_angularvelocity_inline">setAngularVelocity</a></div></div><div class="inline-doc" id="djihotpointmission_angularvelocity_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setAngularVelocity</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAngularVelocity</span><span class="params">(<span class="keyword">float</span> angularVelocity)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAngularVelocity</span><span class="params">(<span class="keyword">float</span> angularVelocity)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666">Sets the angular velocity in degrees/s of the aircraft as it orbits the hot  point. The default value is 20 degrees/s. The maximum angular velocity allowed  is relative to the orbit radius.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float <font color="#000">angularVelocity</font></font></td><td><font color="#666"><i>Angular velocity in degrees/s.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_getangularvelocity"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getangularvelocity_inline">getAngularVelocity</a></div></div><div class="inline-doc" id="djihotpointmission_getangularvelocity_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_getangularvelocity"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_getangularvelocity_inline">getAngularVelocity</a></div></div><div class="inline-doc" id="djihotpointmission_getangularvelocity_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getAngularVelocity</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">getAngularVelocity</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">getAngularVelocity</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">Gets the angular velocity (in degrees/second) of the aircraft as it orbits the hot  point. The default value is 20 degrees/s. The angular velocity is relative to the  orbit radius.</font></p>
 <h5 id="return-v6">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>An int value of angular velocity.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_isclockwise"><div class="api-col left">Direction</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_isclockwise_inline">isClockwise</a></div></div><div class="inline-doc" id="djihotpointmission_isclockwise_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_isclockwise"><div class="api-col left">Direction</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_isclockwise_inline">isClockwise</a></div></div><div class="inline-doc" id="djihotpointmission_isclockwise_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>isClockwise</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isClockwise</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isClockwise</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
 <p><font color="#666"><code>true</code> if the aircraft will move in a clockwise direction around the hotpoint.</font></p>
 <h5 id="return-v7">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value to check if is clockwise.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_setclockwise"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_setclockwise_inline">setClockwise</a></div></div><div class="inline-doc" id="djihotpointmission_setclockwise_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_setclockwise"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_setclockwise_inline">setClockwise</a></div></div><div class="inline-doc" id="djihotpointmission_setclockwise_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setClockwise</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setClockwise</span><span class="params">(<span class="keyword">boolean</span> clockwise)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setClockwise</span><span class="params">(<span class="keyword">boolean</span> clockwise)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
 <p><font color="#666">Set to <code>true</code> if the aircraft should move in a clockwise direction around the hotpoint.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">clockwise</font></font></td><td><font color="#666"><i><code>true</code> for clockwise direction.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_constructor"><div class="api-col left">Constructor</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_constructor_inline">HotpointMission</a></div></div><div class="inline-doc" id="djihotpointmission_constructor_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_constructor"><div class="api-col left">Constructor</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_constructor_inline">HotpointMission</a></div></div><div class="inline-doc" id="djihotpointmission_constructor_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>HotpointMission</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">HotpointMission(LocationCoordinate2D hotpoint,</div><div class="line">                          <span class="keyword">double</span> altitude,</div><div class="line">                          <span class="keyword">double</span> radius,</div><div class="line">                          <span class="keyword">float</span> angularVelocity,</div><div class="line">                          <span class="keyword">boolean</span> isClockwise,</div><div class="line">                          HotpointStartPoint startPoint,</div><div class="line">                          HotpointHeading heading)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HotpointMission(LocationCoordinate2D hotpoint,</span><br><span class="line">                          <span class="keyword">double</span> altitude,</span><br><span class="line">                          <span class="keyword">double</span> radius,</span><br><span class="line">                          <span class="keyword">float</span> angularVelocity,</span><br><span class="line">                          <span class="keyword">boolean</span> isClockwise,</span><br><span class="line">                          HotpointStartPoint startPoint,</span><br><span class="line">                          HotpointHeading heading)</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v16">Description:</h5>
 <p><font color="#666">Constructor method for the DJIHotPointMission.</font></p>
 <h5 id="input-parameters-v8">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a> <font color="#000">hotpoint</font></font></td><td><font color="#666"><i>Location of the hotpoint.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">double <font color="#000">altitude</font></font></td><td><font color="#666"><i>Altitude of the orbit in meters</i></font></td></tr><tr valign="top"><td><font color="#70BF41">double <font color="#000">radius</font></font></td><td><font color="#666"><i>Radius of the orbit in meters</i></font></td></tr><tr valign="top"><td><font color="#70BF41">float <font color="#000">angularVelocity</font></font></td><td><font color="#666"><i>Angular velocity of the aircraft in degrees/s</i></font></td></tr><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isClockwise</font></font></td><td><font color="#666"><i><code>true</code> if the aircraft should move in a clockwise direction around the hotpoint.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointstartpoint">HotpointStartPoint</a> <font color="#000">startPoint</font></font></td><td><font color="#666"><i>Initial location on the orbit to start</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission_djihotpointheading">HotpointHeading</a> <font color="#000">heading</font></font></td><td><font color="#666"><i>Aircraft heading during the mission</i></font></td></tr></table></html></div>
-<div class="api-row" id="djihotpointmission_resetmissionwithdata"><div class="api-col left">Reset Data</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_resetmissionwithdata_inline">resetMissionWithData</a></div></div><div class="inline-doc" id="djihotpointmission_resetmissionwithdata_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_resetmissionwithdata"><div class="api-col left">Reset Data</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_resetmissionwithdata_inline">resetMissionWithData</a></div></div><div class="inline-doc" id="djihotpointmission_resetmissionwithdata_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>resetMissionWithData</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">resetMissionWithData</span><span class="params">(HotpointMission data)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resetMissionWithData</span><span class="params">(HotpointMission data)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v17">Description:</h5>
 <p><font color="#666">Reset Mission with Hotpoint Mission data.</font></p>
 <h5 id="input-parameters-v9">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission">HotpointMission</a> <font color="#000">data</font></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/Missions/DJIHotPointMission.html#djihotpointmission">HotpointMission</a></code>.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djihotpointmission_djihotpointmaxradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointmaxradius_inline">MAX_RADIUS</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointmaxradius_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_djihotpointmaxradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointmaxradius_inline">MAX_RADIUS</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointmaxradius_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">final </font>MAX_RADIUS</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MAX_RADIUS = <span class="number">500</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MAX_RADIUS = <span class="number">500</span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v18">Description:</h5>
 <p><font color="#666">Maximum radius, in meters, of the circular path the aircraft will fly around the  point of interest. Currently 500m.</font></p>
 </div>
-<div class="api-row" id="djihotpointmission_djihotpointminradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointminradius_inline">MIN_RADIUS</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointminradius_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_djihotpointminradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointminradius_inline">MIN_RADIUS</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointminradius_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">final </font>MIN_RADIUS</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MIN_RADIUS = <span class="number">5</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MIN_RADIUS = <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v19">Description:</h5>
 <p><font color="#666">Minimum radius, in meters, of the circular path the aircraft will fly around the  point of interest.</font></p>
 </div>
-<div class="api-row" id="djihotpointmission_djihotpointmaxaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointmaxaltitude_inline">MAX_ALTITUDE</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointmaxaltitude_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_djihotpointmaxaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointmaxaltitude_inline">MAX_ALTITUDE</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointmaxaltitude_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">final </font>MAX_ALTITUDE</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MAX_ALTITUDE = <span class="number">500</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MAX_ALTITUDE = <span class="number">500</span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v20">Description:</h5>
 <p><font color="#666">Maximum altitude in meters for a Hotpoint mission.</font></p>
 </div>
-<div class="api-row" id="djihotpointmission_djihotpointminaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointminaltitude_inline">MIN_ALTITUDE</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointminaltitude_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_djihotpointminaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointminaltitude_inline">MIN_ALTITUDE</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointminaltitude_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">final </font>MIN_ALTITUDE</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MIN_ALTITUDE = <span class="number">5</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> MIN_ALTITUDE = <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v21">Description:</h5>
 <p><font color="#666">Minimum altitude in meters for a Hotpoint mission.</font></p>
 </div>
-<div class="api-row" id="djihotpointmission_djihotpointstartpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointstartpoint_inline">HotpointStartPoint</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointstartpoint_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_djihotpointstartpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointstartpoint_inline">HotpointStartPoint</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointstartpoint_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">enum </font>HotpointStartPoint</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EXClassNullAway</span></div><div class="line"> <span class="keyword">enum</span> HotpointStartPoint</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="keyword">enum</span> HotpointStartPoint</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v22">Description:</h5>
 <p><font color="#666">Aircraft starting point relative to the hotpoint.</font></p>
@@ -1544,10 +1542,10 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmission_djihotpointstartpoint_north_inline"></a>NORTH</font></td><td><font color="#666">Start from the North.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmission_djihotpointstartpoint_south_inline"></a>SOUTH</font></td><td><font color="#666">Start from the South.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmission_djihotpointstartpoint_west_inline"></a>WEST</font></td><td><font color="#666">Start from the West.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmission_djihotpointstartpoint_east_inline"></a>EAST</font></td><td><font color="#666">Start from the East.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djihotpointmission_djihotpointstartpoint_nearest_inline"></a>NEAREST</font></td><td><font color="#666">Start the circle surrounding the hotpoint at the nearest point on the  circle to the aircraft's current location.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 </div>
-<div class="api-row" id="djihotpointmission_djihotpointheading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointheading_inline">HotpointHeading</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointheading_inline" <blockquote="">
+<div class="api-row" id="djihotpointmission_djihotpointheading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djihotpointmission_djihotpointheading_inline">HotpointHeading</a></div></div><div class="inline-doc" id="djihotpointmission_djihotpointheading_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">enum </font>HotpointHeading</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EXClassNullAway</span></div><div class="line"> <span class="keyword">enum</span> HotpointHeading</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="keyword">enum</span> HotpointHeading</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.hotpoint</font></td></tr></table></html>
 <h5 id="description-v23">Description:</h5>
 <p><font color="#666">Heading of the aircraft while orbiting the hotpoint.</font></p>

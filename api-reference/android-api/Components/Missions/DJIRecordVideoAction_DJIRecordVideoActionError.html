@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -960,7 +958,7 @@
                             </dd>
                             <dd><a data-href="DJIRecordVideoAction.html" class="sub-toggle">RecordVideoAction<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
-                                      <dd><a href="" class="active">RecordVideoActionError</a>
+                                      <dd><a href class="active">RecordVideoActionError</a>
                                       </dd>
                               </ul>
                             </dd>
@@ -1350,67 +1348,62 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>RecordVideoActionError</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>RecordVideoActionError</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecordVideoActionError</span> <span class="keyword">extends</span> <span class="title">DJIError</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.mission.error</td></tr><tr valign="top"><td width=15%><font color="#999"><i>Inherits From:</i></td><td width=85%><font color="#999"><code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.error</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">Error codes for record video actions.</p>
+<p><font color="#666">Error codes for record video actions.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="members">Members</h4>
-<div class="api-row" id="djirecordvideoaction_djirecordvideoactionerror_invalidduration"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djirecordvideoaction_djirecordvideoactionerror_invalidduration_inline">INVALID_DURATION</a></div></div><div class="inline-doc" id="djirecordvideoaction_djirecordvideoactionerror_invalidduration_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>INVALID_DURATION</h6></div>
-</blockquote>
+<div class="api-row" id="djirecordvideoaction_djirecordvideoactionerror_invalidduration"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djirecordvideoaction_djirecordvideoactionerror_invalidduration_inline">INVALID_DURATION</a></div></div><div class="inline-doc" id="djirecordvideoaction_djirecordvideoactionerror_invalidduration_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>INVALID_DURATION</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> RecordVideoActionError</span><br><span class="line">       INVALID_DURATION = <span class="keyword">new</span> RecordVideoActionError(<span class="string">"Duration value is invalid which is less than 0"</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.mission.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.mission.error</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Duration value is invalid (less than 0).</p>
+<p><font color="#666">Duration value is invalid (less than 0).</font></p>
 </div>
 <h5 id="inherited-methods">Inherited Methods:</h5>
-<div class="api-row" id="djierror_djisdkflighthuberrorforcode"><div class="api-col left">dji.common.error.DJIError</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djisdkflighthuberrorforcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djisdkflighthuberrorforcode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDJIError</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djisdkflighthuberrorforcode"><div class="api-col left">dji.common.error.DJIError</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djisdkflighthuberrorforcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djisdkflighthuberrorforcode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDJIError</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> DJIError <span class="title">getDJIError</span><span class="params">(<span class="keyword">int</span> errorCode)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">Returns the specific error in the <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code> according to the error code.</p>
+<p><font color="#666">Returns the specific error in the <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code> according to the error code.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</td><td><font color="#666"><i>errorCode for <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code>.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</font></font></td><td><font color="#666"><i>errorCode for <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code>.</i></font></td></tr></table></html>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></td><td><font color="#666"><i>An NSError object initialized with errorCode. If the errorCode was 0, returns nil.</i></td></tr></table></html></div>
-<div class="api-row" id="djierror_djiutmisserrorforcodewitherrorcode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djiutmisserrorforcodewitherrorcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djiutmisserrorforcodewitherrorcode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDJIError</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i>An NSError object initialized with errorCode. If the errorCode was 0, returns nil.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djierror_djiutmisserrorforcodewitherrorcode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djiutmisserrorforcodewitherrorcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djiutmisserrorforcodewitherrorcode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDJIError</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> DJIError <span class="title">getDJIError</span><span class="params">(<span class="keyword">int</span> errorCode)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Get DJIUTMISSError.</p>
+<p><font color="#666">Get DJIUTMISSError.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</td><td><font color="#666"><i>An int value of error code.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</font></font></td><td><font color="#666"><i>An int value of error code.</i></font></td></tr></table></html>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djierror_getdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_getdescription_inline">getDescription</a></div></div><div class="inline-doc" id="djierror_getdescription_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDescription</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djierror_getdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_getdescription_inline">getDescription</a></div></div><div class="inline-doc" id="djierror_getdescription_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDescription</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getDescription</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Returns the description of the error code.</p>
+<p><font color="#666">Returns the description of the error code.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>The description of the error code.</i></td></tr></table></html></div>
-<div class="api-row" id="djierror_setdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_setdescription_inline">setDescription</a></div></div><div class="inline-doc" id="djierror_setdescription_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setDescription</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>The description of the error code.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djierror_setdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_setdescription_inline">setDescription</a></div></div><div class="inline-doc" id="djierror_setdescription_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setDescription</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setDescription</span><span class="params">(String desc)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Sets the description for the error code.</p>
+<p><font color="#666">Sets the description for the error code.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">desc</td><td><font color="#666"><i>Description string.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">desc</font></font></td><td><font color="#666"><i>Description string.</i></font></td></tr></table></html></div>
 
         </div>
       </div>

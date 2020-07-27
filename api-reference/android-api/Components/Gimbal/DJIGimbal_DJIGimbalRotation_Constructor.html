@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -646,7 +644,7 @@
                             </dd>
                             <dd><a data-href="DJIGimbal_DJIGimbalRotation.html" class="sub-toggle">Rotation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
-                                      <dd><a href="" class="active">Builder</a>
+                                      <dd><a href class="active">Builder</a>
                                       </dd>
                               </ul>
                             </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1351,32 +1349,32 @@
       </div>
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>Builder</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">Object builder.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_builder_void"><div class="api-col left">Constructor</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_builder_void_inline">Builder</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_builder_void_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_builder_void"><div class="api-col left">Constructor</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_builder_void_inline">Builder</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_builder_void_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>Builder</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Builder()</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Builder()</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Default rotation constructor method.</font></p>
 </div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_builder_rotation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_builder_rotation_inline">Builder</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_builder_rotation_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_builder_rotation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_builder_rotation_inline">Builder</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_builder_rotation_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>Builder</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Builder(Rotation rotation)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Builder(Rotation rotation)</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Constructor method that clones a rotation object.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation">Rotation</a> <font color="#000">rotation</font></font></td><td><font color="#666"><i>An instance of <code><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation">Rotation</a></code>.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_mode"><div class="api-col left">Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_mode_inline">mode</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_mode_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_mode"><div class="api-col left">Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_mode_inline">mode</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_mode_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>mode</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Builder <span class="title">mode</span><span class="params">(RotationMode mode)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Builder <span class="title">mode</span><span class="params">(RotationMode mode)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Constructor method.</font></p>
@@ -1384,10 +1382,10 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation_djigimbalrotationmode">RotationMode</a> <font color="#000">mode</font></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation_djigimbalrotationmode">RotationMode</a></code>.</i></font></td></tr></table></html>
 <h5 id="return">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Builder</font></td><td><font color="#666"><i>Builder object for mode</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_pitch"><div class="api-col left">Attitude</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_pitch_inline">pitch</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_pitch_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_pitch"><div class="api-col left">Attitude</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_pitch_inline">pitch</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_pitch_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>pitch</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Builder <span class="title">pitch</span><span class="params">(<span class="keyword">float</span> pitch)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Builder <span class="title">pitch</span><span class="params">(<span class="keyword">float</span> pitch)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Constructor method.</font></p>
@@ -1395,10 +1393,10 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float <font color="#000">pitch</font></font></td><td><font color="#666"><i>A float value of pitch.</i></font></td></tr></table></html>
 <h5 id="return-v2">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Builder</font></td><td><font color="#666"><i>Builder object for pitch</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_roll"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_roll_inline">roll</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_roll_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_roll"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_roll_inline">roll</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_roll_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>roll</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Builder <span class="title">roll</span><span class="params">(<span class="keyword">float</span> roll)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Builder <span class="title">roll</span><span class="params">(<span class="keyword">float</span> roll)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">Constructor method.</font></p>
@@ -1406,10 +1404,10 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float <font color="#000">roll</font></font></td><td><font color="#666"><i>A float value of roll.</i></font></td></tr></table></html>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Builder</font></td><td><font color="#666"><i>Builder object for roll</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_yaw"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_yaw_inline">yaw</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_yaw_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_yaw"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_yaw_inline">yaw</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_yaw_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>yaw</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Builder <span class="title">yaw</span><span class="params">(<span class="keyword">float</span> yaw)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Builder <span class="title">yaw</span><span class="params">(<span class="keyword">float</span> yaw)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Constructor method.</font></p>
@@ -1417,10 +1415,10 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float <font color="#000">yaw</font></font></td><td><font color="#666"><i>A float value of yaw.</i></font></td></tr></table></html>
 <h5 id="return-v4">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Builder</font></td><td><font color="#666"><i>Builder object for yaw</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_time"><div class="api-col left">time</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_time_inline">time</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_time_inline" <blockquote="">
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_time"><div class="api-col left">time</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_time_inline">time</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_time_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>time</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Builder <span class="title">time</span><span class="params">(<span class="keyword">double</span> time)</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Builder <span class="title">time</span><span class="params">(<span class="keyword">double</span> time)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">Sets the completion time in seconds to complete an action to control the gimbal. If the the rotation mode is <code><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation_djigimbalrotationmode_absoluteangle">ABSOLUTE_ANGLE</a></code> then the time determines the duration of time the gimbal should rotate to its new position. For example, if a value of 2.0 is used, then the gimbal will rotate to its target position in 2.0 seconds. Range is [0.1,25.5] seconds.</font></p>
@@ -1428,14 +1426,25 @@
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double <font color="#000">time</font></font></td><td><font color="#666"><i>A double value of time.</i></font></td></tr></table></html>
 <h5 id="return-v5">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Builder</font></td><td><font color="#666"><i>Builder object for time</i></font></td></tr></table></html></div>
-<div class="api-row" id="djigimbal_djigimbalrotation_constructor_build"><div class="api-col left">Build</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_build_inline">build</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_build_inline" <blockquote="">
-<div class="article"><h6><font color="#AAA">method </font>build</h6></div>
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_ignore"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_ignore_inline">ignore</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_ignore_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>ignore</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">Rotation <span class="title">build</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Builder <span class="title">ignore</span><span class="params">(<span class="keyword">boolean</span> ignore)</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
-<p><font color="#666">Build the object.</font></p>
+<p><font color="#666">Set whether the app can control the gimbal.</font></p>
+<h5 id="input-parameters-v7">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">ignore</font></font></td><td><font color="#666"><i><code>true</code> if the app can control the gimbal.</i></font></td></tr></table></html>
 <h5 id="return-v6">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Builder</font></td><td><font color="#666"><i>Builder object.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djigimbal_djigimbalrotation_constructor_build"><div class="api-col left">Build</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_djigimbalrotation_constructor_build_inline">build</a></div></div><div class="inline-doc" id="djigimbal_djigimbalrotation_constructor_build_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>build</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Rotation <span class="title">build</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.gimbal</font></td></tr></table></html>
+<h5 id="description-v10">Description:</h5>
+<p><font color="#666">Build the object.</font></p>
+<h5 id="return-v7">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation">Rotation</a></font></td><td><font color="#666"><i>Instance of <code><a href="../../Components/Gimbal/DJIGimbal_DJIGimbalRotation.html#djigimbal_djigimbalrotation">Rotation</a></code>.</i></font></td></tr></table></html></div>
 
         </div>

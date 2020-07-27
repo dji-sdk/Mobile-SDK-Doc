@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -146,7 +142,7 @@
                             </dd>
                             <dd><a href="DJIFlyZoneManager_basicDatabaseUpgradeProgressUpdatedCallbackInterface.html">BasicDatabaseUpgradeProgressUpdatedCallback</a>
                             </dd>
-                            <dd><a href="" class="active">CustomUnlockZone</a>
+                            <dd><a href class="active">CustomUnlockZone</a>
                             </dd>
                             <dd><a href="DJIFlyZoneManager_DJIFlyingSafetyWarningInformation.html">FlySafeWarningInformation</a>
                             </dd>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1351,115 +1349,115 @@
       </div>
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>CustomUnlockZone</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EXClassNullAway</span></div><div class="line"> <span class="class"><span class="keyword">class</span> <span class="title">CustomUnlockZone</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">CustomUnlockZone</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">Users can unlock areas of a restricted fly zone through <a href="http://www.dji.com/flysafe/custom-unlock" target="_blank" rel="external">http://www.dji.com/flysafe/custom-unlock</a>.  A user needs to show special authorization (usually from a third party such as a regulatory  or managing agency) as part of the process to unlock the area within the restricted fly zone.  Therefore each request is unique and customized to the individual. If the request is successful,  the unlocked area is tied to the user's account as an Custom Unlock Zone.  <br><br>This class contains the properties of an Custom Unlock Zone.</font></p>
+<p><font color="#666">Users can unlock areas of a restricted fly zone through <a href="http://www.dji.com/flysafe/custom-unlock" target="_blank" rel="noopener">http://www.dji.com/flysafe/custom-unlock</a>.  A user needs to show special authorization (usually from a third party such as a regulatory  or managing agency) as part of the process to unlock the area within the restricted fly zone.  Therefore each request is unique and customized to the individual. If the request is successful,  the unlocked area is tied to the user's account as an Custom Unlock Zone.  <br><br>This class contains the properties of an Custom Unlock Zone.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_id"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_id_inline">getID</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_id_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_id"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_id_inline">getID</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_id_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getID</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getID</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getID</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">The unique ID of the Custom Unlock Zone.</font></p>
 <h5 id="return">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>An int value of the ID.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_type"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_type_inline">getUnlockZoneType</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_type_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_type"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_type_inline">getUnlockZoneType</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_type_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getUnlockZoneType</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">UnlockZoneType <span class="title">getUnlockZoneType</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">UnlockZoneType <span class="title">getUnlockZoneType</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">The type of custom unlocking.</font></p>
 <h5 id="return-v2">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype">UnlockZoneType</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype">UnlockZoneType</a></code>.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_name"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_name_inline">getName</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_name_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_name"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_name_inline">getName</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_name_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getName</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">Name of the Custom Unlock Zone.</font></p>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>A string value of the name.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_center"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_center_inline">getCenter</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_center_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_center"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_center_inline">getCenter</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_center_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getCenter</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">LocationCoordinate2D <span class="title">getCenter</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LocationCoordinate2D <span class="title">getCenter</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">The coordinate of the Custom Unlock Zone's center. Only used when <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djiindividualunlockzone_type">getUnlockZoneType</a></code>  is <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype_circle">CIRCLE_UNLOCK_AREA</a></code>.</font></p>
 <h5 id="return-v4">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></font></td><td><font color="#666"><i>A <code><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></code> object.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_radius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_radius_inline">getRadius</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_radius_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_radius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_radius_inline">getRadius</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_radius_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getRadius</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">getRadius</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getRadius</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
 <p><font color="#666">The radius of the Custom Unlock Zone in meters. Valid when <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djiindividualunlockzone_type">getUnlockZoneType</a></code>  is <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype_circle">CIRCLE_UNLOCK_AREA</a></code>.</font></p>
 <h5 id="return-v5">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>A float value of the radius.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_countrycode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_countrycode_inline">getCountry</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_countrycode_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_countrycode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_countrycode_inline">getCountry</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_countrycode_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getCountry</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">String <span class="title">getCountry</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getCountry</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
 <p><font color="#666">Check country code (https://www.iso.org/iso-3166-country-codes.html) for the custom unlock zone's shape.  Valid when <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djiindividualunlockzone_type">getUnlockZoneType</a></code> is <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype_country">COUNTRY_UNLOCK</a></code>.</font></p>
 <h5 id="return-v6">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>The string of country code.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_maxflightaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_maxflightaltitude_inline">getHeight</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_maxflightaltitude_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_maxflightaltitude"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_maxflightaltitude_inline">getHeight</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_maxflightaltitude_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getHeight</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
 <p><font color="#666">The unlocked max flight altitude limit in the custom unlock zone. Valid when <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djiindividualunlockzone_type">getUnlockZoneType</a></code>  is <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype_maxflightaltitudelimit">HEIGHT_UNLOCK</a></code>.</font></p>
 <h5 id="return-v7">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>An int value of max flight altitude.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_vertices"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_vertices_inline">getPoints</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_vertices_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_vertices"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_vertices_inline">getPoints</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_vertices_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getPoints</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">List&lt;LocationCoordinate2D&gt; <span class="title">getPoints</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">List&lt;LocationCoordinate2D&gt; <span class="title">getPoints</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
 <p><font color="#666">The vertices (locations) that make up the custom unlock zone shape. Only used  when <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djiindividualunlockzone_type">getUnlockZoneType</a></code> is <code><a href="../../Components/FlyZoneManager/DJIFlyZoneManager_DJIIndividualUnlockZone.html#djiflyzonemanager_djicustomunlocktype_polygon">PENTAGON_UNLOCK</a></code>.</font></p>
 <h5 id="return-v8">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a>&gt;</font></td><td><font color="#666"><i>A list of <code><a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate2D.html#djiflightcontroller_djilocationcoordinate2d">LocationCoordinate2D</a></code> objects.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_starttime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_starttime_inline">getStartTime</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_starttime_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_starttime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_starttime_inline">getStartTime</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_starttime_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getStartTime</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">String <span class="title">getStartTime</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getStartTime</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
 <p><font color="#666">The timestamp of when the unlocking begins, formatted in UTC (YYYY-MM-DD hh:mm:ss).</font></p>
 <h5 id="return-v9">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>A string value of start time.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_endtime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_endtime_inline">getEndTime</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_endtime_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_endtime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_endtime_inline">getEndTime</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_endtime_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getEndTime</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">String <span class="title">getEndTime</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getEndTime</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
 <p><font color="#666">The timestamp of when the unlocking ends, formatted in UTC (YYYY-MM-DD hh:mm:ss).</font></p>
 <h5 id="return-v10">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>A String value of the end time.</i></font></td></tr></table></html></div>
-<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_isexpired"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_isexpired_inline">isExpired</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_isexpired_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djiindividualunlockzone_isexpired"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djiindividualunlockzone_isexpired_inline">isExpired</a></div></div><div class="inline-doc" id="djiflyzonemanager_djiindividualunlockzone_isexpired_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>isExpired</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isExpired</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isExpired</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flyzone</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
 <p><font color="#666"><code>true</code> if the Custom Unlock Zone has expired. After a zone is expired,  the location will be locked.</font></p>
 <h5 id="return-v11">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value to check if is expired.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djiflyzonemanager_djicustomunlocktype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djicustomunlocktype_inline">UnlockZoneType</a></div></div><div class="inline-doc" id="djiflyzonemanager_djicustomunlocktype_inline" <blockquote="">
+<div class="api-row" id="djiflyzonemanager_djicustomunlocktype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djiflyzonemanager_djicustomunlocktype_inline">UnlockZoneType</a></div></div><div class="inline-doc" id="djiflyzonemanager_djicustomunlocktype_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">enum </font>UnlockZoneType</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> UnlockZoneType</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> UnlockZoneType</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flysafe</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
 <p><font color="#666">An enum class represents the type of custom unlocking.</font></p>

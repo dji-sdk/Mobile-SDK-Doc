@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -558,7 +556,7 @@
                                       </dd>
                                       <dd><a href="DJICamera_DJICameraPictureStylePreset.html">PictureStylePreset</a>
                                       </dd>
-                                      <dd><a href="" class="active">ThermalProfile</a>
+                                      <dd><a href class="active">ThermalProfile</a>
                                       </dd>
                                       <dd><a data-href="DJICamera_DJICameraThermalAreaTemperatureAggregations.html" class="sub-toggle">ThermalAreaTemperatureAggregations<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                                         <ul class="sub-menu">
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1351,43 +1349,43 @@
       </div>
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>ThermalProfile</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ThermalProfile</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ThermalProfile</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_profile_key">CameraKey.THERMAL_PROFILE</a></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">The profile of the thermal imaging camera, which includes information about resolution, frame rate and focal length.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="members">Members</h4>
-<div class="api-row" id="djicamera_djicamerathermalprofile_resolution"><div class="api-col left">Resolution</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_resolution_inline">getResolution</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_resolution_inline" <blockquote="">
+<div class="api-row" id="djicamera_djicamerathermalprofile_resolution"><div class="api-col left">Resolution</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_resolution_inline">getResolution</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_resolution_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getResolution</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">ThermalResolution <span class="title">getResolution</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">ThermalResolution <span class="title">getResolution</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
 <p><font color="#666">Get the supported resolution of the thermal imaging camera.</font></p>
 <h5 id="return">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerathermalresolution">ThermalResolution</a></font></td><td><font color="#666"><i>The enum value of the <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerathermalresolution">ThermalResolution</a></code></i></font></td></tr></table></html></div>
-<div class="api-row" id="djicamera_djicamerathermalprofile_framerateupperbound"><div class="api-col left">Frame Rate Upper Bound</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_framerateupperbound_inline">getFrameRateUpperBound</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_framerateupperbound_inline" <blockquote="">
+<div class="api-row" id="djicamera_djicamerathermalprofile_framerateupperbound"><div class="api-col left">Frame Rate Upper Bound</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_framerateupperbound_inline">getFrameRateUpperBound</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_framerateupperbound_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getFrameRateUpperBound</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">ThermalFrameRateUpperBound <span class="title">getFrameRateUpperBound</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">ThermalFrameRateUpperBound <span class="title">getFrameRateUpperBound</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
 <p><font color="#666">Get the supported frame rate upper bound of the thermal imaging camera.</font></p>
 <h5 id="return-v2">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerathermalframerateupperbound">ThermalFrameRateUpperBound</a></font></td><td><font color="#666"><i>The enum value of the <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerathermalframerateupperbound">ThermalFrameRateUpperBound</a></code></i></font></td></tr></table></html></div>
-<div class="api-row" id="djicamera_djicamerathermalprofile_getfocallength"><div class="api-col left">Focal Length</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_getfocallength_inline">getFocalLength</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_getfocallength_inline" <blockquote="">
+<div class="api-row" id="djicamera_djicamerathermalprofile_getfocallength"><div class="api-col left">Focal Length</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_getfocallength_inline">getFocalLength</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_getfocallength_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getFocalLength</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">ThermalLensFocalLength <span class="title">getFocalLength</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">ThermalLensFocalLength <span class="title">getFocalLength</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
 <p><font color="#666">The lens model of the thermal imaging camera.</font></p>
 <h5 id="return-v3">Return:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerathermallensmodel">ThermalLensFocalLength</a></font></td><td><font color="#666"><i>The enum value of the <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicamerathermallensmodel">ThermalLensFocalLength</a></code></i></font></td></tr></table></html></div>
-<div class="api-row" id="djicamera_djicamerathermalprofile_version"><div class="api-col left">Version</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_version_inline">getVersion</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_version_inline" <blockquote="">
+<div class="api-row" id="djicamera_djicamerathermalprofile_version"><div class="api-col left">Version</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalprofile_version_inline">getVersion</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalprofile_version_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getVersion</h6></div>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">ThermalVersion <span class="title">getVersion</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">ThermalVersion <span class="title">getVersion</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
 <p><font color="#666">Get the version of the thermal imaging camera.</font></p>

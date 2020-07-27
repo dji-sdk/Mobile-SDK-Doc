@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -240,6 +236,8 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
+                            </dd>
                     </ul>
                   </dd>
           </dl>
@@ -302,7 +300,7 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJIGravityCenterState.html">GravityCenterState</a>
                             </dd>
-                            <dd><a href="" class="active">Compass</a>
+                            <dd><a href class="active">Compass</a>
                             </dd>
                             <dd><a data-href="../RTK/DJIRTK.html" class="sub-toggle">RTK<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,93 +1348,85 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>Compass</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>Compass</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Compass</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class provides compass status information and compass calibration methods. Products with multiple compasses (like the Phantom 4) have their compass state fused into one compass class for simplicity.</p>
+<p><font color="#666">This class provides compass status information and compass calibration methods. Products with multiple compasses (like the Phantom 4) have their compass state fused into one compass class for simplicity.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djicompass_heading"><div class="api-col left">Heading</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_heading_inline">getHeading</a></div></div><div class="inline-doc" id="djicompass_heading_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getHeading</h6></div>
-</blockquote>
+<div class="api-row" id="djicompass_heading"><div class="api-col left">Heading</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_heading_inline">getHeading</a></div></div><div class="inline-doc" id="djicompass_heading_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getHeading</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">getHeading</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_heading_key">FlightControllerKey.COMPASS_HEADING</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_heading_key">FlightControllerKey.COMPASS_HEADING</a></font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Represents the heading, in degrees. True North is 0 degrees, positive heading is East of North, and negative  heading is West of North. Heading bounds are [-180, 180].</p>
+<p><font color="#666">Represents the heading, in degrees. True North is 0 degrees, positive heading is East of North, and negative  heading is West of North. Heading bounds are [-180, 180].</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</td><td><font color="#666"><i>A double value of the heading, in degrees.</i></td></tr></table></html></div>
-<div class="api-row" id="djicompass_haserror"><div class="api-col left">Error</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_haserror_inline">hasError</a></div></div><div class="inline-doc" id="djicompass_haserror_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>hasError</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A double value of the heading, in degrees.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djicompass_haserror"><div class="api-col left">Error</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_haserror_inline">hasError</a></div></div><div class="inline-doc" id="djicompass_haserror_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>hasError</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasError</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_has_error_key">FlightControllerKey.COMPASS_HAS_ERROR</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_has_error_key">FlightControllerKey.COMPASS_HAS_ERROR</a></font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666"><code>true</code> if the compass has an error. If <code>true</code>, the compass  needs calibration.</p>
+<p><font color="#666"><code>true</code> if the compass has an error. If <code>true</code>, the compass  needs calibration.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djicompass_iscalibrating"><div class="api-col left">Check Calibrating</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_iscalibrating_inline">isCalibrating</a></div></div><div class="inline-doc" id="djicompass_iscalibrating_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isCalibrating</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djicompass_iscalibrating"><div class="api-col left">Check Calibrating</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_iscalibrating_inline">isCalibrating</a></div></div><div class="inline-doc" id="djicompass_iscalibrating_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isCalibrating</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isCalibrating</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_is_calibrating_key">FlightControllerKey.COMPASS_IS_CALIBRATING</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_is_calibrating_key">FlightControllerKey.COMPASS_IS_CALIBRATING</a></font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666"><code>true</code> if the compass is currently calibrating.</p>
+<p><font color="#666"><code>true</code> if the compass is currently calibrating.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djicompass_calibrationstatus"><div class="api-col left">Calibration Status</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_calibrationstatus_inline">getCalibrationState</a></div></div><div class="inline-doc" id="djicompass_calibrationstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getCalibrationState</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djicompass_calibrationstatus"><div class="api-col left">Calibration Status</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_calibrationstatus_inline">getCalibrationState</a></div></div><div class="inline-doc" id="djicompass_calibrationstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getCalibrationState</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">CompassCalibrationState <span class="title">getCalibrationState</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_calibration_status_key">FlightControllerKey.COMPASS_CALIBRATION_STATUS</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_calibration_status_key">FlightControllerKey.COMPASS_CALIBRATION_STATUS</a></font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Shows the calibration status.</p>
+<p><font color="#666">Shows the calibration status.</font></p>
 <h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Compass/DJICompass.html#djicompass_djicompasscalibrationstatus">CompassCalibrationState</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Compass/DJICompass.html#djicompass_djicompasscalibrationstatus">CompassCalibrationState</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djicompass_startcalibration"><div class="api-col left">Calibration</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_startcalibration_inline">startCalibration</a></div></div><div class="inline-doc" id="djicompass_startcalibration_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>startCalibration</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Compass/DJICompass.html#djicompass_djicompasscalibrationstatus">CompassCalibrationState</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Compass/DJICompass.html#djicompass_djicompasscalibrationstatus">CompassCalibrationState</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djicompass_startcalibration"><div class="api-col left">Calibration</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_startcalibration_inline">startCalibration</a></div></div><div class="inline-doc" id="djicompass_startcalibration_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>startCalibration</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startCalibration</span><span class="params">(@Nullable <span class="keyword">final</span> CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_start_calibration_key">FlightControllerKey.COMPASS_START_CALIBRATION</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_start_calibration_key">FlightControllerKey.COMPASS_START_CALIBRATION</a></font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Starts compass calibration. Make sure there are no magnets or metal objects near the compass.</p>
+<p><font color="#666">Starts compass calibration. Make sure there are no magnets or metal objects near the compass.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Completion callback. See DJIBaseComponent for more information about the callback and what is  recommended be done with it.</i></td></tr></table></html></div>
-<div class="api-row" id="djicompass_stopcalibration"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_stopcalibration_inline">stopCalibration</a></div></div><div class="inline-doc" id="djicompass_stopcalibration_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>stopCalibration</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion callback. See DJIBaseComponent for more information about the callback and what is  recommended be done with it.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djicompass_stopcalibration"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_stopcalibration_inline">stopCalibration</a></div></div><div class="inline-doc" id="djicompass_stopcalibration_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>stopCalibration</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stopCalibration</span><span class="params">(@Nullable CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_stop_calibration_key">FlightControllerKey.COMPASS_STOP_CALIBRATION</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_stop_calibration_key">FlightControllerKey.COMPASS_STOP_CALIBRATION</a></font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">Stops compass calibration.</p>
+<p><font color="#666">Stops compass calibration.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Completion callback. See DJIBaseComponent for more information about the callback and what is recommended  be done with it.</i></td></tr></table></html></div>
-<div class="api-row" id="djicompass_calibrationstatuscallback"><div class="api-col left">State Updates</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_calibrationstatuscallback_inline">setCalibrationStateCallback</a></div></div><div class="inline-doc" id="djicompass_calibrationstatuscallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setCalibrationStateCallback</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion callback. See DJIBaseComponent for more information about the callback and what is recommended  be done with it.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djicompass_calibrationstatuscallback"><div class="api-col left">State Updates</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djicompass_calibrationstatuscallback_inline">setCalibrationStateCallback</a></div></div><div class="inline-doc" id="djicompass_calibrationstatuscallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setCalibrationStateCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setCalibrationStateCallback</span><span class="params">(@Nullable CompassCalibrationState.Callback  callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_calibration_status_key">FlightControllerKey.COMPASS_CALIBRATION_STATUS</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_calibration_status_key">FlightControllerKey.COMPASS_CALIBRATION_STATUS</a></font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">Sets the callback for compass calibration.</p>
+<p><font color="#666">Sets the callback for compass calibration.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/Compass/DJICompass.html#djicompass_djicompasscalibrationstatus">CompassCalibrationState</a>.Callback <font color="#000">callback</td><td><font color="#666"><i>The callback with compass calibration state</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/Compass/DJICompass.html#djicompass_djicompasscalibrationstatus">CompassCalibrationState</a>.Callback <font color="#000">callback</font></font></td><td><font color="#666"><i>The callback with compass calibration state</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djicompass_djicompasscalibrationstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djicompass_djicompasscalibrationstatus_inline">CompassCalibrationState</a></div></div><div class="inline-doc" id="djicompass_djicompasscalibrationstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">enum </font>CompassCalibrationState</h6></div>
-</blockquote>
+<div class="api-row" id="djicompass_djicompasscalibrationstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djicompass_djicompasscalibrationstatus_inline">CompassCalibrationState</a></div></div><div class="inline-doc" id="djicompass_djicompasscalibrationstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">enum </font>CompassCalibrationState</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="keyword">enum</span> CompassCalibrationState</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_calibration_status_key">FlightControllerKey.COMPASS_CALIBRATION_STATUS</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_compass_calibration_status_key">FlightControllerKey.COMPASS_CALIBRATION_STATUS</a></font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
-<p><font color="#666">An enum class representing compass calibration.</p>
+<p><font color="#666">An enum class representing compass calibration.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_normal_inline"></a>NOT_CALIBRATING</td><td><font color="#666">Normal state. Compass not in calibration.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_horizontal_inline"></a>HORIZONTAL</td><td><font color="#666">Compass horizontal calibration. The user should hold the aircraft horizontally and rotate it 360 degrees.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_vertical_inline"></a>VERTICAL</td><td><font color="#666">Compass vertical calibration. The user should hold the aircraft vertically, with the nose pointed towards the  ground, and rotate the aircraft 360 degrees.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_succeeded_inline"></a>SUCCESSFUL</td><td><font color="#666">Compass calibration succeeded.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_failed_inline"></a>FAILED</td><td><font color="#666">Compass calibration failed. Make sure there are no magnets or metal objects near the compass and retry.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_unknown_inline"></a>UNKNOWN</td><td><font color="#666">Compass calibration status unknown.</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_normal_inline"></a>NOT_CALIBRATING</font></td><td><font color="#666">Normal state. Compass not in calibration.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_horizontal_inline"></a>HORIZONTAL</font></td><td><font color="#666">Compass horizontal calibration. The user should hold the aircraft horizontally and rotate it 360 degrees.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_vertical_inline"></a>VERTICAL</font></td><td><font color="#666">Compass vertical calibration. The user should hold the aircraft vertically, with the nose pointed towards the  ground, and rotate the aircraft 360 degrees.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_succeeded_inline"></a>SUCCESSFUL</font></td><td><font color="#666">Compass calibration succeeded.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_failed_inline"></a>FAILED</font></td><td><font color="#666">Compass calibration failed. Make sure there are no magnets or metal objects near the compass and retry.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicompass_djicompasscalibrationstatus_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Compass calibration status unknown.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 <div class="api-row" id="djicompass_compasscalibrationstatecallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/Compass/DJICompass_CompassCalibrationStateCallback.html">Callback</a></div></div></div>
 

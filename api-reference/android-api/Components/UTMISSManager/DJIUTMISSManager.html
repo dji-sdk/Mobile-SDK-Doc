@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -188,7 +184,7 @@
                             </dd>
                     </ul>
                   </dd>
-                  <dd><a data-href="" class="sub-toggle">UTMISSManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                  <dd><a data-href class="sub-toggle">UTMISSManager<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DJIUTMISSManager_UTMISSFlightDataUpdatedUploadStatusCallbackInterface.html">Callback</a>
                             </dd>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,76 +1348,79 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>UTMISSManager</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>UTMISSManager</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UTMISSManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class is to manage UTMISS flight data upload. According to the &quot;Civil Aviation Administration of China's Light Civil UAV Flight Dynamic  Data Management Regulations &quot;, relevant units, individuals that operate light, small civil drones and plant protection drones in the airspace  provided by the People's Republic of China with air traffic services need Timely, accurate and complete real-time reporting to the Civil Aviation  Administration to send real flight dynamic data. If flight dynamic data is not reported or missed in time, it shall be replaced in accordance with  relevant regulations on navigation flight control. According to the above requirements, this function will report user flight dynamics data to the  UTMISS server. Developers are requested to enable this function after obtaining user authorization.</p>
+<p><font color="#666">This class is to manage UTMISS flight data upload. According to the &quot;Civil Aviation Administration of China's Light Civil UAV Flight Dynamic  Data Management Regulations &quot;, relevant units, individuals that operate light, small civil drones and plant protection drones in the airspace  provided by the People's Republic of China with air traffic services need Timely, accurate and complete real-time reporting to the Civil Aviation  Administration to send real flight dynamic data. If flight dynamic data is not reported or missed in time, it shall be replaced in accordance with  relevant regulations on navigation flight control. According to the above requirements, this function will report user flight dynamics data to the  UTMISS server. Developers are requested to enable this function after obtaining user authorization.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="state-updates">State Updates</h4>
-<div class="api-row" id="djiutmissmanager_setutmissflightdataupdateduploadstatuscallback"><div class="api-col left">General</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_setutmissflightdataupdateduploadstatuscallback_inline">setUTMISSFlightDataUpdatedUploadStatusCallback</a></div></div><div class="inline-doc" id="djiutmissmanager_setutmissflightdataupdateduploadstatuscallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setUTMISSFlightDataUpdatedUploadStatusCallback</h6></div>
-</blockquote>
+<div class="api-row" id="djiutmissmanager_setutmissflightdataupdateduploadstatuscallback"><div class="api-col left">General</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_setutmissflightdataupdateduploadstatuscallback_inline">setUTMISSFlightDataUpdatedUploadStatusCallback</a></div></div><div class="inline-doc" id="djiutmissmanager_setutmissflightdataupdateduploadstatuscallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setUTMISSFlightDataUpdatedUploadStatusCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setUTMISSFlightDataUpdatedUploadStatusCallback</span><span class="params">(Callback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Called when the UTMISS (Unmanned Aircraft System Traffic Management Information Service System) flight data upload status has been updated.</p>
+<p><font color="#666">Called when the UTMISS (Unmanned Aircraft System Traffic Management Information Service System) flight data upload status has been updated.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Callback <font color="#000">callback</td><td><font color="#666"><i>The callback of <code><a href="../../Components/UTMISSManager/DJIUTMISSManager_UTMISSFlightDataUpdatedUploadStatusCallbackInterface.html#djiutmissmanager_utmissflightdataupdateduploadstatuscallbackinterface">Callback</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djiutmissmanager_currentstatus"><div class="api-col left">Current Status</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_currentstatus_inline">getUploadStatus</a></div></div><div class="inline-doc" id="djiutmissmanager_currentstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getUploadStatus</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Callback <font color="#000">callback</font></font></td><td><font color="#666"><i>The callback of <code><a href="../../Components/UTMISSManager/DJIUTMISSManager_UTMISSFlightDataUpdatedUploadStatusCallbackInterface.html#djiutmissmanager_utmissflightdataupdateduploadstatuscallbackinterface">Callback</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiutmissmanager_currentstatus"><div class="api-col left">Current Status</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_currentstatus_inline">getUploadStatus</a></div></div><div class="inline-doc" id="djiutmissmanager_currentstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getUploadStatus</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">UTMISSFlightDataUploadStatus <span class="title">getUploadStatus</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">The current UTMISS upload status.</p>
+<p><font color="#666">The current UTMISS upload status.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/UTMISSManager/DJIUTMISSManager.html#djiutmissflightdatauploadstatus">UTMISSFlightDataUploadStatus</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/UTMISSManager/DJIUTMISSManager.html#djiutmissflightdatauploadstatus">UTMISSFlightDataUploadStatus</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djiutmissmanager_starttoupload"><div class="api-col left">Start Upload</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_starttoupload_inline">startToUpload</a></div></div><div class="inline-doc" id="djiutmissmanager_starttoupload_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>startToUpload</h6></div>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">DJIError <span class="title">startToUpload</span><span class="params">(UTMISSParam param)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/UTMISSManager/DJIUTMISSManager.html#djiutmissflightdatauploadstatus">UTMISSFlightDataUploadStatus</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/UTMISSManager/DJIUTMISSManager.html#djiutmissflightdatauploadstatus">UTMISSFlightDataUploadStatus</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiutmissmanager_starttoupload"><div class="api-col left">Start Upload</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_starttoupload_inline">startToUpload</a></div></div><div class="inline-doc" id="djiutmissmanager_starttoupload_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>startToUpload</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span> DJIError <span class="title">startToUpload</span><span class="params">(UTMISSParam param)</span></span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Start UTMISS flight data upload.</p>
+<p><font color="#666">Start UTMISS flight data upload.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/UTMISSManager/DJIUTMISSManager_DJIUTMISSParam.html#djiutmissmanager_djiutmissparam">UTMISSParam</a> <font color="#000">param</td><td><font color="#666"><i>An object of <code><a href="../../Components/UTMISSManager/DJIUTMISSManager_DJIUTMISSParam.html#djiutmissmanager_djiutmissparam">UTMISSParam</a></code>.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/UTMISSManager/DJIUTMISSManager_DJIUTMISSParam.html#djiutmissmanager_djiutmissparam">UTMISSParam</a> <font color="#000">param</font></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/UTMISSManager/DJIUTMISSManager_DJIUTMISSParam.html#djiutmissmanager_djiutmissparam">UTMISSParam</a></code>.</i></font></td></tr></table></html>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djiutmissmanager_getutmisslogpath"><div class="api-col left">Get UTMISS Log Path</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_getutmisslogpath_inline">getUtmissLogPath</a></div></div><div class="inline-doc" id="djiutmissmanager_getutmisslogpath_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getUtmissLogPath</h6></div>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getUtmissLogPath</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">synchronized <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiutmissmanager_isstarted"><div class="api-col left">Check Upload Started</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_isstarted_inline">isStarted</a></div></div><div class="inline-doc" id="djiutmissmanager_isstarted_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isStarted</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isStarted</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">UTMISS Log save path.</p>
+<p><font color="#666">Start UTMISS flight data upload.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>A String value.</i></td></tr></table></html></div>
-<div class="api-row" id="djiutmissmanager_stoptoupload"><div class="api-col left">Stop Upload</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_stoptoupload_inline">stopToUpload</a></div></div><div class="inline-doc" id="djiutmissmanager_stoptoupload_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>stopToUpload</h6></div>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stopToUpload</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value to check if the data upload is started.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiutmissmanager_getutmisslogpath"><div class="api-col left">Get UTMISS Log Path</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_getutmisslogpath_inline">getUtmissLogPath</a></div></div><div class="inline-doc" id="djiutmissmanager_getutmisslogpath_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getUtmissLogPath</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getUtmissLogPath</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Stop UTMISS flight data upload.</p>
+<p><font color="#666">UTMISS Log save path.</font></p>
+<h5 id="return-v4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>A String value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiutmissmanager_stoptoupload"><div class="api-col left">Stop Upload</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiutmissmanager_stoptoupload_inline">stopToUpload</a></div></div><div class="inline-doc" id="djiutmissmanager_stoptoupload_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>stopToUpload</h6></div>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">stopToUpload</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
+<h5 id="description-v7">Description:</h5>
+<p><font color="#666">Stop UTMISS flight data upload.</font></p>
 </div>
 <html><p><br></p></html>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djiutmissmanager_utmissflightdataupdateduploadstatuscallbackinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/UTMISSManager/DJIUTMISSManager_UTMISSFlightDataUpdatedUploadStatusCallbackInterface.html">Callback</a></div></div><div class="api-row" id="djiutmissmanager_djiutmissparam"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/UTMISSManager/DJIUTMISSManager_DJIUTMISSParam.html">UTMISSParam</a></div></div><div class="api-row" id="djiutmissflightdatauploadstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djiutmissflightdatauploadstatus_inline">UTMISSFlightDataUploadStatus</a></div></div><div class="inline-doc" id="djiutmissflightdatauploadstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">enum </font>UTMISSFlightDataUploadStatus</h6></div>
-</blockquote>
+<div class="api-row" id="djiutmissmanager_utmissflightdataupdateduploadstatuscallbackinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/UTMISSManager/DJIUTMISSManager_UTMISSFlightDataUpdatedUploadStatusCallbackInterface.html">Callback</a></div></div><div class="api-row" id="djiutmissmanager_djiutmissparam"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/UTMISSManager/DJIUTMISSManager_DJIUTMISSParam.html">UTMISSParam</a></div></div><div class="api-row" id="djiutmissflightdatauploadstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djiutmissflightdatauploadstatus_inline">UTMISSFlightDataUploadStatus</a></div></div><div class="inline-doc" id="djiutmissflightdatauploadstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">enum </font>UTMISSFlightDataUploadStatus</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> UTMISSFlightDataUploadStatus</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">The UTMISS flight data upload status.</p>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
+<h5 id="description-v8">Description:</h5>
+<p><font color="#666">The UTMISS flight data upload status.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_idle_inline"></a>IDLE</td><td><font color="#666">The UTMISS flight data upload status is idle.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_uploading_inline"></a>UPLOADING</td><td><font color="#666">The UTMISS flight data upload status is uploading.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_caching_inline"></a>CACHING</td><td><font color="#666">The UTMISS flight data upload status is caching.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_outofdatastoragespace_inline"></a>OUT_OF_DATA_STORAGE_SPACE</td><td><font color="#666">Out of data storage space. No more data can be written.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_unknown_inline"></a>UNKNOWN</td><td><font color="#666">The UTMISS flight data upload status is unknown.</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_idle_inline"></a>IDLE</font></td><td><font color="#666">The UTMISS flight data upload status is idle.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_uploading_inline"></a>UPLOADING</font></td><td><font color="#666">The UTMISS flight data upload status is uploading.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_caching_inline"></a>CACHING</font></td><td><font color="#666">The UTMISS flight data upload status is caching.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_outofdatastoragespace_inline"></a>OUT_OF_DATA_STORAGE_SPACE</font></td><td><font color="#666">Out of data storage space. No more data can be written.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djiutmissflightdatauploadstatus_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The UTMISS flight data upload status is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 </div>
 

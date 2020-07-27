@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Components/Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Components/Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../Components/RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../Components/RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../Components/RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1270,7 +1268,7 @@
                   </dd>
                   <dd><a href="DJIWarningStatusItem.html">WarningStatusItem</a>
                   </dd>
-                  <dd><a data-href="" class="sub-toggle">VideoSizeCalculatorUtil<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                  <dd><a data-href class="sub-toggle">VideoSizeCalculatorUtil<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a href="DJIVideoSizeCalculatorUtil_Interface.html">VideoSizeListener</a>
                             </dd>
@@ -1350,60 +1348,55 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>VideoSizeCalculatorUtil</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>VideoSizeCalculatorUtil</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VideoSizeCalculatorUtil</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.util</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.util</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">Utility class for calculating the appropriate size of the video based on screen type and video type  defined by aircraft's mode and resolution settings</p>
+<p><font color="#666">Utility class for calculating the appropriate size of the video based on screen type and video type  defined by aircraft's mode and resolution settings</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djivideosizecalculatorutil_setlistener"><div class="api-col left">Set Listener</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setlistener_inline">setListener</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setlistener_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setListener</h6></div>
-</blockquote>
+<div class="api-row" id="djivideosizecalculatorutil_setlistener"><div class="api-col left">Set Listener</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setlistener_inline">setListener</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setlistener_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setListener</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setListener</span><span class="params">(VideoSizeListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.util</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.util</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Set a listener of the VideoSizeListener interface.</p>
+<p><font color="#666">Set a listener of the VideoSizeListener interface.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../Utils/DJIVideoSizeCalculatorUtil_Interface.html#djivideosizecalculatorutil_interface">VideoSizeListener</a> <font color="#000">listener</td><td><font color="#666"><i>A listener for the VideoSizeListener interface.</i></td></tr></table></html></div>
-<div class="api-row" id="djivideosizecalculatorutil_setvideotypebysize"><div class="api-col left">Set Video Type By Size</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setvideotypebysize_inline">setVideoTypeBySize</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setvideotypebysize_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setVideoTypeBySize</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../Utils/DJIVideoSizeCalculatorUtil_Interface.html#djivideosizecalculatorutil_interface">VideoSizeListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>A listener for the VideoSizeListener interface.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivideosizecalculatorutil_setvideotypebysize"><div class="api-col left">Set Video Type By Size</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setvideotypebysize_inline">setVideoTypeBySize</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setvideotypebysize_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setVideoTypeBySize</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setVideoTypeBySize</span><span class="params">(<span class="keyword">int</span> videoWidth, <span class="keyword">int</span> videoHeight, <span class="keyword">int</span> cameraIndex)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.util</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.util</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">Set Video type by video size and camera index.</p>
+<p><font color="#666">Set Video type by video size and camera index.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">videoWidth</td><td><font color="#666"><i>Width of the video as received from the DJICodecManager.</i></td></tr><tr valign="top"><td><font color="#70BF41">int <font color="#000">videoHeight</td><td><font color="#666"><i>Height of the video as received from the DJICodecManager.</i></td></tr><tr valign="top"><td><font color="#70BF41">int <font color="#000">cameraIndex</td><td><font color="#666"><i>Index of the camera which is the source of the video.</i></td></tr></table></html></div>
-<div class="api-row" id="djivideosizecalculatorutil_setvideoisrotated"><div class="api-col left">Set Video Is Rotated</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setvideoisrotated_inline">setVideoIsRotated</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setvideoisrotated_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setVideoIsRotated</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">videoWidth</font></font></td><td><font color="#666"><i>Width of the video as received from the DJICodecManager.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">int <font color="#000">videoHeight</font></font></td><td><font color="#666"><i>Height of the video as received from the DJICodecManager.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">int <font color="#000">cameraIndex</font></font></td><td><font color="#666"><i>Index of the camera which is the source of the video.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivideosizecalculatorutil_setvideoisrotated"><div class="api-col left">Set Video Is Rotated</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setvideoisrotated_inline">setVideoIsRotated</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setvideoisrotated_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setVideoIsRotated</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setVideoIsRotated</span><span class="params">(<span class="keyword">boolean</span> isRotated)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.util</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.util</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Set video orientation.</p>
+<p><font color="#666">Set video orientation.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isRotated</td><td><font color="#666"><i><code>true</code> for portrait orientation and False for landscape.</i></td></tr></table></html></div>
-<div class="api-row" id="djivideosizecalculatorutil_setscreentypebysize"><div class="api-col left">Set Screen Type By Size</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setscreentypebysize_inline">setScreenTypeBySize</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setscreentypebysize_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setScreenTypeBySize</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isRotated</font></font></td><td><font color="#666"><i><code>true</code> for portrait orientation and False for landscape.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivideosizecalculatorutil_setscreentypebysize"><div class="api-col left">Set Screen Type By Size</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_setscreentypebysize_inline">setScreenTypeBySize</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_setscreentypebysize_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setScreenTypeBySize</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setScreenTypeBySize</span><span class="params">(<span class="keyword">int</span> viewWidth, <span class="keyword">int</span> viewHeight)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.util</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.util</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Set screen type by screen size using the view width and height.</p>
+<p><font color="#666">Set screen type by screen size using the view width and height.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">viewWidth</td><td><font color="#666"><i>Width of the view in which the video is being displayed.</i></td></tr><tr valign="top"><td><font color="#70BF41">int <font color="#000">viewHeight</td><td><font color="#666"><i>Height of the view in which the video is being displayed.</i></td></tr></table></html></div>
-<div class="api-row" id="djivideosizecalculatorutil_calculatevideosize"><div class="api-col left">Calculate Video Size</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_calculatevideosize_inline">calculateVideoSize</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_calculatevideosize_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>calculateVideoSize</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">viewWidth</font></font></td><td><font color="#666"><i>Width of the view in which the video is being displayed.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">int <font color="#000">viewHeight</font></font></td><td><font color="#666"><i>Height of the view in which the video is being displayed.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivideosizecalculatorutil_calculatevideosize"><div class="api-col left">Calculate Video Size</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivideosizecalculatorutil_calculatevideosize_inline">calculateVideoSize</a></div></div><div class="inline-doc" id="djivideosizecalculatorutil_calculatevideosize_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>calculateVideoSize</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calculateVideoSize</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.util</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.util</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Calculate the video size with the set options.</p>
+<p><font color="#666">Calculate the video size with the set options.</font></p>
 </div>
 <h5 id="related">Related:</h5>
 <div class="api-row" id="djivideosizecalculatorutil_interface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../Utils/DJIVideoSizeCalculatorUtil_Interface.html">VideoSizeListener</a></div></div>

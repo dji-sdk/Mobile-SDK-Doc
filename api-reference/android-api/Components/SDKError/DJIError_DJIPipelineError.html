@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1308,7 +1306,7 @@
                             </dd>
                             <dd><a href="DJIError_DJIWaypointV2Error.html">DJIWaypointV2Error</a>
                             </dd>
-                            <dd><a href="" class="active">PipelineError</a>
+                            <dd><a href class="active">PipelineError</a>
                             </dd>
                             <dd><a href="DJIError_DJISDKError.html">DJISDKError</a>
                             </dd>
@@ -1350,241 +1348,217 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>PipelineError</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>PipelineError</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PipelineError</span> <span class="keyword">extends</span> <span class="title">DJIError</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr><tr valign="top"><td width=15%><font color="#999"><i>Inherits From:</i></td><td width=85%><font color="#999"><code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">Errors related to the <code><a href="../../Components/Pipeline/DJIPipelines.html#djipipelines">Pipelines</a></code>.</p>
+<p><font color="#666">Errors related to the <code><a href="../../Components/Pipeline/DJIPipelines.html#djipipelines">Pipelines</a></code>.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="members">Members</h4>
-<div class="api-row" id="djierror_djipipelineerror_unknown"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_unknown_inline">UNKNOWN</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_unknown_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>UNKNOWN</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_unknown"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_unknown_inline">UNKNOWN</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_unknown_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>UNKNOWN</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError UNKNOWN =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Unknown."</span>, -<span class="number">10001</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Unknown.</p>
+<p><font color="#666">Unknown.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_crccheckfailed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_crccheckfailed_inline">CRC_CHECK_FAILED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_crccheckfailed_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>CRC_CHECK_FAILED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_crccheckfailed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_crccheckfailed_inline">CRC_CHECK_FAILED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_crccheckfailed_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>CRC_CHECK_FAILED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError CRC_CHECK_FAILED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: CRC check failed."</span>, -<span class="number">10002</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">CRC check failed.</p>
+<p><font color="#666">CRC check failed.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_invalidparameters"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_invalidparameters_inline">INVALID_PARAMETERS</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_invalidparameters_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>INVALID_PARAMETERS</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_invalidparameters"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_invalidparameters_inline">INVALID_PARAMETERS</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_invalidparameters_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>INVALID_PARAMETERS</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError INVALID_PARAMETERS =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Invalid Parameters."</span>, -<span class="number">10003</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Invalid Parameters.</p>
+<p><font color="#666">Invalid Parameters.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_notenoughmemory"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_notenoughmemory_inline">NOT_ENOUGH_MEMORY</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_notenoughmemory_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>NOT_ENOUGH_MEMORY</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_notenoughmemory"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_notenoughmemory_inline">NOT_ENOUGH_MEMORY</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_notenoughmemory_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>NOT_ENOUGH_MEMORY</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError NOT_ENOUGH_MEMORY =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Not enough memory."</span>, -<span class="number">10004</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Not enough memory.</p>
+<p><font color="#666">Not enough memory.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_notready"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_notready_inline">NOT_READY</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_notready_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>NOT_READY</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_notready"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_notready_inline">NOT_READY</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_notready_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>NOT_READY</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError NOT_READY =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Usually occurs when allocating the local pipeline ID."</span>, -<span class="number">10005</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Usually occurs when allocating the local pipeline ID.</p>
+<p><font color="#666">Usually occurs when allocating the local pipeline ID.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_sendfailed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_sendfailed_inline">SEND_FAILED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_sendfailed_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>SEND_FAILED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_sendfailed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_sendfailed_inline">SEND_FAILED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_sendfailed_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>SEND_FAILED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError SEND_FAILED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Send data exception."</span>, -<span class="number">10006</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">Send data exception.</p>
+<p><font color="#666">Send data exception.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_receivefailed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_receivefailed_inline">RECEIVE_FAILED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_receivefailed_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>RECEIVE_FAILED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_receivefailed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_receivefailed_inline">RECEIVE_FAILED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_receivefailed_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>RECEIVE_FAILED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError RECEIVE_FAILED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Receiving data exceptions."</span>, -<span class="number">10007</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">Receiving data exceptions.</p>
+<p><font color="#666">Receiving data exceptions.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_timeout"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_timeout_inline">TIMEOUT</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_timeout_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>TIMEOUT</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_timeout"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_timeout_inline">TIMEOUT</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_timeout_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>TIMEOUT</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError TIMEOUT =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Timeout error."</span>, -<span class="number">10008</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
-<p><font color="#666">Timeout error.</p>
+<p><font color="#666">Timeout error.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_busyoperation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_busyoperation_inline">BUSY_OPERATION</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_busyoperation_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>BUSY_OPERATION</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_busyoperation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_busyoperation_inline">BUSY_OPERATION</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_busyoperation_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>BUSY_OPERATION</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError BUSY_OPERATION =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Busy now, please try again later."</span>, -<span class="number">10009</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
-<p><font color="#666">Busy now, please try again later.</p>
+<p><font color="#666">Busy now, please try again later.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_unacceptableoperations"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_unacceptableoperations_inline">UNACCEPTABLE_OPERATIONS</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_unacceptableoperations_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>UNACCEPTABLE_OPERATIONS</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_unacceptableoperations"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_unacceptableoperations_inline">UNACCEPTABLE_OPERATIONS</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_unacceptableoperations_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>UNACCEPTABLE_OPERATIONS</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError UNACCEPTABLE_OPERATIONS =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: TResource occupied, please select another ID connection."</span>, -<span class="number">10010</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
-<p><font color="#666">Resource occupied, please select another ID connection.</p>
+<p><font color="#666">Resource occupied, please select another ID connection.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_connectionclosed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionclosed_inline">CLOSED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionclosed_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>CLOSED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_connectionclosed"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionclosed_inline">CLOSED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionclosed_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>CLOSED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError CLOSED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Connection closed, no need to call again."</span>, -<span class="number">10011</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
-<p><font color="#666">Connection closed, no need to call again.</p>
+<p><font color="#666">Connection closed, no need to call again.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_connectionconnecting"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionconnecting_inline">CONNECTING</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionconnecting_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>CONNECTING</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_connectionconnecting"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionconnecting_inline">CONNECTING</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionconnecting_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>CONNECTING</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError CONNECTING =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Connecting, no need to call again."</span>, -<span class="number">10012</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
-<p><font color="#666">Connecting, no need to call again.</p>
+<p><font color="#666">Connecting, no need to call again.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_resourcesnotavailable"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_resourcesnotavailable_inline">RESOURCES_NOT_AVAILABLE</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_resourcesnotavailable_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>RESOURCES_NOT_AVAILABLE</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_resourcesnotavailable"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_resourcesnotavailable_inline">RESOURCES_NOT_AVAILABLE</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_resourcesnotavailable_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>RESOURCES_NOT_AVAILABLE</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError RESOURCES_NOT_AVAILABLE =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Local resources are ineffective and unavailable. Please recreate."</span>, -<span class="number">10013</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
-<p><font color="#666">Local resources are ineffective and unavailable. Please recreate.</p>
+<p><font color="#666">Local resources are ineffective and unavailable. Please recreate.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_connectionclosing"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionclosing_inline">CLOSING</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionclosing_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>CLOSING</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_connectionclosing"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionclosing_inline">CLOSING</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionclosing_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>CLOSING</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError CLOSING =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Connection closing, no need to call again."</span>, -<span class="number">10014</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
-<p><font color="#666">Connection closing, no need to call again.</p>
+<p><font color="#666">Connection closing, no need to call again.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_notconnected"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_notconnected_inline">NOT_CONNECTED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_notconnected_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>NOT_CONNECTED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_notconnected"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_notconnected_inline">NOT_CONNECTED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_notconnected_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>NOT_CONNECTED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError NOT_CONNECTED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Connection has not established."</span>, -<span class="number">10015</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v16">Description:</h5>
-<p><font color="#666">Connection has not established.</p>
+<p><font color="#666">Connection has not established.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_linkbreak"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_linkbreak_inline">LINK_BREAK</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_linkbreak_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>LINK_BREAK</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_linkbreak"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_linkbreak_inline">LINK_BREAK</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_linkbreak_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>LINK_BREAK</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError LINK_BREAK =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Link broken, please check the connection with the aircraft."</span>, -<span class="number">10016</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v17">Description:</h5>
-<p><font color="#666">Link broken, please check the connection with the aircraft.</p>
+<p><font color="#666">Link broken, please check the connection with the aircraft.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_connectionrefused"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionrefused_inline">CONNECTION_REFUSED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionrefused_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>CONNECTION_REFUSED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_connectionrefused"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_connectionrefused_inline">CONNECTION_REFUSED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_connectionrefused_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>CONNECTION_REFUSED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError CONNECTION_REFUSED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: The target device refuses to connect."</span>, -<span class="number">10017</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v18">Description:</h5>
-<p><font color="#666">The target device refuses to connect.</p>
+<p><font color="#666">The target device refuses to connect.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_idisoccupied"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_idisoccupied_inline">ID_OCCUPIED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_idisoccupied_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>ID_OCCUPIED</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_idisoccupied"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_idisoccupied_inline">ID_OCCUPIED</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_idisoccupied_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>ID_OCCUPIED</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError ID_OCCUPIED =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Duplicated binding is not allowed. Please try to bind with a new ID."</span>, -<span class="number">10018</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v19">Description:</h5>
-<p><font color="#666">Duplicated binding is not allowed. Please try to bind with a new ID.</p>
+<p><font color="#666">Duplicated binding is not allowed. Please try to bind with a new ID.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_internalstatuserror"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_internalstatuserror_inline">INTERNAL_STATUS_ERROR</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_internalstatuserror_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">final </font>INTERNAL_STATUS_ERROR</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_internalstatuserror"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">final</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_internalstatuserror_inline">INTERNAL_STATUS_ERROR</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_internalstatuserror_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">final </font>INTERNAL_STATUS_ERROR</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> PipelineError INTERNAL_STATUS_ERROR =</span><br><span class="line">           <span class="keyword">new</span> PipelineError(<span class="string">"DJIPipelineError: Internal status error. Please recreate the Pipeline object."</span>, -<span class="number">10019</span>)</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v20">Description:</h5>
-<p><font color="#666">Internal status error. Please recreate the Pipeline object.</p>
+<p><font color="#666">Internal status error. Please recreate the Pipeline object.</font></p>
 </div>
-<div class="api-row" id="djierror_djipipelineerror_getdjierror"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_getdjierror_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_getdjierror_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDJIError</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djipipelineerror_getdjierror"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djipipelineerror_getdjierror_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djipipelineerror_getdjierror_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDJIError</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> PipelineError <span class="title">getDJIError</span><span class="params">(<span class="keyword">int</span> code)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.mop.common</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.mop.common</font></td></tr></table></html>
 <h5 id="description-v21">Description:</h5>
-<p><font color="#666">Get the object of <code><a href="../../Components/SDKError/DJIError_DJIPipelineError.html#djierror_djipipelineerror">PipelineError</a></code> error information by error code.</p>
+<p><font color="#666">Get the object of <code><a href="../../Components/SDKError/DJIError_DJIPipelineError.html#djierror_djipipelineerror">PipelineError</a></code> error information by error code.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">code</td><td><font color="#666"><i>An int value of the error code.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">code</font></font></td><td><font color="#666"><i>An int value of the error code.</i></font></td></tr></table></html>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError_DJIPipelineError.html#djierror_djipipelineerror">PipelineError</a></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError_DJIPipelineError.html#djierror_djipipelineerror">PipelineError</a></code>.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError_DJIPipelineError.html#djierror_djipipelineerror">PipelineError</a></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError_DJIPipelineError.html#djierror_djipipelineerror">PipelineError</a></code>.</i></font></td></tr></table></html></div>
 <h5 id="inherited-methods">Inherited Methods:</h5>
-<div class="api-row" id="djierror_djisdkflighthuberrorforcode"><div class="api-col left">dji.common.error.DJIError</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djisdkflighthuberrorforcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djisdkflighthuberrorforcode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDJIError</h6></div>
-</blockquote>
+<div class="api-row" id="djierror_djisdkflighthuberrorforcode"><div class="api-col left">dji.common.error.DJIError</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djisdkflighthuberrorforcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djisdkflighthuberrorforcode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDJIError</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> DJIError <span class="title">getDJIError</span><span class="params">(<span class="keyword">int</span> errorCode)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr></table></html>
 <h5 id="description-v22">Description:</h5>
-<p><font color="#666">Returns the specific error in the <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code> according to the error code.</p>
+<p><font color="#666">Returns the specific error in the <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code> according to the error code.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</td><td><font color="#666"><i>errorCode for <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code>.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</font></font></td><td><font color="#666"><i>errorCode for <code><a href="../../Components/SDKError/DJIError_DJISDKFlightHubError.html#djierror_djisdkflighthuberror">DJIFlightHubError</a></code>.</i></font></td></tr></table></html>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></td><td><font color="#666"><i>An NSError object initialized with errorCode. If the errorCode was 0, returns nil.</i></td></tr></table></html></div>
-<div class="api-row" id="djierror_djiutmisserrorforcodewitherrorcode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djiutmisserrorforcodewitherrorcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djiutmisserrorforcodewitherrorcode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDJIError</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i>An NSError object initialized with errorCode. If the errorCode was 0, returns nil.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djierror_djiutmisserrorforcodewitherrorcode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_djiutmisserrorforcodewitherrorcode_inline">getDJIError</a></div></div><div class="inline-doc" id="djierror_djiutmisserrorforcodewitherrorcode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDJIError</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> DJIError <span class="title">getDJIError</span><span class="params">(<span class="keyword">int</span> errorCode)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.utmiss</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.utmiss</font></td></tr></table></html>
 <h5 id="description-v23">Description:</h5>
-<p><font color="#666">Get DJIUTMISSError.</p>
+<p><font color="#666">Get DJIUTMISSError.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</td><td><font color="#666"><i>An int value of error code.</i></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">errorCode</font></font></td><td><font color="#666"><i>An int value of error code.</i></font></td></tr></table></html>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djierror_getdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_getdescription_inline">getDescription</a></div></div><div class="inline-doc" id="djierror_getdescription_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDescription</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">static <a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></font></td><td><font color="#666"><i>An object of <code><a href="../../Components/SDKError/DJIError.html#djierror">DJIError</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djierror_getdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_getdescription_inline">getDescription</a></div></div><div class="inline-doc" id="djierror_getdescription_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDescription</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getDescription</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr></table></html>
 <h5 id="description-v24">Description:</h5>
-<p><font color="#666">Returns the description of the error code.</p>
+<p><font color="#666">Returns the description of the error code.</font></p>
 <h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>The description of the error code.</i></td></tr></table></html></div>
-<div class="api-row" id="djierror_setdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_setdescription_inline">setDescription</a></div></div><div class="inline-doc" id="djierror_setdescription_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setDescription</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>The description of the error code.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djierror_setdescription"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djierror_setdescription_inline">setDescription</a></div></div><div class="inline-doc" id="djierror_setdescription_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setDescription</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setDescription</span><span class="params">(String desc)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.error</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.error</font></td></tr></table></html>
 <h5 id="description-v25">Description:</h5>
-<p><font color="#666">Sets the description for the error code.</p>
+<p><font color="#666">Sets the description for the error code.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">desc</td><td><font color="#666"><i>Description string.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">desc</font></font></td><td><font color="#666"><i>Description string.</i></font></td></tr></table></html></div>
 
         </div>
       </div>

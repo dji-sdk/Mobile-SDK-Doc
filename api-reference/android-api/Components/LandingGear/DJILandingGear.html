@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -240,6 +236,8 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
+                            </dd>
                     </ul>
                   </dd>
           </dl>
@@ -344,7 +342,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a href="" class="active">LandingGear</a>
+                            <dd><a href class="active">LandingGear</a>
                             </dd>
                             <dd><a data-href="../IntelligentFlightAssistant/DJIIntelligentFlightAssistant.html" class="sub-toggle">FlightAssistant<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,115 +1348,105 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>LandingGear</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>LandingGear</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LandingGear</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class controls and gives state of the landing gear. Please check <code><a href="../../Components/FlightController/DJIFlightController.html#djiflightcontroller_islandinggearmovable">isLandingGearMovable</a></code> before calling the methods in this class.</p>
+<p><font color="#666">This class controls and gives state of the landing gear. Please check <code><a href="../../Components/FlightController/DJIFlightController.html#djiflightcontroller_islandinggearmovable">isLandingGearMovable</a></code> before calling the methods in this class.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djilandinggear_status"><div class="api-col left">State</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_status_inline">getState</a></div></div><div class="inline-doc" id="djilandinggear_status_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getState</h6></div>
-</blockquote>
+<div class="api-row" id="djilandinggear_status"><div class="api-col left">State</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_status_inline">getState</a></div></div><div class="inline-doc" id="djilandinggear_status_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getState</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LandingGearState <span class="title">getState</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_status_key">FlightControllerKey.LANDING_GEAR_STATUS</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_status_key">FlightControllerKey.LANDING_GEAR_STATUS</a></font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">The current state/position of the landing gear.</p>
+<p><font color="#666">The current state/position of the landing gear.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearstatus">LandingGearState</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearstatus">LandingGearState</a></code></i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_mode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_mode_inline">getMode</a></div></div><div class="inline-doc" id="djilandinggear_mode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getMode</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearstatus">LandingGearState</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearstatus">LandingGearState</a></code></i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_mode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_mode_inline">getMode</a></div></div><div class="inline-doc" id="djilandinggear_mode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getMode</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LandingGearMode <span class="title">getMode</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_mode_key">FlightControllerKey.LANDING_GEAR_MODE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_mode_key">FlightControllerKey.LANDING_GEAR_MODE</a></font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">The current mode of the landing gear.</p>
+<p><font color="#666">The current mode of the landing gear.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode">LandingGearMode</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode">LandingGearMode</a></code></i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_setautomaticmovementenabled"><div class="api-col left">Automatic Movement Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_setautomaticmovementenabled_inline">setAutomaticMovementEnabled</a></div></div><div class="inline-doc" id="djilandinggear_setautomaticmovementenabled_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setAutomaticMovementEnabled</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode">LandingGearMode</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode">LandingGearMode</a></code></i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_setautomaticmovementenabled"><div class="api-col left">Automatic Movement Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_setautomaticmovementenabled_inline">setAutomaticMovementEnabled</a></div></div><div class="inline-doc" id="djilandinggear_setautomaticmovementenabled_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setAutomaticMovementEnabled</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAutomaticMovementEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled, @Nullable <span class="keyword">final</span> CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_automatic_movement_enabled_key">FlightControllerKey.LANDING_GEAR_AUTOMATIC_MOVEMENT_ENABLED</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_automatic_movement_enabled_key">FlightControllerKey.LANDING_GEAR_AUTOMATIC_MOVEMENT_ENABLED</a></font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Turns on/off self-adaptive landing gear. When turned on, landing gear will automatically lower  when aircraft is 0.5m above the ground. After take-off, landing gear will automatically rise when  aircraft reaches 0.5m above the ground. If self-adaptive landing gear is turned off, aircraft  will not automatically raise or lower its landing gear.</p>
+<p><font color="#666">Turns on/off self-adaptive landing gear. When turned on, landing gear will automatically lower  when aircraft is 0.5m above the ground. After take-off, landing gear will automatically rise when  aircraft reaches 0.5m above the ground. If self-adaptive landing gear is turned off, aircraft  will not automatically raise or lower its landing gear.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">enabled</td><td><font color="#666"><i>YES if automatic movement is enabled.</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Asynchronous execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_getautomaticmovementenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_getautomaticmovementenabled_inline">getAutomaticMovementEnabled</a></div></div><div class="inline-doc" id="djilandinggear_getautomaticmovementenabled_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getAutomaticMovementEnabled</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">enabled</font></font></td><td><font color="#666"><i>YES if automatic movement is enabled.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Asynchronous execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_getautomaticmovementenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_getautomaticmovementenabled_inline">getAutomaticMovementEnabled</a></div></div><div class="inline-doc" id="djilandinggear_getautomaticmovementenabled_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getAutomaticMovementEnabled</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getAutomaticMovementEnabled</span><span class="params">(@NonNull CompletionCallbackWith&lt;Boolean&gt; callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_automatic_movement_enabled_key">FlightControllerKey.LANDING_GEAR_AUTOMATIC_MOVEMENT_ENABLED</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_automatic_movement_enabled_key">FlightControllerKey.LANDING_GEAR_AUTOMATIC_MOVEMENT_ENABLED</a></font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">Gets self-adaptive landing gear state (on/off). When turned on, landing gear will automatically lower  when aircraft is 0.5m above the ground. After take-off, landing gear will automatically rise when  aircraft reaches 0.5m above the ground. If self-adaptive landing gear is turned off, aircraft  will not automatically raise or lower its landing gear.</p>
+<p><font color="#666">Gets self-adaptive landing gear state (on/off). When turned on, landing gear will automatically lower  when aircraft is 0.5m above the ground. After take-off, landing gear will automatically rise when  aircraft reaches 0.5m above the ground. If self-adaptive landing gear is turned off, aircraft  will not automatically raise or lower its landing gear.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull CompletionCallbackWith&lt;Boolean&gt; <font color="#000">callback</td><td><font color="#666"><i>Completion callback that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_entertransportmode"><div class="api-col left">Transport Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_entertransportmode_inline">enterTransportMode</a></div></div><div class="inline-doc" id="djilandinggear_entertransportmode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>enterTransportMode</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull CompletionCallbackWith&lt;Boolean&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion callback that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_entertransportmode"><div class="api-col left">Transport Mode</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_entertransportmode_inline">enterTransportMode</a></div></div><div class="inline-doc" id="djilandinggear_entertransportmode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>enterTransportMode</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enterTransportMode</span><span class="params">(@Nullable <span class="keyword">final</span> CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_enter_transport_mode_key">FlightControllerKey.ENTER_TRANSPORT_MODE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_enter_transport_mode_key">FlightControllerKey.ENTER_TRANSPORT_MODE</a></font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Enters transport mode, moving the landing gear to its optimal position for transportation. Note that if the gimbal is not removed, or the ground is not  flat, entering transport mode will fail.</p>
+<p><font color="#666">Enters transport mode, moving the landing gear to its optimal position for transportation. Note that if the gimbal is not removed, or the ground is not  flat, entering transport mode will fail.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The execution callback with the execution result returned.</i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_exittransportmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_exittransportmode_inline">exitTransportMode</a></div></div><div class="inline-doc" id="djilandinggear_exittransportmode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>exitTransportMode</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the execution result returned.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_exittransportmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_exittransportmode_inline">exitTransportMode</a></div></div><div class="inline-doc" id="djilandinggear_exittransportmode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>exitTransportMode</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exitTransportMode</span><span class="params">(@Nullable CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_exit_transport_mode_key">FlightControllerKey.EXIT_TRANSPORT_MODE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_exit_transport_mode_key">FlightControllerKey.EXIT_TRANSPORT_MODE</a></font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">Exits transport mode. Note that if the ground is not flat, exit transport mode will fail.</p>
+<p><font color="#666">Exits transport mode. Note that if the ground is not flat, exit transport mode will fail.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The execution callback with the execution result returned.</i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_retractlandinggear"><div class="api-col left">Retract/Deploy Landing Gear</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_retractlandinggear_inline">retract</a></div></div><div class="inline-doc" id="djilandinggear_retractlandinggear_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>retract</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the execution result returned.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_retractlandinggear"><div class="api-col left">Retract/Deploy Landing Gear</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_retractlandinggear_inline">retract</a></div></div><div class="inline-doc" id="djilandinggear_retractlandinggear_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>retract</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">retract</span><span class="params">(@Nullable CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_retract_landing_gear_key">FlightControllerKey.RETRACT_LANDING_GEAR</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_retract_landing_gear_key">FlightControllerKey.RETRACT_LANDING_GEAR</a></font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">Retracts the landing gear. Should only be used when <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_mode">getMode</a></code>  is <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode_normal">MANUAL</a></code>. For Matrice 600 and Matrice 600 Pro, landing gear  cannot be controlled through the SDK, only automatically by the aircraft or manually by the remote controller.</p>
+<p><font color="#666">Retracts the landing gear. Should only be used when <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_mode">getMode</a></code>  is <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode_normal">MANUAL</a></code>. For Matrice 600 and Matrice 600 Pro, landing gear  cannot be controlled through the SDK, only automatically by the aircraft or manually by the remote controller.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The execution callback with the execution result returned.</i></td></tr></table></html></div>
-<div class="api-row" id="djilandinggear_deploylandinggear"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_deploylandinggear_inline">deploy</a></div></div><div class="inline-doc" id="djilandinggear_deploylandinggear_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>deploy</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the execution result returned.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djilandinggear_deploylandinggear"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djilandinggear_deploylandinggear_inline">deploy</a></div></div><div class="inline-doc" id="djilandinggear_deploylandinggear_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>deploy</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deploy</span><span class="params">(@Nullable <span class="keyword">final</span> CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_deploy_landing_gear_key">FlightControllerKey.DEPLOY_LANDING_GEAR</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_deploy_landing_gear_key">FlightControllerKey.DEPLOY_LANDING_GEAR</a></font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
-<p><font color="#666">Deploys landing gear. Should only be used when <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_mode">getMode</a></code>  is <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode_normal">MANUAL</a></code>. For Matrice 600 and Matrice 600 Pro, the landing gear cannot  be controlled through the SDK, only automatically by the aircraft or manually by the remote controller.</p>
+<p><font color="#666">Deploys landing gear. Should only be used when <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_mode">getMode</a></code>  is <code><a href="../../Components/LandingGear/DJILandingGear.html#djilandinggear_djilandinggearmode_normal">MANUAL</a></code>. For Matrice 600 and Matrice 600 Pro, the landing gear cannot  be controlled through the SDK, only automatically by the aircraft or manually by the remote controller.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The execution callback with the execution result returned.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable final CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the execution result returned.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djilandinggear_djilandinggearstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djilandinggear_djilandinggearstatus_inline">LandingGearState</a></div></div><div class="inline-doc" id="djilandinggear_djilandinggearstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">enum </font>LandingGearState</h6></div>
-</blockquote>
+<div class="api-row" id="djilandinggear_djilandinggearstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djilandinggear_djilandinggearstatus_inline">LandingGearState</a></div></div><div class="inline-doc" id="djilandinggear_djilandinggearstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">enum </font>LandingGearState</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="keyword">enum</span> LandingGearState</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_status_key">FlightControllerKey.LANDING_GEAR_STATUS</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_status_key">FlightControllerKey.LANDING_GEAR_STATUS</a></font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
-<p><font color="#666">Current state of landing gear.</p>
+<p><font color="#666">Current state of landing gear.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_unknown_inline"></a>UNKNOWN</td><td><font color="#666">Landing gear is in unknown state. This will be returned if the aircraft can't get the landing gear status.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_deployed_inline"></a>DEPLOYED</td><td><font color="#666">Landing gear is fully deployed (ready for landing)</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_retracted_inline"></a>RETRACTED</td><td><font color="#666">Landing gear is fully retracted (ready for flying).</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_deploying_inline"></a>DEPLOYING</td><td><font color="#666">Landing gear is deploying (getting ready for landing).</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_retracting_inline"></a>RETRACTING</td><td><font color="#666">Landing gear is retracting (getting ready for flying).</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_stopped_inline"></a>STOPPED</td><td><font color="#666">Landing gear is stopped.</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Landing gear is in unknown state. This will be returned if the aircraft can't get the landing gear status.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_deployed_inline"></a>DEPLOYED</font></td><td><font color="#666">Landing gear is fully deployed (ready for landing)</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_retracted_inline"></a>RETRACTED</font></td><td><font color="#666">Landing gear is fully retracted (ready for flying).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_deploying_inline"></a>DEPLOYING</font></td><td><font color="#666">Landing gear is deploying (getting ready for landing).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_retracting_inline"></a>RETRACTING</font></td><td><font color="#666">Landing gear is retracting (getting ready for flying).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearstatus_stopped_inline"></a>STOPPED</font></td><td><font color="#666">Landing gear is stopped.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 </div>
-<div class="api-row" id="djilandinggear_djilandinggearmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djilandinggear_djilandinggearmode_inline">LandingGearMode</a></div></div><div class="inline-doc" id="djilandinggear_djilandinggearmode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">enum </font>LandingGearMode</h6></div>
-</blockquote>
+<div class="api-row" id="djilandinggear_djilandinggearmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djilandinggear_djilandinggearmode_inline">LandingGearMode</a></div></div><div class="inline-doc" id="djilandinggear_djilandinggearmode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">enum </font>LandingGearMode</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="keyword">enum</span> LandingGearMode</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_mode_key">FlightControllerKey.LANDING_GEAR_MODE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_gear_mode_key">FlightControllerKey.LANDING_GEAR_MODE</a></font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
-<p><font color="#666">Current Mode of the landing gear.</p>
+<p><font color="#666">Current Mode of the landing gear.</font></p>
 <h5 id="enum-members-v2">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_normal_inline"></a>MANUAL</td><td><font color="#666">Landing gear can be deployed and retracted through function calls.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_transport_inline"></a>TRANSPORT</td><td><font color="#666">Landing gear is in transport mode (either it is moving into, moving out of, or stopped in transport position).</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_auto_inline"></a>AUTO</td><td><font color="#666">Landing gear automatically transitions between deployed and retracted depending on altitude. During take-off,  the transition point is 1.2m above ground. After take-off (during flight or when landing), the transition point  is 0.5m above ground.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_unknown_inline"></a>UNKNOWN</td><td><font color="#666">Landing Gear is in an unknown mode.</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_normal_inline"></a>MANUAL</font></td><td><font color="#666">Landing gear can be deployed and retracted through function calls.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_transport_inline"></a>TRANSPORT</font></td><td><font color="#666">Landing gear is in transport mode (either it is moving into, moving out of, or stopped in transport position).</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_auto_inline"></a>AUTO</font></td><td><font color="#666">Landing gear automatically transitions between deployed and retracted depending on altitude. During take-off,  the transition point is 1.2m above ground. After take-off (during flight or when landing), the transition point  is 0.5m above ground.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djilandinggear_djilandinggearmode_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Landing Gear is in an unknown mode.</font></td></tr></table></html>
 <h5 id="class-members-v3">Class Members:</h5>
 </div>
 

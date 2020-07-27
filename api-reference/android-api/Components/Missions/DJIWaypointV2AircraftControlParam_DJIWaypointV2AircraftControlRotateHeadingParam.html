@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1086,7 +1084,7 @@
                                                                     </dd>
                                                             </ul>
                                                           </dd>
-                                                          <dd><a data-href="" class="sub-toggle">WaypointAircraftControlRotateYawParam<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                                          <dd><a data-href class="sub-toggle">WaypointAircraftControlRotateYawParam<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                                                             <ul class="sub-menu">
                                                                     <dd><a href="DJIWaypointV2AircraftControlParam_DJIWaypointV2AircraftControlRotateHeadingParam_Builder.html">Builder</a>
                                                                     </dd>
@@ -1350,42 +1348,39 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>WaypointAircraftControlRotateYawParam</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>WaypointAircraftControlRotateYawParam</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaypointAircraftControlRotateYawParam</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.mission.waypointv2.Action</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.waypointv2.Action</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class defines how the aircraft rotates on the yaw axis.</p>
+<p><font color="#666">This class defines how the aircraft rotates on the yaw axis.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_isrelative"><div class="api-col left">Check Relative</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_isrelative_inline">isRelative</a></div></div><div class="inline-doc" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_isrelative_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isRelative</h6></div>
-</blockquote>
+<div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_isrelative"><div class="api-col left">Check Relative</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_isrelative_inline">isRelative</a></div></div><div class="inline-doc" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_isrelative_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isRelative</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isRelative</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.mission.waypointv2.Action</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.waypointv2.Action</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Determines the aircraft rotate heading relative. If <code>true</code>, when the aircraft is rotating, relative to the current angle.</p>
+<p><font color="#666">Determines the aircraft rotate heading relative. If <code>true</code>, when the aircraft is rotating, relative to the current angle.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value to check aircraft rotate heading relative.</i></td></tr></table></html></div>
-<div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_direction"><div class="api-col left">Direction</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_direction_inline">getDirection</a></div></div><div class="inline-doc" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_direction_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDirection</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value to check aircraft rotate heading relative.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_direction"><div class="api-col left">Direction</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_direction_inline">getDirection</a></div></div><div class="inline-doc" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_direction_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDirection</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">WaypointV2MissionTypes.<span class="function">WaypointV2TurnMode <span class="title">getDirection</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.mission.waypointv2.Action</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.waypointv2.Action</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">Determines the direction how aircraft changes its heading.</p>
+<p><font color="#666">Determines the direction how aircraft changes its heading.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">WaypointV2MissionTypes.<a href="../../Components/Missions/DJIWaypointV2.html#djiwaypointv2_djiwaypointv2turnmode">WaypointV2TurnMode</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Missions/DJIWaypointV2.html#djiwaypointv2_djiwaypointv2turnmode">WaypointV2TurnMode</a></code>.</i></td></tr></table></html></div>
-<div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_heading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_heading_inline">getYawAngle</a></div></div><div class="inline-doc" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_heading_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getYawAngle</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">WaypointV2MissionTypes.<a href="../../Components/Missions/DJIWaypointV2.html#djiwaypointv2_djiwaypointv2turnmode">WaypointV2TurnMode</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/Missions/DJIWaypointV2.html#djiwaypointv2_djiwaypointv2turnmode">WaypointV2TurnMode</a></code>.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_heading"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_heading_inline">getYawAngle</a></div></div><div class="inline-doc" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_heading_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getYawAngle</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">getYawAngle</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.mission.waypointv2.Action</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.mission.waypointv2.Action</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">The heading in degrees to which the aircraft will rotate control by action. If isRelative is <code>true</code> A heading has a range of [-180, 180]  degrees, where 0 represents True North.</p>
+<p><font color="#666">The heading in degrees to which the aircraft will rotate control by action. If isRelative is <code>true</code> A heading has a range of [-180, 180]  degrees, where 0 represents True North.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</td><td><font color="#666"><i>A float value of yaw angle.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value of yaw angle.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
 <div class="api-row" id="djiwaypointv2aircraftcontrolparam_djiwaypointv2aircraftcontrolrotateheadingparam_builder"><div class="api-col left">Make Waypoint V2 Aircraft Control Rotate Heading Param</div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/Missions/DJIWaypointV2AircraftControlParam_DJIWaypointV2AircraftControlRotateHeadingParam_Builder.html">Builder</a></div></div>
 

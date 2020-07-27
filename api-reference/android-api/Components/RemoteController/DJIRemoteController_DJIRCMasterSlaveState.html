@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -782,7 +780,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="" class="sub-toggle">MasterSlaveState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href class="sub-toggle">MasterSlaveState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="DJIRemoteController_didUpdateMasterSlaveStateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,72 +1348,66 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>MasterSlaveState</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>MasterSlaveState</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">MasterSlaveState</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_master_slave_state_key">RemoteControllerKey.MASTER_SLAVE_STATE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_master_slave_state_key">RemoteControllerKey.MASTER_SLAVE_STATE</a></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">State of the remote controller related to the master and slave mode.</p>
+<p><font color="#666">State of the remote controller related to the master and slave mode.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djiremotecontroller_djircmasterslavestate_mode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_mode_inline">getRcMode</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_mode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getRcMode</h6></div>
-</blockquote>
+<div class="api-row" id="djiremotecontroller_djircmasterslavestate_mode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_mode_inline">getRcMode</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_mode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getRcMode</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">RCMode <span class="title">getRcMode</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">The master/slave mode of the remote controller.</p>
+<p><font color="#666">The master/slave mode of the remote controller.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djiremotecontrollermode">RCMode</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djiremotecontrollermode">RCMode</a></code></i></td></tr></table></html></div>
-<div class="api-row" id="djiremotecontroller_djircmasterslavestate_isconnected"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_isconnected_inline">isConnected</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_isconnected_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isConnected</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djiremotecontrollermode">RCMode</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_djiremotecontrollermode">RCMode</a></code></i></font></td></tr></table></html></div>
+<div class="api-row" id="djiremotecontroller_djircmasterslavestate_isconnected"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_isconnected_inline">isConnected</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_isconnected_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isConnected</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666"><code>true</code> if a slave remote controller joins a master remote controller.</p>
+<p><font color="#666"><code>true</code> if a slave remote controller joins a master remote controller.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djiremotecontroller_djircmasterslavestate_masterid"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_masterid_inline">getMasterId</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_masterid_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getMasterId</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiremotecontroller_djircmasterslavestate_masterid"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_masterid_inline">getMasterId</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_masterid_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getMasterId</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getMasterId</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">ID of the master remote controller.</p>
+<p><font color="#666">ID of the master remote controller.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>An instance of String.</i></td></tr></table></html></div>
-<div class="api-row" id="djiremotecontroller_djircmasterslavestate_slaveid"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_slaveid_inline">getSlaveId</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_slaveid_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getSlaveId</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>An instance of String.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiremotecontroller_djircmasterslavestate_slaveid"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_slaveid_inline">getSlaveId</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_slaveid_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getSlaveId</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getSlaveId</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">ID of the slave remote controller.</p>
+<p><font color="#666">ID of the slave remote controller.</font></p>
 <h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>An instance of String.</i></td></tr></table></html></div>
-<div class="api-row" id="djiremotecontroller_djircmasterslavestate_authorizationcode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_authorizationcode_inline">getAuthorizationCode</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_authorizationcode_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getAuthorizationCode</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>An instance of String.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiremotecontroller_djircmasterslavestate_authorizationcode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_authorizationcode_inline">getAuthorizationCode</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_authorizationcode_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getAuthorizationCode</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getAuthorizationCode</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_master_slave_state_key">RemoteControllerKey.MASTER_SLAVE_STATE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIRemoteControllerKey.html#remotecontrollerkey_master_slave_state_key">RemoteControllerKey.MASTER_SLAVE_STATE</a></font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Authorization code of the master remote controller that is a 6 element string of numbers.</p>
+<p><font color="#666">Authorization code of the master remote controller that is a 6 element string of numbers.</font></p>
 <h5 id="return-v5">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>An instance of String.</i></td></tr></table></html></div>
-<div class="api-row" id="djiremotecontroller_djircmasterslavestate_hasgimbalcontrol"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_hasgimbalcontrol_inline">hasGimbalControl</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_hasgimbalcontrol_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>hasGimbalControl</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>An instance of String.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiremotecontroller_djircmasterslavestate_hasgimbalcontrol"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiremotecontroller_djircmasterslavestate_hasgimbalcontrol_inline">hasGimbalControl</a></div></div><div class="inline-doc" id="djiremotecontroller_djircmasterslavestate_hasgimbalcontrol_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>hasGimbalControl</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasGimbalControl</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.remotecontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.remotecontroller</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666"><code>true</code> if the remote controller has gimbal control.  Call <code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_requestgimbalcontrol">requestGimbalControl</a></code> to attain the gimbal control.</p>
+<p><font color="#666"><code>true</code> if the remote controller has gimbal control.  Call <code><a href="../../Components/RemoteController/DJIRemoteController.html#djiremotecontroller_requestgimbalcontrol">requestGimbalControl</a></code> to attain the gimbal control.</font></p>
 <h5 id="return-v6">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i><code>true</code> if the remote controller has gimbal control.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code> if the remote controller has gimbal control.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
 <div class="api-row" id="djiremotecontroller_didupdatemasterslavestatecallbackinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/RemoteController/DJIRemoteController_didUpdateMasterSlaveStateCallbackInterface.html">Callback</a></div></div>
 

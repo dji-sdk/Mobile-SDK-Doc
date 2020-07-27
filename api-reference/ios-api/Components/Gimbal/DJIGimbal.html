@@ -222,6 +222,8 @@
                             </dd>
                             <dd><a href="../FlightController/DJIFlightController_DJIGravityCenterState.html">DJIGravityCenterState</a>
                             </dd>
+                            <dd><a href="../FlightController/DJIFlightController_DJIWarningStatusItem.html">DJIWarningStatusItem</a>
+                            </dd>
                             <dd><a data-href="../Compass/DJICompass.html" class="sub-toggle">DJICompass<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../Compass/DJICompass_DJICompassState.html">DJICompassState</a>
@@ -779,7 +781,7 @@
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setMode:(DJIGimbalMode)mode</span><br><span class="line"> withCompletion:(DJICompletionBlock)completion</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIGimbal.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIGimbalKey.html#djigimbalkey_djigimbalparammode_key">DJIGimbalKey.DJIGimbalParamMode</a></font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Sets the gimbal's work mode. See enum <code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">DJIGimbalMode</a></code> for modes.</font></p>
+<p><font color="#666">Sets the gimbal's work mode. See enum <code><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">DJIGimbalMode</a></code> for modes. Not supported by Mavic Mini.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/Gimbal/DJIGimbal.html#djigimbal_workmode">DJIGimbalMode</a> <font color="#000">mode</font></font></td><td><font color="#666"><i>Gimbal work mode to be set.</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../BaseClasses/DJIBaseProduct.html#djibaseproduct_completionblock">DJICompletionBlock</a> <font color="#000">completion</font></font></td><td><font color="#666"><i>Remote execution result error block.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djigimbal_resetgimbal"><div class="api-col left">Reset Gimbal</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djigimbal_resetgimbal_inline">resetWithCompletion</a></div></div><div class="inline-doc" id="djigimbal_resetgimbal_inline" <blockquote>

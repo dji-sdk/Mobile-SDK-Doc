@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -240,6 +236,8 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
+                            </dd>
                     </ul>
                   </dd>
           </dl>
@@ -362,7 +360,7 @@
                                                 </dd>
                                         </ul>
                                       </dd>
-                                      <dd><a data-href="" class="sub-toggle">VisionControlState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                      <dd><a data-href class="sub-toggle">VisionControlState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                                         <ul class="sub-menu">
                                                 <dd><a href="DJIIntelligentFlightAssistant_UpdateVisionControlStateCallbackInterface.html">Callback</a>
                                                 </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,85 +1348,78 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>VisionControlState</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>VisionControlState</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">VisionControlState</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class gives the aircraft's state, which is controlled by the intelligent flight assistant.</p>
+<p><font color="#666">This class gives the aircraft's state, which is controlled by the intelligent flight assistant.</font></p>
 <h5 id="class-members">Class Members:</h5>
 <h4 id="state-updates">State Updates</h4>
-<div class="api-row" id="djiintelligentflightassistant_updatevisioncontrolstatecallbackinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IntelligentFlightAssistant/DJIIntelligentFlightAssistant_UpdateVisionControlStateCallbackInterface.html">Callback</a></div></div><div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isbraking"><div class="api-col left">Collision Avoidance</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isbraking_inline">isBraking</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isbraking_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isBraking</h6></div>
-</blockquote>
+<div class="api-row" id="djiintelligentflightassistant_updatevisioncontrolstatecallbackinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IntelligentFlightAssistant/DJIIntelligentFlightAssistant_UpdateVisionControlStateCallbackInterface.html">Callback</a></div></div><div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isbraking"><div class="api-col left">Collision Avoidance</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isbraking_inline">isBraking</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isbraking_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isBraking</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isBraking</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_braking_key">FlightControllerKey.IS_BRAKING</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_braking_key">FlightControllerKey.IS_BRAKING</a></font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666"><code>true</code> if the aircraft is braking automatically to avoid collision.</p>
+<p><font color="#666"><code>true</code> if the aircraft is braking automatically to avoid collision.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isavoidingactiveobstaclecollision"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isavoidingactiveobstaclecollision_inline">isAvoidingActiveObstacleCollision</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isavoidingactiveobstaclecollision_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isAvoidingActiveObstacleCollision</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isavoidingactiveobstaclecollision"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isavoidingactiveobstaclecollision_inline">isAvoidingActiveObstacleCollision</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isavoidingactiveobstaclecollision_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isAvoidingActiveObstacleCollision</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isAvoidingActiveObstacleCollision</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_avoiding_active_obstacle_collision_key">FlightControllerKey.IS_AVOIDING_ACTIVE_OBSTACLE_COLLISION</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_avoiding_active_obstacle_collision_key">FlightControllerKey.IS_AVOIDING_ACTIVE_OBSTACLE_COLLISION</a></font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666"><code>true</code> if the aircraft is avoiding collision from an obstacle moving towards the aircraft.</p>
+<p><font color="#666"><code>true</code> if the aircraft is avoiding collision from an obstacle moving towards the aircraft.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isascentlimitedbyobstacle"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isascentlimitedbyobstacle_inline">isAscentLimitedByObstacle</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isascentlimitedbyobstacle_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isAscentLimitedByObstacle</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isascentlimitedbyobstacle"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isascentlimitedbyobstacle_inline">isAscentLimitedByObstacle</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isascentlimitedbyobstacle_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isAscentLimitedByObstacle</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isAscentLimitedByObstacle</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_ascent_limited_by_obstacle_key">FlightControllerKey.IS_ASCENT_LIMITED_BY_OBSTACLE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_ascent_limited_by_obstacle_key">FlightControllerKey.IS_ASCENT_LIMITED_BY_OBSTACLE</a></font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">YES if the aircraft will not ascend further because of an obstacle detected within 1m above it.</p>
+<p><font color="#666">YES if the aircraft will not ascend further because of an obstacle detected within 1m above it.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isperformingprecisionlanding"><div class="api-col left">Precision Landing</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isperformingprecisionlanding_inline">isPerformingPrecisionLanding</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isperformingprecisionlanding_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isPerformingPrecisionLanding</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isperformingprecisionlanding"><div class="api-col left">Precision Landing</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isperformingprecisionlanding_inline">isPerformingPrecisionLanding</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isperformingprecisionlanding_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isPerformingPrecisionLanding</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isPerformingPrecisionLanding</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_performing_precision_landing_key">FlightControllerKey.IS_PERFORMING_PRECISION_LANDING</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_is_performing_precision_landing_key">FlightControllerKey.IS_PERFORMING_PRECISION_LANDING</a></font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">YES if the aircraft is landing precisely.</p>
+<p><font color="#666">YES if the aircraft is landing precisely.</font></p>
 <h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
-<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_landingprotectionstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_landingprotectionstatus_inline">landingProtectionState</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_landingprotectionstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>landingProtectionState</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_landingprotectionstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_landingprotectionstatus_inline">landingProtectionState</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_landingprotectionstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>landingProtectionState</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">VisionLandingProtectionState <span class="title">landingProtectionState</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_protection_state_key">FlightControllerKey.LANDING_PROTECTION_STATE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_protection_state_key">FlightControllerKey.LANDING_PROTECTION_STATE</a></font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Gets the aircraft's landing protection state. This status is valid when landing protection is enabled.</p>
+<p><font color="#666">Gets the aircraft's landing protection state. This status is valid when landing protection is enabled.</font></p>
 <h5 id="return-v5">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus">VisionLandingProtectionState</a></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus">VisionLandingProtectionState</a></code>,  which will show the state of landing protection.</i></td></tr></table></html></div>
-<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isadvancedpilotassistancesystemactive"><div class="api-col left">APAS</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isadvancedpilotassistancesystemactive_inline">isAdvancedPilotAssistanceSystemActive</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isadvancedpilotassistancesystemactive_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>isAdvancedPilotAssistanceSystemActive</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus">VisionLandingProtectionState</a></font></td><td><font color="#666"><i>An enum value of <code><a href="../../Components/IntelligentFlightAssistant/DJIVisionDetectionState_DJIVisionControlState.html#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus">VisionLandingProtectionState</a></code>,  which will show the state of landing protection.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_isadvancedpilotassistancesystemactive"><div class="api-col left">APAS</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_isadvancedpilotassistancesystemactive_inline">isAdvancedPilotAssistanceSystemActive</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_isadvancedpilotassistancesystemactive_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>isAdvancedPilotAssistanceSystemActive</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isAdvancedPilotAssistanceSystemActive</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666"><code>true</code> if Advanced Pilot Assistance System (APAS) is active. When it is active, the aircraft will change  flight path automatically to avoid obstacles.</p>
+<p><font color="#666"><code>true</code> if Advanced Pilot Assistance System (APAS) is active. When it is active, the aircraft will change  flight path automatically to avoid obstacles.</font></p>
 <h5 id="return-v6">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>A boolean value.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>A boolean value.</i></font></td></tr></table></html></div>
 <html><p><br></p></html>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_inline">VisionLandingProtectionState</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">enum </font>VisionLandingProtectionState</h6></div>
-</blockquote>
+<div class="api-row" id="djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_inline">VisionLandingProtectionState</a></div></div><div class="inline-doc" id="djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">enum </font>VisionLandingProtectionState</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EXClassNullAway</span></span><br><span class="line"> <span class="keyword">enum</span> VisionLandingProtectionState</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller</td></tr><tr valign="top"><td width=15%><font color="#999"><i>SDK Key:</i></td><td width=85%><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_protection_state_key">FlightControllerKey.LANDING_PROTECTION_STATE</a></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_landing_protection_state_key">FlightControllerKey.LANDING_PROTECTION_STATE</a></font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">Landing protection status returned by the downward vision sensor.</p>
+<p><font color="#666">Landing protection status returned by the downward vision sensor.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_none_inline"></a>NONE</td><td><font color="#666">The aircraft is not executing auto-landing or the downward vision sensor has not started to analyze the ground yet.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_analyzing_inline"></a>ANALYZING</td><td><font color="#666">The downward vision sensor is analyzing the ground at the landing zone.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_analysisfailed_inline"></a>ANALYSIS_FAILED</td><td><font color="#666">The downward vision sensor's analysis failed. Either the auto-landing can be attempted again, or the user needs  to land the aircraft manually.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_safetoland_inline"></a>SAFE_TO_LAND</td><td><font color="#666">The ground is flat and the aircraft is safe to land automatically.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_notsafetoland_inline"></a>NOT_SAFE_TO_LAND</td><td><font color="#666">Landing area is not flat enough to be considered safe for landing. The aircraft should be moved to an area that  is more flat and an auto-land should be attempted again or the user should land the aircraft manually.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_unknown_inline"></a>UNKNOWN</td><td><font color="#666">Unknown.</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_none_inline"></a>NONE</font></td><td><font color="#666">The aircraft is not executing auto-landing or the downward vision sensor has not started to analyze the ground yet.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_analyzing_inline"></a>ANALYZING</font></td><td><font color="#666">The downward vision sensor is analyzing the ground at the landing zone.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_analysisfailed_inline"></a>ANALYSIS_FAILED</font></td><td><font color="#666">The downward vision sensor's analysis failed. Either the auto-landing can be attempted again, or the user needs  to land the aircraft manually.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_safetoland_inline"></a>SAFE_TO_LAND</font></td><td><font color="#666">The ground is flat and the aircraft is safe to land automatically.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_notsafetoland_inline"></a>NOT_SAFE_TO_LAND</font></td><td><font color="#666">Landing area is not flat enough to be considered safe for landing. The aircraft should be moved to an area that  is more flat and an auto-land should be attempted again or the user should land the aircraft manually.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djivisiondetectionstate_djivisioncontrolstate_djivisionlandingprotectionstatus_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Unknown.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 </div>
 

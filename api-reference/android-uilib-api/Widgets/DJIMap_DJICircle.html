@@ -1,6 +1,6 @@
-<script>window.pathPrefix="../";</script><script>window.pathPrefix="../";</script><script>window.pathPrefix="../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../images/favicon.png" rel="shortcut icon" type="image/png">
@@ -19,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="https://account.dji.com/login?appId=dji_sdk&amp;backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&amp;locale=en_US">Login</a></li>
           <li><a href="https://account.dji.com/register?appId=dji_sdk&amp;backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&amp;locale=en_US" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -76,15 +76,25 @@
                   </dd>
                   <dd><a data-href="DUXMapWidget.html" class="sub-toggle">MapWidget<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
+                            <dd><a href="DUXMapWidget_OnMapReadyListener.html">OnMapReadyListener</a>
+                            </dd>
                             <dd><a data-href="DJIMap.html" class="sub-toggle">DJIMap<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
+                                      <dd><a href="DJIMap_onCameraChangeListenerInterface.html">OnCameraChangeListener</a>
+                                      </dd>
+                                      <dd><a href="" class="active">DJICircle</a>
+                                      </dd>
                                       <dd><a href="DJIMap_DJICircleOptions.html">DJICircleOptions</a>
                                       </dd>
                                       <dd><a href="DJIMap_DJIMarker.html">DJIMarker</a>
                                       </dd>
                                       <dd><a href="DJIMap_DJIMarkerOptions.html">DJIMarkerOptions</a>
                                       </dd>
+                                      <dd><a href="DJIMap_DJIPolygon.html">DJIPolygon</a>
+                                      </dd>
                                       <dd><a href="DJIMap_DJIPolygonOptions.html">DJIPolygonOptions</a>
+                                      </dd>
+                                      <dd><a href="DJIMap_DJIPolyline.html">DJIPolyline</a>
                                       </dd>
                                       <dd><a href="DJIMap_DJIPolylineOptions.html">DJIPolylineOptions</a>
                                       </dd>
@@ -98,7 +108,13 @@
                                       </dd>
                                       <dd><a href="DJIMap_DJILatLngBounds.html">DJILatLngBounds</a>
                                       </dd>
-                                      <dd><a href="DJIMap_DJIMapView.html">DJIMapView</a>
+                                      <dd><a href="DJIMap_DJIMapViewInternal.html">DJIMapViewInternal</a>
+                                      </dd>
+                                      <dd><a data-href="DJIMap_DJIMapView.html" class="sub-toggle">DJIMapView<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                        <ul class="sub-menu">
+                                                <dd><a href="DJIMap_DJIMapView_OnDJIMapReadyCallbackInterface.html">OnDJIMapReadyCallback</a>
+                                                </dd>
+                                        </ul>
                                       </dd>
                                       <dd><a href="DJIMap_MapProvider.html">MapProvider</a>
                                       </dd>
@@ -225,7 +241,7 @@
       </div>
       <div class="site-main">
         <div class="article"><div class="article"><h1><font color="#AAA">class </font>DJICircle</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DJICircle</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">DJICircle</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">com.dji.mapkit.core.models.annotations</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
 <p><font color="#666">A circle that exists on a map object. To add a new circle to a map, see <code><a href="../Widgets/DJIMap_DJICircleOptions.html#djimap_djicircleoptions">DJICircleOptions</a></code>.</font></p>

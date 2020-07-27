@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -239,6 +235,8 @@
                                       <dd><a href="../Upgrade/DJIUpgradeManager_DJIUpgradeComponent_DJIFirmwareInformation.html">FirmwareInformation</a>
                                       </dd>
                               </ul>
+                            </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
                             </dd>
                     </ul>
                   </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -898,7 +896,7 @@
                             </dd>
                     </ul>
                   </dd>
-                  <dd><a data-href="" class="sub-toggle">BaseStation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                  <dd><a data-href class="sub-toggle">BaseStation<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                     <ul class="sub-menu">
                             <dd><a data-href="DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html" class="sub-toggle">BaseStationBatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
@@ -1350,153 +1348,139 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>BaseStation</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>BaseStation</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseStation</span> <span class="keyword">extends</span> <span class="title">BaseComponent</span> <span class="keyword">implements</span> <span class="title">DJIParamAccessListener</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr><tr valign="top"><td width=15%><font color="#999"><i>Inherits From:</i></td><td width=85%><font color="#999"><code>BaseComponent implements DJIParamAccessListener</code></td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>BaseComponent implements DJIParamAccessListener</code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">RTK Base Station.</p>
+<p><font color="#666">RTK Base Station.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djirtkbasestation_getbasestationreferencinglocation"><div class="api-col left">Referencing Location</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_getbasestationreferencinglocation_inline">getBaseStationReferencingLocation</a></div></div><div class="inline-doc" id="djirtkbasestation_getbasestationreferencinglocation_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getBaseStationReferencingLocation</h6></div>
-</blockquote>
+<div class="api-row" id="djirtkbasestation_getbasestationreferencinglocation"><div class="api-col left">Referencing Location</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_getbasestationreferencinglocation_inline">getBaseStationReferencingLocation</a></div></div><div class="inline-doc" id="djirtkbasestation_getbasestationreferencinglocation_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getBaseStationReferencingLocation</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getBaseStationReferencingLocation</span><span class="params">(@Nullable CommonCallbacks.CompletionCallbackWith&lt;LocationCoordinate3D&gt; callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Gets the referencing location manually configured to the  base station. When a user can get a more accurate  location (coordinate with less absolute error) of the base  station by using external tools, the accurate location can  be set to the base station to improve the accuracy of the  aircraft location. If the offset between the referencing  location and the location detected by the ground system is  larger than 5 meters, the base station will ignore the referencing  location. It is only supported by Phantom 4 RTK and M200 series v2 and Matrice 300 RTK.</p>
+<p><font color="#666">Gets the referencing location manually configured to the  base station. When a user can get a more accurate  location (coordinate with less absolute error) of the base  station by using external tools, the accurate location can  be set to the base station to improve the accuracy of the  aircraft location. If the offset between the referencing  location and the location detected by the ground system is  larger than 5 meters, the base station will ignore the referencing  location. It is only supported by Phantom 4 RTK and M200 series v2 and Matrice 300 RTK.</font></p>
 <h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWith&lt;<a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate3D.html#djiflightcontroller_djilocationcoordinate3d">LocationCoordinate3D</a>&gt; <font color="#000">callback</td><td><font color="#666"><i>Completion block that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_setbasestationreferencinglocation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_setbasestationreferencinglocation_inline">setBaseStationReferencingLocation</a></div></div><div class="inline-doc" id="djirtkbasestation_setbasestationreferencinglocation_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setBaseStationReferencingLocation</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWith&lt;<a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate3D.html#djiflightcontroller_djilocationcoordinate3d">LocationCoordinate3D</a>&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_setbasestationreferencinglocation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_setbasestationreferencinglocation_inline">setBaseStationReferencingLocation</a></div></div><div class="inline-doc" id="djirtkbasestation_setbasestationreferencinglocation_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setBaseStationReferencingLocation</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setBaseStationReferencingLocation</span><span class="params">(@NonNull LocationCoordinate3D location, @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">Sets the referencing location of the base station to improve the accuracy.  When a user  can get a more accurate location (coordinate with less absolute error)  of the base station  by using external tools, the accurate location can be set to the  base station to improve  the accuracy of the aircraft location. If the offset between  the referencing location and  the location detected by the base station is larger than  5 meters, the base station will ignore the referencing location. It is only supported  by Phantom 4 RTK and M200 series v2 and Matrice 300 RTK. For Matrice 300 RTK, device  administrator authentication is required before invoking this method.</p>
+<p><font color="#666">Sets the referencing location of the base station to improve the accuracy.  When a user  can get a more accurate location (coordinate with less absolute error)  of the base station  by using external tools, the accurate location can be set to the  base station to improve  the accuracy of the aircraft location. If the offset between  the referencing location and  the location detected by the base station is larger than  5 meters, the base station will ignore the referencing location. It is only supported  by Phantom 4 RTK and M200 series v2 and Matrice 300 RTK. For Matrice 300 RTK, device  administrator authentication is required before invoking this method.</font></p>
 <h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate3D.html#djiflightcontroller_djilocationcoordinate3d">LocationCoordinate3D</a> <font color="#000">location</td><td><font color="#666"><i>The referencing location of the base station.</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Completion block that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_resetrtkbasestationlocation"><div class="api-col left">Reset Location</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_resetrtkbasestationlocation_inline">resetBaseStationReferencingLocation</a></div></div><div class="inline-doc" id="djirtkbasestation_resetrtkbasestationlocation_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>resetBaseStationReferencingLocation</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/FlightController/DJIFlightController_DJILocationCoordinate3D.html#djiflightcontroller_djilocationcoordinate3d">LocationCoordinate3D</a> <font color="#000">location</font></font></td><td><font color="#666"><i>The referencing location of the base station.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_resetrtkbasestationlocation"><div class="api-col left">Reset Location</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_resetrtkbasestationlocation_inline">resetBaseStationReferencingLocation</a></div></div><div class="inline-doc" id="djirtkbasestation_resetrtkbasestationlocation_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>resetBaseStationReferencingLocation</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resetBaseStationReferencingLocation</span><span class="params">(@Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Reset RTK base station's location. This will make base station's location type  became <code><a href="../../Components/RTKBaseStation/DJIRTKBaseStation.html#djirtkbasestation_djirtkbasestationlocationtype_auto">AUTO</a></code>. The previously set location  by <code><a href="../../Components/RTKBaseStation/DJIRTKBaseStation.html#djirtkbasestation_setbasestationreferencinglocation">setBaseStationReferencingLocation</a></code> will be invalid. For Matrice 300 RTK,  device administrator authentication is required before invoking this method.</p>
+<p><font color="#666">Reset RTK base station's location. This will make base station's location type  became <code><a href="../../Components/RTKBaseStation/DJIRTKBaseStation.html#djirtkbasestation_djirtkbasestationlocationtype_auto">AUTO</a></code>. The previously set location  by <code><a href="../../Components/RTKBaseStation/DJIRTKBaseStation.html#djirtkbasestation_setbasestationreferencinglocation">setBaseStationReferencingLocation</a></code> will be invalid. For Matrice 300 RTK,  device administrator authentication is required before invoking this method.</font></p>
 <h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Callback that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_hasdeviceadminloggedin"><div class="api-col left">Login In</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_hasdeviceadminloggedin_inline">hasDeviceAdminLoggedIn</a></div></div><div class="inline-doc" id="djirtkbasestation_hasdeviceadminloggedin_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>hasDeviceAdminLoggedIn</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Callback that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_hasdeviceadminloggedin"><div class="api-col left">Login In</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_hasdeviceadminloggedin_inline">hasDeviceAdminLoggedIn</a></div></div><div class="inline-doc" id="djirtkbasestation_hasdeviceadminloggedin_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>hasDeviceAdminLoggedIn</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasDeviceAdminLoggedIn</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666"><code>true</code> if device administrator has logged in. For Matrice 300 RTK, device administrator authentication is required before  changing any settings, including base station's name, base station's password, and base station's referencing location.  Device administrator login is required every time when the application is relaunched. Please login with default password  123456, if the base station's password is reset. Supported only by Matrice 300 RTK.</p>
+<p><font color="#666"><code>true</code> if device administrator has logged in. For Matrice 300 RTK, device administrator authentication is required before  changing any settings, including base station's name, base station's password, and base station's referencing location.  Device administrator login is required every time when the application is relaunched. Please login with default password  123456, if the base station's password is reset. Supported only by Matrice 300 RTK.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i>The result whether login or not.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_loginasdeviceadmin"><div class="api-col left">Login As Device Admin</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_loginasdeviceadmin_inline">logInAsDeviceAdmin</a></div></div><div class="inline-doc" id="djirtkbasestation_loginasdeviceadmin_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>logInAsDeviceAdmin</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i>The result whether login or not.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_loginasdeviceadmin"><div class="api-col left">Login As Device Admin</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_loginasdeviceadmin_inline">logInAsDeviceAdmin</a></div></div><div class="inline-doc" id="djirtkbasestation_loginasdeviceadmin_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>logInAsDeviceAdmin</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">logInAsDeviceAdmin</span><span class="params">(@NonNull String password, @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">Log in as base station administrator account with password to change setting. User will need to login again in the following scenarios: <br> -  Enter the application for the first time. <br> - Re-enter after the application restarts. <br> - Reset password via the button on the base  station. <br> - Switch and connect other base stations. <br> The default password is <code>123456</code>. It is only supported by Matrice 300 RTK.</p>
+<p><font color="#666">Log in as base station administrator account with password to change setting. User will need to login again in the following scenarios: <br> -  Enter the application for the first time. <br> - Re-enter after the application restarts. <br> - Reset password via the button on the base  station. <br> - Switch and connect other base stations. <br> The default password is <code>123456</code>. It is only supported by Matrice 300 RTK.</font></p>
 <h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">password</td><td><font color="#666"><i>The password of base station.</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The completion callback block that receives the result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_logout"><div class="api-col left">Login Out</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_logout_inline">logOut</a></div></div><div class="inline-doc" id="djirtkbasestation_logout_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>logOut</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">password</font></font></td><td><font color="#666"><i>The password of base station.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The completion callback block that receives the result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_logout"><div class="api-col left">Login Out</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_logout_inline">logOut</a></div></div><div class="inline-doc" id="djirtkbasestation_logout_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>logOut</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">logOut</span><span class="params">(@Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v7">Description:</h5>
-<p><font color="#666">Log out of the base station. It is only supported by Matrice 300 RTK.</p>
+<p><font color="#666">Log out of the base station. It is only supported by Matrice 300 RTK.</font></p>
 <h5 id="input-parameters-v5">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Completion block that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_changepassword"><div class="api-col left">Change Password</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_changepassword_inline">changePassword</a></div></div><div class="inline-doc" id="djirtkbasestation_changepassword_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>changePassword</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_changepassword"><div class="api-col left">Change Password</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_changepassword_inline">changePassword</a></div></div><div class="inline-doc" id="djirtkbasestation_changepassword_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>changePassword</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changePassword</span><span class="params">(@NonNull String oldPassword, @NonNull String newPassword, @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v8">Description:</h5>
-<p><font color="#666">Change the password for current base station. The password must be 6 digits. It is only supported by Matrice 300 RTK.</p>
+<p><font color="#666">Change the password for current base station. The password must be 6 digits. It is only supported by Matrice 300 RTK.</font></p>
 <h5 id="input-parameters-v6">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">oldPassword</td><td><font color="#666"><i>The old password.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">newPassword</td><td><font color="#666"><i>The new password that you want to change.</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>The completion callback that receives the result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_setname"><div class="api-col left">Set Name</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_setname_inline">setName</a></div></div><div class="inline-doc" id="djirtkbasestation_setname_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>setName</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">oldPassword</font></font></td><td><font color="#666"><i>The old password.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">newPassword</font></font></td><td><font color="#666"><i>The new password that you want to change.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The completion callback that receives the result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_setname"><div class="api-col left">Set Name</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_setname_inline">setName</a></div></div><div class="inline-doc" id="djirtkbasestation_setname_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>setName</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(@NonNull String name, @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v9">Description:</h5>
-<p><font color="#666">Change the name of the base station. The name is composed of maximum 4 characters or numbers.  Please log in before invoking this method. It is only supported by Matrice 300 RTK.</p>
+<p><font color="#666">Change the name of the base station. The name is composed of maximum 4 characters or numbers.  Please log in before invoking this method. It is only supported by Matrice 300 RTK.</font></p>
 <h5 id="input-parameters-v7">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">name</td><td><font color="#666"><i>The name of the base station set by the user.</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</td><td><font color="#666"><i>Completion block that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_getname"><div class="api-col left">Get Name</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_getname_inline">getName</a></div></div><div class="inline-doc" id="djirtkbasestation_getname_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getName</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">name</font></font></td><td><font color="#666"><i>The name of the base station set by the user.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_getname"><div class="api-col left">Get Name</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_getname_inline">getName</a></div></div><div class="inline-doc" id="djirtkbasestation_getname_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getName</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getName</span><span class="params">(@Nullable CommonCallbacks.CompletionCallbackWith&lt;String&gt; callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v10">Description:</h5>
-<p><font color="#666">Gets the name of the base station. Please log in before invoking this method. It is only supported by Matrice 300 RTK.</p>
+<p><font color="#666">Gets the name of the base station. Please log in before invoking this method. It is only supported by Matrice 300 RTK.</font></p>
 <h5 id="input-parameters-v8">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWith&lt;String&gt; <font color="#000">callback</td><td><font color="#666"><i>Completion block that receives the execution result.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_addbasestationbatterystateupdatedcallback"><div class="api-col left">Add Callback</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_addbasestationbatterystateupdatedcallback_inline">addBaseStationBatteryStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_addbasestationbatterystateupdatedcallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>addBaseStationBatteryStateUpdatedCallback</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Utils/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWith&lt;String&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_addbasestationbatterystateupdatedcallback"><div class="api-col left">Add Callback</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_addbasestationbatterystateupdatedcallback_inline">addBaseStationBatteryStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_addbasestationbatterystateupdatedcallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>addBaseStationBatteryStateUpdatedCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addBaseStationBatteryStateUpdatedCallback</span><span class="params">(@NonNull BaseStationBatteryState.Callback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v11">Description:</h5>
-<p><font color="#666">Adds a callback to receive the latest base station battery state. Only Supported by Phantom  4 RTK and M200 series v2.</p>
+<p><font color="#666">Adds a callback to receive the latest base station battery state. Only Supported by Phantom  4 RTK and M200 series v2.</font></p>
 <h5 id="input-parameters-v9">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html#djirtkbasestation_djirtkbasestationbatterystate">BaseStationBatteryState</a>.Callback <font color="#000">callback</td><td><font color="#666"><i>Callback to receive base station battery state.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_addbasestationstateupdatedcallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_addbasestationstateupdatedcallback_inline">addBaseStationStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_addbasestationstateupdatedcallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>addBaseStationStateUpdatedCallback</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html#djirtkbasestation_djirtkbasestationbatterystate">BaseStationBatteryState</a>.Callback <font color="#000">callback</font></font></td><td><font color="#666"><i>Callback to receive base station battery state.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_addbasestationstateupdatedcallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_addbasestationstateupdatedcallback_inline">addBaseStationStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_addbasestationstateupdatedcallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>addBaseStationStateUpdatedCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addBaseStationStateUpdatedCallback</span><span class="params">(@NonNull BaseStationState.Callback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v12">Description:</h5>
-<p><font color="#666">Adds a callback to receive the latest base station state. Only Supported by Phantom 4 RTK and M200 series v2.</p>
+<p><font color="#666">Adds a callback to receive the latest base station state. Only Supported by Phantom 4 RTK and M200 series v2.</font></p>
 <h5 id="input-parameters-v10">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationState.html#djirtkbasestation_djirtkbasestationstate">BaseStationState</a>.Callback <font color="#000">callback</td><td><font color="#666"><i>Callback to receive base station state.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_removebasestationbatterystateupdatedcallback"><div class="api-col left">Remove Callback</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_removebasestationbatterystateupdatedcallback_inline">removeBaseStationBatteryStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_removebasestationbatterystateupdatedcallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>removeBaseStationBatteryStateUpdatedCallback</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationState.html#djirtkbasestation_djirtkbasestationstate">BaseStationState</a>.Callback <font color="#000">callback</font></font></td><td><font color="#666"><i>Callback to receive base station state.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_removebasestationbatterystateupdatedcallback"><div class="api-col left">Remove Callback</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_removebasestationbatterystateupdatedcallback_inline">removeBaseStationBatteryStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_removebasestationbatterystateupdatedcallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>removeBaseStationBatteryStateUpdatedCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeBaseStationBatteryStateUpdatedCallback</span><span class="params">(@NonNull BaseStationBatteryState.Callback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v13">Description:</h5>
-<p><font color="#666">Removes a callback that receives the latest base station battery state. Only Supported by  Phantom 4 RTK and M200 series v2.</p>
+<p><font color="#666">Removes a callback that receives the latest base station battery state. Only Supported by  Phantom 4 RTK and M200 series v2.</font></p>
 <h5 id="input-parameters-v11">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html#djirtkbasestation_djirtkbasestationbatterystate">BaseStationBatteryState</a>.Callback <font color="#000">callback</td><td><font color="#666"><i>Callback to receive base station battery state.</i></td></tr></table></html></div>
-<div class="api-row" id="djirtkbasestation_removebasestationstateupdatedcallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_removebasestationstateupdatedcallback_inline">removeBaseStationStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_removebasestationstateupdatedcallback_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>removeBaseStationStateUpdatedCallback</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html#djirtkbasestation_djirtkbasestationbatterystate">BaseStationBatteryState</a>.Callback <font color="#000">callback</font></font></td><td><font color="#666"><i>Callback to receive base station battery state.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djirtkbasestation_removebasestationstateupdatedcallback"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_removebasestationstateupdatedcallback_inline">removeBaseStationStateUpdatedCallback</a></div></div><div class="inline-doc" id="djirtkbasestation_removebasestationstateupdatedcallback_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>removeBaseStationStateUpdatedCallback</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeBaseStationStateUpdatedCallback</span><span class="params">(@NonNull BaseStationState.Callback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.basestation</font></td></tr></table></html>
 <h5 id="description-v14">Description:</h5>
-<p><font color="#666">Removes a callback that receives the latest base station state.</p>
+<p><font color="#666">Removes a callback that receives the latest base station state.</font></p>
 <h5 id="input-parameters-v12">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationState.html#djirtkbasestation_djirtkbasestationstate">BaseStationState</a>.Callback <font color="#000">callback</td><td><font color="#666"><i>Callback to receive base station state.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationState.html#djirtkbasestation_djirtkbasestationstate">BaseStationState</a>.Callback <font color="#000">callback</font></font></td><td><font color="#666"><i>Callback to receive base station state.</i></font></td></tr></table></html></div>
 <h5 id="related">Related:</h5>
-<div class="api-row" id="djirtkbasestation_djirtkbasestationlocationtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_djirtkbasestationlocationtype_inline">BaseStationLocationType</a></div></div><div class="inline-doc" id="djirtkbasestation_djirtkbasestationlocationtype_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">enum </font>BaseStationLocationType</h6></div>
-</blockquote>
+<div class="api-row" id="djirtkbasestation_djirtkbasestationlocationtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djirtkbasestation_djirtkbasestationlocationtype_inline">BaseStationLocationType</a></div></div><div class="inline-doc" id="djirtkbasestation_djirtkbasestationlocationtype_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">enum </font>BaseStationLocationType</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> BaseStationLocationType</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.basestation</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.basestation</font></td></tr></table></html>
 <h5 id="description-v15">Description:</h5>
-<p><font color="#666">All the possible basestation location type of <code><a href="../../Components/RTKBaseStation/DJIRTKBaseStation.html#djirtkbasestation_djirtkbasestationlocationtype">BaseStationLocationType</a></code>.</p>
+<p><font color="#666">All the possible basestation location type of <code><a href="../../Components/RTKBaseStation/DJIRTKBaseStation.html#djirtkbasestation_djirtkbasestationlocationtype">BaseStationLocationType</a></code>.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djirtkbasestation_djirtkbasestationlocationtype_auto_inline"></a>AUTO</td><td><font color="#666">BaseStation current location is auto calculateed by BaseStation itself.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtkbasestation_djirtkbasestationlocationtype_manual_inline"></a>MANUAL</td><td><font color="#666">BaseStation current location is manually set by user.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtkbasestation_djirtkbasestationlocationtype_unknown_inline"></a>UNKNOWN</td><td><font color="#666">Unknown BaseStation location type.</td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djirtkbasestation_djirtkbasestationlocationtype_auto_inline"></a>AUTO</font></td><td><font color="#666">BaseStation current location is auto calculateed by BaseStation itself.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtkbasestation_djirtkbasestationlocationtype_manual_inline"></a>MANUAL</font></td><td><font color="#666">BaseStation current location is manually set by user.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djirtkbasestation_djirtkbasestationlocationtype_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Unknown BaseStation location type.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
 </div>
 <div class="api-row" id="djirtkbasestation_djirtkbasestationbatterystate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationBatteryState.html">BaseStationBatteryState</a></div></div><div class="api-row" id="djirtkbasestation_djirtkbasestationstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/RTKBaseStation/DJIRTKBaseStation_DJIRTKBaseStationState.html">BaseStationState</a></div></div>

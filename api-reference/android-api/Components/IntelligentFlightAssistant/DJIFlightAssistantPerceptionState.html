@@ -1,16 +1,12 @@
 <script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="../../images/favicon.png" rel="shortcut icon" type="image/png">
   <title>DJI Mobile SDK Documentation
-  </title>
-<link rel="stylesheet" href="../../stylesheets/doc-vendor.css">
-
-<link rel="stylesheet" href="../../stylesheets/doc-app.css">
-
-<meta name="generator" content="Hexo 4.2.0"></head>
+  </title><link rel="stylesheet" href="../../stylesheets/doc-vendor.css"><link rel="stylesheet" href="../../stylesheets/doc-app.css">
+</head>
 <body>
   <nav id="site-header" class="site-header navbar">
     <div class="container">
@@ -23,11 +19,11 @@
           <li><a href="/payload-sdk">Payload SDK</a></li>
           <li><a href="/windows-sdk">Windows SDK</a></li>
         </ul>
-        <ul v-cloak="" v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="!loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li><a href="/login">Login</a></li>
           <li><a href="/register" class="head-cta">Register</a></li>
         </ul>
-        <ul v-cloak="" v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
+        <ul v-cloak v-show="loggedIn" class="nav navbar-nav navbar-right nav-user">
           <li class="hovedown"><a href="javascript:void(0);" class="hovedown-toggle"><i class="fa fa-user"></i></a>
             <ul class="hovedown-menu hovedown-menu-right">
               <li><a href="/user">User Center</a></li>
@@ -240,6 +236,8 @@
                                       </dd>
                               </ul>
                             </dd>
+                            <dd><a href="../Upgrade/DJIUpgradeManager_UpgradeComponentChangeListener.html">UpgradeComponentChangeListener</a>
+                            </dd>
                     </ul>
                   </dd>
           </dl>
@@ -370,7 +368,7 @@
                                       </dd>
                                       <dd><a href="DJISmartCaptureState.html">SmartCaptureState</a>
                                       </dd>
-                                      <dd><a href="" class="active">PerceptionInformation</a>
+                                      <dd><a href class="active">PerceptionInformation</a>
                                       </dd>
                                       <dd><a href="DJIFlightAssistant_ObstacleAvoidanceSensorState.html">ObstacleAvoidanceSensorState</a>
                                       </dd>
@@ -752,7 +750,7 @@
                                       </dd>
                               </ul>
                             </dd>
-                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">ChargeRemaining<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                            <dd><a data-href="../RemoteController/DJIRemoteController_DJIRCBatteryInfo.html" class="sub-toggle">BatteryState<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                               <ul class="sub-menu">
                                       <dd><a href="../RemoteController/DJIRemoteController_RCBatteryStateUpdateCallbackInterface.html">Callback</a>
                                       </dd>
@@ -1350,62 +1348,57 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>PerceptionInformation</h1></div>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>PerceptionInformation</h1></div>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PerceptionInformation</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller.flightassistant</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flightassistant</font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">This class contains the aircraft's perception information. It is supported only by Matrice 300 RTK.</p>
+<p><font color="#666">This class contains the aircraft's perception information. It is supported only by Matrice 300 RTK.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djiflightassistantperceptionstate_packcount"><div class="api-col left">Pack Count</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_packcount_inline">getDataPackageIndex</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_packcount_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDataPackageIndex</h6></div>
-</blockquote>
+<div class="api-row" id="djiflightassistantperceptionstate_packcount"><div class="api-col left">Pack Count</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_packcount_inline">getDataPackageIndex</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_packcount_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDataPackageIndex</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDataPackageIndex</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller.flightassistant</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flightassistant</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">The perception package count.</p>
+<p><font color="#666">The perception package count.</font></p>
 <h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>An int value of the perception package index.</i></td></tr></table></html></div>
-<div class="api-row" id="djiflightassistantperceptionstate_horizontalobjectcount"><div class="api-col left">Horizontal Object Count</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_horizontalobjectcount_inline">getAngleInterval</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_horizontalobjectcount_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getAngleInterval</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>An int value of the perception package index.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiflightassistantperceptionstate_horizontalobjectcount"><div class="api-col left">Horizontal Object Count</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_horizontalobjectcount_inline">getAngleInterval</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_horizontalobjectcount_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getAngleInterval</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">getAngleInterval</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller.flightassistant</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flightassistant</font></td></tr></table></html>
 <h5 id="description-v3">Description:</h5>
-<p><font color="#666">Distance value detected away from the obstacles are at an interval of angle around the aircraft in 360 degrees horizontally.</p>
+<p><font color="#666">Distance value detected away from the obstacles are at an interval of angle around the aircraft in 360 degrees horizontally.</font></p>
 <h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</td><td><font color="#666"><i>A float value of angle interval.</i></td></tr></table></html></div>
-<div class="api-row" id="djiflightassistantperceptionstate_distancearray"><div class="api-col left">Distance Array</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_distancearray_inline">getDistances</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_distancearray_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDistances</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">float</font></td><td><font color="#666"><i>A float value of angle interval.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiflightassistantperceptionstate_distancearray"><div class="api-col left">Distance Array</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_distancearray_inline">getDistances</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_distancearray_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDistances</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] getDistances()</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller.flightassistant</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flightassistant</font></td></tr></table></html>
 <h5 id="description-v4">Description:</h5>
-<p><font color="#666">Each value represents the distance in millimeters away from the obstacles detected around in 360 degrees horizontally at an interval  of angle. Please refer to <code><a href="../../Components/IntelligentFlightAssistant/DJIFlightAssistantPerceptionState.html#djiflightassistantperceptionstate_packcount">getDataPackageIndex</a></code> to get the interval of angle. 0 degree points to the aircraft's  heading. 90 degrees point to the right of the aircraft. 180 degrees point to the aircraft's tail.</p>
+<p><font color="#666">Each value represents the distance in millimeters away from the obstacles detected around in 360 degrees horizontally at an interval  of angle. Please refer to <code><a href="../../Components/IntelligentFlightAssistant/DJIFlightAssistantPerceptionState.html#djiflightassistantperceptionstate_packcount">getDataPackageIndex</a></code> to get the interval of angle. 0 degree points to the aircraft's  heading. 90 degrees point to the right of the aircraft. 180 degrees point to the aircraft's tail.</font></p>
 <h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int[]</td><td><font color="#666"><i>An array of int values.</i></td></tr></table></html></div>
-<div class="api-row" id="djiflightassistantperceptionstate_upwardobstacledistance"><div class="api-col left">Upward Obstacle Distance</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_upwardobstacledistance_inline">getUpwardObstacleDistance</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_upwardobstacledistance_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getUpwardObstacleDistance</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int[]</font></td><td><font color="#666"><i>An array of int values.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiflightassistantperceptionstate_upwardobstacledistance"><div class="api-col left">Upward Obstacle Distance</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_upwardobstacledistance_inline">getUpwardObstacleDistance</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_upwardobstacledistance_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getUpwardObstacleDistance</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getUpwardObstacleDistance</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller.flightassistant</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flightassistant</font></td></tr></table></html>
 <h5 id="description-v5">Description:</h5>
-<p><font color="#666">The upward obstacle distance.</p>
+<p><font color="#666">The upward obstacle distance.</font></p>
 <h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>An int value of the upward obstacle distance.</i></td></tr></table></html></div>
-<div class="api-row" id="djiflightassistantperceptionstate_downwardobstacledistance"><div class="api-col left">Downward Obstacle Distance</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_downwardobstacledistance_inline">getDownwardObstacleDistance</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_downwardobstacledistance_inline"
-<blockquote>
-<div class="article"><h6 ><font color="#AAA">method </font>getDownwardObstacleDistance</h6></div>
-</blockquote>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>An int value of the upward obstacle distance.</i></font></td></tr></table></html></div>
+<div class="api-row" id="djiflightassistantperceptionstate_downwardobstacledistance"><div class="api-col left">Downward Obstacle Distance</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightassistantperceptionstate_downwardobstacledistance_inline">getDownwardObstacleDistance</a></div></div><div class="inline-doc" id="djiflightassistantperceptionstate_downwardobstacledistance_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">method </font>getDownwardObstacleDistance</h6></div>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownwardObstacleDistance</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.common.flightcontroller.flightassistant</td></tr></table></html>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.flightcontroller.flightassistant</font></td></tr></table></html>
 <h5 id="description-v6">Description:</h5>
-<p><font color="#666">The downward obstacle distance.</p>
+<p><font color="#666">The downward obstacle distance.</font></p>
 <h5 id="return-v5">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>An int value of downward obstacle distance.</i></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>An int value of downward obstacle distance.</i></font></td></tr></table></html></div>
 
         </div>
       </div>
