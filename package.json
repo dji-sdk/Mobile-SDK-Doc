@@ -20,7 +20,7 @@
     "html-to-text": "^2.1.3",
     "jade": "^1.11.0",
     "js-yaml": "^3.6.1",
-    "node-fetch": "^1.6.0",
+    "node-fetch": "^2.6.1",
     "requestify": "^0.1.17",
     "whatwg-fetch": "^1.0.0",
     "ali-oss": "^4.4.4",
