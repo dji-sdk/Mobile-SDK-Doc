@@ -354,7 +354,7 @@
                                                 </dd>
                                         </ul>
                                       </dd>
-                                      <dd><a href="DJIMediaManager_DJIMediaInfo.html">DJIMediaFileInfo</a>
+                                      <dd><a href class="active">DJIMediaFileInfo</a>
                                       </dd>
                                       <dd><a href="DJIMediaManager_VideoPlayback_DJIMediaVideoPlaybackState.html">DJIMediaVideoPlaybackState</a>
                                       </dd>
@@ -386,7 +386,7 @@
                             </dd>
                             <dd><a href="DJICamera_DJICameraMultispectralExposureState.html">DJICameraMultispectralExposureState</a>
                             </dd>
-                            <dd><a href class="active">DJICameraMultispectralExposureStates</a>
+                            <dd><a href="DJICamera_DJICameraMultispectralExposureStates.html">DJICameraMultispectralExposureStates</a>
                             </dd>
                             <dd><a href="DJICamera_DJICameraWatermarkSettings.html">DJICameraWatermarkSettings</a>
                             </dd>
@@ -800,21 +800,55 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>DJICameraMultispectralExposureStates</h1></div>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DJICameraMultispectralExposureStates</span> : <span class="title">NSObject</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraSettingsDef.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr></table></html>
+        <div class="article"><div class="article"><h1><font color="#AAA">class </font>DJIMediaFileInfo</h1></div>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DJIMediaFileInfo</span> : <span class="title">NSObject</span></span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaFile.h</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>Inherits From:</i></font></td><td width="85%"><font color="#999"><code>NSObject</code></font></td></tr></table></html>
 <h5 id="description">Description:</h5>
-<p><font color="#666">The exposure states of the single-band sensors on the multispectral camera.</font></p>
+<p><font color="#666">This class contains information about newly generated media file.</font></p>
 <h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="djicamera_djicameramultispectralexposurestates_sensorsexposurestates"><div class="api-col left">Sensors Exposure States</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djicamera_djicameramultispectralexposurestates_sensorsexposurestates_inline">sensorsExposureStates</a></div></div><div class="inline-doc" id="djicamera_djicameramultispectralexposurestates_sensorsexposurestates_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">property </font>sensorsExposureStates</h6></div>
+<div class="api-row" id="djimediamanager_djimediainfo_mediatype"><div class="api-col left">Information</div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimediamanager_djimediainfo_mediatype_inline">mediaType</a></div></div><div class="inline-doc" id="djimediamanager_djimediainfo_mediatype_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">property </font>mediaType</h6></div>
 
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSArray</span> &lt;DJICameraMultispectralExposureState *&gt;* sensorsExposureStates</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJICameraSettingsDef.h</font></td></tr></table></html>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJIMediaType mediaType</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaFile.h</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">The exposure state for all single-band sensors (sensors except the RGB one).</font></p>
+<p><font color="#666">Returns the type of media file.</font></p>
 <h5 id="see-also">See Also:</h5>
-<p><font color="#666"><code><a href="../../Components/Camera/DJICamera_DJICameraMultispectralExposureState.html#djicamera_djicameramultispectralexposurestate">DJICameraMultispectralExposureState</a></code></font></p>
+<p><font color="#666"><code><a href="../../Components/Camera/DJIMediaManager_DJIMedia.html#djimediamanager_djimedia_djimediatype">DJIMediaType</a></code></font></p>
+</div>
+<div class="api-row" id="djimediamanager_djimediainfo_index"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimediamanager_djimediainfo_index_inline">index</a></div></div><div class="inline-doc" id="djimediamanager_djimediainfo_index_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">property </font>index</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span> index</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaFile.h</font></td></tr></table></html>
+<h5 id="description-v3">Description:</h5>
+<p><font color="#666">Returns the index of media file. This is the only identifier of the media file.  You can use this index to match the index obtained by the <code><a href="../../Components/Camera/DJIMediaManager.html#djimediamanager_sdcardfilelistsnapshot">sdCardFileListSnapshot</a></code> or <code><a href="../../Components/Camera/DJIMediaManager.html#djimediamanager_internalstoragefilelistsnapshot">internalStoragefileListSnapshot</a></code>,   and then you can get more information about the new media file, such as the file name, etc.</font></p>
+</div>
+<div class="api-row" id="djimediamanager_djimediainfo_filesize"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimediamanager_djimediainfo_filesize_inline">fileSize</a></div></div><div class="inline-doc" id="djimediamanager_djimediainfo_filesize_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">property </font>fileSize</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="keyword">long</span> <span class="keyword">long</span> fileSize</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaFile.h</font></td></tr></table></html>
+<h5 id="description-v4">Description:</h5>
+<p><font color="#666">Returns the size, in bytes, of the media file.</font></p>
+</div>
+<div class="api-row" id="djimediamanager_djimediainfo_timecreated"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimediamanager_djimediainfo_timecreated_inline">timeCreated</a></div></div><div class="inline-doc" id="djimediamanager_djimediainfo_timecreated_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">property </font>timeCreated</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSString</span>* timeCreated</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaFile.h</font></td></tr></table></html>
+<h5 id="description-v5">Description:</h5>
+<p><font color="#666">Returns the time when the media file was created as a long type, unit: second. You can convert the second to date and time format on your own.</font></p>
+</div>
+<div class="api-row" id="djimediamanager_djimediainfo_streamsourcecamera"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#djimediamanager_djimediainfo_streamsourcecamera_inline">streamSourceCamera</a></div></div><div class="inline-doc" id="djimediamanager_djimediainfo_streamsourcecamera_inline" <blockquote>
+<div class="article"><h6><font color="#AAA">property </font>streamSourceCamera</h6></div>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) DJICameraVideoStreamSource streamSourceCamera</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Header:</i></font></td><td width="85%"><font color="#999">DJIMediaFile.h</font></td></tr></table></html>
+<h5 id="description-v6">Description:</h5>
+<p><font color="#666">Returns the stream source of media file.</font></p>
+<h5 id="see-also-v2">See Also:</h5>
+<p><font color="#666"><code><a href="../../Components/Camera/DJICamera.html#djicamera_djicameravideostreamsource">DJICameraVideoStreamSource</a></code></font></p>
 </div>
 
         </div>
