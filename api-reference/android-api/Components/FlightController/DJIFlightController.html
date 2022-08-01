@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
@@ -37,13 +37,13 @@
   <div data-offset-top="60" data-spy="affix" class="sub-nav">
     <div class="container">
       <h1 class="logo">Mobile SDK</h1>
-      <nav><a href="/mobile-sdk">Overview</a><a href="/document/544659e8-9dab-4ad8-9414-a31e1c9b89b1">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
+      <nav><a href="/mobile-sdk-v4/">Overview</a><a href="/document/544659e8-9dab-4ad8-9414-a31e1c9b89b1">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
             <li><a href="/api-reference/ios-uilib-api/index.html">IOS UX SDK</a></li>
             <li><a href="/api-reference/android-uilib-api/index.html">Android UX SDK</a></li>
-          </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="https://sdk-forum.dji.net/hc/en-us">Support</a>
+          </ul></span><a href="/mobile-sdk-v4/downloads/">Downloads</a><a href="https://sdk-forum.dji.net/hc/en-us">Support</a>
       </nav>
     </div>
   </div>
@@ -2232,7 +2232,7 @@ Only supported by flight controller firmware versions 3.1.0.0 or above.</font></
 <h5 id="description-v83">Description:</h5>
 <p><font color="#666">Get whether the coordinated turn switch is on.  Only supported by M300 RTK.</font></p>
 <h5 id="input-parameters-v61">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallbackWith&lt;Boolean&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>Callback that receives the execution result.</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallbackWith&lt;Boolean&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>Completion block that receives the execution result.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflightcontroller_setnavigationsatellitesystem"><div class="api-col left">Navigation Satellite System</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightcontroller_setnavigationsatellitesystem_inline">setNavigationSatelliteSystem</a></div></div><div class="inline-doc" id="djiflightcontroller_setnavigationsatellitesystem_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>setNavigationSatelliteSystem</h6></div>
 
@@ -2414,7 +2414,7 @@ Only supported by flight controller firmware versions 3.1.0.0 or above.</font></
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSeriousLowBatteryWarningThreshold</span><span class="params">(@IntRange(from = <span class="number">10</span>, to = <span class="number">45</span>)</span> <span class="keyword">int</span> percent,</span></span><br><span class="line"><span class="function">                                                             @Nullable CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.flightcontroller</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJIFlightControllerKey.html#flightcontrollerkey_serious_low_battery_warning_threshold_key">FlightControllerKey.SERIOUS_LOW_BATTERY_WARNING_THRESHOLD</a></font></td></tr></table></html>
 <h5 id="description-v103">Description:</h5>
-<p><font color="#666">Sets the serious low battery warning threshold as a percentage. The minimum value is 10. The maximum value is value from <code><a href="../../Components/FlightController/DJIFlightController.html#djiflightcontroller_getgohomebatterythreshold">getLowBatteryWarningThreshold</a></code> minus 5. It is supported by Mavic Mini, DJI Mini 2, DJI Mini SE, Mavic Air 2 and DJI Air 2S.</font></p>
+<p><font color="#666">Sets the serious low battery warning threshold as a percentage. The minimum value is 10. The maximum value is value from <code><a href="../../Components/FlightController/DJIFlightController.html#djiflightcontroller_getgohomebatterythreshold">getLowBatteryWarningThreshold</a></code> minus 5. It is supported by Mavic Mini, DJI Mini 2, DJI Mini SE.</font></p>
 <h5 id="input-parameters-v81">Input Parameters:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@IntRange(from = 10, to = 45) int <font color="#000">percent</font></font></td><td><font color="#666"><i>Serious low battery warning percentage.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable CompletionCallback <font color="#000">callback</font></font></td><td><font color="#666"><i>The execution callback with the returned execution result.</i></font></td></tr></table></html></div>
 <div class="api-row" id="djiflightcontroller_getlandimmediatelybatterythreshold"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#djiflightcontroller_getlandimmediatelybatterythreshold_inline">getSeriousLowBatteryWarningThreshold</a></div></div><div class="inline-doc" id="djiflightcontroller_getlandimmediatelybatterythreshold_inline" <blockquote>

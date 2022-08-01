@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en"></html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
@@ -37,13 +37,13 @@
   <div data-offset-top="60" data-spy="affix" class="sub-nav">
     <div class="container">
       <h1 class="logo">Mobile SDK</h1>
-      <nav><a href="/mobile-sdk">Overview</a><a href="/document/544659e8-9dab-4ad8-9414-a31e1c9b89b1">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
+      <nav><a href="/mobile-sdk-v4/">Overview</a><a href="/document/544659e8-9dab-4ad8-9414-a31e1c9b89b1">Documentation</a><span class="active hovedown menu-item">API Reference<span class="caret"></span>
           <ul class="hovedown-menu">
             <li><a href="/api-reference/ios-api/index.html">IOS SDK</a></li>
             <li><a href="/api-reference/android-api/index.html">Android SDK</a></li>
             <li><a href="/api-reference/ios-uilib-api/index.html">IOS UX SDK</a></li>
             <li><a href="/api-reference/android-uilib-api/index.html">Android UX SDK</a></li>
-          </ul></span><a href="/mobile-sdk/downloads">Downloads</a><a href="https://sdk-forum.dji.net/hc/en-us">Support</a>
+          </ul></span><a href="/mobile-sdk-v4/downloads/">Downloads</a><a href="https://sdk-forum.dji.net/hc/en-us">Support</a>
       </nav>
     </div>
   </div>
@@ -1483,7 +1483,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> LensType</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v2">Description:</h5>
-<p><font color="#666">Camera lens type. Only supported by Zenmuse H20/H20T.</font></p>
+<p><font color="#666">Camera lens type. Only supported by Zenmuse H20 Series.</font></p>
 <h5 id="enum-members">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djilenstype_zoom_inline"></a>ZOOM</font></td><td><font color="#666">Zoom lens.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djilenstype_wide_inline"></a>WIDE</font></td><td><font color="#666">Wide lens.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djilenstype_thermal_inline"></a>INFRARED_THERMAL</font></td><td><font color="#666">Infrared Thermal lens.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djilenstype_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Unknown.</font></td></tr></table></html>
 <h5 id="class-members-v2">Class Members:</h5>
@@ -1659,7 +1659,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> TapZoomState</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr></table></html>
 <h5 id="description-v18">Description:</h5>
-<p><font color="#666">The state of the tap zoom action. Only supported by Z30 camera. For Zenmuse H20, Zenmuse H20T and Mavic 2 Enterprise Advanced, please access the value through class <code><a href="../../Components/Camera/DJICamera_DJILens.html#djicamera_djilens">Lens</a></code>.</font></p>
+<p><font color="#666">The state of the tap zoom action. Only supported by Z30 camera. For Zenmuse H20 Series and Mavic 2 Enterprise Advanced, please access the value through class <code><a href="../../Components/Camera/DJICamera_DJILens.html#djicamera_djilens">Lens</a></code>.</font></p>
 <h5 id="enum-members-v17">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameratapzoomstate_idle_inline"></a>IDLE</font></td><td><font color="#666">The tap zoom is not triggered yet. It will always push <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameratapzoomstate_idle">IDLE</a></code> if camera is not zooming.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameratapzoomstate_zoomin_inline"></a>ZOOM_IN</font></td><td><font color="#666">The camera is zooming in. The focal length increases, field of view becomes narrower and magnification is higher.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameratapzoomstate_zoomout_inline"></a>ZOOM_OUT</font></td><td><font color="#666">The camera is zooming in the focal length decreases, field of view becomes wider and magnification is lower.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameratapzoomstate_zoomlimited_inline"></a>ZOOM_LIMITED</font></td><td><font color="#666">It means the camera has reached its maximum focus length. It will always push <code><a href="../../Components/Camera/DJICamera_DJICameraSettingsDef.html#djicamera_djicameratapzoomstate_zoomlimited">ZOOM_LIMITED</a></code> if the camera reaches its maximum focus length.</font></td></tr></table></html>
 <h5 id="class-members-v18">Class Members:</h5>
@@ -1791,7 +1791,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> VideoStandard</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_standard_key">CameraKey.VIDEO_STANDARD</a>, <a href="../../Components/KeyManager/DJICameraKey.html#camerakey_video_standard_range_key">CameraKey.VIDEO_STANDARD_RANGE</a></font></td></tr></table></html>
 <h5 id="description-v30">Description:</h5>
-<p><font color="#666">Video standard values. The default value is NTSC. For Zenmuse H20 and H20T, please access the value through class <code><a href="../../Components/Camera/DJICamera_DJILens.html#djicamera_djilens">Lens</a></code>.</font></p>
+<p><font color="#666">Video standard values. The default value is NTSC. For Zenmuse H20 Series, please access the value through class <code><a href="../../Components/Camera/DJICamera_DJILens.html#djicamera_djilens">Lens</a></code>.</font></p>
 <h5 id="enum-members-v29">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideostandard_pal_inline"></a>PAL</font></td><td><font color="#666">The camera video standard value is set to PAL.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideostandard_ntsc_inline"></a>NTSC</font></td><td><font color="#666">The camera video standard value is set to NTSC.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicameravideostandard_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The camera video standard value is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v30">Class Members:</h5>
@@ -2033,7 +2033,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> ThermalIsothermUnit</span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.common.camera</font></td></tr><tr valign="top"><td width="15%"><font color="#999"><i>SDK Key:</i></font></td><td width="85%"><font color="#999"><a href="../../Components/KeyManager/DJICameraKey.html#camerakey_thermal_isotherm_unit_key">CameraKey.THERMAL_ISOTHERM_UNIT</a></font></td></tr></table></html>
 <h5 id="description-v52">Description:</h5>
-<p><font color="#666">The unit for Isotherm. For Zenmuse H20T, please access the value through class <code><a href="../../Components/Camera/DJICamera_DJILens.html#djicamera_djilens">Lens</a></code>.</font></p>
+<p><font color="#666">The unit for Isotherm. For Zenmuse H20T and H20N, please access the value through class <code><a href="../../Components/Camera/DJICamera_DJILens.html#djicamera_djilens">Lens</a></code>.</font></p>
 <h5 id="enum-members-v51">Enum Members:</h5>
 <html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermalisothermunit_percentage_inline"></a>PERCENTAGE</font></td><td><font color="#666">The unit type is percentage. The allowed range is [0, 100].</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermalisothermunit_celsius_inline"></a>CELSIUS</font></td><td><font color="#666">The unit type is degrees Celsius. The allowed range is [-40, 1000].</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermalisothermunit_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">The unit type is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v52">Class Members:</h5>
@@ -2123,7 +2123,7 @@
 <h5 id="description-v60">Description:</h5>
 <p><font color="#666">Thermal camera digital zoom scale. The default value is x1.</font></p>
 <h5 id="enum-members-v59">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x1_inline"></a>X_1</font></td><td><font color="#666">Digital zoom factor x1.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x2_inline"></a>X_2</font></td><td><font color="#666">Digital Zoom factor is x2.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x4_inline"></a>X_4</font></td><td><font color="#666">Digital Zoom factor is x4.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x8_inline"></a>X_8</font></td><td><font color="#666">Digital Zoom factor is x8. Not support by Mavic 2 Enterprise Dual Light Camera.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Digital Zoom factor is unknown.</font></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x1_inline"></a>X_1</font></td><td><font color="#666">Digital zoom factor x1.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x2_inline"></a>X_2</font></td><td><font color="#666">Digital Zoom factor is x2.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x4_inline"></a>X_4</font></td><td><font color="#666">Digital Zoom factor is x4.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x8_inline"></a>X_8</font></td><td><font color="#666">Digital Zoom factor is x8. Not support by Mavic 2 Enterprise Dual Light Camera.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_x16_inline"></a>X_16</font></td><td><font color="#666">Digital Zoom factor is x16. Not support by Mavic 2 Enterprise Dual Light Camera.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#djicamera_djicamerathermaldigitalzoomscale_unknown_inline"></a>UNKNOWN</font></td><td><font color="#666">Digital Zoom factor is unknown.</font></td></tr></table></html>
 <h5 id="class-members-v60">Class Members:</h5>
 </div>
 <div class="api-row" id="djicamera_djicamerathermalmeasurementmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#djicamera_djicamerathermalmeasurementmode_inline">ThermalMeasurementMode</a></div></div><div class="inline-doc" id="djicamera_djicamerathermalmeasurementmode_inline" <blockquote>
